@@ -23,7 +23,7 @@ public class PartyInviteScreen extends Screen {
 
         // Button: Confirm Invite
         this.addDrawableChild(ButtonWidget.builder(
-                Text.literal("§aGửi Lời Mời"),
+                Text.literal("§aSend Invite"),
                 btn -> {
                     ClientPlayNetworking.send(new InvitePlayerC2SPacket(targetPlayer.getUuid()));
                     this.close();
@@ -32,7 +32,7 @@ public class PartyInviteScreen extends Screen {
 
         // Button: Cancel
         this.addDrawableChild(ButtonWidget.builder(
-                Text.literal("§cHủy"),
+                Text.literal("§cCancel"),
                 btn -> this.close()
         ).dimensions(centerX + 5, centerY + 10, 100, 24).build());
     }
@@ -43,9 +43,14 @@ public class PartyInviteScreen extends Screen {
         int centerX = this.width / 2;
         int centerY = this.height / 2;
 
-        context.drawCenteredTextWithShadow(this.textRenderer, "§6§lCOBBLE TOWER DUO", centerX, centerY - 45, 0xFFAA00);
-        context.drawCenteredTextWithShadow(this.textRenderer, Text.literal("§fBạn có muốn mời §e" + targetPlayer.getName().getString() + " §fcùng tham gia leo tháp?"), centerX, centerY - 25, 0xFFFFFF);
-        context.drawCenteredTextWithShadow(this.textRenderer, Text.literal("§7(Đấu đôi 2v1 với 100 tầng thử thách & 4 Battle Gimmicks)"), centerX, centerY - 10, 0xAAAAAA);
+        // Cobblemon-style Slate & Cyan container
+        context.fill(centerX - 160, centerY - 60, centerX + 160, centerY + 45, 0xEE1E232A);
+        context.drawBorder(centerX - 160, centerY - 60, 320, 105, 0xFF0FD9C2);
+        context.fill(centerX - 159, centerY - 59, centerX + 159, centerY - 57, 0xFF0FD9C2);
+
+        context.drawCenteredTextWithShadow(this.textRenderer, "§b§lCOBBLE TOWER CO-OP DUO", centerX, centerY - 48, 0xFFFFFF);
+        context.drawCenteredTextWithShadow(this.textRenderer, Text.literal("§fInvite §e" + targetPlayer.getName().getString() + " §fto Co-op Battle Tower?"), centerX, centerY - 28, 0xFFFFFF);
+        context.drawCenteredTextWithShadow(this.textRenderer, Text.literal("§7(2v1 Double Battles with 100 Tiers & Regional Bosses)"), centerX, centerY - 12, 0xAAAAAA);
     }
 
     @Override

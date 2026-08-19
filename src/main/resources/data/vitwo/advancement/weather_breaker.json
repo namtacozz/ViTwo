@@ -1,0 +1,22 @@
+{
+  "parent": "vitwo:great_tower",
+  "display": {
+    "icon": {
+      "id": "cobblemon:damp_rock"
+    },
+    "title": {
+      "translate": "advancements.vitwo.weather_breaker.title"
+    },
+    "description": {
+      "translate": "advancements.vitwo.weather_breaker.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "weather_breaker": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

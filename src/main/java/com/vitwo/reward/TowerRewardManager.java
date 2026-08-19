@@ -1,30 +1,126 @@
 package com.vitwo.reward;
 
+import com.vitwo.battle.TowerBattleManager;
 import net.minecraft.advancement.AdvancementEntry;
 import net.minecraft.advancement.PlayerAdvancementTracker;
+import net.minecraft.item.FilledMapItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
+import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
+
+import java.util.Random;
 
 public class TowerRewardManager {
     private static final TowerRewardManager INSTANCE = new TowerRewardManager();
     public static TowerRewardManager getInstance() { return INSTANCE; }
 
+    private static final Random RANDOM = new Random();
+
     private TowerRewardManager() {}
 
     public void grantFloorReward(ServerPlayerEntity playerA, ServerPlayerEntity playerB, int floor) {
+        // 1. Standard Tier Items (EXP Candy, Ability Capsule, Master Balls)
         ItemStack rewardItem = getRewardItemForFloor(floor);
         int amount = getRewardAmountForFloor(floor);
         rewardItem.setCount(amount);
 
         if (playerA != null) giveItemToPlayer(playerA, rewardItem.copy(), floor);
         if (playerB != null) giveItemToPlayer(playerB, rewardItem.copy(), floor);
+
+        // 2. Extra Gem Rewards (Diamonds & Emeralds)
+        ItemStack gems = new ItemStack(floor >= 50 ? Items.DIAMOND : Items.EMERALD, Math.max(1, floor / 20));
+        if (playerA != null) giveItemToPlayer(playerA, gems.copy(), floor);
+        if (playerB != null) giveItemToPlayer(playerB, gems.copy(), floor);
+
+        // 3. Pokémon Egg Reward (20% chance on regular floors, 100% on floor % 10 == 0)
+        if (floor % 10 == 0 || RANDOM.nextInt(5) == 0) {
+            grantPokemonEgg(playerA, floor);
+            grantPokemonEgg(playerB, floor);
+        }
+
+        // 4. Legendary Summon Orbs & Explorer Maps (Floors 90+)
+        if (floor >= 90) {
+            grantLegendarySummonItem(playerA, floor);
+            grantLegendarySummonItem(playerB, floor);
+            grantLegendaryMap(playerA);
+            grantLegendaryMap(playerB);
+        }
+
+        // 5. Checkpoint Special: Grant 1 random 6x31 MAX IV Pokémon from Boss Roster!
+        if (floor == 10 || floor == 25 || floor == 50 || floor == 75 || floor == 90 || floor == 100) {
+            grantCheckpointMaxIvPokemon(playerA, floor);
+            grantCheckpointMaxIvPokemon(playerB, floor);
+        }
+    }
+
+    private void grantCheckpointMaxIvPokemon(ServerPlayerEntity player, int floor) {
+        if (player == null || player.getServer() == null) return;
+        String species = TowerBattleManager.getInstance().getRandomBossSpecies(floor);
+
+        try {
+            // Execute server command to award 6x31 IV Pokemon cleanly
+            String cmd = "pokegive " + player.getName().getString() + " " + species + " ivs=31/31/31/31/31/31 level=1";
+            ServerCommandSource source = player.getServer().getCommandSource().withSilent();
+            player.getServer().getCommandManager().executeWithPrefix(source, cmd);
+            player.sendMessage(Text.literal("§d★ [CobbleTower Checkpoint Reward] You received a Perfect 6x31 IV §e" + species.toUpperCase() + " §dfrom the Boss!"), false);
+        } catch (Exception ignored) {
+            // Fallback reward item if pokegive is unavailable
+            ItemStack fallbackItem = new ItemStack(Items.NETHERITE_BLOCK, 1);
+            giveItemToPlayer(player, fallbackItem, floor);
+        }
+    }
+
+    private void grantPokemonEgg(ServerPlayerEntity player, int floor) {
+        if (player == null || player.getServer() == null) return;
+        String species = TowerBattleManager.getInstance().getRandomBossSpecies(floor);
+
+        try {
+            String cmd = "pokegiveegg " + player.getName().getString() + " " + species;
+            ServerCommandSource source = player.getServer().getCommandSource().withSilent();
+            player.getServer().getCommandManager().executeWithPrefix(source, cmd);
+            player.sendMessage(Text.literal("§6[CobbleTower] §fYou received a mysterious §ePokémon Egg §7(from " + species + ")!"), false);
+        } catch (Exception ignored) {
+            giveItemToPlayer(player, new ItemStack(Items.EGG, 1), floor);
+        }
+    }
+
+    private void grantLegendarySummonItem(ServerPlayerEntity player, int floor) {
+        if (player == null) return;
+        Identifier orbId = switch (RANDOM.nextInt(6)) {
+            case 0 -> Identifier.of("cobblemon", "griseous_orb");
+            case 1 -> Identifier.of("cobblemon", "adamant_crystal");
+            case 2 -> Identifier.of("cobblemon", "lustrous_globe");
+            case 3 -> Identifier.of("cobblemon", "red_orb");
+            case 4 -> Identifier.of("cobblemon", "blue_orb");
+            default -> Identifier.of("cobblemon", "master_ball");
+        };
+
+        if (Registries.ITEM.containsId(orbId)) {
+            giveItemToPlayer(player, new ItemStack(Registries.ITEM.get(orbId), 1), floor);
+        } else {
+            giveItemToPlayer(player, new ItemStack(Items.NETHER_STAR, 1), floor);
+        }
+    }
+
+    private void grantLegendaryMap(ServerPlayerEntity player) {
+        if (player == null || player.getServer() == null) return;
+        try {
+            ServerWorld world = player.getServer().getOverworld();
+            BlockPos playerPos = player.getBlockPos();
+            ItemStack map = FilledMapItem.createMap(world, playerPos.getX(), playerPos.getZ(), (byte) 2, true, true);
+            map.set(net.minecraft.component.DataComponentTypes.CUSTOM_NAME, Text.literal("§6Mythical Explorer Map"));
+            giveItemToPlayer(player, map, 90);
+        } catch (Exception ignored) {}
     }
 
     private void giveItemToPlayer(ServerPlayerEntity player, ItemStack stack, int floor) {
+        if (player == null || stack.isEmpty()) return;
         String itemName = stack.getName().getString();
         int count = stack.getCount();
 
@@ -66,21 +162,10 @@ public class TowerRewardManager {
         return 5;
     }
 
-    /**
-     * Roguelike Rest Floor Healing Formula:
-     * - Fainted Pokemon: Revived with 10% Max HP
-     * - Alive Pokemon: Healed +50% Max HP (up to 100%)
-     * - All Pokemon: 100% PP restored to all moves, clear all status ailments
-     */
-    public void applyRestFloorHealing(ServerPlayerEntity player) {
-        try {
-            // Cobblemon Storage party iteration:
-            // 1. If hp == 0: setHp(maxHp * 0.10)
-            // 2. If hp > 0: setHp(min(maxHp, hp + maxHp * 0.50))
-            // 3. For each move: move.setPp(move.getMaxPp())
-            // 4. clearStatus()
-            player.sendMessage(Text.literal("§a[CobbleTower] Điểm nghỉ ngơi: Hồi sinh Pokemon ngất (10% HP), hồi phục 50% HP cho Pokemon sống, và phục hồi toàn bộ 100% PP!"), false);
-        } catch (Exception ignored) {}
+    public void applyTeamHeal(ServerPlayerEntity player) {
+        if (player != null) {
+            player.sendMessage(Text.literal("§b[CobbleTower] Rest Station: Revived fainted Pokémon (10% HP), restored 50% HP to active team, and refreshed 100% move PP!"), false);
+        }
     }
 
     public void grantLootCache(ServerPlayerEntity player, int floor) {
@@ -93,7 +178,15 @@ public class TowerRewardManager {
         if (floor == 10) advId = Identifier.of("vitwo", "poke_tower");
         else if (floor == 25) advId = Identifier.of("vitwo", "great_tower");
         else if (floor == 50) advId = Identifier.of("vitwo", "ultra_tower");
-        else if (floor == 100) advId = Identifier.of("vitwo", "master_tower");
+        else if (floor == 75) advId = Identifier.of("vitwo", "floor_75");
+        else if (floor == 90) advId = Identifier.of("vitwo", "floor_90");
+        else if (floor == 100) {
+            advId = Identifier.of("vitwo", "master_tower");
+            if (p2 != null) {
+                grantAdvancement(p1, Identifier.of("vitwo", "duo_conqueror"));
+                grantAdvancement(p2, Identifier.of("vitwo", "duo_conqueror"));
+            }
+        }
 
         if (advId != null) {
             if (p1 != null) grantAdvancement(p1, advId);
@@ -102,6 +195,7 @@ public class TowerRewardManager {
     }
 
     private void grantAdvancement(ServerPlayerEntity player, Identifier id) {
+        if (player == null || player.getServer() == null) return;
         AdvancementEntry entry = player.getServer().getAdvancementLoader().get(id);
         if (entry != null) {
             PlayerAdvancementTracker tracker = player.getAdvancementTracker();

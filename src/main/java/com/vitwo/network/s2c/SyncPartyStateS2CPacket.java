@@ -16,7 +16,10 @@ public record SyncPartyStateS2CPacket(
         int duoCheckpoint,
         boolean inBattle,
         boolean isSpectating,
-        String pendingInviterName
+        String pendingInviterName,
+        boolean inTowerSession,
+        int forfeitVotes,
+        String currentBossName
 ) implements CustomPayload {
     public static final Id<SyncPartyStateS2CPacket> ID = new Id<>(Identifier.of(ViTwoPackets.MOD_ID, "sync_party_state_s2c"));
 
@@ -32,6 +35,9 @@ public record SyncPartyStateS2CPacket(
                 buf.writeBoolean(value.inBattle());
                 buf.writeBoolean(value.isSpectating());
                 buf.writeString(value.pendingInviterName());
+                buf.writeBoolean(value.inTowerSession());
+                buf.writeInt(value.forfeitVotes());
+                buf.writeString(value.currentBossName());
             },
             buf -> new SyncPartyStateS2CPacket(
                     buf.readBoolean(),
@@ -43,6 +49,9 @@ public record SyncPartyStateS2CPacket(
                     buf.readInt(),
                     buf.readBoolean(),
                     buf.readBoolean(),
+                    buf.readString(),
+                    buf.readBoolean(),
+                    buf.readInt(),
                     buf.readString()
             )
     );

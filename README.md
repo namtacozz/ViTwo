@@ -5,99 +5,95 @@
 [![Cobblemon](https://img.shields.io/badge/Cobblemon-1.7.0+-red.svg)](https://cobblemon.com/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**CobbleTower** là bản mod mở rộng gameplay leo tháp **Roguelike Đấu Trường 100 Tầng** được thiết kế riêng biệt cho modpack **COBBLEVERSE - Minecraft 1.21.1 Fabric**, hỗ trợ cả hai chế độ **Đấu Đơn (Solo 2-Slot)** và **Đấu Đôi (Duo Co-op)** dưới thể thức **Double Battle (Đấu Đôi)** với đồ họa và giao diện chuẩn Cobblemon UI.
+**CobbleTower** is an official **100-Floor Competitive Roguelike Battle Tower** mod engineered for **Cobblemon (Fabric 1.21.1)**. Supporting both **Solo (2-Slot control)** and **Duo Co-op (2 Players)** in standard VGC-style **Double Battle** format, featuring authentic competitive AI, archetype synergy teams, floor affixes, level caps, and native Minecraft advancement journey integration.
 
 ---
 
-## ✨ Tính Năng Nổi Bật (Key Features)
+## 🌟 Key Features
 
-### 1. ⚔️ Thể Thức Thi Đấu: Double Battle (Đấu Đôi)
-* **Đấu Đơn (Solo Mode):** 1 người chơi điều khiển **cả 2 vị trí trên sân đấu** (xuất trận 2 Pokemon cùng lúc từ đội hình 6 con) đối đầu với Boss NPC.
-* **Đấu Đôi (Duo Co-op Mode):** 2 người chơi hợp tác (mỗi người 1 vị trí, sử dụng 3 Pokemon đầu). Khi 1 người chơi ngất sạch Pokemon, người còn lại sẽ tiếp quản cả 2 vị trí (**2-Slot Takeover**), người ngất chuyển sang góc nhìn Khán Giả (**Spectator Mode**).
+### 1. ⚔️ Competitive Format: VGC Double Battles
+* **Solo Mode:** 1 Player commands both active field slots (2 active Pokémon out of 6) against elite NPC Trainers.
+* **Duo Co-op Mode:** 2 Players team up (each commanding 1 slot with 3 Pokémon). If one player's team is wiped out, the remaining partner takes over both field slots (**2-Slot Takeover**), while the fainted player enters **Spectator Mode**.
 
-### 2. 📊 Hệ Thống Giới Hạn Cấp Độ (Level Cap System)
-Bảo toàn cấp độ và điểm kinh nghiệm thật của Pokemon người chơi (tạo động lực huấn luyện ở thế giới ngoài) kết hợp luật giới hạn cấp theo từng chặng tầng:
-* **Tầng 1 – 25:** Giới hạn **Max Lv. 36** (Boss NPC: Lv. 32 – 36).
-* **Tầng 26 – 50:** Giới hạn **Max Lv. 50** (Boss NPC: Lv. 46 – 50).
-* **Tầng 51 – 75:** Giới hạn **Max Lv. 80** (Boss NPC: Lv. 75 – 80 + **1 Pokemon Shiny ✨**).
-* **Tầng 76 – 100:** Giới hạn **Max Lv. 100** (Boss NPC: Lv. 95 – 100 + **1 Pokemon Shiny ✨**).
-> *Lưu ý:* Hệ thống tự động kiểm tra trước khi vào tháp. Nếu đội hình có Pokemon vượt cấp sẽ yêu cầu điều chỉnh lại cho phù hợp.
+### 2. ⚖️ Competitive Clauses & Regional Progression
+* **Species Clause:** Duplicate Pokémon of the same National Pokédex number are strictly prohibited.
+* **Item Clause:** Duplicate held items across the party are prohibited.
+* **Legendary Cap:**
+  * **Floors 1 – 75:** Max **1** Legendary / Mythical Pokémon per team.
+  * **Floors 76 – 100:** Max **2** Legendary / Mythical Pokémon per team.
+* **Kanto Journey Unlock:** The Tower Realm unlocks naturally once players have journeyed through Kanto Gyms (Level 20+ ready team).
 
-### 3. 👑 Boss NPC Hoàn Hảo & Shiny Siêu Hiếm
-* **Chỉ số:** Toàn bộ Pokemon của Boss NPC sở hữu **Full 31 IVs ở cả 6 chỉ số (6x31 Perfect IVs)** và bảng EV chuẩn tối ưu thi đấu.
-* **Pokemon Shiny:** Từ tầng 51 đến 100, mỗi đội hình Boss luôn có **ít nhất 1 Pokemon Shiny** đặc trưng của Boss.
+### 3. ☠️ Ancient Floor Curses (Affixes)
+Starting from Floor 11, every 10-floor bracket activates an unpredictable ancient arena modifier:
+* 🛡 **Curse of the Ironclad:** Opponent Pokémon take 20% reduced damage.
+* ⚡ **Curse of Inertia:** Stat-boosting moves (Swords Dance, Dragon Dance, Nasty Plot...) are sealed.
+* ⏳ **Curse of Fatigue:** All moves consume +1 extra PP per use.
+* 🌫 **Curse of the Fog:** Dense mist reduces move accuracy by 15%.
+* 🩸 **Curse of Retaliation:** 15% of direct damage dealt is reflected back as recoil.
 
-### 4. 🎮 Kiến Trúc Command-Free 100% (Không dùng lệnh chat)
-* **Phím Tắt `[Y]`:** Mở **`CobbleTower Hub`** bất kỳ lúc nào để:
-  * Chuyển đổi giữa chế độ **Đấu Đơn** và **Đấu Đôi**.
-  * Chọn mốc Checkpoint ($1, 10, 25, 50, 75, 90$) — tự động áp dụng `min(CP_A, CP_B)` khi đấu đôi.
-  * Phản hồi lời mời leo tháp từ bạn bè với 2 nút `[ĐỒNG Ý]` / `[TỪ CHỐI]` trực tiếp trong GUI.
-  * Bấm `[BẮT ĐẦU LEO THÁP]` để tự động dịch chuyển ngầm vào đấu trường.
-* **Cổng Thế Giới (Gateway Block):** Khối `vitwo:tower_gateway` đặt tại sảnh chờ, chuột phải để mở Hub.
-* **Mời nhanh:** Nhìn vào bạn bè và bấm **`Shift + Chuột Phải`** để gửi lời mời leo tháp. Người nhận sẽ thấy **Toast Popup** ở góc phải màn hình.
+### 4. 🌪️ AI Strategy Archetypes & Competitive Held Items
+From Floor 51 onwards, NPC Trainers deploy synergistic competitive team rosters:
+* 🌧 **Rain Synergy:** Drizzle Pelipper + Swift Swim Kingdra / Barraskewda + Thunder Zapdos + Urshifu-RS.
+* ☀️ **Sun Synergy:** Drought Torkoal + Protosynthesis Paradoxes (Chi-Yu, Flutter Mane, Walking Wake, Roaring Moon).
+* ⏳ **Trick Room:** Hatterene + Ursaluna Bloodmoon + Torkoal + Kingambit + Cresselia.
+* 🛡 **Hazard Stall:** Ting-Lu + Toxapex + Gliscor + Corviknight + Blissey + Garganacl.
+* **VGC Items:** NPC Pokémon carry Focus Sash, Choice Scarf, Choice Band, Choice Specs, Life Orb, Assault Vest, Heavy-Duty Boots, and Booster Energy.
+* **Smart Adaptive Counter-Tera:** Intelligent AI reactive Terastallization targeting player weaknesses across all 18 Pokémon types.
 
-### 5. ⛺ Tầng Nghỉ Roguelike (Rest Floor - Mỗi 5 Tầng)
-Tại các tầng $5, 10, 15, 20...$, người chơi được lựa chọn 1 trong 2 quyền lợi:
-* **🟢 Hồi Phục Đội Hình:**
-  * Pokemon đã ngất: Hồi sinh với **10% Max HP**.
-  * Pokemon còn sống: Hồi phục thêm **+50% Max HP** (tối đa 100%).
-  * Toàn bộ đội hình: Hồi **100% PP** cho mọi chiêu thức và xóa bỏ mọi hiệu ứng trạng thái bất lợi.
-* **🎁 Rương Quà Quý & Buff:** Không hồi máu, nhận thêm vật phẩm giá trị cao (EXP Candy XL, Bottle Caps, CobbleDollars...).
+### 5. 📊 Tiered Level Caps & Perfect Boss Pokémon
+* **Floor 1 – 25:** Cap **Lv. 36** (Boss Lv. 32 – 36).
+* **Floor 26 – 50:** Cap **Lv. 50** (Boss Lv. 46 – 50).
+* **Floor 51 – 75:** Cap **Lv. 80** (Boss Lv. 75 – 80 + **1 Guaranteed Shiny ✨**).
+* **Floor 76 – 100:** Cap **Lv. 100** (Boss Lv. 95 – 100 + **1 Guaranteed Shiny ✨**).
+* **Boss Stats:** All Boss Pokémon possess **6x31 Perfect IVs** with competitive EV spreads.
 
-### 6. 🔥 4 Battle Gimmicks & Luật Cấm Túi Đồ
-* **Gimmicks:** Người chơi được tự do sử dụng mọi Gimmick mình có. Boss NPC kích hoạt theo chặng:
-  * **Tầng 1 – 25:** Không Gimmick
-  * **Tầng 26 – 50:** Terastallization (Tera) & Z-Moves
-  * **Tầng 51 – 75:** Mega Evolution & Dynamax
-  * **Tầng 76 – 100:** Full Gimmicks (Kết hợp cả 4 cơ chế)
-* **Vật phẩm trang bị (Held Items):** Được phép giữ nguyên và sử dụng thoải mái mọi Held Items.
-* **Cấm Túi Đồ trong trận:** Cấm sử dụng Potion, Revive từ túi đồ trong khi đang đấu.
+### 6. ⛺ Roguelike Rest Stations (Every 5 Floors)
+Persistent HP & PP decay between standard floors. At Floors 5, 10, 15, 20... choose:
+* 🟢 **Team Recovery:** Revive fainted Pokémon (10% HP), restore +50% HP to survivors, and refresh 100% Move PP.
+* 🎁 **Mystery Loot Cache:** Forego healing for rare rewards (Rare Candies, Bottle Caps, Diamonds, Netherite).
 
-### 7. ⏱️ Chống Rớt Mạng & An Toàn Phiên Đấu
-* Khi một người chơi mất kết nối giữa trận, phiên đấu sẽ tự động tạm dừng và đếm ngược **3 phút (180 giây)** chờ người chơi kết nối lại.
+### 7. 🏆 Extensive Advancement Journey Tree (34+ Advancements)
+Fully integrated into Minecraft's native Advancement screen (`[L]` key) with **AdvancementPlaques** and **PaginatedAdvancements** support:
+* **Floor Milestones:** Poke Tower (10), Great Tower (25), Ultra Tower (50), Champion of the Realm (75), Sovereign Gatekeeper (90), Master Tower (100).
+* **Combat Challenges:** Tempest Breaker, Trial of Adversity, Flawless Ascent (Deathless), Pure Raw Power (No Gimmicks), True Synergy (Duo 100).
+* **18 Monotype Masteries:** Solo clear achievements for all 18 elemental types.
 
 ---
 
-## ⌨️ Phím Tắt & Điều Khiển Mặc Định
+## 🎮 Controls & User Interface
 
-| Phím Tắt | Hành Động | Ghi Chú |
+| Keybind / Action | Action | Description |
 | :--- | :--- | :--- |
-| **`Y`** | Mở CobbleTower Hub | Xem tiến trình, chọn Checkpoint, nhận lời mời, xuất trận |
-| **`Shift + Chuột Phải`** | Mời bạn bè leo tháp | Nhìn trực tiếp vào người chơi khác |
-| **Chuột Phải vào Block** | Tương tác Cổng `vitwo:tower_gateway` | Mở CobbleTower Hub |
+| **`Y`** | Open CobbleTower Hub | Toggle Solo/Duo, pick checkpoints, accept invites, launch runs |
+| **`Shift + Right-Click`** | Invite Player | Target a player in the overworld to send an instant invite |
+| **Right-Click Block** | Tower Gateway Block | Open the CobbleTower Hub GUI |
 
 ---
 
-## 🛠️ Hướng Dẫn Cài Đặt & Sử Dụng
+## 📦 Installation
 
-### Yêu Cầu Cài Đặt:
-* **Minecraft:** `1.21.1`
-* **Fabric Loader:** `>= 0.16.0`
-* **Fabric API:** Bản tương ứng cho 1.21.1
-* **Cobblemon:** `>= 1.7.0` (Hoặc modpack COBBLEVERSE)
-
-### Cách Cài Đặt File `.jar`:
-1. Tải file `CobbleTower-1.0.0.jar` từ mục **Releases** hoặc biên dịch từ mã nguồn.
-2. Sao chép file `.jar` vào thư mục `mods` của Minecraft / PrismLauncher / CurseForge.
-3. Khởi động game và bấm phím **`[Y]`** hoặc đặt khối **Cổng Leo Tháp** để bắt đầu trải nghiệm!
+1. Ensure **Minecraft 1.21.1**, **Fabric Loader >= 0.16.0**, and **Cobblemon >= 1.7.0** are installed.
+2. Download the latest `vitwo-1.4.0.jar` from [Releases](https://github.com/namtacozz/ViTwo/releases).
+3. Place the `.jar` into your Minecraft `.minecraft/mods` folder.
+4. Launch the game and press **`[Y]`** to access the CobbleTower Hub!
 
 ---
 
-## 🔨 Biên Dịch Từ Mã Nguồn (Build from Source)
+## 🔨 Building from Source
 
 ```bash
-# Clone repository
+# Clone the repository
 git clone https://github.com/namtacozz/ViTwo.git
 cd ViTwo
 
-# Build file mod JAR
+# Build the mod JAR
 ./gradlew build
-# hoặc
-gradle build
 ```
-File mod hoàn chỉnh sau khi build sẽ nằm tại: `build/libs/vitwo-1.0.0.jar`
+
+Compiled JAR will be located at `build/libs/vitwo-1.0.0.jar`.
 
 ---
 
-## 📜 Giấy Phép (License)
-Dự án được phát hành theo giấy phép [MIT License](LICENSE).
+## 📜 Credits & License
+* **Authors:** Vit, Arjun, Serik, Zitj, and Nam
+* **License:** [MIT License](LICENSE)

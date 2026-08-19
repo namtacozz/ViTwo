@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "id": "cobblemon:poke_ball"
+    },
+    "title": {
+      "translate": "advancements.vitwo.monotype_ground.title"
+    },
+    "description": {
+      "translate": "advancements.vitwo.monotype_ground.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "vitwo:root",
+  "criteria": {
+    "cleared_monotype_ground": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "vitwo:tower_dimension",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "layers": [],
+      "biome": "minecraft:the_void"
+    }
+  }
+}

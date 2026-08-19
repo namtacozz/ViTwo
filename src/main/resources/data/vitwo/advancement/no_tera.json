@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:shield"
+    },
+    "title": {
+      "translate": "advancements.vitwo.no_tera.title"
+    },
+    "description": {
+      "translate": "advancements.vitwo.no_tera.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "vitwo:root",
+  "criteria": {
+    "cleared_no_tera": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

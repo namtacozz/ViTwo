@@ -16,7 +16,7 @@ public class TowerEntryScreen extends Screen {
     private static final int[] CHECKPOINTS = {1, 10, 25, 50, 75, 90};
 
     public TowerEntryScreen(int highestCheckpoint, boolean isLeader, String partnerName) {
-        super(Text.translatable("vitwo.tower.entry.title"));
+        super(Text.literal("CobbleTower Gateway"));
         this.highestCheckpoint = highestCheckpoint;
         this.isLeader = isLeader;
         this.partnerName = partnerName;
@@ -33,9 +33,11 @@ public class TowerEntryScreen extends Screen {
         for (int i = 0; i < CHECKPOINTS.length; i++) {
             int cp = CHECKPOINTS[i];
             boolean unlocked = cp <= highestCheckpoint;
+            boolean isSelected = (cp == selectedCheckpoint);
 
+            String label = (unlocked ? (isSelected ? "§b§l" : "§f") : "§8🔒 ") + "F." + cp;
             ButtonWidget cpBtn = ButtonWidget.builder(
-                    Text.literal((unlocked ? "§a" : "§7🔒 ") + "Tầng " + cp),
+                    Text.literal(label),
                     btn -> this.selectedCheckpoint = cp
             ).dimensions(startX + (i * 56), centerY - 25, 52, 24).build();
 
@@ -46,7 +48,7 @@ public class TowerEntryScreen extends Screen {
         // Leader Start Button
         if (isLeader) {
             this.addDrawableChild(ButtonWidget.builder(
-                    Text.literal("§a§l" + Text.translatable("vitwo.tower.entry.start").getString()),
+                    Text.literal("§a§lSTART RUN (FLOOR " + selectedCheckpoint + ")"),
                     btn -> {
                         ClientPlayNetworking.send(new StartTowerC2SPacket(false, selectedCheckpoint));
                         this.close();
@@ -56,7 +58,7 @@ public class TowerEntryScreen extends Screen {
 
         // Close Button
         this.addDrawableChild(ButtonWidget.builder(
-                Text.literal("Đóng"),
+                Text.literal("Close"),
                 btn -> this.close()
         ).dimensions(centerX - 50, centerY + 65, 100, 20).build());
     }
@@ -67,15 +69,17 @@ public class TowerEntryScreen extends Screen {
         int centerX = this.width / 2;
         int centerY = this.height / 2;
 
-        // Background box
-        context.fill(centerX - 175, centerY - 80, centerX + 175, centerY + 95, 0xB0000000);
+        // Cobblemon-style Slate & Cyan Container
+        context.fill(centerX - 175, centerY - 80, centerX + 175, centerY + 95, 0xEE1E232A);
+        context.drawBorder(centerX - 175, centerY - 80, 350, 175, 0xFF0FD9C2);
+        context.fill(centerX - 174, centerY - 79, centerX + 174, centerY - 77, 0xFF0FD9C2);
 
-        context.drawCenteredTextWithShadow(this.textRenderer, "§6§lCỔNG VÀO THÁP ĐẤU TRƯỜNG (COBBLE TOWER)", centerX, centerY - 70, 0xFFAA00);
-        context.drawCenteredTextWithShadow(this.textRenderer, Text.literal("§fĐồng đội: §e" + partnerName + " §7| §fMốc chọn: §aTầng " + selectedCheckpoint), centerX, centerY - 50, 0xFFFFFF);
-        context.drawCenteredTextWithShadow(this.textRenderer, Text.translatable("vitwo.tower.entry.select_checkpoint"), centerX, centerY - 38, 0xCCCCCC);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§b§lCOBBLE TOWER GATEWAY", centerX, centerY - 70, 0xFFFFFF);
+        String pText = partnerName.isEmpty() ? "None" : partnerName;
+        context.drawCenteredTextWithShadow(this.textRenderer, Text.literal("§bPartner: §f" + pText + " §7| §bSelected: §fFloor " + selectedCheckpoint), centerX, centerY - 50, 0xFFFFFF);
 
         if (!isLeader) {
-            context.drawCenteredTextWithShadow(this.textRenderer, Text.literal("§eĐang chờ Đội trưởng bắt đầu trận đấu..."), centerX, centerY + 35, 0xFFFF55);
+            context.drawCenteredTextWithShadow(this.textRenderer, Text.literal("§7Waiting for Party Leader to start the run..."), centerX, centerY + 35, 0xAAAAAA);
         }
     }
 

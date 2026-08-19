@@ -39,14 +39,18 @@ public class ViTwoClient implements ClientModInitializer {
                 TowerHubScreen.inBattle = payload.inBattle();
                 TowerHubScreen.isSpectating = payload.isSpectating();
                 TowerHubScreen.pendingInviterName = payload.pendingInviterName();
+                TowerHubScreen.inTowerSession = payload.inTowerSession();
+                TowerHubScreen.forfeitVotes = payload.forfeitVotes();
 
                 // Update HUD Overlay
+                TowerHudOverlay.inTowerSession = payload.inTowerSession();
                 TowerHudOverlay.currentFloor = payload.currentFloor();
                 TowerHudOverlay.soloCheckpoint = payload.soloCheckpoint();
                 TowerHudOverlay.duoCheckpoint = payload.duoCheckpoint();
                 TowerHudOverlay.inBattle = payload.inBattle();
                 TowerHudOverlay.isSpectating = payload.isSpectating();
                 TowerHudOverlay.isSolo = !payload.hasParty();
+                TowerHudOverlay.currentBossName = payload.currentBossName();
             });
         });
 

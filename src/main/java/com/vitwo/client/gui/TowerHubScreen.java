@@ -1,9 +1,7 @@
 package com.vitwo.client.gui;
 
 import com.vitwo.battle.LevelCapManager;
-import com.vitwo.network.c2s.LeavePartyC2SPacket;
-import com.vitwo.network.c2s.RespondInviteC2SPacket;
-import com.vitwo.network.c2s.StartTowerC2SPacket;
+import com.vitwo.network.c2s.*;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
@@ -21,153 +19,165 @@ public class TowerHubScreen extends Screen {
     public static boolean inBattle = false;
     public static boolean isSpectating = false;
     public static String pendingInviterName = "";
-
-    private boolean isSoloModeTab = true;
-    private int selectedCheckpoint = 1;
+    public static boolean inTowerSession = false;
+    public static int forfeitVotes = 0;
 
     private static final int[] CHECKPOINTS = {1, 10, 25, 50, 75, 90};
+    private int selectedCheckpoint = 1;
+    private boolean isSoloTab = true;
 
     public TowerHubScreen() {
-        super(Text.literal("CobbleTower Hub"));
-        this.isSoloModeTab = !hasParty;
-        this.selectedCheckpoint = isSoloModeTab ? soloCheckpoint : duoCheckpoint;
+        super(Text.translatable("vitwo.tower.hub.title"));
     }
 
     @Override
     protected void init() {
-        this.clearChildren();
         int centerX = this.width / 2;
         int centerY = this.height / 2;
 
-        // Pending Invite Banner Buttons (If any)
-        if (!pendingInviterName.isEmpty() && !hasParty) {
-            this.addDrawableChild(ButtonWidget.builder(
-                    Text.literal("§aĐồng Ý"),
-                    btn -> {
-                        ClientPlayNetworking.send(new RespondInviteC2SPacket(true));
-                        pendingInviterName = "";
-                        init();
-                    }
-            ).dimensions(centerX + 35, centerY - 95, 60, 18).build());
-
-            this.addDrawableChild(ButtonWidget.builder(
-                    Text.literal("§cTừ Chối"),
-                    btn -> {
-                        ClientPlayNetworking.send(new RespondInviteC2SPacket(false));
-                        pendingInviterName = "";
-                        init();
-                    }
-            ).dimensions(centerX + 100, centerY - 95, 60, 18).build());
+        if (hasParty) {
+            isSoloTab = false;
         }
 
-        // Mode Tabs
-        this.addDrawableChild(ButtonWidget.builder(
-                Text.literal((isSoloModeTab ? "§a§l▶ " : "§7") + "ĐẤU ĐƠN (SOLO 2-SLOT)"),
+        // Tab Selectors
+        this.addDrawableChild(create3DButton(
+                Text.literal(isSoloTab ? "§b§lSOLO CHALLENGE" : "§7SOLO CHALLENGE"),
+                centerX - 160, centerY - 80, 155, 22,
                 btn -> {
-                    this.isSoloModeTab = true;
-                    this.selectedCheckpoint = soloCheckpoint;
-                    init();
+                    this.isSoloTab = true;
+                    this.clearAndInit();
                 }
-        ).dimensions(centerX - 170, centerY - 70, 165, 22).build());
+        ));
 
-        this.addDrawableChild(ButtonWidget.builder(
-                Text.literal((!isSoloModeTab ? "§a§l▶ " : "§7") + "ĐẤU ĐÔI (DUO CO-OP)"),
+        this.addDrawableChild(create3DButton(
+                Text.literal(!isSoloTab ? "§d§lCO-OP DUO" : "§7CO-OP DUO"),
+                centerX + 5, centerY - 80, 155, 22,
                 btn -> {
-                    this.isSoloModeTab = false;
-                    this.selectedCheckpoint = duoCheckpoint;
-                    init();
+                    this.isSoloTab = false;
+                    this.clearAndInit();
                 }
-        ).dimensions(centerX + 5, centerY - 70, 165, 22).build());
+        ));
 
-        // Checkpoint Selection Buttons
-        int currentMaxCp = isSoloModeTab ? soloCheckpoint : duoCheckpoint;
+        // Checkpoint Selection Buttons in a row
+        int maxCp = isSoloTab ? soloCheckpoint : (hasParty ? duoCheckpoint : 1);
         int startX = centerX - 165;
         for (int i = 0; i < CHECKPOINTS.length; i++) {
             int cp = CHECKPOINTS[i];
-            boolean unlocked = cp <= currentMaxCp;
+            boolean unlocked = cp <= maxCp;
             boolean isSelected = (cp == selectedCheckpoint);
 
-            String label = (unlocked ? (isSelected ? "§e§l" : "§a") : "§8🔒 ") + "T." + cp;
-            ButtonWidget cpBtn = ButtonWidget.builder(
+            String label = (unlocked ? (isSelected ? "§b§l" : "§f") : "§8🔒 ") + "F." + cp;
+            ButtonWidget cpBtn = create3DButton(
                     Text.literal(label),
+                    startX + (i * 56), centerY - 15, 52, 22,
                     btn -> this.selectedCheckpoint = cp
-            ).dimensions(startX + (i * 56), centerY - 15, 52, 22).build();
-
+            );
             cpBtn.active = unlocked;
             this.addDrawableChild(cpBtn);
         }
 
-        // Start Tower Button
-        boolean canStart = isSoloModeTab || (hasParty && isLeader);
-        String startText = isSoloModeTab ? "§a§lBẮT ĐẦU LEO THÁP SOLO (2-SLOT)" :
-                (hasParty ? (isLeader ? "§a§lBẮT ĐẦU LEO THÁP ĐÔI (CO-OP)" : "§7ĐANG CHỜ ĐỘI TRƯỞNG...") : "§cCHƯA CÓ ĐỒNG ĐỘI (CẦN 2 NGƯỜI)");
+        // Action Buttons
+        if (inTowerSession) {
+            // FORFEIT BUTTON
+            String forfeitLabel;
+            if (isSoloTab || !hasParty) {
+                forfeitLabel = "§c§lFORFEIT RUN";
+            } else {
+                forfeitLabel = "§c§lFORFEIT RUN (" + forfeitVotes + "/2)";
+            }
 
-        ButtonWidget startBtn = ButtonWidget.builder(
-                Text.literal(startText),
-                btn -> {
-                    ClientPlayNetworking.send(new StartTowerC2SPacket(isSoloModeTab, selectedCheckpoint));
-                    this.close();
-                }
-        ).dimensions(centerX - 130, centerY + 45, 260, 26).build();
-        startBtn.active = canStart && (!inBattle);
-        this.addDrawableChild(startBtn);
-
-        // Leave Party Button (if in party)
-        if (hasParty) {
-            this.addDrawableChild(ButtonWidget.builder(
-                    Text.literal("§cRời Đội"),
+            this.addDrawableChild(create3DButton(
+                    Text.literal(forfeitLabel),
+                    centerX - 100, centerY + 35, 200, 26,
                     btn -> {
-                        ClientPlayNetworking.send(new LeavePartyC2SPacket(true));
+                        ClientPlayNetworking.send(new ForfeitTowerC2SPacket());
                         this.close();
                     }
-            ).dimensions(centerX - 130, centerY + 76, 125, 20).build());
+            ));
+        } else {
+            // START BUTTON
+            if (isSoloTab) {
+                this.addDrawableChild(create3DButton(
+                        Text.literal("§a§lSTART SOLO RUN (FLOOR " + selectedCheckpoint + ")"),
+                        centerX - 100, centerY + 35, 200, 26,
+                        btn -> {
+                            ClientPlayNetworking.send(new StartTowerC2SPacket(true, selectedCheckpoint));
+                            this.close();
+                        }
+                ));
+            } else {
+                if (hasParty && isLeader) {
+                    this.addDrawableChild(create3DButton(
+                            Text.literal("§a§lSTART CO-OP RUN (FLOOR " + selectedCheckpoint + ")"),
+                            centerX - 100, centerY + 35, 200, 26,
+                            btn -> {
+                                ClientPlayNetworking.send(new StartTowerC2SPacket(false, selectedCheckpoint));
+                                this.close();
+                            }
+                    ));
+                } else if (hasParty) {
+                    this.addDrawableChild(create3DButton(
+                            Text.literal("§cLeave Party"),
+                            centerX - 100, centerY + 35, 200, 26,
+                            btn -> {
+                                ClientPlayNetworking.send(new LeavePartyC2SPacket(true));
+                                this.close();
+                            }
+                    ));
+                }
+            }
         }
 
         // Close Button
-        int closeX = hasParty ? centerX + 5 : centerX - 50;
-        int closeW = hasParty ? 125 : 100;
-        this.addDrawableChild(ButtonWidget.builder(
-                Text.literal("Đóng"),
+        this.addDrawableChild(create3DButton(
+                Text.literal("§fClose"),
+                centerX - 50, centerY + 70, 100, 20,
                 btn -> this.close()
-        ).dimensions(closeX, centerY + 76, closeW, 20).build());
+        ));
+    }
+
+    private ButtonWidget create3DButton(Text text, int x, int y, int width, int height, ButtonWidget.PressAction onPress) {
+        return ButtonWidget.builder(text, onPress)
+                .dimensions(x, y, width, height)
+                .build();
     }
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        super.render(context, mouseX, mouseY, delta);
+        this.renderBackground(context, mouseX, mouseY, delta);
         int centerX = this.width / 2;
         int centerY = this.height / 2;
 
-        // Cobblemon-style dark slate container
-        context.fill(centerX - 180, centerY - 105, centerX + 180, centerY + 105, 0xD0121722);
-        context.drawBorder(centerX - 180, centerY - 105, 360, 210, 0xFF4B6080);
+        // Slate & Vibrant Cyan Container
+        context.fill(centerX - 175, centerY - 115, centerX + 175, centerY + 120, 0xF012171E);
+        context.drawBorder(centerX - 175, centerY - 115, 350, 235, 0xFF0FD9C2);
+        context.fill(centerX - 174, centerY - 114, centerX + 174, centerY - 111, 0xFF0FD9C2);
 
-        // Header Title
-        context.drawCenteredTextWithShadow(this.textRenderer, "§6§lCOBBLE TOWER HUB §7(Phím [Y])", centerX, centerY - 100, 0xFFAA00);
+        super.render(context, mouseX, mouseY, delta);
 
-        // Pending Invite Banner
-        if (!pendingInviterName.isEmpty() && !hasParty) {
-            context.fill(centerX - 170, centerY - 96, centerX + 170, centerY - 76, 0xE0281F05);
-            context.drawTextWithShadow(this.textRenderer, "§e✉ " + pendingInviterName + " mời bạn leo Tháp!", centerX - 165, centerY - 91, 0xFFEE55);
-        }
+        // Header Title (Drawn after super.render with crisp Cyan glow)
+        context.drawCenteredTextWithShadow(this.textRenderer, "§b§l❖ COBBLE TOWER HUB ❖", centerX, centerY - 103, 0x0FD9C2);
 
-        int maxCap = LevelCapManager.getMaxLevelCapForFloor(selectedCheckpoint);
-        boolean hasShiny = LevelCapManager.hasShinyBossPokemon(selectedCheckpoint);
-
-        // Mode Description
-        if (isSoloModeTab) {
-            context.drawCenteredTextWithShadow(this.textRenderer, "§eChế Độ Đơn: §fĐấu Đôi 2-Slot (Bạn điều khiển 2 Pokemon ra trận)", centerX, centerY - 42, 0xFFFFFF);
-            String shinyStr = hasShiny ? " §d(Boss có 1 Shiny ✨)" : "";
-            context.drawCenteredTextWithShadow(this.textRenderer, "§7Giới Hạn Cấp: §aMax Lv." + maxCap + " §7| §cBoss Full 6x31 IVs" + shinyStr, centerX, centerY - 30, 0xAAAAAA);
+        // Mode Descriptions
+        if (isSoloTab) {
+            context.drawCenteredTextWithShadow(this.textRenderer, "§fDouble Battle with your 6 Pokémon", centerX, centerY - 52, 0xFFFFFF);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§7Highest Floor Cleared: §bFloor " + soloCheckpoint + " §7| Recent: §eFloor " + currentFloor, centerX, centerY - 38, 0xEEEEEE);
         } else {
-            String partner = hasParty ? (isLeader ? memberName : leaderName) : "Chưa có (Shift + Chuột phải vào bạn bè để mời)";
-            context.drawCenteredTextWithShadow(this.textRenderer, "§eĐồng đội: §f" + partner, centerX, centerY - 42, 0xFFFFFF);
-            String shinyStr = hasShiny ? " §d(Boss có 1 Shiny ✨)" : "";
-            context.drawCenteredTextWithShadow(this.textRenderer, "§7Mỗi người 1 Slot | Giới Hạn Cấp: §aMax Lv." + maxCap + shinyStr, centerX, centerY - 30, 0xAAAAAA);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§fDouble Battle with your 3 Pokémon and your partner's 3 Pokémon", centerX, centerY - 52, 0xFFFFFF);
+            if (hasParty) {
+                context.drawCenteredTextWithShadow(this.textRenderer, "§7Leader: §e" + leaderName + " §7| Partner: §e" + memberName + " §7| Shared Max: §bFloor " + duoCheckpoint, centerX, centerY - 38, 0xEEEEEE);
+            } else {
+                context.drawCenteredTextWithShadow(this.textRenderer, "§cNo active party. §7Shift + Right-Click a player in Overworld to invite!", centerX, centerY - 38, 0xFFAAAA);
+            }
         }
 
-        // Selected Checkpoint prompt
-        context.drawCenteredTextWithShadow(this.textRenderer, "§fMốc xuất phát: §aTầng " + selectedCheckpoint + " §7(Yêu cầu Pokemon ≤ Lv." + maxCap + ")", centerX, centerY + 15, 0x55FF55);
+        // Starting Floor & Level Cap Indicator
+        int maxCap = LevelCapManager.getMaxLevelCapForFloor(selectedCheckpoint);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§fStarting Floor: §bFloor " + selectedCheckpoint + " §7(Pokémon ≤ Lv." + maxCap + ")", centerX, centerY + 12, 0x0FD9C2);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§8[Clauses: Species Clause | Item Clause | Max 1-2 Legendaries]", centerX, centerY + 24, 0x888888);
+
+        // Authors Credit (Bottom of Menu Y)
+        context.drawCenteredTextWithShadow(this.textRenderer, "§7CobbleTower - Made by Vit, Arjun, Serik, Zitj and Nam", centerX, centerY + 104, 0xAAAAAA);
     }
 
     @Override

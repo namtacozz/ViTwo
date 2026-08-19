@@ -1,12 +1,23 @@
 package com.vitwo.battle;
 
+import java.util.List;
+import java.util.Random;
+
 public class GimmickController {
+    private static final Random RANDOM = new Random();
+
     public enum GimmickType {
         NONE,
         TERA_AND_ZMOVE,
         MEGA_AND_DYNAMAX,
         ALL_GIMMICKS
     }
+
+    public static final List<String> TERA_TYPES = List.of(
+            "normal", "fire", "water", "grass", "electric", "ice",
+            "fighting", "poison", "ground", "flying", "psychic", "bug",
+            "rock", "ghost", "dragon", "steel", "dark", "fairy", "stellar"
+    );
 
     public static GimmickType getNpcGimmickForFloor(int floor) {
         if (floor <= 25) {
@@ -36,20 +47,41 @@ public class GimmickController {
         return floor > 50;
     }
 
-    // Players have complete freedom to use whatever gimmicks they own
-    public static boolean canPlayerUseGimmick() {
-        return true;
+    public static String getAdaptiveTeraType(String opponentPrimaryType) {
+        if (opponentPrimaryType == null) return "stellar";
+        // Defensive & Offensive Counter-Typing
+        return switch (opponentPrimaryType.toLowerCase()) {
+            case "water" -> "electric";
+            case "fire" -> "water";
+            case "grass" -> "fire";
+            case "electric" -> "ground";
+            case "dragon" -> "fairy";
+            case "ghost" -> "normal";
+            case "psychic" -> "dark";
+            case "steel" -> "fire";
+            case "fairy" -> "steel";
+            case "fighting" -> "fairy";
+            case "ground" -> "grass";
+            case "rock" -> "water";
+            case "flying" -> "electric";
+            case "bug" -> "fire";
+            case "poison" -> "ground";
+            case "ice" -> "fire";
+            case "dark" -> "fighting";
+            case "normal" -> "ghost";
+            default -> TERA_TYPES.get(RANDOM.nextInt(TERA_TYPES.size()));
+        };
     }
 
     public static String getFloorBattleRulesDescription(int floor) {
         int maxCap = LevelCapManager.getMaxLevelCapForFloor(floor);
         GimmickType type = getNpcGimmickForFloor(floor);
         String gimmickStr = switch (type) {
-            case NONE -> "§7Không Gimmick";
+            case NONE -> "§7Standard";
             case TERA_AND_ZMOVE -> "§dTera §7& §bZ-Moves";
-            case MEGA_AND_DYNAMAX -> "§cMega §7& §4Dynamax";
-            case ALL_GIMMICKS -> "§6§lFULL GIMMICKS (Mega+Z+Dyna+Tera)";
+            case MEGA_AND_DYNAMAX -> "§cMega Evolution §7& §4Dynamax";
+            case ALL_GIMMICKS -> "§6§lFULL GIMMICKS (Mega + Z + Dyna + Tera)";
         };
-        return "§e[Quy Tắc: Max Lv." + maxCap + " §7| §cBoss Gimmick: " + gimmickStr + "§e]";
+        return "§e[Rules: Max Lv." + maxCap + " §7| §cBoss Gimmicks: " + gimmickStr + "§e]";
     }
 }

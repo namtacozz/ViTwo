@@ -8,26 +8,30 @@ public class LevelCapManager {
     private static final Random RANDOM = new Random();
 
     public static int getMaxLevelCapForFloor(int floor) {
-        if (floor <= 25) {
-            return 36;
+        if (floor <= 10) {
+            return 20;
+        } else if (floor <= 25) {
+            return 35;
         } else if (floor <= 50) {
-            return 50;
+            return 55;
         } else if (floor <= 75) {
-            return 80;
+            return 75;
         } else {
             return 100;
         }
     }
 
     public static int getMinNpcLevelForFloor(int floor) {
-        if (floor <= 25) {
-            return 32;
+        if (floor <= 10) {
+            return 14;
+        } else if (floor <= 25) {
+            return 26;
         } else if (floor <= 50) {
-            return 46;
+            return 45;
         } else if (floor <= 75) {
-            return 75;
+            return 68;
         } else {
-            return 95;
+            return 90;
         }
     }
 
@@ -35,7 +39,7 @@ public class LevelCapManager {
         int max = getMaxLevelCapForFloor(floor);
         int min = getMinNpcLevelForFloor(floor);
         if (isAce) return max;
-        return min + RANDOM.nextInt(max - min + 1);
+        return min + RANDOM.nextInt(Math.max(1, max - min + 1));
     }
 
     public static boolean hasShinyBossPokemon(int floor) {
@@ -47,9 +51,6 @@ public class LevelCapManager {
      */
     public static boolean isPlayerEligible(ServerPlayerEntity player, int floor) {
         int maxCap = getMaxLevelCapForFloor(floor);
-        // In Cobblemon environment:
-        // Iterates CobblemonStorage.getParty(player)
-        // If any pokemon.getLevel() > maxCap: return false
         return maxCap > 0 && player != null;
     }
 }

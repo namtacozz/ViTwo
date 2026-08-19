@@ -22,7 +22,7 @@ public class RestFloorScreen extends Screen {
 
         // Button 1: Team Rest Recovery
         this.addDrawableChild(ButtonWidget.builder(
-                Text.literal("§a§lHỒI PHỤC ĐỘI HÌNH\n§7(+10% Ngất, +50% Sống, 100% PP)"),
+                Text.literal("§b§lTEAM RECOVERY\n§7(+10% Fainted, +50% Alive, 100% PP)"),
                 btn -> {
                     ClientPlayNetworking.send(new RestChoiceC2SPacket(1));
                     this.close();
@@ -31,7 +31,7 @@ public class RestFloorScreen extends Screen {
 
         // Button 2: Mystery Loot Cache
         this.addDrawableChild(ButtonWidget.builder(
-                Text.literal("§6§lRƯƠNG QUÀ QUÝ\n§7(Vật phẩm hiếm & Buff chỉ số)"),
+                Text.literal("§e§lMYSTERY LOOT\n§7(Rare Items & Stat Boosts)"),
                 btn -> {
                     ClientPlayNetworking.send(new RestChoiceC2SPacket(2));
                     this.close();
@@ -45,12 +45,13 @@ public class RestFloorScreen extends Screen {
         int centerX = this.width / 2;
         int centerY = this.height / 2;
 
-        // Cobblemon-style dark slate container
-        context.fill(centerX - 180, centerY - 80, centerX + 180, centerY + 65, 0xD0121722);
-        context.drawBorder(centerX - 180, centerY - 80, 360, 145, 0xFF4B6080);
+        // Cobblemon-style Slate & Cyan container
+        context.fill(centerX - 180, centerY - 80, centerX + 180, centerY + 65, 0xEE1E232A);
+        context.drawBorder(centerX - 180, centerY - 80, 360, 145, 0xFF0FD9C2);
+        context.fill(centerX - 179, centerY - 79, centerX + 179, centerY - 77, 0xFF0FD9C2);
 
-        context.drawCenteredTextWithShadow(this.textRenderer, "§6§lĐIỂM DỪNG CHÂN ROGUELIKE - TẦNG " + floor, centerX, centerY - 65, 0xFFAA00);
-        context.drawCenteredTextWithShadow(this.textRenderer, Text.literal("§7Hãy chọn 1 trong 2 quyền lợi để tiếp tục hành trình:"), centerX, centerY - 45, 0xCCCCCC);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§b§lREST STATION - FLOOR " + floor, centerX, centerY - 65, 0xFFFFFF);
+        context.drawCenteredTextWithShadow(this.textRenderer, Text.literal("§7Choose 1 boon before ascending to the next tier:"), centerX, centerY - 45, 0xCCCCCC);
     }
 
     @Override

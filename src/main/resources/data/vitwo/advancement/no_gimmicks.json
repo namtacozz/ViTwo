@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:iron_sword"
+    },
+    "title": {
+      "translate": "advancements.vitwo.no_gimmicks.title"
+    },
+    "description": {
+      "translate": "advancements.vitwo.no_gimmicks.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "vitwo:root",
+  "criteria": {
+    "cleared_no_gimmicks": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

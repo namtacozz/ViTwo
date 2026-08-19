@@ -18,7 +18,7 @@ public class TowerDashboardScreen extends Screen {
     public static boolean isSpectating = false;
 
     public TowerDashboardScreen() {
-        super(Text.translatable("vitwo.tower.dashboard.title"));
+        super(Text.literal("CobbleTower Dashboard"));
     }
 
     @Override
@@ -29,7 +29,7 @@ public class TowerDashboardScreen extends Screen {
         if (hasParty) {
             // Button: Leave Party
             this.addDrawableChild(ButtonWidget.builder(
-                    Text.literal("§c" + Text.translatable("vitwo.tower.dashboard.leave").getString()),
+                    Text.literal("§cLeave Party"),
                     btn -> {
                         ClientPlayNetworking.send(new LeavePartyC2SPacket(true));
                         this.close();
@@ -39,7 +39,7 @@ public class TowerDashboardScreen extends Screen {
 
         // Button: Close
         this.addDrawableChild(ButtonWidget.builder(
-                Text.literal("Đóng"),
+                Text.literal("Close"),
                 btn -> this.close()
         ).dimensions(centerX - 50, centerY + 75, 100, 20).build());
     }
@@ -50,21 +50,23 @@ public class TowerDashboardScreen extends Screen {
         int centerX = this.width / 2;
         int centerY = this.height / 2;
 
-        // Background box
-        context.fill(centerX - 130, centerY - 80, centerX + 130, centerY + 105, 0xB0000000);
+        // Cobblemon-style Slate & Cyan Container
+        context.fill(centerX - 130, centerY - 80, centerX + 130, centerY + 105, 0xEE1E232A);
+        context.drawBorder(centerX - 130, centerY - 80, 260, 185, 0xFF0FD9C2);
+        context.fill(centerX - 129, centerY - 79, centerX + 129, centerY - 77, 0xFF0FD9C2);
 
-        context.drawCenteredTextWithShadow(this.textRenderer, "§6§lCOBBLE TOWER DASHBOARD", centerX, centerY - 70, 0xFFAA00);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§b§lCOBBLE TOWER DASHBOARD", centerX, centerY - 70, 0xFFFFFF);
 
         if (!hasParty) {
-            context.drawCenteredTextWithShadow(this.textRenderer, Text.literal("§7Bạn hiện chưa ở trong đội leo tháp nào."), centerX, centerY - 30, 0xCCCCCC);
-            context.drawCenteredTextWithShadow(this.textRenderer, Text.literal("§fShift + Chuột phải §7vào bạn bè để gửi lời mời!"), centerX, centerY - 10, 0xAAAAAA);
+            context.drawCenteredTextWithShadow(this.textRenderer, Text.literal("§7Not in an active tower party."), centerX, centerY - 30, 0xCCCCCC);
+            context.drawCenteredTextWithShadow(this.textRenderer, Text.literal("§bShift + Right-Click §7partner to invite!"), centerX, centerY - 10, 0x0FD9C2);
         } else {
             int y = centerY - 50;
-            context.drawTextWithShadow(this.textRenderer, "§eĐội trưởng: §f" + leaderName, centerX - 110, y, 0xFFFFFF);
-            context.drawTextWithShadow(this.textRenderer, "§eThành viên: §f" + memberName, centerX - 110, y + 15, 0xFFFFFF);
-            context.drawTextWithShadow(this.textRenderer, "§eTầng hiện tại: §f" + currentFloor + " / 100", centerX - 110, y + 30, 0xFFFFFF);
-            context.drawTextWithShadow(this.textRenderer, "§eCheckpoint đã mở: §fTầng " + highestCheckpoint, centerX - 110, y + 45, 0xFFFFFF);
-            context.drawTextWithShadow(this.textRenderer, "§eTrạng thái: " + (inBattle ? "§cĐang Trong Trận Đấu" : "§aĐang Chờ Tại Cổng"), centerX - 110, y + 60, 0xFFFFFF);
+            context.drawTextWithShadow(this.textRenderer, "§bParty Leader: §f" + leaderName, centerX - 110, y, 0xFFFFFF);
+            context.drawTextWithShadow(this.textRenderer, "§bPartner: §f" + memberName, centerX - 110, y + 15, 0xFFFFFF);
+            context.drawTextWithShadow(this.textRenderer, "§bCurrent Floor: §f" + currentFloor + " / 100", centerX - 110, y + 30, 0xFFFFFF);
+            context.drawTextWithShadow(this.textRenderer, "§bCheckpoint: §fFloor " + highestCheckpoint, centerX - 110, y + 45, 0xFFFFFF);
+            context.drawTextWithShadow(this.textRenderer, "§bStatus: " + (inBattle ? "§aBattle Active" : "§7Waiting at Gateway"), centerX - 110, y + 60, 0xFFFFFF);
         }
     }
 

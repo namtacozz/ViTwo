@@ -49,7 +49,7 @@ public class ViTwoMod implements ModInitializer {
             context.server().execute(() -> {
                 if (payload.isSolo()) {
                     // Solo Mode: create dedicated solo party session
-                    TowerParty soloParty = new TowerParty(player.getUuid(), payload.checkpointFloor());
+                    TowerParty soloParty = TowerPartyManager.getInstance().createSoloParty(player, payload.checkpointFloor());
                     TowerPartyManager.getInstance().startTowerSession(soloParty, true, payload.checkpointFloor(), player.getServer());
                 } else {
                     // Duo Mode: validate active party and leader role
@@ -74,7 +74,15 @@ public class ViTwoMod implements ModInitializer {
             context.server().execute(() -> TowerPartyManager.getInstance().handleRestChoice(player, payload.choiceType()));
         });
 
-        // 4. Register Tick & Reconnection Handlers
+        ServerPlayNetworking.registerGlobalReceiver(ForfeitTowerC2SPacket.ID, (payload, context) -> {
+            ServerPlayerEntity player = context.player();
+            context.server().execute(() -> TowerPartyManager.getInstance().handleForfeitVote(player));
+        });
+
+        // 4. Register Dimension Block Interaction Restrictions
+        com.vitwo.event.TowerBlockInteractionHandler.register();
+
+        // 5. Register Tick & Reconnection Handlers
         ServerTickEvents.END_SERVER_TICK.register(server -> TowerPartyManager.getInstance().tick(server));
 
         ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> {

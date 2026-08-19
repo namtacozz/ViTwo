@@ -62,6 +62,24 @@ java {
     targetCompatibility = JavaVersion.VERSION_21
 }
 
+tasks.register('deployToPrism', Copy) {
+    dependsOn 'remapJar'
+    from tasks.named('remapJar')
+    into file("${System.getProperty('user.home')}/.local/share/PrismLauncher/instances/COBBLEVERSE - Pokemon Adventure [Cobblemon]/minecraft/mods")
+    
+    doLast {
+        println ">>> [AUTO-DEPLOY] Successfully copied CobbleTower JAR to PrismLauncher mods directory! <<<"
+    }
+}
+
+tasks.named('remapJar') {
+    finalizedBy 'deployToPrism'
+}
+
+tasks.named('build') {
+    finalizedBy 'deployToPrism'
+}
+
 jar {
     from("LICENSE") {
         rename { "${it}_${project.base.archivesName.get()}"}

@@ -1,0 +1,22 @@
+{
+  "parent": "vitwo:master_tower",
+  "display": {
+    "icon": {
+      "id": "minecraft:player_head"
+    },
+    "title": {
+      "translate": "advancements.vitwo.duo_conqueror.title"
+    },
+    "description": {
+      "translate": "advancements.vitwo.duo_conqueror.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "duo_conqueror": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

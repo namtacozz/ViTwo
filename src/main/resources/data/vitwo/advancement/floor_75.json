@@ -1,0 +1,22 @@
+{
+  "parent": "vitwo:ultra_tower",
+  "display": {
+    "icon": {
+      "id": "cobblemon:ability_capsule"
+    },
+    "title": {
+      "translate": "advancements.vitwo.floor_75.title"
+    },
+    "description": {
+      "translate": "advancements.vitwo.floor_75.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "cleared_floor_75": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

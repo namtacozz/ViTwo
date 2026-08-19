@@ -26,6 +26,7 @@ public class TowerParty {
 
     private final Set<UUID> spectatingPlayers = ConcurrentHashMap.newKeySet();
     private final Map<UUID, Integer> restChoices = new ConcurrentHashMap<>();
+    private final Set<UUID> forfeitVotes = ConcurrentHashMap.newKeySet();
 
     private UUID disconnectedPlayerId = null;
     private long disconnectTimestamp = 0;
@@ -137,6 +138,23 @@ public class TowerParty {
 
     public void clearRestChoices() {
         restChoices.clear();
+    }
+
+    public boolean voteForfeit(UUID playerId) {
+        forfeitVotes.add(playerId);
+        return forfeitVotes.size() >= (isSolo ? 1 : 2);
+    }
+
+    public int getForfeitVoteCount() {
+        return forfeitVotes.size();
+    }
+
+    public int getVotesNeeded() {
+        return isSolo ? 1 : 2;
+    }
+
+    public void clearForfeitVotes() {
+        forfeitVotes.clear();
     }
 
     public void handlePlayerDisconnect(UUID playerId) {

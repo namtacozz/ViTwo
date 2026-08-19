@@ -1,0 +1,22 @@
+{
+  "parent": "vitwo:poke_tower",
+  "display": {
+    "icon": {
+      "id": "minecraft:wither_rose"
+    },
+    "title": {
+      "translate": "advancements.vitwo.curse_survivor.title"
+    },
+    "description": {
+      "translate": "advancements.vitwo.curse_survivor.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "curse_survivor": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

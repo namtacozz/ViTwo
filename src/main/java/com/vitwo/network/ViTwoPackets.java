@@ -14,6 +14,7 @@ public class ViTwoPackets {
         PayloadTypeRegistry.playC2S().register(StartTowerC2SPacket.ID, StartTowerC2SPacket.CODEC);
         PayloadTypeRegistry.playC2S().register(LeavePartyC2SPacket.ID, LeavePartyC2SPacket.CODEC);
         PayloadTypeRegistry.playC2S().register(RestChoiceC2SPacket.ID, RestChoiceC2SPacket.CODEC);
+        PayloadTypeRegistry.playC2S().register(ForfeitTowerC2SPacket.ID, ForfeitTowerC2SPacket.CODEC);
 
         // Register S2C (Server -> Client)
         PayloadTypeRegistry.playS2C().register(ShowInviteToastS2CPacket.ID, ShowInviteToastS2CPacket.CODEC);
