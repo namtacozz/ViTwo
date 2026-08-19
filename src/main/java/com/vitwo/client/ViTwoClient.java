@@ -1,7 +1,9 @@
 package com.vitwo.client;
 
 import com.vitwo.client.gui.RestFloorScreen;
+import com.vitwo.client.gui.TowerBpShopScreen;
 import com.vitwo.client.gui.TowerHubScreen;
+import com.vitwo.client.gui.TowerRunSummaryScreen;
 import com.vitwo.client.gui.toast.InviteToast;
 import com.vitwo.client.hud.TowerHudOverlay;
 import com.vitwo.client.keybind.TowerKeybinds;
@@ -41,6 +43,11 @@ public class ViTwoClient implements ClientModInitializer {
                 TowerHubScreen.pendingInviterName = payload.pendingInviterName();
                 TowerHubScreen.inTowerSession = payload.inTowerSession();
                 TowerHubScreen.forfeitVotes = payload.forfeitVotes();
+                TowerHubScreen.playerBp = payload.battlePoints();
+                TowerHubScreen.isTrueRun = payload.isTrueRun();
+
+                // Update BP Shop
+                TowerBpShopScreen.currentBpBalance = payload.battlePoints();
 
                 // Update HUD Overlay
                 TowerHudOverlay.inTowerSession = payload.inTowerSession();
@@ -50,7 +57,9 @@ public class ViTwoClient implements ClientModInitializer {
                 TowerHudOverlay.inBattle = payload.inBattle();
                 TowerHudOverlay.isSpectating = payload.isSpectating();
                 TowerHudOverlay.isSolo = !payload.hasParty();
+                TowerHudOverlay.isTrueRun = payload.isTrueRun();
                 TowerHudOverlay.currentBossName = payload.currentBossName();
+                TowerHudOverlay.playerBp = payload.battlePoints();
             });
         });
 
@@ -73,6 +82,41 @@ public class ViTwoClient implements ClientModInitializer {
         ClientPlayNetworking.registerGlobalReceiver(OpenRestScreenS2CPacket.ID, (payload, context) -> {
             context.client().execute(() -> {
                 MinecraftClient.getInstance().setScreen(new RestFloorScreen(payload.floor()));
+            });
+        });
+
+        ClientPlayNetworking.registerGlobalReceiver(OpenRunSummaryS2CPacket.ID, (payload, context) -> {
+            context.client().execute(() -> {
+                MinecraftClient.getInstance().setScreen(new TowerRunSummaryScreen(
+                        payload.floor(),
+                        payload.isVictory(),
+                        payload.isTrueRun(),
+                        payload.durationSeconds(),
+                        payload.totalTurns(),
+                        payload.totalFaints(),
+                        payload.bpEarned(),
+                        payload.newHighestFloor()
+                ));
+            });
+        });
+
+        ClientPlayNetworking.registerGlobalReceiver(SyncGhostSupportS2CPacket.ID, (payload, context) -> {
+            context.client().execute(() -> {
+                TowerHudOverlay.ghostCharges = payload.charges();
+                TowerHudOverlay.maxGhostCharges = payload.maxCharges();
+            });
+        });
+
+        ClientPlayNetworking.registerGlobalReceiver(OpenTeamPreviewS2CPacket.ID, (payload, context) -> {
+            context.client().execute(() -> {
+                MinecraftClient.getInstance().setScreen(new com.vitwo.client.gui.TeamPreviewScreen(
+                        payload.floor(),
+                        payload.durationSeconds(),
+                        payload.opponentName(),
+                        payload.opponentTitle(),
+                        payload.opponentTeam(),
+                        payload.playerTeam()
+                ));
             });
         });
 

@@ -1,0 +1,23 @@
+{
+  "parent": "vitwo:master_tower",
+  "display": {
+    "icon": {
+      "id": "cobblemon:master_ball"
+    },
+    "title": {
+      "translate": "advancements.vitwo.tower_legend.title"
+    },
+    "description": {
+      "translate": "advancements.vitwo.tower_legend.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "reached_prestige_5": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

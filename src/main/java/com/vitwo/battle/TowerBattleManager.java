@@ -31,6 +31,10 @@ public class TowerBattleManager {
 
     private TowerBattleManager() {}
 
+    public TowerTeam getBossTeamForFloor(int floor) {
+        return TrainerPool.getTeamForFloor(floor);
+    }
+
     public String getBossNameForFloor(int floor) {
         return TrainerPool.getRandomTrainerName(floor);
     }
@@ -93,6 +97,57 @@ public class TowerBattleManager {
 
         leader.sendMessage(Text.translatable("vitwo.tower.bag_item_banned"), false);
         member.sendMessage(Text.translatable("vitwo.tower.bag_item_banned"), false);
+    }
+
+    public void sendTeamPreview(TowerParty party, ServerPlayerEntity leader, ServerPlayerEntity member, int floor) {
+        int duration = (floor >= 91) ? 45 : ((floor % 10 == 0) ? 30 : 20);
+        String bossName = getBossNameForFloor(floor);
+        String bossTitle = (floor >= 91) ? "« Tower Sovereign Boss »" : ((floor % 10 == 0) ? "« Tower Milestone Boss »" : "Tower Challenger");
+        List<String> oppRoster = getBossTeamSpeciesForFloor(floor);
+
+        if (leader != null) {
+            List<String> playerRoster = getPlayerPartySpecies(leader);
+            net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.send(
+                    leader,
+                    new com.vitwo.network.s2c.OpenTeamPreviewS2CPacket(floor, duration, bossName, bossTitle, oppRoster, playerRoster)
+            );
+        }
+        if (member != null) {
+            List<String> memberRoster = getPlayerPartySpecies(member);
+            net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.send(
+                    member,
+                    new com.vitwo.network.s2c.OpenTeamPreviewS2CPacket(floor, duration, bossName, bossTitle, oppRoster, memberRoster)
+            );
+        }
+    }
+
+    public void handleReadyTeamPreview(ServerPlayerEntity player, List<Integer> slotOrder) {
+        if (player == null) return;
+        player.sendMessage(Text.literal("§a✔ Team Preview confirmed! Entering battle..."), false);
+    }
+
+    private List<String> getPlayerPartySpecies(ServerPlayerEntity player) {
+        List<String> list = new ArrayList<>();
+        try {
+            Class<?> cobblemonClass = Class.forName("com.cobblemon.mod.common.Cobblemon");
+            Object cobblemonInst = cobblemonClass.getField("INSTANCE").get(null);
+            java.lang.reflect.Method getStorageMethod = cobblemonInst.getClass().getMethod("getStorage");
+            Object storage = getStorageMethod.invoke(cobblemonInst);
+            java.lang.reflect.Method getPartyMethod = storage.getClass().getMethod("getParty", ServerPlayerEntity.class);
+            Iterable<?> party = (Iterable<?>) getPartyMethod.invoke(storage, player);
+
+            for (Object pokemon : party) {
+                if (pokemon == null) continue;
+                java.lang.reflect.Method getSpeciesMethod = pokemon.getClass().getMethod("getSpecies");
+                Object species = getSpeciesMethod.invoke(pokemon);
+                java.lang.reflect.Method getNameMethod = species.getClass().getMethod("getName");
+                String name = (String) getNameMethod.invoke(species);
+                list.add(name);
+            }
+        } catch (Exception ignored) {
+            list.addAll(List.of("Pokémon 1", "Pokémon 2", "Pokémon 3", "Pokémon 4", "Pokémon 5", "Pokémon 6"));
+        }
+        return list;
     }
 
     public void endBattle(TowerParty party, boolean victory, ServerPlayerEntity leader, ServerPlayerEntity member) {

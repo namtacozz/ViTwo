@@ -8,31 +8,23 @@ public class LevelCapManager {
     private static final Random RANDOM = new Random();
 
     public static int getMaxLevelCapForFloor(int floor) {
-        if (floor <= 10) {
-            return 20;
-        } else if (floor <= 25) {
-            return 35;
-        } else if (floor <= 50) {
-            return 55;
-        } else if (floor <= 75) {
-            return 75;
-        } else {
-            return 100;
-        }
+        if (floor <= 10) return 30;
+        if (floor <= 25) return 40;
+        if (floor <= 40) return 50;
+        if (floor <= 55) return 60;
+        if (floor <= 70) return 70;
+        if (floor <= 85) return 85;
+        return 100;
     }
 
     public static int getMinNpcLevelForFloor(int floor) {
-        if (floor <= 10) {
-            return 14;
-        } else if (floor <= 25) {
-            return 26;
-        } else if (floor <= 50) {
-            return 45;
-        } else if (floor <= 75) {
-            return 68;
-        } else {
-            return 90;
-        }
+        if (floor <= 10) return 26;
+        if (floor <= 25) return 36;
+        if (floor <= 40) return 46;
+        if (floor <= 55) return 56;
+        if (floor <= 70) return 66;
+        if (floor <= 85) return 81;
+        return 96;
     }
 
     public static int generateNpcPokemonLevel(int floor, boolean isAce) {

@@ -13,6 +13,9 @@ import org.lwjgl.glfw.GLFW;
 public class TowerKeybinds {
     public static KeyBinding openHubKey;
     public static KeyBinding forfeitKey;
+    public static KeyBinding ghostHealKey;
+    public static KeyBinding ghostGuardKey;
+    public static KeyBinding ghostBuffKey;
 
     public static void registerKeybinds() {
         openHubKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
@@ -29,6 +32,27 @@ public class TowerKeybinds {
                 "key.category.vitwo"
         ));
 
+        ghostHealKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+                "key.vitwo.ghost_heal",
+                InputUtil.Type.KEYSYM,
+                GLFW.GLFW_KEY_Z,
+                "key.category.vitwo"
+        ));
+
+        ghostGuardKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+                "key.vitwo.ghost_guard",
+                InputUtil.Type.KEYSYM,
+                GLFW.GLFW_KEY_X,
+                "key.category.vitwo"
+        ));
+
+        ghostBuffKey = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+                "key.vitwo.ghost_buff",
+                InputUtil.Type.KEYSYM,
+                GLFW.GLFW_KEY_C,
+                "key.category.vitwo"
+        ));
+
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (openHubKey.wasPressed()) {
                 if (client.player != null && client.currentScreen == null) {
@@ -39,6 +63,24 @@ public class TowerKeybinds {
             while (forfeitKey.wasPressed()) {
                 if (client.player != null && TowerHudOverlay.inTowerSession) {
                     ClientPlayNetworking.send(new ForfeitTowerC2SPacket());
+                }
+            }
+
+            while (ghostHealKey.wasPressed()) {
+                if (client.player != null && TowerHudOverlay.inTowerSession && TowerHudOverlay.isSpectating) {
+                    ClientPlayNetworking.send(new com.vitwo.network.c2s.GhostSupportActionC2SPacket(1));
+                }
+            }
+
+            while (ghostGuardKey.wasPressed()) {
+                if (client.player != null && TowerHudOverlay.inTowerSession && TowerHudOverlay.isSpectating) {
+                    ClientPlayNetworking.send(new com.vitwo.network.c2s.GhostSupportActionC2SPacket(2));
+                }
+            }
+
+            while (ghostBuffKey.wasPressed()) {
+                if (client.player != null && TowerHudOverlay.inTowerSession && TowerHudOverlay.isSpectating) {
+                    ClientPlayNetworking.send(new com.vitwo.network.c2s.GhostSupportActionC2SPacket(3));
                 }
             }
         });

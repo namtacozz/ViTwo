@@ -20,23 +20,32 @@ public class RestFloorScreen extends Screen {
         int centerX = this.width / 2;
         int centerY = this.height / 2;
 
-        // Button 1: Team Rest Recovery
+        // Button 1: Full Team Rest (Choice 1)
         this.addDrawableChild(ButtonWidget.builder(
-                Text.literal("§b§lTEAM RECOVERY\n§7(+10% Fainted, +50% Alive, 100% PP)"),
+                Text.literal("§a§lFULL TEAM REST\n§7(100% HP Revive & All PP)"),
                 btn -> {
                     ClientPlayNetworking.send(new RestChoiceC2SPacket(1));
                     this.close();
                 }
-        ).dimensions(centerX - 165, centerY - 15, 160, 42).build());
+        ).dimensions(centerX - 240, centerY - 15, 155, 42).build());
 
-        // Button 2: Mystery Loot Cache
+        // Button 2: War Preparation (Choice 2)
         this.addDrawableChild(ButtonWidget.builder(
-                Text.literal("§e§lMYSTERY LOOT\n§7(Rare Items & Stat Boosts)"),
+                Text.literal("§c§lWAR PREPARATION\n§7(+10% Boost for 5 Floors)"),
                 btn -> {
                     ClientPlayNetworking.send(new RestChoiceC2SPacket(2));
                     this.close();
                 }
-        ).dimensions(centerX + 5, centerY - 15, 160, 42).build());
+        ).dimensions(centerX - 77, centerY - 15, 155, 42).build());
+
+        // Button 3: Treasure Cache (Choice 3)
+        this.addDrawableChild(ButtonWidget.builder(
+                Text.literal("§6§lTREASURE CACHE\n§7(Bonus BP & Rare Items)"),
+                btn -> {
+                    ClientPlayNetworking.send(new RestChoiceC2SPacket(3));
+                    this.close();
+                }
+        ).dimensions(centerX + 85, centerY - 15, 155, 42).build());
     }
 
     @Override
@@ -46,12 +55,12 @@ public class RestFloorScreen extends Screen {
         int centerY = this.height / 2;
 
         // Cobblemon-style Slate & Cyan container
-        context.fill(centerX - 180, centerY - 80, centerX + 180, centerY + 65, 0xEE1E232A);
-        context.drawBorder(centerX - 180, centerY - 80, 360, 145, 0xFF0FD9C2);
-        context.fill(centerX - 179, centerY - 79, centerX + 179, centerY - 77, 0xFF0FD9C2);
+        context.fill(centerX - 255, centerY - 80, centerX + 255, centerY + 65, 0xEE1E232A);
+        context.drawBorder(centerX - 255, centerY - 80, 510, 145, 0xFF0FD9C2);
+        context.fill(centerX - 254, centerY - 79, centerX + 254, centerY - 77, 0xFF0FD9C2);
 
-        context.drawCenteredTextWithShadow(this.textRenderer, "§b§lREST STATION - FLOOR " + floor, centerX, centerY - 65, 0xFFFFFF);
-        context.drawCenteredTextWithShadow(this.textRenderer, Text.literal("§7Choose 1 boon before ascending to the next tier:"), centerX, centerY - 45, 0xCCCCCC);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§b§l❖ REST STATION — FLOOR " + floor + " ❖", centerX, centerY - 65, 0xFFFFFF);
+        context.drawCenteredTextWithShadow(this.textRenderer, Text.literal("§a✔ Base Heal (+25% HP, +50% PP) applied! §7Choose 1 additional boon:"), centerX, centerY - 45, 0xCCCCCC);
     }
 
     @Override

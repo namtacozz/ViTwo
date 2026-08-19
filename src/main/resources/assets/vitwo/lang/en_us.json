@@ -4,6 +4,11 @@
   "key.category.vitwo": "CobbleTower",
   "key.vitwo.hub": "Open CobbleTower Hub",
   "key.vitwo.forfeit": "Forfeit Tower Run",
+  "key.vitwo.ghost_heal": "Ghost Support: Heal Pulse",
+  "key.vitwo.ghost_guard": "Ghost Support: Quick Guard",
+  "key.vitwo.ghost_buff": "Ghost Support: Battle Cry",
+  "advancements.vitwo.tower_legend.title": "Prestige Paragon",
+  "advancements.vitwo.tower_legend.description": "Reached Tower Prestige Level 5",
   "vitwo.menu.tower_invite": "Invite to CobbleTower",
   "vitwo.tower.title": "COBBLE TOWER",
   "vitwo.tower.floor_prefix": "Floor",
@@ -110,5 +115,11 @@
   "advancements.vitwo.monotype_dark.title": "Dark Monotype Master",
   "advancements.vitwo.monotype_dark.description": "Conquered Floor 1-100 Solo using only Dark-type Pokémon!",
   "advancements.vitwo.monotype_fairy.title": "Fairy Monotype Master",
-  "advancements.vitwo.monotype_fairy.description": "Conquered Floor 1-100 Solo using only Fairy-type Pokémon!"
+  "advancements.vitwo.monotype_fairy.description": "Conquered Floor 1-100 Solo using only Fairy-type Pokémon!",
+  "vitwo.tower.bp.balance": "Battle Points: %d BP",
+  "vitwo.tower.bp.shop_title": "Battle Point Exchange",
+  "vitwo.tower.summary.title_win": "Tower Conquered!",
+  "vitwo.tower.summary.title_defeat": "Run Defeated",
+  "vitwo.tower.true_run": "True Run (Floor 1-100)",
+  "vitwo.tower.checkpoint_run": "Checkpoint Run"
 }

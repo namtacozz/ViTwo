@@ -1,10 +1,10 @@
 package com.vitwo.battle;
 
+import com.vitwo.config.TowerTeraPresetConfig;
+
 import java.util.List;
-import java.util.Random;
 
 public class GimmickController {
-    private static final Random RANDOM = new Random();
 
     public enum GimmickType {
         NONE,
@@ -12,12 +12,6 @@ public class GimmickController {
         MEGA_AND_DYNAMAX,
         ALL_GIMMICKS
     }
-
-    public static final List<String> TERA_TYPES = List.of(
-            "normal", "fire", "water", "grass", "electric", "ice",
-            "fighting", "poison", "ground", "flying", "psychic", "bug",
-            "rock", "ghost", "dragon", "steel", "dark", "fairy", "stellar"
-    );
 
     public static GimmickType getNpcGimmickForFloor(int floor) {
         if (floor <= 25) {
@@ -47,29 +41,52 @@ public class GimmickController {
         return floor > 50;
     }
 
-    public static String getAdaptiveTeraType(String opponentPrimaryType) {
-        if (opponentPrimaryType == null) return "stellar";
-        // Defensive & Offensive Counter-Typing
-        return switch (opponentPrimaryType.toLowerCase()) {
-            case "water" -> "electric";
-            case "fire" -> "water";
-            case "grass" -> "fire";
-            case "electric" -> "ground";
-            case "dragon" -> "fairy";
-            case "ghost" -> "normal";
-            case "psychic" -> "dark";
-            case "steel" -> "fire";
-            case "fairy" -> "steel";
-            case "fighting" -> "fairy";
-            case "ground" -> "grass";
-            case "rock" -> "water";
-            case "flying" -> "electric";
-            case "bug" -> "fire";
-            case "poison" -> "ground";
-            case "ice" -> "fire";
-            case "dark" -> "fighting";
-            case "normal" -> "ghost";
-            default -> TERA_TYPES.get(RANDOM.nextInt(TERA_TYPES.size()));
+    /**
+     * Chooses the optimal Tera type for a given NPC Pokemon species strictly from its 2-3 valid presets.
+     */
+    public static String getPresetAdaptiveTeraType(String species, String opponentType) {
+        List<String> presets = TowerTeraPresetConfig.getTeraPresetsForSpecies(species);
+        if (presets.isEmpty()) return "normal";
+        if (presets.size() == 1 || opponentType == null) return presets.get(0);
+
+        String opp = opponentType.toLowerCase();
+
+        // Search for a preset that counters the opponent type
+        for (String preset : presets) {
+            String p = preset.toLowerCase();
+            if (isDefensivelyFavorable(p, opp) || isOffensivelyFavorable(p, opp)) {
+                return preset;
+            }
+        }
+
+        // Fallback to primary preset
+        return presets.get(0);
+    }
+
+    private static boolean isDefensivelyFavorable(String teraType, String oppType) {
+        return switch (oppType) {
+            case "water" -> teraType.equals("grass") || teraType.equals("dragon") || teraType.equals("water");
+            case "fire" -> teraType.equals("water") || teraType.equals("fire") || teraType.equals("dragon") || teraType.equals("rock");
+            case "grass" -> teraType.equals("fire") || teraType.equals("steel") || teraType.equals("poison") || teraType.equals("flying");
+            case "electric" -> teraType.equals("ground") || teraType.equals("dragon") || teraType.equals("grass");
+            case "dragon" -> teraType.equals("fairy") || teraType.equals("steel");
+            case "ghost" -> teraType.equals("normal") || teraType.equals("dark");
+            case "psychic" -> teraType.equals("dark") || teraType.equals("steel");
+            case "fighting" -> teraType.equals("ghost") || teraType.equals("fairy") || teraType.equals("flying") || teraType.equals("poison");
+            case "ground" -> teraType.equals("flying") || teraType.equals("grass") || teraType.equals("bug");
+            default -> false;
+        };
+    }
+
+    private static boolean isOffensivelyFavorable(String teraType, String oppType) {
+        return switch (oppType) {
+            case "water" -> teraType.equals("electric") || teraType.equals("grass");
+            case "fire" -> teraType.equals("water") || teraType.equals("ground") || teraType.equals("rock");
+            case "grass" -> teraType.equals("fire") || teraType.equals("ice") || teraType.equals("flying");
+            case "dragon" -> teraType.equals("fairy") || teraType.equals("ice") || teraType.equals("dragon");
+            case "steel" -> teraType.equals("fire") || teraType.equals("fighting") || teraType.equals("ground");
+            case "fairy" -> teraType.equals("steel") || teraType.equals("poison");
+            default -> false;
         };
     }
 

@@ -79,6 +79,21 @@ public class ViTwoMod implements ModInitializer {
             context.server().execute(() -> TowerPartyManager.getInstance().handleForfeitVote(player));
         });
 
+        ServerPlayNetworking.registerGlobalReceiver(BuyBpItemC2SPacket.ID, (payload, context) -> {
+            ServerPlayerEntity player = context.player();
+            context.server().execute(() -> com.vitwo.reward.TowerRewardManager.getInstance().handleBpPurchase(player, payload.itemId()));
+        });
+
+        ServerPlayNetworking.registerGlobalReceiver(GhostSupportActionC2SPacket.ID, (payload, context) -> {
+            ServerPlayerEntity player = context.player();
+            context.server().execute(() -> com.vitwo.battle.TowerSpectatorManager.getInstance().handleGhostSupportAction(player, payload.actionType()));
+        });
+
+        ServerPlayNetworking.registerGlobalReceiver(ReadyTeamPreviewC2SPacket.ID, (payload, context) -> {
+            ServerPlayerEntity player = context.player();
+            context.server().execute(() -> com.vitwo.battle.TowerBattleManager.getInstance().handleReadyTeamPreview(player, payload.slotOrder()));
+        });
+
         // 4. Register Dimension Block Interaction Restrictions
         com.vitwo.event.TowerBlockInteractionHandler.register();
 
@@ -91,6 +106,11 @@ public class ViTwoMod implements ModInitializer {
 
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
             TowerPartyManager.getInstance().handleReconnect(handler.getPlayer());
+        });
+
+        // 6. Register Commands
+        net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
+            com.vitwo.command.TowerCommands.register(dispatcher);
         });
 
         LOGGER.info("[ViTwo] CobbleTower Mod initialized successfully (Solo 6v6 + Duo Co-op)!");

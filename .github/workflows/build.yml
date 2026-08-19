@@ -41,37 +41,37 @@ jobs:
         uses: softprops/action-gh-release@v2
         if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/')
         with:
-          tag_name: v1.0.0
-          name: "CobbleTower v1.0.0 - Solo 2-Slot & Duo Co-op 100 Floors"
+          tag_name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || 'v1.3.0' }}
+          name: "CobbleTower v1.3.0 - Definitive Roguelike Battle Tower Overhaul"
           draft: false
           prerelease: false
           body: |
-            ## 🗼 CobbleTower v1.0.0 Release (Fabric 1.21.1)
+            # 🗼 CobbleTower v1.3.0 Definitive Release (Fabric 1.21.1)
 
-            Bản mở rộng tháp đấu trường 100 tầng Roguelike dành cho modpack **COBBLEVERSE**.
+            Bản cập nhật lớn toàn diện **CobbleTower v1.3.0** cho Cobblemon Minecraft 1.21.1 mang đến trải nghiệm Đấu Trường VGC 100 Tầng đỉnh cao.
 
-            ### 🎮 Các Tính Năng Nổi Bật:
-            - **Thể Thức Đấu Đôi (Double Battle):**
-              - *Solo Mode (2-Slot):* 1 người chơi điều khiển cả 2 vị trí trên sân.
-              - *Duo Mode (2v1):* 2 người chơi hợp tác, hỗ trợ cơ chế *2-Slot Takeover* khi một người ngất hết Pokemon.
-            - **Giao Diện Command-Free:**
-              - Mở **Tower Hub Dashboard** bằng phím nóng **[Y]** hoặc tương tác khối **Cổng Tháp (Tower Gateway)**.
-              - Mời bạn bè trực tiếp qua Shift + Chuột phải hoặc GUI Hub (Toast Notification).
-            - **Hệ Thống Level Cap Theo Chặng:**
-              - Tầng 1-25: Max Lv.36
-              - Tầng 26-50: Max Lv.50
-              - Tầng 51-75: Max Lv.80
-              - Tầng 76-100: Max Lv.100
-            - **NPC Boss Tăng Cường:**
-              - Toàn bộ Boss sở hữu **Full 6x31 IVs**.
-              - Từ tầng 51 đến 100: Mỗi Boss sở hữu ít nhất 1 Pokemon Shiny.
-            - **Tầng Nghỉ (Rest Floor - Mỗi 5 tầng):**
-              - Chọn 1 trong 2 quyền lợi: Hồi phục sinh lực (10% HP ngất, 50% HP sống, 100% PP) hoặc Rương Quà Quý.
+            ### 🌟 Tính Năng & Đổi Mới Nổi Bật trong v1.3.0:
+            1. **Arena Curses & Dual Curse Matrix:**
+               - Cân bằng lại Ironclad (15%) và Retaliation (10%, max 20% HP).
+               - 4 Lời nguyền mới: *Temporal Decay, Silence, Gravity Well, Famine*.
+               - Ma trận **10 cặp Dual Curses cố định** cho tầng Sovereign Boss (F91–100).
+            2. **Ghost Support Protocol (Co-op Spectator):**
+               - Năng lượng Ghost Charges theo chặng: 2⚡ (F1–50), 3⚡ (F51–75), 4⚡ (F76–100).
+               - Kỹ năng thứ 4: `[V]` **Spectral Insight** soi điểm yếu và chỉ số đối thủ.
+               - Heal Pulse tỷ lệ hồi máu theo chặng (15% ➔ 30% Max HP).
+            3. **Luật Đấu Cạnh Tranh & Anti-Cheese:**
+               - Tự động áp dụng Evasion, OHKO, Moody, và Swagger Clauses.
+               - Kiểm soát Species Clause, Item Clause, và Legendary Tiering Caps.
+            4. **Hệ Thống Difficulty Profiles:**
+               - Tùy chọn cấu hình server: `CASUAL`, `STANDARD`, `HARDCORE`.
+            5. **Cửa Hàng BP 4 Bậc:**
+               - Bronze, Silver (F50), Gold (F100), và Platinum (Prestige 3+) với danh hiệu độc quyền `« Tower Legend »`.
+            6. **Đầy Đủ Hệ Thống Lệnh (`/tower`):**
+               - `/tower start`, `/tower solo`, `/tower checkpoint <floor>`, `/tower duo <player>`, `/tower pause`, `/tower resume`, `/tower stats`, `/tower forfeit`, `/tower reload`.
 
-            ### 📦 Hướng Dẫn Cài Đặt:
-            1. Tải file **`CobbleTower-1.0.0.jar`** bên dưới phần Assets.
-            2. Thả vào thư mục `.minecraft/mods`.
-            3. Yêu cầu: Fabric Loader 0.16.5+, Fabric API, Minecraft 1.21.1, Cobblemon 1.7.3+.
+            ### 📦 Cài Đặt:
+            - Yêu cầu: Fabric Loader >= 0.16.0, Minecraft 1.21.1, Cobblemon >= 1.7.0.
+            - Tải file `.jar` bên dưới và đặt vào thư mục `.minecraft/mods/`.
           files: build/libs/*.jar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

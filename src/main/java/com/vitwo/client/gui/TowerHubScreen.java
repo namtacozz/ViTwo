@@ -21,13 +21,15 @@ public class TowerHubScreen extends Screen {
     public static String pendingInviterName = "";
     public static boolean inTowerSession = false;
     public static int forfeitVotes = 0;
+    public static int playerBp = 0;
+    public static boolean isTrueRun = true;
 
-    private static final int[] CHECKPOINTS = {1, 10, 25, 50, 75, 90};
+    private static final int[] CHECKPOINTS = {1, 26, 51, 76};
     private int selectedCheckpoint = 1;
     private boolean isSoloTab = true;
 
     public TowerHubScreen() {
-        super(Text.translatable("vitwo.tower.hub.title"));
+        super(Text.literal("CobbleTower Hub"));
     }
 
     @Override
@@ -41,7 +43,7 @@ public class TowerHubScreen extends Screen {
 
         // Tab Selectors
         this.addDrawableChild(create3DButton(
-                Text.literal(isSoloTab ? "§b§lSOLO CHALLENGE" : "§7SOLO CHALLENGE"),
+                Text.literal(isSoloTab ? "§b§lSOLO (6v6)" : "§7SOLO (6v6)"),
                 centerX - 160, centerY - 80, 155, 22,
                 btn -> {
                     this.isSoloTab = true;
@@ -50,7 +52,7 @@ public class TowerHubScreen extends Screen {
         ));
 
         this.addDrawableChild(create3DButton(
-                Text.literal(!isSoloTab ? "§d§lCO-OP DUO" : "§7CO-OP DUO"),
+                Text.literal(!isSoloTab ? "§d§lCO-OP DUO (3+3)" : "§7CO-OP DUO (3+3)"),
                 centerX + 5, centerY - 80, 155, 22,
                 btn -> {
                     this.isSoloTab = false;
@@ -58,18 +60,19 @@ public class TowerHubScreen extends Screen {
                 }
         ));
 
-        // Checkpoint Selection Buttons in a row
+        // Checkpoint Selection Buttons
         int maxCp = isSoloTab ? soloCheckpoint : (hasParty ? duoCheckpoint : 1);
-        int startX = centerX - 165;
+        int startX = centerX - 160;
         for (int i = 0; i < CHECKPOINTS.length; i++) {
             int cp = CHECKPOINTS[i];
             boolean unlocked = cp <= maxCp;
             boolean isSelected = (cp == selectedCheckpoint);
 
-            String label = (unlocked ? (isSelected ? "§b§l" : "§f") : "§8🔒 ") + "F." + cp;
+            String tag = (cp == 1) ? " (True Run)" : " (CP)";
+            String label = (unlocked ? (isSelected ? "§b§l" : "§f") : "§8🔒 ") + "F." + cp + tag;
             ButtonWidget cpBtn = create3DButton(
                     Text.literal(label),
-                    startX + (i * 56), centerY - 15, 52, 22,
+                    startX + (i * 80), centerY - 15, 76, 22,
                     btn -> this.selectedCheckpoint = cp
             );
             cpBtn.active = unlocked;
@@ -78,28 +81,26 @@ public class TowerHubScreen extends Screen {
 
         // Action Buttons
         if (inTowerSession) {
-            // FORFEIT BUTTON
-            String forfeitLabel;
-            if (isSoloTab || !hasParty) {
-                forfeitLabel = "§c§lFORFEIT RUN";
-            } else {
-                forfeitLabel = "§c§lFORFEIT RUN (" + forfeitVotes + "/2)";
-            }
+            String forfeitLabel = (isSoloTab || !hasParty)
+                    ? "§c§lFORFEIT RUN"
+                    : "§c§lFORFEIT RUN (" + forfeitVotes + "/2)";
 
             this.addDrawableChild(create3DButton(
                     Text.literal(forfeitLabel),
-                    centerX - 100, centerY + 35, 200, 26,
+                    centerX - 160, centerY + 40, 155, 26,
                     btn -> {
                         ClientPlayNetworking.send(new ForfeitTowerC2SPacket());
                         this.close();
                     }
             ));
         } else {
-            // START BUTTON
             if (isSoloTab) {
+                String runTitle = (selectedCheckpoint == 1)
+                        ? "§a§lSTART TRUE RUN (F.1)"
+                        : "§e§lSTART CHECKPOINT (F." + selectedCheckpoint + ")";
                 this.addDrawableChild(create3DButton(
-                        Text.literal("§a§lSTART SOLO RUN (FLOOR " + selectedCheckpoint + ")"),
-                        centerX - 100, centerY + 35, 200, 26,
+                        Text.literal(runTitle),
+                        centerX - 160, centerY + 40, 155, 26,
                         btn -> {
                             ClientPlayNetworking.send(new StartTowerC2SPacket(true, selectedCheckpoint));
                             this.close();
@@ -107,9 +108,12 @@ public class TowerHubScreen extends Screen {
                 ));
             } else {
                 if (hasParty && isLeader) {
+                    String runTitle = (selectedCheckpoint == 1)
+                            ? "§a§lSTART CO-OP TRUE RUN"
+                            : "§e§lSTART CO-OP (F." + selectedCheckpoint + ")";
                     this.addDrawableChild(create3DButton(
-                            Text.literal("§a§lSTART CO-OP RUN (FLOOR " + selectedCheckpoint + ")"),
-                            centerX - 100, centerY + 35, 200, 26,
+                            Text.literal(runTitle),
+                            centerX - 160, centerY + 40, 155, 26,
                             btn -> {
                                 ClientPlayNetworking.send(new StartTowerC2SPacket(false, selectedCheckpoint));
                                 this.close();
@@ -118,7 +122,7 @@ public class TowerHubScreen extends Screen {
                 } else if (hasParty) {
                     this.addDrawableChild(create3DButton(
                             Text.literal("§cLeave Party"),
-                            centerX - 100, centerY + 35, 200, 26,
+                            centerX - 160, centerY + 40, 155, 26,
                             btn -> {
                                 ClientPlayNetworking.send(new LeavePartyC2SPacket(true));
                                 this.close();
@@ -128,10 +132,20 @@ public class TowerHubScreen extends Screen {
             }
         }
 
+        // BP Exchange Shop Button
+        this.addDrawableChild(create3DButton(
+                Text.literal("§6§l❖ BP EXCHANGE SHOP ❖"),
+                centerX + 5, centerY + 40, 155, 26,
+                btn -> {
+                    TowerBpShopScreen.currentBpBalance = playerBp;
+                    this.client.setScreen(new TowerBpShopScreen());
+                }
+        ));
+
         // Close Button
         this.addDrawableChild(create3DButton(
-                Text.literal("§fClose"),
-                centerX - 50, centerY + 70, 100, 20,
+                Text.literal("§fClose Hub"),
+                centerX - 60, centerY + 78, 120, 20,
                 btn -> this.close()
         ));
     }
@@ -148,35 +162,43 @@ public class TowerHubScreen extends Screen {
         int centerX = this.width / 2;
         int centerY = this.height / 2;
 
-        // Slate & Vibrant Cyan Container
-        context.fill(centerX - 175, centerY - 115, centerX + 175, centerY + 120, 0xF012171E);
-        context.drawBorder(centerX - 175, centerY - 115, 350, 235, 0xFF0FD9C2);
-        context.fill(centerX - 174, centerY - 114, centerX + 174, centerY - 111, 0xFF0FD9C2);
+        // Container Window (Slate & Vibrant Cyan)
+        context.fill(centerX - 175, centerY - 118, centerX + 175, centerY + 120, 0xF012171E);
+        context.drawBorder(centerX - 175, centerY - 118, 350, 238, 0xFF0FD9C2);
+        context.fill(centerX - 174, centerY - 117, centerX + 174, centerY - 114, 0xFF0FD9C2);
 
         super.render(context, mouseX, mouseY, delta);
 
-        // Header Title (Drawn after super.render with crisp Cyan glow)
-        context.drawCenteredTextWithShadow(this.textRenderer, "§b§l❖ COBBLE TOWER HUB ❖", centerX, centerY - 103, 0x0FD9C2);
+        // Header Title
+        context.drawCenteredTextWithShadow(this.textRenderer, "§b§l❖ COBBLE TOWER HUB ❖", centerX, centerY - 106, 0x0FD9C2);
+
+        // BP Balance Indicator (Top Right in Header)
+        context.drawTextWithShadow(this.textRenderer, "§6BP: §e" + playerBp, centerX + 100, centerY - 106, 0xFFD700);
 
         // Mode Descriptions
         if (isSoloTab) {
-            context.drawCenteredTextWithShadow(this.textRenderer, "§fDouble Battle with your 6 Pokémon", centerX, centerY - 52, 0xFFFFFF);
-            context.drawCenteredTextWithShadow(this.textRenderer, "§7Highest Floor Cleared: §bFloor " + soloCheckpoint + " §7| Recent: §eFloor " + currentFloor, centerX, centerY - 38, 0xEEEEEE);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§fSolo 6v6 Double Battle Challenge", centerX, centerY - 52, 0xFFFFFF);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§7Max Floor Cleared: §bFloor " + soloCheckpoint + " §7| Current Floor: §eFloor " + currentFloor, centerX, centerY - 38, 0xEEEEEE);
         } else {
-            context.drawCenteredTextWithShadow(this.textRenderer, "§fDouble Battle with your 3 Pokémon and your partner's 3 Pokémon", centerX, centerY - 52, 0xFFFFFF);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§fCo-op Duo 3+3 Merged Double Battle", centerX, centerY - 52, 0xFFFFFF);
             if (hasParty) {
                 context.drawCenteredTextWithShadow(this.textRenderer, "§7Leader: §e" + leaderName + " §7| Partner: §e" + memberName + " §7| Shared Max: §bFloor " + duoCheckpoint, centerX, centerY - 38, 0xEEEEEE);
             } else {
-                context.drawCenteredTextWithShadow(this.textRenderer, "§cNo active party. §7Shift + Right-Click a player in Overworld to invite!", centerX, centerY - 38, 0xFFAAAA);
+                context.drawCenteredTextWithShadow(this.textRenderer, "§cNo active party. §7Shift + Right-Click a player to invite!", centerX, centerY - 38, 0xFFAAAA);
             }
         }
 
         // Starting Floor & Level Cap Indicator
         int maxCap = LevelCapManager.getMaxLevelCapForFloor(selectedCheckpoint);
-        context.drawCenteredTextWithShadow(this.textRenderer, "§fStarting Floor: §bFloor " + selectedCheckpoint + " §7(Pokémon ≤ Lv." + maxCap + ")", centerX, centerY + 12, 0x0FD9C2);
-        context.drawCenteredTextWithShadow(this.textRenderer, "§8[Clauses: Species Clause | Item Clause | Max 1-2 Legendaries]", centerX, centerY + 24, 0x888888);
+        boolean isTrue = (selectedCheckpoint == 1);
+        String runTypeDesc = isTrue
+                ? "§a★ True Run: Full BP & Prestige Milestones"
+                : "§e⚡ Checkpoint Run: 50% Floor BP, Practice Mode";
 
-        // Authors Credit (Bottom of Menu Y)
+        context.drawCenteredTextWithShadow(this.textRenderer, "§fSelected: §bFloor " + selectedCheckpoint + " §7(Cap: Lv." + maxCap + ") §7— " + runTypeDesc, centerX, centerY + 12, 0x0FD9C2);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§8[Clauses: Species Clause | Item Clause | Max 1 Restricted Legend | Locked Party]", centerX, centerY + 24, 0x888888);
+
+        // Authors Credit
         context.drawCenteredTextWithShadow(this.textRenderer, "§7CobbleTower - Made by Vit, Arjun, Serik, Zitj and Nam", centerX, centerY + 104, 0xAAAAAA);
     }
 
