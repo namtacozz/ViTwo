@@ -1,0 +1,21 @@
+{
+  "display": {
+    "icon": {
+      "id": "cobblemon:poke_ball"
+    },
+    "title": {
+      "translate": "advancements.vitwo.root.title"
+    },
+    "description": {
+      "translate": "advancements.vitwo.root.description"
+    },
+    "background": "minecraft:textures/gui/advancements/backgrounds/adventure.png",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "entered_tower": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "vitwo",
+  "version": "${version}",
+  "name": "CobbleTower",
+  "description": "Roguelike Battle Tower for Cobblemon with 100 floors, Solo 2-Slot & Duo Co-op Double Battles, Level Cap tiers, Perfect 6x31 IVs & Shiny Bosses, Rest Floors, and 4 Battle Gimmicks.",
+  "authors": [
+    "ViTwo Team"
+  ],
+  "contact": {
+    "homepage": "https://github.com/namtacozz/ViTwo",
+    "sources": "https://github.com/namtacozz/ViTwo"
+  },
+  "license": "MIT",
+  "icon": "assets/vitwo/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.vitwo.mod.ViTwoMod"
+    ],
+    "client": [
+      "com.vitwo.client.ViTwoClient"
+    ]
+  },
+  "mixins": [
+    "vitwo.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.1",
+    "java": ">=21",
+    "fabric-api": "*",
+    "cobblemon": ">=1.7.0"
+  },
+  "suggests": {
+    "mega_showdown": "*",
+    "rctmod": "*"
+  }
+}

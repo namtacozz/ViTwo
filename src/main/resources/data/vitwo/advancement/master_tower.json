@@ -1,0 +1,22 @@
+{
+  "parent": "vitwo:ultra_tower",
+  "display": {
+    "icon": {
+      "id": "cobblemon:origin_ball"
+    },
+    "title": {
+      "translate": "advancements.vitwo.master_tower.title"
+    },
+    "description": {
+      "translate": "advancements.vitwo.master_tower.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "cleared_floor_100": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

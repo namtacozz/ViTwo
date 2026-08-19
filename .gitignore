@@ -1,0 +1,22 @@
+# Gradle build artifacts and cache
+.gradle/
+build/
+bin/
+out/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Loom
+.loom-cache/
+run/
+
+# OS files
+.DS_Store
+Thumbs.db

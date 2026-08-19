@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "vitwo:block/tower_gateway"
+    }
+  }
+}

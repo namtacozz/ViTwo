@@ -1,0 +1,22 @@
+{
+  "parent": "vitwo:poke_tower",
+  "display": {
+    "icon": {
+      "id": "cobblemon:ultra_ball"
+    },
+    "title": {
+      "translate": "advancements.vitwo.great_tower.title"
+    },
+    "description": {
+      "translate": "advancements.vitwo.great_tower.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "cleared_floor_25": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
