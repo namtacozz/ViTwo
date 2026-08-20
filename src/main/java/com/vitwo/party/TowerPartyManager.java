@@ -25,8 +25,17 @@ public class TowerPartyManager {
     private final Map<UUID, UUID> playerToPartyLeader = new ConcurrentHashMap<>();
     private final Map<UUID, UUID> pendingInvites = new ConcurrentHashMap<>();
     private final Map<UUID, String> pendingInviterNames = new ConcurrentHashMap<>();
+    private MinecraftServer currentServer;
 
     private TowerPartyManager() {}
+
+    public void setCurrentServer(MinecraftServer server) {
+        this.currentServer = server;
+    }
+
+    public MinecraftServer getCurrentServer() {
+        return currentServer;
+    }
 
     public int getSoloCheckpoint(UUID playerId) {
         return TowerPlayerDataManager.getInstance().getProfile(playerId).soloCheckpoint;
@@ -499,6 +508,7 @@ public class TowerPartyManager {
     }
 
     public void tick(MinecraftServer server) {
+        this.currentServer = server;
         for (TowerParty party : activeParties.values()) {
             if (party.getDisconnectedPlayerId() != null) {
                 if (party.isDisconnectGraceExpired()) {

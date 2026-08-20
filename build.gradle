@@ -43,8 +43,8 @@ dependencies {
         exclude group: "net.fabricmc.fabric-api"
     }
 
-    // Kotlin Stdlib (required for Cobblemon Observable event subscriptions)
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.22"
+    // Fabric Language Kotlin (provides Kotlin stdlib and functional interfaces for Fabric IDEs)
+    modImplementation "net.fabricmc:fabric-language-kotlin:1.11.0+kotlin.2.0.0"
 }
 
 processResources {

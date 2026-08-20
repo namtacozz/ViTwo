@@ -7,6 +7,8 @@ import com.cobblemon.mod.common.api.events.battles.BattleFledEvent;
 import com.cobblemon.mod.common.api.events.battles.BattleVictoryEvent;
 import com.vitwo.party.TowerParty;
 import com.vitwo.party.TowerPartyManager;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvents;
@@ -32,14 +34,14 @@ public class TowerBattleManager {
      */
     public void registerBattleEvents() {
         try {
-            CobblemonEvents.BATTLE_VICTORY.subscribe(Priority.NORMAL, event -> {
+            CobblemonEvents.BATTLE_VICTORY.subscribe(Priority.NORMAL, (Function1<BattleVictoryEvent, Unit>) event -> {
                 handleBattleVictory(event);
-                return kotlin.Unit.INSTANCE;
+                return Unit.INSTANCE;
             });
 
-            CobblemonEvents.BATTLE_FLED.subscribe(Priority.NORMAL, event -> {
+            CobblemonEvents.BATTLE_FLED.subscribe(Priority.NORMAL, (Function1<BattleFledEvent, Unit>) event -> {
                 handleBattleFled(event);
-                return kotlin.Unit.INSTANCE;
+                return Unit.INSTANCE;
             });
 
             LOGGER.info("[CobbleTower] Successfully registered Cobblemon BATTLE_VICTORY and BATTLE_FLED event listeners!");
@@ -146,11 +148,10 @@ public class TowerBattleManager {
     }
 
     private ServerPlayerEntity getServerPlayer(UUID uuid) {
-        try {
-            for (ServerPlayerEntity p : net.fabricmc.fabric.api.networking.v1.PlayerLookup.all(net.fabricmc.loader.api.FabricLoader.getInstance().getGameInstance() instanceof MinecraftServer s ? s : null)) {
-                if (p.getUuid().equals(uuid)) return p;
-            }
-        } catch (Throwable ignored) {}
+        MinecraftServer server = TowerPartyManager.getInstance().getCurrentServer();
+        if (server != null) {
+            return server.getPlayerManager().getPlayer(uuid);
+        }
         return null;
     }
 
