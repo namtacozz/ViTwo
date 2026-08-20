@@ -7,8 +7,6 @@ import com.cobblemon.mod.common.api.events.battles.BattleFledEvent;
 import com.cobblemon.mod.common.api.events.battles.BattleVictoryEvent;
 import com.vitwo.party.TowerParty;
 import com.vitwo.party.TowerPartyManager;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundEvents;
@@ -16,8 +14,11 @@ import net.minecraft.text.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.function.Consumer;
 
 public class TowerBattleManager {
     private static final Logger LOGGER = LoggerFactory.getLogger("CobbleTower-BattleManager");
@@ -34,19 +35,54 @@ public class TowerBattleManager {
      */
     public void registerBattleEvents() {
         try {
-            CobblemonEvents.BATTLE_VICTORY.subscribe(Priority.NORMAL, (Function1<BattleVictoryEvent, Unit>) event -> {
-                handleBattleVictory(event);
-                return Unit.INSTANCE;
-            });
-
-            CobblemonEvents.BATTLE_FLED.subscribe(Priority.NORMAL, (Function1<BattleFledEvent, Unit>) event -> {
-                handleBattleFled(event);
-                return Unit.INSTANCE;
-            });
-
+            subscribeObservable(CobblemonEvents.BATTLE_VICTORY, this::handleBattleVictory);
+            subscribeObservable(CobblemonEvents.BATTLE_FLED, this::handleBattleFled);
             LOGGER.info("[CobbleTower] Successfully registered Cobblemon BATTLE_VICTORY and BATTLE_FLED event listeners!");
         } catch (Throwable t) {
-            LOGGER.error("[CobbleTower] Error registering battle event listeners", t);
+            LOGGER.error("[CobbleTower] Error registering battle event listeners: {}", t.getMessage());
+        }
+    }
+
+    private <T> void subscribeObservable(Object observable, Consumer<T> consumer) {
+        if (observable == null) return;
+        try {
+            Class<?> function1Class = Class.forName("kotlin.jvm.functions.Function1");
+            Class<?> unitClass = Class.forName("kotlin.Unit");
+            Object unitInstance = unitClass.getField("INSTANCE").get(null);
+
+            Object handlerProxy = Proxy.newProxyInstance(
+                    function1Class.getClassLoader(),
+                    new Class<?>[]{function1Class},
+                    (proxy, method, args) -> {
+                        if ("invoke".equals(method.getName()) && args != null && args.length == 1) {
+                            try {
+                                @SuppressWarnings("unchecked")
+                                T event = (T) args[0];
+                                consumer.accept(event);
+                            } catch (Throwable t) {
+                                LOGGER.error("[CobbleTower] Error in battle event consumer", t);
+                            }
+                            return unitInstance;
+                        }
+                        return null;
+                    }
+            );
+
+            // Find subscribe(Priority, Function1) or subscribe(Function1)
+            for (Method m : observable.getClass().getMethods()) {
+                if ("subscribe".equals(m.getName()) && m.getParameterCount() == 2) {
+                    m.invoke(observable, Priority.NORMAL, handlerProxy);
+                    return;
+                }
+            }
+            for (Method m : observable.getClass().getMethods()) {
+                if ("subscribe".equals(m.getName()) && m.getParameterCount() == 1) {
+                    m.invoke(observable, handlerProxy);
+                    return;
+                }
+            }
+        } catch (Throwable t) {
+            LOGGER.warn("[CobbleTower] Failed to subscribe to observable {}: {}", observable, t.getMessage());
         }
     }
 
