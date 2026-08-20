@@ -26,20 +26,6 @@ public class TrainerPool {
     private static final Map<String, List<String>> RCT_TRAINER_TEAMS = new HashMap<>();
     private static final Map<String, String> RCT_TRAINER_NAMES = new HashMap<>();
 
-    public static final String[] TRAINER_FIRST_NAMES = {
-        "Red", "Blue", "Green", "Lance", "Steven", "Cynthia", "Alder", "Iris", "Diantha", "Leon",
-        "Geeta", "Kieran", "Carmine", "Crispin", "Amarys", "Drayton", "Lacey", "Grusha", "Rika", "Poppy",
-        "Larry", "Hassel", "Tulip", "Iono", "Kofu", "Brassius", "Katy", "Raihan", "Bea", "Allister",
-        "Piers", "Marnie", "Nessa", "Kabu", "Milo", "Gordie", "Melony", "Opal", "Bede", "Klara",
-        "Avery", "Peony", "Mustard", "Volkner", "Flint", "Lucian", "Aaron", "Roark", "Gardenia", "Maylene",
-        "Crasher Wake", "Fantina", "Byron", "Candice", "Riley", "Cheryl", "Mira", "Buck", "Marley", "Palmer",
-        "Thorton", "Dahlia", "Darach", "Argenta", "Anabel", "Brandon", "Spenser", "Greta", "Lucy", "Noland",
-        "Tucker", "Norman", "Winona", "Tate", "Liza", "Wallace", "Juan", "Brawly", "Wattson", "Flannery",
-        "Roxanne", "Sidney", "Phoebe", "Glacia", "Drake", "Karen", "Will", "Koga", "Bruno", "Clair",
-        "Jasmine", "Chuck", "Pryce", "Whitney", "Morty", "Bugsy", "Falkner", "Brock", "Misty", "Lt. Surge",
-        "Erika", "Sabrina", "Blaine", "Giovanni", "Lorelei", "Agatha"
-    };
-
     static {
         loadTeamsFromJson();
         loadRctCatalog();
@@ -84,7 +70,7 @@ public class TrainerPool {
                     JsonObject trainersObj = obj.getAsJsonObject("trainers");
                     for (String tid : trainersObj.keySet()) {
                         JsonObject tinfo = trainersObj.getAsJsonObject(tid);
-                        String name = tinfo.has("name") ? tinfo.get("name").getAsString() : tid;
+                        String name = tinfo.has("name") ? tinfo.get("name").getAsString() : formatFallbackName(tid);
                         RCT_TRAINER_NAMES.put(tid, name);
                         if (tinfo.has("team")) {
                             Type listType = new TypeToken<List<String>>(){}.getType();
@@ -165,19 +151,25 @@ public class TrainerPool {
      * Obtains a varied and valid RCT Trainer ID for this specific floor
      */
     public static String getRctTrainerIdForFloor(int floor) {
+        if (floor >= 100) {
+            return "champion_cynthia_f63d"; // Final Boss Avatar
+        }
         int stage = getStageForFloor(floor);
         List<String> list = RCT_STAGE_TRAINERS.get(stage);
         if (list != null && !list.isEmpty()) {
-            // Deterministic hash based on floor and day to give consistent variety per floor
-            int idx = Math.abs((floor * 37 + (int)(System.currentTimeMillis() / 3600000))) % list.size();
+            // Consistent, varied index per floor
+            int idx = Math.abs((floor * 47 + (floor / 3) * 19)) % list.size();
             return list.get(idx);
         }
         return "ace_trainer_abel_04a5";
     }
 
-    public static String getRandomTrainerName(int floor) {
+    /**
+     * Returns the authentic human-readable display name corresponding to the NPC avatar
+     */
+    public static String getTrainerDisplayName(int floor) {
         if (floor >= 100) {
-            return "§4§lGENESIS ARCEUS §7(Floor 100)";
+            return "§4§lGENESIS ARCEUS";
         }
         if (floor >= 91) {
             String[] mythicalTitles = {
@@ -189,29 +181,39 @@ public class TrainerPool {
         }
 
         String rctId = getRctTrainerIdForFloor(floor);
-        String rctName = RCT_TRAINER_NAMES.get(rctId);
-        if (rctName != null && !rctName.isEmpty()) {
-            TowerTeam team = getTeamForFloor(floor);
-            String teamName = team != null && team.getName() != null ? team.getName() : "Challenger";
-            return "§b" + rctName + " §7[§e" + teamName + "§7]";
+        String name = RCT_TRAINER_NAMES.get(rctId);
+        if (name != null && !name.isEmpty()) {
+            return name;
         }
 
-        TowerTeam team = getTeamForFloor(floor);
-        String title = (team != null && team.getTrainerTitle() != null && !team.getTrainerTitle().equals("null")) 
-                ? team.getTrainerTitle() : "Tower Trainer";
-        String name = TRAINER_FIRST_NAMES[Math.abs((floor * 37)) % TRAINER_FIRST_NAMES.length];
-        String teamName = (team != null && team.getName() != null) ? team.getName() : "Challenger";
-        return title + " " + name + " §7[§e" + teamName + "§7]";
+        return formatFallbackName(rctId);
+    }
+
+    private static String formatFallbackName(String rctId) {
+        if (rctId == null || rctId.isEmpty()) return "Tower Challenger";
+        String[] parts = rctId.split("_");
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < parts.length; i++) {
+            // Skip trailing hex ID like '04a5'
+            if (i == parts.length - 1 && parts[i].length() <= 4 && parts[i].matches("[0-9a-fA-F]+")) {
+                continue;
+            }
+            if (parts[i].isEmpty()) continue;
+            if (!sb.isEmpty()) sb.append(" ");
+            sb.append(Character.toUpperCase(parts[i].charAt(0)));
+            if (parts[i].length() > 1) {
+                sb.append(parts[i].substring(1).toLowerCase());
+            }
+        }
+        return sb.length() > 0 ? sb.toString() : "Tower Challenger";
     }
 
     public static List<String> generateDynamicTeam(int floor) {
-        // First check custom tower team
         TowerTeam team = getTeamForFloor(floor);
         if (team != null && team.getPokemon() != null && !team.getPokemon().isEmpty()) {
             return team.getSpeciesList();
         }
 
-        // Fallback to RCT catalog team
         String rctId = getRctTrainerIdForFloor(floor);
         List<String> rctTeam = RCT_TRAINER_TEAMS.get(rctId);
         if (rctTeam != null && !rctTeam.isEmpty()) {

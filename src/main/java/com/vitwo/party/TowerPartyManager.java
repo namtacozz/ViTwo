@@ -201,7 +201,6 @@ public class TowerPartyManager {
             party.setOriginalLeaderPos(leader.getBlockPos());
             party.clearForfeitVotes();
 
-            TowerArenaManager.getInstance().teleportPartyToArena(party, leader, null);
             startFloor(party, server);
         } else {
             ServerPlayerEntity member = server.getPlayerManager().getPlayer(party.getMemberId());
@@ -231,7 +230,6 @@ public class TowerPartyManager {
             party.setOriginalMemberPos(member.getBlockPos());
             party.clearForfeitVotes();
 
-            TowerArenaManager.getInstance().teleportPartyToArena(party, leader, member);
             startFloor(party, server);
         }
     }
@@ -246,6 +244,9 @@ public class TowerPartyManager {
         ServerPlayerEntity member = party.isSolo() ? null : server.getPlayerManager().getPlayer(party.getMemberId());
 
         if (leader == null) return;
+
+        // Teleport party to fresh floor arena and barrier boundary
+        TowerArenaManager.getInstance().teleportPartyToArena(party, leader, member);
 
         String bossName = TowerBattleManager.getInstance().getBossNameForFloor(floor);
         TowerTitleS2CPacket titlePayload = new TowerTitleS2CPacket(
@@ -270,9 +271,6 @@ public class TowerPartyManager {
         } else {
             TowerBattleManager.getInstance().startDuoDoubleBattle(party, leader, member, floor);
         }
-
-        // Team Preview Screen Dispatch
-        TowerBattleManager.getInstance().sendTeamPreview(party, leader, member, floor);
 
         // Run Persistence
         TowerRunPersistenceManager.getInstance().saveRun(party);

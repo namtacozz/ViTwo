@@ -90,6 +90,13 @@ public class TowerParty {
         return playerId.equals(leaderId) ? memberId : leaderId;
     }
 
+    public List<UUID> getAllMembers() {
+        if (isSolo || memberId == null) {
+            return List.of(leaderId);
+        }
+        return List.of(leaderId, memberId);
+    }
+
     public int getCurrentFloor() {
         return currentFloor;
     }

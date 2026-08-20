@@ -6,82 +6,30 @@ import java.util.Random;
 public class ArenaTemplatePool {
     private static final Random RANDOM = new Random();
 
-    // 1. Kanto Gyms (Gen 1)
-    public static final List<String> KANTO_GYMS = List.of(
-            "cobbleverse:brock",
-            "cobbleverse:misty",
-            "cobbleverse:ltsurge",
-            "cobbleverse:erika",
-            "cobbleverse:koga",
-            "cobbleverse:sabrina",
-            "cobbleverse:blaine",
-            "cobbleverse:giovanni"
+    // 1. All Regional Gyms (Gen 1-4) - Clean, Flat Arenas
+    public static final List<String> ALL_REGIONAL_GYMS = List.of(
+            "cobbleverse:brock", "cobbleverse:misty", "cobbleverse:ltsurge", "cobbleverse:erika",
+            "cobbleverse:koga", "cobbleverse:sabrina", "cobbleverse:blaine", "cobbleverse:giovanni",
+            "cobbleverse:valerio", "cobbleverse:raffaello", "cobbleverse:chiara", "cobbleverse:angelo",
+            "cobbleverse:furio", "cobbleverse:jasmine", "cobbleverse:alfredo", "cobbleverse:sandra",
+            "cobbleverse:petra", "cobbleverse:rudi", "cobbleverse:walter", "cobbleverse:fiammetta",
+            "cobbleverse:norman", "cobbleverse:alice", "cobbleverse:tell", "cobbleverse:adriano",
+            "cobbleverse:pedro", "cobbleverse:gardenia", "cobbleverse:marzia", "cobbleverse:omar",
+            "cobbleverse:fannie", "cobbleverse:ferruccio", "cobbleverse:bianca", "cobbleverse:corrado"
     );
 
-    // 2. Johto Gyms (Gen 2)
-    public static final List<String> JOHTO_GYMS = List.of(
-            "cobbleverse:valerio",
-            "cobbleverse:raffaello",
-            "cobbleverse:chiara",
-            "cobbleverse:angelo",
-            "cobbleverse:furio",
-            "cobbleverse:jasmine",
-            "cobbleverse:alfredo",
-            "cobbleverse:sandra"
-    );
-
-    // 3. Hoenn Gyms (Gen 3)
-    public static final List<String> HOENN_GYMS = List.of(
-            "cobbleverse:petra",
-            "cobbleverse:rudi",
-            "cobbleverse:walter",
-            "cobbleverse:fiammetta",
-            "cobbleverse:norman",
-            "cobbleverse:alice",
-            "cobbleverse:tell",
-            "cobbleverse:adriano"
-    );
-
-    // 4. Sinnoh Gyms (Gen 4)
-    public static final List<String> SINNOH_GYMS = List.of(
-            "cobbleverse:pedro",
-            "cobbleverse:gardenia",
-            "cobbleverse:marzia",
-            "cobbleverse:omar",
-            "cobbleverse:fannie",
-            "cobbleverse:ferruccio",
-            "cobbleverse:bianca",
-            "cobbleverse:corrado"
-    );
-
-    // 5. Villain Towers & Sacred Towers (Floors 25-49)
-    public static final List<String> VILLAIN_AND_ANCIENT_TOWERS = List.of(
-            "cobbleverse:team_rocket_tower",
-            "cobbleverse:rocket_radio_tower",
-            "cobbleverse:team_galactic_hq",
-            "cobbleverse:eterna_building",
-            "cobbleverse:bell_tower",
-            "cobbleverse:burned_tower",
-            "cobbleverse:dawn_tower",
-            "cobbleverse:dusk_tower"
-    );
-
-    // 6. Elite Four & Grand Leagues (Floors 50-74)
-    public static final List<String> LEAGUE_TOWERS = List.of(
+    // 2. Elite Four & Grand League Stadiums (Floors 51-75)
+    public static final List<String> LEAGUE_STADIUMS = List.of(
             "cobbleverse:kanto_league",
             "cobbleverse:johto_league",
             "cobbleverse:hoenn_league",
             "cobbleverse:sinnoh_league"
     );
 
-    // 7. Legendary Shrines & Mythical Dimensions (Floors 75-99)
+    // 3. Legendary & Mythical Shrines (Floors 76-99) - Clean open platforms without dimension portals
     public static final List<String> MYTHICAL_SHRINES = List.of(
             "cobbleverse:spear_pillar",
             "cobbleverse:snowpoint_temple",
-            "legendarymonuments:distortion_portal",
-            "legendarymonuments:giratina_island/main/111",
-            "legendarymonuments:stark_mountain",
-            "legendarymonuments:eternatus_cocoon",
             "cobbleverse:legendary/groudon",
             "cobbleverse:legendary/kyogre",
             "cobbleverse:legendary/articuno",
@@ -94,7 +42,7 @@ public class ArenaTemplatePool {
             "cobbleverse:mythical/manaphy"
     );
 
-    // 8. Rest Station Pokecenters (Every 5 Floors)
+    // 4. Rest Station Pokecenters (Every 5 Floors, except 100)
     public static final List<String> POKECENTERS = List.of(
             "cobblemon:village_plains/village_plains_pokecenter",
             "cobblemon:village_desert/village_desert_pokecenter",
@@ -105,30 +53,17 @@ public class ArenaTemplatePool {
             "cobblemon:villages/mountains/pokecenter"
     );
 
-    public static final List<String> ALL_REGIONAL_GYMS = List.of(
-            "cobbleverse:brock", "cobbleverse:misty", "cobbleverse:ltsurge", "cobbleverse:erika",
-            "cobbleverse:koga", "cobbleverse:sabrina", "cobbleverse:blaine", "cobbleverse:giovanni",
-            "cobbleverse:valerio", "cobbleverse:raffaello", "cobbleverse:chiara", "cobbleverse:angelo",
-            "cobbleverse:furio", "cobbleverse:jasmine", "cobbleverse:alfredo", "cobbleverse:sandra",
-            "cobbleverse:petra", "cobbleverse:rudi", "cobbleverse:walter", "cobbleverse:fiammetta",
-            "cobbleverse:norman", "cobbleverse:alice", "cobbleverse:tell", "cobbleverse:adriano",
-            "cobbleverse:pedro", "cobbleverse:gardenia", "cobbleverse:marzia", "cobbleverse:omar",
-            "cobbleverse:fannie", "cobbleverse:ferruccio", "cobbleverse:bianca", "cobbleverse:corrado"
-    );
-
     public static String getStructureForFloor(int floor) {
         if (floor >= 100) {
-            return "cobbleverse:spear_pillar";
+            return "cobbleverse:spear_pillar"; // Final Sovereign Boss Arena
         }
         if (floor % 5 == 0) {
             return getRandomFromList(POKECENTERS);
         }
-        if (floor <= 25) {
+        if (floor <= 50) {
             return getRandomFromList(ALL_REGIONAL_GYMS);
-        } else if (floor <= 50) {
-            return getRandomFromList(VILLAIN_AND_ANCIENT_TOWERS);
         } else if (floor <= 75) {
-            return getRandomFromList(LEAGUE_TOWERS);
+            return getRandomFromList(LEAGUE_STADIUMS);
         } else {
             return getRandomFromList(MYTHICAL_SHRINES);
         }

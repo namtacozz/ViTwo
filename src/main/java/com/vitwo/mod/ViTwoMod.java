@@ -130,7 +130,10 @@ public class ViTwoMod implements ModInitializer {
             return ActionResult.PASS;
         });
 
-        // 6. Register Tick & Reconnection Handlers
+        // 6. Register Cobblemon Battle Victory/Defeat Lifecycle Hooks
+        com.vitwo.battle.TowerBattleManager.getInstance().registerBattleEvents();
+
+        // 7. Register Tick & Reconnection Handlers
         ServerTickEvents.END_SERVER_TICK.register(server -> TowerPartyManager.getInstance().tick(server));
 
         ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> {
@@ -141,7 +144,7 @@ public class ViTwoMod implements ModInitializer {
             TowerPartyManager.getInstance().handleReconnect(handler.getPlayer());
         });
 
-        // 7. Register Commands
+        // 8. Register Commands
         net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
             com.vitwo.command.TowerCommands.register(dispatcher);
         });

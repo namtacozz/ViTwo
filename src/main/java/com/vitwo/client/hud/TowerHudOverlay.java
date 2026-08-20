@@ -22,11 +22,11 @@ public class TowerHudOverlay {
     public static int maxGhostCharges = 2;
 
     public static void render(DrawContext context, float tickDelta) {
-        // Strict Visibility: Only render when player is actively inside a tower run session
+        // Strict Visibility: Only render when player is actively inside a tower run session and not in a menu screen
         if (!inTowerSession) return;
 
         MinecraftClient client = MinecraftClient.getInstance();
-        if (client.player == null) return;
+        if (client.player == null || client.currentScreen != null) return;
 
         int x = 12;
         int y = 12;

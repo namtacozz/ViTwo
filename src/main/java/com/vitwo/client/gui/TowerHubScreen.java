@@ -24,7 +24,7 @@ public class TowerHubScreen extends Screen {
     public static int playerBp = 0;
     public static boolean isTrueRun = true;
 
-    private static final int[] CHECKPOINTS = {1, 26, 51, 76, 91, 100};
+    private static final int[] CHECKPOINTS = {1, 10, 25, 50, 75, 90, 100};
     private int selectedCheckpoint = 1;
     private boolean isSoloTab = true;
 
@@ -60,11 +60,12 @@ public class TowerHubScreen extends Screen {
                 }
         ));
 
-        // Checkpoint Selection Buttons (6 buttons: 1, 26, 51, 76, 91, 100)
+        // Checkpoint Selection Buttons (7 buttons: 1, 10, 25, 50, 75, 90, 100)
         int maxCp = isSoloTab ? soloCheckpoint : (hasParty ? duoCheckpoint : 1);
-        int startX = centerX - 160;
-        int cpBtnW = 50;
+        int cpBtnW = 42;
         int cpGap = 4;
+        int totalW = (CHECKPOINTS.length * cpBtnW) + ((CHECKPOINTS.length - 1) * cpGap);
+        int startX = centerX - (totalW / 2);
 
         for (int i = 0; i < CHECKPOINTS.length; i++) {
             int cp = CHECKPOINTS[i];

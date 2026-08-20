@@ -1,42 +1,165 @@
 package com.vitwo.battle;
 
+import com.cobblemon.mod.common.api.Priority;
+import com.cobblemon.mod.common.api.battles.model.actor.BattleActor;
+import com.cobblemon.mod.common.api.events.CobblemonEvents;
+import com.cobblemon.mod.common.api.events.battles.BattleFledEvent;
+import com.cobblemon.mod.common.api.events.battles.BattleVictoryEvent;
 import com.vitwo.party.TowerParty;
 import com.vitwo.party.TowerPartyManager;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class TowerBattleManager {
+    private static final Logger LOGGER = LoggerFactory.getLogger("CobbleTower-BattleManager");
     private static final TowerBattleManager INSTANCE = new TowerBattleManager();
     public static TowerBattleManager getInstance() { return INSTANCE; }
 
     private final Set<UUID> inTowerBattlePlayers = Collections.newSetFromMap(new ConcurrentHashMap<>());
     private static final Random RANDOM = new Random();
 
-    // 6-Pokemon Rosters for Floors 91-100 (Full Legendary / Mythical)
-    public static final List<List<String>> LEGENDARY_ROSTERS = List.of(
-            List.of("ho-oh", "lugia", "entei", "raikou", "suicune", "celebi"),
-            List.of("kyogre", "groudon", "rayquaza", "latios", "latias", "jirachi"),
-            List.of("rayquaza", "deoxys", "regigigas", "darkrai", "cresselia", "victini"),
-            List.of("dialga", "palkia", "giratina", "heatran", "regigigas", "shaymin"),
-            List.of("palkia", "dialga", "giratina", "manaphy", "phione", "darkrai"),
-            List.of("giratina", "darkrai", "mewtwo", "marshadow", "necrozma", "calyrex"),
-            List.of("groudon", "kyogre", "rayquaza", "zacian", "zamazenta", "eternatus"),
-            List.of("kyogre", "groudon", "rayquaza", "miraidon", "koraidon", "ting-lu"),
-            List.of("calyrex", "spectrier", "glastrier", "zacian", "urshifu", "arceus"),
-            List.of("arceus", "mewtwo", "rayquaza", "giratina", "dialga", "palkia")
-    );
-
     private TowerBattleManager() {}
+
+    /**
+     * Subscribes to Cobblemon battle end events (Victory & Fled) to automatically progress tower floors
+     */
+    public void registerBattleEvents() {
+        try {
+            CobblemonEvents.BATTLE_VICTORY.subscribe(Priority.NORMAL, event -> {
+                handleBattleVictory(event);
+                return kotlin.Unit.INSTANCE;
+            });
+
+            CobblemonEvents.BATTLE_FLED.subscribe(Priority.NORMAL, event -> {
+                handleBattleFled(event);
+                return kotlin.Unit.INSTANCE;
+            });
+
+            LOGGER.info("[CobbleTower] Successfully registered Cobblemon BATTLE_VICTORY and BATTLE_FLED event listeners!");
+        } catch (Throwable t) {
+            LOGGER.error("[CobbleTower] Error registering battle event listeners", t);
+        }
+    }
+
+    private void handleBattleVictory(BattleVictoryEvent event) {
+        if (event == null) return;
+
+        // 1. Check if any winner is in an active Tower party
+        for (BattleActor winner : event.getWinners()) {
+            if (winner == null) continue;
+            for (UUID playerId : winner.getPlayerUUIDs()) {
+                Optional<TowerParty> partyOpt = TowerPartyManager.getInstance().getParty(playerId);
+                if (partyOpt.isPresent()) {
+                    TowerParty party = partyOpt.get();
+                    if (party.getState() == TowerParty.State.IN_BATTLE) {
+                        for (UUID memId : party.getAllMembers()) {
+                            inTowerBattlePlayers.remove(memId);
+                        }
+
+                        // Retrieve server from one of the party members
+                        ServerPlayerEntity leader = null;
+                        for (UUID id : party.getAllMembers()) {
+                            ServerPlayerEntity p = getServerPlayer(id);
+                            if (p != null) {
+                                leader = p;
+                                break;
+                            }
+                        }
+
+                        if (leader != null && leader.getServer() != null) {
+                            MinecraftServer server = leader.getServer();
+                            server.execute(() -> {
+                                for (UUID id : party.getAllMembers()) {
+                                    ServerPlayerEntity p = server.getPlayerManager().getPlayer(id);
+                                    if (p != null) {
+                                        p.playSound(SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 1.0f, 1.0f);
+                                    }
+                                }
+                                TowerPartyManager.getInstance().onFloorWon(party, server);
+                            });
+                        }
+                        return;
+                    }
+                }
+            }
+        }
+
+        // 2. Check if any loser is in an active Tower party (Loss condition)
+        for (BattleActor loser : event.getLosers()) {
+            if (loser == null) continue;
+            for (UUID playerId : loser.getPlayerUUIDs()) {
+                Optional<TowerParty> partyOpt = TowerPartyManager.getInstance().getParty(playerId);
+                if (partyOpt.isPresent()) {
+                    TowerParty party = partyOpt.get();
+                    if (party.getState() == TowerParty.State.IN_BATTLE) {
+                        for (UUID memId : party.getAllMembers()) {
+                            inTowerBattlePlayers.remove(memId);
+                        }
+
+                        ServerPlayerEntity leader = getServerPlayer(playerId);
+                        if (leader != null && leader.getServer() != null) {
+                            MinecraftServer server = leader.getServer();
+                            server.execute(() -> {
+                                for (UUID id : party.getAllMembers()) {
+                                    ServerPlayerEntity p = server.getPlayerManager().getPlayer(id);
+                                    if (p != null) {
+                                        p.playSound(SoundEvents.ENTITY_WITHER_DEATH, 0.7f, 0.8f);
+                                    }
+                                }
+                                TowerPartyManager.getInstance().onPartyDefeated(party, server);
+                            });
+                        }
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    private void handleBattleFled(BattleFledEvent event) {
+        if (event == null || event.getPlayer() == null) return;
+        UUID playerId = event.getPlayer().getUuid();
+        Optional<TowerParty> partyOpt = TowerPartyManager.getInstance().getParty(playerId);
+        if (partyOpt.isPresent()) {
+            TowerParty party = partyOpt.get();
+            if (party.getState() == TowerParty.State.IN_BATTLE) {
+                for (UUID memId : party.getAllMembers()) {
+                    inTowerBattlePlayers.remove(memId);
+                }
+                ServerPlayerEntity player = getServerPlayer(playerId);
+                if (player != null && player.getServer() != null) {
+                    MinecraftServer server = player.getServer();
+                    server.execute(() -> {
+                        player.sendMessage(Text.literal("§c[CobbleTower] You fled from the battle! Tower run ended."), false);
+                        TowerPartyManager.getInstance().onPartyDefeated(party, server);
+                    });
+                }
+            }
+        }
+    }
+
+    private ServerPlayerEntity getServerPlayer(UUID uuid) {
+        try {
+            for (ServerPlayerEntity p : net.fabricmc.fabric.api.networking.v1.PlayerLookup.all(net.fabricmc.loader.api.FabricLoader.getInstance().getGameInstance() instanceof MinecraftServer s ? s : null)) {
+                if (p.getUuid().equals(uuid)) return p;
+            }
+        } catch (Throwable ignored) {}
+        return null;
+    }
 
     public TowerTeam getBossTeamForFloor(int floor) {
         return TrainerPool.getTeamForFloor(floor);
     }
 
     public String getBossNameForFloor(int floor) {
-        return TrainerPool.getRandomTrainerName(floor);
+        return TrainerPool.getTrainerDisplayName(floor);
     }
 
     public List<String> getBossTeamSpeciesForFloor(int floor) {
@@ -44,8 +167,11 @@ public class TowerBattleManager {
     }
 
     public String getRandomBossSpecies(int floor) {
-        List<String> roster = getBossTeamSpeciesForFloor(floor);
-        return roster.get(RANDOM.nextInt(roster.size()));
+        List<String> species = getBossTeamSpeciesForFloor(floor);
+        if (species != null && !species.isEmpty()) {
+            return species.get(RANDOM.nextInt(species.size()));
+        }
+        return "pikachu";
     }
 
     public boolean isInTowerBattle(UUID playerId) {
@@ -59,8 +185,10 @@ public class TowerBattleManager {
         boolean hasShiny = LevelCapManager.hasShinyBossPokemon(floor);
         String bossName = getBossNameForFloor(floor);
 
-        player.sendMessage(Text.literal("§b[CobbleTower] §fOpponent: §e" + bossName + " §7| §bSolo 2-Slot §7| §eCap: §aLv." + maxCap), false);
-        if (floor >= 91) {
+        player.sendMessage(Text.literal("§b[CobbleTower] §fOpponent: §e" + bossName + " §7| §bSolo 6v6 §7| §eCap: §aLv." + maxCap), false);
+        if (floor >= 100) {
+            player.sendMessage(Text.literal("§4👑 FINAL BATTLE: Confront the Genesis Arceus Sovereign!"), false);
+        } else if (floor >= 91) {
             player.sendMessage(Text.literal("§4⚠ WARNING: Sovereign commands a Full Legendary roster with a Shiny Ace!"), false);
         } else if (hasShiny) {
             player.sendMessage(Text.literal("§d✨ Opponent commands 1 Shiny Pokémon with Perfect 6x31 IVs & Mega/Z/Dyna/Tera!"), false);
@@ -83,7 +211,10 @@ public class TowerBattleManager {
         leader.sendMessage(Text.literal(header), false);
         member.sendMessage(Text.literal(header), false);
 
-        if (floor >= 91) {
+        if (floor >= 100) {
+            leader.sendMessage(Text.literal("§4👑 FINAL BATTLE: Confront the Genesis Arceus Sovereign!"), false);
+            member.sendMessage(Text.literal("§4👑 FINAL BATTLE: Confront the Genesis Arceus Sovereign!"), false);
+        } else if (floor >= 91) {
             leader.sendMessage(Text.literal("§4⚠ WARNING: Sovereign commands a Full Legendary roster with a Shiny Ace!"), false);
             member.sendMessage(Text.literal("§4⚠ WARNING: Sovereign commands a Full Legendary roster with a Shiny Ace!"), false);
         } else if (hasShiny) {
@@ -100,70 +231,11 @@ public class TowerBattleManager {
     }
 
     public void sendTeamPreview(TowerParty party, ServerPlayerEntity leader, ServerPlayerEntity member, int floor) {
-        int duration = (floor >= 91) ? 45 : ((floor % 10 == 0) ? 30 : 20);
-        String bossName = getBossNameForFloor(floor);
-        String bossTitle = (floor >= 91) ? "« Tower Sovereign Boss »" : ((floor % 10 == 0) ? "« Tower Milestone Boss »" : "Tower Challenger");
-        List<String> oppRoster = getBossTeamSpeciesForFloor(floor);
-
-        if (leader != null) {
-            List<String> playerRoster = getPlayerPartySpecies(leader);
-            net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.send(
-                    leader,
-                    new com.vitwo.network.s2c.OpenTeamPreviewS2CPacket(floor, duration, bossName, bossTitle, oppRoster, playerRoster)
-            );
-        }
-        if (member != null) {
-            List<String> memberRoster = getPlayerPartySpecies(member);
-            net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.send(
-                    member,
-                    new com.vitwo.network.s2c.OpenTeamPreviewS2CPacket(floor, duration, bossName, bossTitle, oppRoster, memberRoster)
-            );
-        }
+        // Disabled per request for pure mystery battle flow
     }
 
     public void handleReadyTeamPreview(ServerPlayerEntity player, List<Integer> slotOrder) {
         if (player == null) return;
-        player.sendMessage(Text.literal("§a✔ Team Preview confirmed! Entering battle..."), false);
-    }
-
-    private List<String> getPlayerPartySpecies(ServerPlayerEntity player) {
-        List<String> list = new ArrayList<>();
-        try {
-            Class<?> cobblemonClass = Class.forName("com.cobblemon.mod.common.Cobblemon");
-            Object cobblemonInst = cobblemonClass.getField("INSTANCE").get(null);
-            java.lang.reflect.Method getStorageMethod = cobblemonInst.getClass().getMethod("getStorage");
-            Object storage = getStorageMethod.invoke(cobblemonInst);
-            java.lang.reflect.Method getPartyMethod = storage.getClass().getMethod("getParty", ServerPlayerEntity.class);
-            Iterable<?> party = (Iterable<?>) getPartyMethod.invoke(storage, player);
-
-            for (Object pokemon : party) {
-                if (pokemon == null) continue;
-                java.lang.reflect.Method getSpeciesMethod = pokemon.getClass().getMethod("getSpecies");
-                Object species = getSpeciesMethod.invoke(pokemon);
-                java.lang.reflect.Method getNameMethod = species.getClass().getMethod("getName");
-                String name = (String) getNameMethod.invoke(species);
-                list.add(name);
-            }
-        } catch (Exception ignored) {
-            list.addAll(List.of("Pokémon 1", "Pokémon 2", "Pokémon 3", "Pokémon 4", "Pokémon 5", "Pokémon 6"));
-        }
-        return list;
-    }
-
-    public void endBattle(TowerParty party, boolean victory, ServerPlayerEntity leader, ServerPlayerEntity member) {
-        if (leader != null) {
-            inTowerBattlePlayers.remove(leader.getUuid());
-            TowerSpectatorManager.getInstance().restoreFromSpectator(leader);
-        }
-        if (member != null) {
-            inTowerBattlePlayers.remove(member.getUuid());
-            TowerSpectatorManager.getInstance().restoreFromSpectator(member);
-        }
-
-        if (victory) {
-            TowerPartyManager.getInstance().onFloorWon(party, leader != null ? leader.getServer() : member.getServer());
-        } else {
-            TowerPartyManager.getInstance().onPartyDefeated(party, leader != null ? leader.getServer() : member.getServer());
-        }
+        player.sendMessage(Text.literal("§a✔ Ready for battle!"), false);
     }
 }
