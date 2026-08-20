@@ -18,6 +18,7 @@ public class ViTwoPackets {
         PayloadTypeRegistry.playC2S().register(BuyBpItemC2SPacket.ID, BuyBpItemC2SPacket.CODEC);
         PayloadTypeRegistry.playC2S().register(GhostSupportActionC2SPacket.ID, GhostSupportActionC2SPacket.CODEC);
         PayloadTypeRegistry.playC2S().register(ReadyTeamPreviewC2SPacket.ID, ReadyTeamPreviewC2SPacket.CODEC);
+        PayloadTypeRegistry.playC2S().register(DebugTowerActionC2SPacket.ID, DebugTowerActionC2SPacket.CODEC);
 
         // Register S2C (Server -> Client)
         PayloadTypeRegistry.playS2C().register(ShowInviteToastS2CPacket.ID, ShowInviteToastS2CPacket.CODEC);

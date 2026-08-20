@@ -51,24 +51,21 @@ jobs:
 
             Bản cập nhật lớn toàn diện **CobbleTower v1.3.0** cho Cobblemon Minecraft 1.21.1 mang đến trải nghiệm Đấu Trường VGC 100 Tầng đỉnh cao.
 
-            ### 🌟 Tính Năng & Đổi Mới Nổi Bật trong v1.3.0:
-            1. **Arena Curses & Dual Curse Matrix:**
-               - Cân bằng lại Ironclad (15%) và Retaliation (10%, max 20% HP).
-               - 4 Lời nguyền mới: *Temporal Decay, Silence, Gravity Well, Famine*.
-               - Ma trận **10 cặp Dual Curses cố định** cho tầng Sovereign Boss (F91–100).
-            2. **Ghost Support Protocol (Co-op Spectator):**
-               - Năng lượng Ghost Charges theo chặng: 2⚡ (F1–50), 3⚡ (F51–75), 4⚡ (F76–100).
-               - Kỹ năng thứ 4: `[V]` **Spectral Insight** soi điểm yếu và chỉ số đối thủ.
-               - Heal Pulse tỷ lệ hồi máu theo chặng (15% ➔ 30% Max HP).
-            3. **Luật Đấu Cạnh Tranh & Anti-Cheese:**
-               - Tự động áp dụng Evasion, OHKO, Moody, và Swagger Clauses.
-               - Kiểm soát Species Clause, Item Clause, và Legendary Tiering Caps.
-            4. **Hệ Thống Difficulty Profiles:**
-               - Tùy chọn cấu hình server: `CASUAL`, `STANDARD`, `HARDCORE`.
-            5. **Cửa Hàng BP 4 Bậc:**
-               - Bronze, Silver (F50), Gold (F100), và Platinum (Prestige 3+) với danh hiệu độc quyền `« Tower Legend »`.
-            6. **Đầy Đủ Hệ Thống Lệnh (`/tower`):**
-               - `/tower start`, `/tower solo`, `/tower checkpoint <floor>`, `/tower duo <player>`, `/tower pause`, `/tower resume`, `/tower stats`, `/tower forfeit`, `/tower reload`.
+            ### 🌟 Tính Năng & Sửa Lỗi Nổi Bật trong v1.3.0:
+            1. **Triệu Hồi 1,559 RCT Trainers Đa Dạng & Bypass Cốt Truyện:**
+               - Tích hợp kho dữ liệu 1,559 NPC Trainer phân theo 6 bậc độ khó.
+               - Tự động spawn Trainer NPC trong sàn đấu và khởi tạo trận đấu trực tiếp khi tương tác.
+            2. **An Toàn Bề Mặt & Sửa Lỗi Kẹt Trục Z:**
+               - Tự động dò tìm bề mặt sàn đấu và Overworld, lấp đầy nền tảng Deepslate an toàn, loại bỏ triệt để việc kẹt trong lòng đất hoặc rớt vào hố ở Tầng 100.
+            3. **Hoạt Ảnh 3D Pokémon Trong Team Preview:**
+               - Hiển thị mô hình 3D Animated của Cobblemon cho cả đội hình đối thủ và người chơi. Hỗ trợ hoán đổi vị trí Lead & Bench mượt mà.
+            4. **Hiển Thị Item Icon Trong Shop BP:**
+               - Hiển thị trực quan Icon của Mint, Bottle Cap, Tera Shard, Master Ball và các phần thưởng đặc biệt.
+            5. **Giao Diện Thẻ Rest Station Xuống Dòng Rõ Ràng:**
+               - Thiết kế lại màn hình Rest Station với 3 Thẻ Lựa Chọn kèm gạch đầu dòng đặc tả chi tiết.
+            6. **HUD Tự Động Co Giãn & Menu Dev Cheat Test:**
+               - Viền HUD sắc nét, tự co giãn theo độ dài tên Affix/Boss. Thêm đủ 6 mốc Checkpoint và thanh công cụ Dev Test hỗ trợ nhảy tầng nhanh.
+            7. **Arena Curses, Dual Curse Matrix, và Anti-Cheese VGC Clauses.**
 
             ### 📦 Cài Đặt:
             - Yêu cầu: Fabric Loader >= 0.16.0, Minecraft 1.21.1, Cobblemon >= 1.7.0.

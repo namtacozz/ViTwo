@@ -5,9 +5,15 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class TowerBpShopScreen extends Screen {
     public static int currentBpBalance = 0;
@@ -58,6 +64,7 @@ public class TowerBpShopScreen extends Screen {
 
     private int scrollOffset = 0;
     private static final int ITEMS_PER_PAGE = 5;
+    private final Map<String, ItemStack> itemStackCache = new HashMap<>();
 
     public TowerBpShopScreen() {
         super(Text.literal("Battle Point Exchange"));
@@ -168,9 +175,43 @@ public class TowerBpShopScreen extends Screen {
             context.fill(centerX - 180, rowY - 1, centerX + 55, rowY + 21, 0x50000000);
             context.drawBorder(centerX - 180, rowY - 1, 235, 22, 0x30FFFFFF);
 
-            context.drawTextWithShadow(this.textRenderer, "§e" + entry.displayName(), centerX - 175, rowY + 3, 0xFFFFFF);
-            context.drawTextWithShadow(this.textRenderer, "§8[" + entry.category() + "] §7" + entry.weeklyLimit(), centerX - 175, rowY + 12, 0xAAAAAA);
+            // Draw Item Icon
+            ItemStack stack = getItemStackForId(entry.id());
+            context.drawItem(stack, centerX - 176, rowY + 2);
+            context.drawItemInSlot(this.textRenderer, stack, centerX - 176, rowY + 2);
+
+            // Item Name & Category / Limits
+            context.drawTextWithShadow(this.textRenderer, "§e" + entry.displayName(), centerX - 154, rowY + 3, 0xFFFFFF);
+            context.drawTextWithShadow(this.textRenderer, "§8[" + entry.category() + "] §7" + entry.weeklyLimit(), centerX - 154, rowY + 12, 0xAAAAAA);
         }
+    }
+
+    private ItemStack getItemStackForId(String id) {
+        if (id == null) return new ItemStack(Items.BARRIER);
+        return itemStackCache.computeIfAbsent(id, k -> {
+            Identifier cobblemonId = Identifier.of("cobblemon", k);
+            if (Registries.ITEM.containsId(cobblemonId)) {
+                return new ItemStack(Registries.ITEM.get(cobblemonId));
+            }
+
+            Identifier mcId = Identifier.of("minecraft", k);
+            if (Registries.ITEM.containsId(mcId)) {
+                return new ItemStack(Registries.ITEM.get(mcId));
+            }
+
+            return switch (k) {
+                case "rare_candy" -> new ItemStack(Items.EXPERIENCE_BOTTLE);
+                case "gold_bottle_cap" -> new ItemStack(Items.GOLD_INGOT);
+                case "bottle_cap" -> new ItemStack(Items.IRON_NUGGET);
+                case "master_ball" -> new ItemStack(Items.ENDER_EYE);
+                case "tera_shard_stellar" -> new ItemStack(Items.AMETHYST_SHARD);
+                case "cosmetic_shiny_aura", "cosmetic_particle_trail" -> new ItemStack(Items.NETHER_STAR);
+                case "cosmetic_victory_fanfare" -> new ItemStack(Items.JUKEBOX);
+                case "weekly_challenge_reroll" -> new ItemStack(Items.CLOCK);
+                case "title_tower_champion", "title_tower_legend" -> new ItemStack(Items.NAME_TAG);
+                default -> new ItemStack(Items.EMERALD);
+            };
+        });
     }
 
     @Override

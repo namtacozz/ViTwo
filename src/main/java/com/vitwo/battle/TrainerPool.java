@@ -1,6 +1,7 @@
 package com.vitwo.battle;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +21,11 @@ public class TrainerPool {
     private static final Map<Integer, List<TowerTeam>> STAGE_TEAMS = new HashMap<>();
     private static final Map<String, TowerTeam> TEAM_BY_ID = new HashMap<>();
 
+    // RCT Catalog Data (1,559 trainers)
+    private static final Map<Integer, List<String>> RCT_STAGE_TRAINERS = new HashMap<>();
+    private static final Map<String, List<String>> RCT_TRAINER_TEAMS = new HashMap<>();
+    private static final Map<String, String> RCT_TRAINER_NAMES = new HashMap<>();
+
     public static final String[] TRAINER_FIRST_NAMES = {
         "Red", "Blue", "Green", "Lance", "Steven", "Cynthia", "Alder", "Iris", "Diantha", "Leon",
         "Geeta", "Kieran", "Carmine", "Crispin", "Amarys", "Drayton", "Lacey", "Grusha", "Rika", "Poppy",
@@ -36,6 +42,7 @@ public class TrainerPool {
 
     static {
         loadTeamsFromJson();
+        loadRctCatalog();
     }
 
     private static void loadTeamsFromJson() {
@@ -52,11 +59,45 @@ public class TrainerPool {
                     LOGGER.info("[CobbleTower] Successfully registered {} official teams across {} stages from tower_teams.json",
                             ALL_TEAMS.size(), STAGE_TEAMS.size());
                 }
-            } else {
-                LOGGER.warn("[CobbleTower] tower_teams.json not found in resources! Initializing fallback teams.");
             }
         } catch (Exception e) {
             LOGGER.error("[CobbleTower] Failed to load tower_teams.json", e);
+        }
+    }
+
+    private static void loadRctCatalog() {
+        try (InputStream is = TrainerPool.class.getResourceAsStream("/data/vitwo/rct_trainer_catalog.json")) {
+            if (is != null) {
+                JsonObject obj = GSON.fromJson(new InputStreamReader(is, StandardCharsets.UTF_8), JsonObject.class);
+                if (obj.has("stages")) {
+                    JsonObject stagesObj = obj.getAsJsonObject("stages");
+                    for (int s = 1; s <= 6; s++) {
+                        String key = String.valueOf(s);
+                        if (stagesObj.has(key)) {
+                            Type listType = new TypeToken<List<String>>(){}.getType();
+                            List<String> list = GSON.fromJson(stagesObj.get(key), listType);
+                            RCT_STAGE_TRAINERS.put(s, list);
+                        }
+                    }
+                }
+                if (obj.has("trainers")) {
+                    JsonObject trainersObj = obj.getAsJsonObject("trainers");
+                    for (String tid : trainersObj.keySet()) {
+                        JsonObject tinfo = trainersObj.getAsJsonObject(tid);
+                        String name = tinfo.has("name") ? tinfo.get("name").getAsString() : tid;
+                        RCT_TRAINER_NAMES.put(tid, name);
+                        if (tinfo.has("team")) {
+                            Type listType = new TypeToken<List<String>>(){}.getType();
+                            List<String> team = GSON.fromJson(tinfo.get("team"), listType);
+                            RCT_TRAINER_TEAMS.put(tid, team);
+                        }
+                    }
+                }
+                LOGGER.info("[CobbleTower] Successfully registered {} diverse RCT trainers across 6 stages from catalog!",
+                        RCT_TRAINER_NAMES.size());
+            }
+        } catch (Exception e) {
+            LOGGER.error("[CobbleTower] Failed to load rct_trainer_catalog.json", e);
         }
     }
 
@@ -84,7 +125,6 @@ public class TrainerPool {
     public static TowerTeam getTeamForFloor(int floor) {
         int stage = getStageForFloor(floor);
 
-        // Sovereign Floors (91-100) have tailored boss team assignments
         if (stage == 6) {
             return switch (floor) {
                 case 91 -> getTeamOrFallback("6-01", stage);
@@ -121,10 +161,21 @@ public class TrainerPool {
         return createFallbackTeam(stage);
     }
 
-    public static String getRandomTrainerName(int floor) {
-        TowerTeam team = getTeamForFloor(floor);
-        String name = TRAINER_FIRST_NAMES[Math.abs((floor * 37 + (int)(System.currentTimeMillis() / 60000))) % TRAINER_FIRST_NAMES.length];
+    /**
+     * Obtains a varied and valid RCT Trainer ID for this specific floor
+     */
+    public static String getRctTrainerIdForFloor(int floor) {
+        int stage = getStageForFloor(floor);
+        List<String> list = RCT_STAGE_TRAINERS.get(stage);
+        if (list != null && !list.isEmpty()) {
+            // Deterministic hash based on floor and day to give consistent variety per floor
+            int idx = Math.abs((floor * 37 + (int)(System.currentTimeMillis() / 3600000))) % list.size();
+            return list.get(idx);
+        }
+        return "ace_trainer_abel_04a5";
+    }
 
+    public static String getRandomTrainerName(int floor) {
         if (floor >= 100) {
             return "§4§lGENESIS ARCEUS §7(Floor 100)";
         }
@@ -137,16 +188,36 @@ public class TrainerPool {
             return "§c" + mythicalTitles[(floor - 91) % mythicalTitles.length];
         }
 
-        String title = team != null ? team.getTrainerTitle() : "Tower Trainer";
-        String teamName = team != null ? team.getName() : "Challenger";
+        String rctId = getRctTrainerIdForFloor(floor);
+        String rctName = RCT_TRAINER_NAMES.get(rctId);
+        if (rctName != null && !rctName.isEmpty()) {
+            TowerTeam team = getTeamForFloor(floor);
+            String teamName = team != null && team.getName() != null ? team.getName() : "Challenger";
+            return "§b" + rctName + " §7[§e" + teamName + "§7]";
+        }
+
+        TowerTeam team = getTeamForFloor(floor);
+        String title = (team != null && team.getTrainerTitle() != null && !team.getTrainerTitle().equals("null")) 
+                ? team.getTrainerTitle() : "Tower Trainer";
+        String name = TRAINER_FIRST_NAMES[Math.abs((floor * 37)) % TRAINER_FIRST_NAMES.length];
+        String teamName = (team != null && team.getName() != null) ? team.getName() : "Challenger";
         return title + " " + name + " §7[§e" + teamName + "§7]";
     }
 
     public static List<String> generateDynamicTeam(int floor) {
+        // First check custom tower team
         TowerTeam team = getTeamForFloor(floor);
         if (team != null && team.getPokemon() != null && !team.getPokemon().isEmpty()) {
             return team.getSpeciesList();
         }
+
+        // Fallback to RCT catalog team
+        String rctId = getRctTrainerIdForFloor(floor);
+        List<String> rctTeam = RCT_TRAINER_TEAMS.get(rctId);
+        if (rctTeam != null && !rctTeam.isEmpty()) {
+            return rctTeam;
+        }
+
         return List.of("pikachu", "charizard", "blastoise", "venusaur", "snorlax", "gengar");
     }
 

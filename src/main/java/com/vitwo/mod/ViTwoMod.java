@@ -7,12 +7,16 @@ import com.vitwo.party.TowerParty;
 import com.vitwo.party.TowerPartyManager;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.fabricmc.fabric.api.event.player.UseEntityCallback;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.minecraft.registry.Registries;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.ActionResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.lang.reflect.Method;
 import java.util.Optional;
 
 public class ViTwoMod implements ModInitializer {
@@ -94,10 +98,39 @@ public class ViTwoMod implements ModInitializer {
             context.server().execute(() -> com.vitwo.battle.TowerBattleManager.getInstance().handleReadyTeamPreview(player, payload.slotOrder()));
         });
 
+        ServerPlayNetworking.registerGlobalReceiver(com.vitwo.network.c2s.DebugTowerActionC2SPacket.ID, (payload, context) -> {
+            ServerPlayerEntity player = context.player();
+            context.server().execute(() -> com.vitwo.config.TowerPlayerDataManager.getInstance().handleDebugAction(player, payload.action(), payload.value()));
+        });
+
         // 4. Register Dimension Block Interaction Restrictions
         com.vitwo.event.TowerBlockInteractionHandler.register();
 
-        // 5. Register Tick & Reconnection Handlers
+        // 5. Register Trainer NPC Direct Battle Interaction Bypass
+        UseEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
+            if (!world.isClient() && player instanceof ServerPlayerEntity serverPlayer) {
+                String entityTypeId = Registries.ENTITY_TYPE.getId(entity.getType()).toString();
+                if (entityTypeId.contains("trainer") && world.getRegistryKey().getValue().getPath().contains("tower")) {
+                    try {
+                        Class<?> rctModClass = Class.forName("com.gitlab.srcmc.rctmod.api.RCTMod");
+                        Method getInstanceMethod = rctModClass.getMethod("getInstance");
+                        Object rctInstance = getInstanceMethod.invoke(null);
+                        Method makeBattleMethod = rctModClass.getMethod("makeBattle", entity.getClass(), net.minecraft.entity.player.PlayerEntity.class);
+                        Object result = makeBattleMethod.invoke(rctInstance, entity, serverPlayer);
+                        if (Boolean.TRUE.equals(result)) {
+                            Method setOpponentMethod = entity.getClass().getMethod("setOpponent", net.minecraft.entity.player.PlayerEntity.class);
+                            setOpponentMethod.invoke(entity, serverPlayer);
+                            return ActionResult.SUCCESS;
+                        }
+                    } catch (Throwable t) {
+                        LOGGER.warn("[CobbleTower] Direct battle trigger bypass note: {}", t.getMessage());
+                    }
+                }
+            }
+            return ActionResult.PASS;
+        });
+
+        // 6. Register Tick & Reconnection Handlers
         ServerTickEvents.END_SERVER_TICK.register(server -> TowerPartyManager.getInstance().tick(server));
 
         ServerPlayConnectionEvents.DISCONNECT.register((handler, server) -> {
@@ -108,7 +141,7 @@ public class ViTwoMod implements ModInitializer {
             TowerPartyManager.getInstance().handleReconnect(handler.getPlayer());
         });
 
-        // 6. Register Commands
+        // 7. Register Commands
         net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
             com.vitwo.command.TowerCommands.register(dispatcher);
         });

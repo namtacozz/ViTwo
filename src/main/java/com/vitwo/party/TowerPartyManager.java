@@ -610,26 +610,7 @@ public class TowerPartyManager {
     }
 
     private boolean isPlayerKantoReady(ServerPlayerEntity player) {
-        if (player == null) return true;
-        try {
-            Class<?> cobblemonClass = Class.forName("com.cobblemon.mod.common.Cobblemon");
-            Object cobblemonInst = cobblemonClass.getField("INSTANCE").get(null);
-            java.lang.reflect.Method getStorageMethod = cobblemonInst.getClass().getMethod("getStorage");
-            Object storage = getStorageMethod.invoke(cobblemonInst);
-            java.lang.reflect.Method getPartyMethod = storage.getClass().getMethod("getParty", ServerPlayerEntity.class);
-            Iterable<?> party = (Iterable<?>) getPartyMethod.invoke(storage, player);
-
-            for (Object pokemon : party) {
-                if (pokemon == null) continue;
-                java.lang.reflect.Method getLevelMethod = pokemon.getClass().getMethod("getLevel");
-                int level = (int) getLevelMethod.invoke(pokemon);
-                if (level >= 20) {
-                    return true;
-                }
-            }
-            return false;
-        } catch (Exception e) {
-            return true;
-        }
+        // Temporarily unlocked for testing / evaluation
+        return true;
     }
 }

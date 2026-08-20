@@ -6,17 +6,29 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Release](https://img.shields.io/badge/Release-v1.3.0-orange.svg)](https://github.com/namtacozz/ViTwo/releases)
 
-**CobbleTower** is a competitive **100-Floor Roguelike Battle Tower** mod engineered for **Cobblemon (Minecraft Fabric 1.21.1)**. Supporting both **Solo (2-Slot 6v6)** and **Duo Co-op (3+3 Double Battles)** in standard VGC format, featuring intelligent competitive AI, dynamic floor curses, anti-cheese tournament clauses, interactive ghost support spectator mode, and full advancement journey integration.
+**CobbleTower** is a competitive **100-Floor Roguelike Battle Tower** mod engineered for **Cobblemon (Minecraft Fabric 1.21.1)**. Supporting both **Solo (2-Slot 6v6)** and **Duo Co-op (3+3 Double Battles)** in standard VGC format, featuring intelligent competitive AI, dynamic floor curses, anti-cheese tournament clauses, interactive ghost support spectator mode, 3D Pokémon portraits, and full advancement journey integration.
 
 ---
 
-## 🌟 Key Features in v1.3.0
+## 🌟 What's New in v1.3.0
 
-### 1. ⚔️ Competitive VGC Double Battles (Solo & Duo Co-op)
+* **🏟️ 1,559 Dynamic RCT Trainers:** Fully cataloged and classified 1,559 RCT trainers into 6 difficulty tiers with automatic arena entity spawning and story requirement bypass.
+* **🛡️ Surface-Safe Arena Physics & Grounding:** Intelligent surface height detection prevents players from spawning in pits or getting stuck underground upon forfeiting or returning from battle.
+* **✨ 3D Animated Pokémon Portraits in Team Preview:** Renders authentic 3D animated model portraits for both opponent rosters and player lead/bench order swapping.
+* **💎 Authentic Item Icons in BP Shop:** Rendered item sprites for all competitive mints, bottle caps, tera shards, orbs, and cosmetic rewards.
+* **🏕️ Redesigned Multi-Line Rest Station Cards:** Upgraded from scrolling text to 3 formatted tactical choice cards with instant readability.
+* **📊 Dynamic Ingame HUD & 6-Checkpoint Menu:** High-contrast Slate & Cyan HUD with dynamic width scaling, and 6 full milestone checkpoints (`F.1`, `F.26`, `F.51`, `F.76`, `F.91`, `F.100`).
+* **🛠️ Built-in Dev / Cheat Testing Panel:** Side panel in Hub GUI (`[Y]`) for testing floor jumps, BP balance overrides, instant heals, and save resets.
+
+---
+
+## ⚔️ Core Features
+
+### 1. Competitive VGC Double Battles (Solo & Duo Co-op)
 * **Solo Mode (6v6):** 1 Player commands both active field positions with 6 competitive Pokémon against elite NPC Trainers.
 * **Duo Co-op (3+3):** 2 Players team up (each commanding 1 position with 3 Pokémon).
 * **2-Slot Takeover Protocol:** When a partner's Pokémon faint, the surviving teammate seamlessly assumes full control of both field slots.
-* **Interactive Ghost Support:** Fainted players enter **Ghost Spectator Mode** and utilize tactical battlefield abilities (`[Z]` Heal Pulse, `[X]` Quick Guard, `[C]` Battle Cry, `[V]` Spectral Insight) powered by scaled Ghost Charges (2⚡/3⚡/4⚡).
+* **Interactive Ghost Support:** Fainted players enter **Ghost Spectator Mode** and utilize tactical battlefield abilities (`[Z]` Heal Pulse, `[X]` Quick Guard, `[C]` Battle Cry) powered by scaled Ghost Charges (2⚡/3⚡/4⚡).
 * **Disconnect Recovery Grace Period:** 180-second reconnect window protects active runs against network dropouts.
 
 ---
@@ -32,7 +44,7 @@ Starting from Floor 11, ancient arena modifiers alter battlefield dynamics:
 * 🔇 **Curse of Silence:** All sound-based moves (*Boomburst, Hyper Voice, Bug Buzz, Snarl...*) are disabled.
 * 🌑 **Curse of the Gravity Well:** Permanent gravity nullifies Ground immunities (Flying/Levitate) and boosts move accuracy by +20%.
 * 🍂 **Curse of Famine:** All direct healing and recovery effects are reduced by 50%.
-* 💀 **Dual Curse Matrix (Floors 91–100):** Fixed non-random strategic combinations designed specifically for Sovereign Boss encounters.
+* 💀 **Dual Curse Matrix (Floors 91–100):** Fixed strategic combinations designed specifically for Sovereign Boss encounters.
 
 ---
 
@@ -54,9 +66,9 @@ Enforced automatically upon entering the Tower realm:
 
 ### 4. 🏕️ Roguelike Rest Stations (Every 5 Floors)
 Strategic decisions at each 5-floor rest milestone:
-* 🟢 **Medical Bay:** Revive fainted Pokémon with 30% HP, heal active Pokémon +40% HP, refresh 100% PP, and clear all status afflictions.
-* ⚔️ **War Council:** Acquire a 5-floor strategic buff (*Iron Vanguard, Swift Wind, Apex Surge, or Mystic Ward*).
-* 🎁 **Treasure Vault:** Forego recovery to receive Battle Points (BP) and rare competitive loot (Mints, Bottle Caps, Ability Patches, Tera Shards).
+* 🟢 **Full Team Rest:** Revive all fainted Pokémon, restore 100% HP & PP, and clear all status afflictions.
+* ⚔️ **War Preparation:** Gain +10% Attack/Sp.Atk and +10% Speed buff active for the next 5 floors.
+* 🎁 **Treasure Cache:** Forego recovery to receive +250 Bonus Battle Points (BP) and 2x rare Tower Supply Crates.
 
 ---
 
@@ -82,10 +94,10 @@ Configured via `config/cobbletower/tower.json`:
 ## 🎮 Controls & Commands
 
 ### Keybinds & Interactivity
-* **`[Y]`** — Open CobbleTower Hub GUI.
+* **`[Y]`** — Open CobbleTower Hub GUI & Dev Panel.
 * **`Shift + Right-Click Player`** — Send instant Duo Co-op invite.
 * **`Right-Click Tower Gateway`** — Access Hub dashboard in-world.
-* **`[Z]` / `[X]` / `[C]` / `[V]`** — Ghost Spectator Support actions during Duo battles.
+* **`[Z]` / `[X]` / `[C]`** — Ghost Spectator Support actions during Duo battles.
 
 ### Command Suite (`/tower`)
 ```bash
@@ -93,7 +105,7 @@ Configured via `config/cobbletower/tower.json`:
 /tower start
 /tower solo
 
-# Start a Checkpoint Run from unlocked checkpoints (Floor 26, 51, 76)
+# Start a Checkpoint Run from unlocked checkpoints (Floor 26, 51, 76, 91, 100)
 /tower checkpoint <floor>
 
 # Duo Co-op management

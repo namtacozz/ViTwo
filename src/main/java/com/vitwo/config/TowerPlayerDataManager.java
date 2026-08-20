@@ -196,4 +196,76 @@ public class TowerPlayerDataManager {
         int prestige = getPrestigeLevel(uuid);
         return 1.0f + (prestige * 0.05f);
     }
+
+    public synchronized void handleDebugAction(net.minecraft.server.network.ServerPlayerEntity player, String action, int value) {
+        if (player == null) return;
+        UUID uuid = player.getUuid();
+        PlayerProfile profile = getProfile(uuid);
+
+        switch (action) {
+            case "UNLOCK_ALL" -> {
+                profile.soloCheckpoint = 100;
+                profile.duoCheckpoint = 100;
+                profile.highestFloorTrueRun = 100;
+                saveProfile(uuid);
+                com.vitwo.party.TowerPartyManager.getInstance().syncPlayerState(player);
+                player.sendMessage(net.minecraft.text.Text.literal("§a§l[Cheat] §fAll Tower checkpoints unlocked to Floor 100!"), false);
+            }
+            case "ADD_BP" -> {
+                addBp(uuid, value > 0 ? value : 5000);
+                com.vitwo.party.TowerPartyManager.getInstance().syncPlayerState(player);
+                player.sendMessage(net.minecraft.text.Text.literal("§a§l[Cheat] §fGranted §6+" + (value > 0 ? value : 5000) + " BP§f! Current BP: §e" + profile.battlePoints), false);
+            }
+            case "SET_PRESTIGE" -> {
+                profile.prestigeLevel = Math.max(0, Math.min(5, value));
+                saveProfile(uuid);
+                com.vitwo.party.TowerPartyManager.getInstance().syncPlayerState(player);
+                player.sendMessage(net.minecraft.text.Text.literal("§a§l[Cheat] §fPrestige Level set to §b" + profile.prestigeLevel + " ⭐"), false);
+            }
+            case "TEST_REST" -> {
+                net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.send(player, new com.vitwo.network.s2c.OpenRestScreenS2CPacket(profile.soloCheckpoint > 1 ? profile.soloCheckpoint : 25));
+                player.sendMessage(net.minecraft.text.Text.literal("§a§l[Cheat] §fOpened Rest Station GUI for testing!"), false);
+            }
+            case "TEST_PREVIEW" -> {
+                java.util.List<String> mockTeam = java.util.List.of("mewtwo", "zacian", "kyogre", "flutter_mane", "ogerpon", "kingambit");
+                java.util.List<String> playerMock = java.util.List.of("pikachu", "charizard", "garchomp", "lucario", "greninja", "dragapult");
+                net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.send(player, new com.vitwo.network.s2c.OpenTeamPreviewS2CPacket(100, 20, "Boss Red", "Sovereign Champion", mockTeam, playerMock));
+                player.sendMessage(net.minecraft.text.Text.literal("§a§l[Cheat] §fOpened Team Preview GUI for testing!"), false);
+            }
+            case "HEAL_PARTY" -> {
+                try {
+                    Class<?> cobblemonClass = Class.forName("com.cobblemon.mod.common.Cobblemon");
+                    Object cobblemonInst = cobblemonClass.getField("INSTANCE").get(null);
+                    java.lang.reflect.Method getStorageMethod = cobblemonInst.getClass().getMethod("getStorage");
+                    Object storage = getStorageMethod.invoke(cobblemonInst);
+                    java.lang.reflect.Method getPartyMethod = storage.getClass().getMethod("getParty", net.minecraft.server.network.ServerPlayerEntity.class);
+                    Iterable<?> party = (Iterable<?>) getPartyMethod.invoke(storage, player);
+
+                    for (Object pokemon : party) {
+                        if (pokemon == null) continue;
+                        java.lang.reflect.Method healMethod = pokemon.getClass().getMethod("heal");
+                        healMethod.invoke(pokemon);
+                    }
+                    player.sendMessage(net.minecraft.text.Text.literal("§a§l[Cheat] §fParty fully healed (HP, PP & Status cured)!"), false);
+                } catch (Exception e) {
+                    player.sendMessage(net.minecraft.text.Text.literal("§e[Cheat] Party healed!"), false);
+                }
+            }
+            case "RESET_DATA" -> {
+                profile.soloCheckpoint = 1;
+                profile.duoCheckpoint = 1;
+                profile.highestFloorTrueRun = 1;
+                profile.battlePoints = 0;
+                profile.prestigeLevel = 0;
+                saveProfile(uuid);
+                com.vitwo.party.TowerPartyManager.getInstance().syncPlayerState(player);
+                player.sendMessage(net.minecraft.text.Text.literal("§c§l[Cheat] §fTower save data reset to initial Floor 1."), false);
+            }
+            case "START_FLOOR" -> {
+                com.vitwo.party.TowerParty soloParty = com.vitwo.party.TowerPartyManager.getInstance().createSoloParty(player, value);
+                com.vitwo.party.TowerPartyManager.getInstance().startTowerSession(soloParty, true, value, player.getServer());
+                player.sendMessage(net.minecraft.text.Text.literal("§a§l[Cheat] §fLaunching Tower Session directly on Floor " + value + "!"), false);
+            }
+        }
+    }
 }

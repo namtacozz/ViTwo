@@ -30,43 +30,45 @@ public class TowerHudOverlay {
 
         int x = 12;
         int y = 12;
-        int width = 220;
-        int height = isSpectating ? 122 : 74;
+        int height = isSpectating ? 122 : 76;
+
+        // Calculate dynamic width based on longest content line
+        int maxCap = LevelCapManager.getMaxLevelCapForFloor(currentFloor > 0 ? currentFloor : 1);
+        boolean hasShiny = LevelCapManager.hasShinyBossPokemon(currentFloor);
+        String floorStr = "§eFloor: §f" + currentFloor + "/100 §7| §eCap: §aLv." + maxCap + (hasShiny ? " §d✨" : "");
+        String oppName = currentBossName.isEmpty() ? "Trainer" : currentBossName;
+        String oppStr = "§cOpponent: §f" + oppName;
+
+        List<TowerCurseManager.TowerCurse> curses = TowerCurseManager.getInstance().getActiveCursesForFloor(currentFloor);
+        String curseStr = curses.isEmpty() ? "§7Affix: §aNone" : (curses.size() == 1 ? "§4Affix: " + curses.get(0).hudBadge : "§4Affixes: " + curses.get(0).hudBadge + " §7| " + curses.get(1).hudBadge);
+
+        int textW1 = client.textRenderer.getWidth(oppStr);
+        int textW2 = client.textRenderer.getWidth(curseStr);
+        int textW3 = client.textRenderer.getWidth(floorStr);
+        int width = Math.max(240, Math.max(textW1, Math.max(textW2, textW3)) + 16);
 
         // Cobblemon "Slate & Cyan" HUD Design
         // Main Slate Panel
-        context.fill(x - 4, y - 4, x + width, y + height, 0xEE1E232A);
+        context.fill(x - 4, y - 4, x + width, y + height, 0xF212171E);
         // Cyan Accent Border
         context.drawBorder(x - 4, y - 4, width + 4, height + 4, 0xFF0FD9C2);
-        // Subtle top accent line
+        // Top accent bar
         context.fill(x - 3, y - 3, x + width - 1, y - 1, 0xFF0FD9C2);
 
         // Header Title & Mode & True Run Badge
         context.drawTextWithShadow(client.textRenderer, "§b§lCOBBLE TOWER", x + 2, y + 2, 0xFFFFFF);
         String modeTag = isSolo ? "§7[SOLO]" : "§d[DUO]";
         String runTag = isTrueRun ? " §a[★ TRUE]" : " §e[⚡ CP]";
-        context.drawTextWithShadow(client.textRenderer, modeTag + runTag, x + 90, y + 2, 0xFFFFFF);
+        context.drawTextWithShadow(client.textRenderer, modeTag + runTag, x + width - 85, y + 2, 0xFFFFFF);
 
         // Floor progress & Level Cap
-        int maxCap = LevelCapManager.getMaxLevelCapForFloor(currentFloor > 0 ? currentFloor : 1);
-        boolean hasShiny = LevelCapManager.hasShinyBossPokemon(currentFloor);
-        String floorStr = "§eFloor: §f" + currentFloor + "/100 §7| §eCap: §aLv." + maxCap + (hasShiny ? " §d✨" : "");
         context.drawTextWithShadow(client.textRenderer, floorStr, x + 2, y + 14, 0xFFFFFF);
 
         // Opponent Name Display
-        String oppName = currentBossName.isEmpty() ? "Trainer" : currentBossName;
-        context.drawTextWithShadow(client.textRenderer, "§cOpponent: §f" + oppName, x + 2, y + 26, 0xFFFFFF);
+        context.drawTextWithShadow(client.textRenderer, oppStr, x + 2, y + 26, 0xFFFFFF);
 
-        // Active Floor Curses (Handles Dual Curses on floors 91-100)
-        List<TowerCurseManager.TowerCurse> curses = TowerCurseManager.getInstance().getActiveCursesForFloor(currentFloor);
-        if (curses.isEmpty()) {
-            context.drawTextWithShadow(client.textRenderer, "§7Affix: §aNone", x + 2, y + 38, 0x888888);
-        } else if (curses.size() == 1) {
-            context.drawTextWithShadow(client.textRenderer, "§4Affix: " + curses.get(0).hudBadge, x + 2, y + 38, 0xFFAAAA);
-        } else {
-            // Dual Curses
-            context.drawTextWithShadow(client.textRenderer, "§4Affixes: " + curses.get(0).hudBadge + " §7| " + curses.get(1).hudBadge, x + 2, y + 38, 0xFFAAAA);
-        }
+        // Active Floor Curses
+        context.drawTextWithShadow(client.textRenderer, curseStr, x + 2, y + 38, 0xFFAAAA);
 
         // Party Health Indicator Pips (6 pips)
         String partyPips = isSolo ? "§a● ● ● ● ● ● §7(6v6 Party)" : "§a● ● ● §d● ● ● §7(3+3 Team)";
