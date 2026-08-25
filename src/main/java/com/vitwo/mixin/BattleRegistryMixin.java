@@ -1,5 +1,6 @@
 package com.vitwo.mixin;
 
+import com.cobblemon.mod.common.api.battles.model.actor.ActorType;
 import com.cobblemon.mod.common.api.battles.model.actor.BattleActor;
 import com.cobblemon.mod.common.api.pokemon.stats.Stat;
 import com.cobblemon.mod.common.api.pokemon.stats.Stats;
@@ -33,17 +34,18 @@ public class BattleRegistryMixin {
     private static BattleFormat vitwo$enforceTowerDoubleBattle(BattleFormat format, BattleFormat originalFormat, BattleSide side1, BattleSide side2, boolean start) {
         if (side1 == null || side2 == null) return format;
 
-        boolean hasNpc = false;
+        // Check strictly for NPC Trainer actors (ActorType.NPC), EXCLUDING Wild Pokémon (ActorType.WILD)
+        boolean hasNpcTrainer = false;
         for (BattleActor actor : side1.getActors()) {
-            if (!(actor instanceof PlayerBattleActor)) {
-                hasNpc = true;
+            if (actor != null && actor.getType() == ActorType.NPC) {
+                hasNpcTrainer = true;
                 break;
             }
         }
-        if (!hasNpc) {
+        if (!hasNpcTrainer) {
             for (BattleActor actor : side2.getActors()) {
-                if (!(actor instanceof PlayerBattleActor)) {
-                    hasNpc = true;
+                if (actor != null && actor.getType() == ActorType.NPC) {
+                    hasNpcTrainer = true;
                     break;
                 }
             }
@@ -94,9 +96,11 @@ public class BattleRegistryMixin {
             isInTowerDimension = towerPlayer.getWorld().getRegistryKey().getValue().getPath().contains("tower");
         }
 
-        // If NOT in TowerDimension: If an NPC is involved, ensure GEN_9_DOUBLES format but leave modpack team as-is
+        // If NOT in TowerDimension:
+        // ONLY enforce GEN_9_DOUBLES if it's an NPC Trainer battle (Gym Leaders, E4, Overworld Trainers)
+        // For WILD Pokémon battles, leave format COMPLETELY UNTOUCHED!
         if (towerParty == null || !isInTowerDimension) {
-            if (hasNpc) {
+            if (hasNpcTrainer) {
                 return BattleFormat.Companion.getGEN_9_DOUBLES();
             }
             return format;
@@ -109,7 +113,7 @@ public class BattleRegistryMixin {
         for (BattleSide side : new BattleSide[]{side1, side2}) {
             if (side == null || side.getActors() == null) continue;
             for (BattleActor actor : side.getActors()) {
-                if (actor instanceof PlayerBattleActor) continue;
+                if (actor == null || actor.getType() != ActorType.NPC) continue;
 
                 List<BattlePokemon> team = actor.getPokemonList();
                 int floor = towerParty.getCurrentFloor();
