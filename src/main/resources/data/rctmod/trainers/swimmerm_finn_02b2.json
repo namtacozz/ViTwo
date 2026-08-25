@@ -1,6 +1,6 @@
 {
   "name": {
-    "literal": "Swimmer♂ Finn"
+    "literal": "Swimmer\u2642 Finn"
   },
   "ai": {
     "type": "rct",
@@ -46,7 +46,7 @@
       "ability": "skilllink",
       "moveset": [
         "iciclespear",
-        "rockb",
+        "rockblast",
         "razorshell",
         "shellsmash"
       ],

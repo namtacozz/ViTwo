@@ -38,7 +38,7 @@
       "ability": "snowcloak",
       "moveset": [
         "icebeam",
-        "quick",
+        "quickattack",
         "mirrorcoat",
         "icywind"
       ]

@@ -34,7 +34,7 @@
       "gender": "MALE",
       "level": 7,
       "nature": "hardy",
-      "ability": "shield",
+      "ability": "shielddust",
       "moveset": [
         "tackle",
         "stringshot"

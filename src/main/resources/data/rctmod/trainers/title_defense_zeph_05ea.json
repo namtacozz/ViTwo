@@ -44,7 +44,7 @@
         "spe": 252
       },
       "heldItem": [
-        "mega_showdown:steelmemory"
+        "mega_showdown:steel_memory"
       ],
       "aspects": [
         "steel-memory"
@@ -163,7 +163,7 @@
         "spe": 252
       },
       "heldItem": [
-        "mega_showdown:decidium-z",
+        "mega_showdown:decidium_z",
         "ghost_gem"
       ]
     },

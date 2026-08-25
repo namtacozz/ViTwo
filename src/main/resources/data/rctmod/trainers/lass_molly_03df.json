@@ -38,7 +38,7 @@
       "ability": "synchronize",
       "moveset": [
         "psychic",
-        "drain",
+        "drainpunch",
         "calmmind",
         "teleport"
       ]

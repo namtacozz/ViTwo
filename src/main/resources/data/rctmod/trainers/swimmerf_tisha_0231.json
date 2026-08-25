@@ -1,6 +1,6 @@
 {
   "name": {
-    "literal": "Swimmer♀ Tisha"
+    "literal": "Swimmer\u2640 Tisha"
   },
   "ai": {
     "type": "rct",
@@ -72,7 +72,7 @@
         "spe": 252
       },
       "heldItem": [
-        "mega_showdown:psychium-z",
+        "mega_showdown:psychium_z",
         "psychic_gem"
       ]
     },

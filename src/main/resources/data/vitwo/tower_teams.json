@@ -6,7 +6,7 @@
     "trainer_title": "Tower Novice",
     "ai_lead": "Arcanine + Floatzel",
     "ai_win_con": "Spam STAB moves, brute force",
-    "ai_switch": "Chỉ switch khi HP < 20%",
+    "ai_switch": "Ch\u1ec9 switch khi HP < 20%",
     "ai_tera": "",
     "shiny_pokemon": "",
     "pokemon": [
@@ -222,8 +222,8 @@
     "name": "Route Ranger",
     "trainer_title": "Tower Novice",
     "ai_lead": "Raichu + Sandslash",
-    "ai_win_con": "Tấn công đều 2 slot bằng spread moves",
-    "ai_switch": "Không switch",
+    "ai_win_con": "T\u1ea5n c\u00f4ng \u0111\u1ec1u 2 slot b\u1eb1ng spread moves",
+    "ai_switch": "Kh\u00f4ng switch",
     "ai_tera": "",
     "shiny_pokemon": "",
     "pokemon": [
@@ -656,7 +656,7 @@
     "name": "Fossil Revival",
     "trainer_title": "Tower Novice",
     "ai_lead": "Aerodactyl + Kabutops",
-    "ai_win_con": "Aerodactyl Tailwind → team sweep",
+    "ai_win_con": "Aerodactyl Tailwind \u2192 team sweep",
     "ai_switch": "Switch Aerodactyl after Tailwind",
     "ai_tera": "",
     "shiny_pokemon": "",
@@ -873,7 +873,7 @@
     "name": "Ghost Night",
     "trainer_title": "Tower Novice",
     "ai_lead": "Mismagius + Dusclops",
-    "ai_win_con": "Dusclops Trick Room → slow ghosts sweep",
+    "ai_win_con": "Dusclops Trick Room \u2192 slow ghosts sweep",
     "ai_switch": "Switch Dusclops to Spiritomb after TR set",
     "ai_tera": "",
     "shiny_pokemon": "",
@@ -950,7 +950,7 @@
         "species": "Banette",
         "item": "Spell Tag",
         "is_shiny": false,
-        "ability": "Prankster (Mega concept—use Insomnia if unavailable)",
+        "ability": "Prankster (Mega concept\u2014use Insomnia if unavailable)",
         "tera_types": [
           "Ghost",
           "Dark",
@@ -1091,7 +1091,7 @@
     "trainer_title": "Tower Novice",
     "ai_lead": "Lycanroc-Midday + Sudowoodo",
     "ai_win_con": "Rock Slide spam + flinch luck",
-    "ai_switch": "Basic—no switch",
+    "ai_switch": "Basic\u2014no switch",
     "ai_tera": "",
     "shiny_pokemon": "",
     "pokemon": [
@@ -2176,7 +2176,7 @@
     "trainer_title": "Tower Novice",
     "ai_lead": "Blastoise + Venusaur",
     "ai_win_con": "Dual starter STAB pressure with Charizard and Snorlax physical backline",
-    "ai_switch": "Basic—chỉ switch khi HP < 20%",
+    "ai_switch": "Basic\u2014ch\u1ec9 switch khi HP < 20%",
     "ai_tera": "",
     "shiny_pokemon": "",
     "pokemon": [
@@ -3260,7 +3260,7 @@
     "name": "Ironclad Stonewall",
     "trainer_title": "Tower Specialist",
     "ai_lead": "Aggron + Steelix",
-    "ai_win_con": "Tank mọi thứ nhờ -20% curse + phòng thủ cao, chip dần",
+    "ai_win_con": "Tank m\u1ecdi th\u1ee9 nh\u1edd -20% curse + ph\u00f2ng th\u1ee7 cao, chip d\u1ea7n",
     "ai_switch": "Rotate to fresh tank khi HP < 30%",
     "ai_tera": "",
     "shiny_pokemon": "",
@@ -4996,7 +4996,7 @@
     "name": "Normal Academy",
     "trainer_title": "Tower Specialist",
     "ai_lead": "Snorlax + Porygon2",
-    "ai_win_con": "Porygon2 Trick Room → Snorlax sweep",
+    "ai_win_con": "Porygon2 Trick Room \u2192 Snorlax sweep",
     "ai_switch": "Bring Snorlax lead after TR set",
     "ai_tera": "",
     "shiny_pokemon": "",
@@ -6298,7 +6298,7 @@
     "name": "Trick Room Rebirth",
     "trainer_title": "Tower Specialist",
     "ai_lead": "Reuniclus + Conkeldurr",
-    "ai_win_con": "Reuniclus sets Trick Room → Conkeldurr & Snorlax unleash massive physical power",
+    "ai_win_con": "Reuniclus sets Trick Room \u2192 Conkeldurr & Snorlax unleash massive physical power",
     "ai_switch": "Swap Reuniclus out after TR to Porygon2 or Slowbro",
     "ai_tera": "",
     "shiny_pokemon": "",
@@ -6515,7 +6515,7 @@
     "name": "Tailwind Blitz",
     "trainer_title": "Tower Veteran",
     "ai_lead": "Talonflame + Mienshao",
-    "ai_win_con": "Talonflame Tailwind → team outspeeds & sweeps",
+    "ai_win_con": "Talonflame Tailwind \u2192 team outspeeds & sweeps",
     "ai_switch": "Talonflame U-turn out after Tailwind",
     "ai_tera": "",
     "shiny_pokemon": "",
@@ -6732,7 +6732,7 @@
     "name": "Trick Room Fortress",
     "trainer_title": "Tower Veteran",
     "ai_lead": "Dusclops + Hariyama",
-    "ai_win_con": "TR turn 1 → slow bulky mons crush",
+    "ai_win_con": "TR turn 1 \u2192 slow bulky mons crush",
     "ai_switch": "Swap Dusclops out after TR set; bring Torkoal",
     "ai_tera": "",
     "shiny_pokemon": "",
@@ -6950,7 +6950,7 @@
     "trainer_title": "Tower Veteran",
     "ai_lead": "Incineroar + Gyarados",
     "ai_win_con": "Cycle Intimidate, chip damage, never let opponent set up",
-    "ai_switch": "Aggressive pivoting—switch every 2-3 turns",
+    "ai_switch": "Aggressive pivoting\u2014switch every 2-3 turns",
     "ai_tera": "",
     "shiny_pokemon": "",
     "pokemon": [
@@ -8034,7 +8034,7 @@
     "name": "Redirect & Nuke",
     "trainer_title": "Tower Veteran",
     "ai_lead": "Amoonguss + Chandelure",
-    "ai_win_con": "Rage Powder redirect → Chandelure free nuke",
+    "ai_win_con": "Rage Powder redirect \u2192 Chandelure free nuke",
     "ai_switch": "Rotate Amoonguss in/out with Regenerator",
     "ai_tera": "",
     "shiny_pokemon": "",
@@ -9770,7 +9770,7 @@
     "name": "Full Rain Synergy",
     "trainer_title": "Tower Master",
     "ai_lead": "Pelipper + Kingdra",
-    "ai_win_con": "Rain + Swift Swim speed → Water nuke everything",
+    "ai_win_con": "Rain + Swift Swim speed \u2192 Water nuke everything",
     "ai_switch": "Pelipper pivot to Zapdos for Thunder coverage",
     "ai_tera": "Kingdra Tera Water for maximum rain damage",
     "shiny_pokemon": "",
@@ -9987,7 +9987,7 @@
     "name": "Full Sun Synergy",
     "trainer_title": "Tower Master",
     "ai_lead": "Torkoal + Venusaur",
-    "ai_win_con": "Drought + Chlorophyll → Sun-boosted STAB nuke",
+    "ai_win_con": "Drought + Chlorophyll \u2192 Sun-boosted STAB nuke",
     "ai_switch": "Torkoal to Chi-Yu for Dark Aura fire boost",
     "ai_tera": "Chi-Yu Tera Fire for max fire nuke",
     "shiny_pokemon": "",
@@ -10204,8 +10204,8 @@
     "name": "Trick Room Meta",
     "trainer_title": "Tower Master",
     "ai_lead": "Hatterene + Incineroar",
-    "ai_win_con": "Fake Out + TR set → slow sweepers dominate",
-    "ai_switch": "Incineroar Parting Shot → Torkoal or Ursaluna in",
+    "ai_win_con": "Fake Out + TR set \u2192 slow sweepers dominate",
+    "ai_switch": "Incineroar Parting Shot \u2192 Torkoal or Ursaluna in",
     "ai_tera": "Hatterene Tera Water to remove Fire weakness",
     "shiny_pokemon": "",
     "pokemon": [
@@ -10639,7 +10639,7 @@
     "trainer_title": "Tower Master",
     "ai_lead": "Dragapult + Urshifu-SS",
     "ai_win_con": "Overwhelm with raw damage, no setup needed",
-    "ai_switch": "Minimal switching—pure aggression",
+    "ai_switch": "Minimal switching\u2014pure aggression",
     "ai_tera": "Dragapult Tera Ghost or Urshifu Tera Dark for max STAB",
     "shiny_pokemon": "",
     "pokemon": [
@@ -10855,7 +10855,7 @@
     "name": "Psychic Terrain",
     "trainer_title": "Tower Master",
     "ai_lead": "Indeedee-F + Expanding Force user",
-    "ai_win_con": "Psychic Terrain → Expanding Force spread damage",
+    "ai_win_con": "Psychic Terrain \u2192 Expanding Force spread damage",
     "ai_switch": "Keep Indeedee for Follow Me + Terrain",
     "ai_tera": "Armarouge Tera Fire for max damage",
     "shiny_pokemon": "",
@@ -11072,8 +11072,8 @@
     "name": "Prankster Disruption",
     "trainer_title": "Tower Master",
     "ai_lead": "Grimmsnarl + Tornadus",
-    "ai_win_con": "Prankster screens/tailwind → protected sweepers clean up",
-    "ai_switch": "Grimmsnarl screen → swap to attacker",
+    "ai_win_con": "Prankster screens/tailwind \u2192 protected sweepers clean up",
+    "ai_switch": "Grimmsnarl screen \u2192 swap to attacker",
     "ai_tera": "Tornadus Tera Flying for Hurricane",
     "shiny_pokemon": "",
     "pokemon": [
@@ -11503,10 +11503,10 @@
   {
     "id": "4-09",
     "stage": 4,
-    "name": "Dragon Dance Core (Note: DD bị ban bởi Inertia nếu ở Tầng 26–50. Team này dành cho Tầng 51–75 Fatigue zone)",
+    "name": "Dragon Dance Core (Note: DD b\u1ecb ban b\u1edfi Inertia n\u1ebfu \u1edf T\u1ea7ng 26\u201350. Team n\u00e0y d\u00e0nh cho T\u1ea7ng 51\u201375 Fatigue zone)",
     "trainer_title": "Tower Master",
     "ai_lead": "Dragonite + Rillaboom",
-    "ai_win_con": "Rillaboom Fake Out → Dragonite attacks freely",
+    "ai_win_con": "Rillaboom Fake Out \u2192 Dragonite attacks freely",
     "ai_switch": "Dragonite in Multiscale; swap if Ice STAB threatens",
     "ai_tera": "Dragonite Tera Normal for Extreme Speed nuke",
     "shiny_pokemon": "",
@@ -11723,8 +11723,8 @@
     "name": "Electric Slide",
     "trainer_title": "Tower Master",
     "ai_lead": "Regieleki + Iron Hands",
-    "ai_win_con": "Regieleki Electroweb speed control → Iron Hands smash",
-    "ai_switch": "Regieleki Volt Switch → Rotom-Heat",
+    "ai_win_con": "Regieleki Electroweb speed control \u2192 Iron Hands smash",
+    "ai_switch": "Regieleki Volt Switch \u2192 Rotom-Heat",
     "ai_tera": "Iron Hands Tera Electric for Wild Charge nuke",
     "shiny_pokemon": "",
     "pokemon": [
@@ -13025,8 +13025,8 @@
     "name": "VGC Rain Core",
     "trainer_title": "Tower Champion",
     "ai_lead": "Pelipper + Archaludon",
-    "ai_win_con": "Rain → Archaludon Electro Shot auto-boost → nuke",
-    "ai_switch": "Pelipper → Kingdra for Swift Swim sweep",
+    "ai_win_con": "Rain \u2192 Archaludon Electro Shot auto-boost \u2192 nuke",
+    "ai_switch": "Pelipper \u2192 Kingdra for Swift Swim sweep",
     "ai_tera": "Archaludon Tera Electric",
     "shiny_pokemon": "",
     "pokemon": [
@@ -13242,8 +13242,8 @@
     "name": "VGC Sun Paradox",
     "trainer_title": "Tower Champion",
     "ai_lead": "Torkoal + Flutter Mane",
-    "ai_win_con": "Sun Protosynthesis → Flutter Mane outspeeds & nukes",
-    "ai_switch": "Torkoal → Chi-Yu for SpDef debuff stacking",
+    "ai_win_con": "Sun Protosynthesis \u2192 Flutter Mane outspeeds & nukes",
+    "ai_switch": "Torkoal \u2192 Chi-Yu for SpDef debuff stacking",
     "ai_tera": "Flutter Mane Tera Fairy or Tera Fire",
     "shiny_pokemon": "",
     "pokemon": [
@@ -13459,8 +13459,8 @@
     "name": "TR Ursaluna Bloodmoon",
     "trainer_title": "Tower Champion",
     "ai_lead": "Cresselia + Incineroar",
-    "ai_win_con": "TR → Ursaluna Bloodmoon Blood Moon nuke",
-    "ai_switch": "Incineroar Parting Shot → Ursaluna in under TR",
+    "ai_win_con": "TR \u2192 Ursaluna Bloodmoon Blood Moon nuke",
+    "ai_switch": "Incineroar Parting Shot \u2192 Ursaluna in under TR",
     "ai_tera": "Ursaluna Tera Normal for Blood Moon STAB",
     "shiny_pokemon": "",
     "pokemon": [
@@ -13676,8 +13676,8 @@
     "name": "Offensive Tailwind",
     "trainer_title": "Tower Champion",
     "ai_lead": "Tornadus + Landorus-T",
-    "ai_win_con": "Prankster Tailwind → Landorus EQ spam",
-    "ai_switch": "Tornadus → Flutter Mane; Landorus stays",
+    "ai_win_con": "Prankster Tailwind \u2192 Landorus EQ spam",
+    "ai_switch": "Tornadus \u2192 Flutter Mane; Landorus stays",
     "ai_tera": "Landorus Tera Ground for EQ nuke",
     "shiny_pokemon": "",
     "pokemon": [
@@ -13893,9 +13893,9 @@
     "name": "Goodstuffs Balance",
     "trainer_title": "Tower Champion",
     "ai_lead": "Incineroar + Rillaboom",
-    "ai_win_con": "Balanced—answer everything with pivoting + coverage",
+    "ai_win_con": "Balanced\u2014answer everything with pivoting + coverage",
     "ai_switch": "Heavy pivoting, switch every 2 turns",
-    "ai_tera": "Context-dependent—save for sweeper",
+    "ai_tera": "Context-dependent\u2014save for sweeper",
     "shiny_pokemon": "",
     "pokemon": [
       {
@@ -14110,7 +14110,7 @@
     "name": "Iron Bundle Offense",
     "trainer_title": "Tower Champion",
     "ai_lead": "Iron Bundle + Chien-Pao",
-    "ai_win_con": "Sword of Ruin defense drop → Iron Bundle freeze dry spam",
+    "ai_win_con": "Sword of Ruin defense drop \u2192 Iron Bundle freeze dry spam",
     "ai_switch": "Swap Chien-Pao to Incineroar for pivot",
     "ai_tera": "Iron Bundle Tera Ice for Freeze-Dry nuke",
     "shiny_pokemon": "",
@@ -14327,8 +14327,8 @@
     "name": "Aurora Veil Hyper",
     "trainer_title": "Tower Champion",
     "ai_lead": "Alolan Ninetales + Palafin",
-    "ai_win_con": "Hail Veil → Palafin Hero form nuke behind screens",
-    "ai_switch": "Palafin Flip Turn out turn 1 → re-enter as Hero",
+    "ai_win_con": "Hail Veil \u2192 Palafin Hero form nuke behind screens",
+    "ai_switch": "Palafin Flip Turn out turn 1 \u2192 re-enter as Hero",
     "ai_tera": "Palafin Tera Water for Jet Punch nuke",
     "shiny_pokemon": "",
     "pokemon": [
@@ -14545,7 +14545,7 @@
     "trainer_title": "Tower Champion",
     "ai_lead": "Ogerpon-Hearthflame + Landorus-T",
     "ai_win_con": "Ogerpon nuke with Embody Aspect speed boost",
-    "ai_switch": "Landorus U-turn → Rillaboom for terrain control",
+    "ai_switch": "Landorus U-turn \u2192 Rillaboom for terrain control",
     "ai_tera": "Ogerpon auto-Tera Fire",
     "shiny_pokemon": "",
     "pokemon": [
@@ -14759,7 +14759,7 @@
     "name": "Dondozo + Tatsugiri",
     "trainer_title": "Tower Champion",
     "ai_lead": "Dondozo + Tatsugiri",
-    "ai_win_con": "Commander gimmick → boosted Dondozo sweeps",
+    "ai_win_con": "Commander gimmick \u2192 boosted Dondozo sweeps",
     "ai_switch": "NEVER switch Tatsugiri or Dondozo once combined",
     "ai_tera": "Dondozo Tera Water or Steel",
     "shiny_pokemon": "",
@@ -15190,11 +15190,11 @@
   {
     "id": "5-11",
     "stage": 5,
-    "name": "Hadron Propulsion — Miraidon Engine",
+    "name": "Hadron Propulsion \u2014 Miraidon Engine",
     "trainer_title": "Tower Champion",
     "ai_lead": "Miraidon + Whimsicott",
-    "ai_win_con": "Hadron Engine + Tailwind → Electro Drift obliterates anything not Ground type",
-    "ai_switch": "Whimsicott Tailwind → pivot Iron Hands into position",
+    "ai_win_con": "Hadron Engine + Tailwind \u2192 Electro Drift obliterates anything not Ground type",
+    "ai_switch": "Whimsicott Tailwind \u2192 pivot Iron Hands into position",
     "ai_tera": "Miraidon Tera Electric (2.33x Electro Drift)",
     "shiny_pokemon": "Miraidon",
     "pokemon": [
@@ -15407,7 +15407,7 @@
   {
     "id": "5-12",
     "stage": 5,
-    "name": "Orichalcum Desolation — Koraidon Sun",
+    "name": "Orichalcum Desolation \u2014 Koraidon Sun",
     "trainer_title": "Tower Champion",
     "ai_lead": "Koraidon + Flutter Mane",
     "ai_win_con": "Orichalcum Pulse (+30% Atk & Sun) + Collision Course & Flutter Mane Moonblast annihilates",
@@ -15624,10 +15624,10 @@
   {
     "id": "5-13",
     "stage": 5,
-    "name": "Glacial Reign — Calyrex Ice Rider",
+    "name": "Glacial Reign \u2014 Calyrex Ice Rider",
     "trainer_title": "Tower Champion",
     "ai_lead": "Calyrex-Ice + Porygon2",
-    "ai_win_con": "Trick Room setup → Glacial Lance 120 BP spread damage triggers As One (+1 Atk on each KO)",
+    "ai_win_con": "Trick Room setup \u2192 Glacial Lance 120 BP spread damage triggers As One (+1 Atk on each KO)",
     "ai_switch": "Never switch Calyrex-Ice in TR; swap partner to Ursaluna or Amoonguss",
     "ai_tera": "Calyrex-Ice Tera Water / Fire to resist opposing Fire/Steel",
     "shiny_pokemon": "Calyrex-Ice",
@@ -15841,7 +15841,7 @@
   {
     "id": "5-14",
     "stage": 5,
-    "name": "Astral Catastrophe — Calyrex Shadow Rider",
+    "name": "Astral Catastrophe \u2014 Calyrex Shadow Rider",
     "trainer_title": "Tower Champion",
     "ai_lead": "Calyrex-Shadow + Clefairy",
     "ai_win_con": "Friend Guard (-25% dmg) + Follow Me enables Calyrex Astral Barrage sweeps",
@@ -16058,7 +16058,7 @@
   {
     "id": "5-15",
     "stage": 5,
-    "name": "Stellar Prism — Terapagos Core",
+    "name": "Stellar Prism \u2014 Terapagos Core",
     "trainer_title": "Tower Champion",
     "ai_lead": "Terapagos + Farigiraf",
     "ai_win_con": "Teraform Zero + Tera Starstorm hits all opponents; Armor Tail denies priority",
@@ -16273,12 +16273,12 @@
   {
     "id": "6-01",
     "stage": 6,
-    "name": "SOVEREIGN — Apex Rain  FLOOR 91",
+    "name": "SOVEREIGN \u2014 Apex Rain  FLOOR 91",
     "trainer_title": "Tower Sovereign",
     "ai_lead": "Pelipper + Kingdra",
-    "ai_win_con": "Rain Swift Swim blitz—no setup, pure speed + damage",
-    "ai_switch": "Perfect pivoting; Pelipper → Zapdos; Kingdra → Urshifu",
-    "ai_tera": "Kingdra Tera Water → 2x STAB rain Hydro Pump",
+    "ai_win_con": "Rain Swift Swim blitz\u2014no setup, pure speed + damage",
+    "ai_switch": "Perfect pivoting; Pelipper \u2192 Zapdos; Kingdra \u2192 Urshifu",
+    "ai_tera": "Kingdra Tera Water \u2192 2x STAB rain Hydro Pump",
     "shiny_pokemon": "Kingdra",
     "pokemon": [
       {
@@ -16490,7 +16490,7 @@
   {
     "id": "6-02",
     "stage": 6,
-    "name": "SOVEREIGN — Solar Annihilation  FLOOR 92",
+    "name": "SOVEREIGN \u2014 Solar Annihilation  FLOOR 92",
     "trainer_title": "Tower Sovereign",
     "ai_lead": "Torkoal + Flutter Mane",
     "ai_win_con": "Sun-boosted special pressure early, then Chi-Yu enters to collapse Special Defense and force immediate KOs",
@@ -16707,11 +16707,11 @@
   {
     "id": "6-03",
     "stage": 6,
-    "name": "SOVEREIGN — Trick Room Colosseum  FLOOR 93",
+    "name": "SOVEREIGN \u2014 Trick Room Colosseum  FLOOR 93",
     "trainer_title": "Tower Sovereign",
     "ai_lead": "Hatterene + Incineroar",
-    "ai_win_con": "TR → Ursaluna BM + Torkoal Eruption sweep",
-    "ai_switch": "Incineroar Parting Shot → Ursaluna; Hatterene stays for 2nd TR",
+    "ai_win_con": "TR \u2192 Ursaluna BM + Torkoal Eruption sweep",
+    "ai_switch": "Incineroar Parting Shot \u2192 Ursaluna; Hatterene stays for 2nd TR",
     "ai_tera": "Ursaluna Tera Normal",
     "shiny_pokemon": "Ursaluna-Bloodmoon",
     "pokemon": [
@@ -16924,7 +16924,7 @@
   {
     "id": "6-04",
     "stage": 6,
-    "name": "SOVEREIGN — Sand Dominion  FLOOR 94",
+    "name": "SOVEREIGN \u2014 Sand Dominion  FLOOR 94",
     "trainer_title": "Tower Sovereign",
     "ai_lead": "Tyranitar + Excadrill",
     "ai_win_con": "Sand Rush Excadrill overwhelms the field while Tyranitar preserves sand turns",
@@ -17133,8 +17133,7 @@
           "Earthquake",
           "Rock Slide",
           "U-turn",
-          "Superpower",
-          ""
+          "Superpower"
         ]
       }
     ]
@@ -17142,7 +17141,7 @@
   {
     "id": "6-05",
     "stage": 6,
-    "name": "SOVEREIGN — Psychic Dominion  FLOOR 95",
+    "name": "SOVEREIGN \u2014 Psychic Dominion  FLOOR 95",
     "trainer_title": "Tower Sovereign",
     "ai_lead": "Indeedee-F + Armarouge",
     "ai_win_con": "Psychic Terrain + Expanding Force pressure, with Trick Room backup if speed control is lost",
@@ -17351,8 +17350,7 @@
           "Scald",
           "Psychic",
           "Trick Room",
-          "Slack Off",
-          ""
+          "Slack Off"
         ]
       }
     ]
@@ -17360,7 +17358,7 @@
   {
     "id": "6-06",
     "stage": 6,
-    "name": "SOVEREIGN — Aurora Fortress  FLOOR 96",
+    "name": "SOVEREIGN \u2014 Aurora Fortress  FLOOR 96",
     "trainer_title": "Tower Sovereign",
     "ai_lead": "Alolan Ninetales + Palafin",
     "ai_win_con": "Aurora Veil enables Palafin Hero and Baxcalibur to trade up relentlessly",
@@ -17569,8 +17567,7 @@
           "Rage Powder",
           "Spore",
           "Pollen Puff",
-          "Protect",
-          ""
+          "Protect"
         ]
       }
     ]
@@ -17578,7 +17575,7 @@
   {
     "id": "6-07",
     "stage": 6,
-    "name": "SOVEREIGN — Hearthflame Blitz  FLOOR 97",
+    "name": "SOVEREIGN \u2014 Hearthflame Blitz  FLOOR 97",
     "trainer_title": "Tower Sovereign",
     "ai_lead": "Ogerpon-Hearthflame + Rillaboom",
     "ai_win_con": "Fake Out / Follow Me pressure gives Hearthflame Ogerpon free attacks and favorable trades",
@@ -17785,8 +17782,7 @@
           "Scald",
           "Ice Beam",
           "Recover",
-          "Protect",
-          ""
+          "Protect"
         ]
       }
     ]
@@ -17794,7 +17790,7 @@
   {
     "id": "6-08",
     "stage": 6,
-    "name": "SOVEREIGN — Commander Leviathan  FLOOR 98",
+    "name": "SOVEREIGN \u2014 Commander Leviathan  FLOOR 98",
     "trainer_title": "Tower Sovereign",
     "ai_lead": "Dondozo + Tatsugiri",
     "ai_win_con": "Commander activation creates an immediate stat-monster; backline supports the Dondozo endgame",
@@ -18003,8 +17999,7 @@
           "Make It Rain",
           "Shadow Ball",
           "Thunderbolt",
-          "Protect",
-          ""
+          "Protect"
         ]
       }
     ]
@@ -18012,7 +18007,7 @@
   {
     "id": "6-09",
     "stage": 6,
-    "name": "SOVEREIGN — Balance Emperor  FLOOR 99",
+    "name": "SOVEREIGN \u2014 Balance Emperor  FLOOR 99",
     "trainer_title": "Tower Sovereign",
     "ai_lead": "Incineroar + Rillaboom",
     "ai_win_con": "Win every trade through Fake Out, Intimidate, terrain control, and perfect pivot sequencing",
@@ -18221,8 +18216,7 @@
           "Tri Attack",
           "Ice Beam",
           "Trick Room",
-          "Recover",
-          ""
+          "Recover"
         ]
       }
     ]
@@ -18230,7 +18224,7 @@
   {
     "id": "6-10",
     "stage": 6,
-    "name": "SOVEREIGN — Crown of CobbleTower  FLOOR 100 FINAL BOSS",
+    "name": "SOVEREIGN \u2014 Crown of CobbleTower  FLOOR 100 FINAL BOSS",
     "trainer_title": "Tower Sovereign",
     "ai_lead": "Farigiraf + Dragonite",
     "ai_win_con": "Armor Tail shuts down priority while Dragonite, Gholdengo, and Urshifu force checkmate positions",
@@ -18439,8 +18433,7 @@
           "Scald",
           "Icy Wind",
           "Tailwind",
-          "Protect",
-          ""
+          "Protect"
         ]
       }
     ]
@@ -18448,11 +18441,11 @@
   {
     "id": "6-11",
     "stage": 6,
-    "name": "SOVEREIGN — Primal Deluge  FLOOR 93",
+    "name": "SOVEREIGN \u2014 Primal Deluge  FLOOR 93",
     "trainer_title": "Tower Sovereign",
     "ai_lead": "Kyogre + Tornadus-Incarnate",
-    "ai_win_con": "Primordial Sea + Prankster Tailwind → Origin Pulse / Water Spout cleans the field",
-    "ai_switch": "Tornadus Bleakwind Storm → pivot Archaludon / Rillaboom",
+    "ai_win_con": "Primordial Sea + Prankster Tailwind \u2192 Origin Pulse / Water Spout cleans the field",
+    "ai_switch": "Tornadus Bleakwind Storm \u2192 pivot Archaludon / Rillaboom",
     "ai_tera": "Kyogre Tera Water",
     "shiny_pokemon": "Kyogre",
     "pokemon": [
@@ -18657,8 +18650,7 @@
           "Spore",
           "Rage Powder",
           "Pollen Puff",
-          "Protect",
-          ""
+          "Protect"
         ]
       }
     ]
@@ -18666,10 +18658,10 @@
   {
     "id": "6-12",
     "stage": 6,
-    "name": "SOVEREIGN — Primal Apocalypse  FLOOR 94",
+    "name": "SOVEREIGN \u2014 Primal Apocalypse  FLOOR 94",
     "trainer_title": "Tower Sovereign",
     "ai_lead": "Groudon + Chi-Yu",
-    "ai_win_con": "Desolate Land + Beads of Ruin → Precipice Blades + Heat Wave breaks all defensive walls",
+    "ai_win_con": "Desolate Land + Beads of Ruin \u2192 Precipice Blades + Heat Wave breaks all defensive walls",
     "ai_switch": "Rotate Incineroar in for Intimidate / Fake Out; bring in Flutter Mane",
     "ai_tera": "Groudon Tera Fire",
     "shiny_pokemon": "Groudon",
@@ -18875,8 +18867,7 @@
           "Fake Out",
           "Flare Blitz",
           "Knock Off",
-          "Parting Shot",
-          ""
+          "Parting Shot"
         ]
       }
     ]
@@ -18884,10 +18875,10 @@
   {
     "id": "6-13",
     "stage": 6,
-    "name": "SOVEREIGN — Delta Sky Emperor  FLOOR 95",
+    "name": "SOVEREIGN \u2014 Delta Sky Emperor  FLOOR 95",
     "trainer_title": "Tower Sovereign",
     "ai_lead": "Rayquaza + Chien-Pao",
-    "ai_win_con": "Delta Stream + Sword of Ruin → Dragon Ascent hits through every defense with priority Extreme Speed",
+    "ai_win_con": "Delta Stream + Sword of Ruin \u2192 Dragon Ascent hits through every defense with priority Extreme Speed",
     "ai_switch": "Rayquaza switches if Fairy/Ice threaten, brought back for clean-up",
     "ai_tera": "Rayquaza Tera Normal / Flying",
     "shiny_pokemon": "Rayquaza",
@@ -19093,8 +19084,7 @@
           "Make It Rain",
           "Shadow Ball",
           "Thunderbolt",
-          "Protect",
-          ""
+          "Protect"
         ]
       }
     ]
@@ -19102,7 +19092,7 @@
   {
     "id": "6-14",
     "stage": 6,
-    "name": "SOVEREIGN — Crowned War Hero  FLOOR 96",
+    "name": "SOVEREIGN \u2014 Crowned War Hero  FLOOR 96",
     "trainer_title": "Tower Sovereign",
     "ai_lead": "Zacian + Pelipper",
     "ai_win_con": "Intrepid Sword Behemoth Blade + Drizzle Rain protection against Fire moves",
@@ -19311,8 +19301,7 @@
           "Fake Out",
           "Flare Blitz",
           "Knock Off",
-          "Parting Shot",
-          ""
+          "Parting Shot"
         ]
       }
     ]
@@ -19320,7 +19309,7 @@
   {
     "id": "6-15",
     "stage": 6,
-    "name": "SOVEREIGN — Light of the End  FLOOR 100 SECRET BOSS",
+    "name": "SOVEREIGN \u2014 Light of the End  FLOOR 100 SECRET BOSS",
     "trainer_title": "Tower Sovereign",
     "ai_lead": "Ultra Necrozma + Arceus",
     "ai_win_con": "Neuroforce Light That Burns the Sky + Arceus Extreme Speed / Judgment clears any opposition",
@@ -46903,7 +46892,7 @@
   {
     "id": "game_freaks_morimoto_05a8",
     "stage": 3,
-    "name": "GAME FREAK’s Morimoto",
+    "name": "GAME FREAK\u2019s Morimoto",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -69661,7 +69650,7 @@
   {
     "id": "poke_fan_leonard_0479",
     "stage": 1,
-    "name": "Poké Fan Leonard",
+    "name": "Pok\u00e9 Fan Leonard",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -69714,7 +69703,7 @@
   {
     "id": "poke_kid_meghan_03e5",
     "stage": 2,
-    "name": "Poké Kid Meghan",
+    "name": "Pok\u00e9 Kid Meghan",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -69782,7 +69771,7 @@
   {
     "id": "pokemaniac_cooprt_00a4",
     "stage": 1,
-    "name": "Pokémaniac Cooprt",
+    "name": "Pok\u00e9maniac Cooprt",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -69856,7 +69845,7 @@
   {
     "id": "pokemaniac_dawson_00a7",
     "stage": 4,
-    "name": "Pokémaniac Dawson",
+    "name": "Pok\u00e9maniac Dawson",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -69930,7 +69919,7 @@
   {
     "id": "pokemon_breeder_albert_0310",
     "stage": 1,
-    "name": "Pokémon Breeder Albert",
+    "name": "Pok\u00e9mon Breeder Albert",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -69983,7 +69972,7 @@
   {
     "id": "pokemon_breeder_albert_04e7",
     "stage": 1,
-    "name": "Pokémon Breeder Albert",
+    "name": "Pok\u00e9mon Breeder Albert",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -70036,7 +70025,7 @@
   {
     "id": "pokemon_breeder_albert_04e8",
     "stage": 2,
-    "name": "Pokémon Breeder Albert",
+    "name": "Pok\u00e9mon Breeder Albert",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -70089,7 +70078,7 @@
   {
     "id": "pokemon_breeder_albert_04e9",
     "stage": 2,
-    "name": "Pokémon Breeder Albert",
+    "name": "Pok\u00e9mon Breeder Albert",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -70142,7 +70131,7 @@
   {
     "id": "pokemon_breeder_amber_0318",
     "stage": 1,
-    "name": "Pokémon Breeder Amber",
+    "name": "Pok\u00e9mon Breeder Amber",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -70195,7 +70184,7 @@
   {
     "id": "pokemon_breeder_jennifer_0311",
     "stage": 1,
-    "name": "Pokémon Breeder Jennifer",
+    "name": "Pok\u00e9mon Breeder Jennifer",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -70248,7 +70237,7 @@
   {
     "id": "pokemon_breeder_jennifer_04ea",
     "stage": 1,
-    "name": "Pokémon Breeder Jennifer",
+    "name": "Pok\u00e9mon Breeder Jennifer",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -70301,7 +70290,7 @@
   {
     "id": "pokemon_breeder_jennifer_04eb",
     "stage": 2,
-    "name": "Pokémon Breeder Jennifer",
+    "name": "Pok\u00e9mon Breeder Jennifer",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -70354,7 +70343,7 @@
   {
     "id": "pokemon_breeder_jennifer_04ec",
     "stage": 2,
-    "name": "Pokémon Breeder Jennifer",
+    "name": "Pok\u00e9mon Breeder Jennifer",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -70407,7 +70396,7 @@
   {
     "id": "pokemon_breeder_kahlil_0317",
     "stage": 1,
-    "name": "Pokémon Breeder Kahlil",
+    "name": "Pok\u00e9mon Breeder Kahlil",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -70460,7 +70449,7 @@
   {
     "id": "pokemon_trainer_cedric_0445",
     "stage": 1,
-    "name": "Pokémon Trainer Cedric",
+    "name": "Pok\u00e9mon Trainer Cedric",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -70578,7 +70567,7 @@
   {
     "id": "pokemon_trainer_cedric_0446",
     "stage": 1,
-    "name": "Pokémon Trainer Cedric",
+    "name": "Pok\u00e9mon Trainer Cedric",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -70696,7 +70685,7 @@
   {
     "id": "pokemon_trainer_cedric_0447",
     "stage": 1,
-    "name": "Pokémon Trainer Cedric",
+    "name": "Pok\u00e9mon Trainer Cedric",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -70814,7 +70803,7 @@
   {
     "id": "pokemon_trainer_cedric_0448",
     "stage": 1,
-    "name": "Pokémon Trainer Cedric",
+    "name": "Pok\u00e9mon Trainer Cedric",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -70933,7 +70922,7 @@
   {
     "id": "pokemon_trainer_cedric_0449",
     "stage": 1,
-    "name": "Pokémon Trainer Cedric",
+    "name": "Pok\u00e9mon Trainer Cedric",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -71052,7 +71041,7 @@
   {
     "id": "pokemon_trainer_cedric_044a",
     "stage": 1,
-    "name": "Pokémon Trainer Cedric",
+    "name": "Pok\u00e9mon Trainer Cedric",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -71171,7 +71160,7 @@
   {
     "id": "pokemon_trainer_cedric_044b",
     "stage": 2,
-    "name": "Pokémon Trainer Cedric",
+    "name": "Pok\u00e9mon Trainer Cedric",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -71319,7 +71308,7 @@
   {
     "id": "pokemon_trainer_cedric_044c",
     "stage": 2,
-    "name": "Pokémon Trainer Cedric",
+    "name": "Pok\u00e9mon Trainer Cedric",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -71467,7 +71456,7 @@
   {
     "id": "pokemon_trainer_cedric_044d",
     "stage": 2,
-    "name": "Pokémon Trainer Cedric",
+    "name": "Pok\u00e9mon Trainer Cedric",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -71615,7 +71604,7 @@
   {
     "id": "pokemon_trainer_cedric_044e",
     "stage": 2,
-    "name": "Pokémon Trainer Cedric",
+    "name": "Pok\u00e9mon Trainer Cedric",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -71790,7 +71779,7 @@
   {
     "id": "pokemon_trainer_cedric_044f",
     "stage": 2,
-    "name": "Pokémon Trainer Cedric",
+    "name": "Pok\u00e9mon Trainer Cedric",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -71965,7 +71954,7 @@
   {
     "id": "pokemon_trainer_cedric_0450",
     "stage": 2,
-    "name": "Pokémon Trainer Cedric",
+    "name": "Pok\u00e9mon Trainer Cedric",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -72140,7 +72129,7 @@
   {
     "id": "pokemon_trainer_cedric_04c7",
     "stage": 2,
-    "name": "Pokémon Trainer Cedric",
+    "name": "Pok\u00e9mon Trainer Cedric",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -72315,7 +72304,7 @@
   {
     "id": "pokemon_trainer_cedric_04d3",
     "stage": 2,
-    "name": "Pokémon Trainer Cedric",
+    "name": "Pok\u00e9mon Trainer Cedric",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -72490,7 +72479,7 @@
   {
     "id": "pokemon_trainer_cedric_04d4",
     "stage": 2,
-    "name": "Pokémon Trainer Cedric",
+    "name": "Pok\u00e9mon Trainer Cedric",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -72665,7 +72654,7 @@
   {
     "id": "pokemon_trainer_cedric_057d",
     "stage": 3,
-    "name": "Pokémon Trainer Cedric",
+    "name": "Pok\u00e9mon Trainer Cedric",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -72840,7 +72829,7 @@
   {
     "id": "pokemon_trainer_cedric_057e",
     "stage": 3,
-    "name": "Pokémon Trainer Cedric",
+    "name": "Pok\u00e9mon Trainer Cedric",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -73015,7 +73004,7 @@
   {
     "id": "pokemon_trainer_cedric_057f",
     "stage": 3,
-    "name": "Pokémon Trainer Cedric",
+    "name": "Pok\u00e9mon Trainer Cedric",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -73190,7 +73179,7 @@
   {
     "id": "pokemon_trainer_cedric_0580",
     "stage": 4,
-    "name": "Pokémon Trainer Cedric",
+    "name": "Pok\u00e9mon Trainer Cedric",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -73365,7 +73354,7 @@
   {
     "id": "pokemon_trainer_cedric_0581",
     "stage": 4,
-    "name": "Pokémon Trainer Cedric",
+    "name": "Pok\u00e9mon Trainer Cedric",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -73540,7 +73529,7 @@
   {
     "id": "pokemon_trainer_cedric_0582",
     "stage": 4,
-    "name": "Pokémon Trainer Cedric",
+    "name": "Pok\u00e9mon Trainer Cedric",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -73715,7 +73704,7 @@
   {
     "id": "pokemon_trainer_dawn_04d8",
     "stage": 1,
-    "name": "Pokémon Trainer Dawn",
+    "name": "Pok\u00e9mon Trainer Dawn",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -73792,7 +73781,7 @@
   {
     "id": "pokemon_trainer_dawn_04d9",
     "stage": 1,
-    "name": "Pokémon Trainer Dawn",
+    "name": "Pok\u00e9mon Trainer Dawn",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -73869,7 +73858,7 @@
   {
     "id": "pokemon_trainer_dawn_04da",
     "stage": 1,
-    "name": "Pokémon Trainer Dawn",
+    "name": "Pok\u00e9mon Trainer Dawn",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -73946,7 +73935,7 @@
   {
     "id": "pokemon_trainer_dawn_0598",
     "stage": 3,
-    "name": "Pokémon Trainer Dawn",
+    "name": "Pok\u00e9mon Trainer Dawn",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -74110,7 +74099,7 @@
   {
     "id": "pokemon_trainer_dawn_0599",
     "stage": 3,
-    "name": "Pokémon Trainer Dawn",
+    "name": "Pok\u00e9mon Trainer Dawn",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -74274,7 +74263,7 @@
   {
     "id": "pokemon_trainer_dawn_059a",
     "stage": 3,
-    "name": "Pokémon Trainer Dawn",
+    "name": "Pok\u00e9mon Trainer Dawn",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -74438,7 +74427,7 @@
   {
     "id": "pokemon_trainer_dawn_059b",
     "stage": 4,
-    "name": "Pokémon Trainer Dawn",
+    "name": "Pok\u00e9mon Trainer Dawn",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -74601,7 +74590,7 @@
   {
     "id": "pokemon_trainer_dawn_059c",
     "stage": 4,
-    "name": "Pokémon Trainer Dawn",
+    "name": "Pok\u00e9mon Trainer Dawn",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -74765,7 +74754,7 @@
   {
     "id": "pokemon_trainer_dawn_059d",
     "stage": 4,
-    "name": "Pokémon Trainer Dawn",
+    "name": "Pok\u00e9mon Trainer Dawn",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -74926,7 +74915,7 @@
   {
     "id": "pokemon_trainer_lucas_04d5",
     "stage": 1,
-    "name": "Pokémon Trainer Lucas",
+    "name": "Pok\u00e9mon Trainer Lucas",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -75003,7 +74992,7 @@
   {
     "id": "pokemon_trainer_lucas_04d6",
     "stage": 1,
-    "name": "Pokémon Trainer Lucas",
+    "name": "Pok\u00e9mon Trainer Lucas",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -75080,7 +75069,7 @@
   {
     "id": "pokemon_trainer_lucas_04d7",
     "stage": 1,
-    "name": "Pokémon Trainer Lucas",
+    "name": "Pok\u00e9mon Trainer Lucas",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -75157,7 +75146,7 @@
   {
     "id": "pokemon_trainer_lucas_0592",
     "stage": 3,
-    "name": "Pokémon Trainer Lucas",
+    "name": "Pok\u00e9mon Trainer Lucas",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -75321,7 +75310,7 @@
   {
     "id": "pokemon_trainer_lucas_0593",
     "stage": 3,
-    "name": "Pokémon Trainer Lucas",
+    "name": "Pok\u00e9mon Trainer Lucas",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -75486,7 +75475,7 @@
   {
     "id": "pokemon_trainer_lucas_0594",
     "stage": 3,
-    "name": "Pokémon Trainer Lucas",
+    "name": "Pok\u00e9mon Trainer Lucas",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -75650,7 +75639,7 @@
   {
     "id": "pokemon_trainer_lucas_0595",
     "stage": 4,
-    "name": "Pokémon Trainer Lucas",
+    "name": "Pok\u00e9mon Trainer Lucas",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -75810,7 +75799,7 @@
   {
     "id": "pokemon_trainer_lucas_0596",
     "stage": 4,
-    "name": "Pokémon Trainer Lucas",
+    "name": "Pok\u00e9mon Trainer Lucas",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -75974,7 +75963,7 @@
   {
     "id": "pokemon_trainer_lucas_0597",
     "stage": 4,
-    "name": "Pokémon Trainer Lucas",
+    "name": "Pok\u00e9mon Trainer Lucas",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -88316,7 +88305,7 @@
   {
     "id": "swimmerf_abigail_0224",
     "stage": 5,
-    "name": "Swimmer♀ Abigail",
+    "name": "Swimmer\u2640 Abigail",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -88428,7 +88417,7 @@
   {
     "id": "swimmerf_amara_0222",
     "stage": 5,
-    "name": "Swimmer♀ Amara",
+    "name": "Swimmer\u2640 Amara",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -88514,7 +88503,7 @@
   {
     "id": "swimmerf_anya_0114",
     "stage": 3,
-    "name": "Swimmer♀ Anya",
+    "name": "Swimmer\u2640 Anya",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -88632,7 +88621,7 @@
   {
     "id": "swimmerf_connie_0116",
     "stage": 3,
-    "name": "Swimmer♀ Connie",
+    "name": "Swimmer\u2640 Connie",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -88706,7 +88695,7 @@
   {
     "id": "swimmerf_maria_0223",
     "stage": 5,
-    "name": "Swimmer♀ Maria",
+    "name": "Swimmer\u2640 Maria",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -88818,7 +88807,7 @@
   {
     "id": "swimmerf_nora_010f",
     "stage": 3,
-    "name": "Swimmer♀ Nora",
+    "name": "Swimmer\u2640 Nora",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -88892,7 +88881,7 @@
   {
     "id": "swimmerf_shirley_0117",
     "stage": 3,
-    "name": "Swimmer♀ Shirley",
+    "name": "Swimmer\u2640 Shirley",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -88966,7 +88955,7 @@
   {
     "id": "swimmerf_tisha_0231",
     "stage": 5,
-    "name": "Swimmer♀ Tisha",
+    "name": "Swimmer\u2640 Tisha",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -89103,7 +89092,7 @@
   {
     "id": "swimmerm_axle_00f1",
     "stage": 3,
-    "name": "Swimmer♂ Axle",
+    "name": "Swimmer\u2642 Axle",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -89221,7 +89210,7 @@
   {
     "id": "swimmerm_darrin_00f4",
     "stage": 3,
-    "name": "Swimmer♂ Darrin",
+    "name": "Swimmer\u2642 Darrin",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -89317,7 +89306,7 @@
   {
     "id": "swimmerm_darrin_02ab",
     "stage": 2,
-    "name": "Swimmer♂ Darrin",
+    "name": "Swimmer\u2642 Darrin",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -89413,7 +89402,7 @@
   {
     "id": "swimmerm_david_00ef",
     "stage": 3,
-    "name": "Swimmer♂ David",
+    "name": "Swimmer\u2642 David",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -89487,7 +89476,7 @@
   {
     "id": "swimmerm_douglas_00ee",
     "stage": 3,
-    "name": "Swimmer♂ Douglas",
+    "name": "Swimmer\u2642 Douglas",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -89583,7 +89572,7 @@
   {
     "id": "swimmerm_finn_0225",
     "stage": 5,
-    "name": "Swimmer♂ Finn",
+    "name": "Swimmer\u2642 Finn",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -89695,7 +89684,7 @@
   {
     "id": "swimmerm_garrett_0226",
     "stage": 5,
-    "name": "Swimmer♂ Garrett",
+    "name": "Swimmer\u2642 Garrett",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -89803,7 +89792,7 @@
   {
     "id": "swimmerm_reece_00ec",
     "stage": 3,
-    "name": "Swimmer♂ Reece",
+    "name": "Swimmer\u2642 Reece",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -89877,7 +89866,7 @@
   {
     "id": "swimmerm_roland_00f8",
     "stage": 3,
-    "name": "Swimmer♂ Roland",
+    "name": "Swimmer\u2642 Roland",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
@@ -89951,7 +89940,7 @@
   {
     "id": "swimmerm_toby_0236",
     "stage": 2,
-    "name": "Swimmer♂ Toby",
+    "name": "Swimmer\u2642 Toby",
     "trainer_title": "Hell Mode Trainer",
     "pokemon": [
       {
