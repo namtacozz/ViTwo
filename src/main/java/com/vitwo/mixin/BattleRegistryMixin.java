@@ -117,7 +117,7 @@ public class BattleRegistryMixin {
                         }
                     }
                 }
-                return format;
+                return BattleFormat.Companion.getGEN_9_DOUBLES();
             }
             return format;
         }

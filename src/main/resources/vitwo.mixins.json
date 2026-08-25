@@ -4,6 +4,7 @@
   "package": "com.vitwo.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "BattleActorMixin",
     "BattleItemUseMixin",
     "BattleRegistryMixin",
     "LeavesDecayMixin"
