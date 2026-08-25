@@ -146,7 +146,7 @@
         "hp": 156
       },
       "heldItem": [
-        "booster_energy"
+        "mega_showdown:booster_energy"
       ],
       "gimmicks": {
         "tera": "grass"
