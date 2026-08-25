@@ -158,9 +158,14 @@ public class TowerHubScreen extends AbstractTowerScreen {
                     ));
                 } else {
                     this.addDrawableChild(create3DButton(
-                            Text.literal("§7(Invite Partner)"),
+                            Text.literal("§d§l+ INVITE PARTNER"),
                             centerX - 160, centerY + 40, 155, 26,
-                            btn -> {}
+                            btn -> {
+                                if (this.client != null && this.client.player != null) {
+                                    this.client.player.sendMessage(Text.literal("§e[CobbleTower] §fTo invite a partner, use §b/tower duo <PlayerName> §for §bShift + Right-Click §fa player!"), false);
+                                    this.close();
+                                }
+                            }
                     ));
                 }
             }
