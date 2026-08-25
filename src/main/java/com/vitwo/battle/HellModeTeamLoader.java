@@ -203,14 +203,68 @@ public class HellModeTeamLoader {
         if (newTeam == null || newTeam.isEmpty()) return false;
 
         List<BattlePokemon> battleTeam = actor.getPokemonList();
-        battleTeam.clear();
 
-        for (Pokemon mon : newTeam) {
+        // 1. Mutate existing BattlePokemon IN-PLACE to preserve Showdown references & prevent AI freezes / desyncs
+        for (int i = 0; i < battleTeam.size() && i < newTeam.size(); i++) {
+            BattlePokemon bp = battleTeam.get(i);
+            if (bp == null) continue;
+            Pokemon targetMon = bp.getEffectedPokemon() != null ? bp.getEffectedPokemon() : bp.getOriginalPokemon();
+            Pokemon sourceMon = newTeam.get(i);
+            if (targetMon != null && sourceMon != null) {
+                copyPokemonData(sourceMon, targetMon);
+            }
+            if (bp.getOriginalPokemon() != null && bp.getOriginalPokemon() != targetMon && sourceMon != null) {
+                copyPokemonData(sourceMon, bp.getOriginalPokemon());
+            }
+        }
+
+        // 2. Append additional reserve Pokemon if newTeam is larger (up to 6)
+        while (battleTeam.size() < newTeam.size()) {
+            int idx = battleTeam.size();
+            Pokemon mon = newTeam.get(idx);
             BattlePokemon bp = BattlePokemon.Companion.safeCopyOf(mon);
             bp.setActor(actor);
             battleTeam.add(bp);
         }
 
         return true;
+    }
+
+    public static void copyPokemonData(Pokemon source, Pokemon target) {
+        if (source == null || target == null) return;
+        try {
+            target.setSpecies(source.getSpecies());
+            target.setLevel(source.getLevel());
+            target.setGender(source.getGender());
+            target.setNature(source.getNature());
+            target.setShiny(source.getShiny());
+
+            if (source.getAbility() != null) {
+                try {
+                    target.updateAbility(source.getAbility());
+                } catch (Throwable ignored) {}
+            }
+
+            try {
+                target.swapHeldItem(source.heldItem(), true, true);
+            } catch (Throwable ignored) {}
+
+            target.getMoveSet().clear();
+            for (Move m : source.getMoveSet()) {
+                target.getMoveSet().add(m);
+            }
+
+            for (Stat stat : Stats.Companion.getPERMANENT()) {
+                target.getIvs().set(stat, source.getIvs().getOrDefault(stat));
+            }
+
+            for (Stat stat : Stats.Companion.getPERMANENT()) {
+                target.getEvs().set(stat, source.getEvs().getOrDefault(stat));
+            }
+
+            target.heal();
+        } catch (Throwable t) {
+            LOGGER.warn("[HellMode] Error copying pokemon data: {}", t.getMessage());
+        }
     }
 }

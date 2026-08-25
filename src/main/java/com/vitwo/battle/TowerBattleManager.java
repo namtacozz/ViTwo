@@ -213,23 +213,32 @@ public class TowerBattleManager {
 
         for (UUID playerId : playerIds) {
             Optional<TowerParty> partyOpt = TowerPartyManager.getInstance().getParty(playerId);
+            MinecraftServer server = resolveServer(event.getBattle(), partyOpt.orElse(null));
             if (partyOpt.isPresent()) {
                 TowerParty party = partyOpt.get();
-                if (party.getState() == TowerParty.State.IN_BATTLE || party.getState() == TowerParty.State.PREPARING) {
-                    for (UUID memId : party.getAllMembers()) {
-                        inTowerBattlePlayers.remove(memId);
-                    }
+                for (UUID memId : party.getAllMembers()) {
+                    inTowerBattlePlayers.remove(memId);
+                }
 
-                    MinecraftServer server = resolveServer(event.getBattle(), party);
-                    if (server != null) {
-                        server.execute(() -> {
-                            ServerPlayerEntity player = server.getPlayerManager().getPlayer(playerId);
-                            if (player != null) {
-                                player.sendMessage(Text.literal("§c[CobbleTower] You fled from the battle! Tower run ended."), false);
-                            }
-                            TowerPartyManager.getInstance().onPartyDefeated(party, server);
-                        });
-                    }
+                if (server != null) {
+                    server.execute(() -> {
+                        ServerPlayerEntity player = server.getPlayerManager().getPlayer(playerId);
+                        if (player != null) {
+                            player.sendMessage(Text.literal("§c[CobbleTower] You fled from the battle! Tower run ended."), false);
+                        }
+                        TowerPartyManager.getInstance().forfeitTower(party.getLeaderId(), server);
+                    });
+                }
+                return;
+            } else if (server != null) {
+                // If player was in tower dimension without a party
+                ServerPlayerEntity player = server.getPlayerManager().getPlayer(playerId);
+                if (player != null && player.getServerWorld().getRegistryKey().getValue().getPath().contains("tower")) {
+                    server.execute(() -> {
+                        TowerPartyManager.terminateActiveBattleForPlayer(player);
+                        com.vitwo.arena.TowerArenaManager.getInstance().returnPlayerToOriginalPos(player, null);
+                        player.sendMessage(Text.literal("§c[CobbleTower] You fled from the battle! Returned to Overworld."), false);
+                    });
                     return;
                 }
             }

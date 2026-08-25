@@ -14,6 +14,7 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 
 import java.util.*;
@@ -419,12 +420,31 @@ public class TowerPartyManager {
         }
     }
 
+    public static void terminateActiveBattleForPlayer(ServerPlayerEntity player) {
+        if (player == null) return;
+        try {
+            var battle = com.cobblemon.mod.common.battles.BattleRegistry.getBattleByParticipatingPlayer(player);
+            if (battle != null) {
+                battle.stop();
+                com.cobblemon.mod.common.battles.BattleRegistry.closeBattle(battle);
+            }
+        } catch (Throwable ignored) {}
+    }
+
     public void handleForfeitVote(ServerPlayerEntity player) {
         Optional<TowerParty> partyOpt = getParty(player.getUuid());
-        if (partyOpt.isEmpty()) return;
+        if (partyOpt.isEmpty()) {
+            if (player.getServerWorld() != null && player.getServerWorld().getRegistryKey().getValue().getPath().contains("tower")) {
+                terminateActiveBattleForPlayer(player);
+                TowerArenaManager.getInstance().returnPlayerToOriginalPos(player, null);
+                player.sendMessage(Text.literal("§e[CobbleTower] Returned to Overworld."), false);
+                syncPlayerState(player);
+            }
+            return;
+        }
 
         TowerParty party = partyOpt.get();
-        boolean shouldForfeit = party.voteForfeit(player.getUuid());
+        boolean shouldForfeit = party.isSolo() || party.voteForfeit(player.getUuid());
 
         if (shouldForfeit) {
             forfeitTower(party.getLeaderId(), player.getServer());
@@ -433,7 +453,7 @@ public class TowerPartyManager {
             if (otherId != null && player.getServer() != null) {
                 ServerPlayerEntity other = player.getServer().getPlayerManager().getPlayer(otherId);
                 if (other != null) {
-                    other.sendMessage(Text.literal("§e[CobbleTower] §fPartner voted to forfeit (1/2). Open [Y] to confirm."), false);
+                    other.sendMessage(Text.literal("§e[CobbleTower] §fPartner voted to forfeit (1/2). Open [Y] or use /tower forfeit to confirm."), false);
                 }
             }
             if (player.getServer() != null) {
@@ -452,6 +472,10 @@ public class TowerPartyManager {
         ServerPlayerEntity leader = server.getPlayerManager().getPlayer(party.getLeaderId());
         ServerPlayerEntity member = party.isSolo() ? null : server.getPlayerManager().getPlayer(party.getMemberId());
 
+        // Terminate any active battle immediately
+        terminateActiveBattleForPlayer(leader);
+        terminateActiveBattleForPlayer(member);
+
         party.setState(TowerParty.State.LOBBY);
 
         int floor = party.getCurrentFloor();
@@ -460,12 +484,14 @@ public class TowerPartyManager {
         int faints = party.getFaintsCount();
 
         if (leader != null) {
+            leader.playSound(SoundEvents.ENTITY_WITHER_DEATH, 0.7f, 0.8f);
             TowerPlayerDataManager.getInstance().recordRunResult(leader.getUuid(), floor, party.isTrueRun(), turns, duration, false);
             ServerPlayNetworking.send(leader, new OpenRunSummaryS2CPacket(floor, false, party.isTrueRun(), duration, turns, faints, 0, floor));
             leader.sendMessage(Text.translatable("vitwo.tower.forfeited"), false);
             TowerArenaManager.getInstance().returnPlayerToOriginalPos(leader, party.getOriginalLeaderPos());
         }
         if (member != null) {
+            member.playSound(SoundEvents.ENTITY_WITHER_DEATH, 0.7f, 0.8f);
             TowerPlayerDataManager.getInstance().recordRunResult(member.getUuid(), floor, party.isTrueRun(), turns, duration, false);
             ServerPlayNetworking.send(member, new OpenRunSummaryS2CPacket(floor, false, party.isTrueRun(), duration, turns, faints, 0, floor));
             member.sendMessage(Text.translatable("vitwo.tower.forfeited"), false);
@@ -486,6 +512,10 @@ public class TowerPartyManager {
         int failedFloor = party.getCurrentFloor();
         ServerPlayerEntity leader = server.getPlayerManager().getPlayer(party.getLeaderId());
         ServerPlayerEntity member = party.isSolo() ? null : server.getPlayerManager().getPlayer(party.getMemberId());
+
+        // Terminate any active battle immediately
+        terminateActiveBattleForPlayer(leader);
+        terminateActiveBattleForPlayer(member);
 
         party.setState(TowerParty.State.LOBBY);
         party.incrementFaints(6);
