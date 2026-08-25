@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Hiker Jeremy"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "machop",
+      "gender": "FEMALE",
+      "level": 30,
+      "nature": "hasty",
+      "ability": "guts",
+      "moveset": [
+        "revenge",
+        "knockoff",
+        "vitalthrow",
+        "wakeupslap"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "stunfisk",
+      "gender": "FEMALE",
+      "level": 30,
+      "nature": "brave",
+      "ability": "static",
+      "moveset": [
+        "camouflage",
+        "mudbomb",
+        "discharge",
+        "endure"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

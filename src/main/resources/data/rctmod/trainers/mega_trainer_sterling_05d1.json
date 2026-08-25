@@ -1,0 +1,109 @@
+{
+  "name": {
+    "literal": "Mega Trainer Sterling"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "meganium",
+      "gender": "MALE",
+      "level": 76,
+      "nature": "calm",
+      "ability": "grassysurge",
+      "moveset": [
+        "solarbeam",
+        "earthpower",
+        "gigadrain",
+        "naturepower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "spa": 4,
+        "spd": 252
+      },
+      "heldItem": [
+        "quick_claw"
+      ]
+    },
+    {
+      "species": "venusaur",
+      "gender": "FEMALE",
+      "level": 77,
+      "nature": "modest",
+      "ability": "thickfat",
+      "moveset": [
+        "solarbeam",
+        "earthpower",
+        "naturepower",
+        "weatherball"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "spa": 252,
+        "spd": 4
+      },
+      "heldItem": [
+        "mega_showdown:venusaurite",
+        "leftovers"
+      ]
+    },
+    {
+      "species": "shiftry",
+      "gender": "FEMALE",
+      "level": 75,
+      "nature": "mild",
+      "ability": "chlorophyll",
+      "moveset": [
+        "solarbeam",
+        "darkpulse",
+        "heatwave",
+        "brickbreak"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

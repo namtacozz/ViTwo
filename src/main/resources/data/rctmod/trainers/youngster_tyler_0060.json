@@ -1,0 +1,61 @@
+{
+  "name": {
+    "literal": "Youngster Tyler"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "eiscue",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "relaxed",
+      "ability": "iceface",
+      "moveset": [
+        "mist",
+        "weatherball",
+        "icywind",
+        "headbutt"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "pelipper",
+      "gender": "MALE",
+      "level": 27,
+      "moveset": [
+        "waterpulse",
+        "airslash",
+        "roost",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    }
+  ]
+}

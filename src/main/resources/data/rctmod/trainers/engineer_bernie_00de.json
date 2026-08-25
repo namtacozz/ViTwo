@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "Engineer Bernie"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "magnemite",
+      "gender": "GENDERLESS",
+      "level": 25,
+      "nature": "hardy",
+      "ability": "magnetpull",
+      "moveset": [
+        "sonicboom",
+        "spark",
+        "mirrorshot",
+        "metalsound"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "electabuzz",
+      "gender": "FEMALE",
+      "level": 24,
+      "nature": "lax",
+      "ability": "static",
+      "moveset": [
+        "swift",
+        "shockwave",
+        "thunderwave",
+        "electroball"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "tynamo",
+      "gender": "MALE",
+      "level": 24,
+      "nature": "mild",
+      "ability": "levitate",
+      "moveset": [
+        "tackle",
+        "thunderwave",
+        "spark",
+        "chargebeam"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

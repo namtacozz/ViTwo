@@ -1,0 +1,221 @@
+{
+  "name": {
+    "literal": "Winona"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 4
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "earthquake",
+        "rockslide",
+        "uturn",
+        "brickbreak"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 128,
+        "spd": 56,
+        "def": 64,
+        "atk": 152,
+        "hp": 108
+      },
+      "heldItem": [
+        "assault_vest"
+      ],
+      "aspects": [
+        "therian-forme"
+      ],
+      "gimmicks": {
+        "tera": "ground"
+      },
+      "species": "landorus",
+      "gender": "GENDERLESS",
+      "level": 80,
+      "nature": "adamant",
+      "ability": "intimidate"
+    },
+    {
+      "moveset": [
+        "tailwind",
+        "knockoff",
+        "taunt",
+        "snarl"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 76,
+        "spd": 96,
+        "spa": 4,
+        "def": 44,
+        "atk": 36,
+        "hp": 252
+      },
+      "heldItem": [
+        "covert_cloak"
+      ],
+      "species": "mandibuzz",
+      "gender": "FEMALE",
+      "level": 80,
+      "nature": "careful",
+      "ability": "overcoat"
+    },
+    {
+      "moveset": [
+        "dualwingbeat",
+        "dragondance",
+        "flamethrower",
+        "dragonclaw"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 8,
+        "spd": 104,
+        "def": 56,
+        "atk": 152,
+        "hp": 188
+      },
+      "heldItem": [
+        "mega_showdown:salamencite"
+      ],
+      "species": "salamence",
+      "gender": "MALE",
+      "level": 80,
+      "nature": "naughty",
+      "ability": "aerilate",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "airslash",
+        "bodypress",
+        "flashcannon",
+        "tailwind"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 40,
+        "spd": 76,
+        "spa": 132,
+        "def": 108,
+        "hp": 152
+      },
+      "heldItem": [
+        "heavy_duty_boots"
+      ],
+      "species": "corviknight",
+      "gender": "MALE",
+      "level": 80,
+      "nature": "bold",
+      "ability": "mirrorarmor"
+    },
+    {
+      "moveset": [
+        "aerialace",
+        "bugbite",
+        "furycutter",
+        "helpinghand"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 96,
+        "spd": 72,
+        "def": 36,
+        "atk": 132,
+        "hp": 172
+      },
+      "heldItem": [
+        "eviolite"
+      ],
+      "species": "scyther",
+      "gender": "MALE",
+      "level": 80,
+      "nature": "adamant",
+      "ability": "technician"
+    },
+    {
+      "moveset": [
+        "highjumpkick",
+        "throatchop",
+        "skyattack",
+        "trailblaze"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 88,
+        "spd": 24,
+        "def": 48,
+        "atk": 252,
+        "hp": 96
+      },
+      "heldItem": [
+        "power_herb"
+      ],
+      "species": "hawlucha",
+      "gender": "MALE",
+      "level": 80,
+      "nature": "adamant",
+      "ability": "moldbreaker"
+    }
+  ],
+  "identity": "Alice",
+  "battleFormat": "GEN_9_DOUBLES"
+}

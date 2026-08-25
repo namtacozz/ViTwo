@@ -1,0 +1,227 @@
+{
+  "name": {
+    "literal": "Sabrina"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 3
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 3
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "helpinghand",
+        "followme",
+        "fakeout",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 100,
+        "def": 156,
+        "atk": 4,
+        "hp": 248
+      },
+      "heldItem": [
+        "rocky_helmet"
+      ],
+      "gimmicks": {
+        "tera": "psychic"
+      },
+      "species": "indeedee",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "careful",
+      "ability": "psychicsurge"
+    },
+    {
+      "moveset": [
+        "psychic",
+        "mysticalfire",
+        "shadowball",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 36,
+        "spa": 152,
+        "def": 80,
+        "hp": 240
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "gimmicks": {
+        "tera": "psychic"
+      },
+      "species": "hatterene",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "modest",
+      "ability": "magicbounce"
+    },
+    {
+      "moveset": [
+        "trickroom",
+        "helpinghand",
+        "expandingforce",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 116,
+        "spa": 4,
+        "def": 136,
+        "hp": 252
+      },
+      "heldItem": [
+        "psychic_seed"
+      ],
+      "gimmicks": {
+        "tera": "normal"
+      },
+      "species": "farigiraf",
+      "gender": "MALE",
+      "level": 60,
+      "nature": "sassy",
+      "ability": "armortail"
+    },
+    {
+      "moveset": [
+        "dazzlinggleam",
+        "expandingforce",
+        "calmmind",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 76,
+        "spd": 24,
+        "spa": 156,
+        "def": 40,
+        "hp": 212
+      },
+      "heldItem": [
+        "mega_showdown:gardevoirite"
+      ],
+      "gimmicks": {
+        "tera": "psychic"
+      },
+      "species": "gardevoir",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "timid",
+      "ability": "pixilate",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "glaciallance",
+        "trickroom",
+        "leechseed",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 76,
+        "def": 76,
+        "atk": 120,
+        "hp": 236
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "aspects": [
+        "ice-rider"
+      ],
+      "gimmicks": {
+        "tera": "psychic"
+      },
+      "species": "calyrex",
+      "gender": "GENDERLESS",
+      "level": 60,
+      "nature": "relaxed",
+      "ability": "asoneglastrier"
+    },
+    {
+      "moveset": [
+        "calmmind",
+        "expandingforce",
+        "smartstrike",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 72,
+        "spa": 156,
+        "def": 44,
+        "hp": 236
+      },
+      "heldItem": [
+        "mega_showdown:booster_energy"
+      ],
+      "gimmicks": {
+        "tera": "steel"
+      },
+      "species": "ironcrown",
+      "gender": "GENDERLESS",
+      "level": 60,
+      "nature": "modest",
+      "ability": "quarkdrive"
+    }
+  ],
+  "battleFormat": "GEN_9_DOUBLES"
+}

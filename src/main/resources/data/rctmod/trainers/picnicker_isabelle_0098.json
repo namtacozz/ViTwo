@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "Picnicker Isabelle"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "sinistea",
+      "gender": "GENDERLESS",
+      "level": 23,
+      "nature": "lax",
+      "ability": "weakarmor",
+      "moveset": [
+        "aromaticmist",
+        "megadrain",
+        "willowisp",
+        "detect"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "swadloon",
+      "gender": "FEMALE",
+      "level": 23,
+      "nature": "relaxed",
+      "ability": "leafguard",
+      "moveset": [
+        "tackle",
+        "stringshot",
+        "bugbite",
+        "razorleaf"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "lombre",
+      "gender": "MALE",
+      "level": 24,
+      "nature": "quiet",
+      "ability": "swiftswim",
+      "moveset": [
+        "aurorabeam",
+        "fakeout",
+        "watersport",
+        "bubblebeam"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    }
+  ]
+}

@@ -1,0 +1,233 @@
+{
+  "name": {
+    "literal": "Chuck"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.84,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 3
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 3
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "tailwind",
+        "closecombat",
+        "dualwingbeat",
+        "wideguard"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 60,
+        "def": 16,
+        "atk": 76,
+        "hp": 104
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "gimmicks": {
+        "tera": "flying"
+      },
+      "species": "flamigo",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "jolly",
+      "ability": "scrappy"
+    },
+    {
+      "moveset": [
+        "spore",
+        "protect",
+        "thunderpunch",
+        "drainpunch"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 76,
+        "spd": 44,
+        "def": 100,
+        "atk": 36,
+        "hp": 252
+      },
+      "heldItem": [
+        "black_sludge"
+      ],
+      "gimmicks": {
+        "tera": "grass"
+      },
+      "species": "breloom",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "adamant",
+      "ability": "poisonheal"
+    },
+    {
+      "moveset": [
+        "moonblast",
+        "aurasphere",
+        "calmmind",
+        "icywind"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 68,
+        "spd": 28,
+        "spa": 156,
+        "def": 76,
+        "hp": 180
+      },
+      "heldItem": [
+        "mega_showdown:booster_energy"
+      ],
+      "gimmicks": {
+        "tera": "fairy"
+      },
+      "species": "ironvaliant",
+      "gender": "GENDERLESS",
+      "level": 75,
+      "nature": "modest",
+      "ability": "quarkdrive"
+    },
+    {
+      "moveset": [
+        "flamecharge",
+        "brickbreak",
+        "closecombat",
+        "knockoff"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 200,
+        "spd": 12,
+        "def": 28,
+        "atk": 112,
+        "hp": 156
+      },
+      "heldItem": [
+        "mega_showdown:blazikenite"
+      ],
+      "gimmicks": {
+        "tera": "fire"
+      },
+      "species": "blaziken",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "adamant",
+      "ability": "speedboost",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "firepunch",
+        "icepunch",
+        "closecombat",
+        "knockoff"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 116,
+        "spd": 52,
+        "def": 40,
+        "atk": 204,
+        "hp": 96
+      },
+      "heldItem": [
+        "flame_orb"
+      ],
+      "gimmicks": {
+        "tera": "fighting"
+      },
+      "species": "machamp",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "adamant",
+      "ability": "guts",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "wickedblow",
+        "closecombat",
+        "detect",
+        "uturn"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 156,
+        "spd": 28,
+        "def": 72,
+        "atk": 172,
+        "hp": 80
+      },
+      "heldItem": [
+        "black_glasses"
+      ],
+      "gimmicks": {
+        "tera": "fighting"
+      },
+      "species": "urshifu",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "jolly",
+      "ability": "unseenfist"
+    }
+  ],
+  "identity": "Furio",
+  "battleFormat": "GEN_9_DOUBLES"
+}

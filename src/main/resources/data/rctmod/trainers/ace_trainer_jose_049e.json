@@ -1,0 +1,53 @@
+{
+  "name": {
+    "literal": "Ace Trainer Jose"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "golduck",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "sassy",
+      "ability": "damp",
+      "moveset": [
+        "hydropump",
+        "zenheadbutt",
+        "screech",
+        "disable"
+      ]
+    },
+    {
+      "species": "sandslash",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "relaxed",
+      "ability": "sandveil",
+      "moveset": [
+        "sandtomb",
+        "dig",
+        "crushclaw",
+        "slash"
+      ]
+    }
+  ]
+}

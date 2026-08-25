@@ -1,0 +1,196 @@
+{
+  "name": {
+    "literal": "Elite Four Arabella"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "ribombee",
+      "gender": "FEMALE",
+      "level": 74,
+      "nature": "timid",
+      "ability": "shielddust",
+      "moveset": [
+        "moonblast",
+        "reflect",
+        "lightscreen",
+        "stickyweb"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "sylveon",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "bold",
+      "ability": "pixilate",
+      "moveset": [
+        "hypervoice",
+        "mysticalfire",
+        "wish",
+        "calmmind"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spd": 4
+      },
+      "heldItem": [
+        "fairy_gem"
+      ]
+    },
+    {
+      "species": "togekiss",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "calm",
+      "ability": "serenegrace",
+      "moveset": [
+        "airslash",
+        "dazzlinggleam",
+        "flamethrower",
+        "wish"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spd": 252
+      }
+    },
+    {
+      "species": "azumarill",
+      "gender": "FEMALE",
+      "level": 76,
+      "nature": "careful",
+      "ability": "hugepower",
+      "moveset": [
+        "aquatail",
+        "playrough",
+        "superpower",
+        "aquajet"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spd": 252
+      }
+    },
+    {
+      "species": "mawile",
+      "gender": "FEMALE",
+      "level": 76,
+      "nature": "adamant",
+      "ability": "hugepower",
+      "moveset": [
+        "ironhead",
+        "playrough",
+        "suckerpunch",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "mega_showdown:mawilite",
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "tapufini",
+      "gender": "GENDERLESS",
+      "level": 76,
+      "nature": "calm",
+      "ability": "mistysurge",
+      "moveset": [
+        "moonblast",
+        "surf",
+        "naturesmadness",
+        "taunt"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spd": 252
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

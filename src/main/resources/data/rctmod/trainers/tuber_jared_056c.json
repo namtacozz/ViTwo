@@ -1,0 +1,66 @@
+{
+  "name": {
+    "literal": "Tuber Jared"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "gastrodon",
+      "gender": "FEMALE",
+      "level": 52,
+      "nature": "calm",
+      "ability": "stormdrain",
+      "moveset": [
+        "mudslap",
+        "recover",
+        "waterpulse",
+        "raindance"
+      ],
+      "aspects": [
+        "east_sea"
+      ]
+    },
+    {
+      "species": "gastrodon",
+      "gender": "MALE",
+      "level": 53,
+      "nature": "calm",
+      "ability": "stormdrain",
+      "moveset": [
+        "recover",
+        "ancientpower",
+        "muddywater",
+        "earthpower"
+      ],
+      "aspects": [
+        "east_sea"
+      ]
+    },
+    {
+      "species": "gastrodon",
+      "gender": "MALE",
+      "level": 51,
+      "nature": "calm",
+      "ability": "stormdrain",
+      "moveset": [
+        "recover",
+        "bodyslam",
+        "muddywater",
+        "earthpower"
+      ]
+    }
+  ]
+}

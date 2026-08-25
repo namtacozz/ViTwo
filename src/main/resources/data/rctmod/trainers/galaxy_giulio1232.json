@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "Giulio1232"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "lucario",
+      "gender": "MALE",
+      "level": 31,
+      "nature": "calm",
+      "ability": "steadfast",
+      "moveset": [
+        "forcepalm",
+        "aurasphere",
+        "metalclaw",
+        "calmmind"
+      ],
+      "ivs": {
+        "hp": 12,
+        "atk": 12,
+        "def": 12,
+        "spa": 12,
+        "spd": 12,
+        "spe": 12
+      }
+    },
+    {
+      "species": "greninja",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "naughty",
+      "ability": "torrent",
+      "moveset": [
+        "waterpulse",
+        "shadowsneak",
+        "nightslash",
+        "feintattack"
+      ],
+      "ivs": {
+        "hp": 12,
+        "atk": 12,
+        "def": 12,
+        "spa": 12,
+        "spd": 12,
+        "spe": 12
+      }
+    },
+    {
+      "species": "feraligatr",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "naughty",
+      "ability": "torrent",
+      "moveset": [
+        "crunch",
+        "bite",
+        "icefang",
+        "watergun"
+      ],
+      "ivs": {
+        "hp": 12,
+        "atk": 12,
+        "def": 12,
+        "spa": 12,
+        "spd": 12,
+        "spe": 12
+      }
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "name": {
+    "literal": "Mega Trainer Portia"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "typhlosion",
+      "gender": "MALE",
+      "level": 76,
+      "nature": "timid",
+      "ability": "drought",
+      "moveset": [
+        "heatwave",
+        "solarbeam",
+        "scorchingsands",
+        "naturepower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "charizard",
+      "gender": "MALE",
+      "level": 77,
+      "nature": "timid",
+      "ability": "drought",
+      "moveset": [
+        "heatwave",
+        "airslash",
+        "scorchingsands",
+        "solarbeam"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:charizardite_y",
+        "expert_belt"
+      ],
+      "aspects": [
+        "mega_y"
+      ]
+    },
+    {
+      "species": "torkoal",
+      "gender": "FEMALE",
+      "level": 75,
+      "nature": "relaxed",
+      "ability": "drought",
+      "moveset": [
+        "heatwave",
+        "bodypress",
+        "eruption",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spa": 4
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

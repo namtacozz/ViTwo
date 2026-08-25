@@ -1,0 +1,62 @@
+{
+  "name": {
+    "literal": "Hiker Alan"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "larvitar",
+      "gender": "FEMALE",
+      "level": 31,
+      "nature": "mild",
+      "ability": "guts",
+      "moveset": [
+        "magnitude",
+        "sandstorm",
+        "screech",
+        "rockslide"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "carkol",
+      "gender": "FEMALE",
+      "level": 32,
+      "nature": "brave",
+      "ability": "steamengine",
+      "moveset": [
+        "harden",
+        "flamecharge",
+        "rocktomb"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

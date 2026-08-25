@@ -2,15 +2,15 @@ package com.vitwo.config;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.vitwo.party.TowerPartyManager;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.WorldSavePath;
 
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.nio.file.Path;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 public class TowerPlayerDataManager {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
@@ -20,6 +20,7 @@ public class TowerPlayerDataManager {
     private final Map<UUID, PlayerProfile> cache = new HashMap<>();
 
     public static class PlayerProfile {
+        public int schema_version = 1;
         public int battlePoints = 0;
         public int soloCheckpoint = 1;
         public int duoCheckpoint = 1;
@@ -34,9 +35,17 @@ public class TowerPlayerDataManager {
         public long lastWeeklyResetTimestamp = System.currentTimeMillis();
         public int prestigeLevel = 0;
         public Map<String, Integer> weeklyPurchasedStock = new HashMap<>();
+
+        // v1.3 Cosmetics & Visual Perks
+        public Set<String> unlockedCosmetics = new HashSet<>();
+        public String activeCosmeticAura = "NONE";
     }
 
     private TowerPlayerDataManager() {}
+
+    public synchronized void clearCache() {
+        cache.clear();
+    }
 
     private void checkWeeklyReset(PlayerProfile profile) {
         if (profile == null) return;
@@ -50,7 +59,13 @@ public class TowerPlayerDataManager {
     }
 
     private File getPlayerFile(UUID uuid) {
-        Path baseDir = FabricLoader.getInstance().getGameDir().resolve("cobbletower_data").resolve("players");
+        MinecraftServer server = TowerPartyManager.getInstance().getCurrentServer();
+        Path baseDir;
+        if (server != null) {
+            baseDir = server.getSavePath(WorldSavePath.ROOT).resolve("cobbletower_data").resolve("players");
+        } else {
+            baseDir = FabricLoader.getInstance().getGameDir().resolve("cobbletower_data").resolve("players");
+        }
         File dir = baseDir.toFile();
         if (!dir.exists()) {
             dir.mkdirs();
@@ -66,19 +81,39 @@ public class TowerPlayerDataManager {
         }
 
         File file = getPlayerFile(uuid);
+        File bakFile = new File(file.getAbsolutePath() + ".bak");
+
         if (file.exists()) {
             try (FileReader reader = new FileReader(file)) {
                 PlayerProfile profile = GSON.fromJson(reader, PlayerProfile.class);
                 if (profile != null) {
-                    if (profile.weeklyPurchasedStock == null) {
-                        profile.weeklyPurchasedStock = new HashMap<>();
-                    }
+                    if (profile.weeklyPurchasedStock == null) profile.weeklyPurchasedStock = new HashMap<>();
+                    if (profile.unlockedCosmetics == null) profile.unlockedCosmetics = new HashSet<>();
+                    if (profile.activeCosmeticAura == null) profile.activeCosmeticAura = "NONE";
                     checkWeeklyReset(profile);
                     cache.put(uuid, profile);
                     return profile;
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                org.slf4j.LoggerFactory.getLogger("vitwo").warn("[CobbleTower] Corrupted player profile for " + uuid + ", attempting backup recovery: " + e.getMessage());
+            }
+        }
+
+        if (bakFile.exists()) {
+            try (FileReader reader = new FileReader(bakFile)) {
+                PlayerProfile profile = GSON.fromJson(reader, PlayerProfile.class);
+                if (profile != null) {
+                    org.slf4j.LoggerFactory.getLogger("vitwo").info("[CobbleTower] Successfully recovered player profile from backup (.bak) for " + uuid);
+                    if (profile.weeklyPurchasedStock == null) profile.weeklyPurchasedStock = new HashMap<>();
+                    if (profile.unlockedCosmetics == null) profile.unlockedCosmetics = new HashSet<>();
+                    if (profile.activeCosmeticAura == null) profile.activeCosmeticAura = "NONE";
+                    checkWeeklyReset(profile);
+                    cache.put(uuid, profile);
+                    saveProfile(uuid);
+                    return profile;
+                }
+            } catch (Exception e) {
+                org.slf4j.LoggerFactory.getLogger("vitwo").error("[CobbleTower] Failed to recover player profile from backup for " + uuid, e);
             }
         }
 
@@ -86,38 +121,6 @@ public class TowerPlayerDataManager {
         cache.put(uuid, newProfile);
         saveProfile(uuid);
         return newProfile;
-    }
-
-    public synchronized void saveProfile(UUID uuid) {
-        PlayerProfile profile = cache.get(uuid);
-        if (profile == null) return;
-
-        File file = getPlayerFile(uuid);
-        try (FileWriter writer = new FileWriter(file)) {
-            GSON.toJson(profile, writer);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public synchronized void addBp(UUID uuid, int amount) {
-        PlayerProfile profile = getProfile(uuid);
-        profile.battlePoints = Math.max(0, profile.battlePoints + amount);
-        saveProfile(uuid);
-    }
-
-    public synchronized boolean spendBp(UUID uuid, int amount) {
-        PlayerProfile profile = getProfile(uuid);
-        if (profile.battlePoints >= amount) {
-            profile.battlePoints -= amount;
-            saveProfile(uuid);
-            return true;
-        }
-        return false;
-    }
-
-    public synchronized int getBp(UUID uuid) {
-        return getProfile(uuid).battlePoints;
     }
 
     public synchronized void updateSoloCheckpoint(UUID uuid, int floor) {
@@ -136,136 +139,183 @@ public class TowerPlayerDataManager {
         }
     }
 
-    public synchronized void recordRunResult(UUID uuid, int floor, boolean isTrueRun, int turns, int timeSec, boolean completed) {
+    public synchronized void recordRunResult(UUID uuid, int floor, boolean isTrueRun, int turns, int durationSeconds, boolean won) {
         PlayerProfile profile = getProfile(uuid);
         profile.totalRunsAttempted++;
-        if (completed) {
+        if (won) {
             profile.totalRunsCompleted++;
+            if (profile.bestTimeSeconds == 0 || durationSeconds < profile.bestTimeSeconds) {
+                profile.bestTimeSeconds = durationSeconds;
+            }
+            if (profile.bestTurnsTotal == 0 || turns < profile.bestTurnsTotal) {
+                profile.bestTurnsTotal = turns;
+            }
         }
         if (isTrueRun && floor > profile.highestFloorTrueRun) {
             profile.highestFloorTrueRun = floor;
         }
-        if (completed && (profile.bestTurnsTotal == 0 || turns < profile.bestTurnsTotal)) {
-            profile.bestTurnsTotal = turns;
-        }
-        if (completed && (profile.bestTimeSeconds == 0 || timeSec < profile.bestTimeSeconds)) {
-            profile.bestTimeSeconds = timeSec;
+        if (!isTrueRun) {
+            profile.weeklyCheckpointRuns++;
         }
         saveProfile(uuid);
     }
 
     public synchronized float getCheckpointBpMultiplier(UUID uuid) {
         PlayerProfile profile = getProfile(uuid);
+        checkWeeklyReset(profile);
         int runs = profile.weeklyCheckpointRuns;
-        if (runs <= 3) return 0.50f;
-        if (runs <= 8) return 0.30f;
-        if (runs <= 15) return 0.15f;
-        return 0.05f;
+        if (runs < 3) return 0.50f;
+        if (runs < 6) return 0.25f;
+        return 0.10f;
     }
 
-    public synchronized void incrementWeeklyCheckpointRuns(UUID uuid) {
+    public synchronized float getPrestigeBpMultiplier(UUID uuid) {
         PlayerProfile profile = getProfile(uuid);
-        profile.weeklyCheckpointRuns++;
-        saveProfile(uuid);
+        return 1.0f + (profile.prestigeLevel * 0.05f);
     }
 
     public synchronized int getWeeklyPurchasedStock(UUID uuid, String itemId) {
         PlayerProfile profile = getProfile(uuid);
+        checkWeeklyReset(profile);
         return profile.weeklyPurchasedStock.getOrDefault(itemId, 0);
     }
 
-    public synchronized void recordStockPurchase(UUID uuid, String itemId, int amount) {
+    public synchronized void recordStockPurchase(UUID uuid, String itemId, int quantity) {
         PlayerProfile profile = getProfile(uuid);
-        profile.weeklyPurchasedStock.put(itemId, getWeeklyPurchasedStock(uuid, itemId) + amount);
+        checkWeeklyReset(profile);
+        profile.weeklyPurchasedStock.put(itemId, profile.weeklyPurchasedStock.getOrDefault(itemId, 0) + quantity);
         saveProfile(uuid);
     }
 
-    public synchronized int getPrestigeLevel(UUID uuid) {
-        return getProfile(uuid).prestigeLevel;
+    public synchronized void unlockCosmetic(UUID uuid, String cosmeticId) {
+        PlayerProfile profile = getProfile(uuid);
+        profile.unlockedCosmetics.add(cosmeticId);
+        profile.activeCosmeticAura = cosmeticId;
+        saveProfile(uuid);
     }
 
-    public synchronized void addPrestige(UUID uuid) {
+    public synchronized boolean hasCosmetic(UUID uuid, String cosmeticId) {
+        return getProfile(uuid).unlockedCosmetics.contains(cosmeticId);
+    }
+
+    public synchronized void setActiveCosmeticAura(UUID uuid, String aura) {
         PlayerProfile profile = getProfile(uuid);
-        if (profile.prestigeLevel < 10) {
-            profile.prestigeLevel++;
-            saveProfile(uuid);
+        profile.activeCosmeticAura = aura;
+        saveProfile(uuid);
+    }
+
+    public synchronized String getActiveCosmeticAura(UUID uuid) {
+        return getProfile(uuid).activeCosmeticAura;
+    }
+
+    public synchronized void saveProfile(UUID uuid) {
+        PlayerProfile profile = cache.get(uuid);
+        if (profile == null) return;
+
+        File file = getPlayerFile(uuid);
+        File tmpFile = new File(file.getAbsolutePath() + ".tmp");
+        File bakFile = new File(file.getAbsolutePath() + ".bak");
+
+        try {
+            try (java.io.FileOutputStream fos = new java.io.FileOutputStream(tmpFile);
+                 java.io.OutputStreamWriter osw = new java.io.OutputStreamWriter(fos, java.nio.charset.StandardCharsets.UTF_8);
+                 java.io.BufferedWriter writer = new java.io.BufferedWriter(osw)) {
+                GSON.toJson(profile, writer);
+                writer.flush();
+                fos.getFD().sync();
+            }
+
+            if (file.exists()) {
+                try {
+                    java.nio.file.Files.copy(file.toPath(), bakFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+                } catch (Exception ignored) {}
+            }
+
+            java.nio.file.Files.move(tmpFile.toPath(), file.toPath(), java.nio.file.StandardCopyOption.ATOMIC_MOVE, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+        } catch (Exception e) {
+            org.slf4j.LoggerFactory.getLogger("vitwo").error("[CobbleTower] Failed to atomically save player profile for " + uuid, e);
         }
     }
 
-    public synchronized float getPrestigeBpMultiplier(UUID uuid) {
-        int prestige = getPrestigeLevel(uuid);
-        return 1.0f + (prestige * 0.05f);
+    public synchronized int getBp(UUID uuid) {
+        return getProfile(uuid).battlePoints;
+    }
+
+    public synchronized void addBp(UUID uuid, int amount) {
+        PlayerProfile p = getProfile(uuid);
+        int finalAmount = amount;
+        if (p.prestigeLevel > 0) {
+            double bonusMult = 1.0 + (p.prestigeLevel * 0.05);
+            finalAmount = (int) Math.round(amount * bonusMult);
+        }
+        p.battlePoints += finalAmount;
+        saveProfile(uuid);
+    }
+
+    public synchronized boolean spendBp(UUID uuid, int amount) {
+        PlayerProfile p = getProfile(uuid);
+        if (p.battlePoints >= amount) {
+            p.battlePoints -= amount;
+            saveProfile(uuid);
+            return true;
+        }
+        return false;
+    }
+
+    public synchronized void addPrestige(UUID uuid) {
+        PlayerProfile p = getProfile(uuid);
+        p.prestigeLevel++;
+        saveProfile(uuid);
+    }
+
+    public synchronized int getPrestige(UUID uuid) {
+        return getProfile(uuid).prestigeLevel;
     }
 
     public synchronized void handleDebugAction(net.minecraft.server.network.ServerPlayerEntity player, String action, int value) {
         if (player == null) return;
         UUID uuid = player.getUuid();
-        PlayerProfile profile = getProfile(uuid);
+        PlayerProfile p = getProfile(uuid);
 
         switch (action) {
-            case "UNLOCK_ALL" -> {
-                profile.soloCheckpoint = 100;
-                profile.duoCheckpoint = 100;
-                profile.highestFloorTrueRun = 100;
+            case "SET_BP" -> {
+                p.battlePoints = Math.max(0, value);
                 saveProfile(uuid);
-                com.vitwo.party.TowerPartyManager.getInstance().syncPlayerState(player);
-                player.sendMessage(net.minecraft.text.Text.literal("§a§l[Cheat] §fAll Tower checkpoints unlocked to Floor 100!"), false);
+                TowerPartyManager.getInstance().syncPlayerState(player);
+                player.sendMessage(net.minecraft.text.Text.literal("§a[Cheat] Battle Points set to: " + p.battlePoints), false);
             }
-            case "ADD_BP" -> {
-                addBp(uuid, value > 0 ? value : 5000);
-                com.vitwo.party.TowerPartyManager.getInstance().syncPlayerState(player);
-                player.sendMessage(net.minecraft.text.Text.literal("§a§l[Cheat] §fGranted §6+" + (value > 0 ? value : 5000) + " BP§f! Current BP: §e" + profile.battlePoints), false);
-            }
-            case "SET_PRESTIGE" -> {
-                profile.prestigeLevel = Math.max(0, Math.min(5, value));
+            case "SET_SOLO_CP" -> {
+                p.soloCheckpoint = Math.max(1, Math.min(100, value));
                 saveProfile(uuid);
-                com.vitwo.party.TowerPartyManager.getInstance().syncPlayerState(player);
-                player.sendMessage(net.minecraft.text.Text.literal("§a§l[Cheat] §fPrestige Level set to §b" + profile.prestigeLevel + " ⭐"), false);
+                TowerPartyManager.getInstance().syncPlayerState(player);
+                player.sendMessage(net.minecraft.text.Text.literal("§a[Cheat] Solo Checkpoint set to Floor: " + p.soloCheckpoint), false);
             }
-            case "TEST_REST" -> {
-                net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.send(player, new com.vitwo.network.s2c.OpenRestScreenS2CPacket(profile.soloCheckpoint > 1 ? profile.soloCheckpoint : 25));
-                player.sendMessage(net.minecraft.text.Text.literal("§a§l[Cheat] §fOpened Rest Station GUI for testing!"), false);
-            }
-            case "TEST_PREVIEW" -> {
-                java.util.List<String> mockTeam = java.util.List.of("mewtwo", "zacian", "kyogre", "flutter_mane", "ogerpon", "kingambit");
-                java.util.List<String> playerMock = java.util.List.of("pikachu", "charizard", "garchomp", "lucario", "greninja", "dragapult");
-                net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.send(player, new com.vitwo.network.s2c.OpenTeamPreviewS2CPacket(100, 20, "Boss Red", "Sovereign Champion", mockTeam, playerMock));
-                player.sendMessage(net.minecraft.text.Text.literal("§a§l[Cheat] §fOpened Team Preview GUI for testing!"), false);
-            }
-            case "HEAL_PARTY" -> {
-                try {
-                    Class<?> cobblemonClass = Class.forName("com.cobblemon.mod.common.Cobblemon");
-                    Object cobblemonInst = cobblemonClass.getField("INSTANCE").get(null);
-                    java.lang.reflect.Method getStorageMethod = cobblemonInst.getClass().getMethod("getStorage");
-                    Object storage = getStorageMethod.invoke(cobblemonInst);
-                    java.lang.reflect.Method getPartyMethod = storage.getClass().getMethod("getParty", net.minecraft.server.network.ServerPlayerEntity.class);
-                    Iterable<?> party = (Iterable<?>) getPartyMethod.invoke(storage, player);
-
-                    for (Object pokemon : party) {
-                        if (pokemon == null) continue;
-                        java.lang.reflect.Method healMethod = pokemon.getClass().getMethod("heal");
-                        healMethod.invoke(pokemon);
-                    }
-                    player.sendMessage(net.minecraft.text.Text.literal("§a§l[Cheat] §fParty fully healed (HP, PP & Status cured)!"), false);
-                } catch (Exception e) {
-                    player.sendMessage(net.minecraft.text.Text.literal("§e[Cheat] Party healed!"), false);
-                }
-            }
-            case "RESET_DATA" -> {
-                profile.soloCheckpoint = 1;
-                profile.duoCheckpoint = 1;
-                profile.highestFloorTrueRun = 1;
-                profile.battlePoints = 0;
-                profile.prestigeLevel = 0;
+            case "SET_DUO_CP" -> {
+                p.duoCheckpoint = Math.max(1, Math.min(100, value));
                 saveProfile(uuid);
-                com.vitwo.party.TowerPartyManager.getInstance().syncPlayerState(player);
-                player.sendMessage(net.minecraft.text.Text.literal("§c§l[Cheat] §fTower save data reset to initial Floor 1."), false);
+                TowerPartyManager.getInstance().syncPlayerState(player);
+                player.sendMessage(net.minecraft.text.Text.literal("§a[Cheat] Duo Checkpoint set to Floor: " + p.duoCheckpoint), false);
             }
-            case "START_FLOOR" -> {
-                com.vitwo.party.TowerParty soloParty = com.vitwo.party.TowerPartyManager.getInstance().createSoloParty(player, value);
-                com.vitwo.party.TowerPartyManager.getInstance().startTowerSession(soloParty, true, value, player.getServer());
-                player.sendMessage(net.minecraft.text.Text.literal("§a§l[Cheat] §fLaunching Tower Session directly on Floor " + value + "!"), false);
+            case "PRESTIGE_UP" -> {
+                p.prestigeLevel++;
+                saveProfile(uuid);
+                TowerPartyManager.getInstance().syncPlayerState(player);
+                player.sendMessage(net.minecraft.text.Text.literal("§a[Cheat] Prestige ascended to Level: " + p.prestigeLevel), false);
             }
+            case "RESET_ALL" -> {
+                p.battlePoints = 0;
+                p.soloCheckpoint = 1;
+                p.duoCheckpoint = 1;
+                p.highestFloorTrueRun = 0;
+                p.prestigeLevel = 0;
+                p.unlockedCosmetics.clear();
+                p.activeCosmeticAura = "NONE";
+                p.weeklyPurchasedStock.clear();
+                saveProfile(uuid);
+                TowerPartyManager.getInstance().syncPlayerState(player);
+                player.sendMessage(net.minecraft.text.Text.literal("§c[Cheat] Player profile completely reset to baseline!"), false);
+            }
+            default -> player.sendMessage(net.minecraft.text.Text.literal("§c[Cheat] Unknown debug action: " + action), false);
         }
     }
 }

@@ -1,0 +1,47 @@
+{
+  "name": {
+    "literal": "School Kid Esteban"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "wooper",
+      "gender": "FEMALE",
+      "level": 23,
+      "nature": "naive",
+      "ability": "damp",
+      "moveset": [
+        "tailwhip",
+        "mudshot",
+        "slam",
+        "yawn"
+      ]
+    },
+    {
+      "species": "psyduck",
+      "gender": "FEMALE",
+      "level": 23,
+      "nature": "mild",
+      "ability": "cloudnine",
+      "moveset": [
+        "waterpulse",
+        "confusion",
+        "disable",
+        "tailwhip"
+      ]
+    }
+  ]
+}

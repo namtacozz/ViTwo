@@ -1,0 +1,85 @@
+{
+  "name": {
+    "literal": "Team Rocket Grunt"
+  },
+  "identity": "Team Rocket Grunt (41)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "sandaconda",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "naughty",
+      "ability": "shedskin",
+      "moveset": [
+        "glare",
+        "dig",
+        "sandstorm",
+        "slam"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "liepard",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "lonely",
+      "ability": "unburden",
+      "moveset": [
+        "assurance",
+        "slash",
+        "taunt",
+        "nightslash"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "machoke",
+      "gender": "FEMALE",
+      "level": 46,
+      "nature": "timid",
+      "ability": "noguard",
+      "moveset": [
+        "wakeupslap",
+        "dualchop",
+        "submission",
+        "bulkup"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "name": {
+    "literal": "Pokémon Breeder Jennifer"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "mimejr",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "timid",
+      "ability": "filter",
+      "moveset": [
+        "pound",
+        "copycat",
+        "encore",
+        "psybeam"
+      ]
+    },
+    {
+      "species": "roselia",
+      "gender": "FEMALE",
+      "level": 27,
+      "nature": "hasty",
+      "ability": "poisonpoint",
+      "moveset": [
+        "poisonsting",
+        "megadrain",
+        "leechseed",
+        "magicalleaf"
+      ]
+    },
+    {
+      "species": "clefairy",
+      "gender": "MALE",
+      "level": 29,
+      "nature": "hasty",
+      "ability": "cutecharm",
+      "moveset": [
+        "pound",
+        "disarmingvoice",
+        "charm",
+        "moonlight"
+      ]
+    }
+  ]
+}

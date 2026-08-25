@@ -1,0 +1,86 @@
+{
+  "name": {
+    "literal": "Expert Ryuzoji"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "mimikyu",
+      "gender": "FEMALE",
+      "level": 82,
+      "nature": "jolly",
+      "ability": "disguise",
+      "moveset": [
+        "playrough",
+        "drainpunch",
+        "swordsdance",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:mimikium-z",
+        "fairy_gem"
+      ]
+    },
+    {
+      "species": "grimmsnarl",
+      "gender": "MALE",
+      "level": 82,
+      "nature": "careful",
+      "ability": "prankster",
+      "moveset": [
+        "reflect",
+        "lightscreen",
+        "spiritbreak",
+        "bulkup"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spd": 252
+      },
+      "heldItem": [
+        "light_clay"
+      ]
+    }
+  ]
+}

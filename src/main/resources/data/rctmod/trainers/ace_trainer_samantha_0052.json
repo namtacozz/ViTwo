@@ -1,0 +1,205 @@
+{
+  "name": {
+    "literal": "Ace Trainer Samantha"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "torkoal",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "relaxed",
+      "ability": "drought",
+      "moveset": [
+        "stealthrock",
+        "lavaplume",
+        "bodypress",
+        "earthpower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spa": 4
+      },
+      "heldItem": [
+        "heat_rock"
+      ]
+    },
+    {
+      "species": "charizard",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "timid",
+      "ability": "solarpower",
+      "moveset": [
+        "solarbeam",
+        "weatherball",
+        "airslash",
+        "flamethrower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "choice_specs"
+      ]
+    },
+    {
+      "species": "milotic",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "modest",
+      "ability": "competitive",
+      "moveset": [
+        "weatherball",
+        "icebeam",
+        "bouncybubble",
+        "flipturn"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "dodrio",
+      "gender": "FEMALE",
+      "level": 94,
+      "nature": "jolly",
+      "ability": "rockhead",
+      "moveset": [
+        "headlongrush",
+        "flareblitz",
+        "headsmash",
+        "doubleedge"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "spa": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "aspects": [
+        "sevii"
+      ]
+    },
+    {
+      "species": "tyranitar",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "brave",
+      "ability": "unnerve",
+      "moveset": [
+        "fireblast",
+        "solarbeam",
+        "stoneedge",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spa": 4
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "garchomp",
+      "gender": "FEMALE",
+      "level": 94,
+      "nature": "jolly",
+      "ability": "roughskin",
+      "moveset": [
+        "swordsdance",
+        "scaleshot",
+        "earthquake",
+        "firefang"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:garchompite",
+        "life_orb"
+      ]
+    }
+  ]
+}

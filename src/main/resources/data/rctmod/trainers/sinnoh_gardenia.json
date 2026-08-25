@@ -1,0 +1,209 @@
+{
+  "name": {
+    "literal": "Gardenia"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "overheat",
+        "solarbeam",
+        "willowisp",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "hp": 252
+      },
+      "heldItem": [
+        "heat_rock"
+      ],
+      "species": "ninetales",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "timid",
+      "ability": "drought"
+    },
+    {
+      "moveset": [
+        "solarblade",
+        "closecombat",
+        "leafblade",
+        "sleeppowder"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "aspects": [
+        "hisuian"
+      ],
+      "species": "lilligant",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "jolly",
+      "ability": "chlorophyll"
+    },
+    {
+      "moveset": [
+        "moonblast",
+        "flamethrower",
+        "calmmind",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 4,
+        "spa": 252,
+        "hp": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "species": "florges",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "modest",
+      "ability": "flowerveil"
+    },
+    {
+      "moveset": [
+        "triplearrows",
+        "leafblade",
+        "shadowsneak",
+        "detect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "aspects": [
+        "hisuian"
+      ],
+      "species": "decidueye",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "jolly",
+      "ability": "scrappy"
+    },
+    {
+      "moveset": [
+        "fierydance",
+        "gigadrain",
+        "psychic",
+        "quiverdance"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ],
+      "species": "volcarona",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "modest",
+      "ability": "flamebody"
+    },
+    {
+      "moveset": [
+        "leafstorm",
+        "dragonpulse",
+        "focusblast",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "mega_showdown:sceptilite"
+      ],
+      "species": "sceptile",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "timid",
+      "ability": "lightningrod",
+      "shiny": true
+    }
+  ],
+  "identity": "Gym Leader Gardenia",
+  "battleFormat": "GEN_9_DOUBLES"
+}

@@ -1,0 +1,66 @@
+{
+  "name": {
+    "literal": "Burglar Simon"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "ninetales",
+      "gender": "MALE",
+      "level": 70,
+      "nature": "timid",
+      "ability": "serenegrace",
+      "moveset": [
+        "iceshard",
+        "confuseray",
+        "safeguard",
+        "frostbreath"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      },
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "torkoal",
+      "gender": "MALE",
+      "level": 70,
+      "nature": "relaxed",
+      "ability": "drought",
+      "moveset": [
+        "lavaplume",
+        "yawn",
+        "bodyslam",
+        "earthpower"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

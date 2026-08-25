@@ -1,0 +1,230 @@
+{
+  "name": {
+    "literal": "Agatha"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 4
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "moongeistbeam",
+        "dazzlinggleam",
+        "tailwind",
+        "wideguard"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 60,
+        "spd": 104,
+        "spa": 4,
+        "def": 144,
+        "hp": 196
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "gimmicks": {
+        "tera": "psychic"
+      },
+      "species": "lunala",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "bold",
+      "ability": "shadowshield"
+    },
+    {
+      "moveset": [
+        "taunt",
+        "willowisp",
+        "knockoff",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 56,
+        "spd": 104,
+        "def": 84,
+        "atk": 12,
+        "hp": 252
+      },
+      "heldItem": [
+        "mega_showdown:banettite"
+      ],
+      "gimmicks": {
+        "tera": "ghost"
+      },
+      "species": "banette",
+      "gender": "FEMALE",
+      "level": 100,
+      "nature": "careful",
+      "ability": "prankster",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "shadowball",
+        "psychic",
+        "acidspray",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 176,
+        "spd": 56,
+        "spa": 44,
+        "def": 76,
+        "hp": 156
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "gimmicks": {
+        "tera": "ghost"
+      },
+      "species": "gengar",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "modest",
+      "ability": "cursedbody"
+    },
+    {
+      "moveset": [
+        "astralbarrage",
+        "nastyplot",
+        "psychic",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 112,
+        "spd": 40,
+        "spa": 156,
+        "def": 64,
+        "hp": 136
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "aspects": [
+        "shadow-rider"
+      ],
+      "gimmicks": {
+        "tera": "psychic"
+      },
+      "species": "calyrex",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "timid",
+      "ability": "asonespectrier"
+    },
+    {
+      "moveset": [
+        "dazzlinggleam",
+        "icywind",
+        "taunt",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 176,
+        "spd": 4,
+        "spa": 124,
+        "def": 92,
+        "hp": 112
+      },
+      "heldItem": [
+        "mega_showdown:booster_energy"
+      ],
+      "gimmicks": {
+        "tera": "ghost"
+      },
+      "species": "fluttermane",
+      "gender": "FEMALE",
+      "level": 100,
+      "nature": "modest",
+      "ability": "protosynthesis"
+    },
+    {
+      "moveset": [
+        "makeitrain",
+        "shadowball",
+        "nastyplot",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 64,
+        "spd": 56,
+        "spa": 156,
+        "def": 92,
+        "hp": 140
+      },
+      "heldItem": [
+        "cobblemon:metal_coat"
+      ],
+      "gimmicks": {
+        "tera": "steel"
+      },
+      "species": "gholdengo",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "modest",
+      "ability": "goodasgold"
+    }
+  ],
+  "battleFormat": "GEN_9_DOUBLES"
+}

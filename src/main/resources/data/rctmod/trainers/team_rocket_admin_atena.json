@@ -1,0 +1,172 @@
+{
+  "name": {
+    "literal": "Atena"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "arbok",
+      "gender": "MALE",
+      "level": 79,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "gunkshot",
+        "earthquake",
+        "suckerpunch",
+        "switcheroo"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 6,
+        "spe": 252
+      },
+      "heldItem": [
+        "choice_band"
+      ]
+    },
+    {
+      "species": "vileplume",
+      "gender": "MALE",
+      "level": 80,
+      "nature": "bold",
+      "ability": "effectspore",
+      "moveset": [
+        "gigadrain",
+        "strengthsap",
+        "sludgebomb",
+        "sleeppowder"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spd": 6
+      },
+      "heldItem": [
+        "black_sludge"
+      ]
+    },
+    {
+      "species": "muk",
+      "gender": "MALE",
+      "level": 79,
+      "nature": "careful",
+      "ability": "stickyhold",
+      "moveset": [
+        "rest",
+        "sleeptalk",
+        "curse",
+        "poisonjab"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 6,
+        "spd": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "hypno",
+      "gender": "MALE",
+      "level": 80,
+      "nature": "jolly",
+      "ability": "insomnia",
+      "moveset": [
+        "hypnosis",
+        "bellydrum",
+        "zenheadbutt",
+        "drainpunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "spd": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "scope_lens"
+      ]
+    },
+    {
+      "species": "honchkrow",
+      "gender": "MALE",
+      "level": 78,
+      "nature": "jolly",
+      "ability": "moxie",
+      "moveset": [
+        "bravebird",
+        "suckerpunch",
+        "superpower",
+        "taunt"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 6,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    }
+  ]
+}

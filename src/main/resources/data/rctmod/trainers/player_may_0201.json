@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Player May"
+  },
+  "identity": "Trainer May",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "ekans",
+      "gender": "MALE",
+      "level": 5,
+      "nature": "gentle",
+      "ability": "shedskin",
+      "moveset": [
+        "wrap",
+        "leer",
+        "poisonsting"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    {
+      "species": "budew",
+      "gender": "FEMALE",
+      "level": 5,
+      "nature": "calm",
+      "ability": "naturalcure",
+      "moveset": [
+        "absorb",
+        "growth",
+        "waterspo",
+        "stunspore"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    }
+  ]
+}

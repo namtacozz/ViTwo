@@ -1,0 +1,212 @@
+{
+  "name": {
+    "literal": "Volkner"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 6
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 6
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "electrodrift",
+        "dracometeor",
+        "dazzlinggleam",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "species": "miraidon",
+      "gender": "GENDERLESS",
+      "level": 95,
+      "nature": "timid",
+      "ability": "hadronengine"
+    },
+    {
+      "moveset": [
+        "thunderbolt",
+        "calmmind",
+        "psychic",
+        "voltswitch"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 100,
+        "spd": 44,
+        "spa": 224,
+        "def": 88,
+        "hp": 52
+      },
+      "heldItem": [
+        "choice_specs"
+      ],
+      "aspects": [
+        "alolan"
+      ],
+      "species": "raichu",
+      "gender": "MALE",
+      "level": 95,
+      "nature": "modest",
+      "ability": "surgesurfer"
+    },
+    {
+      "moveset": [
+        "helpinghand",
+        "hypervoice",
+        "psychic",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 16,
+        "spa": 116,
+        "def": 140,
+        "hp": 236
+      },
+      "heldItem": [
+        "electric_seed"
+      ],
+      "species": "farigiraf",
+      "gender": "MALE",
+      "level": 95,
+      "nature": "quiet",
+      "ability": "armortail"
+    },
+    {
+      "moveset": [
+        "voltswitch",
+        "hurricane",
+        "tailwind",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "species": "kilowattrel",
+      "gender": "MALE",
+      "level": 95,
+      "nature": "timid",
+      "ability": "windpower"
+    },
+    {
+      "moveset": [
+        "plasmafists",
+        "closecombat",
+        "knockoff",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "magnet"
+      ],
+      "species": "zeraora",
+      "gender": "MALE",
+      "level": 95,
+      "nature": "jolly",
+      "ability": "voltabsorb",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "thunderbolt",
+        "flashcannon",
+        "wildcharge",
+        "ironhead"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 4,
+        "spd": 48,
+        "spa": 216,
+        "def": 24,
+        "atk": 140,
+        "hp": 76
+      },
+      "heldItem": [
+        "air_balloon"
+      ],
+      "species": "magnezone",
+      "gender": "MALE",
+      "level": 95,
+      "nature": "brave",
+      "ability": "analytic"
+    }
+  ],
+  "identity": "Gym Leader Corrado",
+  "battleFormat": "GEN_9_DOUBLES"
+}

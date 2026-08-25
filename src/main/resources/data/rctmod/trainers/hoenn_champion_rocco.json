@@ -1,0 +1,229 @@
+{
+  "name": {
+    "literal": "Steven"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 6
+  },
+  "bag": [
+    {
+      "item": "max_revive",
+      "quantity": 1
+    },
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": "5"
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "meteormash",
+        "zenheadbutt",
+        "psychicfangs",
+        "bulletpunch"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 8,
+        "spd": 84,
+        "def": 40,
+        "atk": 160,
+        "hp": 216
+      },
+      "heldItem": [
+        "mega_showdown:metagrossite"
+      ],
+      "species": "metagross",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "toughclaws",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "calmmind",
+        "dracometeor",
+        "mistball",
+        "substitute"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 204,
+        "spd": 4,
+        "spa": 4,
+        "def": 60,
+        "hp": 236
+      },
+      "heldItem": [
+        "mega_showdown:soul_dew"
+      ],
+      "gimmicks": {
+        "tera": "dragon"
+      },
+      "species": "latias",
+      "gender": "FEMALE",
+      "level": 100,
+      "nature": "timid",
+      "ability": "levitate",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "surgingstrikes",
+        "closecombat",
+        "detect",
+        "uturn"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "mystic_water"
+      ],
+      "aspects": [
+        "rapid_strike-style"
+      ],
+      "species": "urshifu",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "jolly",
+      "ability": "unseenfist",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "electrodrift",
+        "dracometeor",
+        "dazzlinggleam",
+        "voltswitch"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "species": "miraidon",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "timid",
+      "ability": "hadronengine",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "photongeyser",
+        "dragondance",
+        "sunsteelstrike",
+        "rockslide"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 36,
+        "spd": 76,
+        "spa": 32,
+        "def": 40,
+        "atk": 136,
+        "hp": 188
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "aspects": [
+        "dusk-fusion"
+      ],
+      "species": "necrozma",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "lonely",
+      "ability": "prismarmor",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "bodyslam",
+        "thunderpunch",
+        "hammerarm",
+        "highhorsepower"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 64,
+        "spd": 96,
+        "def": 96,
+        "atk": 176,
+        "hp": 76
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ],
+      "species": "snorlax",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "gluttony",
+      "shiny": true
+    }
+  ],
+  "identity": "Rocco",
+  "battleFormat": "GEN_9_DOUBLES"
+}

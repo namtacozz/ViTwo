@@ -1,0 +1,200 @@
+{
+  "name": {
+    "literal": "Title Defense Milo"
+  },
+  "identity": "Title Defense Milo",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "mrmime",
+      "gender": "MALE",
+      "level": 78,
+      "nature": "timid",
+      "ability": "soundproof",
+      "moveset": [
+        "psyshock",
+        "dazzlinggleam",
+        "reflect",
+        "lightscreen"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "spa": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "light_clay"
+      ]
+    },
+    {
+      "species": "emolga",
+      "gender": "MALE",
+      "level": 78,
+      "nature": "timid",
+      "ability": "electricsurge",
+      "moveset": [
+        "risingvoltage",
+        "energyball",
+        "hiddenpower",
+        "electroweb"
+      ],
+      "ivs": {
+        "hp": 30,
+        "atk": 31,
+        "def": 30,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "terrain_extender"
+      ]
+    },
+    {
+      "species": "gallade",
+      "gender": "MALE",
+      "level": 79,
+      "nature": "jolly",
+      "ability": "justified",
+      "moveset": [
+        "closecombat",
+        "rockslide",
+        "knockoff",
+        "bulkup"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "coba_berry"
+      ]
+    },
+    {
+      "species": "clefable",
+      "gender": "FEMALE",
+      "level": 78,
+      "nature": "calm",
+      "ability": "magicguard",
+      "moveset": [
+        "dazzlinggleam",
+        "icywind",
+        "lifedew",
+        "followme"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spd": 252
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "raichu",
+      "gender": "FEMALE",
+      "level": 80,
+      "nature": "bold",
+      "ability": "surgesurfer",
+      "moveset": [
+        "risingvoltage",
+        "psyshock",
+        "grassknot",
+        "electricterrain"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spd": 4
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "audino",
+      "gender": "FEMALE",
+      "level": 79,
+      "nature": "bold",
+      "ability": "regenerator",
+      "moveset": [
+        "drainingkiss",
+        "flamethrower",
+        "calmmind",
+        "lifedew"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spd": 4
+      },
+      "heldItem": [
+        "mega_showdown:audinite",
+        "leftovers"
+      ]
+    }
+  ]
+}

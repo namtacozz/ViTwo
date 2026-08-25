@@ -1,77 +1,70 @@
 {
   "stages": {
     "1": [
+      "ace_trainer_allen_03b2",
+      "ace_trainer_alyssa_031c",
+      "ace_trainer_blake_034b",
+      "ace_trainer_breanna_03b5",
+      "ace_trainer_brenda_0410",
+      "ace_trainer_catherine_03b6",
+      "ace_trainer_cesar_03b1",
+      "ace_trainer_dennis_03b0",
+      "ace_trainer_ernest_031b",
+      "ace_trainer_garrett_034c",
+      "ace_trainer_jake_0367",
+      "ace_trainer_jonah_040d",
+      "ace_trainer_maria_034e",
+      "ace_trainer_maya_03b9",
+      "ace_trainer_shannon_0368",
+      "aroma_lady_alison_0480",
+      "aroma_lady_angela_039e",
+      "aroma_lady_elizabeth_02f7",
+      "aroma_lady_elizabeth_04db",
+      "aroma_lady_elizabeth_04dc",
+      "aroma_lady_hannah_030e",
+      "aroma_lady_jenna_039d",
+      "aroma_lady_teighler_02ef",
       "artist_ismael_0481",
       "artist_kevin_04de",
-      "artist_kevin_04df",
-      "artist_kevin_04e0",
+      "artist_william_030f",
       "battle_girl_helen_0308",
       "battle_girl_helen_04e1",
-      "battle_girl_helen_04e2",
-      "battle_girl_helen_04e3",
       "battle_girl_kelsey_02f6",
       "battle_girl_tylor_0403",
-      "battleground_alice_05f4",
-      "battleground_benjamin_05f9",
-      "battleground_big_mo_05f7",
-      "battleground_mel_05f5",
-      "battleground_mirskle_05f2",
-      "battleground_tessy_05f8",
-      "battleground_vega_05f3",
+      "beauty_cyndy_03f2",
+      "beauty_devon_0457",
+      "beauty_gabriella_048f",
+      "beauty_harley_0490",
+      "beauty_lauren_0113",
+      "beauty_lindsay_03f3",
+      "beauty_tamia_010a",
+      "biker_0212",
+      "biker_jaren_0218",
+      "biker_jaren_028c",
+      "biker_ricardo_0217",
       "bird_keeper_alexandra_0326",
-      "bird_keeper_audrey_0493",
-      "bird_keeper_audrey_04e6",
-      "bird_keeper_autumn_0404",
-      "bird_keeper_beck_013b",
-      "bird_keeper_benny_0130",
       "bird_keeper_benny_0296",
-      "bird_keeper_benny_0297",
       "bird_keeper_brianna_0323",
-      "bird_keeper_brianna_04e4",
-      "bird_keeper_brianna_04e5",
-      "bird_keeper_carter_0139",
-      "bird_keeper_chaz_023b",
-      "bird_keeper_chaz_02c5",
-      "bird_keeper_chester_0132",
       "bird_keeper_chester_029b",
-      "bird_keeper_chester_029c",
-      "bird_keeper_donald_012f",
-      "bird_keeper_edwin_0131",
-      "bird_keeper_geneva_0494",
-      "bird_keeper_hana_038b",
-      "bird_keeper_harold_023c",
-      "bird_keeper_harold_02c6",
-      "bird_keeper_jacob_0135",
       "bird_keeper_jacob_02a8",
-      "bird_keeper_jacob_02a9",
       "bird_keeper_katherine_032a",
-      "bird_keeper_keith_0138",
-      "bird_keeper_krystal_0495",
-      "bird_keeper_marlon_013c",
       "bird_keeper_marlon_0298",
-      "bird_keeper_marlon_0299",
-      "bird_keeper_milo_023a",
-      "bird_keeper_milo_02c4",
-      "bird_keeper_mitch_013a",
-      "bird_keeper_perry_012d",
-      "bird_keeper_reed_0137",
-      "bird_keeper_robert_012e",
       "bird_keeper_robert_0290",
-      "bird_keeper_robert_0291",
-      "bird_keeper_roger_0136",
-      "bird_keeper_sebastian_012c",
+      "black_belt_adam_031e",
+      "black_belt_colby_03d0",
+      "black_belt_darren_03d1",
+      "black_belt_david_038a",
+      "black_belt_derek_0348",
+      "black_belt_gregory_0347",
+      "black_belt_jeffery_03d3",
+      "black_belt_kendal_0436",
+      "black_belt_kyle_030c",
+      "black_belt_nathaniel_0349",
+      "black_belt_rafael_03d2",
+      "black_belt_ricky_03d5",
+      "black_belt_sean_0328",
       "black_emboar_james_05d9",
-      "black_ferrothorn_barbs_05e8",
-      "black_ferrothorn_bullo_05e1",
-      "black_ferrothorn_chad_05dd",
-      "black_ferrothorn_rory_05dc",
-      "breeder_alize_0208",
-      "breeder_alize_02c1",
-      "breeder_allison_0262",
-      "breeder_annie_05a9",
-      "breeder_annie_05d8",
-      "breeder_annie_0604",
-      "breeder_bethany_0261",
+      "boss_zeph_1_05bb",
       "bug_catcher_01ec",
       "bug_catcher_01ed",
       "bug_catcher_01ee",
@@ -79,71 +72,57 @@
       "bug_catcher_01f0",
       "bug_catcher_01f1",
       "bug_catcher_anthony_0213",
+      "bug_catcher_brandon_02ee",
+      "bug_catcher_brandon_0530",
+      "bug_catcher_brandon_0531",
       "bug_catcher_brent_0072",
       "bug_catcher_cale_006e",
       "bug_catcher_charlie_0214",
       "bug_catcher_colton_0069",
       "bug_catcher_colton_02d9",
       "bug_catcher_colton_02da",
-      "bug_catcher_colton_02db",
       "bug_catcher_conner_0073",
       "bug_catcher_donald_037e",
       "bug_catcher_doug_0067",
       "bug_catcher_elijah_0070",
-      "bug_catcher_garret_0263",
       "bug_catcher_greg_006a",
       "bug_catcher_jack_037c",
       "bug_catcher_james_006b",
-      "bug_catcher_jonah_0264",
       "bug_catcher_keigo_006f",
       "bug_catcher_kent_006c",
       "bug_catcher_phillip_037d",
       "bug_catcher_rick_0066",
       "bug_catcher_robby_006d",
       "bug_catcher_sammy_0068",
-      "bug_catcher_vance_0265",
       "burglar_00d3",
       "burglar_00d4",
       "burglar_00d9",
-      "burglar_arnie_00d8",
-      "burglar_dusty_00d7",
-      "burglar_lewis_00db",
-      "burglar_quinn_00d5",
-      "burglar_ramon_00d6",
-      "burglar_simon_00da",
-      "burglar_switzer_05e0",
       "cameraman_darryl_0483",
       "cameraman_tevin_0400",
       "camper_anthony_0304",
-      "camper_bryce_022b",
       "camper_chris_0094",
       "camper_chris_027d",
       "camper_chris_027e",
-      "camper_chris_027f",
       "camper_curtis_03a3",
       "camper_diego_0407",
       "camper_drew_0095",
       "camper_drew_03a4",
       "camper_ethan_0090",
+      "camper_flint_01d7",
       "camper_jacob_02f2",
       "camper_jeff_0092",
       "camper_jeff_0273",
       "camper_jeff_0274",
-      "camper_jeff_0275",
-      "camper_justin_01dd",
       "camper_lawrence_0406",
       "camper_liam_008e",
       "camper_parker_0408",
       "camper_ricky_0091",
       "camper_ricky_0270",
       "camper_ricky_0271",
-      "camper_ricky_0272",
-      "camper_riley_026a",
       "camper_shane_008f",
       "camper_zackary_0405",
       "camper_zackary_04ed",
       "camper_zackary_04ee",
-      "camper_zackary_04ef",
       "channeler_01c6",
       "channeler_01c7",
       "channeler_01c8",
@@ -152,132 +131,59 @@
       "channeler_01cb",
       "channeler_01cc",
       "channeler_01cd",
-      "channeler_amanda_01ce",
-      "channeler_angelica_01c3",
-      "channeler_carly_01ba",
-      "channeler_emilia_01c4",
-      "channeler_hope_01bb",
-      "channeler_janae_01c2",
-      "channeler_jennifer_01c5",
-      "channeler_jody_01be",
-      "channeler_karina_01c1",
-      "channeler_laurel_01bd",
       "channeler_patricia_01b9",
-      "channeler_paula_01bc",
-      "channeler_rachel_0093",
-      "channeler_ruth_01c0",
-      "channeler_stacy_01cf",
-      "channeler_tammy_01bf",
-      "channeler_tasha_01d0",
       "clown_lee_0443",
+      "collector_brady_03ab",
+      "collector_dominique_0409",
+      "collector_douglas_03aa",
+      "collector_edwin_03ae",
+      "collector_eugene_0484",
+      "collector_fernando_03ad",
+      "collector_ivan_03ac",
+      "collector_jamal_040a",
+      "collector_terry_040b",
       "commander_jupiter_041d",
-      "commander_jupiter_041e",
       "commander_mars_03c2",
-      "commander_mars_041c",
-      "commander_mars_0477",
-      "commander_mars_jupiter_m009",
-      "commander_saturn_041f",
-      "commander_saturn_0420",
-      "cool_couple_lex_and_nya_0259",
-      "cool_couple_lex_and_nya_02d8",
-      "cool_couple_ray_and_tyra_01e5",
       "cowgirl_shelley_0312",
-      "crush_girl_cyndy_024f",
-      "crush_girl_cyndy_02d2",
-      "crush_girl_jocelyn_0250",
-      "crush_girl_sharon_0206",
-      "crush_girl_sharon_02b3",
-      "crush_girl_sharon_02b4",
-      "crush_girl_tanya_0228",
-      "crush_girl_tanya_02b5",
-      "crush_girl_tanya_02b6",
-      "crush_kin_mik_and_kia_022d",
-      "crush_kin_mik_and_kia_02bb",
-      "crush_kin_mik_and_kia_02bc",
-      "crush_kin_ron_and_mya_01e8",
       "crush_kin_ron_and_mya_02a0",
-      "crush_kin_ron_and_mya_02a1",
-      "crush_kin_ron_and_mya_02a2",
-      "cue_ball_camron_00fb",
-      "cue_ball_camron_02a4",
       "cue_ball_chase_0101",
-      "cue_ball_corey_0100",
-      "cue_ball_corey_02a7",
-      "cue_ball_isaiah_00fd",
-      "cue_ball_isaiah_02a6",
-      "cue_ball_jamal_00ff",
-      "cue_ball_koji_00f9",
-      "cue_ball_luke_00fa",
-      "cue_ball_raul_00fc",
-      "cue_ball_zeek_00fe",
       "cyclist_axel_02fb",
       "cyclist_james_02fc",
       "cyclist_john_02fd",
       "cyclist_john_04f3",
-      "cyclist_john_04f4",
-      "cyclist_john_04f5",
       "cyclist_kayla_0301",
       "cyclist_kayla_04f6",
-      "cyclist_kayla_04f7",
-      "cyclist_kayla_04f8",
       "cyclist_megan_02ff",
       "cyclist_nicole_0300",
       "cyclist_rachel_0302",
       "cyclist_ryan_02fe",
-      "double_team_al_0390",
       "double_team_jen_0325",
       "double_team_jen_zac_m004",
-      "double_team_jo_038e",
-      "double_team_jo_pat_m005",
-      "double_team_kay_0391",
-      "double_team_pat_038f",
       "double_team_zac_0324",
-      "dumbass_creator_0018",
-      "dumbass_gambler_000e",
-      "dumbass_gian_0023",
-      "dumbass_jojo_fan_0028",
-      "dumbass_jojo_fan_0042",
-      "dumbass_kid_0019",
       "engineer_baily_00dc",
       "engineer_bernie_00de",
       "engineer_bernie_027b",
       "engineer_braxton_00dd",
-      "fisher_alec_036a",
-      "fisher_alec_0514",
+      "expert_lancere_0024",
       "fisher_andrew_02f8",
-      "fisher_brett_0369",
       "fisher_cameron_0333",
       "fisher_cody_030d",
-      "fisher_cole_036c",
       "fisher_cory_0366",
       "fisher_erick_03bf",
-      "fisher_george_036b",
       "fisher_joseph_02f9",
       "fisher_joseph_0511",
-      "fisher_joseph_0512",
       "fisher_juan_0332",
       "fisher_kenneth_0341",
       "fisher_luc_035d",
       "fisher_miguel_035c",
-      "fisher_miguel_0513",
       "fisher_travis_0334",
       "fisher_walter_0419",
       "fisher_zachary_02fa",
-      "fisherman_andrew_00e9",
       "fisherman_barny_00e0",
       "fisherman_chip_00e2",
-      "fisherman_claude_00e6",
       "fisherman_dale_00df",
-      "fisherman_elliot_00e4",
       "fisherman_elliot_028d",
-      "fisherman_hank_00e3",
       "fisherman_ned_00e1",
-      "fisherman_nolan_00e8",
-      "fisherman_ronald_00e5",
-      "fisherman_tommy_0227",
-      "fisherman_tylor_023d",
-      "fisherman_wade_00e7",
-      "fisherman_wade_02ae",
       "friendly_coach_0009",
       "friendly_coach_000a",
       "friendly_coach_000b",
@@ -285,9 +191,11 @@
       "friendly_coach_000d",
       "friendly_coach_001b",
       "friendly_maniac_0006",
-      "friendly_teacher_0007",
-      "friendly_thug_0015",
-      "friendly_thug_0016",
+      "galaxy_bobbo",
+      "galaxy_dummyh77",
+      "galaxy_fabbo67",
+      "galaxy_lami_andre",
+      "galaxy_morn27015",
       "gambler_0107",
       "gambler_darian_0105",
       "gambler_darian_027c",
@@ -296,750 +204,28 @@
       "gambler_jasper_0103",
       "gambler_rich_0108",
       "gambler_rich_028b",
-      "gambler_stan_0106",
-      "game_freaks_morimoto_05a8",
-      "gatekeeper_logan_0253",
-      "gatekeeper_owen_00b0",
-      "idol_grace_0402",
-      "interviewers_oli_03ff",
-      "interviewers_oli_roxy_m008",
-      "interviewers_roxy_03fe",
-      "jogger_craig_03ce",
-      "jogger_craig_0521",
-      "jogger_craig_0522",
-      "jogger_raul_03cf",
-      "jogger_richard_0313",
-      "jogger_scott_034a",
-      "jogger_wyatt_03cd",
-      "juggler_dalton_011e",
-      "juggler_edward_0123",
-      "juggler_gregory_0122",
-      "juggler_kayden_0124",
-      "juggler_kirk_0120",
-      "juggler_mason_024e",
-      "juggler_mason_02cf",
-      "juggler_nate_0125",
-      "juggler_nelson_011f",
-      "juggler_shawn_0121",
-      "lady_gillian_0234",
-      "lady_jacki_020d",
-      "lady_kylie_048b",
-      "lady_melissa_032c",
-      "lady_melissa_0541",
-      "lady_melissa_0542",
-      "lady_melissa_0543",
-      "lady_selphy_025e",
-      "lass_ali_007b",
-      "lass_andrea_0081",
-      "lass_ann_007e",
-      "lass_anne_0004",
-      "lass_blythe_0489",
-      "lass_briana_037f",
-      "lass_caroline_03de",
-      "lass_cassidy_0439",
-      "lass_crissy_0077",
-      "lass_dalia_0268",
-      "lass_dawn_007f",
-      "lass_haley_007d",
-      "lass_janice_0074",
-      "lass_janice_01fb",
-      "lass_janice_01fc",
-      "lass_joana_0269",
-      "lass_julia_0083",
-      "lass_kaitlin_03dd",
-      "lass_kay_0084",
-      "lass_lisa_0085",
-      "lass_madeline_03dc",
-      "lass_madeline_052a",
-      "lass_madeline_052b",
-      "lass_madeline_052c",
-      "lass_megan_0082",
-      "lass_megan_0288",
-      "lass_megan_0289",
-      "lass_miriam_0078",
-      "lass_molly_03df",
-      "lass_natalie_02e9",
-      "lass_paige_0080",
-      "lass_reli_007a",
-      "lass_reli_01f5",
-      "lass_reli_01f6",
-      "lass_robin_0076",
-      "lass_sally_0075",
-      "lass_samantha_02ec",
-      "lass_samantha_0527",
-      "lass_samantha_0528",
-      "lass_samantha_0529",
-      "lass_sarah_02ed",
-      "light_of_ruin_aklove_1_05c2",
-      "light_of_ruin_aklove_2_05c4",
-      "light_of_ruin_aklove_3_05c5",
-      "light_of_ruin_vega_05c1",
-      "madame_rebecca_0488",
-      "madame_reina_032e",
-      "madame_reina_0525",
-      "madame_reina_0526",
-      "mega_trainer_aloysius_05cc",
-      "mega_trainer_ernesto_05ca",
-      "mega_trainer_krystal_05d0",
-      "mega_trainer_lily_05c6",
-      "mega_trainer_mathis_05c8",
-      "mega_trainer_osean_05cd",
-      "mega_trainer_portia_05d2",
-      "mega_trainer_ravonna_kangaskhan_1_05d3",
-      "mega_trainer_ravonna_kangaskhan_2_05d4",
-      "mega_trainer_ravonna_kangaskhan_3_05d5",
-      "mega_trainer_ravonna_kangaskhan_4_05d6",
-      "mega_trainer_reena_05cf",
-      "mega_trainer_sterling_05d1",
-      "mega_trainer_timothy_05cb",
-      "mega_trainer_travon_05ce",
-      "mega_trainer_vivian_05c7",
-      "mega_trainer_yale_05c9",
-      "ninja_boy_antonio_0359",
-      "ninja_boy_brennan_0455",
-      "ninja_boy_bruce_0456",
-      "ninja_boy_davey_0321",
-      "ninja_boy_ethan_035a",
-      "ninja_boy_fabian_0454",
-      "ninja_boy_joel_031f",
-      "ninja_boy_nathan_0320",
-      "ninja_boy_nick_0329",
-      "ninja_boy_zach_0327",
-      "ninja_boy_zach_0552",
-      "ninja_boy_zach_0553",
-      "ninja_boy_zach_0554",
-      "painter_celina_0232",
-      "painter_daisy_020e",
-      "painter_edna_025c",
-      "painter_rayna_0233",
-      "painter_rayna_02bf",
-      "parasol_lady_alexa_03e1",
-      "parasol_lady_alexa_0533",
-      "parasol_lady_alexa_0534",
-      "parasol_lady_alexa_0535",
-      "parasol_lady_sabrina_03e2",
-      "pi_carlos_0346",
-      "pi_carlos_0519",
-      "pi_carlos_051a",
-      "pi_kendrick_0486",
-      "picnicker_alicia_009a",
-      "picnicker_alicia_0280",
-      "picnicker_alicia_0281",
-      "picnicker_alicia_0282",
-      "picnicker_alma_01d2",
-      "picnicker_ana_0442",
-      "picnicker_ariana_01db",
-      "picnicker_becky_01e0",
-      "picnicker_becky_029d",
-      "picnicker_becky_029e",
-      "picnicker_becky_029f",
-      "picnicker_caitlin_009b",
-      "picnicker_carol_009d",
-      "picnicker_celia_01e1",
-      "picnicker_cheyenne_03e4",
-      "picnicker_claire_022c",
-      "picnicker_dana_01da",
-      "picnicker_diana_0096",
-      "picnicker_diana_03e3",
-      "picnicker_gwen_01d5",
-      "picnicker_hannah_00a1",
-      "picnicker_heidi_009c",
-      "picnicker_irene_01d9",
-      "picnicker_isabelle_0098",
-      "picnicker_isabelle_0276",
-      "picnicker_isabelle_0277",
-      "picnicker_isabelle_0278",
-      "picnicker_karina_043f",
-      "picnicker_karina_0536",
-      "picnicker_karina_0537",
-      "picnicker_karina_0538",
-      "picnicker_kelsey_0099",
-      "picnicker_kelsey_026d",
-      "picnicker_kelsey_026e",
-      "picnicker_kelsey_026f",
-      "picnicker_kindra_01df",
-      "picnicker_lauren_0305",
-      "picnicker_leah_01dc",
-      "picnicker_marcy_026b",
-      "picnicker_martha_009f",
-      "picnicker_missy_01d8",
-      "picnicker_missy_02ac",
-      "picnicker_missy_02ad",
-      "picnicker_nancy_0097",
-      "picnicker_siena_02f3",
-      "picnicker_sofia_009e",
-      "picnicker_summer_0440",
-      "picnicker_susie_01d3",
-      "picnicker_susie_0292",
-      "picnicker_susie_0293",
-      "picnicker_susie_0294",
-      "picnicker_tina_00a0",
-      "picnicker_tori_0441",
-      "picnicker_valerie_01d4",
-      "picnicker_yazmin_01de",
-      "player_brendan_0200",
-      "player_leaf_0203",
-      "player_may_0201",
-      "poke_fan_rebekah_047a",
-      "poke_kid_ariel_0444",
-      "poke_kid_danielle_0314",
-      "poke_kid_danielle_0539",
-      "poke_kid_danielle_053a",
-      "poke_kid_danielle_053b",
-      "poke_kid_janet_0578",
-      "poke_kid_meghan_03e5",
-      "pokemon_breeder_albert_0310",
-      "pokemon_breeder_albert_04e7",
-      "pokemon_breeder_albert_04e8",
-      "pokemon_breeder_albert_04e9",
-      "pokemon_breeder_amber_0318",
-      "pokemon_breeder_jennifer_0311",
-      "pokemon_breeder_jennifer_04ea",
-      "pokemon_breeder_jennifer_04eb",
-      "pokemon_breeder_jennifer_04ec",
-      "pokemon_breeder_kahlil_0317",
-      "pokemon_breeder_kaylee_0482",
-      "pokemon_ranger_allison_0337",
-      "pokemon_ranger_allison_0548",
-      "pokemon_ranger_allison_0549",
-      "pokemon_ranger_allison_054a",
-      "pokemon_ranger_ashlee_04bb",
-      "pokemon_ranger_ashlee_054b",
-      "pokemon_ranger_deshawn_04b9",
-      "pokemon_ranger_dwayne_04ba",
-      "pokemon_ranger_felicia_04bc",
-      "pokemon_ranger_jeffrey_0336",
-      "pokemon_ranger_krista_04bd",
-      "pokemon_ranger_kyler_04b8",
-      "pokemon_ranger_kyler_0547",
-      "pokemon_ranger_taylor_0335",
-      "pokemon_ranger_taylor_0544",
-      "pokemon_ranger_taylor_0545",
-      "pokemon_ranger_taylor_0546",
-      "pokemon_trainer_buck_04cb",
-      "pokemon_trainer_cedric_0396",
-      "pokemon_trainer_cedric_0397",
-      "pokemon_trainer_cedric_0398",
-      "pokemon_trainer_cedric_0445",
-      "pokemon_trainer_cedric_0446",
-      "pokemon_trainer_cedric_0447",
-      "pokemon_trainer_cedric_0448",
-      "pokemon_trainer_cedric_0449",
-      "pokemon_trainer_cedric_044a",
-      "pokemon_trainer_cedric_044b",
-      "pokemon_trainer_cedric_044c",
-      "pokemon_trainer_cedric_044d",
-      "pokemon_trainer_cedric_044e",
-      "pokemon_trainer_cedric_044f",
-      "pokemon_trainer_cedric_0450",
-      "pokemon_trainer_cedric_04c7",
-      "pokemon_trainer_cedric_04d3",
-      "pokemon_trainer_cedric_04d4",
-      "pokemon_trainer_cedric_057d",
-      "pokemon_trainer_cedric_057e",
-      "pokemon_trainer_cedric_057f",
-      "pokemon_trainer_cedric_0580",
-      "pokemon_trainer_cedric_0581",
-      "pokemon_trainer_cedric_0582",
-      "pokemon_trainer_cheryl_04c8",
-      "pokemon_trainer_dawn_04d0",
-      "pokemon_trainer_dawn_04d1",
-      "pokemon_trainer_dawn_04d2",
-      "pokemon_trainer_dawn_04d8",
-      "pokemon_trainer_dawn_04d9",
-      "pokemon_trainer_dawn_04da",
-      "pokemon_trainer_dawn_0598",
-      "pokemon_trainer_dawn_0599",
-      "pokemon_trainer_dawn_059a",
-      "pokemon_trainer_dawn_059b",
-      "pokemon_trainer_dawn_059c",
-      "pokemon_trainer_dawn_059d",
-      "pokemon_trainer_lucas_04cd",
-      "pokemon_trainer_lucas_04ce",
-      "pokemon_trainer_lucas_04cf",
-      "pokemon_trainer_lucas_04d5",
-      "pokemon_trainer_lucas_04d6",
-      "pokemon_trainer_lucas_04d7",
-      "pokemon_trainer_lucas_0592",
-      "pokemon_trainer_lucas_0593",
-      "pokemon_trainer_lucas_0594",
-      "pokemon_trainer_lucas_0595",
-      "pokemon_trainer_lucas_0596",
-      "pokemon_trainer_lucas_0597",
-      "pokemon_trainer_marley_04ca",
-      "pokemon_trainer_mira_04cc",
-      "pokemon_trainer_riley_04c9",
-      "police_officer_alex_0330",
-      "police_officer_bobby_032f",
-      "police_officer_caleb_0339",
-      "police_officer_danny_03e6",
-      "police_officer_danny_053c",
-      "police_officer_danny_053d",
-      "police_officer_danny_053e",
-      "police_officer_dylan_0331",
-      "police_officer_thomas_03e7",
-      "prof_prof_oak_01ff",
-      "professor_oak_00c8",
-      "professor_oak_00d2",
-      "rancher_marco_03be",
-      "rancher_marco_050f",
-      "rancher_marco_0510",
-      "ranchers_ava_03bc",
-      "ranchers_ava_matt_m006",
-      "ranchers_beth_047c",
-      "ranchers_beth_bob_m00a",
-      "ranchers_bob_047d",
-      "ranchers_matt_03bd",
-      "ranger_beth_0255",
-      "ranger_jackson_0254",
-      "ranger_jackson_02d4",
-      "ranger_katelyn_0256",
-      "ranger_katelyn_02d5",
-      "ranger_madeline_020a",
-      "ranger_madeline_02d1",
-      "ranger_nicolas_0209",
-      "ranger_nicolas_02d0",
-      "reporter_kinsey_0401",
-      "reporter_valerie_048c",
-      "rich_boy_jason_032b",
-      "rich_boy_roman_048a",
-      "rich_boy_trey_03e8",
-      "rich_boy_trey_053f",
-      "rich_boy_trey_0540",
-      "rival_1_player_chose_beldum_0607",
-      "rival_1_player_chose_gible_0606",
-      "rival_1_player_chose_larvitar_0608",
-      "rival_2_player_chose_beldum_060a",
-      "rival_2_player_chose_gible_0609",
-      "rival_2_player_chose_larvitar_060b",
-      "rival_3_player_chose_beldum_05fb",
-      "rival_3_player_chose_gible_05fa",
-      "rival_3_player_chose_larvitar_05fc",
-      "rival_4_player_chose_beldum_05fe",
-      "rival_4_player_chose_gible_05fd",
-      "rival_4_player_chose_larvitar_05ff",
-      "rival_5_player_chose_beldum_0601",
-      "rival_5_player_chose_gible_0600",
-      "rival_5_player_chose_larvitar_0602",
-      "rival_terry_0146",
-      "rival_terry_0147",
-      "rival_terry_0148",
-      "rival_terry_0149",
-      "rival_terry_014a",
-      "rival_terry_014b",
-      "rival_terry_014c",
-      "rival_terry_014d",
-      "rival_terry_014e",
-      "rival_terry_01aa",
-      "rival_terry_01ab",
-      "rival_terry_01ac",
-      "rival_terry_01ad",
-      "rival_terry_01ae",
-      "rival_terry_01af",
-      "rival_terry_01b0",
-      "rival_terry_01b1",
-      "rival_terry_01b2",
-      "rival_terry_01b3",
-      "rival_terry_01b4",
-      "rival_terry_01b5",
-      "rocker_luca_011d",
-      "rocker_luca_028e",
-      "rocker_randall_011c",
-      "roughneck_kirby_0478",
-      "ruin_mamoac_benjamin_025b",
-      "ruin_mamoac_foster_0246",
-      "ruin_mamoac_larry_0247",
-      "ruin_mamoac_larry_02cb",
-      "ruin_mamoac_lawson_025f",
-      "ruin_mamoac_layton_026c",
-      "ruin_mamoac_stanly_020c",
-      "ruin_maniac_bryan_0342",
-      "ruin_maniac_calvin_03cb",
-      "ruin_maniac_gerald_0434",
-      "ruin_maniac_harry_0433",
-      "ruin_maniac_harry_051f",
-      "ruin_maniac_harry_0520",
-      "ruin_maniac_hunter_0343",
-      "ruin_maniac_karl_0492",
-      "ruin_maniac_larry_03cc",
-      "school_kid_chance_03ec",
-      "school_kid_christine_03f1",
-      "school_kid_esteban_048d",
-      "school_kid_forrest_03ed",
-      "school_kid_harrison_03ee",
-      "school_kid_mackenzie_03ef",
-      "school_kid_tiera_03f0",
-      "shadow_grunt_w_ivory_2_05bd",
-      "shadow_grunt_w_marlon_1_05b9",
-      "sis_and_bro_ava_and_geb_0240",
-      "sis_and_bro_lia_and_luc_01ea",
-      "sis_and_bro_lil_and_ian_01eb",
-      "sis_and_bro_lil_and_ian_02b0",
-      "sis_and_bro_lil_and_ian_02b1",
-      "skier_andrea_0352",
-      "skier_andrea_055b",
-      "skier_andrea_055c",
-      "skier_bjorn_0356",
-      "skier_bjorn_0559",
-      "skier_bjorn_055a",
-      "skier_bradley_034f",
-      "skier_edward_0350",
-      "skier_edward_0557",
-      "skier_edward_0558",
-      "skier_kaitlyn_0351",
-      "skier_lexie_0357",
-      "skier_madison_0358",
-      "skier_madison_055d",
-      "skier_madison_055e",
-      "skier_shawn_0355",
-      "sucessor_maxima_05ae",
-      "swimmer_adrian_035e",
-      "swimmer_aubree_0375",
-      "swimmer_cassandra_0378",
-      "swimmer_claire_0459",
-      "swimmer_colton_0371",
-      "swimmer_crystal_0377",
-      "swimmer_crystal_0563",
-      "swimmer_dillon_0364",
-      "swimmer_erica_0362",
-      "swimmer_erik_035f",
-      "swimmer_evan_033b",
-      "swimmer_francisco_0370",
-      "swimmer_francisco_0560",
-      "swimmer_gabrielle_0379",
-      "swimmer_glenn_04be",
-      "swimmer_glenn_0561",
-      "swimmer_haley_033c",
-      "swimmer_jessica_0361",
-      "swimmer_joanna_04c2",
-      "swimmer_joanna_0564",
-      "swimmer_katelyn_0363",
-      "swimmer_kurt_04bf",
-      "swimmer_lydia_04c5",
-      "swimmer_mallory_04c4",
-      "swimmer_mary_033d",
-      "swimmer_miranda_0374",
-      "swimmer_miranda_0562",
-      "swimmer_oscar_0373",
-      "swimmer_paige_0376",
-      "swimmer_ricardo_036f",
-      "swimmer_sam_04c0",
-      "swimmer_shelton_033a",
-      "swimmer_sophia_04c3",
-      "swimmer_troy_0372",
-      "swimmer_vanessa_0365",
-      "swimmer_vincent_0360",
-      "swimmer_wade_04c1",
-      "swimmer_wesley_036e",
-      "swimmer_wesley_055f",
-      "swimmerf_abigail_0224",
-      "swimmerf_alice_0115",
-      "swimmerf_alice_02aa",
-      "swimmerf_amara_0222",
-      "swimmerf_anya_0114",
-      "swimmerf_connie_0116",
-      "swimmerf_denise_0243",
-      "swimmerf_maria_0223",
-      "swimmerf_melissa_0110",
-      "swimmerf_melissa_02de",
-      "swimmerf_nicole_023f",
-      "swimmerf_nicole_02c7",
-      "swimmerf_nora_010f",
-      "swimmerf_shirley_0117",
-      "swimmerf_tiffany_010e",
-      "swimmerf_tisha_0231",
-      "swimmerm_axle_00f1",
-      "swimmerm_barry_00f2",
-      "swimmerm_darrin_00f4",
-      "swimmerm_darrin_02ab",
-      "swimmerm_david_00ef",
-      "swimmerm_dean_00f3",
-      "swimmerm_douglas_00ee",
-      "swimmerm_finn_0225",
-      "swimmerm_finn_02b2",
-      "swimmerm_garrett_0226",
-      "swimmerm_jack_00f6",
-      "swimmerm_jack_02af",
-      "swimmerm_jerome_00f7",
-      "swimmerm_luis_00ea",
-      "swimmerm_matthew_00ed",
-      "swimmerm_matthew_02dc",
-      "swimmerm_mymo_023e",
-      "swimmerm_reece_00ec",
-      "swimmerm_richard_00eb",
-      "swimmerm_roland_00f8",
-      "swimmerm_samir_0242",
-      "swimmerm_samir_02c9",
-      "swimmerm_spencer_00f5",
-      "swimmerm_toby_0236",
-      "swimmerm_tony_00f0",
-      "swimmerm_tony_02dd",
-      "tamer_cole_0129",
-      "tamer_edgar_0127",
-      "tamer_evan_0251",
-      "tamer_evan_02d3",
-      "tamer_jason_0128",
-      "tamer_john_012b",
-      "tamer_phil_0126",
-      "tamer_vincent_012a",
-      "terror_granbull_gruff_05db",
-      "title_defense_jax_05ee",
-      "title_defense_marlon_05eb",
-      "title_defense_milo_05ed",
-      "title_defense_rival_player_chose_beldum_05f0",
-      "title_defense_rival_player_chose_gible_05ef",
-      "title_defense_rival_player_chose_larvitar_05f1",
-      "title_defense_solenk_05ec",
-      "title_defense_zeph_05ea",
-      "trainer_77_05f6",
-      "trainer_92_0605",
-      "trainer_brendan_001a",
-      "trainer_brendan_002c",
-      "trainer_brendan_0032",
-      "trainer_brendan_0037",
-      "trainer_brendan_0039",
-      "trainer_cole_0012",
-      "trainer_haley_000f",
-      "trainer_ketchup_0013",
-      "trainer_ketchup_0014",
-      "trainer_may_003d",
-      "trainer_sam_0010",
-      "trainer_shelly_0011",
-      "tuber_alexis_022f",
-      "tuber_amira_0207",
-      "tuber_amira_02bd",
-      "tuber_caitlyn_045c",
-      "tuber_chelsea_033f",
-      "tuber_chelsea_056d",
-      "tuber_chelsea_056f",
-      "tuber_conner_03f8",
-      "tuber_holly_03fa",
-      "tuber_jacky_045b",
-      "tuber_mariel_03f9",
-      "tuber_trenton_03f7",
-      "twins_eli_and_anne_01e4",
-      "twins_eli_and_anne_0215",
-      "twins_emma_03c0",
-      "twins_emma_lil_m007",
-      "twins_joy_and_meg_0230",
-      "twins_joy_and_meg_02be",
-      "twins_kiri_and_jan_01e7",
-      "twins_lil_03c1",
-      "twins_liv_02f0",
-      "twins_liv_liz_m001",
-      "twins_liz_02f1",
-      "twins_miu_and_mia_0244",
-      "twins_teri_0319",
-      "twins_teri_0515",
-      "twins_teri_0517",
-      "twins_teri_tia_m003",
-      "twins_teri_tia_m00c",
-      "twins_teri_tia_m00d",
-      "twins_tia_031a",
-      "twins_tia_0516",
-      "twins_tia_0518",
-      "waitress_kati_03fc",
-      "worker_braden_0460",
-      "worker_brendon_0461",
-      "worker_colin_037a",
-      "worker_conrad_0586",
-      "worker_dillan_0584",
-      "worker_gary_039b",
-      "worker_gerardo_03fd",
-      "worker_holden_0585",
-      "worker_jackson_039a",
-      "worker_mason_037b",
-      "worker_quentin_0462",
-      "young_couple_eve_and_jon_024d",
-      "young_couple_gia_and_jes_01e6",
-      "young_couple_gia_and_jes_02c2",
-      "young_couple_gia_and_jes_02c3",
-      "young_couple_lea_and_jed_01e9",
-      "young_couple_mike_047e",
-      "young_couple_mike_nat_m00b",
-      "young_couple_nat_047f",
-      "young_couple_sue_0316",
-      "young_couple_sue_ty_m002",
-      "young_couple_ty_0315",
-      "youngster_austin_0303",
-      "youngster_ben_0059",
-      "youngster_ben_0065",
-      "youngster_ben_01f2",
-      "youngster_ben_01f3",
-      "youngster_calvin_005a",
-      "youngster_chad_005f",
-      "youngster_chad_01f4",
-      "youngster_chad_01fa",
-      "youngster_chad_01fd",
-      "youngster_cordell_0267",
-      "youngster_dallas_03f4",
-      "youngster_dallas_0568",
-      "youngster_dallas_0569",
-      "youngster_dallas_056a",
-      "youngster_dan_005e",
-      "youngster_darius_0394",
-      "youngster_dave_0064",
-      "youngster_destin_0235",
-      "youngster_destin_02c0",
-      "youngster_dillon_0062",
-      "youngster_donny_03f6",
-      "youngster_eddie_0061",
-      "youngster_joey_005d",
-      "youngster_johnson_0216",
-      "youngster_jonathon_0393",
-      "youngster_josh_005b",
-      "youngster_logan_02e8",
-      "youngster_michael_02ea",
-      "youngster_nash_0266",
-      "youngster_oliver_047b",
-      "youngster_sebastian_03f5",
-      "youngster_timmy_005c",
-      "youngster_timmy_01f7",
-      "youngster_timmy_01f8",
-      "youngster_timmy_01f9",
-      "youngster_tristan_02e7",
-      "youngster_tristan_0565",
-      "youngster_tristan_0566",
-      "youngster_tristan_0567",
-      "youngster_tyler_0060",
-      "youngster_tyler_02eb",
-      "youngster_wayne_045a",
-      "youngster_yasu_0063",
-      "youngster_yasu_0279",
-      "youngster_yasu_027a"
-    ],
-    "2": [
-      "aroma_lady_alison_0480",
-      "aroma_lady_angela_039e",
-      "aroma_lady_elizabeth_02f7",
-      "aroma_lady_elizabeth_04db",
-      "aroma_lady_elizabeth_04dc",
-      "aroma_lady_elizabeth_04dd",
-      "aroma_lady_hannah_030e",
-      "aroma_lady_jenna_039d",
-      "aroma_lady_miah_024c",
-      "aroma_lady_nikki_020b",
-      "aroma_lady_rose_0241",
-      "aroma_lady_teighler_02ef",
-      "aroma_lady_violet_022e",
-      "beauty_bridget_0109",
-      "beauty_cyndy_03f2",
-      "beauty_cyndy_0555",
-      "beauty_cyndy_0556",
-      "beauty_devon_0457",
-      "beauty_gabriella_048f",
-      "beauty_grace_0111",
-      "beauty_grace_029a",
-      "beauty_harley_0490",
-      "beauty_lauren_0113",
-      "beauty_lindsay_03f3",
-      "beauty_lola_010c",
-      "beauty_lori_010b",
-      "beauty_nicola_0458",
-      "beauty_olivia_0112",
-      "beauty_sheila_010d",
-      "beauty_sheila_028f",
-      "beauty_tamia_010a",
-      "biker_0212",
-      "biker_alex_00c6",
-      "biker_billy_00cb",
-      "biker_ernest_00c5",
-      "biker_gerald_00d1",
-      "biker_goon_020f",
-      "biker_goon_0210",
-      "biker_goon_0211",
-      "biker_hideo_00c9",
-      "biker_isaac_00d0",
-      "biker_jaren_0218",
-      "biker_jaren_028c",
-      "biker_jaxon_00cd",
-      "biker_jaxon_02a5",
-      "biker_lao_00c7",
-      "biker_lukas_00cf",
-      "biker_lukas_0295",
-      "biker_malik_00c4",
-      "biker_nikolas_00cc",
-      "biker_ricardo_0217",
-      "biker_ruben_00ca",
-      "biker_ruben_02a3",
-      "biker_virgil_01d6",
-      "black_belt_adam_031e",
-      "black_belt_atsushi_0142",
-      "black_belt_carl_03d4",
-      "black_belt_colby_03d0",
-      "black_belt_daisuke_0145",
-      "black_belt_darren_03d1",
-      "black_belt_david_038a",
-      "black_belt_davon_04b4",
-      "black_belt_davon_0524",
-      "black_belt_derek_0348",
-      "black_belt_eddie_0437",
-      "black_belt_gregory_0347",
-      "black_belt_griffin_04b5",
-      "black_belt_hideki_013f",
-      "black_belt_hitoshi_0141",
-      "black_belt_hugh_022a",
-      "black_belt_hugh_02b9",
-      "black_belt_hugh_02ba",
-      "black_belt_jarrett_04b7",
-      "black_belt_jeffery_03d3",
-      "black_belt_kendal_0436",
-      "black_belt_kiyo_0143",
-      "black_belt_kyle_030c",
-      "black_belt_luke_035b",
-      "black_belt_mike_013e",
-      "black_belt_miles_0435",
-      "black_belt_nathaniel_0349",
-      "black_belt_philip_039c",
-      "black_belt_philip_0523",
-      "black_belt_rafael_03d2",
-      "black_belt_ray_04b6",
-      "black_belt_ricky_03d5",
-      "black_belt_sean_0328",
-      "black_belt_shea_0229",
-      "black_belt_shea_02b7",
-      "black_belt_shea_02b8",
-      "black_belt_takashi_0144",
-      "collector_brady_03ab",
-      "collector_dominique_0409",
-      "collector_douglas_03aa",
-      "collector_edwin_03ae",
-      "collector_eugene_0484",
-      "collector_fernando_03ad",
-      "collector_ivan_03ac",
-      "collector_ivan_04f2",
-      "collector_jamal_040a",
-      "collector_terry_040b",
       "gentleman_arthur_01a6",
-      "gentleman_brooks_01e2",
-      "gentleman_clifford_025d",
       "gentleman_jeremy_032d",
       "gentleman_jeremy_051b",
-      "gentleman_jeremy_051c",
-      "gentleman_jeremy_051d",
       "gentleman_komodo_0005",
       "gentleman_lamar_01e3",
-      "gentleman_norton_01a8",
+      "gentleman_leonardo_0487",
       "gentleman_thomas_01a5",
       "gentleman_tucker_01a7",
       "gentleman_walter_01a9",
       "guitarist_arturo_0432",
-      "guitarist_jerry_03c8",
-      "guitarist_lonnie_03ca",
-      "guitarist_preston_03c9",
       "guitarist_tony_03c7",
-      "guitarist_tony_051e",
+      "gym_leader_gardenia_03d6",
+      "gym_leader_maylene_03d8",
+      "gym_leader_roark_0395",
+      "gym_leader_wake_03d7",
       "hiker_alan_00b9",
       "hiker_alexander_030a",
       "hiker_allen_00be",
       "hiker_brice_00ba",
-      "hiker_clark_00bb",
       "hiker_damon_043b",
       "hiker_daniel_02f4",
-      "hiker_daryl_0248",
       "hiker_dudley_00bd",
-      "hiker_earl_0245",
-      "hiker_earl_02ca",
       "hiker_eric_00bf",
       "hiker_franklin_00b6",
       "hiker_franklin_01fe",
@@ -1061,316 +247,270 @@
       "hiker_robert_0309",
       "hiker_theodore_043a",
       "hiker_theodore_052d",
-      "hiker_theodore_052e",
-      "hiker_theodore_052f",
       "hiker_trent_00bc",
       "hiker_trent_0287",
       "hiker_wayne_00b8",
+      "idol_grace_0402",
+      "interviewers_oli_03ff",
+      "interviewers_oli_roxy_m008",
+      "interviewers_roxy_03fe",
+      "jogger_craig_03ce",
+      "jogger_raul_03cf",
+      "jogger_richard_0313",
+      "jogger_scott_034a",
+      "jogger_wyatt_03cd",
+      "kanto_brock",
+      "lady_kylie_048b",
+      "lady_melissa_032c",
+      "lady_melissa_0541",
+      "lass_ali_007b",
+      "lass_blythe_0489",
+      "lass_briana_037f",
+      "lass_caroline_03de",
+      "lass_cassidy_0439",
+      "lass_dawn_007f",
+      "lass_haley_007d",
+      "lass_iris_0079",
+      "lass_janice_0074",
+      "lass_janice_01fb",
+      "lass_janice_01fc",
+      "lass_julia_0083",
+      "lass_kaitlin_03dd",
+      "lass_madeline_03dc",
+      "lass_madeline_052a",
+      "lass_madeline_052b",
+      "lass_megan_0288",
+      "lass_miriam_0078",
+      "lass_molly_03df",
+      "lass_natalie_02e9",
+      "lass_reli_007a",
+      "lass_reli_01f5",
+      "lass_reli_01f6",
+      "lass_robin_0076",
+      "lass_sally_0075",
+      "lass_samantha_02ec",
+      "lass_samantha_0527",
+      "lass_samantha_0528",
+      "lass_sarah_02ed",
+      "leader_alice_05ac",
+      "leader_brock_019e",
+      "leader_bugsy_002f",
+      "leader_falkner_002d",
+      "leader_lt_surge_01a0",
+      "leader_mirskle_05aa",
+      "leader_misty_019f",
+      "leader_vega_05ab",
+      "leader_whitney_0031",
+      "lumy_mario",
+      "madame_rebecca_0488",
+      "madame_reina_032e",
+      "ninja_boy_brennan_0455",
+      "ninja_boy_bruce_0456",
+      "ninja_boy_davey_0321",
+      "ninja_boy_ethan_035a",
+      "ninja_boy_fabian_0454",
+      "ninja_boy_joel_031f",
+      "ninja_boy_nathan_0320",
+      "ninja_boy_nick_0329",
+      "ninja_boy_zach_0327",
+      "ninja_boy_zach_0552",
+      "pallet_delia",
+      "parasol_lady_alexa_03e1",
+      "parasol_lady_alexa_0533",
+      "parasol_lady_sabrina_03e2",
+      "pi_carlos_0346",
+      "pi_kendrick_0486",
+      "picnicker_alicia_009a",
+      "picnicker_alicia_0280",
+      "picnicker_alicia_0281",
+      "picnicker_ana_0442",
+      "picnicker_ariana_01db",
+      "picnicker_becky_029d",
+      "picnicker_carol_009d",
+      "picnicker_cheyenne_03e4",
+      "picnicker_dana_01da",
+      "picnicker_diana_0096",
+      "picnicker_diana_03e3",
+      "picnicker_hannah_00a1",
+      "picnicker_heidi_009c",
+      "picnicker_isabelle_0098",
+      "picnicker_isabelle_0276",
+      "picnicker_isabelle_0277",
+      "picnicker_karina_043f",
+      "picnicker_karina_0536",
+      "picnicker_karina_0537",
+      "picnicker_kelsey_0099",
+      "picnicker_kelsey_026d",
+      "picnicker_kelsey_026e",
+      "picnicker_lauren_0305",
+      "picnicker_leah_01dc",
+      "picnicker_martha_009f",
+      "picnicker_nancy_0097",
+      "picnicker_siena_02f3",
+      "picnicker_sofia_009e",
+      "picnicker_summer_0440",
+      "picnicker_susie_0292",
+      "picnicker_tori_0441",
+      "player_brendan_0200",
+      "player_leaf_0203",
+      "player_may_0201",
+      "player_red_0202",
+      "poke_fan_leonard_0479",
+      "poke_fan_meredith_0485",
+      "poke_fan_rebekah_047a",
+      "poke_kid_ariel_0444",
+      "poke_kid_danielle_0314",
+      "poke_kid_danielle_0539",
+      "pokefan_agathare_0021",
+      "pokefan_agathare_0022",
       "pokemaniac_ashton_00a8",
       "pokemaniac_cooprt_00a4",
-      "pokemaniac_dawson_00a7",
-      "pokemaniac_hector_0249",
-      "pokemaniac_hector_02cc",
       "pokemaniac_herman_00a3",
       "pokemaniac_herman_0285",
-      "pokemaniac_herman_0286",
-      "pokemaniac_mark_00a2",
       "pokemaniac_mark_0252",
-      "pokemaniac_mark_0284",
       "pokemaniac_steve_00a5",
       "pokemaniac_winston_00a6",
+      "pokemon_breeder_albert_0310",
+      "pokemon_breeder_albert_04e7",
+      "pokemon_breeder_amber_0318",
+      "pokemon_breeder_jennifer_0311",
+      "pokemon_breeder_jennifer_04ea",
+      "pokemon_breeder_kahlil_0317",
+      "pokemon_breeder_kaylee_0482",
+      "pokemon_ranger_allison_0337",
+      "pokemon_ranger_allison_0548",
+      "pokemon_ranger_jeffrey_0336",
+      "pokemon_ranger_taylor_0335",
+      "pokemon_ranger_taylor_0544",
+      "pokemon_trainer_cedric_0396",
+      "pokemon_trainer_cedric_0397",
+      "pokemon_trainer_cedric_0398",
+      "pokemon_trainer_cedric_0445",
+      "pokemon_trainer_cedric_0446",
+      "pokemon_trainer_cedric_0447",
+      "pokemon_trainer_cedric_0448",
+      "pokemon_trainer_cedric_0449",
+      "pokemon_trainer_cedric_044a",
+      "pokemon_trainer_cheryl_04c8",
+      "pokemon_trainer_dawn_04d0",
+      "pokemon_trainer_dawn_04d1",
+      "pokemon_trainer_dawn_04d2",
+      "pokemon_trainer_dawn_04d8",
+      "pokemon_trainer_dawn_04d9",
+      "pokemon_trainer_dawn_04da",
+      "pokemon_trainer_lucas_04cd",
+      "pokemon_trainer_lucas_04ce",
+      "pokemon_trainer_lucas_04cf",
+      "pokemon_trainer_lucas_04d5",
+      "pokemon_trainer_lucas_04d6",
+      "pokemon_trainer_lucas_04d7",
+      "pokemon_trainer_mira_04cc",
+      "pokemon_trainer_riley_04c9",
+      "police_officer_alex_0330",
+      "police_officer_bobby_032f",
+      "police_officer_caleb_0339",
+      "police_officer_danny_03e6",
+      "police_officer_danny_053c",
+      "police_officer_dylan_0331",
+      "prof_prof_oak_01ff",
       "psychic_abigail_0345",
-      "psychic_abigail_050b",
-      "psychic_abigail_050c",
-      "psychic_brittney_03bb",
-      "psychic_brittney_050d",
-      "psychic_bryce_038c",
-      "psychic_cameron_011a",
-      "psychic_chelsey_04b3",
-      "psychic_corbin_04b0",
-      "psychic_corbin_050a",
-      "psychic_daisy_04b2",
-      "psychic_daisy_050e",
-      "psychic_dario_024a",
-      "psychic_dario_02cd",
-      "psychic_deandre_0415",
-      "psychic_desiree_0417",
       "psychic_elijah_0380",
-      "psychic_jaclyn_0205",
-      "psychic_jaclyn_02c8",
-      "psychic_johan_0118",
-      "psychic_kendra_0418",
       "psychic_kody_0413",
-      "psychic_landon_0414",
-      "psychic_laura_0260",
       "psychic_lindsey_0381",
-      "psychic_maxwell_03ba",
-      "psychic_maxwell_0509",
       "psychic_mitchell_0344",
-      "psychic_mitchell_0507",
-      "psychic_mitchell_0508",
-      "psychic_preston_011b",
       "psychic_rachael_0416",
-      "psychic_rodette_024b",
-      "psychic_rodette_02ce",
-      "psychic_sterling_04b1",
-      "psychic_tyron_0119",
-      "psychic_valencia_038d",
+      "rancher_marco_03be",
+      "ranchers_ava_03bc",
+      "ranchers_ava_matt_m006",
+      "ranchers_beth_047c",
+      "ranchers_beth_bob_m00a",
+      "ranchers_bob_047d",
+      "ranchers_matt_03bd",
+      "reporter_kinsey_0401",
+      "reporter_valerie_048c",
+      "rich_boy_jason_032b",
+      "rich_boy_roman_048a",
+      "rival_1_player_chose_beldum_0607",
+      "rival_1_player_chose_gible_0606",
+      "rival_1_player_chose_larvitar_0608",
+      "rival_2_player_chose_beldum_060a",
+      "rival_2_player_chose_gible_0609",
+      "rival_2_player_chose_larvitar_060b",
+      "rival_3_player_chose_beldum_05fb",
+      "rival_3_player_chose_gible_05fa",
+      "rival_3_player_chose_larvitar_05fc",
+      "rival_terry_0146",
+      "rival_terry_0147",
+      "rival_terry_0148",
+      "rival_terry_0149",
+      "rival_terry_014a",
+      "rival_terry_014b",
+      "rival_terry_014c",
+      "rival_terry_014d",
+      "rival_terry_014e",
+      "rival_terry_01aa",
+      "rival_terry_01ab",
+      "rival_terry_01ac",
+      "rival_terry_01ad",
+      "rival_terry_01ae",
+      "rival_terry_01af",
+      "rocker_luca_028e",
+      "rocker_randall_011c",
+      "rocket_admin_archer_002e",
+      "roughneck_kirby_0478",
+      "ruin_maniac_bryan_0342",
+      "ruin_maniac_calvin_03cb",
+      "ruin_maniac_gerald_0434",
+      "ruin_maniac_harry_0433",
+      "ruin_maniac_hunter_0343",
+      "ruin_maniac_karl_0492",
       "sailor_damian_03eb",
       "sailor_duncan_0089",
       "sailor_dwayne_008d",
       "sailor_dylan_008b",
-      "sailor_edmond_0086",
       "sailor_huey_008a",
-      "sailor_luther_036d",
-      "sailor_marc_03e9",
-      "sailor_marc_054c",
-      "sailor_marc_054d",
+      "sailor_leonard_0088",
       "sailor_paul_0340",
       "sailor_phillip_008c",
       "sailor_samson_0452",
       "sailor_skyler_03ea",
-      "sailor_trevor_0087",
-      "sailor_zachariah_0451",
-      "sailor_zachariah_054e",
-      "science_society_scientist_rogue_electivire_05df",
-      "science_society_scientist_supply_and_demand_05de",
-      "scientist_beau_0154",
-      "scientist_braydon_015a",
-      "scientist_connor_0150",
-      "scientist_darrius_0575",
-      "scientist_ed_0158",
+      "school_kid_brunore_001e",
+      "school_kid_brunore_001f",
+      "school_kid_chance_03ec",
+      "school_kid_christine_03f1",
+      "school_kid_esteban_048d",
+      "school_kid_harrison_03ee",
+      "school_kid_mackenzie_03ef",
       "scientist_emilio_048e",
-      "scientist_gideon_0221",
-      "scientist_ivan_015b",
-      "scientist_jerry_0151",
-      "scientist_jose_0152",
-      "scientist_joshua_0156",
-      "scientist_parkker_0157",
-      "scientist_rodney_0153",
+      "scientist_fredrick_0576",
       "scientist_shaun_0453",
       "scientist_shaun_054f",
-      "scientist_shaun_0550",
-      "scientist_shaun_0551",
       "scientist_stefano_0338",
-      "scientist_taylor_0155",
-      "scientist_ted_014f",
-      "scientist_travis_0159",
       "scientist_travon_0577",
-      "super_nerd_aavery_00b2",
-      "super_nerd_aidan_00ab",
-      "super_nerd_derek_00b3",
-      "super_nerd_erik_00b1",
-      "super_nerd_glenn_00ac",
+      "shadow_admin_ivory_1_05ba",
+      "shadow_admin_marlon_1_05b8",
+      "shadow_admin_marlon_grunt_m00e",
+      "shadow_grunt_w_marlon_1_05b9",
+      "skier_bradley_034f",
+      "skier_edward_0350",
+      "skier_lexie_0357",
+      "skier_shawn_0355",
       "super_nerd_glenn_028a",
       "super_nerd_jovan_00a9",
-      "super_nerd_leslie_00ad",
-      "super_nerd_miguel_00aa",
-      "super_nerd_zac_00b4"
-    ],
-    "3": [
-      "ace_trainer_abel_04a5",
-      "ace_trainer_alexa_0194",
-      "ace_trainer_alexa_05d7",
-      "ace_trainer_alexa_0603",
-      "ace_trainer_alicia_03a9",
-      "ace_trainer_allen_03b2",
-      "ace_trainer_alyssa_031c",
-      "ace_trainer_andrew_0002",
-      "ace_trainer_anton_0573",
-      "ace_trainer_ariana_04a7",
-      "ace_trainer_ariana_0506",
-      "ace_trainer_arthur_040f",
-      "ace_trainer_austina_0198",
-      "ace_trainer_barry_0058",
-      "ace_trainer_berke_018f",
-      "ace_trainer_blake_034b",
-      "ace_trainer_brandi_0411",
-      "ace_trainer_breanna_03b5",
-      "ace_trainer_brenda_0410",
-      "ace_trainer_brenna_0574",
-      "ace_trainer_brooke_0197",
-      "ace_trainer_caroline_0193",
-      "ace_trainer_catherine_03b6",
-      "ace_trainer_cesar_03b1",
-      "ace_trainer_clarice_0412",
-      "ace_trainer_colby_018a",
-      "ace_trainer_dalton_0353",
-      "ace_trainer_dalton_04f0",
-      "ace_trainer_dana_04a8",
-      "ace_trainer_deanna_04a6",
-      "ace_trainer_deanna_0505",
-      "ace_trainer_dennis_03b0",
-      "ace_trainer_dennis_04fe",
-      "ace_trainer_dennis_04ff",
-      "ace_trainer_destiny_03b7",
-      "ace_trainer_ernest_031b",
-      "ace_trainer_felix_049f",
-      "ace_trainer_garrett_034c",
-      "ace_trainer_george_0189",
-      "ace_trainer_gilbert_018d",
-      "ace_trainer_graham_04a1",
-      "ace_trainer_henry_0383",
-      "ace_trainer_isaiah_03a7",
-      "ace_trainer_jake_0367",
-      "ace_trainer_jake_04fd",
-      "ace_trainer_jamie_03b8",
-      "ace_trainer_janny_00af",
-      "ace_trainer_jasmin_04ad",
-      "ace_trainer_jonah_040d",
-      "ace_trainer_jose_049e",
-      "ace_trainer_julie_0199",
-      "ace_trainer_kassandra_04ac",
-      "ace_trainer_keenan_04a2",
-      "ace_trainer_laura_034d",
-      "ace_trainer_leroy_0257",
-      "ace_trainer_leroy_02d6",
-      "ace_trainer_maria_034e",
-      "ace_trainer_mariah_0384",
-      "ace_trainer_mary_0192",
-      "ace_trainer_maya_03b9",
-      "ace_trainer_maya_0503",
-      "ace_trainer_maya_0504",
-      "ace_trainer_meagan_04aa",
-      "ace_trainer_micah_040e",
-      "ace_trainer_michelle_0258",
-      "ace_trainer_michelle_02d7",
-      "ace_trainer_mikayla_04a9",
-      "ace_trainer_monique_04af",
-      "ace_trainer_naomi_0196",
-      "ace_trainer_natasha_04ae",
-      "ace_trainer_nick_0055",
-      "ace_trainer_olivia_0354",
-      "ace_trainer_olivia_04f1",
-      "ace_trainer_omar_0382",
-      "ace_trainer_owen_018e",
-      "ace_trainer_paul_018b",
-      "ace_trainer_quinn_04a0",
-      "ace_trainer_rodolfo_049c",
-      "ace_trainer_rodolfo_0500",
-      "ace_trainer_rolando_018c",
-      "ace_trainer_ruben_03b4",
-      "ace_trainer_runan_007c",
-      "ace_trainer_samantha_0052",
-      "ace_trainer_samuel_0188",
-      "ace_trainer_sandra_04ab",
-      "ace_trainer_saul_049d",
-      "ace_trainer_saul_0501",
-      "ace_trainer_savannah_03a8",
-      "ace_trainer_sergio_03a6",
-      "ace_trainer_shannon_0195",
-      "ace_trainer_shannon_0368",
-      "ace_trainer_shannon_0502",
-      "ace_trainer_sharon_00ae",
-      "ace_trainer_skyler_04a4",
-      "ace_trainer_stefan_04a3",
-      "ace_trainer_sydney_0385",
-      "ace_trainer_symes_0071",
-      "ace_trainer_warren_0191",
-      "ace_trainer_wilton_0133",
-      "ace_trainer_yuji_0190",
-      "ace_trainer_zachery_03b3",
-      "boss_giovanni_0045",
-      "boss_giovanni_015c",
-      "boss_thug_0017",
-      "boss_zeph_1_05bb",
-      "dragon_tamer_andre_0388",
-      "dragon_tamer_clinton_0389",
-      "dragon_tamer_darien_0497",
-      "dragon_tamer_geoffrey_0496",
-      "dragon_tamer_geoffrey_04fc",
-      "dragon_tamer_hayden_03af",
-      "dragon_tamer_hayden_04fb",
-      "dragon_tamer_joe_040c",
-      "dragon_tamer_keegan_0498",
-      "dragon_tamer_kenny_049b",
-      "dragon_tamer_patrick_0322",
-      "dragon_tamer_patrick_04f9",
-      "dragon_tamer_patrick_04fa",
-      "dragon_tamer_ramiro_0134",
-      "dragon_tamer_stanley_0499",
-      "expert_kenlawa_mimikyu_1_05e5",
-      "expert_kenlawa_mimikyu_2_05e6",
-      "expert_kenlawa_mimikyu_3_05e7",
-      "expert_ryuzoji_mimikyu_1_05e2",
-      "expert_ryuzoji_mimikyu_2_05e3",
-      "expert_ryuzoji_mimikyu_3_05e4",
-      "gym_leader_byron_0399",
-      "gym_leader_byron_0590",
-      "gym_leader_candice_03da",
-      "gym_leader_candice_058f",
-      "gym_leader_fantina_03d9",
-      "gym_leader_fantina_058e",
-      "gym_leader_gardenia_03d6",
-      "gym_leader_gardenia_058b",
-      "gym_leader_maylene_03d8",
-      "gym_leader_maylene_058d",
-      "gym_leader_roark_0395",
-      "gym_leader_roark_058a",
-      "gym_leader_volkner_03db",
-      "gym_leader_volkner_0591",
-      "gym_leader_wake_03d7",
-      "gym_leader_wake_058c",
-      "leader_alice_05ac",
-      "leader_benjamin_05b2",
-      "leader_big_mo_05b0",
-      "leader_blaine_01a3",
-      "leader_brock_0038",
-      "leader_brock_019e",
-      "leader_bugsy_0008",
-      "leader_bugsy_002f",
-      "leader_bugsy_004b",
-      "leader_chuck_013d",
-      "leader_clair_0026",
-      "leader_clair_004a",
-      "leader_erika_0041",
-      "leader_erika_01a1",
-      "leader_falkner_002b",
-      "leader_falkner_002d",
-      "leader_galavan_05af",
-      "leader_giovanni_015e",
-      "leader_jasmine_001d",
-      "leader_jasmine_003e",
-      "leader_jasmine_003f",
-      "leader_jasmine_0040",
-      "leader_lt_surge_0033",
-      "leader_lt_surge_01a0",
-      "leader_mel_05ad",
-      "leader_mirskle_05aa",
-      "leader_misty_0020",
-      "leader_misty_0030",
-      "leader_misty_019f",
-      "leader_morty_001c",
-      "leader_morty_0034",
-      "leader_pryce_003a",
-      "leader_pryce_003b",
-      "leader_pryce_003c",
-      "leader_pryce_004f",
-      "leader_sabrina_01a4",
-      "leader_tessy_05b1",
-      "leader_vega_05ab",
-      "leader_whitney_0031",
-      "leader_whitney_004c",
-      "light_of_ruin_admin_ivory_3_05c3",
-      "rocket_admin_archer_002a",
-      "rocket_admin_archer_002e",
-      "rocket_admin_archer_0035",
-      "rocket_admin_archer_0043",
-      "rocket_admin_archer_ariana_m000",
-      "rocket_admin_ariana_0029",
-      "rocket_admin_ariana_0036",
-      "rocket_admin_ariana_0044",
-      "shadow_admin_ivory_1_05ba",
-      "shadow_admin_ivory_2_05bc",
-      "shadow_admin_ivory_grunt_m00f",
-      "shadow_admin_marlon_1_05b8",
-      "shadow_admin_marlon_2_05be",
-      "shadow_admin_marlon_3_05c0",
-      "shadow_admin_marlon_grunt_m00e",
-      "sinnoh_leader_candice_05da",
-      "sinnoh_leader_candice_rematch_05e9",
-      "team_galactic_boss_cyrus_041a",
-      "team_galactic_boss_cyrus_041b",
+      "swimmer_adrian_035e",
+      "swimmer_claire_0459",
+      "swimmer_dillon_0364",
+      "swimmer_erica_0362",
+      "swimmer_erik_035f",
+      "swimmer_evan_033b",
+      "swimmer_haley_033c",
+      "swimmer_jessica_0361",
+      "swimmer_katelyn_0363",
+      "swimmer_mary_033d",
+      "swimmer_shelton_033a",
+      "swimmer_vanessa_0365",
+      "swimmer_vincent_0360",
+      "swimmerm_luis_00ea",
       "team_galactic_grunt_03c3",
       "team_galactic_grunt_03c4",
       "team_galactic_grunt_03c5",
@@ -1380,7 +520,6 @@
       "team_galactic_grunt_0423",
       "team_galactic_grunt_0424",
       "team_galactic_grunt_0425",
-      "team_galactic_grunt_0426",
       "team_galactic_grunt_0427",
       "team_galactic_grunt_0428",
       "team_galactic_grunt_042a",
@@ -1389,10 +528,544 @@
       "team_galactic_grunt_042d",
       "team_galactic_grunt_042e",
       "team_galactic_grunt_042f",
+      "team_galactic_grunt_0464",
+      "team_galactic_grunt_0471",
+      "team_galactic_grunt_0579",
+      "team_galactic_grunt_057a",
+      "team_galactic_grunt_057b",
+      "team_galactic_grunt_057c",
+      "team_galactic_grunt_0583",
+      "team_galactic_grunt_0587",
+      "team_galactic_grunt_0588",
+      "team_galactic_grunt_0589",
+      "team_rocket_grunt_015f",
+      "team_rocket_grunt_0160",
+      "team_rocket_grunt_0161",
+      "team_rocket_grunt_0162",
+      "team_rocket_grunt_0174",
+      "team_rocket_grunt_021a",
+      "trainer_brendan_002c",
+      "trainer_brendan_0032",
+      "tuber_caitlyn_045c",
+      "tuber_chelsea_033f",
+      "tuber_jacky_045b",
+      "tuber_jared_033e",
+      "tuber_jared_056b",
+      "tuber_mariel_03f9",
+      "tuber_trenton_03f7",
+      "twins_eli_and_anne_0215",
+      "twins_emma_03c0",
+      "twins_emma_lil_m007",
+      "twins_lil_03c1",
+      "twins_liv_02f0",
+      "twins_liv_liz_m001",
+      "twins_liz_02f1",
+      "twins_teri_0319",
+      "twins_teri_tia_m003",
+      "twins_tia_031a",
+      "veteran_brian_031d",
+      "veteran_emanuel_0491",
+      "veteran_grant_0392",
+      "waitress_kati_03fc",
+      "worker_braden_0460",
+      "worker_brendon_0461",
+      "worker_colin_037a",
+      "worker_conrad_0586",
+      "worker_dillan_0584",
+      "worker_gary_039b",
+      "worker_gerardo_03fd",
+      "worker_holden_0585",
+      "worker_jackson_039a",
+      "worker_mason_037b",
+      "worker_quentin_0462",
+      "worker_willy_045f",
+      "young_couple_gia_and_jes_02c2",
+      "young_couple_mike_047e",
+      "young_couple_mike_nat_m00b",
+      "young_couple_nat_047f",
+      "young_couple_sue_0316",
+      "young_couple_sue_ty_m002",
+      "young_couple_ty_0315",
+      "youngster_austin_0303",
+      "youngster_ben_0059",
+      "youngster_ben_0065",
+      "youngster_ben_01f2",
+      "youngster_calvin_005a",
+      "youngster_chad_005f",
+      "youngster_chad_01f4",
+      "youngster_chad_01fa",
+      "youngster_dallas_03f4",
+      "youngster_dallas_0568",
+      "youngster_dallas_0569",
+      "youngster_dan_005e",
+      "youngster_darius_0394",
+      "youngster_dave_0064",
+      "youngster_dillon_0062",
+      "youngster_donny_03f6",
+      "youngster_eddie_0061",
+      "youngster_joey_005d",
+      "youngster_jonathon_0393",
+      "youngster_josh_005b",
+      "youngster_lancere_0025",
+      "youngster_logan_02e8",
+      "youngster_michael_02ea",
+      "youngster_oliver_047b",
+      "youngster_sebastian_03f5",
+      "youngster_timmy_005c",
+      "youngster_timmy_01f7",
+      "youngster_timmy_01f8",
+      "youngster_tristan_02e7",
+      "youngster_tristan_0565",
+      "youngster_tristan_0566",
+      "youngster_tyler_0060",
+      "youngster_tyler_02eb",
+      "youngster_wayne_045a",
+      "youngster_yasu_0063",
+      "youngster_yasu_0279"
+    ],
+    "2": [
+      "ace_trainer_alexa_05d7",
+      "ace_trainer_alexa_0603",
+      "ace_trainer_alicia_03a9",
+      "ace_trainer_anton_0573",
+      "ace_trainer_ariana_04a7",
+      "ace_trainer_arthur_040f",
+      "ace_trainer_austina_0198",
+      "ace_trainer_berke_018f",
+      "ace_trainer_brandi_0411",
+      "ace_trainer_brenna_0574",
+      "ace_trainer_brooke_0197",
+      "ace_trainer_clarice_0412",
+      "ace_trainer_dalton_0353",
+      "ace_trainer_dalton_04f0",
+      "ace_trainer_dana_04a8",
+      "ace_trainer_deanna_04a6",
+      "ace_trainer_dennis_04fe",
+      "ace_trainer_destiny_03b7",
+      "ace_trainer_felix_049f",
+      "ace_trainer_gilbert_018d",
+      "ace_trainer_henry_0383",
+      "ace_trainer_isaiah_03a7",
+      "ace_trainer_jake_04fd",
+      "ace_trainer_jose_049e",
+      "ace_trainer_julie_0199",
+      "ace_trainer_laura_034d",
+      "ace_trainer_leroy_0257",
+      "ace_trainer_leroy_02d6",
+      "ace_trainer_mariah_0384",
+      "ace_trainer_mary_0192",
+      "ace_trainer_maya_0503",
+      "ace_trainer_meagan_04aa",
+      "ace_trainer_micah_040e",
+      "ace_trainer_michelle_0258",
+      "ace_trainer_olivia_0354",
+      "ace_trainer_olivia_04f1",
+      "ace_trainer_omar_0382",
+      "ace_trainer_owen_018e",
+      "ace_trainer_paul_018b",
+      "ace_trainer_quinn_04a0",
+      "ace_trainer_rodolfo_049c",
+      "ace_trainer_ruben_03b4",
+      "ace_trainer_samuel_0188",
+      "ace_trainer_saul_049d",
+      "ace_trainer_savannah_03a8",
+      "ace_trainer_sergio_03a6",
+      "ace_trainer_shannon_0195",
+      "ace_trainer_shannon_0502",
+      "ace_trainer_sydney_0385",
+      "ace_trainer_warren_0191",
+      "ace_trainer_yuji_0190",
+      "ace_trainer_zachery_03b3",
+      "aroma_lady_elizabeth_04dd",
+      "aroma_lady_miah_024c",
+      "aroma_lady_rose_0241",
+      "artist_kevin_04df",
+      "battle_girl_helen_04e2",
+      "beauty_bridget_0109",
+      "beauty_cyndy_0555",
+      "beauty_grace_029a",
+      "beauty_lori_010b",
+      "beauty_nicola_0458",
+      "beauty_sheila_028f",
+      "biker_billy_00cb",
+      "biker_jaxon_02a5",
+      "biker_lukas_0295",
+      "biker_nikolas_00cc",
+      "biker_ruben_02a3",
+      "biker_virgil_01d6",
+      "bird_keeper_audrey_0493",
+      "bird_keeper_benny_0297",
+      "bird_keeper_brianna_04e4",
+      "bird_keeper_chaz_023b",
+      "bird_keeper_chaz_02c5",
+      "bird_keeper_chester_029c",
+      "bird_keeper_hana_038b",
+      "bird_keeper_harold_023c",
+      "bird_keeper_harold_02c6",
+      "bird_keeper_jacob_02a9",
+      "bird_keeper_keith_0138",
+      "bird_keeper_krystal_0495",
+      "bird_keeper_marlon_0299",
+      "bird_keeper_milo_023a",
+      "bird_keeper_milo_02c4",
+      "bird_keeper_reed_0137",
+      "bird_keeper_robert_0291",
+      "black_belt_aaron_0140",
+      "black_belt_atsushi_0142",
+      "black_belt_davon_04b4",
+      "black_belt_hideki_013f",
+      "black_belt_hitoshi_0141",
+      "black_belt_hugh_02b9",
+      "black_belt_hugh_02ba",
+      "black_belt_kiyo_0143",
+      "black_belt_luke_035b",
+      "black_belt_mike_013e",
+      "black_belt_miles_0435",
+      "black_belt_philip_039c",
+      "black_belt_shea_02b7",
+      "black_belt_shea_02b8",
+      "black_belt_takashi_0144",
+      "black_ferrothorn_chad_05dd",
+      "black_ferrothorn_rory_05dc",
+      "boss_giovanni_015c",
+      "boss_zeph_2_05bf",
+      "breeder_alize_0208",
+      "breeder_alize_02c1",
+      "breeder_allison_0262",
+      "breeder_bethany_0261",
+      "bug_catcher_brandon_0532",
+      "bug_catcher_colton_02db",
+      "bug_catcher_garret_0263",
+      "bug_catcher_jonah_0264",
+      "bug_catcher_vance_0265",
+      "camper_chris_027f",
+      "camper_jeff_0275",
+      "camper_ricky_0272",
+      "camper_riley_026a",
+      "camper_zackary_04ef",
+      "channeler_amanda_01ce",
+      "channeler_angelica_01c3",
+      "channeler_carly_01ba",
+      "channeler_emilia_01c4",
+      "channeler_hope_01bb",
+      "channeler_janae_01c2",
+      "channeler_jennifer_01c5",
+      "channeler_jody_01be",
+      "channeler_karina_01c1",
+      "channeler_laurel_01bd",
+      "channeler_paula_01bc",
+      "channeler_ruth_01c0",
+      "channeler_stacy_01cf",
+      "channeler_tammy_01bf",
+      "channeler_tasha_01d0",
+      "collector_ivan_04f2",
+      "commander_jupiter_041e",
+      "commander_mars_041c",
+      "commander_mars_0477",
+      "commander_mars_jupiter_m009",
+      "commander_saturn_041f",
+      "commander_saturn_0420",
+      "cool_couple_lex_and_nya_0259",
+      "crush_girl_cyndy_024f",
+      "crush_girl_cyndy_02d2",
+      "crush_girl_sharon_02b3",
+      "crush_girl_sharon_02b4",
+      "crush_girl_tanya_02b5",
+      "crush_girl_tanya_02b6",
+      "crush_kin_mik_and_kia_02bb",
+      "crush_kin_ron_and_mya_02a1",
+      "cue_ball_camron_02a4",
+      "cue_ball_corey_02a7",
+      "cue_ball_isaiah_00fd",
+      "cue_ball_isaiah_02a6",
+      "cue_ball_raul_00fc",
+      "cyclist_john_04f4",
+      "cyclist_kayla_04f7",
+      "double_team_al_0390",
+      "double_team_jo_038e",
+      "double_team_jo_pat_m005",
+      "double_team_kay_0391",
+      "double_team_pat_038f",
+      "dragon_tamer_andre_0388",
+      "dragon_tamer_clinton_0389",
+      "dragon_tamer_geoffrey_0496",
+      "dragon_tamer_patrick_0322",
+      "dragon_tamer_patrick_04f9",
+      "dumbass_gambler_000e",
+      "dumbass_kid_0019",
+      "elite_four_lorelei_019a",
+      "fisher_alec_036a",
+      "fisher_alec_0514",
+      "fisher_brett_0369",
+      "fisher_cole_036c",
+      "fisher_george_036b",
+      "fisher_joseph_0512",
+      "fisher_miguel_0513",
+      "fisherman_elliot_00e4",
+      "fisherman_hank_00e3",
+      "fisherman_tylor_023d",
+      "fisherman_wade_02ae",
+      "galaxy_giulio1232",
+      "galaxy_ominorosso",
+      "gambler_stan_0106",
+      "gentleman_clifford_025d",
+      "gentleman_jeremy_051c",
+      "gentleman_norton_01a8",
+      "guitarist_jerry_03c8",
+      "guitarist_lonnie_03ca",
+      "guitarist_preston_03c9",
+      "guitarist_tony_051e",
+      "gym_leader_byron_0399",
+      "gym_leader_candice_03da",
+      "gym_leader_fantina_03d9",
+      "gym_leader_volkner_03db",
+      "hiker_clark_00bb",
+      "hiker_daryl_0248",
+      "hiker_earl_0245",
+      "hiker_earl_02ca",
+      "hiker_theodore_052e",
+      "hoenn_petra",
+      "hoenn_rudi",
+      "hoenn_walter",
+      "jogger_craig_0521",
+      "johto_chiara",
+      "johto_raffaello",
+      "johto_valerio",
+      "juggler_dalton_011e",
+      "juggler_edward_0123",
+      "juggler_mason_024e",
+      "juggler_mason_02cf",
+      "kanto_erika",
+      "kanto_koga",
+      "kanto_ltsurge",
+      "kanto_misty",
+      "lady_gillian_0234",
+      "lady_jacki_020d",
+      "lady_melissa_0542",
+      "lady_selphy_025e",
+      "lass_andrea_0081",
+      "lass_dalia_0268",
+      "lass_joana_0269",
+      "lass_kay_0084",
+      "lass_lisa_0085",
+      "lass_madeline_052c",
+      "lass_megan_0082",
+      "lass_megan_0289",
+      "lass_paige_0080",
+      "lass_samantha_0529",
+      "leader_big_mo_05b0",
+      "leader_brock_0038",
+      "leader_erika_01a1",
+      "leader_galavan_05af",
+      "leader_giovanni_015e",
+      "leader_lt_surge_0033",
+      "leader_mel_05ad",
+      "leader_misty_0030",
+      "light_of_ruin_aklove_1_05c2",
+      "light_of_ruin_vega_05c1",
+      "lumy_rickally",
+      "madame_reina_0525",
+      "mega_trainer_mathis_05c8",
+      "mega_trainer_osean_05cd",
+      "mega_trainer_vivian_05c7",
+      "mega_trainer_yale_05c9",
+      "mod_edo_leone",
+      "mod_nikky",
+      "mod_vale_fragola",
+      "ninja_boy_antonio_0359",
+      "ninja_boy_zach_0553",
+      "ninja_boy_zach_0554",
+      "painter_celina_0232",
+      "painter_daisy_020e",
+      "painter_edna_025c",
+      "painter_rayna_0233",
+      "painter_rayna_02bf",
+      "pallet_ash",
+      "parasol_lady_alexa_0534",
+      "parasol_lady_alexa_0535",
+      "pi_carlos_0519",
+      "picnicker_alicia_0282",
+      "picnicker_becky_029e",
+      "picnicker_becky_029f",
+      "picnicker_isabelle_0278",
+      "picnicker_karina_0538",
+      "picnicker_kelsey_026f",
+      "picnicker_marcy_026b",
+      "picnicker_missy_02ac",
+      "picnicker_missy_02ad",
+      "picnicker_susie_0293",
+      "picnicker_susie_0294",
+      "picnicker_tina_00a0",
+      "poke_kid_danielle_053a",
+      "poke_kid_danielle_053b",
+      "poke_kid_janet_0578",
+      "poke_kid_meghan_03e5",
+      "pokemaniac_hector_0249",
+      "pokemaniac_hector_02cc",
+      "pokemaniac_herman_0286",
+      "pokemaniac_mark_0284",
+      "pokemon_breeder_albert_04e8",
+      "pokemon_breeder_albert_04e9",
+      "pokemon_breeder_jennifer_04eb",
+      "pokemon_breeder_jennifer_04ec",
+      "pokemon_ranger_allison_0549",
+      "pokemon_ranger_deshawn_04b9",
+      "pokemon_ranger_dwayne_04ba",
+      "pokemon_ranger_taylor_0545",
+      "pokemon_trainer_cedric_044b",
+      "pokemon_trainer_cedric_044c",
+      "pokemon_trainer_cedric_044d",
+      "pokemon_trainer_cedric_044e",
+      "pokemon_trainer_cedric_044f",
+      "pokemon_trainer_cedric_0450",
+      "pokemon_trainer_cedric_04c7",
+      "pokemon_trainer_cedric_04d3",
+      "pokemon_trainer_cedric_04d4",
+      "police_officer_danny_053d",
+      "police_officer_danny_053e",
+      "police_officer_thomas_03e7",
+      "psychic_abigail_050b",
+      "psychic_brittney_03bb",
+      "psychic_bryce_038c",
+      "psychic_cameron_011a",
+      "psychic_corbin_04b0",
+      "psychic_daisy_04b2",
+      "psychic_dario_024a",
+      "psychic_desiree_0417",
+      "psychic_jaclyn_0205",
+      "psychic_jaclyn_02c8",
+      "psychic_johan_0118",
+      "psychic_kendra_0418",
+      "psychic_laura_0260",
+      "psychic_maxwell_03ba",
+      "psychic_mitchell_0507",
+      "psychic_preston_011b",
+      "psychic_rodette_024b",
+      "psychic_rodette_02ce",
+      "psychic_tyron_0119",
+      "psychic_valencia_038d",
+      "rancher_marco_050f",
+      "ranger_jackson_0254",
+      "ranger_jackson_02d4",
+      "ranger_katelyn_0256",
+      "ranger_madeline_020a",
+      "ranger_madeline_02d1",
+      "ranger_nicolas_0209",
+      "ranger_nicolas_02d0",
+      "rich_boy_trey_03e8",
+      "rich_boy_trey_053f",
+      "rival_4_player_chose_beldum_05fe",
+      "rival_4_player_chose_gible_05fd",
+      "rival_4_player_chose_larvitar_05ff",
+      "rival_terry_01b0",
+      "rival_terry_01b1",
+      "rival_terry_01b2",
+      "rocket_admin_archer_0035",
+      "rocket_admin_archer_ariana_m000",
+      "rocket_admin_ariana_0036",
+      "ruin_mamoac_benjamin_025b",
+      "ruin_mamoac_brandon_025a",
+      "ruin_mamoac_foster_0246",
+      "ruin_mamoac_larry_0247",
+      "ruin_mamoac_larry_02cb",
+      "ruin_mamoac_lawson_025f",
+      "ruin_mamoac_layton_026c",
+      "ruin_mamoac_stanly_020c",
+      "ruin_maniac_harry_051f",
+      "ruin_maniac_larry_03cc",
+      "sailor_luther_036d",
+      "sailor_marc_03e9",
+      "sailor_marc_054c",
+      "sailor_zachariah_0451",
+      "school_kid_forrest_03ed",
+      "school_kid_tiera_03f0",
+      "science_society_scientist_supply_and_demand_05de",
+      "scientist_beau_0154",
+      "scientist_connor_0150",
+      "scientist_darrius_0575",
+      "scientist_ed_0158",
+      "scientist_gideon_0221",
+      "scientist_jerry_0151",
+      "scientist_jose_0152",
+      "scientist_joshua_0156",
+      "scientist_parkker_0157",
+      "scientist_rodney_0153",
+      "scientist_shaun_0550",
+      "scientist_shaun_0551",
+      "scientist_taylor_0155",
+      "scientist_travis_0159",
+      "shadow_admin_ivory_2_05bc",
+      "shadow_admin_ivory_grunt_m00f",
+      "shadow_admin_marlon_2_05be",
+      "shadow_grunt_w_ivory_2_05bd",
+      "sinnoh_gardenia",
+      "sinnoh_leader_candice_05da",
+      "sinnoh_marzia",
+      "sinnoh_pedro",
+      "sis_and_bro_ava_and_geb_0240",
+      "sis_and_bro_lil_and_ian_02b0",
+      "sis_and_bro_lil_and_ian_02b1",
+      "skier_andrea_0352",
+      "skier_andrea_055b",
+      "skier_andrea_055c",
+      "skier_bjorn_0356",
+      "skier_bjorn_0559",
+      "skier_edward_0557",
+      "skier_edward_0558",
+      "skier_kaitlyn_0351",
+      "skier_madison_0358",
+      "skier_madison_055d",
+      "skier_madison_055e",
+      "sucessor_maxima_05ae",
+      "super_nerd_aidan_00ab",
+      "super_nerd_glenn_00ac",
+      "super_nerd_leslie_00ad",
+      "swimmer_aubree_0375",
+      "swimmer_cassandra_0378",
+      "swimmer_colton_0371",
+      "swimmer_crystal_0377",
+      "swimmer_francisco_0370",
+      "swimmer_gabrielle_0379",
+      "swimmer_gengar",
+      "swimmer_glenn_04be",
+      "swimmer_joanna_04c2",
+      "swimmer_kurt_04bf",
+      "swimmer_lydia_04c5",
+      "swimmer_mallory_04c4",
+      "swimmer_miranda_0374",
+      "swimmer_oscar_0373",
+      "swimmer_paige_0376",
+      "swimmer_ricardo_036f",
+      "swimmer_sam_04c0",
+      "swimmer_sophia_04c3",
+      "swimmer_troy_0372",
+      "swimmer_wade_04c1",
+      "swimmer_wesley_036e",
+      "swimmerf_alice_02aa",
+      "swimmerf_denise_0243",
+      "swimmerf_melissa_02de",
+      "swimmerf_nicole_023f",
+      "swimmerf_nicole_02c7",
+      "swimmerm_darrin_02ab",
+      "swimmerm_finn_02b2",
+      "swimmerm_jack_02af",
+      "swimmerm_matthew_02dc",
+      "swimmerm_mymo_023e",
+      "swimmerm_samir_0242",
+      "swimmerm_samir_02c9",
+      "swimmerm_toby_0236",
+      "swimmerm_tony_02dd",
+      "tamer_cole_0129",
+      "tamer_evan_0251",
+      "tamer_evan_02d3",
+      "tamer_jason_0128",
+      "tamer_john_012b",
+      "team_galactic_boss_cyrus_041a",
+      "team_galactic_boss_cyrus_041b",
+      "team_galactic_grunt_0426",
       "team_galactic_grunt_0430",
       "team_galactic_grunt_0431",
       "team_galactic_grunt_0463",
-      "team_galactic_grunt_0464",
       "team_galactic_grunt_0465",
       "team_galactic_grunt_0466",
       "team_galactic_grunt_0467",
@@ -1405,32 +1078,19 @@
       "team_galactic_grunt_046e",
       "team_galactic_grunt_046f",
       "team_galactic_grunt_0470",
-      "team_galactic_grunt_0471",
       "team_galactic_grunt_0472",
       "team_galactic_grunt_0473",
       "team_galactic_grunt_0474",
       "team_galactic_grunt_0475",
       "team_galactic_grunt_0476",
-      "team_galactic_grunt_0579",
-      "team_galactic_grunt_057a",
-      "team_galactic_grunt_057b",
-      "team_galactic_grunt_057c",
-      "team_galactic_grunt_0583",
-      "team_galactic_grunt_0587",
-      "team_galactic_grunt_0588",
-      "team_galactic_grunt_0589",
       "team_rocket_admin_021f",
       "team_rocket_admin_0220",
-      "team_rocket_grunt_0046",
-      "team_rocket_grunt_0047",
-      "team_rocket_grunt_0048",
-      "team_rocket_grunt_0049",
-      "team_rocket_grunt_015f",
-      "team_rocket_grunt_0160",
-      "team_rocket_grunt_0161",
-      "team_rocket_grunt_0162",
-      "team_rocket_grunt_0163",
-      "team_rocket_grunt_0164",
+      "team_rocket_agent_01",
+      "team_rocket_agent_02",
+      "team_rocket_agent_03",
+      "team_rocket_agent_04",
+      "team_rocket_duo_james",
+      "team_rocket_duo_jessie",
       "team_rocket_grunt_0165",
       "team_rocket_grunt_0166",
       "team_rocket_grunt_0167",
@@ -1446,7 +1106,6 @@
       "team_rocket_grunt_0171",
       "team_rocket_grunt_0172",
       "team_rocket_grunt_0173",
-      "team_rocket_grunt_0174",
       "team_rocket_grunt_0175",
       "team_rocket_grunt_0176",
       "team_rocket_grunt_0177",
@@ -1468,7 +1127,6 @@
       "team_rocket_grunt_0187",
       "team_rocket_grunt_0204",
       "team_rocket_grunt_0219",
-      "team_rocket_grunt_021a",
       "team_rocket_grunt_021b",
       "team_rocket_grunt_021c",
       "team_rocket_grunt_021d",
@@ -1476,30 +1134,563 @@
       "team_rocket_grunt_0237",
       "team_rocket_grunt_0238",
       "team_rocket_grunt_0239",
+      "team_rocket_member_01",
+      "team_rocket_member_02",
+      "team_rocket_member_03",
+      "team_rocket_member_04",
+      "team_rocket_scientist_02",
+      "team_rocket_scientist_03",
+      "team_rocket_scientist_04",
+      "terror_granbull_gruff_05db",
+      "trainer_brendan_0037",
+      "trainer_cole_0012",
+      "trainer_haley_000f",
+      "trainer_sam_0010",
+      "trainer_shelly_0011",
+      "tuber_amira_02bd",
+      "tuber_chelsea_056d",
+      "tuber_chelsea_056f",
+      "tuber_conner_03f8",
+      "tuber_holly_03fa",
+      "tuber_jared_056c",
+      "twins_eli_and_anne_01e4",
+      "twins_joy_and_meg_02be",
+      "twins_miu_and_mia_0244",
+      "twins_teri_0515",
+      "twins_teri_tia_m00c",
+      "twins_tia_0516",
       "veteran_armando_03fb",
-      "veteran_armando_0571",
       "veteran_brenden_045e",
-      "veteran_brian_031d",
       "veteran_brian_056e",
-      "veteran_brian_0570",
       "veteran_clayton_0387",
       "veteran_edgar_0386",
-      "veteran_emanuel_0491",
-      "veteran_grant_0392",
-      "veteran_harlan_04c6",
-      "veteran_terrell_045d"
+      "veteran_terrell_045d",
+      "young_couple_eve_and_jon_024d",
+      "young_couple_gia_and_jes_01e6",
+      "young_couple_gia_and_jes_02c3",
+      "young_couple_lea_and_jed_01e9",
+      "youngster_ben_01f3",
+      "youngster_chad_01fd",
+      "youngster_cordell_0267",
+      "youngster_dallas_056a",
+      "youngster_destin_0235",
+      "youngster_destin_02c0",
+      "youngster_nash_0266",
+      "youngster_timmy_01f9",
+      "youngster_tristan_0567",
+      "youngster_yasu_027a"
+    ],
+    "3": [
+      "ace_trainer_abel_04a5",
+      "ace_trainer_ariana_0506",
+      "ace_trainer_deanna_0505",
+      "ace_trainer_dennis_04ff",
+      "ace_trainer_graham_04a1",
+      "ace_trainer_jamie_03b8",
+      "ace_trainer_jasmin_04ad",
+      "ace_trainer_kassandra_04ac",
+      "ace_trainer_keenan_04a2",
+      "ace_trainer_maya_0504",
+      "ace_trainer_michelle_02d7",
+      "ace_trainer_mikayla_04a9",
+      "ace_trainer_monique_04af",
+      "ace_trainer_natasha_04ae",
+      "ace_trainer_rodolfo_0500",
+      "ace_trainer_sandra_04ab",
+      "ace_trainer_saul_0501",
+      "ace_trainer_skyler_04a4",
+      "ace_trainer_stefan_04a3",
+      "artist_kevin_04e0",
+      "battle_girl_helen_04e3",
+      "beauty_cyndy_0556",
+      "beauty_grace_0111",
+      "beauty_olivia_0112",
+      "biker_alex_00c6",
+      "biker_ernest_00c5",
+      "biker_gerald_00d1",
+      "biker_isaac_00d0",
+      "biker_jaxon_00cd",
+      "biker_lukas_00cf",
+      "biker_malik_00c4",
+      "bird_keeper_audrey_04e6",
+      "bird_keeper_autumn_0404",
+      "bird_keeper_beck_013b",
+      "bird_keeper_benny_0130",
+      "bird_keeper_brianna_04e5",
+      "bird_keeper_carter_0139",
+      "bird_keeper_chester_0132",
+      "bird_keeper_donald_012f",
+      "bird_keeper_edwin_0131",
+      "bird_keeper_geneva_0494",
+      "bird_keeper_marlon_013c",
+      "bird_keeper_mitch_013a",
+      "bird_keeper_roger_0136",
+      "black_belt_carl_03d4",
+      "black_belt_davon_0524",
+      "black_belt_eddie_0437",
+      "black_belt_griffin_04b5",
+      "black_belt_jarrett_04b7",
+      "black_belt_philip_0523",
+      "black_belt_ray_04b6",
+      "black_belt_willie_0438",
+      "black_ferrothorn_barbs_05e8",
+      "black_ferrothorn_bullo_05e1",
+      "boss_giovanni_015d",
+      "burglar_arnie_00d8",
+      "burglar_lewis_00db",
+      "burglar_simon_00da",
+      "burglar_switzer_05e0",
+      "champion_cynthia_03a5",
+      "cool_couple_lex_and_nya_02d8",
+      "crush_kin_mik_and_kia_02bc",
+      "crush_kin_ron_and_mya_01e8",
+      "crush_kin_ron_and_mya_02a2",
+      "cue_ball_corey_0100",
+      "cue_ball_jamal_00ff",
+      "cue_ball_zeek_00fe",
+      "cyclist_john_04f5",
+      "cyclist_kayla_04f8",
+      "dragon_tamer_darien_0497",
+      "dragon_tamer_drake_049a",
+      "dragon_tamer_geoffrey_04fc",
+      "dragon_tamer_hayden_03af",
+      "dragon_tamer_hayden_04fb",
+      "dragon_tamer_joe_040c",
+      "dragon_tamer_keegan_0498",
+      "dragon_tamer_kenny_049b",
+      "dragon_tamer_patrick_04fa",
+      "dragon_tamer_stanley_0499",
+      "dumbass_jojo_fan_0042",
+      "elite_four_aaron_039f",
+      "elite_four_aaron_059e",
+      "elite_four_agatha_019c",
+      "elite_four_agatha_02e1",
+      "elite_four_bertha_03a0",
+      "elite_four_bruno_019b",
+      "elite_four_bruno_02e0",
+      "elite_four_flint_03a1",
+      "elite_four_lance_019d",
+      "elite_four_lorelei_02df",
+      "elite_four_lucian_03a2",
+      "fisherman_claude_00e6",
+      "fisherman_nolan_00e8",
+      "fisherman_ronald_00e5",
+      "fisherman_wade_00e7",
+      "galaxy_fede_mercy",
+      "game_freaks_morimoto_05a8",
+      "gentleman_jeremy_051d",
+      "hiker_theodore_052f",
+      "hoenn_fiammetta",
+      "jogger_craig_0522",
+      "johto_angelo",
+      "juggler_kayden_0124",
+      "juggler_kirk_0120",
+      "juggler_nate_0125",
+      "juggler_shawn_0121",
+      "kanto_blaine",
+      "kanto_sabrina",
+      "lady_melissa_0543",
+      "lass_crissy_0077",
+      "leader_benjamin_05b2",
+      "leader_erika_0041",
+      "leader_jasmine_003e",
+      "leader_jasmine_003f",
+      "leader_jasmine_0040",
+      "leader_koga_01a2",
+      "leader_pryce_003a",
+      "leader_pryce_003b",
+      "leader_pryce_003c",
+      "leader_sabrina_01a4",
+      "leader_tessy_05b1",
+      "light_of_ruin_admin_ivory_3_05c3",
+      "light_of_ruin_aklove_2_05c4",
+      "madame_reina_0526",
+      "mega_trainer_aloysius_05cc",
+      "mega_trainer_ernesto_05ca",
+      "mega_trainer_lily_05c6",
+      "mega_trainer_reena_05cf",
+      "mega_trainer_timothy_05cb",
+      "mega_trainer_travon_05ce",
+      "old_sage",
+      "pi_carlos_051a",
+      "picnicker_becky_01e0",
+      "picnicker_celia_01e1",
+      "picnicker_gwen_01d5",
+      "picnicker_irene_01d9",
+      "picnicker_kindra_01df",
+      "picnicker_missy_01d8",
+      "picnicker_valerie_01d4",
+      "picnicker_yazmin_01de",
+      "pokemaniac_mark_00a2",
+      "pokemon_ranger_allison_054a",
+      "pokemon_ranger_ashlee_04bb",
+      "pokemon_ranger_ashlee_054b",
+      "pokemon_ranger_felicia_04bc",
+      "pokemon_ranger_krista_04bd",
+      "pokemon_ranger_kyler_04b8",
+      "pokemon_ranger_kyler_0547",
+      "pokemon_ranger_taylor_0546",
+      "pokemon_trainer_buck_04cb",
+      "pokemon_trainer_cedric_057d",
+      "pokemon_trainer_cedric_057e",
+      "pokemon_trainer_cedric_057f",
+      "pokemon_trainer_dawn_0598",
+      "pokemon_trainer_dawn_0599",
+      "pokemon_trainer_dawn_059a",
+      "pokemon_trainer_lucas_0592",
+      "pokemon_trainer_lucas_0593",
+      "pokemon_trainer_lucas_0594",
+      "pokemon_trainer_marley_04ca",
+      "psychic_abigail_050c",
+      "psychic_brittney_050d",
+      "psychic_chelsey_04b3",
+      "psychic_corbin_050a",
+      "psychic_daisy_050e",
+      "psychic_dario_02cd",
+      "psychic_deandre_0415",
+      "psychic_landon_0414",
+      "psychic_maxwell_0509",
+      "psychic_mitchell_0508",
+      "psychic_sterling_04b1",
+      "rancher_marco_0510",
+      "ranger_katelyn_02d5",
+      "rich_boy_trey_0540",
+      "rival_5_player_chose_beldum_0601",
+      "rival_5_player_chose_gible_0600",
+      "rival_5_player_chose_larvitar_0602",
+      "ruin_maniac_harry_0520",
+      "sailor_marc_054d",
+      "sailor_zachariah_054e",
+      "science_society_scientist_rogue_electivire_05df",
+      "scientist_braydon_015a",
+      "scientist_ted_014f",
+      "shadow_admin_marlon_3_05c0",
+      "sinnoh_omar",
+      "sis_and_bro_lia_and_luc_01ea",
+      "sis_and_bro_lil_and_ian_01eb",
+      "skier_bjorn_055a",
+      "swimmer_crystal_0563",
+      "swimmer_francisco_0560",
+      "swimmer_glenn_0561",
+      "swimmer_joanna_0564",
+      "swimmer_miranda_0562",
+      "swimmer_wesley_055f",
+      "swimmerf_alice_0115",
+      "swimmerf_anya_0114",
+      "swimmerf_connie_0116",
+      "swimmerf_melissa_0110",
+      "swimmerf_nora_010f",
+      "swimmerf_shirley_0117",
+      "swimmerf_tiffany_010e",
+      "swimmerm_axle_00f1",
+      "swimmerm_barry_00f2",
+      "swimmerm_darrin_00f4",
+      "swimmerm_david_00ef",
+      "swimmerm_dean_00f3",
+      "swimmerm_douglas_00ee",
+      "swimmerm_jack_00f6",
+      "swimmerm_jerome_00f7",
+      "swimmerm_matthew_00ed",
+      "swimmerm_reece_00ec",
+      "swimmerm_richard_00eb",
+      "swimmerm_roland_00f8",
+      "swimmerm_spencer_00f5",
+      "swimmerm_tony_00f0",
+      "tamer_edgar_0127",
+      "tamer_phil_0126",
+      "team_rocket_admin_apollo",
+      "team_rocket_giovanni",
+      "team_rocket_scientist_01",
+      "team_rocket_scout_01",
+      "team_rocket_scout_02",
+      "team_rocket_scout_03",
+      "team_rocket_scout_04",
+      "team_rocket_spy_01",
+      "team_rocket_spy_02",
+      "team_rocket_spy_03",
+      "team_rocket_spy_04",
+      "trainer_brendan_0039",
+      "trainer_ketchup_0013",
+      "trainer_ketchup_0014",
+      "twins_kiri_and_jan_01e7",
+      "twins_teri_0517",
+      "twins_teri_tia_m00d",
+      "twins_tia_0518",
+      "veteran_armando_0571",
+      "veteran_brian_0570",
+      "veteran_harlan_04c6"
     ],
     "4": [
-      "artist_william_030f",
+      "ace_trainer_alexa_0194",
+      "ace_trainer_caroline_0193",
+      "ace_trainer_colby_018a",
+      "ace_trainer_george_0189",
+      "ace_trainer_naomi_0196",
+      "ace_trainer_rolando_018c",
+      "battleground_alice_05f4",
+      "battleground_benjamin_05f9",
+      "battleground_big_mo_05f7",
+      "battleground_mel_05f5",
+      "battleground_mirskle_05f2",
+      "battleground_tessy_05f8",
+      "battleground_vega_05f3",
+      "black_belt_daisuke_0145",
+      "boss_giovanni_0045",
+      "boss_thug_0017",
+      "breeder_annie_05a9",
+      "breeder_annie_05d8",
+      "breeder_annie_0604",
+      "burglar_dusty_00d7",
+      "burglar_quinn_00d5",
+      "burglar_ramon_00d6",
+      "champion_cynthia_05a2",
+      "champion_jax_05b7",
+      "champion_lance_0027",
+      "champion_terry_01b6",
+      "champion_terry_01b7",
+      "champion_terry_01b8",
+      "champion_terry_02e3",
+      "champion_terry_02e4",
+      "champion_terry_02e5",
+      "cool_couple_ray_and_tyra_01e5",
+      "dumbass_jojo_fan_0028",
+      "elite_four_aaron_05a3",
+      "elite_four_agatha_0053",
+      "elite_four_agatha_0054",
+      "elite_four_arabella_05b5",
+      "elite_four_bertha_059f",
+      "elite_four_bertha_05a4",
+      "elite_four_bruno_0050",
+      "elite_four_bruno_0051",
+      "elite_four_elias_05b4",
+      "elite_four_flint_05a0",
+      "elite_four_flint_05a5",
+      "elite_four_lance_0056",
+      "elite_four_lance_0057",
+      "elite_four_lance_02e2",
+      "elite_four_lorelei_004d",
+      "elite_four_lorelei_004e",
+      "elite_four_lucian_05a1",
+      "elite_four_lucian_05a6",
+      "elite_four_moleman_05b3",
+      "elite_four_penny_05b6",
+      "expert_kenlawa_mimikyu_1_05e5",
+      "expert_kenlawa_mimikyu_2_05e6",
+      "expert_kenlawa_mimikyu_3_05e7",
+      "expert_ryuzoji_mimikyu_1_05e2",
+      "expert_ryuzoji_mimikyu_2_05e3",
+      "expert_ryuzoji_mimikyu_3_05e4",
+      "friendly_thug_0015",
+      "friendly_thug_0016",
+      "gym_leader_byron_0590",
+      "gym_leader_candice_058f",
+      "gym_leader_fantina_058e",
+      "gym_leader_gardenia_058b",
+      "gym_leader_maylene_058d",
+      "gym_leader_roark_058a",
+      "gym_leader_volkner_0591",
+      "gym_leader_wake_058c",
+      "hoenn_alice",
+      "hoenn_lyris",
+      "hoenn_norman",
+      "hoenn_tell",
+      "johto_alfredo",
+      "johto_furio",
+      "johto_jasmine",
+      "juggler_gregory_0122",
+      "juggler_nelson_011f",
+      "kanto_giovanni",
+      "leader_blaine_01a3",
+      "leader_clair_004a",
+      "leader_jasmine_001d",
+      "light_of_ruin_aklove_3_05c5",
+      "mega_trainer_krystal_05d0",
+      "mega_trainer_portia_05d2",
+      "mega_trainer_ravonna_kangaskhan_1_05d3",
+      "mega_trainer_ravonna_kangaskhan_2_05d4",
+      "mega_trainer_ravonna_kangaskhan_3_05d5",
+      "mega_trainer_ravonna_kangaskhan_4_05d6",
+      "mega_trainer_sterling_05d1",
+      "pokemaniac_dawson_00a7",
+      "pokemon_trainer_cedric_0580",
+      "pokemon_trainer_cedric_0581",
+      "pokemon_trainer_cedric_0582",
+      "pokemon_trainer_dawn_059b",
+      "pokemon_trainer_dawn_059c",
+      "pokemon_trainer_dawn_059d",
+      "pokemon_trainer_lucas_0595",
+      "pokemon_trainer_lucas_0596",
+      "pokemon_trainer_lucas_0597",
+      "rival_terry_01b3",
+      "rival_terry_01b4",
+      "rival_terry_01b5",
+      "rocket_admin_archer_002a",
+      "rocket_admin_archer_0043",
+      "rocket_admin_ariana_0029",
+      "rocket_admin_ariana_0044",
+      "scientist_ivan_015b",
+      "sinnoh_bianca",
+      "sinnoh_fannie",
+      "sinnoh_ferruccio",
+      "sinnoh_leader_candice_rematch_05e9",
+      "super_nerd_aavery_00b2",
+      "super_nerd_derek_00b3",
+      "super_nerd_erik_00b1",
+      "super_nerd_zac_00b4",
+      "tamer_vincent_012a",
+      "team_aqua_ivan",
+      "team_magma_max",
+      "team_rocket_admin_archer",
+      "team_rocket_admin_atena",
+      "team_rocket_general_archer",
+      "team_rocket_grunt_0046",
+      "team_rocket_grunt_0047",
+      "team_rocket_grunt_0048",
+      "team_rocket_grunt_0049",
+      "team_rocket_officer_01",
+      "team_rocket_officer_02",
+      "team_rocket_officer_03",
+      "team_rocket_officer_04",
+      "title_defense_jax_05ee",
+      "title_defense_marlon_05eb",
+      "title_defense_milo_05ed",
+      "title_defense_rival_player_chose_beldum_05f0",
+      "title_defense_rival_player_chose_gible_05ef",
+      "title_defense_rival_player_chose_larvitar_05f1",
+      "title_defense_solenk_05ec",
+      "title_defense_zeph_05ea",
+      "trainer_brendan_001a",
+      "trainer_may_003d",
+      "youngster_johnson_0216"
+    ],
+    "5": [
+      "ace_trainer_andrew_0002",
+      "ace_trainer_barry_0058",
+      "ace_trainer_janny_00af",
+      "ace_trainer_nick_0055",
+      "ace_trainer_runan_007c",
+      "ace_trainer_samantha_0052",
+      "ace_trainer_sharon_00ae",
+      "ace_trainer_symes_0071",
+      "ace_trainer_wilton_0133",
+      "aroma_lady_nikki_020b",
+      "aroma_lady_violet_022e",
+      "beauty_lola_010c",
+      "beauty_sheila_010d",
+      "biker_goon_020f",
+      "biker_goon_0210",
+      "biker_goon_0211",
+      "biker_hideo_00c9",
+      "biker_jared_00c3",
+      "biker_lao_00c7",
+      "biker_ruben_00ca",
       "biker_william_00ce",
-      "black_belt_aaron_0140",
-      "black_belt_willie_0438",
-      "bug_catcher_brandon_02ee",
-      "bug_catcher_brandon_0530",
-      "bug_catcher_brandon_0531",
-      "bug_catcher_brandon_0532",
-      "camper_flint_01d7",
-      "dragon_tamer_drake_049a",
+      "bird_keeper_jacob_0135",
+      "bird_keeper_perry_012d",
+      "bird_keeper_robert_012e",
+      "bird_keeper_sebastian_012c",
+      "black_belt_hugh_022a",
+      "black_belt_shea_0229",
+      "camper_bryce_022b",
+      "camper_justin_01dd",
+      "champion_cynthia_05a7",
+      "channeler_rachel_0093",
+      "crush_girl_jocelyn_0250",
+      "crush_girl_sharon_0206",
+      "crush_girl_tanya_0228",
+      "crush_kin_mik_and_kia_022d",
+      "cue_ball_camron_00fb",
+      "cue_ball_koji_00f9",
+      "cue_ball_luke_00fa",
+      "dragon_tamer_ramiro_0134",
+      "dumbass_creator_0018",
+      "dumbass_gian_0023",
+      "fisherman_andrew_00e9",
+      "fisherman_tommy_0227",
+      "friendly_teacher_0007",
+      "gatekeeper_logan_0253",
+      "gatekeeper_owen_00b0",
+      "gentleman_brooks_01e2",
+      "hoenn_adriano",
+      "hoenn_champion_rocco",
+      "hoenn_league_drake",
+      "hoenn_league_ester",
+      "hoenn_league_fosco",
+      "hoenn_league_frida",
+      "johto_champion_lance",
+      "johto_league_bruno",
+      "johto_league_karen",
+      "johto_league_koga",
+      "johto_league_pino",
+      "johto_sandra",
+      "kanto_champion_blue",
+      "kanto_league_agatha",
+      "kanto_league_bruno",
+      "kanto_league_lance",
+      "kanto_league_lorelei",
+      "lass_ann_007e",
+      "lass_anne_0004",
+      "leader_bugsy_0008",
+      "leader_bugsy_004b",
+      "leader_chuck_013d",
+      "leader_clair_0026",
+      "leader_falkner_002b",
+      "leader_misty_0020",
+      "leader_morty_001c",
+      "leader_morty_0034",
+      "leader_pryce_004f",
+      "leader_whitney_004c",
+      "picnicker_alma_01d2",
+      "picnicker_caitlin_009b",
+      "picnicker_claire_022c",
+      "picnicker_susie_01d3",
+      "professor_oak_00c8",
+      "professor_oak_00d2",
+      "ranger_beth_0255",
+      "rival_red",
+      "rocker_luca_011d",
+      "sailor_edmond_0086",
+      "sailor_trevor_0087",
+      "sinnoh_champion_camilla",
+      "sinnoh_corrado",
+      "sinnoh_league_aaron",
+      "sinnoh_league_luciano",
+      "sinnoh_league_terrie",
+      "sinnoh_league_vulcano",
+      "super_nerd_miguel_00aa",
+      "swimmerf_abigail_0224",
+      "swimmerf_amara_0222",
+      "swimmerf_maria_0223",
+      "swimmerf_tisha_0231",
+      "swimmerm_finn_0225",
+      "swimmerm_garrett_0226",
+      "team_rocket_grunt_0163",
+      "team_rocket_grunt_0164",
+      "trainer_77_05f6",
+      "trainer_92_0605",
+      "trainer_red_0003",
+      "tuber_alexis_022f",
+      "tuber_amira_0207",
+      "twins_joy_and_meg_0230"
+    ],
+    "6": [
+      "boss_giovanni_0045",
+      "boss_giovanni_015c",
+      "boss_giovanni_015d",
+      "boss_thug_0017",
+      "boss_zeph_1_05bb",
+      "boss_zeph_2_05bf",
+      "champion_cynthia_03a5",
+      "champion_cynthia_05a2",
+      "champion_cynthia_05a7",
+      "champion_jax_05b7",
+      "champion_lance_0027",
+      "champion_terry_01b6",
+      "champion_terry_01b7",
+      "champion_terry_01b8",
+      "champion_terry_02e3",
+      "champion_terry_02e4",
+      "champion_terry_02e5",
       "elite_four_aaron_039f",
       "elite_four_aaron_059e",
       "elite_four_aaron_05a3",
@@ -1532,76 +1723,79 @@
       "elite_four_lucian_05a6",
       "elite_four_moleman_05b3",
       "elite_four_penny_05b6",
-      "expert_lancere_0024",
+      "gym_leader_byron_0399",
+      "gym_leader_byron_0590",
+      "gym_leader_candice_03da",
+      "gym_leader_candice_058f",
+      "gym_leader_fantina_03d9",
+      "gym_leader_fantina_058e",
+      "gym_leader_gardenia_03d6",
+      "gym_leader_gardenia_058b",
+      "gym_leader_maylene_03d8",
+      "gym_leader_maylene_058d",
+      "gym_leader_roark_0395",
+      "gym_leader_roark_058a",
+      "gym_leader_volkner_03db",
+      "gym_leader_volkner_0591",
+      "gym_leader_wake_03d7",
+      "gym_leader_wake_058c",
+      "hoenn_champion_rocco",
+      "johto_champion_lance",
+      "kanto_champion_blue",
+      "leader_alice_05ac",
+      "leader_benjamin_05b2",
+      "leader_big_mo_05b0",
+      "leader_blaine_01a3",
+      "leader_brock_0038",
+      "leader_brock_019e",
+      "leader_bugsy_0008",
+      "leader_bugsy_002f",
+      "leader_bugsy_004b",
+      "leader_chuck_013d",
+      "leader_clair_0026",
+      "leader_clair_004a",
+      "leader_erika_0041",
+      "leader_erika_01a1",
+      "leader_falkner_002b",
+      "leader_falkner_002d",
+      "leader_galavan_05af",
+      "leader_giovanni_015e",
+      "leader_jasmine_001d",
+      "leader_jasmine_003e",
+      "leader_jasmine_003f",
+      "leader_jasmine_0040",
       "leader_koga_01a2",
-      "pokefan_agathare_0021",
-      "pokefan_agathare_0022",
-      "ruin_mamoac_brandon_025a",
-      "school_kid_brunore_001e",
-      "school_kid_brunore_001f",
-      "worker_willy_045f",
-      "youngster_lancere_0025"
-    ],
-    "5": [
-      "biker_jared_00c3",
-      "boss_giovanni_015d",
-      "boss_zeph_2_05bf",
-      "champion_cynthia_03a5",
-      "champion_cynthia_05a2",
-      "champion_cynthia_05a7",
-      "champion_jax_05b7",
-      "champion_lance_0027",
-      "champion_terry_01b6",
-      "champion_terry_01b7",
-      "champion_terry_01b8",
-      "champion_terry_02e3",
-      "champion_terry_02e4",
-      "champion_terry_02e5",
-      "gentleman_leonardo_0487",
-      "lass_iris_0079",
-      "player_red_0202",
-      "poke_fan_leonard_0479",
-      "poke_fan_meredith_0485",
-      "sailor_leonard_0088",
-      "scientist_fredrick_0576",
-      "trainer_red_0003",
-      "tuber_jared_033e",
-      "tuber_jared_056b",
-      "tuber_jared_056c"
-    ],
-    "6": [
-      "biker_jared_00c3",
-      "boss_giovanni_015d",
-      "boss_zeph_2_05bf",
-      "champion_cynthia_03a5",
-      "champion_cynthia_05a2",
-      "champion_cynthia_05a7",
-      "champion_jax_05b7",
-      "champion_lance_0027",
-      "champion_terry_01b6",
-      "champion_terry_01b7",
-      "champion_terry_01b8",
-      "champion_terry_02e3",
-      "champion_terry_02e4",
-      "champion_terry_02e5",
-      "gentleman_leonardo_0487",
-      "lass_iris_0079",
-      "player_red_0202",
-      "poke_fan_leonard_0479",
-      "poke_fan_meredith_0485",
-      "sailor_leonard_0088",
-      "scientist_fredrick_0576",
-      "trainer_red_0003",
-      "tuber_jared_033e",
-      "tuber_jared_056b",
-      "tuber_jared_056c"
+      "leader_lt_surge_0033",
+      "leader_lt_surge_01a0",
+      "leader_mel_05ad",
+      "leader_mirskle_05aa",
+      "leader_misty_0020",
+      "leader_misty_0030",
+      "leader_misty_019f",
+      "leader_morty_001c",
+      "leader_morty_0034",
+      "leader_pryce_003a",
+      "leader_pryce_003b",
+      "leader_pryce_003c",
+      "leader_pryce_004f",
+      "leader_sabrina_01a4",
+      "leader_tessy_05b1",
+      "leader_vega_05ab",
+      "leader_whitney_0031",
+      "leader_whitney_004c",
+      "sinnoh_champion_camilla",
+      "sinnoh_leader_candice_05da",
+      "sinnoh_leader_candice_rematch_05e9",
+      "team_galactic_boss_cyrus_041a",
+      "team_galactic_boss_cyrus_041b"
     ]
   },
   "trainers": {
     "ace_trainer_abel_04a5": {
       "name": "Ace Trainer Abel",
       "team": [
-        "aerodactyl"
+        "aerodactyl",
+        "metagross"
       ]
     },
     "ace_trainer_alexa_0194": {
@@ -1670,6 +1864,7 @@
     "ace_trainer_anton_0573": {
       "name": "Ace Trainer Anton",
       "team": [
+        "froslass",
         "snover"
       ]
     },
@@ -1745,7 +1940,8 @@
     "ace_trainer_breanna_03b5": {
       "name": "Ace Trainer Breanna",
       "team": [
-        "azumarill"
+        "azumarill",
+        "magneton"
       ]
     },
     "ace_trainer_brenda_0410": {
@@ -1758,7 +1954,8 @@
     "ace_trainer_brenna_0574": {
       "name": "Ace Trainer Brenna",
       "team": [
-        "snover"
+        "snover",
+        "piloswine"
       ]
     },
     "ace_trainer_brooke_0197": {
@@ -1926,19 +2123,22 @@
     "ace_trainer_graham_04a1": {
       "name": "Ace Trainer Graham",
       "team": [
-        "skarmory"
+        "skarmory",
+        "flygon"
       ]
     },
     "ace_trainer_henry_0383": {
       "name": "Ace Trainer Henry",
       "team": [
-        "honchkrow"
+        "honchkrow",
+        "houndoom"
       ]
     },
     "ace_trainer_isaiah_03a7": {
       "name": "Ace Trainer Isaiah",
       "team": [
-        "quagsire"
+        "quagsire",
+        "magcargo"
       ]
     },
     "ace_trainer_jake_0367": {
@@ -1958,7 +2158,8 @@
     "ace_trainer_jamie_03b8": {
       "name": "Ace Trainer Jamie",
       "team": [
-        "metagross"
+        "metagross",
+        "gliscor"
       ]
     },
     "ace_trainer_janny_00af": {
@@ -1975,7 +2176,8 @@
     "ace_trainer_jasmin_04ad": {
       "name": "Ace Trainer Jasmin",
       "team": [
-        "drapion"
+        "drapion",
+        "gardevoir"
       ]
     },
     "ace_trainer_jonah_040d": {
@@ -2020,7 +2222,8 @@
     "ace_trainer_laura_034d": {
       "name": "Ace Trainer Laura",
       "team": [
-        "lopunny"
+        "lopunny",
+        "manectric"
       ]
     },
     "ace_trainer_leroy_0257": {
@@ -2227,7 +2430,8 @@
     "ace_trainer_rodolfo_0500": {
       "name": "Ace Trainer Rodolfo",
       "team": [
-        "miltank"
+        "miltank",
+        "arcanine"
       ]
     },
     "ace_trainer_rolando_018c": {
@@ -2282,19 +2486,22 @@
     "ace_trainer_sandra_04ab": {
       "name": "Ace Trainer Sandra",
       "team": [
-        "granbull"
+        "granbull",
+        "walrein"
       ]
     },
     "ace_trainer_saul_049d": {
       "name": "Ace Trainer Saul",
       "team": [
-        "tauros"
+        "tauros",
+        "espeon"
       ]
     },
     "ace_trainer_saul_0501": {
       "name": "Ace Trainer Saul",
       "team": [
-        "tauros"
+        "tauros",
+        "espeon"
       ]
     },
     "ace_trainer_savannah_03a8": {
@@ -2419,36 +2626,42 @@
     "aroma_lady_alison_0480": {
       "name": "Aroma Lady Alison",
       "team": [
-        "roselia"
+        "roselia",
+        "comfey"
       ]
     },
     "aroma_lady_angela_039e": {
       "name": "Aroma Lady Angela",
       "team": [
-        "turtwig"
+        "turtwig",
+        "budew"
       ]
     },
     "aroma_lady_elizabeth_02f7": {
       "name": "Aroma Lady Elizabeth",
       "team": [
-        "budew"
+        "budew",
+        "turtwig"
       ]
     },
     "aroma_lady_elizabeth_04db": {
       "name": "Aroma Lady Elizabeth",
       "team": [
-        "budew"
+        "budew",
+        "grotle"
       ]
     },
     "aroma_lady_elizabeth_04dc": {
       "name": "Aroma Lady Elizabeth",
       "team": [
-        "roselia"
+        "roselia",
+        "leafeon"
       ]
     },
     "aroma_lady_elizabeth_04dd": {
       "name": "Aroma Lady Elizabeth",
       "team": [
+        "bellossom",
         "roselia"
       ]
     },
@@ -2512,7 +2725,8 @@
     "artist_ismael_0481": {
       "name": "Artist Ismael",
       "team": [
-        "mrmime"
+        "mrmime",
+        "smeargle"
       ]
     },
     "artist_kevin_04de": {
@@ -2574,13 +2788,15 @@
     "battle_girl_kelsey_02f6": {
       "name": "Battle Girl Kelsey",
       "team": [
-        "machop"
+        "machop",
+        "meditite"
       ]
     },
     "battle_girl_tylor_0403": {
       "name": "Battle Girl Tylor",
       "team": [
-        "medicham"
+        "medicham",
+        "hitmonlee"
       ]
     },
     "battleground_alice_05f4": {
@@ -2672,31 +2888,36 @@
     "beauty_cyndy_03f2": {
       "name": "Beauty Cyndy",
       "team": [
-        "glameow"
+        "glameow",
+        "milcery"
       ]
     },
     "beauty_cyndy_0555": {
       "name": "Beauty Cyndy",
       "team": [
-        "glameow"
+        "glameow",
+        "beautifly"
       ]
     },
     "beauty_cyndy_0556": {
       "name": "Beauty Cyndy",
       "team": [
-        "purugly"
+        "purugly",
+        "ninetales"
       ]
     },
     "beauty_devon_0457": {
       "name": "Beauty Devon",
       "team": [
-        "wormadam"
+        "wormadam",
+        "chimecho"
       ]
     },
     "beauty_gabriella_048f": {
       "name": "Beauty Gabriella",
       "team": [
-        "finneon"
+        "finneon",
+        "cherrim"
       ]
     },
     "beauty_grace_0111": {
@@ -2716,7 +2937,8 @@
     "beauty_harley_0490": {
       "name": "Beauty Harley",
       "team": [
-        "psyduck"
+        "psyduck",
+        "kirlia"
       ]
     },
     "beauty_lauren_0113": {
@@ -2730,7 +2952,8 @@
     "beauty_lindsay_03f3": {
       "name": "Beauty Lindsay",
       "team": [
-        "roselia"
+        "roselia",
+        "skitty"
       ]
     },
     "beauty_lola_010c": {
@@ -2744,13 +2967,15 @@
     "beauty_lori_010b": {
       "name": "Beauty Lori",
       "team": [
-        "exeggutor"
+        "exeggutor",
+        "ampharos"
       ]
     },
     "beauty_nicola_0458": {
       "name": "Beauty Nicola",
       "team": [
-        "lopunny"
+        "lopunny",
+        "lilligant"
       ]
     },
     "beauty_olivia_0112": {
@@ -2785,7 +3010,8 @@
     "biker_0212": {
       "name": "Biker",
       "team": [
-        "ekans"
+        "ekans",
+        "grimer"
       ]
     },
     "biker_alex_00c6": {
@@ -2799,7 +3025,8 @@
     "biker_billy_00cb": {
       "name": "Biker Billy",
       "team": [
-        "gumshoos"
+        "gumshoos",
+        "skuntank"
       ]
     },
     "biker_ernest_00c5": {
@@ -2985,7 +3212,8 @@
     "bird_keeper_alexandra_0326": {
       "name": "Bird Keeper Alexandra",
       "team": [
-        "hoothoot"
+        "hoothoot",
+        "wingull"
       ]
     },
     "bird_keeper_audrey_0493": {
@@ -3107,7 +3335,8 @@
     "bird_keeper_donald_012f": {
       "name": "Bird Keeper Donald",
       "team": [
-        "farfetchd"
+        "farfetchd",
+        "noctowl"
       ]
     },
     "bird_keeper_edwin_0131": {
@@ -3178,7 +3407,8 @@
     "bird_keeper_katherine_032a": {
       "name": "Bird Keeper Katherine",
       "team": [
-        "noctowl"
+        "noctowl",
+        "fearow"
       ]
     },
     "bird_keeper_keith_0138": {
@@ -3311,13 +3541,15 @@
     "black_belt_aaron_0140": {
       "name": "Black Belt Aaron",
       "team": [
-        "sirfetchd"
+        "sirfetchd",
+        "toxicroak"
       ]
     },
     "black_belt_adam_031e": {
       "name": "Black Belt Adam",
       "team": [
-        "machoke"
+        "machoke",
+        "hitmontop"
       ]
     },
     "black_belt_atsushi_0142": {
@@ -3384,7 +3616,8 @@
     "black_belt_derek_0348": {
       "name": "Black Belt Derek",
       "team": [
-        "croagunk"
+        "croagunk",
+        "mankey"
       ]
     },
     "black_belt_eddie_0437": {
@@ -3449,7 +3682,8 @@
     "black_belt_jarrett_04b7": {
       "name": "Black Belt Jarrett",
       "team": [
-        "machamp"
+        "machamp",
+        "lucario"
       ]
     },
     "black_belt_jeffery_03d3": {
@@ -3462,19 +3696,22 @@
     "black_belt_kendal_0436": {
       "name": "Black Belt Kendal",
       "team": [
-        "croagunk"
+        "croagunk",
+        "hitmonchan"
       ]
     },
     "black_belt_kiyo_0143": {
       "name": "Black Belt Kiyo",
       "team": [
+        "hariyama",
         "machoke"
       ]
     },
     "black_belt_kyle_030c": {
       "name": "Black Belt Kyle",
       "team": [
-        "machop"
+        "machop",
+        "makuhita"
       ]
     },
     "black_belt_luke_035b": {
@@ -3496,7 +3733,8 @@
     "black_belt_miles_0435": {
       "name": "Black Belt Miles",
       "team": [
-        "machamp"
+        "machamp",
+        "gallade"
       ]
     },
     "black_belt_nathaniel_0349": {
@@ -3510,19 +3748,22 @@
     "black_belt_philip_039c": {
       "name": "Black Belt Philip",
       "team": [
-        "machoke"
+        "machoke",
+        "hitmonlee"
       ]
     },
     "black_belt_philip_0523": {
       "name": "Black Belt Philip",
       "team": [
-        "machamp"
+        "machamp",
+        "toxicroak"
       ]
     },
     "black_belt_rafael_03d2": {
       "name": "Black Belt Rafael",
       "team": [
-        "meditite"
+        "meditite",
+        "hawlucha"
       ]
     },
     "black_belt_ray_04b6": {
@@ -3536,7 +3777,8 @@
     "black_belt_ricky_03d5": {
       "name": "Black Belt Ricky",
       "team": [
-        "steelix"
+        "steelix",
+        "scrafty"
       ]
     },
     "black_belt_sean_0328": {
@@ -3667,7 +3909,8 @@
     "boss_zeph_1_05bb": {
       "name": "Boss Zeph",
       "team": [
-        "houndoom"
+        "houndoom",
+        "honchkrow"
       ]
     },
     "boss_zeph_2_05bf": {
@@ -3740,43 +3983,50 @@
     "breeder_bethany_0261": {
       "name": "Breeder Bethany",
       "team": [
-        "chansey"
+        "chansey",
+        "ampharos"
       ]
     },
     "bug_catcher_01ec": {
       "name": "Bug Catcher",
       "team": [
-        "ekans"
+        "ekans",
+        "weedle"
       ]
     },
     "bug_catcher_01ed": {
       "name": "Bug Catcher",
       "team": [
-        "ekans"
+        "ekans",
+        "caterpie"
       ]
     },
     "bug_catcher_01ee": {
       "name": "Bug Catcher",
       "team": [
-        "ekans"
+        "ekans",
+        "wurmple"
       ]
     },
     "bug_catcher_01ef": {
       "name": "Bug Catcher",
       "team": [
-        "ekans"
+        "ekans",
+        "grubbin"
       ]
     },
     "bug_catcher_01f0": {
       "name": "Bug Catcher",
       "team": [
-        "ekans"
+        "ekans",
+        "sewaddle"
       ]
     },
     "bug_catcher_01f1": {
       "name": "Bug Catcher",
       "team": [
-        "ekans"
+        "ekans",
+        "venipede"
       ]
     },
     "bug_catcher_anthony_0213": {
@@ -3896,13 +4146,15 @@
     "bug_catcher_elijah_0070": {
       "name": "Bug Catcher Elijah",
       "team": [
-        "masquerain"
+        "masquerain",
+        "dustox"
       ]
     },
     "bug_catcher_garret_0263": {
       "name": "Bug Catcher Garret",
       "team": [
-        "heracross"
+        "heracross",
+        "escavalier"
       ]
     },
     "bug_catcher_greg_006a": {
@@ -3979,7 +4231,8 @@
     "bug_catcher_sammy_0068": {
       "name": "Bug Catcher Sammy",
       "team": [
-        "grubbin"
+        "grubbin",
+        "spinarak"
       ]
     },
     "bug_catcher_vance_0265": {
@@ -3992,7 +4245,8 @@
     "burglar_00d3": {
       "name": "Burglar",
       "team": [
-        "growlithe"
+        "growlithe",
+        "koffing"
       ]
     },
     "burglar_00d4": {
@@ -4042,13 +4296,15 @@
     "burglar_ramon_00d6": {
       "name": "Burglar Ramon",
       "team": [
-        "salazzle"
+        "salazzle",
+        "chandelure"
       ]
     },
     "burglar_simon_00da": {
       "name": "Burglar Simon",
       "team": [
-        "ninetales"
+        "ninetales",
+        "torkoal"
       ]
     },
     "burglar_switzer_05e0": {
@@ -4069,13 +4325,15 @@
     "cameraman_tevin_0400": {
       "name": "Cameraman Tevin",
       "team": [
-        "pachirisu"
+        "pachirisu",
+        "magnemite"
       ]
     },
     "camper_anthony_0304": {
       "name": "Camper Anthony",
       "team": [
-        "ponyta"
+        "ponyta",
+        "nuzleaf"
       ]
     },
     "camper_bryce_022b": {
@@ -4119,7 +4377,8 @@
     "camper_curtis_03a3": {
       "name": "Camper Curtis",
       "team": [
-        "shinx"
+        "shinx",
+        "burmy"
       ]
     },
     "camper_diego_0407": {
@@ -4149,7 +4408,8 @@
     "camper_ethan_0090": {
       "name": "Camper Ethan",
       "team": [
-        "loudred"
+        "loudred",
+        "graveler"
       ]
     },
     "camper_flint_01d7": {
@@ -4162,7 +4422,8 @@
     "camper_jacob_02f2": {
       "name": "Camper Jacob",
       "team": [
-        "ponyta"
+        "ponyta",
+        "buizel"
       ]
     },
     "camper_jeff_0092": {
@@ -4226,25 +4487,29 @@
     "camper_ricky_0091": {
       "name": "Camper Ricky",
       "team": [
-        "marshtomp"
+        "marshtomp",
+        "nuzleaf"
       ]
     },
     "camper_ricky_0270": {
       "name": "Camper Ricky",
       "team": [
-        "squirtle"
+        "squirtle",
+        "rufflet"
       ]
     },
     "camper_ricky_0271": {
       "name": "Camper Ricky",
       "team": [
-        "wartortle"
+        "wartortle",
+        "roselia"
       ]
     },
     "camper_ricky_0272": {
       "name": "Camper Ricky",
       "team": [
-        "wartortle"
+        "wartortle",
+        "donphan"
       ]
     },
     "camper_riley_026a": {
@@ -4264,25 +4529,29 @@
     "camper_zackary_0405": {
       "name": "Camper Zackary",
       "team": [
-        "geodude"
+        "geodude",
+        "lotad"
       ]
     },
     "camper_zackary_04ed": {
       "name": "Camper Zackary",
       "team": [
-        "geodude"
+        "geodude",
+        "shroomish"
       ]
     },
     "camper_zackary_04ee": {
       "name": "Camper Zackary",
       "team": [
+        "noctowl",
         "graveler"
       ]
     },
     "camper_zackary_04ef": {
       "name": "Camper Zackary",
       "team": [
-        "graveler"
+        "graveler",
+        "torterra"
       ]
     },
     "champion_cynthia_03a5": {
@@ -4406,31 +4675,36 @@
     "channeler_01c6": {
       "name": "Channeler",
       "team": [
-        "haunter"
+        "haunter",
+        "misdreavus"
       ]
     },
     "channeler_01c7": {
       "name": "Channeler",
       "team": [
-        "gastly"
+        "gastly",
+        "shuppet"
       ]
     },
     "channeler_01c8": {
       "name": "Channeler",
       "team": [
-        "gastly"
+        "gastly",
+        "drifloon"
       ]
     },
     "channeler_01c9": {
       "name": "Channeler",
       "team": [
-        "gastly"
+        "gastly",
+        "yamask"
       ]
     },
     "channeler_01ca": {
       "name": "Channeler",
       "team": [
-        "haunter"
+        "haunter",
+        "misdreavus"
       ]
     },
     "channeler_01cb": {
@@ -4444,13 +4718,15 @@
     "channeler_01cc": {
       "name": "Channeler",
       "team": [
-        "gastly"
+        "gastly",
+        "phantump"
       ]
     },
     "channeler_01cd": {
       "name": "Channeler",
       "team": [
-        "gastly"
+        "gastly",
+        "litwick"
       ]
     },
     "channeler_amanda_01ce": {
@@ -4471,43 +4747,50 @@
     "channeler_carly_01ba": {
       "name": "Channeler Carly",
       "team": [
-        "lampent"
+        "lampent",
+        "cofagrigus"
       ]
     },
     "channeler_emilia_01c4": {
       "name": "Channeler Emilia",
       "team": [
-        "xatu"
+        "xatu",
+        "spiritomb"
       ]
     },
     "channeler_hope_01bb": {
       "name": "Channeler Hope",
       "team": [
-        "banette"
+        "banette",
+        "cacturne"
       ]
     },
     "channeler_janae_01c2": {
       "name": "Channeler Janae",
       "team": [
-        "golett"
+        "golett",
+        "claydol"
       ]
     },
     "channeler_jennifer_01c5": {
       "name": "Channeler Jennifer",
       "team": [
-        "chimecho"
+        "chimecho",
+        "gothorita"
       ]
     },
     "channeler_jody_01be": {
       "name": "Channeler Jody",
       "team": [
-        "dusclops"
+        "dusclops",
+        "runerigus"
       ]
     },
     "channeler_karina_01c1": {
       "name": "Channeler Karina",
       "team": [
-        "jellicent"
+        "jellicent",
+        "drifblim"
       ]
     },
     "channeler_laurel_01bd": {
@@ -4520,13 +4803,15 @@
     "channeler_patricia_01b9": {
       "name": "Channeler Patricia",
       "team": [
-        "haunter"
+        "haunter",
+        "chandelure"
       ]
     },
     "channeler_paula_01bc": {
       "name": "Channeler Paula",
       "team": [
-        "froslass"
+        "froslass",
+        "mismagius"
       ]
     },
     "channeler_rachel_0093": {
@@ -4543,19 +4828,22 @@
     "channeler_ruth_01c0": {
       "name": "Channeler Ruth",
       "team": [
+        "aegislash",
         "doublade"
       ]
     },
     "channeler_stacy_01cf": {
       "name": "Channeler Stacy",
       "team": [
-        "gothitelle"
+        "gothitelle",
+        "cursola"
       ]
     },
     "channeler_tammy_01bf": {
       "name": "Channeler Tammy",
       "team": [
-        "mimikyu"
+        "mimikyu",
+        "banette"
       ]
     },
     "channeler_tasha_01d0": {
@@ -4569,7 +4857,8 @@
     "clown_lee_0443": {
       "name": "Clown Lee",
       "team": [
-        "mrmime"
+        "mrmime",
+        "mimejr"
       ]
     },
     "collector_brady_03ab": {
@@ -4952,19 +5241,22 @@
     "cue_ball_zeek_00fe": {
       "name": "Cue Ball Zeek",
       "team": [
-        "hitmonchan"
+        "hitmonchan",
+        "primeape"
       ]
     },
     "cyclist_axel_02fb": {
       "name": "Cyclist Axel",
       "team": [
-        "staravia"
+        "staravia",
+        "shinx"
       ]
     },
     "cyclist_james_02fc": {
       "name": "Cyclist James",
       "team": [
-        "ponyta"
+        "ponyta",
+        "doduo"
       ]
     },
     "cyclist_john_02fd": {
@@ -4998,31 +5290,36 @@
     "cyclist_kayla_0301": {
       "name": "Cyclist Kayla",
       "team": [
-        "pikachu"
+        "pikachu",
+        "elekid"
       ]
     },
     "cyclist_kayla_04f6": {
       "name": "Cyclist Kayla",
       "team": [
-        "pikachu"
+        "pikachu",
+        "manectric"
       ]
     },
     "cyclist_kayla_04f7": {
       "name": "Cyclist Kayla",
       "team": [
-        "pikachu"
+        "pikachu",
+        "luxray"
       ]
     },
     "cyclist_kayla_04f8": {
       "name": "Cyclist Kayla",
       "team": [
-        "raichu"
+        "raichu",
+        "rotom"
       ]
     },
     "cyclist_megan_02ff": {
       "name": "Cyclist Megan",
       "team": [
-        "shinx"
+        "shinx",
+        "blitzle"
       ]
     },
     "cyclist_nicole_0300": {
@@ -5042,12 +5339,14 @@
     "cyclist_ryan_02fe": {
       "name": "Cyclist Ryan",
       "team": [
-        "zubat"
+        "zubat",
+        "rattata"
       ]
     },
     "double_team_al_0390": {
       "name": "Double Team Al",
       "team": [
+        "staraptor",
         "staraptor"
       ]
     },
@@ -5098,7 +5397,8 @@
     "dragon_tamer_andre_0388": {
       "name": "Dragon Tamer Andre",
       "team": [
-        "gabite"
+        "gabite",
+        "altaria"
       ]
     },
     "dragon_tamer_clinton_0389": {
@@ -5112,7 +5412,8 @@
     "dragon_tamer_darien_0497": {
       "name": "Dragon Tamer Darien",
       "team": [
-        "gyarados"
+        "gyarados",
+        "kingdra"
       ]
     },
     "dragon_tamer_drake_049a": {
@@ -5161,7 +5462,8 @@
     "dragon_tamer_keegan_0498": {
       "name": "Dragon Tamer Keegan",
       "team": [
-        "gyarados"
+        "gyarados",
+        "flygon"
       ]
     },
     "dragon_tamer_kenny_049b": {
@@ -5174,19 +5476,22 @@
     "dragon_tamer_patrick_0322": {
       "name": "Dragon Tamer Patrick",
       "team": [
-        "gible"
+        "gible",
+        "shelgon"
       ]
     },
     "dragon_tamer_patrick_04f9": {
       "name": "Dragon Tamer Patrick",
       "team": [
-        "gabite"
+        "gabite",
+        "druddigon"
       ]
     },
     "dragon_tamer_patrick_04fa": {
       "name": "Dragon Tamer Patrick",
       "team": [
-        "gabite"
+        "gabite",
+        "haxorus"
       ]
     },
     "dragon_tamer_ramiro_0134": {
@@ -5220,7 +5525,8 @@
     "dumbass_gambler_000e": {
       "name": "Silly Gambler",
       "team": [
-        "starmie"
+        "starmie",
+        "wobbuffet"
       ]
     },
     "dumbass_gian_0023": {
@@ -5629,49 +5935,57 @@
     "engineer_braxton_00dd": {
       "name": "Engineer Braxton",
       "team": [
-        "yamper"
+        "yamper",
+        "magnemite"
       ]
     },
     "expert_kenlawa_mimikyu_1_05e5": {
       "name": "Expert Kenlawa",
       "team": [
-        "mimikyu"
+        "mimikyu",
+        "chandelure"
       ]
     },
     "expert_kenlawa_mimikyu_2_05e6": {
       "name": "Expert Kenlawa",
       "team": [
-        "mimikyu"
+        "mimikyu",
+        "aegislash"
       ]
     },
     "expert_kenlawa_mimikyu_3_05e7": {
       "name": "Expert Kenlawa",
       "team": [
-        "mimikyu"
+        "mimikyu",
+        "tyranitar"
       ]
     },
     "expert_lancere_0024": {
       "name": "Expert LanceRe",
       "team": [
+        "ekans",
         "ekans"
       ]
     },
     "expert_ryuzoji_mimikyu_1_05e2": {
       "name": "Expert Ryuzoji",
       "team": [
-        "mimikyu"
+        "mimikyu",
+        "gardevoir"
       ]
     },
     "expert_ryuzoji_mimikyu_2_05e3": {
       "name": "Expert Ryuzoji",
       "team": [
-        "mimikyu"
+        "mimikyu",
+        "dragapult"
       ]
     },
     "expert_ryuzoji_mimikyu_3_05e4": {
       "name": "Expert Ryuzoji",
       "team": [
-        "mimikyu"
+        "mimikyu",
+        "grimmsnarl"
       ]
     },
     "fisher_alec_036a": {
@@ -5757,25 +6071,29 @@
     "fisher_joseph_02f9": {
       "name": "Fisher Joseph",
       "team": [
-        "goldeen"
+        "goldeen",
+        "magikarp"
       ]
     },
     "fisher_joseph_0511": {
       "name": "Fisher Joseph",
       "team": [
-        "seaking"
+        "seaking",
+        "whiscash"
       ]
     },
     "fisher_joseph_0512": {
       "name": "Fisher Joseph",
       "team": [
-        "seaking"
+        "seaking",
+        "lanturn"
       ]
     },
     "fisher_juan_0332": {
       "name": "Fisher Juan",
       "team": [
-        "gyarados"
+        "gyarados",
+        "pelipper"
       ]
     },
     "fisher_kenneth_0341": {
@@ -5822,7 +6140,8 @@
     "fisher_walter_0419": {
       "name": "Fisher Walter",
       "team": [
-        "barboach"
+        "barboach",
+        "corsola"
       ]
     },
     "fisher_zachary_02fa": {
@@ -5892,7 +6211,8 @@
     "fisherman_hank_00e3": {
       "name": "Fisherman Hank",
       "team": [
-        "octillery"
+        "octillery",
+        "qwilfish"
       ]
     },
     "fisherman_ned_00e1": {
@@ -6026,6 +6346,7 @@
     "friendly_maniac_0006": {
       "name": "Friendly Maniac",
       "team": [
+        "bidoof",
         "ekans"
       ]
     },
@@ -6050,10 +6371,72 @@
         "aggron"
       ]
     },
+    "galaxy_bobbo": {
+      "name": "Bobbo",
+      "team": [
+        "sunflora",
+        "appletun",
+        "exeggutor"
+      ]
+    },
+    "galaxy_dummyh77": {
+      "name": "DummyH77",
+      "team": [
+        "wigglytuff",
+        "azumarill"
+      ]
+    },
+    "galaxy_fabbo67": {
+      "name": "Fabbo67",
+      "team": [
+        "growlithe",
+        "lycanroc",
+        "yamper"
+      ]
+    },
+    "galaxy_fede_mercy": {
+      "name": "Fede_Mercy",
+      "team": [
+        "trevenant",
+        "chandelure"
+      ]
+    },
+    "galaxy_giulio1232": {
+      "name": "Giulio1232",
+      "team": [
+        "lucario",
+        "greninja",
+        "feraligatr"
+      ]
+    },
+    "galaxy_lami_andre": {
+      "name": "Lami_Andre",
+      "team": [
+        "togedemaru",
+        "oshawott",
+        "lucario"
+      ]
+    },
+    "galaxy_morn27015": {
+      "name": "Morn27015",
+      "team": [
+        "mimikyu",
+        "pikachu"
+      ]
+    },
+    "galaxy_ominorosso": {
+      "name": "OminoRosso",
+      "team": [
+        "pikachu",
+        "charizard",
+        "arcanine"
+      ]
+    },
     "gambler_0107": {
       "name": "Gambler",
       "team": [
-        "ekans"
+        "ekans",
+        "koffing"
       ]
     },
     "gambler_darian_0105": {
@@ -6169,31 +6552,36 @@
     "gentleman_jeremy_032d": {
       "name": "Gentleman Jeremy",
       "team": [
-        "chatot"
+        "chatot",
+        "roselia"
       ]
     },
     "gentleman_jeremy_051b": {
       "name": "Gentleman Jeremy",
       "team": [
-        "chatot"
+        "chatot",
+        "manectric"
       ]
     },
     "gentleman_jeremy_051c": {
       "name": "Gentleman Jeremy",
       "team": [
-        "chatot"
+        "chatot",
+        "gallade"
       ]
     },
     "gentleman_jeremy_051d": {
       "name": "Gentleman Jeremy",
       "team": [
-        "chatot"
+        "chatot",
+        "gardevoir"
       ]
     },
     "gentleman_komodo_0005": {
       "name": "Gentleman Komodo",
       "team": [
-        "ekans"
+        "ekans",
+        "zigzagoon"
       ]
     },
     "gentleman_lamar_01e3": {
@@ -6213,7 +6601,8 @@
     "gentleman_norton_01a8": {
       "name": "Gentleman Norton",
       "team": [
-        "persian"
+        "persian",
+        "honchkrow"
       ]
     },
     "gentleman_thomas_01a5": {
@@ -6226,7 +6615,8 @@
     "gentleman_tucker_01a7": {
       "name": "Gentleman Tucker",
       "team": [
-        "electabuzz"
+        "electabuzz",
+        "porygon"
       ]
     },
     "gentleman_walter_01a9": {
@@ -6246,13 +6636,15 @@
     "guitarist_jerry_03c8": {
       "name": "Guitarist Jerry",
       "team": [
-        "luxio"
+        "luxio",
+        "granbull"
       ]
     },
     "guitarist_lonnie_03ca": {
       "name": "Guitarist Lonnie",
       "team": [
-        "raichu"
+        "raichu",
+        "ninetales"
       ]
     },
     "guitarist_preston_03c9": {
@@ -6265,13 +6657,15 @@
     "guitarist_tony_03c7": {
       "name": "Guitarist Tony",
       "team": [
-        "luxio"
+        "luxio",
+        "raichu"
       ]
     },
     "guitarist_tony_051e": {
       "name": "Guitarist Tony",
       "team": [
-        "luxio"
+        "luxio",
+        "exploud"
       ]
     },
     "gym_leader_byron_0399": {
@@ -6446,7 +6840,8 @@
     "hiker_allen_00be": {
       "name": "Hiker Allen",
       "team": [
-        "golett"
+        "golett",
+        "graveler"
       ]
     },
     "hiker_brice_00ba": {
@@ -6547,7 +6942,8 @@
     "hiker_jonathan_030b": {
       "name": "Hiker Jonathan",
       "team": [
-        "onix"
+        "onix",
+        "geodude"
       ]
     },
     "hiker_justin_0307": {
@@ -6578,7 +6974,8 @@
     "hiker_lorenzo_043e": {
       "name": "Hiker Lorenzo",
       "team": [
-        "onix"
+        "onix",
+        "psyduck"
       ]
     },
     "hiker_louis_03e0": {
@@ -6613,7 +7010,8 @@
     "hiker_nicholas_02f5": {
       "name": "Hiker Nicholas",
       "team": [
-        "onix"
+        "onix",
+        "budew"
       ]
     },
     "hiker_nob_00b7": {
@@ -6692,7 +7090,161 @@
     "hiker_wayne_00b8": {
       "name": "Hiker Wayne",
       "team": [
-        "nosepass"
+        "nosepass",
+        "machop"
+      ]
+    },
+    "hoenn_adriano": {
+      "name": "Wallace",
+      "team": [
+        "archaludon",
+        "pelipper",
+        "primarina",
+        "blastoise",
+        "palkia",
+        "gyarados"
+      ]
+    },
+    "hoenn_alice": {
+      "name": "Winona",
+      "team": [
+        "landorus",
+        "mandibuzz",
+        "salamence",
+        "corviknight",
+        "scyther",
+        "hawlucha"
+      ]
+    },
+    "hoenn_champion_rocco": {
+      "name": "Steven",
+      "team": [
+        "metagross",
+        "latias",
+        "urshifu",
+        "miraidon",
+        "necrozma",
+        "snorlax"
+      ]
+    },
+    "hoenn_fiammetta": {
+      "name": "Flannery",
+      "team": [
+        "incineroar",
+        "talonflame",
+        "chiyu",
+        "magmar",
+        "charizard",
+        "rotom"
+      ]
+    },
+    "hoenn_league_drake": {
+      "name": "Drake",
+      "team": [
+        "gougingfire",
+        "duraludon",
+        "salamence",
+        "koraidon",
+        "kommoo",
+        "eternatus"
+      ]
+    },
+    "hoenn_league_ester": {
+      "name": "Phoebe",
+      "team": [
+        "annihilape",
+        "lunala",
+        "calyrex",
+        "gengar",
+        "gholdengo",
+        "sinistcha"
+      ]
+    },
+    "hoenn_league_fosco": {
+      "name": "Sidney",
+      "team": [
+        "grimmsnarl",
+        "brutebonnet",
+        "gyarados",
+        "chienpao",
+        "hoopa",
+        "roaringmoon"
+      ]
+    },
+    "hoenn_league_frida": {
+      "name": "Glacia",
+      "team": [
+        "ninetales",
+        "lapras",
+        "kyurem",
+        "calyrex",
+        "mamoswine",
+        "abomasnow"
+      ]
+    },
+    "hoenn_lyris": {
+      "name": "Lyris",
+      "team": [
+        "noivern",
+        "altaria",
+        "tyrantrum",
+        "goodra",
+        "salamence"
+      ]
+    },
+    "hoenn_norman": {
+      "name": "Norman",
+      "team": [
+        "eevee",
+        "porygon",
+        "maushold",
+        "ursaluna",
+        "kangaskhan",
+        "ursaluna"
+      ]
+    },
+    "hoenn_petra": {
+      "name": "Roxanne",
+      "team": [
+        "glimmora",
+        "tyranitar",
+        "coalossal",
+        "arcanine",
+        "kleavor",
+        "diancie"
+      ]
+    },
+    "hoenn_rudi": {
+      "name": "Brawly",
+      "team": [
+        "annihilape",
+        "ironhands",
+        "lucario",
+        "zamazenta",
+        "urshifu",
+        "sneasler"
+      ]
+    },
+    "hoenn_tell": {
+      "name": "Tate&Liza",
+      "team": [
+        "lunala",
+        "indeedee",
+        "armarouge",
+        "hatterene",
+        "metagross",
+        "gallade"
+      ]
+    },
+    "hoenn_walter": {
+      "name": "Wattson",
+      "team": [
+        "miraidon",
+        "bellibolt",
+        "manectric",
+        "electabuzz",
+        "kilowattrel",
+        "ironthorns"
       ]
     },
     "idol_grace_0402": {
@@ -6705,7 +7257,8 @@
     "interviewers_oli_03ff": {
       "name": "Interviewers Oli",
       "team": [
-        "marill"
+        "marill",
+        "wooper"
       ]
     },
     "interviewers_oli_roxy_m008": {
@@ -6718,7 +7271,8 @@
     "interviewers_roxy_03fe": {
       "name": "Interviewers Roxy",
       "team": [
-        "wooper"
+        "wooper",
+        "azurill"
       ]
     },
     "jogger_craig_03ce": {
@@ -6748,25 +7302,172 @@
     "jogger_raul_03cf": {
       "name": "Jogger Raul",
       "team": [
-        "staravia"
+        "staravia",
+        "buizel"
       ]
     },
     "jogger_richard_0313": {
       "name": "Jogger Richard",
       "team": [
-        "luxio"
+        "luxio",
+        "starly"
       ]
     },
     "jogger_scott_034a": {
       "name": "Jogger Scott",
       "team": [
-        "staravia"
+        "staravia",
+        "monferno"
       ]
     },
     "jogger_wyatt_03cd": {
       "name": "Jogger Wyatt",
       "team": [
-        "ponyta"
+        "ponyta",
+        "electrike"
+      ]
+    },
+    "johto_alfredo": {
+      "name": "Pryce",
+      "team": [
+        "abomasnow",
+        "froslass",
+        "lapras",
+        "kyurem",
+        "mamoswine",
+        "baxcalibur"
+      ]
+    },
+    "johto_angelo": {
+      "name": "Morty",
+      "team": [
+        "banette",
+        "fluttermane",
+        "gengar",
+        "annihilape",
+        "gholdengo",
+        "calyrex"
+      ]
+    },
+    "johto_champion_lance": {
+      "name": "Lance",
+      "team": [
+        "hooh",
+        "landorus",
+        "gyarados",
+        "appletun",
+        "dragonite",
+        "palkia"
+      ]
+    },
+    "johto_chiara": {
+      "name": "Whitney",
+      "team": [
+        "indeedee",
+        "farigiraf",
+        "smeargle",
+        "audino",
+        "arceus",
+        "terapagos"
+      ]
+    },
+    "johto_furio": {
+      "name": "Chuck",
+      "team": [
+        "flamigo",
+        "breloom",
+        "ironvaliant",
+        "blaziken",
+        "machamp",
+        "urshifu"
+      ]
+    },
+    "johto_jasmine": {
+      "name": "Jasmine",
+      "team": [
+        "dialga",
+        "tinkaton",
+        "ferrothorn",
+        "aggron",
+        "melmetal",
+        "archaludon"
+      ]
+    },
+    "johto_league_bruno": {
+      "name": "Bruno",
+      "team": [
+        "koraidon",
+        "tauros",
+        "urshifu",
+        "sneasler",
+        "pawmot",
+        "gallade"
+      ]
+    },
+    "johto_league_karen": {
+      "name": "Karen",
+      "team": [
+        "incineroar",
+        "hydreigon",
+        "urshifu",
+        "kingambit",
+        "tyranitar",
+        "chienpao"
+      ]
+    },
+    "johto_league_koga": {
+      "name": "Koga",
+      "team": [
+        "glimmora",
+        "eternatus",
+        "toxapex",
+        "venusaur",
+        "okidogi",
+        "gengar"
+      ]
+    },
+    "johto_league_pino": {
+      "name": "Will",
+      "team": [
+        "indeedee",
+        "calyrex",
+        "farigiraf",
+        "ironleaves",
+        "alakazam",
+        "necrozma"
+      ]
+    },
+    "johto_raffaello": {
+      "name": "Bugsy",
+      "team": [
+        "volcarona",
+        "vivillon",
+        "heracross",
+        "scyther",
+        "centiskorch",
+        "genesect"
+      ]
+    },
+    "johto_sandra": {
+      "name": "Clair",
+      "team": [
+        "eternatus",
+        "exeggutor",
+        "dragapult",
+        "ragingbolt",
+        "gougingfire",
+        "garchomp"
+      ]
+    },
+    "johto_valerio": {
+      "name": "Falkner",
+      "team": [
+        "pelipper",
+        "articuno",
+        "gliscor",
+        "pinsir",
+        "corviknight",
+        "ribombee"
       ]
     },
     "juggler_dalton_011e": {
@@ -6788,13 +7489,15 @@
     "juggler_gregory_0122": {
       "name": "Juggler Gregory",
       "team": [
-        "mrmime"
+        "mrmime",
+        "alakazam"
       ]
     },
     "juggler_kayden_0124": {
       "name": "Juggler Kayden",
       "team": [
-        "salazzle"
+        "salazzle",
+        "zoroark"
       ]
     },
     "juggler_kirk_0120": {
@@ -6847,6 +7550,149 @@
         "hypno"
       ]
     },
+    "kanto_blaine": {
+      "name": "Blaine",
+      "team": [
+        "koraidon",
+        "charizard",
+        "magmar",
+        "incineroar",
+        "gougingfire",
+        "blaziken"
+      ]
+    },
+    "kanto_brock": {
+      "name": "Brock",
+      "team": [
+        "arcanine",
+        "tyranitar",
+        "ironboulder",
+        "coalossal",
+        "ogerpon",
+        "steelix"
+      ]
+    },
+    "kanto_champion_blue": {
+      "name": "Blue",
+      "team": [
+        "eternatus",
+        "tapukoko",
+        "duraludon",
+        "charizard",
+        "ironvaliant",
+        "chienpao"
+      ]
+    },
+    "kanto_erika": {
+      "name": "Erika",
+      "team": [
+        "torkoal",
+        "lilligant",
+        "rillaboom",
+        "amoonguss",
+        "ogerpon",
+        "sceptile"
+      ]
+    },
+    "kanto_giovanni": {
+      "name": "Giovanni",
+      "team": [
+        "flygon",
+        "mewtwo",
+        "gastrodon",
+        "sandaconda",
+        "ursaluna",
+        "zygarde"
+      ]
+    },
+    "kanto_koga": {
+      "name": "Koga",
+      "team": [
+        "amoonguss",
+        "gengar",
+        "naganadel",
+        "venusaur",
+        "sneasler",
+        "overqwil"
+      ]
+    },
+    "kanto_league_agatha": {
+      "name": "Agatha",
+      "team": [
+        "lunala",
+        "banette",
+        "gengar",
+        "calyrex",
+        "fluttermane",
+        "gholdengo"
+      ]
+    },
+    "kanto_league_bruno": {
+      "name": "Bruno",
+      "team": [
+        "annihilape",
+        "ironhands",
+        "urshifu",
+        "conkeldurr",
+        "zamazenta",
+        "lucario"
+      ]
+    },
+    "kanto_league_lance": {
+      "name": "Lance",
+      "team": [
+        "dragapult",
+        "reshiram",
+        "dragonite",
+        "dragalge",
+        "rayquaza",
+        "kommoo"
+      ]
+    },
+    "kanto_league_lorelei": {
+      "name": "Lorelei",
+      "team": [
+        "ninetales",
+        "glalie",
+        "lapras",
+        "articuno",
+        "avalugg",
+        "chienpao"
+      ]
+    },
+    "kanto_ltsurge": {
+      "name": "Lt. Surge",
+      "team": [
+        "miraidon",
+        "kilowattrel",
+        "toxtricity",
+        "manectric",
+        "ironhands",
+        "raichu"
+      ]
+    },
+    "kanto_misty": {
+      "name": "Misty",
+      "team": [
+        "pelipper",
+        "urshifu",
+        "primarina",
+        "kingler",
+        "gyarados",
+        "basculegion"
+      ]
+    },
+    "kanto_sabrina": {
+      "name": "Sabrina",
+      "team": [
+        "indeedee",
+        "hatterene",
+        "farigiraf",
+        "gardevoir",
+        "calyrex",
+        "ironcrown"
+      ]
+    },
     "lady_gillian_0234": {
       "name": "Lady Gillian",
       "team": [
@@ -6872,25 +7718,29 @@
     "lady_melissa_032c": {
       "name": "Lady Melissa",
       "team": [
-        "buneary"
+        "buneary",
+        "roselia"
       ]
     },
     "lady_melissa_0541": {
       "name": "Lady Melissa",
       "team": [
-        "buneary"
+        "buneary",
+        "milotic"
       ]
     },
     "lady_melissa_0542": {
       "name": "Lady Melissa",
       "team": [
-        "lopunny"
+        "lopunny",
+        "gardevoir"
       ]
     },
     "lady_melissa_0543": {
       "name": "Lady Melissa",
       "team": [
-        "lopunny"
+        "lopunny",
+        "sylveon"
       ]
     },
     "lady_selphy_025e": {
@@ -6941,7 +7791,8 @@
     "lass_briana_037f": {
       "name": "Lass Briana",
       "team": [
-        "pachirisu"
+        "pachirisu",
+        "skitty"
       ]
     },
     "lass_caroline_03de": {
@@ -6954,7 +7805,8 @@
     "lass_cassidy_0439": {
       "name": "Lass Cassidy",
       "team": [
-        "buneary"
+        "buneary",
+        "cherubi"
       ]
     },
     "lass_crissy_0077": {
@@ -6992,7 +7844,8 @@
     "lass_iris_0079": {
       "name": "Lass Iris",
       "team": [
-        "milcery"
+        "milcery",
+        "skitty"
       ]
     },
     "lass_janice_0074": {
@@ -7019,7 +7872,8 @@
     "lass_joana_0269": {
       "name": "Lass Joana",
       "team": [
-        "snubbull"
+        "snubbull",
+        "altaria"
       ]
     },
     "lass_julia_0083": {
@@ -7119,7 +7973,8 @@
     "lass_molly_03df": {
       "name": "Lass Molly",
       "team": [
-        "misdreavus"
+        "misdreavus",
+        "kirlia"
       ]
     },
     "lass_natalie_02e9": {
@@ -7160,7 +8015,8 @@
     "lass_robin_0076": {
       "name": "Lass Robin",
       "team": [
-        "flaaffy"
+        "flaaffy",
+        "buneary"
       ]
     },
     "lass_sally_0075": {
@@ -7173,31 +8029,36 @@
     "lass_samantha_02ec": {
       "name": "Lass Samantha",
       "team": [
-        "budew"
+        "budew",
+        "cherubi"
       ]
     },
     "lass_samantha_0527": {
       "name": "Lass Samantha",
       "team": [
-        "budew"
+        "budew",
+        "cherubi"
       ]
     },
     "lass_samantha_0528": {
       "name": "Lass Samantha",
       "team": [
-        "roselia"
+        "roselia",
+        "flaaffy"
       ]
     },
     "lass_samantha_0529": {
       "name": "Lass Samantha",
       "team": [
+        "togekiss",
         "roselia"
       ]
     },
     "lass_sarah_02ed": {
       "name": "Lass Sarah",
       "team": [
-        "bidoof"
+        "bidoof",
+        "starly"
       ]
     },
     "leader_alice_05ac": {
@@ -7683,6 +8544,22 @@
         "bisharp"
       ]
     },
+    "lumy_mario": {
+      "name": "Mario",
+      "team": [
+        "goodra",
+        "greninja",
+        "eelektross"
+      ]
+    },
+    "lumy_rickally": {
+      "name": "RickAlly",
+      "team": [
+        "serperior",
+        "krookodile",
+        "luxray"
+      ]
+    },
     "madame_rebecca_0488": {
       "name": "Madame Rebecca",
       "team": [
@@ -7693,19 +8570,22 @@
     "madame_reina_032e": {
       "name": "Madame Reina",
       "team": [
-        "roselia"
+        "roselia",
+        "delcatty"
       ]
     },
     "madame_reina_0525": {
       "name": "Madame Reina",
       "team": [
-        "roselia"
+        "roselia",
+        "chimecho"
       ]
     },
     "madame_reina_0526": {
       "name": "Madame Reina",
       "team": [
-        "roselia"
+        "roselia",
+        "vivillon"
       ]
     },
     "mega_trainer_aloysius_05cc": {
@@ -7774,25 +8654,29 @@
     "mega_trainer_ravonna_kangaskhan_1_05d3": {
       "name": "Mega Trainer Ravonna",
       "team": [
-        "kangaskhan"
+        "kangaskhan",
+        "gyarados"
       ]
     },
     "mega_trainer_ravonna_kangaskhan_2_05d4": {
       "name": "Mega Trainer Ravonna",
       "team": [
-        "kangaskhan"
+        "kangaskhan",
+        "manectric"
       ]
     },
     "mega_trainer_ravonna_kangaskhan_3_05d5": {
       "name": "Mega Trainer Ravonna",
       "team": [
+        "charizard",
         "kangaskhan"
       ]
     },
     "mega_trainer_ravonna_kangaskhan_4_05d6": {
       "name": "Mega Trainer Ravonna",
       "team": [
-        "kangaskhan"
+        "kangaskhan",
+        "gardevoir"
       ]
     },
     "mega_trainer_reena_05cf": {
@@ -7850,6 +8734,28 @@
         "camerupt"
       ]
     },
+    "mod_edo_leone": {
+      "name": "Edo_Leone",
+      "team": [
+        "sirfetchd",
+        "snorlax"
+      ]
+    },
+    "mod_nikky": {
+      "name": "Nikky",
+      "team": [
+        "chimchar",
+        "flareon",
+        "rapidash"
+      ]
+    },
+    "mod_vale_fragola": {
+      "name": "Vale_Fragola",
+      "team": [
+        "cubchoo",
+        "vanillish"
+      ]
+    },
     "ninja_boy_antonio_0359": {
       "name": "Ninja Boy Antonio",
       "team": [
@@ -7869,13 +8775,15 @@
     "ninja_boy_bruce_0456": {
       "name": "Ninja Boy Bruce",
       "team": [
-        "stunky"
+        "stunky",
+        "croagunk"
       ]
     },
     "ninja_boy_davey_0321": {
       "name": "Ninja Boy Davey",
       "team": [
-        "dustox"
+        "dustox",
+        "koffing"
       ]
     },
     "ninja_boy_ethan_035a": {
@@ -7948,34 +8856,65 @@
         "crobat"
       ]
     },
+    "old_sage": {
+      "name": "The Old Sage",
+      "team": [
+        "entei",
+        "suicune",
+        "raikou",
+        "meganium",
+        "typhlosion",
+        "feraligatr"
+      ]
+    },
     "painter_celina_0232": {
       "name": "Painter Celina",
       "team": [
-        "smeargle"
+        "smeargle",
+        "chatot"
       ]
     },
     "painter_daisy_020e": {
       "name": "Painter Daisy",
       "team": [
-        "smeargle"
+        "smeargle",
+        "gothitelle"
       ]
     },
     "painter_edna_025c": {
       "name": "Painter Edna",
       "team": [
-        "smeargle"
+        "smeargle",
+        "oricorio"
       ]
     },
     "painter_rayna_0233": {
       "name": "Painter Rayna",
       "team": [
-        "smeargle"
+        "smeargle",
+        "lilligant"
       ]
     },
     "painter_rayna_02bf": {
       "name": "Painter Rayna",
       "team": [
-        "smeargle"
+        "smeargle",
+        "talonflame"
+      ]
+    },
+    "pallet_ash": {
+      "name": "Ash",
+      "team": [
+        "charizard",
+        "pikachu",
+        "venusaur"
+      ]
+    },
+    "pallet_delia": {
+      "name": "Delia",
+      "team": [
+        "mrmime",
+        "clefairy"
       ]
     },
     "parasol_lady_alexa_03e1": {
@@ -8009,7 +8948,8 @@
     "parasol_lady_sabrina_03e2": {
       "name": "Parasol Lady Sabrina",
       "team": [
-        "psyduck"
+        "psyduck",
+        "marill"
       ]
     },
     "pi_carlos_0346": {
@@ -8055,19 +8995,22 @@
     "picnicker_alicia_0280": {
       "name": "Picnicker Alicia",
       "team": [
-        "meowth"
+        "meowth",
+        "jigglypuff"
       ]
     },
     "picnicker_alicia_0281": {
       "name": "Picnicker Alicia",
       "team": [
-        "persian"
+        "persian",
+        "pachirisu"
       ]
     },
     "picnicker_alicia_0282": {
       "name": "Picnicker Alicia",
       "team": [
-        "persian"
+        "persian",
+        "ninetales"
       ]
     },
     "picnicker_alma_01d2": {
@@ -8083,7 +9026,8 @@
     "picnicker_ana_0442": {
       "name": "Picnicker Ana",
       "team": [
-        "meditite"
+        "meditite",
+        "roselia"
       ]
     },
     "picnicker_ariana_01db": {
@@ -8142,7 +9086,8 @@
     "picnicker_celia_01e1": {
       "name": "Picnicker Celia",
       "team": [
-        "delcatty"
+        "delcatty",
+        "togekiss"
       ]
     },
     "picnicker_cheyenne_03e4": {
@@ -8172,7 +9117,8 @@
     "picnicker_diana_0096": {
       "name": "Picnicker Diana",
       "team": [
-        "drednaw"
+        "drednaw",
+        "nuzleaf"
       ]
     },
     "picnicker_diana_03e3": {
@@ -8251,25 +9197,29 @@
     "picnicker_karina_043f": {
       "name": "Picnicker Karina",
       "team": [
-        "piplup"
+        "piplup",
+        "bidoof"
       ]
     },
     "picnicker_karina_0536": {
       "name": "Picnicker Karina",
       "team": [
-        "piplup"
+        "piplup",
+        "cherubi"
       ]
     },
     "picnicker_karina_0537": {
       "name": "Picnicker Karina",
       "team": [
-        "prinplup"
+        "prinplup",
+        "roselia"
       ]
     },
     "picnicker_karina_0538": {
       "name": "Picnicker Karina",
       "team": [
-        "empoleon"
+        "empoleon",
+        "altaria"
       ]
     },
     "picnicker_kelsey_0099": {
@@ -8311,7 +9261,8 @@
     "picnicker_lauren_0305": {
       "name": "Picnicker Lauren",
       "team": [
-        "pachirisu"
+        "pachirisu",
+        "budew"
       ]
     },
     "picnicker_leah_01dc": {
@@ -8458,25 +9409,29 @@
     "player_brendan_0200": {
       "name": "Player Brendan",
       "team": [
-        "ekans"
+        "ekans",
+        "zubat"
       ]
     },
     "player_leaf_0203": {
       "name": "Player Leaf",
       "team": [
-        "ekans"
+        "ekans",
+        "rattata"
       ]
     },
     "player_may_0201": {
       "name": "Player May",
       "team": [
-        "ekans"
+        "ekans",
+        "budew"
       ]
     },
     "player_red_0202": {
       "name": "Player Red",
       "team": [
-        "ekans"
+        "ekans",
+        "sandshrew"
       ]
     },
     "poke_fan_leonard_0479": {
@@ -8497,6 +9452,7 @@
     "poke_fan_rebekah_047a": {
       "name": "Poké Fan Rebekah",
       "team": [
+        "bonsly",
         "bonsly"
       ]
     },
@@ -8510,25 +9466,29 @@
     "poke_kid_danielle_0314": {
       "name": "Poké Kid Danielle",
       "team": [
-        "pikachu"
+        "pikachu",
+        "pichu"
       ]
     },
     "poke_kid_danielle_0539": {
       "name": "Poké Kid Danielle",
       "team": [
-        "pikachu"
+        "pikachu",
+        "plusle"
       ]
     },
     "poke_kid_danielle_053a": {
       "name": "Poké Kid Danielle",
       "team": [
-        "pikachu"
+        "pikachu",
+        "minun"
       ]
     },
     "poke_kid_danielle_053b": {
       "name": "Poké Kid Danielle",
       "team": [
-        "pikachu"
+        "pikachu",
+        "raichu"
       ]
     },
     "poke_kid_janet_0578": {
@@ -8550,13 +9510,15 @@
     "pokefan_agathare_0021": {
       "name": "Pokéfan AgathaRe",
       "team": [
-        "ekans"
+        "ekans",
+        "meowth"
       ]
     },
     "pokefan_agathare_0022": {
       "name": "Pokéfan AgathaRe",
       "team": [
-        "ekans"
+        "ekans",
+        "teddiursa"
       ]
     },
     "pokemaniac_ashton_00a8": {
@@ -8648,7 +9610,8 @@
     "pokemaniac_winston_00a6": {
       "name": "Pokémaniac Winston",
       "team": [
-        "magneton"
+        "magneton",
+        "porygon"
       ]
     },
     "pokemon_breeder_albert_0310": {
@@ -8790,7 +9753,8 @@
     "pokemon_ranger_dwayne_04ba": {
       "name": "Pokémon Ranger Dwayne",
       "team": [
-        "donphan"
+        "donphan",
+        "arcanine"
       ]
     },
     "pokemon_ranger_felicia_04bc": {
@@ -8859,7 +9823,8 @@
     "pokemon_trainer_buck_04cb": {
       "name": "Pokémon Trainer Buck",
       "team": [
-        "claydol"
+        "claydol",
+        "sigilyph"
       ]
     },
     "pokemon_trainer_cedric_0396": {
@@ -9102,25 +10067,29 @@
     "pokemon_trainer_cheryl_04c8": {
       "name": "Pokémon Trainer Cheryl",
       "team": [
-        "chansey"
+        "chansey",
+        "skitty"
       ]
     },
     "pokemon_trainer_dawn_04d0": {
       "name": "Pokémon Trainer Dawn",
       "team": [
-        "turtwig"
+        "turtwig",
+        "piplup"
       ]
     },
     "pokemon_trainer_dawn_04d1": {
       "name": "Pokémon Trainer Dawn",
       "team": [
-        "chimchar"
+        "chimchar",
+        "buneary"
       ]
     },
     "pokemon_trainer_dawn_04d2": {
       "name": "Pokémon Trainer Dawn",
       "team": [
-        "piplup"
+        "piplup",
+        "pachirisu"
       ]
     },
     "pokemon_trainer_dawn_04d8": {
@@ -9216,19 +10185,22 @@
     "pokemon_trainer_lucas_04cd": {
       "name": "Pokémon Trainer Lucas",
       "team": [
-        "turtwig"
+        "turtwig",
+        "starly"
       ]
     },
     "pokemon_trainer_lucas_04ce": {
       "name": "Pokémon Trainer Lucas",
       "team": [
-        "chimchar"
+        "chimchar",
+        "shinx"
       ]
     },
     "pokemon_trainer_lucas_04cf": {
       "name": "Pokémon Trainer Lucas",
       "team": [
-        "piplup"
+        "piplup",
+        "budew"
       ]
     },
     "pokemon_trainer_lucas_04d5": {
@@ -9324,19 +10296,22 @@
     "pokemon_trainer_marley_04ca": {
       "name": "Pokémon Trainer Marley",
       "team": [
-        "arcanine"
+        "arcanine",
+        "flygon"
       ]
     },
     "pokemon_trainer_mira_04cc": {
       "name": "Pokémon Trainer Mira",
       "team": [
-        "kadabra"
+        "kadabra",
+        "haunter"
       ]
     },
     "pokemon_trainer_riley_04c9": {
       "name": "Pokémon Trainer Riley",
       "team": [
-        "lucario"
+        "lucario",
+        "gallade"
       ]
     },
     "police_officer_alex_0330": {
@@ -9405,7 +10380,8 @@
     "prof_prof_oak_01ff": {
       "name": "Prof. Prof. Oak",
       "team": [
-        "ekans"
+        "ekans",
+        "growlithe"
       ]
     },
     "professor_oak_00c8": {
@@ -9522,19 +10498,22 @@
     "psychic_dario_024a": {
       "name": "Psychic Dario",
       "team": [
-        "girafarig"
+        "girafarig",
+        "claydol"
       ]
     },
     "psychic_dario_02cd": {
       "name": "Psychic Dario",
       "team": [
-        "girafarig"
+        "girafarig",
+        "xatu"
       ]
     },
     "psychic_deandre_0415": {
       "name": "Psychic Deandre",
       "team": [
-        "girafarig"
+        "girafarig",
+        "espeon"
       ]
     },
     "psychic_desiree_0417": {
@@ -9547,7 +10526,8 @@
     "psychic_elijah_0380": {
       "name": "Psychic Elijah",
       "team": [
-        "abra"
+        "abra",
+        "ralts"
       ]
     },
     "psychic_jaclyn_0205": {
@@ -9585,13 +10565,15 @@
     "psychic_kody_0413": {
       "name": "Psychic Kody",
       "team": [
-        "meditite"
+        "meditite",
+        "baltoy"
       ]
     },
     "psychic_landon_0414": {
       "name": "Psychic Landon",
       "team": [
-        "mrmime"
+        "mrmime",
+        "gardevoir"
       ]
     },
     "psychic_laura_0260": {
@@ -9605,7 +10587,8 @@
     "psychic_lindsey_0381": {
       "name": "Psychic Lindsey",
       "team": [
-        "abra"
+        "abra",
+        "kirlia"
       ]
     },
     "psychic_maxwell_03ba": {
@@ -9646,13 +10629,15 @@
     "psychic_preston_011b": {
       "name": "Psychic Preston",
       "team": [
-        "bronzong"
+        "bronzong",
+        "reuniclus"
       ]
     },
     "psychic_rachael_0416": {
       "name": "Psychic Rachael",
       "team": [
-        "psyduck"
+        "psyduck",
+        "solosis"
       ]
     },
     "psychic_rodette_024b": {
@@ -9719,7 +10704,8 @@
     "ranchers_ava_03bc": {
       "name": "Ranchers Ava",
       "team": [
-        "stunky"
+        "stunky",
+        "miltank"
       ]
     },
     "ranchers_ava_matt_m006": {
@@ -9751,7 +10737,8 @@
     "ranchers_matt_03bd": {
       "name": "Ranchers Matt",
       "team": [
-        "glameow"
+        "glameow",
+        "mareep"
       ]
     },
     "ranger_beth_0255": {
@@ -9782,13 +10769,15 @@
     "ranger_katelyn_0256": {
       "name": "Ranger Katelyn",
       "team": [
-        "chansey"
+        "chansey",
+        "arcanine"
       ]
     },
     "ranger_katelyn_02d5": {
       "name": "Ranger Katelyn",
       "team": [
-        "chansey"
+        "chansey",
+        "tangrowth"
       ]
     },
     "ranger_madeline_020a": {
@@ -9822,43 +10811,50 @@
     "reporter_kinsey_0401": {
       "name": "Reporter Kinsey",
       "team": [
-        "chatot"
+        "chatot",
+        "growlithe"
       ]
     },
     "reporter_valerie_048c": {
       "name": "Reporter Valerie",
       "team": [
-        "murkrow"
+        "murkrow",
+        "espurr"
       ]
     },
     "rich_boy_jason_032b": {
       "name": "Rich Boy Jason",
       "team": [
-        "luxio"
+        "luxio",
+        "roselia"
       ]
     },
     "rich_boy_roman_048a": {
       "name": "Rich Boy Roman",
       "team": [
-        "sudowoodo"
+        "sudowoodo",
+        "persian"
       ]
     },
     "rich_boy_trey_03e8": {
       "name": "Rich Boy Trey",
       "team": [
-        "luxio"
+        "luxio",
+        "lopunny"
       ]
     },
     "rich_boy_trey_053f": {
       "name": "Rich Boy Trey",
       "team": [
-        "luxio"
+        "luxio",
+        "milotic"
       ]
     },
     "rich_boy_trey_0540": {
       "name": "Rich Boy Trey",
       "team": [
-        "luxio"
+        "luxio",
+        "gallade"
       ]
     },
     "rival_1_player_chose_beldum_0607": {
@@ -9985,6 +10981,17 @@
         "haxorus",
         "talonflame",
         "metagross"
+      ]
+    },
+    "rival_red": {
+      "name": "Red",
+      "team": [
+        "venusaur",
+        "charizard",
+        "blastoise",
+        "pikachu",
+        "snorlax",
+        "lapras"
       ]
     },
     "rival_terry_0146": {
@@ -10277,7 +11284,8 @@
     "roughneck_kirby_0478": {
       "name": "Roughneck Kirby",
       "team": [
-        "cleffa"
+        "cleffa",
+        "machoke"
       ]
     },
     "ruin_mamoac_benjamin_025b": {
@@ -10291,13 +11299,15 @@
     "ruin_mamoac_brandon_025a": {
       "name": "Ruin Mamoac Brandon",
       "team": [
-        "onix"
+        "onix",
+        "claydol"
       ]
     },
     "ruin_mamoac_foster_0246": {
       "name": "Ruin Mamoac Foster",
       "team": [
-        "golem"
+        "golem",
+        "cofagrigus"
       ]
     },
     "ruin_mamoac_larry_0247": {
@@ -10363,25 +11373,29 @@
     "ruin_maniac_harry_0433": {
       "name": "Ruin Maniac Harry",
       "team": [
-        "bronzor"
+        "bronzor",
+        "baltoy"
       ]
     },
     "ruin_maniac_harry_051f": {
       "name": "Ruin Maniac Harry",
       "team": [
-        "bronzor"
+        "bronzor",
+        "golett"
       ]
     },
     "ruin_maniac_harry_0520": {
       "name": "Ruin Maniac Harry",
       "team": [
-        "bronzor"
+        "bronzor",
+        "claydol"
       ]
     },
     "ruin_maniac_hunter_0343": {
       "name": "Ruin Maniac Hunter",
       "team": [
-        "shieldon"
+        "shieldon",
+        "cranidos"
       ]
     },
     "ruin_maniac_karl_0492": {
@@ -10395,7 +11409,8 @@
     "ruin_maniac_larry_03cc": {
       "name": "Ruin Maniac Larry",
       "team": [
-        "steelix"
+        "steelix",
+        "aggron"
       ]
     },
     "sailor_damian_03eb": {
@@ -10446,7 +11461,8 @@
     "sailor_leonard_0088": {
       "name": "Sailor Leonard",
       "team": [
-        "corsola"
+        "corsola",
+        "chinchou"
       ]
     },
     "sailor_luther_036d": {
@@ -10460,7 +11476,8 @@
     "sailor_marc_03e9": {
       "name": "Sailor Marc",
       "team": [
-        "mantyke"
+        "mantyke",
+        "pelipper"
       ]
     },
     "sailor_marc_054c": {
@@ -10487,7 +11504,8 @@
     "sailor_phillip_008c": {
       "name": "Sailor Phillip",
       "team": [
-        "meditite"
+        "meditite",
+        "poliwhirl"
       ]
     },
     "sailor_samson_0452": {
@@ -10531,43 +11549,50 @@
     "school_kid_brunore_001e": {
       "name": "School Kid BrunoRe",
       "team": [
-        "ekans"
+        "ekans",
+        "zubat"
       ]
     },
     "school_kid_brunore_001f": {
       "name": "School Kid BrunoRe",
       "team": [
-        "ekans"
+        "ekans",
+        "venipede"
       ]
     },
     "school_kid_chance_03ec": {
       "name": "School Kid Chance",
       "team": [
-        "haunter"
+        "haunter",
+        "kadabra"
       ]
     },
     "school_kid_christine_03f1": {
       "name": "School Kid Christine",
       "team": [
-        "abra"
+        "abra",
+        "ralts"
       ]
     },
     "school_kid_esteban_048d": {
       "name": "School Kid Esteban",
       "team": [
-        "wooper"
+        "wooper",
+        "psyduck"
       ]
     },
     "school_kid_forrest_03ed": {
       "name": "School Kid Forrest",
       "team": [
-        "mrmime"
+        "mrmime",
+        "hypno"
       ]
     },
     "school_kid_harrison_03ee": {
       "name": "School Kid Harrison",
       "team": [
-        "abra"
+        "abra",
+        "pichu"
       ]
     },
     "school_kid_mackenzie_03ef": {
@@ -10580,7 +11605,8 @@
     "school_kid_tiera_03f0": {
       "name": "School Kid Tiera",
       "team": [
-        "pachirisu"
+        "pachirisu",
+        "togetic"
       ]
     },
     "science_society_scientist_rogue_electivire_05df": {
@@ -10629,7 +11655,8 @@
     "scientist_darrius_0575": {
       "name": "Scientist Darrius",
       "team": [
-        "kadabra"
+        "kadabra",
+        "magneton"
       ]
     },
     "scientist_ed_0158": {
@@ -10643,7 +11670,8 @@
     "scientist_emilio_048e": {
       "name": "Scientist Emilio",
       "team": [
-        "kadabra"
+        "kadabra",
+        "porygon"
       ]
     },
     "scientist_fredrick_0576": {
@@ -10702,7 +11730,8 @@
     "scientist_rodney_0153": {
       "name": "Scientist Rodney",
       "team": [
-        "rotom"
+        "rotom",
+        "magnezone"
       ]
     },
     "scientist_shaun_0453": {
@@ -10736,7 +11765,8 @@
     "scientist_stefano_0338": {
       "name": "Scientist Stefano",
       "team": [
-        "kadabra"
+        "kadabra",
+        "grimer"
       ]
     },
     "scientist_taylor_0155": {
@@ -10766,7 +11796,8 @@
     "scientist_travon_0577": {
       "name": "Scientist Travon",
       "team": [
-        "kadabra"
+        "kadabra",
+        "magnemite"
       ]
     },
     "shadow_admin_ivory_1_05ba": {
@@ -10848,6 +11879,72 @@
         "shiftry"
       ]
     },
+    "sinnoh_bianca": {
+      "name": "Candice",
+      "team": [
+        "ninetales",
+        "arctozolt",
+        "froslass",
+        "cetitan",
+        "gardevoir",
+        "ironvaliant"
+      ]
+    },
+    "sinnoh_champion_camilla": {
+      "name": "Cynthia",
+      "team": [
+        "garchomp",
+        "kyogre",
+        "eternatus",
+        "urshifu",
+        "mewtwo",
+        "darkrai"
+      ]
+    },
+    "sinnoh_corrado": {
+      "name": "Volkner",
+      "team": [
+        "miraidon",
+        "raichu",
+        "farigiraf",
+        "kilowattrel",
+        "zeraora",
+        "magnezone"
+      ]
+    },
+    "sinnoh_fannie": {
+      "name": "Fantina",
+      "team": [
+        "drifblim",
+        "mimikyu",
+        "gengar",
+        "aegislash",
+        "hatterene",
+        "chandelure"
+      ]
+    },
+    "sinnoh_ferruccio": {
+      "name": "Byron",
+      "team": [
+        "klefki",
+        "ironhands",
+        "aggron",
+        "metagross",
+        "magnezone",
+        "kingambit"
+      ]
+    },
+    "sinnoh_gardenia": {
+      "name": "Gardenia",
+      "team": [
+        "ninetales",
+        "lilligant",
+        "florges",
+        "decidueye",
+        "volcarona",
+        "sceptile"
+      ]
+    },
     "sinnoh_leader_candice_05da": {
       "name": "Sinnoh Leader Candice",
       "team": [
@@ -10866,6 +11963,83 @@
         "glaceon",
         "mamoswine",
         "jynx"
+      ]
+    },
+    "sinnoh_league_aaron": {
+      "name": "Aaron",
+      "team": [
+        "buzzwole",
+        "beedrill",
+        "volcarona",
+        "butterfree",
+        "kleavor",
+        "genesect"
+      ]
+    },
+    "sinnoh_league_luciano": {
+      "name": "Lucian",
+      "team": [
+        "lunala",
+        "indeedee",
+        "calyrex",
+        "cresselia",
+        "necrozma",
+        "alakazam"
+      ]
+    },
+    "sinnoh_league_terrie": {
+      "name": "Bertha",
+      "team": [
+        "landorus",
+        "sandaconda",
+        "steelix",
+        "gastrodon",
+        "zygarde",
+        "ursaluna"
+      ]
+    },
+    "sinnoh_league_vulcano": {
+      "name": "Flint",
+      "team": [
+        "torkoal",
+        "charizard",
+        "whimsicott",
+        "koraidon",
+        "incineroar",
+        "coalossal"
+      ]
+    },
+    "sinnoh_marzia": {
+      "name": "Maylene",
+      "team": [
+        "hitmontop",
+        "lucario",
+        "toxicroak",
+        "gallade",
+        "conkeldurr",
+        "bewear"
+      ]
+    },
+    "sinnoh_omar": {
+      "name": "Crasher Wake",
+      "team": [
+        "politoed",
+        "ludicolo",
+        "swampert",
+        "drednaw",
+        "toxapex",
+        "kingdra"
+      ]
+    },
+    "sinnoh_pedro": {
+      "name": "Roark",
+      "team": [
+        "armaldo",
+        "bastiodon",
+        "kabutops",
+        "aurorus",
+        "rampardos",
+        "camerupt"
       ]
     },
     "sis_and_bro_ava_and_geb_0240": {
@@ -10906,19 +12080,22 @@
     "skier_andrea_0352": {
       "name": "Skier Andrea",
       "team": [
-        "staravia"
+        "staravia",
+        "froslass"
       ]
     },
     "skier_andrea_055b": {
       "name": "Skier Andrea",
       "team": [
-        "staravia"
+        "staravia",
+        "glalie"
       ]
     },
     "skier_andrea_055c": {
       "name": "Skier Andrea",
       "team": [
-        "staraptor"
+        "staraptor",
+        "frosmoth"
       ]
     },
     "skier_bjorn_0356": {
@@ -10953,19 +12130,22 @@
     "skier_edward_0350": {
       "name": "Skier Edward",
       "team": [
-        "sneasel"
+        "sneasel",
+        "piloswine"
       ]
     },
     "skier_edward_0557": {
       "name": "Skier Edward",
       "team": [
-        "sneasel"
+        "sneasel",
+        "glaceon"
       ]
     },
     "skier_edward_0558": {
       "name": "Skier Edward",
       "team": [
-        "sneasel"
+        "sneasel",
+        "weavile"
       ]
     },
     "skier_kaitlyn_0351": {
@@ -10985,19 +12165,22 @@
     "skier_madison_0358": {
       "name": "Skier Madison",
       "team": [
-        "snover"
+        "snover",
+        "delibird"
       ]
     },
     "skier_madison_055d": {
       "name": "Skier Madison",
       "team": [
-        "snover"
+        "snover",
+        "sealeo"
       ]
     },
     "skier_madison_055e": {
       "name": "Skier Madison",
       "team": [
-        "snover"
+        "snover",
+        "abomasnow"
       ]
     },
     "skier_shawn_0355": {
@@ -11040,7 +12223,8 @@
     "super_nerd_derek_00b3": {
       "name": "Super Nerd Derek",
       "team": [
-        "rapidash"
+        "rapidash",
+        "porygonz"
       ]
     },
     "super_nerd_erik_00b1": {
@@ -11077,7 +12261,8 @@
     "super_nerd_leslie_00ad": {
       "name": "Super Nerd Leslie",
       "team": [
-        "weezing"
+        "weezing",
+        "klinklang"
       ]
     },
     "super_nerd_miguel_00aa": {
@@ -11121,6 +12306,7 @@
     "swimmer_claire_0459": {
       "name": "Swimmer Claire",
       "team": [
+        "pelipper",
         "buizel"
       ]
     },
@@ -11163,7 +12349,8 @@
     "swimmer_erik_035f": {
       "name": "Swimmer Erik",
       "team": [
-        "gyarados"
+        "gyarados",
+        "seadra"
       ]
     },
     "swimmer_evan_033b": {
@@ -11190,7 +12377,17 @@
     "swimmer_gabrielle_0379": {
       "name": "Swimmer Gabrielle",
       "team": [
-        "golduck"
+        "golduck",
+        "tentacruel"
+      ]
+    },
+    "swimmer_gengar": {
+      "name": "Gengar",
+      "team": [
+        "gengar",
+        "gardevoir",
+        "decidueye",
+        "pachirisu"
       ]
     },
     "swimmer_glenn_04be": {
@@ -11248,7 +12445,8 @@
     "swimmer_kurt_04bf": {
       "name": "Swimmer Kurt",
       "team": [
-        "crawdaunt"
+        "crawdaunt",
+        "octillery"
       ]
     },
     "swimmer_lydia_04c5": {
@@ -11276,13 +12474,15 @@
     "swimmer_miranda_0374": {
       "name": "Swimmer Miranda",
       "team": [
-        "lumineon"
+        "lumineon",
+        "luvdisc"
       ]
     },
     "swimmer_miranda_0562": {
       "name": "Swimmer Miranda",
       "team": [
-        "lumineon"
+        "lumineon",
+        "vaporeon"
       ]
     },
     "swimmer_oscar_0373": {
@@ -11304,7 +12504,8 @@
     "swimmer_ricardo_036f": {
       "name": "Swimmer Ricardo",
       "team": [
-        "tentacruel"
+        "tentacruel",
+        "mantine"
       ]
     },
     "swimmer_sam_04c0": {
@@ -11332,13 +12533,15 @@
     "swimmer_troy_0372": {
       "name": "Swimmer Troy",
       "team": [
-        "gyarados"
+        "gyarados",
+        "lanturn"
       ]
     },
     "swimmer_vanessa_0365": {
       "name": "Swimmer Vanessa",
       "team": [
-        "golduck"
+        "golduck",
+        "seaking"
       ]
     },
     "swimmer_vincent_0360": {
@@ -11452,13 +12655,15 @@
     "swimmerf_nicole_023f": {
       "name": "Swimmer♀ Nicole",
       "team": [
-        "marill"
+        "marill",
+        "mantine"
       ]
     },
     "swimmerf_nicole_02c7": {
       "name": "Swimmer♀ Nicole",
       "team": [
-        "marill"
+        "marill",
+        "lanturn"
       ]
     },
     "swimmerf_nora_010f": {
@@ -11480,7 +12685,8 @@
     "swimmerf_tiffany_010e": {
       "name": "Swimmer♀ Tiffany",
       "team": [
-        "lapras"
+        "lapras",
+        "walrein"
       ]
     },
     "swimmerf_tisha_0231": {
@@ -11539,7 +12745,8 @@
     "swimmerm_dean_00f3": {
       "name": "Swimmer♂ Dean",
       "team": [
-        "swampert"
+        "swampert",
+        "kingdra"
       ]
     },
     "swimmerm_douglas_00ee": {
@@ -11563,7 +12770,8 @@
     "swimmerm_finn_02b2": {
       "name": "Swimmer♂ Finn",
       "team": [
-        "starmie"
+        "starmie",
+        "cloyster"
       ]
     },
     "swimmerm_garrett_0226": {
@@ -11578,13 +12786,15 @@
     "swimmerm_jack_00f6": {
       "name": "Swimmer♂ Jack",
       "team": [
-        "starmie"
+        "starmie",
+        "gyarados"
       ]
     },
     "swimmerm_jack_02af": {
       "name": "Swimmer♂ Jack",
       "team": [
-        "starmie"
+        "starmie",
+        "tentacruel"
       ]
     },
     "swimmerm_jerome_00f7": {
@@ -11648,13 +12858,15 @@
     "swimmerm_samir_0242": {
       "name": "Swimmer♂ Samir",
       "team": [
-        "gyarados"
+        "gyarados",
+        "relicanth"
       ]
     },
     "swimmerm_samir_02c9": {
       "name": "Swimmer♂ Samir",
       "team": [
-        "gyarados"
+        "gyarados",
+        "sharpedo"
       ]
     },
     "swimmerm_spencer_00f5": {
@@ -11720,7 +12932,8 @@
     "tamer_jason_0128": {
       "name": "Tamer Jason",
       "team": [
-        "rhyhorn"
+        "rhyhorn",
+        "arbok"
       ]
     },
     "tamer_john_012b": {
@@ -11744,6 +12957,13 @@
       "team": [
         "persian",
         "golduck"
+      ]
+    },
+    "team_aqua_ivan": {
+      "name": "Leader Ivan",
+      "team": [
+        "kyogre",
+        "kingdra"
       ]
     },
     "team_galactic_boss_cyrus_041a": {
@@ -11773,13 +12993,15 @@
     "team_galactic_grunt_03c4": {
       "name": "Team Galactic Grunt",
       "team": [
-        "zubat"
+        "zubat",
+        "stunky"
       ]
     },
     "team_galactic_grunt_03c5": {
       "name": "Team Galactic Grunt",
       "team": [
-        "cascoon"
+        "cascoon",
+        "glameow"
       ]
     },
     "team_galactic_grunt_03c6": {
@@ -11806,13 +13028,15 @@
     "team_galactic_grunt_0423": {
       "name": "Team Galactic Grunt",
       "team": [
-        "zubat"
+        "zubat",
+        "glameow"
       ]
     },
     "team_galactic_grunt_0424": {
       "name": "Team Galactic Grunt",
       "team": [
-        "wurmple"
+        "wurmple",
+        "stunky"
       ]
     },
     "team_galactic_grunt_0425": {
@@ -11855,7 +13079,8 @@
     "team_galactic_grunt_042b": {
       "name": "Team Galactic Grunt",
       "team": [
-        "silcoon"
+        "silcoon",
+        "zubat"
       ]
     },
     "team_galactic_grunt_042c": {
@@ -11891,7 +13116,8 @@
     "team_galactic_grunt_0430": {
       "name": "Team Galactic Grunt",
       "team": [
-        "glameow"
+        "glameow",
+        "houndoom"
       ]
     },
     "team_galactic_grunt_0431": {
@@ -11904,7 +13130,8 @@
     "team_galactic_grunt_0463": {
       "name": "Team Galactic Grunt",
       "team": [
-        "golbat"
+        "golbat",
+        "skuntank"
       ]
     },
     "team_galactic_grunt_0464": {
@@ -11917,7 +13144,8 @@
     "team_galactic_grunt_0465": {
       "name": "Team Galactic Grunt",
       "team": [
-        "stunky"
+        "stunky",
+        "crobat"
       ]
     },
     "team_galactic_grunt_0466": {
@@ -11952,7 +13180,8 @@
     "team_galactic_grunt_046a": {
       "name": "Team Galactic Grunt",
       "team": [
-        "bronzor"
+        "bronzor",
+        "porygon2"
       ]
     },
     "team_galactic_grunt_046b": {
@@ -11981,6 +13210,7 @@
     "team_galactic_grunt_046e": {
       "name": "Team Galactic Grunt",
       "team": [
+        "skuntank",
         "golbat"
       ]
     },
@@ -12009,7 +13239,8 @@
     "team_galactic_grunt_0472": {
       "name": "Team Galactic Grunt",
       "team": [
-        "beautifly"
+        "beautifly",
+        "bronzor"
       ]
     },
     "team_galactic_grunt_0473": {
@@ -12077,13 +13308,15 @@
     "team_galactic_grunt_0583": {
       "name": "Team Galactic Grunt",
       "team": [
-        "glameow"
+        "glameow",
+        "zubat"
       ]
     },
     "team_galactic_grunt_0587": {
       "name": "Team Galactic Grunt",
       "team": [
-        "glameow"
+        "glameow",
+        "stunky"
       ]
     },
     "team_galactic_grunt_0588": {
@@ -12100,6 +13333,13 @@
         "croagunk"
       ]
     },
+    "team_magma_max": {
+      "name": "Leader Max",
+      "team": [
+        "groudon",
+        "houndoom"
+      ]
+    },
     "team_rocket_admin_021f": {
       "name": "Team Rocket Admin",
       "team": [
@@ -12114,6 +13354,108 @@
         "golbat",
         "weezing",
         "houndoom"
+      ]
+    },
+    "team_rocket_admin_apollo": {
+      "name": "Apollo",
+      "team": [
+        "clodsire",
+        "sharpedo",
+        "glimmora",
+        "gastrodon",
+        "hippowdon",
+        "drapion"
+      ]
+    },
+    "team_rocket_admin_archer": {
+      "name": "Team Rocket General Archer",
+      "team": [
+        "houndoom",
+        "muk",
+        "magmortar",
+        "weezing",
+        "probopass",
+        "golbat"
+      ]
+    },
+    "team_rocket_admin_atena": {
+      "name": "Atena",
+      "team": [
+        "arbok",
+        "vileplume",
+        "muk",
+        "hypno",
+        "honchkrow"
+      ]
+    },
+    "team_rocket_agent_01": {
+      "name": "Team Rocket Agent",
+      "team": [
+        "hypno",
+        "golbat",
+        "noctowl"
+      ]
+    },
+    "team_rocket_agent_02": {
+      "name": "Team Rocket Agent",
+      "team": [
+        "weezing",
+        "hypno",
+        "raticate"
+      ]
+    },
+    "team_rocket_agent_03": {
+      "name": "Team Rocket Agent",
+      "team": [
+        "magneton",
+        "machoke",
+        "arbok"
+      ]
+    },
+    "team_rocket_agent_04": {
+      "name": "Team Rocket Agent",
+      "team": [
+        "arbok",
+        "noctowl",
+        "raticate"
+      ]
+    },
+    "team_rocket_duo_james": {
+      "name": "Team Rocket James",
+      "team": [
+        "carnivine",
+        "cacnea",
+        "mimejr"
+      ]
+    },
+    "team_rocket_duo_jessie": {
+      "name": "Team Rocket Jessie",
+      "team": [
+        "arbok",
+        "wobbuffet",
+        "mimikyu"
+      ]
+    },
+    "team_rocket_general_archer": {
+      "name": "Team Rocket General Archer",
+      "team": [
+        "houndoom",
+        "muk",
+        "magmortar",
+        "weezing",
+        "probopass",
+        "golbat"
+      ]
+    },
+    "team_rocket_giovanni": {
+      "name": "Giovanni",
+      "team": [
+        "tyranitar",
+        "torterra",
+        "kangaskhan",
+        "garchomp",
+        "nidoking",
+        "rhyperior"
       ]
     },
     "team_rocket_grunt_0046": {
@@ -12360,13 +13702,15 @@
     "team_rocket_grunt_017a": {
       "name": "Team Rocket Grunt",
       "team": [
-        "copperajah"
+        "copperajah",
+        "houndoom"
       ]
     },
     "team_rocket_grunt_017b": {
       "name": "Team Rocket Grunt",
       "team": [
-        "hypno"
+        "hypno",
+        "arbok"
       ]
     },
     "team_rocket_grunt_017c": {
@@ -12443,7 +13787,8 @@
     "team_rocket_grunt_0185": {
       "name": "Team Rocket Grunt",
       "team": [
-        "machamp"
+        "machamp",
+        "muk"
       ]
     },
     "team_rocket_grunt_0186": {
@@ -12539,6 +13884,190 @@
         "ekans",
         "gloom",
         "gloom"
+      ]
+    },
+    "team_rocket_member_01": {
+      "name": "Team Rocket Grunt",
+      "team": [
+        "golbat",
+        "weezing",
+        "arbok"
+      ]
+    },
+    "team_rocket_member_02": {
+      "name": "Team Rocket Grunt",
+      "team": [
+        "raticate",
+        "magneton",
+        "mightyena"
+      ]
+    },
+    "team_rocket_member_03": {
+      "name": "Team Rocket Grunt",
+      "team": [
+        "golbat",
+        "weezing",
+        "machoke"
+      ]
+    },
+    "team_rocket_member_04": {
+      "name": "Team Rocket Grunt",
+      "team": [
+        "weezing",
+        "golbat",
+        "arbok"
+      ]
+    },
+    "team_rocket_officer_01": {
+      "name": "Team Rocket Officer",
+      "team": [
+        "muk",
+        "nidoking",
+        "sandslash",
+        "golem",
+        "probopass"
+      ]
+    },
+    "team_rocket_officer_02": {
+      "name": "Team Rocket Officer",
+      "team": [
+        "nidoking",
+        "muk",
+        "sandslash",
+        "golem",
+        "nosepass"
+      ]
+    },
+    "team_rocket_officer_03": {
+      "name": "Team Rocket Officer",
+      "team": [
+        "salazzle",
+        "muk",
+        "raticate",
+        "golem",
+        "nosepass"
+      ]
+    },
+    "team_rocket_officer_04": {
+      "name": "Team Rocket Officer",
+      "team": [
+        "golem",
+        "muk",
+        "salazzle",
+        "raticate",
+        "nosepass"
+      ]
+    },
+    "team_rocket_scientist_01": {
+      "name": "Team Rocket Scientist",
+      "team": [
+        "kabutops",
+        "omastar",
+        "porygon",
+        "rotom"
+      ]
+    },
+    "team_rocket_scientist_02": {
+      "name": "Team Rocket Scientist",
+      "team": [
+        "omastar",
+        "kabutops",
+        "rotom",
+        "porygon"
+      ]
+    },
+    "team_rocket_scientist_03": {
+      "name": "Team Rocket Scientist",
+      "team": [
+        "rotom",
+        "kabutops",
+        "aerodactyl",
+        "porygon2"
+      ]
+    },
+    "team_rocket_scientist_04": {
+      "name": "Team Rocket Scientist",
+      "team": [
+        "aerodactyl",
+        "porygonz",
+        "omastar",
+        "rotom"
+      ]
+    },
+    "team_rocket_scout_01": {
+      "name": "Team Rocket Scout",
+      "team": [
+        "skuntank",
+        "sharpedo",
+        "pyroar",
+        "claydol"
+      ]
+    },
+    "team_rocket_scout_02": {
+      "name": "Team Rocket Scout",
+      "team": [
+        "pyroar",
+        "skuntank",
+        "sharpedo",
+        "claydol"
+      ]
+    },
+    "team_rocket_scout_03": {
+      "name": "Team Rocket Scout",
+      "team": [
+        "heatmor",
+        "skuntank",
+        "beheeyem",
+        "claydol"
+      ]
+    },
+    "team_rocket_scout_04": {
+      "name": "Team Rocket Scout",
+      "team": [
+        "beheeyem",
+        "skuntank",
+        "claydol",
+        "heatmor"
+      ]
+    },
+    "team_rocket_spy_01": {
+      "name": "Team Rocket Spy",
+      "team": [
+        "trevenant",
+        "gengar",
+        "mismagius",
+        "crobat",
+        "banette"
+      ]
+    },
+    "team_rocket_spy_02": {
+      "name": "Team Rocket Spy",
+      "team": [
+        "banette",
+        "gengar",
+        "mismagius",
+        "trevenant",
+        "crobat"
+      ]
+    },
+    "team_rocket_spy_03": {
+      "name": "Team Rocket Spy",
+      "team": [
+        "drifblim",
+        "mismagius",
+        "mimikyu",
+        "banette",
+        "crobat"
+      ]
+    },
+    "team_rocket_spy_04": {
+      "name": "Team Rocket Spy",
+      "team": [
+        "crobat",
+        "drifblim",
+        "mimikyu",
+        "banette",
+        "mismagius"
       ]
     },
     "terror_granbull_gruff_05db": {
@@ -12826,37 +14355,43 @@
     "tuber_chelsea_033f": {
       "name": "Tuber Chelsea",
       "team": [
-        "bibarel"
+        "bibarel",
+        "shellos"
       ]
     },
     "tuber_chelsea_056d": {
       "name": "Tuber Chelsea",
       "team": [
-        "bibarel"
+        "bibarel",
+        "mantine"
       ]
     },
     "tuber_chelsea_056f": {
       "name": "Tuber Chelsea",
       "team": [
-        "bibarel"
+        "bibarel",
+        "lapras"
       ]
     },
     "tuber_conner_03f8": {
       "name": "Tuber Conner",
       "team": [
-        "remoraid"
+        "remoraid",
+        "lanturn"
       ]
     },
     "tuber_holly_03fa": {
       "name": "Tuber Holly",
       "team": [
-        "remoraid"
+        "remoraid",
+        "seadra"
       ]
     },
     "tuber_jacky_045b": {
       "name": "Tuber Jacky",
       "team": [
-        "buizel"
+        "buizel",
+        "wingull"
       ]
     },
     "tuber_jared_033e": {
@@ -12912,7 +14447,7 @@
       ]
     },
     "twins_emma_03c0": {
-      "name": "Twin Emma",
+      "name": "Twins Emma",
       "team": [
         "bonsly"
       ]
@@ -12950,13 +14485,13 @@
       ]
     },
     "twins_lil_03c1": {
-      "name": "Twin Lil",
+      "name": "Twins Lil",
       "team": [
         "mimejr"
       ]
     },
     "twins_liv_02f0": {
-      "name": "Twin Liv",
+      "name": "Twins Liv",
       "team": [
         "pachirisu"
       ]
@@ -12969,7 +14504,7 @@
       ]
     },
     "twins_liz_02f1": {
-      "name": "Twin Liz",
+      "name": "Twins Liz",
       "team": [
         "pachirisu"
       ]
@@ -12982,19 +14517,19 @@
       ]
     },
     "twins_teri_0319": {
-      "name": "Twin Teri",
+      "name": "Twins Teri",
       "team": [
         "pikachu"
       ]
     },
     "twins_teri_0515": {
-      "name": "Twin Teri",
+      "name": "Twins Teri",
       "team": [
         "pikachu"
       ]
     },
     "twins_teri_0517": {
-      "name": "Twin Teri",
+      "name": "Twins Teri",
       "team": [
         "raichu"
       ]
@@ -13021,19 +14556,19 @@
       ]
     },
     "twins_tia_031a": {
-      "name": "Twin Tia",
+      "name": "Twins Tia",
       "team": [
         "clefairy"
       ]
     },
     "twins_tia_0516": {
-      "name": "Twin Tia",
+      "name": "Twins Tia",
       "team": [
         "clefairy"
       ]
     },
     "twins_tia_0518": {
-      "name": "Twin Tia",
+      "name": "Twins Tia",
       "team": [
         "clefable"
       ]
@@ -13134,13 +14669,15 @@
     "waitress_kati_03fc": {
       "name": "Waitress Kati",
       "team": [
-        "clefairy"
+        "clefairy",
+        "kirlia"
       ]
     },
     "worker_braden_0460": {
       "name": "Worker Braden",
       "team": [
-        "graveler"
+        "graveler",
+        "onix"
       ]
     },
     "worker_brendon_0461": {
@@ -13160,7 +14697,8 @@
     "worker_conrad_0586": {
       "name": "Worker Conrad",
       "team": [
-        "rapidash"
+        "rapidash",
+        "golem"
       ]
     },
     "worker_dillan_0584": {
@@ -13173,7 +14711,8 @@
     "worker_gary_039b": {
       "name": "Worker Gary",
       "team": [
-        "onix"
+        "onix",
+        "machoke"
       ]
     },
     "worker_gerardo_03fd": {
@@ -13186,7 +14725,8 @@
     "worker_holden_0585": {
       "name": "Worker Holden",
       "team": [
-        "steelix"
+        "steelix",
+        "probopass"
       ]
     },
     "worker_jackson_039a": {
@@ -13200,7 +14740,8 @@
     "worker_mason_037b": {
       "name": "Worker Mason",
       "team": [
-        "machop"
+        "machop",
+        "roggenrola"
       ]
     },
     "worker_quentin_0462": {
@@ -13254,7 +14795,7 @@
       ]
     },
     "young_couple_mike_047e": {
-      "name": "Mike",
+      "name": "Young Couple Mike",
       "team": [
         "murkrow"
       ]
@@ -13267,13 +14808,13 @@
       ]
     },
     "young_couple_nat_047f": {
-      "name": "Nat",
+      "name": "Young Couple Nat",
       "team": [
         "misdreavus"
       ]
     },
     "young_couple_sue_0316": {
-      "name": "Sue",
+      "name": "Young Couple Sue",
       "team": [
         "meditite"
       ]
@@ -13286,7 +14827,7 @@
       ]
     },
     "young_couple_ty_0315": {
-      "name": "Ty",
+      "name": "Young Couple Ty",
       "team": [
         "machop"
       ]
@@ -13330,7 +14871,8 @@
     "youngster_calvin_005a": {
       "name": "Youngster Calvin",
       "team": [
-        "zigzagoon"
+        "zigzagoon",
+        "sentret"
       ]
     },
     "youngster_chad_005f": {
@@ -13371,31 +14913,36 @@
     "youngster_dallas_03f4": {
       "name": "Youngster Dallas",
       "team": [
-        "kricketot"
+        "kricketot",
+        "wurmple"
       ]
     },
     "youngster_dallas_0568": {
       "name": "Youngster Dallas",
       "team": [
-        "kricketune"
+        "kricketune",
+        "chatot"
       ]
     },
     "youngster_dallas_0569": {
       "name": "Youngster Dallas",
       "team": [
-        "kricketune"
+        "kricketune",
+        "loudred"
       ]
     },
     "youngster_dallas_056a": {
       "name": "Youngster Dallas",
       "team": [
-        "kricketune"
+        "kricketune",
+        "toxtricity"
       ]
     },
     "youngster_dan_005e": {
       "name": "Youngster Dan",
       "team": [
-        "slowpoke"
+        "slowpoke",
+        "psyduck"
       ]
     },
     "youngster_darius_0394": {
@@ -13443,7 +14990,8 @@
     "youngster_eddie_0061": {
       "name": "Youngster Eddie",
       "team": [
-        "arbok"
+        "arbok",
+        "mightyena"
       ]
     },
     "youngster_joey_005d": {
@@ -13464,7 +15012,8 @@
     "youngster_jonathon_0393": {
       "name": "Youngster Jonathon",
       "team": [
-        "geodude"
+        "geodude",
+        "machop"
       ]
     },
     "youngster_josh_005b": {
@@ -13478,13 +15027,15 @@
     "youngster_lancere_0025": {
       "name": "Youngster LanceRe",
       "team": [
-        "ekans"
+        "ekans",
+        "grimer"
       ]
     },
     "youngster_logan_02e8": {
       "name": "Youngster Logan",
       "team": [
-        "shinx"
+        "shinx",
+        "bidoof"
       ]
     },
     "youngster_michael_02ea": {
@@ -13513,7 +15064,8 @@
     "youngster_sebastian_03f5": {
       "name": "Youngster Sebastian",
       "team": [
-        "machop"
+        "machop",
+        "geodude"
       ]
     },
     "youngster_timmy_005c": {
@@ -13550,31 +15102,36 @@
     "youngster_tristan_02e7": {
       "name": "Youngster Tristan",
       "team": [
-        "starly"
+        "starly",
+        "bidoof"
       ]
     },
     "youngster_tristan_0565": {
       "name": "Youngster Tristan",
       "team": [
-        "starly"
+        "starly",
+        "luxio"
       ]
     },
     "youngster_tristan_0566": {
       "name": "Youngster Tristan",
       "team": [
-        "staravia"
+        "staravia",
+        "luxray"
       ]
     },
     "youngster_tristan_0567": {
       "name": "Youngster Tristan",
       "team": [
-        "staravia"
+        "staravia",
+        "floatzel"
       ]
     },
     "youngster_tyler_0060": {
       "name": "Youngster Tyler",
       "team": [
-        "eiscue"
+        "eiscue",
+        "pelipper"
       ]
     },
     "youngster_tyler_02eb": {

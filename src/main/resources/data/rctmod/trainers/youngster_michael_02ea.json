@@ -1,0 +1,45 @@
+{
+  "name": {
+    "literal": "Youngster Michael"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "bidoof",
+      "gender": "MALE",
+      "level": 5,
+      "nature": "docile",
+      "ability": "unaware",
+      "moveset": [
+        "tackle",
+        "growl",
+        "defensecurl"
+      ]
+    },
+    {
+      "species": "zubat",
+      "gender": "MALE",
+      "level": 5,
+      "nature": "hasty",
+      "ability": "innerfocus",
+      "moveset": [
+        "absorb",
+        "supersonic",
+        "astonish"
+      ]
+    }
+  ]
+}

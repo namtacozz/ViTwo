@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Youngster Cordell"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "farfetchd",
+      "gender": "FEMALE",
+      "level": 48,
+      "nature": "serious",
+      "ability": "innerfocus",
+      "moveset": [
+        "nightslash",
+        "acrobatics",
+        "feint",
+        "falseswipe"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "farfetchd",
+      "gender": "FEMALE",
+      "level": 48,
+      "nature": "sassy",
+      "ability": "innerfocus",
+      "moveset": [
+        "nightslash",
+        "acrobatics",
+        "feint",
+        "falseswipe"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    }
+  ]
+}

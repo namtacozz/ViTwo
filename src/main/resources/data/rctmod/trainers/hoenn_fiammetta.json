@@ -1,0 +1,212 @@
+{
+  "name": {
+    "literal": "Flannery"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 3
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 3
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "fakeout",
+        "flareblitz",
+        "partingshot",
+        "knockoff"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 116,
+        "spd": 20,
+        "def": 72,
+        "atk": 104,
+        "hp": 196
+      },
+      "heldItem": [
+        "assault_vest"
+      ],
+      "species": "incineroar",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "jolly",
+      "ability": "intimidate"
+    },
+    {
+      "moveset": [
+        "tailwind",
+        "protect",
+        "willowisp",
+        "bravebird"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "atk": 4,
+        "hp": 252
+      },
+      "heldItem": [
+        "covert_cloak"
+      ],
+      "species": "talonflame",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "jolly",
+      "ability": "galewings",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "overheat",
+        "snarl",
+        "lavaplume",
+        "darkpulse"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spa": 252,
+        "hp": 4
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "gimmicks": {
+        "tera": "dark"
+      },
+      "species": "chiyu",
+      "gender": "GENDERLESS",
+      "level": 65,
+      "nature": "modest",
+      "ability": "beadsofruin"
+    },
+    {
+      "moveset": [
+        "followme",
+        "helpinghand",
+        "overheat",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 132,
+        "spd": 40,
+        "spa": 12,
+        "def": 72,
+        "hp": 252
+      },
+      "heldItem": [
+        "eviolite"
+      ],
+      "species": "magmar",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "timid",
+      "ability": "flamebody"
+    },
+    {
+      "moveset": [
+        "flamethrower",
+        "airslash",
+        "solarbeam",
+        "dragondance"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "spa": 212,
+        "hp": 36
+      },
+      "heldItem": [
+        "heavy_duty_boots"
+      ],
+      "species": "charizard",
+      "gender": "GENDERLESS",
+      "level": 65,
+      "nature": "timid",
+      "ability": "drought"
+    },
+    {
+      "moveset": [
+        "electroweb",
+        "nastyplot",
+        "thunder",
+        "overheat"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 72,
+        "spd": 52,
+        "spa": 252,
+        "def": 28,
+        "hp": 104
+      },
+      "heldItem": [
+        "ability_shield"
+      ],
+      "aspects": [
+        "heat-appliance"
+      ],
+      "species": "rotom",
+      "gender": "GENDERLESS",
+      "level": 65,
+      "nature": "calm",
+      "ability": "levitate"
+    }
+  ],
+  "identity": "Fiametta",
+  "battleFormat": "GEN_9_DOUBLES"
+}

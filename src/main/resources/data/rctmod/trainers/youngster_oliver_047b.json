@@ -1,0 +1,60 @@
+{
+  "name": {
+    "literal": "Youngster Oliver"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "stunky",
+      "gender": "MALE",
+      "level": 16,
+      "nature": "naive",
+      "ability": "stench",
+      "moveset": [
+        "poisongas",
+        "acidspray",
+        "furyswipes",
+        "focusenergy"
+      ]
+    },
+    {
+      "species": "kricketune",
+      "gender": "MALE",
+      "level": 16,
+      "nature": "docile",
+      "ability": "swarm",
+      "moveset": [
+        "furycutter",
+        "growl",
+        "pound",
+        "absorb"
+      ]
+    },
+    {
+      "species": "shellos",
+      "gender": "MALE",
+      "level": 16,
+      "nature": "hasty",
+      "ability": "stormdrain",
+      "moveset": [
+        "mudslap",
+        "harden",
+        "recover",
+        "waterpulse"
+      ]
+    }
+  ]
+}

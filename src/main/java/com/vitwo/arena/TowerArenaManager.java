@@ -2,15 +2,16 @@ package com.vitwo.arena;
 
 import com.vitwo.battle.TrainerPool;
 import com.vitwo.party.TowerParty;
+import com.vitwo.party.TowerPartyManager;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.CommandBlock;
-import net.minecraft.block.StructureBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.structure.StructurePlacementData;
@@ -29,6 +30,8 @@ import org.slf4j.LoggerFactory;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class TowerArenaManager {
     private static final Logger LOGGER = LoggerFactory.getLogger("CobbleTower-ArenaManager");
@@ -40,155 +43,256 @@ public class TowerArenaManager {
             Identifier.of("vitwo", "tower_dimension")
     );
 
+    // Arena Pooling Variables
+    private static final Set<Integer> activeSlots = ConcurrentHashMap.newKeySet();
+    private static final Set<Integer> builtSlots = ConcurrentHashMap.newKeySet();
+
     private TowerArenaManager() {}
 
+    public static int getSlotSpacing() {
+        return com.vitwo.config.TowerConfig.getInstance().arena.sectorSpacing;
+    }
+
+    public static int getGroundY() {
+        return com.vitwo.config.TowerConfig.getInstance().arena.groundY;
+    }
+
+    public static int getBattlefieldHeightOffset() {
+        return com.vitwo.config.TowerConfig.getInstance().arena.battlefieldHeightOffset;
+    }
+
+    public static int allocateSlot() {
+        int maxSlots = com.vitwo.config.TowerConfig.getInstance().arena.maxArenaSlots;
+        for (int i = 0; i < maxSlots; i++) {
+            if (!activeSlots.contains(i)) {
+                activeSlots.add(i);
+                return i;
+            }
+        }
+        return -1; // Capacity full
+    }
+
+    public static void freeSlot(int slot) {
+        if (slot >= 0) {
+            activeSlots.remove(slot);
+        }
+    }
+
+    public static int getSectorX(int slot) {
+        return (slot + 1) * getSlotSpacing();
+    }
+
+    public static int getSectorZ(int slot) {
+        return 0; // All slots arranged in a line along the X axis
+    }
+
     /**
-     * Teleports party members directly to the interior ground floor inside the Gym Arena,
-     * ensuring zero collision, clear headroom, barrier perimeter enclosure, and seamless entry.
+     * Instantly places the unified tower arena structure and teleports the party inside with exact coordinates.
      */
     public void teleportPartyToArena(TowerParty party, ServerPlayerEntity leader, ServerPlayerEntity member) {
         if (leader == null || leader.getServer() == null) return;
+        MinecraftServer server = leader.getServer();
 
-        // Obtain Tower Dimension world (or fallback to leader's current world)
-        ServerWorld arenaWorld = leader.getServer().getWorld(TOWER_DIMENSION_KEY);
+        ServerWorld arenaWorld = server.getWorld(TOWER_DIMENSION_KEY);
         if (arenaWorld == null) {
             arenaWorld = leader.getServerWorld();
         }
 
-        int floor = party.getCurrentFloor();
-
-        // Calculate isolated sector coordinates per party and floor tier
-        int partyHash = Math.abs(party.getLeaderId().hashCode() % 1000);
-        int sectorX = (partyHash % 40) * 800;
-        int sectorZ = (partyHash / 40) * 800 + ((floor % 5) * 150);
-
-        // Base origin placed at Y=63 so relative layer Y=1 of structure aligns flush at Y=64 ground level
-        BlockPos arenaOrigin = new BlockPos(sectorX, 63, sectorZ);
-
-        // Clear any old entities/blocks in this sector box before pasting new structure
-        purgeSector(arenaWorld, sectorX, sectorZ, 80, 80);
-
-        // Load and place NBT structure template
-        String structurePath = ArenaTemplatePool.getStructureForFloor(floor);
-        Vec3i arenaSize = placeStructureSafely(arenaWorld, arenaOrigin, structurePath);
-
-        // Calculate center coordinates
-        int centerX = arenaOrigin.getX() + (arenaSize.getX() / 2);
-        int centerZ = arenaOrigin.getZ() + (arenaSize.getZ() / 2);
-        int playerZ = centerZ - 6;
-        int trainerZ = centerZ + 6;
-
-        // Find true solid ground heights dynamically
-        int playerGroundY = findSafeGroundY(arenaWorld, centerX, playerZ, 64);
-        int trainerGroundY = findSafeGroundY(arenaWorld, centerX, trainerZ, playerGroundY);
-
-        double spawnY = playerGroundY + 1.0;
-
-        // Clear headroom in spawn zone
-        clearSpawnHeadroom(arenaWorld, centerX, playerGroundY + 1, playerZ);
-
-        // Build Barrier Ring around the active battle area (keeps player and trainer focused in ring)
-        if (floor % 5 != 0 || floor == 100) {
-            buildArenaBarrierBox(arenaWorld, centerX, playerGroundY, centerZ, 14, 14, 8);
+        int slot = party.getArenaSlot();
+        if (slot < 0) {
+            slot = allocateSlot();
+            if (slot < 0) {
+                leader.sendMessage(Text.literal("§c[CobbleTower] Server arena capacity is full (64/64)! Please wait for an arena to free up."), false);
+                if (member != null) {
+                    member.sendMessage(Text.literal("§c[CobbleTower] Server arena capacity is full (64/64)! Please wait for an arena to free up."), false);
+                }
+                return;
+            }
+            party.setArenaSlot(slot);
         }
 
-        // Teleport players in Adventure mode (Anti-grief)
+        int floor = party.getCurrentFloor();
+        int sectorX = getSectorX(slot);
+        int sectorZ = getSectorZ(slot);
+
+        int centerX = sectorX + 20;
+        int centerZ = 5;
+        double battlefieldY = 83.0;
+
+        // Build structure once per arena slot
+        if (!builtSlots.contains(slot)) {
+            placeSingleArenaStructure(arenaWorld, centerX, getGroundY(), centerZ);
+            builtSlots.add(slot);
+        }
+
+        // Clear any old entities in this sector
+        clearOldNpcsInSector(arenaWorld, sectorX, sectorZ);
+
+        // General Coordinate System matching tower_arena.nbt:
+        // Structure size: 157x77x135 placed at origin (sectorX - 58, 64, -62)
+        // Pokéball arena platform surface is at Y = 83.0, Z = -6.0, Center X = sectorX + 24.0
+        // Player standing pad (White half) at X = sectorX + 18.0, Y = 83.0, Z = -6.0, facing +X (Yaw = -90.0)
+        // NPC trainer standing pad (Red half) at X = sectorX + 30.0, Y = 83.0, Z = -6.0, facing -X (Yaw = 90.0)
+        double playerX = sectorX + 18.0;
+        double playerY = battlefieldY;
+        double playerZ = -6.0;
+        float playerYaw = -90.0f;
+
+        double trainerX = sectorX + 30.0;
+        double trainerY = battlefieldY;
+        double trainerZ = -6.0;
+        float trainerYaw = 90.0f;
+
+        // Teleport players instantly
         if (party.isSolo() || member == null) {
             leader.changeGameMode(GameMode.ADVENTURE);
-            leader.teleport(arenaWorld, centerX + 0.5, spawnY, playerZ + 0.5, 0.0f, 0.0f);
+            leader.teleport(arenaWorld, playerX, playerY, playerZ, playerYaw, 0.0f);
         } else {
             leader.changeGameMode(GameMode.ADVENTURE);
             member.changeGameMode(GameMode.ADVENTURE);
-            leader.teleport(arenaWorld, centerX - 1.5, spawnY, playerZ + 0.5, 0.0f, 0.0f);
-            member.teleport(arenaWorld, centerX + 1.5, spawnY, playerZ + 0.5, 0.0f, 0.0f);
+            leader.teleport(arenaWorld, playerX, playerY, playerZ - 2.0, playerYaw, 0.0f);
+            member.teleport(arenaWorld, playerX, playerY, playerZ + 2.0, playerYaw, 0.0f);
         }
 
-        // Spawn Trainer NPC entity for all battle floors (including Floor 100 Boss)
-        if (floor % 5 != 0 || floor == 100) {
-            clearOldNpcsInSector(arenaWorld, sectorX, sectorZ, arenaSize);
-            spawnTowerTrainerNpc(arenaWorld, floor, centerX + 0.5, trainerGroundY + 1.0, trainerZ + 0.5);
-        }
+        // Spawn Single Deterministic Trainer NPC for all floors 1-100
+        spawnTowerTrainerNpc(arenaWorld, party, floor, trainerX, trainerY, trainerZ, trainerYaw);
     }
 
     /**
-     * Constructs a transparent Barrier safety box around the fighting stage so players cannot escape or wander
+     * Loads and places the unified tower_arena structure template
      */
-    private void buildArenaBarrierBox(ServerWorld world, int centerX, int groundY, int centerZ, int radiusX, int radiusZ, int height) {
-        int minX = centerX - radiusX;
-        int maxX = centerX + radiusX;
-        int minZ = centerZ - radiusZ;
-        int maxZ = centerZ + radiusZ;
-        int topY = groundY + height;
+    private StructureTemplate loadStructureTemplate(ServerWorld world, String name) {
+        StructureTemplateManager templateManager = world.getStructureTemplateManager();
 
-        // Perimeter Walls
-        for (int y = groundY + 1; y <= topY; y++) {
-            for (int x = minX; x <= maxX; x++) {
-                setBarrierIfEmptyOrWeak(world, new BlockPos(x, y, minZ));
-                setBarrierIfEmptyOrWeak(world, new BlockPos(x, y, maxZ));
-            }
-            for (int z = minZ; z <= maxZ; z++) {
-                setBarrierIfEmptyOrWeak(world, new BlockPos(minX, y, z));
-                setBarrierIfEmptyOrWeak(world, new BlockPos(maxX, y, z));
+        // 1. Try template manager lookup
+        Optional<StructureTemplate> templateOpt = templateManager.getTemplate(Identifier.of("vitwo", name));
+        if (templateOpt.isPresent()) return templateOpt.get();
+
+        templateOpt = templateManager.getTemplate(Identifier.of("vitwo", "structure/" + name));
+        if (templateOpt.isPresent()) return templateOpt.get();
+
+        templateOpt = templateManager.getTemplate(Identifier.of("vitwo", "structures/" + name));
+        if (templateOpt.isPresent()) return templateOpt.get();
+
+        // 2. Direct ClassLoader JAR resource fallback
+        String[] candidatePaths = {
+                "/data/vitwo/structure/" + name + ".nbt",
+                "/data/vitwo/structures/" + name + ".nbt"
+        };
+        for (String path : candidatePaths) {
+            try (java.io.InputStream is = TowerArenaManager.class.getResourceAsStream(path)) {
+                if (is != null) {
+                    net.minecraft.nbt.NbtCompound nbt = net.minecraft.nbt.NbtIo.readCompressed(is, net.minecraft.nbt.NbtSizeTracker.ofUnlimitedBytes());
+                    StructureTemplate template = new StructureTemplate();
+                    template.readNbt(world.createCommandRegistryWrapper(RegistryKeys.BLOCK), nbt);
+                    LOGGER.info("[CobbleTower] Successfully loaded structure '{}' from JAR resource: {}", name, path);
+                    return template;
+                }
+            } catch (Exception e) {
+                LOGGER.warn("[CobbleTower] Failed loading structure from resource {}: {}", path, e.getMessage());
             }
         }
-
-        // Ceiling
-        for (int x = minX; x <= maxX; x++) {
-            for (int z = minZ; z <= maxZ; z++) {
-                setBarrierIfEmptyOrWeak(world, new BlockPos(x, topY, z));
-            }
-        }
+        return null;
     }
 
-    private void setBarrierIfEmptyOrWeak(ServerWorld world, BlockPos pos) {
-        if (world.getBlockState(pos).isAir() || world.getBlockState(pos).getBlock() == Blocks.STRUCTURE_VOID) {
-            world.setBlockState(pos, Blocks.BARRIER.getDefaultState(), Block.NOTIFY_LISTENERS);
-        }
-    }
-
-    /**
-     * Purges previous entities and structures in the sector box
-     */
-    private void purgeSector(ServerWorld world, int sectorX, int sectorZ, int sizeX, int sizeZ) {
+    private void placeSingleArenaStructure(ServerWorld world, int centerX, int groundY, int centerZ) {
         try {
-            Box box = new Box(sectorX - 20, 50, sectorZ - 20, sectorX + sizeX + 20, 130, sectorZ + sizeZ + 20);
+            StructureTemplate template = loadStructureTemplate(world, "tower_arena");
+            if (template != null) {
+                Vec3i size = template.getSize();
+                StructurePlacementData placementSettings = new StructurePlacementData()
+                        .setIgnoreEntities(true)
+                        .setUpdateNeighbors(false);
+
+                int originX = centerX - (size.getX() / 2);
+                int originZ = centerZ - (size.getZ() / 2);
+                BlockPos originPos = new BlockPos(originX, groundY, originZ);
+
+                template.place(world, originPos, originPos, placementSettings, world.getRandom(), Block.NOTIFY_LISTENERS);
+                LOGGER.info("[CobbleTower] Successfully placed unified structure for slot at ({}, {}, {})", originX, groundY, originZ);
+            } else {
+                LOGGER.warn("[CobbleTower] Structure template 'tower_arena' not found! Building fallback platform.");
+                buildFallbackPlatform(world, centerX, groundY, centerZ);
+            }
+        } catch (Exception e) {
+            LOGGER.error("[CobbleTower] Failed to place unified structure template", e);
+            buildFallbackPlatform(world, centerX, groundY, centerZ);
+        }
+    }
+
+    private void buildFallbackPlatform(ServerWorld world, int centerX, int groundY, int centerZ) {
+        int radius = 14;
+        for (int dx = -radius; dx <= radius; dx++) {
+            for (int dz = -radius; dz <= radius; dz++) {
+                world.setBlockState(new BlockPos(centerX + dx, groundY - 1, centerZ + dz), Blocks.SMOOTH_QUARTZ.getDefaultState(), Block.NOTIFY_LISTENERS);
+            }
+        }
+    }
+
+    public static int findTopWalkableY(ServerWorld world, double x, double z, int startY, int maxSearchY) {
+        int checkX = (int) Math.floor(x);
+        int checkZ = (int) Math.floor(z);
+        for (int y = maxSearchY; y >= startY; y--) {
+            BlockPos pos = new BlockPos(checkX, y, checkZ);
+            BlockState state = world.getBlockState(pos);
+            if (!state.isAir() && state.getBlock() != Blocks.BARRIER && state.getFluidState().isEmpty()) {
+                BlockPos above1 = pos.up();
+                BlockPos above2 = pos.up(2);
+                boolean spaceAbove = (world.getBlockState(above1).isAir() || world.getBlockState(above1).getBlock() == Blocks.BARRIER)
+                        && (world.getBlockState(above2).isAir() || world.getBlockState(above2).getBlock() == Blocks.BARRIER);
+                if (spaceAbove) {
+                    return y + 1;
+                }
+            }
+        }
+        return startY;
+    }
+
+    public void purgeSectorAndBlocks(ServerWorld world, int minX, int minY, int minZ, int maxX, int maxY, int maxZ) {
+        try {
+            Box box = new Box(minX, minY, minZ, maxX, maxY, maxZ);
             List<Entity> entities = world.getOtherEntities(null, box);
             for (Entity e : entities) {
                 if (!(e instanceof ServerPlayerEntity)) {
                     e.discard();
                 }
             }
-        } catch (Exception ignored) {}
-    }
 
-    /**
-     * Purges previous NPC entities in the sector before placing a new one
-     */
-    private void clearOldNpcsInSector(ServerWorld world, int sectorX, int sectorZ, Vec3i size) {
-        try {
-            Box box = new Box(sectorX - 20, 50, sectorZ - 20, sectorX + size.getX() + 20, 130, sectorZ + size.getZ() + 20);
-            List<Entity> entities = world.getOtherEntities(null, box);
-            for (Entity e : entities) {
-                if (e instanceof ServerPlayerEntity) continue;
-                e.discard(); // Purge all non-player entities from the arena sector
+            for (int x = minX; x <= maxX; x++) {
+                for (int z = minZ; z <= maxZ; z++) {
+                    for (int y = minY; y <= maxY; y++) {
+                        BlockPos p = new BlockPos(x, y, z);
+                        if (!world.getBlockState(p).isAir()) {
+                            world.setBlockState(p, Blocks.AIR.getDefaultState(), Block.NOTIFY_LISTENERS);
+                        }
+                    }
+                }
             }
         } catch (Exception ignored) {}
     }
 
-    /**
-     * Spawns an RCT Trainer NPC entity with chosen trainerId matching the floor stage
-     */
-    private void spawnTowerTrainerNpc(ServerWorld world, int floor, double x, double y, double z) {
+    private void clearOldNpcsInSector(ServerWorld world, int sectorX, int sectorZ) {
         try {
+            Box box = new Box(sectorX - 80, 40, sectorZ - 80, sectorX + 180, 150, sectorZ + 180);
+            List<Entity> entities = world.getOtherEntities(null, box);
+            for (Entity e : entities) {
+                if (e instanceof ServerPlayerEntity) continue;
+                e.discard();
+            }
+        } catch (Exception ignored) {}
+    }
+
+    private void spawnTowerTrainerNpc(ServerWorld world, TowerParty party, int floor, double x, double y, double z, float yaw) {
+        try {
+            world.getChunk((int) Math.floor(x) >> 4, (int) Math.floor(z) >> 4);
             EntityType<?> trainerType = Registries.ENTITY_TYPE.get(Identifier.of("rctmod", "trainer"));
             if (trainerType != null) {
                 Entity npc = trainerType.create(world);
                 if (npc != null) {
-                    npc.refreshPositionAndAngles(x, y, z, 180.0f, 0.0f);
-                    String chosenTrainerId = TrainerPool.getRctTrainerIdForFloor(floor);
-                    String displayName = TrainerPool.getTrainerDisplayName(floor);
+                    npc.refreshPositionAndAngles(x, y, z, yaw, 0.0f);
+                    String chosenTrainerId = party != null ? party.getCurrentTrainerId() : TrainerPool.getRctTrainerIdForFloor(floor);
+                    String displayName = party != null ? party.getCurrentBossName() : TrainerPool.getTrainerDisplayName(floor, chosenTrainerId);
 
-                    // Set Trainer ID and persistence via reflection
                     try {
                         Method setTrainerIdMethod = npc.getClass().getMethod("setTrainerId", String.class);
                         setTrainerIdMethod.invoke(npc, chosenTrainerId);
@@ -197,144 +301,141 @@ public class TowerArenaManager {
                         setPersistentMethod.invoke(npc, true);
 
                         Method setHomePosMethod = npc.getClass().getMethod("setHomePos", BlockPos.class);
-                        setHomePosMethod.invoke(npc, new BlockPos((int) x, (int) y, (int) z));
+                        setHomePosMethod.invoke(npc, new BlockPos((int) Math.floor(x), (int) Math.floor(y), (int) Math.floor(z)));
 
-                        // Set custom name directly matching avatar
                         npc.setCustomName(Text.literal(displayName));
-                        npc.setCustomNameVisible(true);
+                        if (npc instanceof net.minecraft.entity.mob.MobEntity mob) {
+                            mob.setPersistent();
+                        }
                     } catch (Exception ex) {
                         LOGGER.warn("[CobbleTower] Failed to configure RCT TrainerMob properties: {}", ex.getMessage());
                     }
 
                     world.spawnEntity(npc);
-                    LOGGER.info("[CobbleTower] Successfully spawned Trainer NPC '{}' ({}) for Floor {} at ({}, {}, {})",
-                            displayName, chosenTrainerId, floor, x, y, z);
                 }
-            } else {
-                LOGGER.warn("[CobbleTower] EntityType 'rctmod:trainer' not found in registry!");
             }
         } catch (Exception e) {
             LOGGER.error("[CobbleTower] Error spawning Tower Trainer NPC", e);
         }
     }
 
-    /**
-     * Dynamically finds the true solid ground surface height
-     */
-    private int findSafeGroundY(ServerWorld world, int x, int z, int defaultY) {
-        for (int y = 95; y >= 60; y--) {
-            BlockPos pos = new BlockPos(x, y, z);
-            BlockPos upPos = pos.up();
-            BlockPos up2Pos = pos.up(2);
-            if (!world.getBlockState(pos).isAir() && world.getBlockState(pos).getBlock() != Blocks.BARRIER
-                    && world.getBlockState(upPos).isAir() && world.getBlockState(up2Pos).isAir()) {
-                return y;
-            }
-        }
-        return defaultY;
-    }
+    public void cleanupFloorArena(TowerParty party, MinecraftServer server) {
+        if (party == null || server == null) return;
+        ServerWorld arenaWorld = server.getWorld(TOWER_DIMENSION_KEY);
+        if (arenaWorld == null) return;
 
-    /**
-     * Clears a safe pocket of air at the spawn foyer so player never suffocates or gets pushed up to the roof
-     */
-    private void clearSpawnHeadroom(ServerWorld world, int centerX, int floorY, int centerZ) {
-        for (int dx = -2; dx <= 2; dx++) {
-            for (int dz = -2; dz <= 2; dz++) {
-                // Ensure solid floor underneath if empty
-                BlockPos floorPos = new BlockPos(centerX + dx, floorY - 1, centerZ + dz);
-                if (world.getBlockState(floorPos).isAir()) {
-                    world.setBlockState(floorPos, Blocks.POLISHED_DEEPSLATE.getDefaultState(), Block.NOTIFY_LISTENERS);
-                }
-
-                // Clear 3 blocks of air above the floor
-                for (int dy = 0; dy <= 2; dy++) {
-                    BlockPos airPos = new BlockPos(centerX + dx, floorY + dy, centerZ + dz);
-                    if (!world.getBlockState(airPos).isAir() && world.getBlockState(airPos).getBlock() != Blocks.BARRIER) {
-                        world.setBlockState(airPos, Blocks.AIR.getDefaultState(), Block.NOTIFY_LISTENERS);
-                    }
-                }
-            }
+        int slot = party.getArenaSlot();
+        if (slot >= 0) {
+            int sectorX = getSectorX(slot);
+            int sectorZ = getSectorZ(slot);
+            clearOldNpcsInSector(arenaWorld, sectorX, sectorZ);
+            freeSlot(slot);
+            party.setArenaSlot(-1);
         }
     }
 
-    /**
-     * Places the NBT structure safely and cleans up all command blocks, structure blocks, portals, and summoning shrines.
-     * Generates a flush bedrock foundation and ground platform around the entire facility.
-     */
-    private Vec3i placeStructureSafely(ServerWorld world, BlockPos origin, String structureIdentifier) {
-        Vec3i size = new Vec3i(36, 18, 36);
+    public void returnPlayerToOriginalPos(ServerPlayerEntity player, BlockPos fallbackPos) {
+        if (player == null || player.getServer() == null) return;
+        MinecraftServer server = player.getServer();
 
-        try {
-            String[] parts = structureIdentifier.split(":");
-            if (parts.length == 2) {
-                Identifier id = Identifier.of(parts[0], parts[1]);
-                StructureTemplateManager templateManager = world.getStructureTemplateManager();
-                Optional<StructureTemplate> templateOpt = templateManager.getTemplate(id);
+        Optional<TowerParty> partyOpt = TowerPartyManager.getInstance().getParty(player.getUuid());
+        String targetDim = "minecraft:overworld";
+        double targetX = 0, targetY = 64, targetZ = 0;
+        float targetYaw = 0, targetPitch = 0;
+        boolean hasExact = false;
 
-                if (templateOpt.isPresent()) {
-                    StructureTemplate template = templateOpt.get();
-                    size = template.getSize();
-                    StructurePlacementData placementData = new StructurePlacementData();
-                    template.place(world, origin, origin, placementData, world.getRandom(), Block.NOTIFY_LISTENERS);
-                }
-            }
-        } catch (Exception ignored) {}
-
-        // Construct a safety bedrock platform at Y=61 and smooth deepslate ground at Y=62 & Y=63
-        int minX = origin.getX() - 10;
-        int maxX = origin.getX() + size.getX() + 10;
-        int minZ = origin.getZ() - 10;
-        int maxZ = origin.getZ() + size.getZ() + 10;
-
-        for (int x = minX; x <= maxX; x++) {
-            for (int z = minZ; z <= maxZ; z++) {
-                world.setBlockState(new BlockPos(x, 61, z), Blocks.BEDROCK.getDefaultState(), Block.NOTIFY_LISTENERS);
-                world.setBlockState(new BlockPos(x, 62, z), Blocks.POLISHED_DEEPSLATE.getDefaultState(), Block.NOTIFY_LISTENERS);
-                world.setBlockState(new BlockPos(x, 63, z), Blocks.POLISHED_DEEPSLATE.getDefaultState(), Block.NOTIFY_LISTENERS);
+        if (partyOpt.isPresent()) {
+            TowerParty party = partyOpt.get();
+            if (player.getUuid().equals(party.getLeaderId())) {
+                targetDim = party.getOriginalLeaderDim();
+                targetX = party.getOriginalLeaderX();
+                targetY = party.getOriginalLeaderY();
+                targetZ = party.getOriginalLeaderZ();
+                targetYaw = party.getOriginalLeaderYaw();
+                targetPitch = party.getOriginalLeaderPitch();
+                hasExact = (targetY > -60);
+            } else if (party.getMemberId() != null && player.getUuid().equals(party.getMemberId())) {
+                targetDim = party.getOriginalMemberDim();
+                targetX = party.getOriginalMemberX();
+                targetY = party.getOriginalMemberY();
+                targetZ = party.getOriginalMemberZ();
+                targetYaw = party.getOriginalMemberYaw();
+                targetPitch = party.getOriginalMemberPitch();
+                hasExact = (targetY > -60);
             }
         }
 
-        // Purge ALL Command Blocks, Structure Blocks, Portals, and Summon Shrines across the entire arena volume
-        for (int x = minX; x <= maxX; x++) {
-            for (int z = minZ; z <= maxZ; z++) {
-                for (int y = 55; y <= 125; y++) {
-                    BlockPos p = new BlockPos(x, y, z);
-                    Block b = world.getBlockState(p).getBlock();
-                    Identifier bId = Registries.BLOCK.getId(b);
-                    String path = bId.getPath().toLowerCase();
-
-                    boolean isRestricted = b instanceof CommandBlock || b instanceof StructureBlock
-                            || path.contains("command_block") || path.contains("jigsaw")
-                            || path.contains("portal") || path.contains("shrine")
-                            || path.contains("altar") || path.contains("monument")
-                            || path.contains("chalice") || path.contains("summon")
-                            || b == Blocks.NETHER_PORTAL || b == Blocks.END_PORTAL || b == Blocks.END_GATEWAY;
-
-                    if (isRestricted) {
-                        if (y <= 63) {
-                            world.setBlockState(p, Blocks.POLISHED_DEEPSLATE.getDefaultState(), Block.NOTIFY_LISTENERS);
-                        } else {
-                            world.setBlockState(p, Blocks.AIR.getDefaultState(), Block.NOTIFY_LISTENERS);
-                        }
-                    }
-                }
-            }
+        if (!hasExact && fallbackPos != null) {
+            targetX = fallbackPos.getX() + 0.5;
+            targetY = fallbackPos.getY();
+            targetZ = fallbackPos.getZ() + 0.5;
+            hasExact = true;
         }
 
-        return size;
+        ServerWorld targetWorld = null;
+        if (targetDim != null) {
+            Identifier dimId = Identifier.tryParse(targetDim);
+            if (dimId != null) {
+                targetWorld = server.getWorld(RegistryKey.of(RegistryKeys.WORLD, dimId));
+            }
+        }
+        if (targetWorld == null) {
+            targetWorld = server.getOverworld();
+        }
+
+        if (!hasExact) {
+            BlockPos spawn = targetWorld.getSpawnPos();
+            targetX = spawn.getX() + 0.5;
+            targetY = spawn.getY();
+            targetZ = spawn.getZ() + 0.5;
+        }
+
+        BlockPos targetPos = new BlockPos((int) Math.floor(targetX), (int) Math.floor(targetY), (int) Math.floor(targetZ));
+        BlockPos safePos = findSafeTeleportTarget(targetWorld, targetPos);
+
+        player.changeGameMode(GameMode.SURVIVAL);
+        player.teleport(targetWorld, safePos.getX() + 0.5, safePos.getY(), safePos.getZ() + 0.5, targetYaw, targetPitch);
     }
 
-    public void returnPlayerToOriginalPos(ServerPlayerEntity player, BlockPos originalPos) {
-        if (player != null && player.getServer() != null) {
-            ServerWorld overworld = player.getServer().getOverworld();
-            BlockPos targetPos = originalPos != null ? originalPos : overworld.getSpawnPos();
+    public static BlockPos findSafeTeleportTarget(ServerWorld world, BlockPos original) {
+        int x = original.getX();
+        int z = original.getZ();
+        int maxY = world.getTopY();
+        int minY = world.getBottomY();
 
-            // Find safe ground surface Y so player never gets stuck underground
-            int safeY = findSafeGroundY(overworld, targetPos.getX(), targetPos.getZ(), targetPos.getY());
-            double targetY = (safeY > 0) ? (safeY + 1.0) : (targetPos.getY() + 1.0);
-
-            player.changeGameMode(GameMode.SURVIVAL);
-            player.teleport(overworld, targetPos.getX() + 0.5, targetY, targetPos.getZ() + 0.5, player.getYaw(), player.getPitch());
+        // 1. Scan downwards from original Y down to minY + 1
+        int startY = Math.min(original.getY(), maxY - 2);
+        for (int y = startY; y >= minY + 1; y--) {
+            BlockPos feetPos = new BlockPos(x, y, z);
+            if (isSafeLocation(world, feetPos)) {
+                return feetPos;
+            }
         }
+
+        // 2. Scan upwards from original Y up to maxY - 2
+        for (int y = Math.max(original.getY(), minY + 1); y <= maxY - 2; y++) {
+            BlockPos feetPos = new BlockPos(x, y, z);
+            if (isSafeLocation(world, feetPos)) {
+                return feetPos;
+            }
+        }
+
+        // 3. Fallback: world spawn point
+        return world.getSpawnPos();
+    }
+
+    private static boolean isSafeLocation(ServerWorld world, BlockPos feetPos) {
+        BlockPos headPos = feetPos.up();
+        BlockPos groundPos = feetPos.down();
+
+        BlockState feetState = world.getBlockState(feetPos);
+        BlockState headState = world.getBlockState(headPos);
+        BlockState groundState = world.getBlockState(groundPos);
+
+        boolean feetAir = feetState.getCollisionShape(world, feetPos).isEmpty();
+        boolean headAir = headState.getCollisionShape(world, headPos).isEmpty();
+        boolean groundSolid = !groundState.isAir() && !groundState.getCollisionShape(world, groundPos).isEmpty();
+
+        return feetAir && headAir && groundSolid;
     }
 }

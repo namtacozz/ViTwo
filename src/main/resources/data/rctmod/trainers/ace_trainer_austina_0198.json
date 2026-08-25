@@ -1,0 +1,132 @@
+{
+  "name": {
+    "literal": "Ace Trainer Austina"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "rhyhorn",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "rash",
+      "ability": "rockhead",
+      "moveset": [
+        "horndrill",
+        "rockblast",
+        "scaryface",
+        "stomp"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "nidorina",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "lonely",
+      "ability": "rivalry",
+      "moveset": [
+        "doublekick",
+        "furyswipes",
+        "bite",
+        "flatter"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "nidoqueen",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "mild",
+      "ability": "rivalry",
+      "moveset": [
+        "bodyslam",
+        "doublekick",
+        "bite",
+        "growl"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "nidorino",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "mild",
+      "ability": "rivalry",
+      "moveset": [
+        "hornattack",
+        "poisonsting",
+        "focusenergy",
+        "leer"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "nidoking",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "quiet",
+      "ability": "rivalry",
+      "moveset": [
+        "thrash",
+        "doublekick",
+        "poisonsting",
+        "peck"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    }
+  ]
+}

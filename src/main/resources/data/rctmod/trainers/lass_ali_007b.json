@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "Lass Ali"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "snubbull",
+      "gender": "MALE",
+      "level": 16,
+      "nature": "adamant",
+      "ability": "strongjaw",
+      "moveset": [
+        "thunderfang",
+        "charm",
+        "bite",
+        "covet"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "teddiursa",
+      "gender": "MALE",
+      "level": 17,
+      "nature": "bashful",
+      "ability": "quickfeet",
+      "moveset": [
+        "lick",
+        "faketears",
+        "furyswipes",
+        "feintattack"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "smoochum",
+      "gender": "FEMALE",
+      "level": 18,
+      "nature": "jolly",
+      "ability": "forewarn",
+      "moveset": [
+        "sweetkiss",
+        "icywind",
+        "confusion",
+        "sing"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    }
+  ]
+}

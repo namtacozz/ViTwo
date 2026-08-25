@@ -1,0 +1,131 @@
+{
+  "name": {
+    "literal": "Sinnoh Leader Candice"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "sneasel",
+      "gender": "MALE",
+      "level": 32,
+      "nature": "adamant",
+      "ability": "innerfocus",
+      "moveset": [
+        "feintattack",
+        "iceshard",
+        "aerialace",
+        "pursuit"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      }
+    },
+    {
+      "species": "piloswine",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "jolly",
+      "ability": "snowcloak",
+      "moveset": [
+        "icefang",
+        "bulldoze",
+        "rocktomb",
+        "hail"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "icy_rock"
+      ]
+    },
+    {
+      "species": "glaceon",
+      "gender": "MALE",
+      "level": 34,
+      "nature": "timid",
+      "ability": "snowcloak",
+      "moveset": [
+        "freezedry",
+        "shadowball",
+        "waterpulse",
+        "mirrorcoat"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      }
+    },
+    {
+      "species": "froslass",
+      "gender": "FEMALE",
+      "level": 33,
+      "nature": "modest",
+      "ability": "snowcloak",
+      "moveset": [
+        "icywind",
+        "ominouswind",
+        "waterpulse",
+        "doubleteam"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

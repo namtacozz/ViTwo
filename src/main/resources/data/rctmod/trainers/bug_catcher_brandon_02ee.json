@@ -1,0 +1,45 @@
+{
+  "name": {
+    "literal": "Bug Catcher Brandon"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "kricketot",
+      "gender": "MALE",
+      "level": 7,
+      "nature": "timid",
+      "ability": "shedskin",
+      "moveset": [
+        "growl",
+        "pound",
+        "strugglebug"
+      ]
+    },
+    {
+      "species": "wurmple",
+      "gender": "FEMALE",
+      "level": 7,
+      "nature": "timid",
+      "ability": "shielddust",
+      "moveset": [
+        "tackle",
+        "stringshot",
+        "poisonsting"
+      ]
+    }
+  ]
+}

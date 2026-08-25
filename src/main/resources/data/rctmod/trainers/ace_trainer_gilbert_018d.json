@@ -1,0 +1,132 @@
+{
+  "name": {
+    "literal": "Ace Trainer Gilbert"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "pidgeotto",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "gentle",
+      "ability": "tangledfeet",
+      "moveset": [
+        "wingattack",
+        "featherdance",
+        "whirlwind",
+        "quickattack"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "fearow",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "mild",
+      "ability": "technician",
+      "moveset": [
+        "drillpeck",
+        "mirrormove",
+        "pursuit",
+        "leer"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "persian",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "impish",
+      "ability": "technician",
+      "moveset": [
+        "payday",
+        "feintattack",
+        "screech",
+        "bite"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "lickitung",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "docile",
+      "ability": "oblivious",
+      "moveset": [
+        "slam",
+        "disable",
+        "wrap",
+        "supersonic"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "tauros",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "relaxed",
+      "ability": "angerpoint",
+      "moveset": [
+        "hornattack",
+        "scaryface",
+        "swagger",
+        "tailwhip"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    }
+  ]
+}

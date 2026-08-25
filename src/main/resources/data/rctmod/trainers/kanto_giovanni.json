@@ -1,0 +1,237 @@
+{
+  "name": {
+    "literal": "Giovanni"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 4
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "tailwind",
+        "dragoncheer",
+        "protect",
+        "uturn"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 148,
+        "spd": 96,
+        "def": 64,
+        "atk": 4,
+        "hp": 196
+      },
+      "heldItem": [
+        "yache_berry"
+      ],
+      "gimmicks": {
+        "tera": "ground"
+      },
+      "species": "flygon",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "jolly",
+      "ability": "levitate"
+    },
+    {
+      "moveset": [
+        "protect",
+        "psystrike",
+        "fireblast",
+        "taunt"
+      ],
+      "ivs": {
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 20,
+        "spd": 100,
+        "spa": 124,
+        "def": 96,
+        "hp": 168
+      },
+      "heldItem": [
+        "mega_showdown:mewtwonite_y"
+      ],
+      "aspects": [
+        "mega_y"
+      ],
+      "gimmicks": {
+        "tera": "psychic"
+      },
+      "species": "mewtwo",
+      "gender": "GENDERLESS",
+      "level": 75,
+      "nature": "modest",
+      "ability": "insomnia",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "muddywater",
+        "protect",
+        "earthpower",
+        "icywind"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 84,
+        "spd": 68,
+        "spa": 156,
+        "def": 52,
+        "hp": 148
+      },
+      "heldItem": [
+        "rindo_berry"
+      ],
+      "gimmicks": {
+        "tera": "water"
+      },
+      "species": "gastrodon",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "modest",
+      "ability": "stormdrain"
+    },
+    {
+      "moveset": [
+        "bodypress",
+        "highhorsepower",
+        "protect",
+        "firefang"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 20,
+        "spd": 96,
+        "def": 112,
+        "atk": 160,
+        "hp": 120
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "gimmicks": {
+        "tera": "ground"
+      },
+      "species": "sandaconda",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "impish",
+      "ability": "sandspit"
+    },
+    {
+      "moveset": [
+        "bloodmoon",
+        "earthpower",
+        "hypervoice",
+        "vacuumwave"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 136,
+        "spa": 160,
+        "def": 80,
+        "hp": 132
+      },
+      "heldItem": [
+        "assault_vest"
+      ],
+      "aspects": [
+        "bloodmoon"
+      ],
+      "gimmicks": {
+        "tera": "ground"
+      },
+      "species": "ursaluna",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "modest",
+      "ability": "mindseye"
+    },
+    {
+      "moveset": [
+        "thousandarrows",
+        "dragondance",
+        "protect",
+        "extremespeed"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 56,
+        "spd": 96,
+        "def": 36,
+        "atk": 116,
+        "hp": 204
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ],
+      "aspects": [
+        "complete-percent"
+      ],
+      "gimmicks": {
+        "tera": "dragon"
+      },
+      "species": "zygarde",
+      "gender": "GENDERLESS",
+      "level": 75,
+      "nature": "adamant",
+      "ability": "powerconstruct"
+    }
+  ],
+  "battleFormat": "GEN_9_DOUBLES"
+}

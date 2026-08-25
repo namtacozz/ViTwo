@@ -1,0 +1,66 @@
+{
+  "name": {
+    "literal": "Ace Trainer Savannah"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "pelipper",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "jolly",
+      "ability": "drizzle",
+      "moveset": [
+        "tailwind",
+        "wingattack",
+        "waterpulse",
+        "icebeam"
+      ]
+    },
+    {
+      "species": "golduck",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "jolly",
+      "ability": "damp",
+      "moveset": [
+        "aquajet",
+        "zenheadbutt",
+        "icebeam",
+        "dig"
+      ]
+    },
+    {
+      "species": "steelix",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "relaxed",
+      "ability": "sturdy",
+      "moveset": [
+        "icefang",
+        "screech",
+        "irontail",
+        "bulldoze"
+      ]
+    }
+  ]
+}

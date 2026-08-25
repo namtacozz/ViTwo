@@ -1,0 +1,60 @@
+{
+  "name": {
+    "literal": "Pokémon Breeder Jennifer"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "mrmime",
+      "gender": "MALE",
+      "level": 52,
+      "nature": "timid",
+      "ability": "filter",
+      "moveset": [
+        "reflect",
+        "suckerpunch",
+        "dazzlinggleam",
+        "psychic"
+      ]
+    },
+    {
+      "species": "roselia",
+      "gender": "MALE",
+      "level": 51,
+      "nature": "hasty",
+      "ability": "poisonpoint",
+      "moveset": [
+        "leechseed",
+        "gigadrain",
+        "toxic",
+        "petalblizzard"
+      ]
+    },
+    {
+      "species": "clefable",
+      "gender": "MALE",
+      "level": 53,
+      "nature": "hasty",
+      "ability": "cutecharm",
+      "moveset": [
+        "charm",
+        "moonlight",
+        "meteormash",
+        "moonblast"
+      ]
+    }
+  ]
+}

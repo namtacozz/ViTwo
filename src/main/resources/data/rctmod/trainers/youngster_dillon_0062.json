@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Youngster Dillon"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "phanpy",
+      "gender": "FEMALE",
+      "level": 25,
+      "nature": "calm",
+      "ability": "pickup",
+      "moveset": [
+        "rollout",
+        "magnitude",
+        "endure",
+        "slam"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "woobat",
+      "gender": "FEMALE",
+      "level": 26,
+      "nature": "quirky",
+      "ability": "unaware",
+      "moveset": [
+        "heartstamp",
+        "imprison",
+        "aircutter",
+        "attract"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    }
+  ]
+}

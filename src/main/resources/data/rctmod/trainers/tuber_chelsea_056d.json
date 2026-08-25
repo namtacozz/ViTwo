@@ -1,0 +1,47 @@
+{
+  "name": {
+    "literal": "Tuber Chelsea"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "bibarel",
+      "gender": "MALE",
+      "level": 40,
+      "nature": "jolly",
+      "ability": "unaware",
+      "moveset": [
+        "aquajet",
+        "headbutt",
+        "crunch",
+        "superfang"
+      ]
+    },
+    {
+      "species": "mantine",
+      "gender": "MALE",
+      "level": 40,
+      "nature": "bold",
+      "ability": "waterabsorb",
+      "moveset": [
+        "surf",
+        "airslash",
+        "icebeam",
+        "roost"
+      ]
+    }
+  ]
+}

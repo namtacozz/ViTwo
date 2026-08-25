@@ -1,0 +1,172 @@
+{
+  "name": {
+    "literal": "Ace Trainer Naomi"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "ambipom",
+      "gender": "MALE",
+      "level": 83,
+      "nature": "jolly",
+      "ability": "technician",
+      "moveset": [
+        "fakeout",
+        "tailslap",
+        "armthrust",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "silk_scarf"
+      ]
+    },
+    {
+      "species": "bruxish",
+      "gender": "MALE",
+      "level": 83,
+      "nature": "jolly",
+      "ability": "strongjaw",
+      "moveset": [
+        "psychicfangs",
+        "aquajet",
+        "liquidation",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mystic_water"
+      ]
+    },
+    {
+      "species": "galvantula",
+      "gender": "FEMALE",
+      "level": 83,
+      "nature": "timid",
+      "ability": "compoundeyes",
+      "moveset": [
+        "bugbuzz",
+        "thunder",
+        "gigadrain",
+        "voltswitch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "magnet"
+      ]
+    },
+    {
+      "species": "shedinja",
+      "gender": "GENDERLESS",
+      "level": 83,
+      "nature": "bashful",
+      "ability": "wonderguard",
+      "moveset": [
+        "shadowsneak",
+        "xscissor",
+        "willowisp",
+        "phantomforce"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 4,
+        "spe": 40
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "absol",
+      "gender": "MALE",
+      "level": 84,
+      "nature": "jolly",
+      "ability": "pressure",
+      "moveset": [
+        "playrough",
+        "nightslash",
+        "suckerpunch",
+        "superpower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:absolite",
+        "expert_belt"
+      ]
+    }
+  ]
+}

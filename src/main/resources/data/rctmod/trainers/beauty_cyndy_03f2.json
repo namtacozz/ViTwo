@@ -1,0 +1,47 @@
+{
+  "name": {
+    "literal": "Beauty Cyndy"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "glameow",
+      "gender": "MALE",
+      "level": 23,
+      "nature": "jolly",
+      "ability": "owntempo",
+      "moveset": [
+        "scratch",
+        "growl",
+        "aerialace",
+        "furyswipes"
+      ]
+    },
+    {
+      "species": "milcery",
+      "gender": "FEMALE",
+      "level": 23,
+      "nature": "modest",
+      "ability": "sweetveil",
+      "moveset": [
+        "drainingkiss",
+        "aromaticmist",
+        "sweetkiss",
+        "acid"
+      ]
+    }
+  ]
+}

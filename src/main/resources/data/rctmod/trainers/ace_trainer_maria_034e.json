@@ -1,0 +1,66 @@
+{
+  "name": {
+    "literal": "Ace Trainer Maria"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "golduck",
+      "gender": "MALE",
+      "level": 34,
+      "nature": "calm",
+      "ability": "damp",
+      "moveset": [
+        "aquajet",
+        "furyswipes",
+        "zenheadbutt",
+        "screech"
+      ]
+    },
+    {
+      "species": "ponyta",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "careful",
+      "ability": "runaway",
+      "moveset": [
+        "tailwhip",
+        "flamewheel",
+        "stomp",
+        "firespin"
+      ]
+    },
+    {
+      "species": "sudowoodo",
+      "gender": "MALE",
+      "level": 33,
+      "nature": "impish",
+      "ability": "rockhead",
+      "moveset": [
+        "hammerarm",
+        "woodhammer",
+        "rocktomb",
+        "suckerpunch"
+      ]
+    }
+  ]
+}

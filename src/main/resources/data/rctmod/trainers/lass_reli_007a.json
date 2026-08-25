@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Lass Reli"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "petilil",
+      "gender": "FEMALE",
+      "level": 18,
+      "nature": "relaxed",
+      "ability": "chlorophyll",
+      "moveset": [
+        "leechseed",
+        "sleeppowder",
+        "megadrain",
+        "synthesis"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "gossifleur",
+      "gender": "FEMALE",
+      "level": 18,
+      "nature": "adamant",
+      "ability": "cottondown",
+      "moveset": [
+        "rapidspin",
+        "sweetscent",
+        "razorleaf",
+        "round"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "name": {
+    "literal": "Roxanne"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 1
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "spikes",
+        "acidarmor",
+        "meteorbeam",
+        "powergem"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 92,
+        "spa": 36,
+        "def": 128,
+        "hp": 252
+      },
+      "heldItem": [
+        "power_herb"
+      ],
+      "species": "glimmora",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "calm",
+      "ability": "toxicdebris"
+    },
+    {
+      "moveset": [
+        "rockslide",
+        "knockoff",
+        "thunderpunch",
+        "icepunch"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 44,
+        "spd": 96,
+        "def": 84,
+        "atk": 148,
+        "hp": 136
+      },
+      "heldItem": [
+        "mega_showdown:tyranitarite"
+      ],
+      "species": "tyranitar",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "adamant",
+      "ability": "sandstream"
+    },
+    {
+      "moveset": [
+        "earthpower",
+        "flamethrower",
+        "stoneedge",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 16,
+        "spd": 24,
+        "spa": 84,
+        "def": 48,
+        "atk": 84,
+        "hp": 252
+      },
+      "heldItem": [
+        "weakness_policy"
+      ],
+      "species": "coalossal",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "mild",
+      "ability": "steamengine"
+    },
+    {
+      "moveset": [
+        "extremespeed",
+        "closecombat",
+        "willowisp",
+        "stoneedge"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 100,
+        "spd": 40,
+        "def": 96,
+        "atk": 216,
+        "hp": 56
+      },
+      "heldItem": [
+        "mirror_herb"
+      ],
+      "aspects": [
+        "hisuian"
+      ],
+      "species": "arcanine",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "nightslash",
+        "xscissor",
+        "stonea",
+        "dualwingbeat"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 32,
+        "spd": 96,
+        "def": 56,
+        "atk": 252,
+        "hp": 72
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "species": "kleavor",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "adamant",
+      "ability": "sheerforce"
+    },
+    {
+      "moveset": [
+        "dazzlinggleam",
+        "drainingkiss",
+        "powergem",
+        "diamondstorm"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 36,
+        "spa": 168,
+        "def": 84,
+        "atk": 56,
+        "hp": 164
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "gimmicks": {
+        "tera": "rock"
+      },
+      "species": "diancie",
+      "gender": "GENDERLESS",
+      "level": 36,
+      "nature": "quiet",
+      "ability": "clearbody"
+    }
+  ],
+  "identity": "petra",
+  "battleFormat": "GEN_9_DOUBLES"
+}

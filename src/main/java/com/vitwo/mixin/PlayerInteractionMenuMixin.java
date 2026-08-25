@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PlayerEntity.class)
 public class PlayerInteractionMenuMixin {
-    @Inject(method = "interact", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "interact", at = @At("HEAD"), cancellable = true, require = 0)
     private void vitwo$onInteractWithPlayer(Entity target, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
         PlayerEntity self = (PlayerEntity) (Object) this;
         if (self.getWorld().isClient() && hand == Hand.MAIN_HAND && self.isSneaking() && target instanceof PlayerEntity targetPlayer) {

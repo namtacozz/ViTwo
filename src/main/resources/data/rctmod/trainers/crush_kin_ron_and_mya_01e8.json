@@ -1,0 +1,69 @@
+{
+  "name": {
+    "literal": "Crush Kin Ron & Mya"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "grapploct",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "lax",
+      "ability": "limber",
+      "moveset": [
+        "reversal",
+        "superpower",
+        "topsyturvy",
+        "brutalswing"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    },
+    {
+      "species": "sirfetchd",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "naive",
+      "ability": "sharpness",
+      "moveset": [
+        "brickbreak",
+        "swordsdance",
+        "slam",
+        "leafblade"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    }
+  ]
+}

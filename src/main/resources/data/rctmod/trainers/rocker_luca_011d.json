@@ -1,0 +1,199 @@
+{
+  "name": {
+    "literal": "Rocker Luca"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "rotom",
+      "gender": "GENDERLESS",
+      "level": 93,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "blizzard",
+        "voltswitch",
+        "thunderwave",
+        "thunderbolt"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "spa": 252,
+        "spd": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "never_melt_ice"
+      ],
+      "aspects": [
+        "frost-appliance"
+      ]
+    },
+    {
+      "species": "heliolisk",
+      "gender": "FEMALE",
+      "level": 89,
+      "nature": "timid",
+      "ability": "dryskin",
+      "moveset": [
+        "boomburst",
+        "surf",
+        "weatherball",
+        "voltswitch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "spa": 252,
+        "spd": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "nidoqueen",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "timid",
+      "ability": "sheerforce",
+      "moveset": [
+        "earthpower",
+        "blizzard",
+        "fireblast",
+        "thunderbolt"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "spa": 252,
+        "spd": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "yanmega",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "timid",
+      "ability": "tintedlens",
+      "moveset": [
+        "bugbuzz",
+        "airslash",
+        "uturn",
+        "gigadrain"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "spa": 252,
+        "spd": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "choice_specs"
+      ]
+    },
+    {
+      "species": "blastoise",
+      "gender": "MALE",
+      "level": 90,
+      "nature": "timid",
+      "ability": "raindish",
+      "moveset": [
+        "shellsmash",
+        "blizzard",
+        "aurasphere",
+        "darkpulse"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "spa": 252,
+        "spd": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:blastoisinite",
+        "leftovers"
+      ]
+    },
+    {
+      "species": "walrein",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "bold",
+      "ability": "icebody",
+      "moveset": [
+        "blizzard",
+        "substitute",
+        "protect",
+        "toxic"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spd": 4
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    }
+  ]
+}

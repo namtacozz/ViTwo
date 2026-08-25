@@ -1,0 +1,201 @@
+{
+  "name": {
+    "literal": "Whitney"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "zangoose",
+      "gender": "MALE",
+      "level": 97,
+      "nature": "jolly",
+      "ability": "toxicboost",
+      "moveset": [
+        "facade",
+        "closecombat",
+        "quickattack",
+        "fakeout"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "toxic_orb"
+      ]
+    },
+    {
+      "species": "miltank",
+      "gender": "FEMALE",
+      "level": 97,
+      "nature": "jolly",
+      "ability": "thickfat",
+      "moveset": [
+        "bodyslam",
+        "thunderwave",
+        "stealthrock",
+        "milkdrink"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "kasib_berry"
+      ]
+    },
+    {
+      "species": "exploud",
+      "gender": "FEMALE",
+      "level": 96,
+      "nature": "timid",
+      "ability": "punkrock",
+      "moveset": [
+        "boomburst"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "zoroark",
+      "gender": "FEMALE",
+      "level": 95,
+      "nature": "timid",
+      "ability": "illusion",
+      "moveset": [
+        "shadowball",
+        "hypervoice",
+        "flamethrower",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "aspects": [
+        "sevii"
+      ]
+    },
+    {
+      "species": "ursaluna",
+      "gender": "FEMALE",
+      "level": 97,
+      "nature": "adamant",
+      "ability": "guts",
+      "moveset": [
+        "facade",
+        "earthquake",
+        "suckerpunch",
+        "shadowclaw"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "def": 4
+      },
+      "heldItem": [
+        "flame_orb"
+      ]
+    },
+    {
+      "species": "snorlax",
+      "gender": "FEMALE",
+      "level": 95,
+      "nature": "impish",
+      "ability": "thickfat",
+      "moveset": [
+        "curse",
+        "rest",
+        "sleeptalk",
+        "bodyslam"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "def": 4
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    }
+  ]
+}

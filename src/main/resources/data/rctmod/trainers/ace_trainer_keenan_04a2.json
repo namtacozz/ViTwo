@@ -1,0 +1,53 @@
+{
+  "name": {
+    "literal": "Ace Trainer Keenan"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "primeape",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "docile",
+      "ability": "vitalspirit",
+      "moveset": [
+        "finalgambit",
+        "outrage",
+        "closecombat",
+        "thrash"
+      ]
+    },
+    {
+      "species": "torkoal",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "bold",
+      "ability": "drought",
+      "moveset": [
+        "flamethrower",
+        "lavaplume",
+        "clearsmog",
+        "rapidspin"
+      ]
+    }
+  ]
+}

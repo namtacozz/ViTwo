@@ -1,0 +1,66 @@
+{
+  "name": {
+    "literal": "Ace Trainer Mikayla"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "meowth",
+      "gender": "FEMALE",
+      "level": 56,
+      "nature": "careful",
+      "ability": "technician",
+      "moveset": [
+        "taunt",
+        "playrough",
+        "feint",
+        "bite"
+      ]
+    },
+    {
+      "species": "persian",
+      "gender": "FEMALE",
+      "level": 56,
+      "nature": "careful",
+      "ability": "technician",
+      "moveset": [
+        "fakeout",
+        "slash",
+        "taunt",
+        "payday"
+      ]
+    },
+    {
+      "species": "hypno",
+      "gender": "MALE",
+      "level": 56,
+      "nature": "calm",
+      "ability": "insomnia",
+      "moveset": [
+        "futuresight",
+        "psychic",
+        "hypnosis",
+        "disable"
+      ]
+    }
+  ]
+}

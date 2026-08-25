@@ -1,0 +1,167 @@
+{
+  "name": {
+    "literal": "Bird Keeper Sebastian"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "gliscor",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "jolly",
+      "ability": "poisonheal",
+      "moveset": [
+        "uturn",
+        "earthquake",
+        "stealthrock",
+        "dualwingbeat"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "toxic_orb"
+      ]
+    },
+    {
+      "species": "charizard",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "blaze",
+      "moveset": [
+        "dragondance",
+        "flareblitz",
+        "dragonclaw",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:charizardite_x",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "togekiss",
+      "gender": "FEMALE",
+      "level": 88,
+      "nature": "modest",
+      "ability": "serenegrace",
+      "moveset": [
+        "airslash",
+        "fireblast",
+        "thunderwave",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "blaziken",
+      "gender": "FEMALE",
+      "level": 89,
+      "nature": "adamant",
+      "ability": "speedboost",
+      "moveset": [
+        "swordsdance",
+        "flareblitz",
+        "closecombat",
+        "thunderpunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "charcoal_stick"
+      ]
+    },
+    {
+      "species": "tropius",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "adamant",
+      "ability": "chlorophyll",
+      "moveset": [
+        "growth",
+        "gigadrain",
+        "weatherball",
+        "dragonpulse"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    }
+  ]
+}

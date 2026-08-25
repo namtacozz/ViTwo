@@ -1,0 +1,106 @@
+{
+  "name": {
+    "literal": "Team Rocket Grunt"
+  },
+  "identity": "Team Rocket Grunt (36)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "crawdaunt",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "docile",
+      "ability": "battlearmor",
+      "moveset": [
+        "scaryface",
+        "crabhammer",
+        "crunch",
+        "aquajet"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "zangoose",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "sassy",
+      "ability": "toughclaws",
+      "moveset": [
+        "glare",
+        "facade",
+        "quickattack",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "mightyena",
+      "gender": "FEMALE",
+      "level": 46,
+      "nature": "lonely",
+      "ability": "strongjaw",
+      "moveset": [
+        "smokescreen",
+        "crunch",
+        "icefang",
+        "firefang"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "drapion",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "naughty",
+      "ability": "sniper",
+      "moveset": [
+        "wingattack",
+        "crunch",
+        "poisonjab",
+        "aquatail"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

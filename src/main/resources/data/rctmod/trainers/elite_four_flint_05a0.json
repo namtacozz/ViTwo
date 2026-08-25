@@ -1,0 +1,167 @@
+{
+  "name": {
+    "literal": "Flint"
+  },
+  "identity": "Elite Four Flint",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "houndoom",
+      "gender": "MALE",
+      "level": 68,
+      "nature": "modest",
+      "ability": "unnerve",
+      "moveset": [
+        "flamethrower",
+        "darkpulse",
+        "destinybond",
+        "nastyplot"
+      ],
+      "ivs": {
+        "hp": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 52,
+        "spa": 252,
+        "spe": 204
+      },
+      "heldItem": [
+        "wise_glasses"
+      ]
+    },
+    {
+      "species": "flareon",
+      "gender": "FEMALE",
+      "level": 71,
+      "nature": "adamant",
+      "ability": "flashfire",
+      "moveset": [
+        "flareblitz",
+        "flail",
+        "willowisp",
+        "quickattack"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "rapidash",
+      "gender": "MALE",
+      "level": 69,
+      "nature": "jolly",
+      "ability": "flamebody",
+      "moveset": [
+        "flareblitz",
+        "irontail",
+        "poisonjab",
+        "hypnosis"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 52,
+        "atk": 252,
+        "spe": 204
+      },
+      "heldItem": [
+        "wide_lens"
+      ]
+    },
+    {
+      "species": "infernape",
+      "gender": "FEMALE",
+      "level": 71,
+      "nature": "jolly",
+      "ability": "ironfist",
+      "moveset": [
+        "firepunch",
+        "thunderpunch",
+        "closecombat",
+        "machpunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 52,
+        "atk": 252,
+        "spe": 204
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "magmortar",
+      "gender": "MALE",
+      "level": 73,
+      "nature": "modest",
+      "ability": "flamebody",
+      "moveset": [
+        "fireblast",
+        "thunderbolt",
+        "focusblast",
+        "psychic"
+      ],
+      "ivs": {
+        "hp": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 52,
+        "spa": 252,
+        "spe": 204
+      },
+      "heldItem": [
+        "lum_berry"
+      ]
+    }
+  ]
+}

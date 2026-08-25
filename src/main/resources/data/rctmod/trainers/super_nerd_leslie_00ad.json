@@ -1,0 +1,62 @@
+{
+  "name": {
+    "literal": "Super Nerd Leslie"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "weezing",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "sassy",
+      "ability": "levitate",
+      "moveset": [
+        "sludge",
+        "selfdestruct",
+        "sludge",
+        "smokescreen"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "klinklang",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "adamant",
+      "moveset": [
+        "geargrind",
+        "shiftgear",
+        "chargebeam",
+        "bind"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

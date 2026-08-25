@@ -1,0 +1,90 @@
+{
+  "name": {
+    "literal": "Team Rocket Agent"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 1
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "hypno",
+      "gender": "MALE",
+      "level": 49,
+      "nature": "timid",
+      "ability": "insomnia",
+      "moveset": [
+        "hypnosis",
+        "psychic",
+        "zenheadbutt",
+        "psyshock"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "golbat",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "quiet",
+      "ability": "infiltrator",
+      "moveset": [
+        "venoshock",
+        "bite",
+        "poisonfang",
+        "aircutter"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "noctowl",
+      "gender": "MALE",
+      "level": 50,
+      "nature": "brave",
+      "ability": "tintedlens",
+      "moveset": [
+        "airslash",
+        "moonblast",
+        "extrasensory",
+        "confusion"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Swimmer♂ Luis"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "shellder",
+      "gender": "FEMALE",
+      "level": 19,
+      "nature": "docile",
+      "ability": "battlearmor",
+      "moveset": [
+        "withdraw",
+        "supersonic",
+        "iciclespear",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "tirtouga",
+      "gender": "FEMALE",
+      "level": 20,
+      "nature": "modest",
+      "ability": "solidrock",
+      "moveset": [
+        "bite",
+        "detect",
+        "aquajet",
+        "ancientpower"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

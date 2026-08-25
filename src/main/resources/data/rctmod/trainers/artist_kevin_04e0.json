@@ -1,0 +1,47 @@
+{
+  "name": {
+    "literal": "Artist Kevin"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "mrmime",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "bold",
+      "ability": "filter",
+      "moveset": [
+        "mimic",
+        "lightscreen",
+        "dazzlinggleam",
+        "psychic"
+      ]
+    },
+    {
+      "species": "sudowoodo",
+      "gender": "FEMALE",
+      "level": 59,
+      "nature": "jolly",
+      "ability": "rockhead",
+      "moveset": [
+        "woodhammer",
+        "tearfullook",
+        "doubleedge",
+        "headsmash"
+      ]
+    }
+  ]
+}

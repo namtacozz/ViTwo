@@ -1,0 +1,116 @@
+{
+  "name": {
+    "literal": "Team Rocket Grunt"
+  },
+  "identity": "Team Rocket Grunt (10)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "growlithe",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "careful",
+      "ability": "intimidate",
+      "moveset": [
+        "dragonrage",
+        "firefang",
+        "thunderfang",
+        "bulldoze"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "heldItem": [
+        "eviolite"
+      ]
+    },
+    {
+      "species": "gabite",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "impish",
+      "ability": "roughskin",
+      "moveset": [
+        "bodyslam",
+        "rockslide",
+        "dualchop",
+        "bulldoze"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "heldItem": [
+        "eviolite"
+      ]
+    },
+    {
+      "species": "togedemaru",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "careful",
+      "ability": "ironbarbs",
+      "moveset": [
+        "uturn",
+        "zippyzap",
+        "ironhead",
+        "nuzzle"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "heldItem": [
+        "rocky_helmet"
+      ]
+    },
+    {
+      "species": "komala",
+      "gender": "FEMALE",
+      "level": 89,
+      "nature": "adamant",
+      "ability": "comatose",
+      "moveset": [
+        "protect",
+        "lastresort"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "heldItem": [
+        "silk_scarf"
+      ]
+    }
+  ]
+}

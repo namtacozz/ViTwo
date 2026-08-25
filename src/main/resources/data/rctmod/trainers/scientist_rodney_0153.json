@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Scientist Rodney"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "rotom",
+      "gender": "GENDERLESS",
+      "level": 48,
+      "nature": "rash",
+      "ability": "levitate",
+      "moveset": [
+        "shockwave",
+        "ominouswind",
+        "substitute",
+        "electroball"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "magnezone",
+      "gender": "GENDERLESS",
+      "level": 48,
+      "nature": "modest",
+      "ability": "analytic",
+      "moveset": [
+        "thunderbolt",
+        "flashcannon",
+        "triattack",
+        "magnetrise"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

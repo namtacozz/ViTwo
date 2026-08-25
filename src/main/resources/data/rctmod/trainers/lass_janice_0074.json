@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Lass Janice"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "glameow",
+      "gender": "MALE",
+      "level": 10,
+      "nature": "quirky",
+      "ability": "limber",
+      "moveset": [
+        "fakeout",
+        "attract",
+        "scratch",
+        "growl"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "nidoranf",
+      "gender": "FEMALE",
+      "level": 11,
+      "nature": "quiet",
+      "ability": "poisontouch",
+      "moveset": [
+        "growl",
+        "scratch",
+        "tailwhip",
+        "doublekick"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    }
+  ]
+}

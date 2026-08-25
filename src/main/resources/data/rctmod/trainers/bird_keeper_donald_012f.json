@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Bird Keeper Donald"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "farfetchd",
+      "gender": "FEMALE",
+      "level": 58,
+      "nature": "mild",
+      "ability": "frisk",
+      "moveset": [
+        "acrobatics",
+        "feint",
+        "falseswipe",
+        "bravebird"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "noctowl",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "calm",
+      "ability": "insomnia",
+      "moveset": [
+        "airslash",
+        "hypnosis",
+        "dreameater",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 9,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

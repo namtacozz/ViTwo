@@ -1,0 +1,53 @@
+{
+  "name": {
+    "literal": "Dragon Tamer Patrick"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "gible",
+      "gender": "MALE",
+      "level": 39,
+      "nature": "jolly",
+      "ability": "sandveil",
+      "moveset": [
+        "sandtomb",
+        "bulldoze",
+        "bite",
+        "dragonclaw"
+      ]
+    },
+    {
+      "species": "shelgon",
+      "gender": "MALE",
+      "level": 39,
+      "nature": "brave",
+      "ability": "rockhead",
+      "moveset": [
+        "dragonclaw",
+        "protect",
+        "crunch",
+        "zenheadbutt"
+      ]
+    }
+  ]
+}

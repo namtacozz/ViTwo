@@ -1,0 +1,211 @@
+{
+  "name": {
+    "literal": "Bugsy"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "pheromosa",
+      "gender": "GENDERLESS",
+      "level": 97,
+      "nature": "hasty",
+      "ability": "beastboost",
+      "moveset": [
+        "closecombat",
+        "icebeam",
+        "uturn",
+        "drillrun"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "clawitzer",
+      "gender": "FEMALE",
+      "level": 95,
+      "nature": "modest",
+      "ability": "megalauncher",
+      "moveset": [
+        "waterpulse",
+        "darkpulse",
+        "aurasphere",
+        "bugbuzz"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "aspects": [
+        "hisuian"
+      ]
+    },
+    {
+      "species": "genesect",
+      "gender": "GENDERLESS",
+      "level": 95,
+      "nature": "naive",
+      "ability": "download",
+      "moveset": [
+        "uturn",
+        "technoblast",
+        "thunderbolt",
+        "icebeam"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:dousedrive",
+        "expert_belt"
+      ],
+      "aspects": [
+        "douse"
+      ]
+    },
+    {
+      "species": "magnezone",
+      "gender": "GENDERLESS",
+      "level": 95,
+      "nature": "timid",
+      "ability": "magnetpull",
+      "moveset": [
+        "thunderbolt",
+        "flashcannon",
+        "voltswitch",
+        "hiddenpower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 30,
+        "def": 31,
+        "spa": 30,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "arceus",
+      "gender": "GENDERLESS",
+      "level": 96,
+      "nature": "jolly",
+      "ability": "multitype",
+      "moveset": [
+        "xscissor",
+        "earthquake",
+        "ironhead",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:buginium-z",
+        "bug_gem"
+      ],
+      "aspects": [
+        "bug"
+      ]
+    },
+    {
+      "species": "pinsir",
+      "gender": "MALE",
+      "level": 97,
+      "nature": "jolly",
+      "ability": "hypercutter",
+      "moveset": [
+        "megahorn",
+        "extremespeed",
+        "closecombat",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:pinsirite",
+        "life_orb"
+      ]
+    }
+  ]
+}

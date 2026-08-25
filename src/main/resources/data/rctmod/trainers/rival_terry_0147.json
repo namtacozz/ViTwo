@@ -1,0 +1,40 @@
+{
+  "name": {
+    "literal": "Rival Terry"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_SINGLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "bulbasaur",
+      "gender": "FEMALE",
+      "level": 5,
+      "nature": "rash",
+      "ability": "overgrow",
+      "moveset": [
+        "tackle",
+        "growl"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    }
+  ]
+}

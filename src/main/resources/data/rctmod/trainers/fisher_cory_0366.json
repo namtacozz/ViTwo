@@ -1,0 +1,59 @@
+{
+  "name": {
+    "literal": "Fisher Cory"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "magikarp",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "relaxed",
+      "ability": "swiftswim",
+      "moveset": [
+        "splash",
+        "tackle",
+        "flail"
+      ]
+    },
+    {
+      "species": "finneon",
+      "gender": "MALE",
+      "level": 30,
+      "nature": "sassy",
+      "ability": "stormdrain",
+      "moveset": [
+        "attract",
+        "raindance",
+        "gust",
+        "waterpulse"
+      ]
+    },
+    {
+      "species": "gyarados",
+      "gender": "FEMALE",
+      "level": 32,
+      "nature": "sassy",
+      "ability": "intimidate",
+      "moveset": [
+        "whirlpool",
+        "brine",
+        "waterfall",
+        "raindance"
+      ]
+    }
+  ]
+}

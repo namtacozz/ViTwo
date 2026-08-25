@@ -1,0 +1,138 @@
+{
+  "name": {
+    "literal": "Ranger Beth"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "scizor",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "adamant",
+      "ability": "technician",
+      "moveset": [
+        "bulletpunch",
+        "uturn",
+        "rocksmash",
+        "dualwingbeat"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 30,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "def": 4
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "haxorus",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "moldbreaker",
+      "moveset": [
+        "swordsdance",
+        "scaleshot",
+        "poisonjab",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "lum_berry"
+      ]
+    },
+    {
+      "species": "golem",
+      "gender": "MALE",
+      "level": 90,
+      "nature": "adamant",
+      "ability": "sturdy",
+      "moveset": [
+        "headlongrush",
+        "stoneedge",
+        "suckerpunch",
+        "explosion"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "def": 4
+      },
+      "heldItem": [
+        "custap_berry"
+      ]
+    },
+    {
+      "species": "manectric",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "timid",
+      "ability": "intimidate",
+      "moveset": [
+        "voltswitch",
+        "hiddenpower",
+        "flamethrower",
+        "thunderbolt"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:manectite",
+        "expert_belt"
+      ]
+    }
+  ]
+}

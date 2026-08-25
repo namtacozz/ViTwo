@@ -1,0 +1,44 @@
+{
+  "name": {
+    "literal": "Psychic Elijah"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_SINGLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "abra",
+      "gender": "MALE",
+      "level": 15,
+      "nature": "sassy",
+      "ability": "synchronize",
+      "moveset": [
+        "energyball"
+      ]
+    },
+    {
+      "species": "ralts",
+      "gender": "MALE",
+      "level": 5,
+      "nature": "modest",
+      "ability": "synchronize",
+      "moveset": [
+        "confuseray",
+        "doubleteam",
+        "disarmingvoice",
+        "teleport"
+      ]
+    }
+  ]
+}

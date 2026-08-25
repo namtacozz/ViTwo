@@ -1,0 +1,195 @@
+{
+  "name": {
+    "literal": "Professor Oak"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "tauros",
+      "gender": "MALE",
+      "level": 99,
+      "nature": "jolly",
+      "ability": "sheerforce",
+      "moveset": [
+        "headcharge",
+        "closecombat",
+        "throatchop",
+        "ironhead"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "exeggutor",
+      "gender": "MALE",
+      "level": 97,
+      "nature": "modest",
+      "ability": "harvest",
+      "moveset": [
+        "chloroblast",
+        "sleeppowder",
+        "psyshock",
+        "earthpower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "charizard",
+      "gender": "FEMALE",
+      "level": 99,
+      "nature": "jolly",
+      "ability": "blaze",
+      "moveset": [
+        "dragondance",
+        "flareblitz",
+        "dragonclaw",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:charizardite_x",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "gyarados",
+      "gender": "MALE",
+      "level": 98,
+      "nature": "jolly",
+      "ability": "moxie",
+      "moveset": [
+        "dragondance",
+        "waterfall",
+        "earthquake",
+        "powerwhip"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "water_gem"
+      ]
+    },
+    {
+      "species": "mew",
+      "gender": "GENDERLESS",
+      "level": 99,
+      "nature": "timid",
+      "ability": "synchronize",
+      "moveset": [
+        "nastyplot",
+        "psyshock",
+        "aurasphere",
+        "darkpulse"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "spa": 252,
+        "spd": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "fighting_gem"
+      ]
+    },
+    {
+      "species": "jolteon",
+      "gender": "FEMALE",
+      "level": 97,
+      "nature": "timid",
+      "ability": "voltabsorb",
+      "moveset": [
+        "lastresort",
+        "thunderbolt",
+        "shadowball",
+        "hiddenpower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 30,
+        "def": 30,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "spa": 252,
+        "spd": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:eevium-z",
+        "normal_gem"
+      ]
+    }
+  ]
+}

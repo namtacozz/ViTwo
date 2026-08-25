@@ -5,10 +5,13 @@ import com.vitwo.client.gui.TowerBpShopScreen;
 import com.vitwo.client.gui.TowerHubScreen;
 import com.vitwo.client.gui.TowerRunSummaryScreen;
 import com.vitwo.client.gui.toast.InviteToast;
+import com.vitwo.client.hud.TowerBattleGradeOverlay;
+import com.vitwo.client.hud.TowerBossIntroOverlay;
 import com.vitwo.client.hud.TowerHudOverlay;
 import com.vitwo.client.keybind.TowerKeybinds;
 import com.vitwo.network.s2c.*;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
@@ -50,16 +53,21 @@ public class ViTwoClient implements ClientModInitializer {
                 TowerBpShopScreen.currentBpBalance = payload.battlePoints();
 
                 // Update HUD Overlay
-                TowerHudOverlay.inTowerSession = payload.inTowerSession();
-                TowerHudOverlay.currentFloor = payload.currentFloor();
-                TowerHudOverlay.soloCheckpoint = payload.soloCheckpoint();
-                TowerHudOverlay.duoCheckpoint = payload.duoCheckpoint();
-                TowerHudOverlay.inBattle = payload.inBattle();
-                TowerHudOverlay.isSpectating = payload.isSpectating();
-                TowerHudOverlay.isSolo = !payload.hasParty();
-                TowerHudOverlay.isTrueRun = payload.isTrueRun();
-                TowerHudOverlay.currentBossName = payload.currentBossName();
-                TowerHudOverlay.playerBp = payload.battlePoints();
+                if (!payload.inTowerSession()) {
+                    TowerHudOverlay.clearCache();
+                } else {
+                    TowerHudOverlay.inTowerSession = payload.inTowerSession();
+                    TowerHudOverlay.currentFloor = payload.currentFloor();
+                    TowerHudOverlay.soloCheckpoint = payload.soloCheckpoint();
+                    TowerHudOverlay.duoCheckpoint = payload.duoCheckpoint();
+                    TowerHudOverlay.inBattle = payload.inBattle();
+                    TowerHudOverlay.isSpectating = payload.isSpectating();
+                    TowerHudOverlay.isSolo = !payload.hasParty();
+                    TowerHudOverlay.isTrueRun = payload.isTrueRun();
+                    TowerHudOverlay.currentBossName = payload.currentBossName();
+                    TowerHudOverlay.playerBp = payload.battlePoints();
+                    TowerHudOverlay.markDirty();
+                }
             });
         });
 
@@ -104,6 +112,7 @@ public class ViTwoClient implements ClientModInitializer {
             context.client().execute(() -> {
                 TowerHudOverlay.ghostCharges = payload.charges();
                 TowerHudOverlay.maxGhostCharges = payload.maxCharges();
+                TowerHudOverlay.markDirty();
             });
         });
 
@@ -120,9 +129,50 @@ public class ViTwoClient implements ClientModInitializer {
             });
         });
 
+        // Leaderboard Sync Receiver
+        ClientPlayNetworking.registerGlobalReceiver(SyncLeaderboardS2CPacket.ID, (payload, context) -> {
+            context.client().execute(() -> {
+                TowerHubScreen.cachedLeaderboard = payload.entries();
+            });
+        });
+
+        // Boss Floor Cutscene Receiver
+        ClientPlayNetworking.registerGlobalReceiver(TowerBossIntroS2CPacket.ID, (payload, context) -> {
+            context.client().execute(() -> {
+                TowerBossIntroOverlay.showIntro(
+                        payload.floor(),
+                        payload.bossName(),
+                        payload.bossTitle(),
+                        payload.quote(),
+                        payload.isApex()
+                );
+            });
+        });
+
+        // Post-Battle Grade Receiver
+        ClientPlayNetworking.registerGlobalReceiver(TowerBattleGradeS2CPacket.ID, (payload, context) -> {
+            context.client().execute(() -> {
+                TowerBattleGradeOverlay.showGrade(
+                        payload.floor(),
+                        payload.grade(),
+                        payload.bonusBp(),
+                        payload.turns(),
+                        payload.faints()
+                );
+            });
+        });
+
+        // Client Tick for Animations
+        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            TowerBossIntroOverlay.tick();
+            TowerBattleGradeOverlay.tick();
+        });
+
         // Register HUD Rendering
         HudRenderCallback.EVENT.register((drawContext, tickCounter) -> {
             TowerHudOverlay.render(drawContext, tickCounter.getTickDelta(true));
+            TowerBossIntroOverlay.render(drawContext, tickCounter.getTickDelta(true));
+            TowerBattleGradeOverlay.render(drawContext, tickCounter.getTickDelta(true));
         });
     }
 }

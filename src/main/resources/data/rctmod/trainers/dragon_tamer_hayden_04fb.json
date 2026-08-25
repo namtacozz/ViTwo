@@ -1,0 +1,53 @@
+{
+  "name": {
+    "literal": "Dragon Tamer Hayden"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "altaria",
+      "gender": "MALE",
+      "level": 60,
+      "nature": "modest",
+      "ability": "naturalcure",
+      "moveset": [
+        "dragonpulse",
+        "moonblast",
+        "round",
+        "perishsong"
+      ]
+    },
+    {
+      "species": "altaria",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "adamant",
+      "ability": "naturalcure",
+      "moveset": [
+        "dragondance",
+        "skyattack",
+        "takedown",
+        "pluck"
+      ]
+    }
+  ]
+}

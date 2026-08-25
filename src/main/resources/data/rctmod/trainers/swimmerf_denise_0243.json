@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Swimmer♀ Denise"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "chinchou",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "timid",
+      "ability": "voltabsorb",
+      "moveset": [
+        "paraboliccharge",
+        "aquaring",
+        "hydropump",
+        "iondeluge"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "lanturn",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "calm",
+      "ability": "voltabsorb",
+      "moveset": [
+        "signalbeam",
+        "scald",
+        "discharge",
+        "aquaring"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

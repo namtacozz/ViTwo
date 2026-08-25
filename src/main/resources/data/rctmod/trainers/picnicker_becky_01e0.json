@@ -1,0 +1,66 @@
+{
+  "name": {
+    "literal": "Picnicker Becky"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "raichu",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "mild",
+      "ability": "static",
+      "moveset": [
+        "tailwhip",
+        "quickattack",
+        "thunderbolt",
+        "extremespeed"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "raichu",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "relaxed",
+      "ability": "surgesurfer",
+      "moveset": [
+        "speedswap",
+        "thundershock",
+        "quickattack",
+        "thunderbolt"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      },
+      "aspects": [
+        "alolan"
+      ]
+    }
+  ]
+}

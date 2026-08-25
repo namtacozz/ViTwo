@@ -6,71 +6,62 @@ import java.util.Random;
 public class ArenaTemplatePool {
     private static final Random RANDOM = new Random();
 
-    // 1. All Regional Gyms (Gen 1-4) - Clean, Flat Arenas
-    public static final List<String> ALL_REGIONAL_GYMS = List.of(
-            "cobbleverse:brock", "cobbleverse:misty", "cobbleverse:ltsurge", "cobbleverse:erika",
-            "cobbleverse:koga", "cobbleverse:sabrina", "cobbleverse:blaine", "cobbleverse:giovanni",
-            "cobbleverse:valerio", "cobbleverse:raffaello", "cobbleverse:chiara", "cobbleverse:angelo",
-            "cobbleverse:furio", "cobbleverse:jasmine", "cobbleverse:alfredo", "cobbleverse:sandra",
-            "cobbleverse:petra", "cobbleverse:rudi", "cobbleverse:walter", "cobbleverse:fiammetta",
-            "cobbleverse:norman", "cobbleverse:alice", "cobbleverse:tell", "cobbleverse:adriano",
-            "cobbleverse:pedro", "cobbleverse:gardenia", "cobbleverse:marzia", "cobbleverse:omar",
-            "cobbleverse:fannie", "cobbleverse:ferruccio", "cobbleverse:bianca", "cobbleverse:corrado"
+    // 1. Ancient Archaeological Battlegrounds & Open Pillar Arenas (Floors 1-50)
+    public static final List<String> ANCIENT_ARENAS = List.of(
+            "cobblemon:ruins/toppled_pillars_circle_layout",
+            "cobblemon:ruins/toppled_pillars_square_layout",
+            "legendarymonuments:outskirt_stand",
+            "mega_showdown:archaeological_site/archaeological_site_a",
+            "mega_showdown:archaeological_site/archaeological_site_b",
+            "mega_showdown:archaeological_site/archaeological_site_c"
     );
 
-    // 2. Elite Four & Grand League Stadiums (Floors 51-75)
-    public static final List<String> LEAGUE_STADIUMS = List.of(
-            "cobbleverse:kanto_league",
-            "cobbleverse:johto_league",
-            "cobbleverse:hoenn_league",
-            "cobbleverse:sinnoh_league"
+    // 2. Grand Pyramids & League Astronomical Arenas (Floors 51-75)
+    public static final List<String> GRAND_LEAGUE_PYRAMIDS = List.of(
+            "mega_showdown:observatory",
+            "mega_showdown:megaroid",
+            "mega_showdown:wishing_weald/wishing_weald",
+            "repurposed_structures:pyramids/flower_forest_body",
+            "repurposed_structures:pyramids/dark_forest_body",
+            "repurposed_structures:pyramids/icy_body",
+            "repurposed_structures:pyramids/badlands_body"
     );
 
-    // 3. Legendary & Mythical Shrines (Floors 76-99) - Clean open platforms without dimension portals
+    // 3. Legendary & Mythical Summon Shrines (Floors 76-99)
     public static final List<String> MYTHICAL_SHRINES = List.of(
-            "cobbleverse:spear_pillar",
-            "cobbleverse:snowpoint_temple",
-            "cobbleverse:legendary/groudon",
-            "cobbleverse:legendary/kyogre",
-            "cobbleverse:legendary/articuno",
-            "cobbleverse:legendary/zapdos",
-            "cobbleverse:legendary/moltres",
-            "cobbleverse:mythical/mew",
-            "cobbleverse:celebi_shrine",
-            "cobbleverse:mythical/deoxys",
-            "cobbleverse:mythical/jirachi",
-            "cobbleverse:mythical/manaphy"
+            "legendarymonuments:eternatus_cocoon",
+            "legendarymonuments:firescourge_shrine",
+            "legendarymonuments:grasswither_shrine",
+            "legendarymonuments:groundblight_shrine",
+            "legendarymonuments:icerend_shrine",
+            "lumymon:newmoon_island",
+            "mega_showdown:mega_site"
     );
 
-    // 4. Rest Station Pokecenters (Every 5 Floors, except 100)
-    public static final List<String> POKECENTERS = List.of(
-            "cobblemon:village_plains/village_plains_pokecenter",
-            "cobblemon:village_desert/village_desert_pokecenter",
-            "cobblemon:village_snowy/village_snowy_pokecenter",
-            "cobblemon:village_taiga/village_taiga_pokecenter",
-            "cobblemon:villages/cherry/pokecenter",
-            "cobblemon:villages/dark_forest/pokecenter",
-            "cobblemon:villages/mountains/pokecenter"
+    // 4. Rest Floor Clean Open Platform (Every 5 Floors, except 100)
+    public static final List<String> REST_PLATFORMS = List.of(
+            "mega_showdown:mega_site",
+            "cobblemon:ruins/toppled_pillars_circle_layout"
     );
 
     public static String getStructureForFloor(int floor) {
         if (floor >= 100) {
-            return "cobbleverse:spear_pillar"; // Final Sovereign Boss Arena
+            return "lumymon:temple_of_sinnoh"; // Authentic Spear Pillar Arceus Temple
         }
         if (floor % 5 == 0) {
-            return getRandomFromList(POKECENTERS);
+            return getRandomFromList(REST_PLATFORMS);
         }
         if (floor <= 50) {
-            return getRandomFromList(ALL_REGIONAL_GYMS);
+            return getRandomFromList(ANCIENT_ARENAS);
         } else if (floor <= 75) {
-            return getRandomFromList(LEAGUE_STADIUMS);
+            return getRandomFromList(GRAND_LEAGUE_PYRAMIDS);
         } else {
             return getRandomFromList(MYTHICAL_SHRINES);
         }
     }
 
     private static String getRandomFromList(List<String> list) {
-        if (list == null || list.isEmpty()) return "cobbleverse:spear_pillar";
+        if (list == null || list.isEmpty()) return "lumymon:temple_of_sinnoh";
         return list.get(RANDOM.nextInt(list.size()));
     }
 }

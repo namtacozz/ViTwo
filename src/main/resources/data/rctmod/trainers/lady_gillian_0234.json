@@ -1,0 +1,87 @@
+{
+  "name": {
+    "literal": "Lady Gillian"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "mareep",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "impish",
+      "ability": "static",
+      "moveset": [
+        "discharge",
+        "signalbeam",
+        "lightscreen",
+        "thunder"
+      ],
+      "ivs": {
+        "hp": 20,
+        "atk": 20,
+        "def": 20,
+        "spa": 20,
+        "spd": 20,
+        "spe": 20
+      }
+    },
+    {
+      "species": "mareep",
+      "gender": "FEMALE",
+      "level": 48,
+      "nature": "naive",
+      "ability": "static",
+      "moveset": [
+        "discharge",
+        "signalbeam",
+        "lightscreen",
+        "thunder"
+      ],
+      "ivs": {
+        "hp": 20,
+        "atk": 20,
+        "def": 20,
+        "spa": 20,
+        "spd": 20,
+        "spe": 20
+      }
+    },
+    {
+      "species": "flaaffy",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "brave",
+      "ability": "static",
+      "moveset": [
+        "confuseray",
+        "powergem",
+        "discharge",
+        "signalbeam"
+      ],
+      "ivs": {
+        "hp": 20,
+        "atk": 20,
+        "def": 20,
+        "spa": 20,
+        "spd": 20,
+        "spe": 20
+      },
+      "heldItem": [
+        "minecraft:gold_nugget"
+      ]
+    }
+  ]
+}

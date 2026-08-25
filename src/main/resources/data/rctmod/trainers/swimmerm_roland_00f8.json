@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "Swimmer♂ Roland"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "poliwhirl",
+      "gender": "FEMALE",
+      "level": 63,
+      "nature": "lonely",
+      "ability": "waterabsorb",
+      "moveset": [
+        "bellydrum",
+        "wakeupslap",
+        "hydropump",
+        "mudbomb"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "ludicolo",
+      "gender": "FEMALE",
+      "level": 64,
+      "nature": "brave",
+      "ability": "swiftswim",
+      "moveset": [
+        "astonish",
+        "growl",
+        "megadrain",
+        "naturepower"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "seismitoad",
+      "gender": "MALE",
+      "level": 64,
+      "nature": "rash",
+      "ability": "swiftswim",
+      "moveset": [
+        "drainpunch",
+        "echoedvoice",
+        "hydropump",
+        "hypervoice"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

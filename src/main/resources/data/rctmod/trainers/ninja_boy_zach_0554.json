@@ -1,0 +1,60 @@
+{
+  "name": {
+    "literal": "Ninja Boy Zach"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "golbat",
+      "gender": "FEMALE",
+      "level": 51,
+      "nature": "jolly",
+      "ability": "innerfocus",
+      "moveset": [
+        "screech",
+        "astonish",
+        "poisonfang",
+        "bite"
+      ]
+    },
+    {
+      "species": "crobat",
+      "gender": "FEMALE",
+      "level": 52,
+      "nature": "jolly",
+      "ability": "innerfocus",
+      "moveset": [
+        "tailwind",
+        "crosspoison",
+        "toxic",
+        "bite"
+      ]
+    },
+    {
+      "species": "crobat",
+      "gender": "FEMALE",
+      "level": 53,
+      "nature": "timid",
+      "ability": "innerfocus",
+      "moveset": [
+        "absorb",
+        "toxic",
+        "aircutter",
+        "venoshock"
+      ]
+    }
+  ]
+}

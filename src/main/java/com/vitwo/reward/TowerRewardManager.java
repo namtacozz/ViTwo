@@ -2,7 +2,9 @@ package com.vitwo.reward;
 
 import com.vitwo.battle.TowerBattleManager;
 import com.vitwo.config.TowerPlayerDataManager;
+import com.vitwo.network.s2c.TowerBattleGradeS2CPacket;
 import com.vitwo.party.TowerParty;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.advancement.AdvancementEntry;
 import net.minecraft.advancement.PlayerAdvancementTracker;
 import net.minecraft.item.ItemStack;
@@ -24,16 +26,9 @@ public class TowerRewardManager {
 
     private static final Random RANDOM = new Random();
 
-    // BP Shop 3-Tier Price Table & Weekly Stock Limits
+    // BP Shop 5-Category Price Table & Weekly Stock Limits
     public static final Map<String, Integer> BP_SHOP_PRICES = Map.ofEntries(
-            // Bronze Tier (Default)
-            Map.entry("rare_candy", 30),
-            Map.entry("adamant_mint", 100),
-            Map.entry("modest_mint", 100),
-            Map.entry("jolly_mint", 100),
-            Map.entry("timid_mint", 100),
-            Map.entry("bold_mint", 100),
-            Map.entry("calm_mint", 100),
+            // Held & Battle Items
             Map.entry("focus_sash", 200),
             Map.entry("choice_scarf", 200),
             Map.entry("choice_band", 200),
@@ -42,61 +37,151 @@ public class TowerRewardManager {
             Map.entry("assault_vest", 200),
             Map.entry("heavy_duty_boots", 150),
             Map.entry("leftovers", 150),
-            Map.entry("booster_energy", 300),
-
-            // Silver Tier (Unlocked after F50 True Run)
-            Map.entry("ability_capsule", 150),
-            Map.entry("bottle_cap", 100),
+            Map.entry("eviolite", 250),
+            Map.entry("rocky_helmet", 150),
+            Map.entry("expert_belt", 150),
+            Map.entry("air_balloon", 150),
+            Map.entry("weakness_policy", 200),
             Map.entry("toxic_orb", 150),
             Map.entry("flame_orb", 150),
-            Map.entry("eviolite", 250),
+            Map.entry("safety_goggles", 150),
+            Map.entry("white_herb", 100),
+            Map.entry("power_herb", 100),
+            Map.entry("mental_herb", 100),
+            Map.entry("mirror_herb", 150),
+            Map.entry("black_sludge", 150),
+            Map.entry("scope_lens", 100),
+            Map.entry("wide_lens", 100),
+            Map.entry("tera_shard_stellar", 500),
 
-            // Gold Tier (Unlocked after F100 True Run)
+            // Mints & Training
+            Map.entry("rare_candy", 30),
+            Map.entry("exp_candy_xl", 50),
+            Map.entry("exp_candy_l", 25),
+            Map.entry("gold_bottle_cap", 350),
+            Map.entry("bottle_cap", 100),
+            Map.entry("pp_max", 200),
+            Map.entry("pp_up", 80),
+            Map.entry("adamant_mint", 100),
+            Map.entry("modest_mint", 100),
+            Map.entry("jolly_mint", 100),
+            Map.entry("timid_mint", 100),
+            Map.entry("bold_mint", 100),
+            Map.entry("calm_mint", 100),
+            Map.entry("brave_mint", 100),
+            Map.entry("quiet_mint", 100),
+            Map.entry("impish_mint", 100),
+            Map.entry("careful_mint", 100),
+            Map.entry("ability_capsule", 150),
             Map.entry("ability_patch", 400),
-            Map.entry("gold_bottle_cap", 500),
-            Map.entry("tera_shard_stellar", 50),
-            Map.entry("master_ball", 1500),
-            Map.entry("title_tower_champion", 5000),
+            Map.entry("power_bracer", 75),
+            Map.entry("power_belt", 75),
+            Map.entry("power_lens", 75),
+            Map.entry("power_band", 75),
+            Map.entry("power_anklet", 75),
+            Map.entry("power_weight", 75),
 
-            // Platinum Tier (Unlocked at Prestige 3+)
+            // Evolution Items
+            Map.entry("fire_stone", 60),
+            Map.entry("water_stone", 60),
+            Map.entry("thunder_stone", 60),
+            Map.entry("leaf_stone", 60),
+            Map.entry("moon_stone", 80),
+            Map.entry("sun_stone", 80),
+            Map.entry("shiny_stone", 100),
+            Map.entry("dusk_stone", 100),
+            Map.entry("dawn_stone", 100),
+            Map.entry("ice_stone", 80),
+            Map.entry("electirizer", 150),
+            Map.entry("magmarizer", 150),
+            Map.entry("protector", 150),
+            Map.entry("reaper_cloth", 150),
+            Map.entry("dragon_scale", 150),
+            Map.entry("prism_scale", 150),
+            Map.entry("dubious_disc", 150),
+            Map.entry("upgrade", 120),
+            Map.entry("kings_rock", 120),
+            Map.entry("metal_coat", 120),
+            Map.entry("razor_fang", 120),
+            Map.entry("razor_claw", 120),
+            Map.entry("deep_sea_tooth", 120),
+            Map.entry("deep_sea_scale", 120),
+            Map.entry("oval_stone", 80),
+            Map.entry("cracked_pot", 80),
+            Map.entry("link_cable", 120),
+
+            // Balls & Medicine
+            Map.entry("master_ball", 1500),
+            Map.entry("beast_ball", 300),
+            Map.entry("cherish_ball", 250),
+            Map.entry("luxury_ball", 100),
+            Map.entry("heavy_ball", 100),
+            Map.entry("fast_ball", 100),
+            Map.entry("moon_ball", 100),
+            Map.entry("dream_ball", 100),
+            Map.entry("revival_herb", 80),
+            Map.entry("max_elixir", 80),
+
+            // Cosmetics & Prestige
             Map.entry("cosmetic_shiny_aura", 3000),
             Map.entry("cosmetic_particle_trail", 5000),
             Map.entry("cosmetic_victory_fanfare", 2000),
             Map.entry("weekly_challenge_reroll", 500),
+            Map.entry("title_tower_champion", 5000),
             Map.entry("title_tower_legend", 10000)
     );
 
     public static final Map<String, Integer> WEEKLY_STOCK_LIMITS = Map.of(
             "ability_capsule", 5,
-            "bottle_cap", 10,
             "ability_patch", 2,
-            "gold_bottle_cap", 2,
             "master_ball", 1,
+            "gold_bottle_cap", 2,
             "weekly_challenge_reroll", 1
     );
 
     private TowerRewardManager() {}
 
-    public void grantFloorReward(ServerPlayerEntity playerA, ServerPlayerEntity playerB, int floor, boolean isTrueRun) {
-        int baseBp = 10;
-        if (floor == 25) baseBp += 200;
-        else if (floor == 50) baseBp += 400;
-        else if (floor == 75) baseBp += 800;
-        else if (floor == 100) baseBp += (isTrueRun ? 2000 : 500);
+    public void grantFloorReward(ServerPlayerEntity playerA, ServerPlayerEntity playerB, int floor, boolean isTrueRun, int turnsThisFloor, int faintsThisFloor) {
+        var bpCfg = com.vitwo.config.TowerConfig.getInstance().bp;
+        int baseBp = bpCfg.perFloor;
+        if (floor % 10 == 0) baseBp += bpCfg.bossBonus;
+        if (floor == 25) baseBp += bpCfg.checkpoint25Bonus;
+        else if (floor == 50) baseBp += bpCfg.checkpoint50Bonus;
+        else if (floor == 75) baseBp += bpCfg.checkpoint75Bonus;
+        else if (floor == 100) baseBp += (isTrueRun ? bpCfg.clear100TrueRun : bpCfg.clear100CheckpointRun);
+
+        // Calculate Battle Grade
+        String grade;
+        float gradeBonusMultiplier = 0.0f;
+        if (faintsThisFloor == 0 && turnsThisFloor <= 6) {
+            grade = "S";
+            gradeBonusMultiplier = 0.25f; // +25% BP
+        } else if (faintsThisFloor == 0 && turnsThisFloor <= 12) {
+            grade = "A";
+            gradeBonusMultiplier = 0.10f; // +10% BP
+        } else if (faintsThisFloor <= 1) {
+            grade = "B";
+        } else {
+            grade = "C";
+        }
 
         if (playerA != null) {
-            float mult = isTrueRun ? 1.0f : TowerPlayerDataManager.getInstance().getCheckpointBpMultiplier(playerA.getUuid());
+            float mult = isTrueRun ? (float) bpCfg.trueRunMultiplier : TowerPlayerDataManager.getInstance().getCheckpointBpMultiplier(playerA.getUuid());
             float prestigeMult = TowerPlayerDataManager.getInstance().getPrestigeBpMultiplier(playerA.getUuid());
-            int finalBp = Math.max(1, (int) Math.ceil(baseBp * mult * prestigeMult));
+            int rankBonusBp = (int) Math.ceil(baseBp * gradeBonusMultiplier);
+            int finalBp = Math.max(1, (int) Math.ceil((baseBp + rankBonusBp) * mult * prestigeMult));
             TowerPlayerDataManager.getInstance().addBp(playerA.getUuid(), finalBp);
             playerA.sendMessage(Text.literal("§6[CobbleTower] §a+" + finalBp + " BP §7(Total: " + TowerPlayerDataManager.getInstance().getBp(playerA.getUuid()) + " BP)"), false);
+            ServerPlayNetworking.send(playerA, new TowerBattleGradeS2CPacket(floor, grade, rankBonusBp, turnsThisFloor, faintsThisFloor));
         }
         if (playerB != null) {
-            float mult = isTrueRun ? 1.0f : TowerPlayerDataManager.getInstance().getCheckpointBpMultiplier(playerB.getUuid());
+            float mult = isTrueRun ? (float) bpCfg.trueRunMultiplier : TowerPlayerDataManager.getInstance().getCheckpointBpMultiplier(playerB.getUuid());
             float prestigeMult = TowerPlayerDataManager.getInstance().getPrestigeBpMultiplier(playerB.getUuid());
-            int finalBp = Math.max(1, (int) Math.ceil(baseBp * mult * prestigeMult));
+            int rankBonusBp = (int) Math.ceil(baseBp * gradeBonusMultiplier);
+            int finalBp = Math.max(1, (int) Math.ceil((baseBp + rankBonusBp) * mult * prestigeMult));
             TowerPlayerDataManager.getInstance().addBp(playerB.getUuid(), finalBp);
             playerB.sendMessage(Text.literal("§6[CobbleTower] §a+" + finalBp + " BP §7(Total: " + TowerPlayerDataManager.getInstance().getBp(playerB.getUuid()) + " BP)"), false);
+            ServerPlayNetworking.send(playerB, new TowerBattleGradeS2CPacket(floor, grade, rankBonusBp, turnsThisFloor, faintsThisFloor));
         }
 
         // 2. Standard Items (Candies & Enhancements)
@@ -118,6 +203,10 @@ public class TowerRewardManager {
             grantCheckpointMaxIvPokemon(playerA, floor);
             grantCheckpointMaxIvPokemon(playerB, floor);
         }
+    }
+
+    public void grantFloorReward(ServerPlayerEntity playerA, ServerPlayerEntity playerB, int floor, boolean isTrueRun) {
+        grantFloorReward(playerA, playerB, floor, isTrueRun, 5, 0);
     }
 
     private void grantCheckpointMaxIvPokemon(ServerPlayerEntity player, int floor) {
@@ -250,14 +339,9 @@ public class TowerRewardManager {
         player.sendMessage(Text.literal("§6[War Preparation] Activated " + buffName + " §6buff for the next 5 floors!"), false);
     }
 
-    public void applyTeamHeal(ServerPlayerEntity player) {
-        applyFullTeamRest(player);
-    }
-
     public void grantLootCache(ServerPlayerEntity player, int floor) {
         if (player == null) return;
 
-        // Tiered BP + Item cache
         int bonusBp;
         Identifier lootId;
         int count = 1;
@@ -289,19 +373,22 @@ public class TowerRewardManager {
         }
     }
 
-    public void handleBpPurchase(ServerPlayerEntity player, String itemId) {
+    public void handleBpPurchase(ServerPlayerEntity player, String itemId, int quantity) {
         if (player == null || itemId == null) return;
-        Integer price = BP_SHOP_PRICES.get(itemId);
-        if (price == null) {
+        quantity = Math.max(1, Math.min(64, quantity));
+
+        Integer unitPrice = BP_SHOP_PRICES.get(itemId);
+        if (unitPrice == null) {
             player.sendMessage(Text.literal("§c[BP Shop] Invalid item selection."), false);
             return;
         }
 
+        int totalPrice = unitPrice * quantity;
         var profile = TowerPlayerDataManager.getInstance().getProfile(player.getUuid());
 
         // 1. Tier Unlock Validation
-        boolean isSilverTier = List.of("ability_capsule", "bottle_cap", "toxic_orb", "flame_orb", "eviolite").contains(itemId);
-        boolean isGoldTier = List.of("ability_patch", "gold_bottle_cap", "tera_shard_stellar", "master_ball", "title_tower_champion").contains(itemId);
+        boolean isSilverTier = List.of("ability_capsule", "bottle_cap", "toxic_orb", "flame_orb", "eviolite", "pp_up").contains(itemId);
+        boolean isGoldTier = List.of("ability_patch", "gold_bottle_cap", "tera_shard_stellar", "master_ball", "pp_max", "title_tower_champion").contains(itemId);
         boolean isPlatinumTier = List.of("cosmetic_shiny_aura", "cosmetic_particle_trail", "cosmetic_victory_fanfare", "weekly_challenge_reroll", "title_tower_legend").contains(itemId);
 
         if (isSilverTier && profile.highestFloorTrueRun < 50) {
@@ -328,44 +415,57 @@ public class TowerRewardManager {
         if (WEEKLY_STOCK_LIMITS.containsKey(itemId)) {
             int limit = WEEKLY_STOCK_LIMITS.get(itemId);
             int purchased = TowerPlayerDataManager.getInstance().getWeeklyPurchasedStock(player.getUuid(), itemId);
-            if (purchased >= limit) {
-                player.sendMessage(Text.literal("§c[BP Shop] Weekly stock limit reached (" + purchased + "/" + limit + ")! Stock refreshes every Monday 00:00 UTC."), false);
+            if (purchased + quantity > limit) {
+                player.sendMessage(Text.literal("§c[BP Shop] Weekly stock limit reached (" + purchased + "/" + limit + ")! Max you can buy now is " + Math.max(0, limit - purchased) + "."), false);
                 return;
             }
         }
 
-        boolean success = TowerPlayerDataManager.getInstance().spendBp(player.getUuid(), price);
+        boolean success = TowerPlayerDataManager.getInstance().spendBp(player.getUuid(), totalPrice);
         if (!success) {
-            player.sendMessage(Text.literal("§c[BP Shop] Not enough Battle Points! Required: §e" + price + " BP§c, Balance: §e" + profile.battlePoints + " BP"), false);
+            player.sendMessage(Text.literal("§c[BP Shop] Not enough Battle Points! Required: §e" + totalPrice + " BP§c, Balance: §e" + profile.battlePoints + " BP"), false);
             return;
         }
 
         if (WEEKLY_STOCK_LIMITS.containsKey(itemId)) {
-            TowerPlayerDataManager.getInstance().recordStockPurchase(player.getUuid(), itemId, 1);
+            TowerPlayerDataManager.getInstance().recordStockPurchase(player.getUuid(), itemId, quantity);
         }
 
         if (itemId.equals("title_tower_champion")) {
+            TowerPlayerDataManager.getInstance().unlockCosmetic(player.getUuid(), itemId);
             player.sendMessage(Text.literal("§6★ [BP Shop] You unlocked the cosmetic title: §e« Tower Champion »§6!"), false);
             return;
         }
 
         if (itemId.equals("title_tower_legend")) {
+            TowerPlayerDataManager.getInstance().unlockCosmetic(player.getUuid(), itemId);
             player.sendMessage(Text.literal("§d★ [BP Shop] You unlocked the supreme cosmetic title: §b« Tower Legend »§d!"), false);
             return;
         }
 
         if (itemId.startsWith("cosmetic_")) {
-            player.sendMessage(Text.literal("§d★ [BP Shop] Unlocked cosmetic perk: §b" + itemId.replace("cosmetic_", "").replace("_", " ") + "§d!"), false);
+            TowerPlayerDataManager.getInstance().unlockCosmetic(player.getUuid(), itemId);
+            player.sendMessage(Text.literal("§d★ [BP Shop] Unlocked & activated cosmetic: §b" + itemId.replace("cosmetic_", "").replace("_", " ") + "§d!"), false);
             return;
         }
 
         Identifier cobbleId = Identifier.of("cobblemon", itemId);
-        ItemStack stack = Registries.ITEM.containsId(cobbleId)
-                ? new ItemStack(Registries.ITEM.get(cobbleId), 1)
-                : new ItemStack(Items.DIAMOND, 1);
+        Identifier mcId = Identifier.of("minecraft", itemId);
+        ItemStack stack;
+        if (Registries.ITEM.containsId(cobbleId)) {
+            stack = new ItemStack(Registries.ITEM.get(cobbleId), quantity);
+        } else if (Registries.ITEM.containsId(mcId)) {
+            stack = new ItemStack(Registries.ITEM.get(mcId), quantity);
+        } else {
+            stack = new ItemStack(Items.DIAMOND, quantity);
+        }
 
         giveItemToPlayer(player, stack, 1);
-        player.sendMessage(Text.literal("§a[BP Shop] Purchased §e" + stack.getName().getString() + " §afor §e" + price + " BP§a! Remaining: §e" + TowerPlayerDataManager.getInstance().getBp(player.getUuid()) + " BP"), false);
+        player.sendMessage(Text.literal("§a[BP Shop] Purchased §e" + stack.getName().getString() + (quantity > 1 ? (" x" + quantity) : "") + " §afor §e" + totalPrice + " BP§a! Balance: §e" + TowerPlayerDataManager.getInstance().getBp(player.getUuid()) + " BP"), false);
+    }
+
+    public void handleBpPurchase(ServerPlayerEntity player, String itemId) {
+        handleBpPurchase(player, itemId, 1);
     }
 
     private void giveItemToPlayer(ServerPlayerEntity player, ItemStack stack, int floor) {
@@ -377,7 +477,7 @@ public class TowerRewardManager {
             player.dropItem(stack, false);
         }
 
-        player.sendMessage(Text.translatable("vitwo.tower.reward_received", itemName, count), false);
+        player.sendMessage(Text.literal("§6[CobbleTower] §aReceived: §e" + itemName + (count > 1 ? (" x" + count) : "")), false);
     }
 
     private ItemStack getRewardItemForFloor(int floor) {

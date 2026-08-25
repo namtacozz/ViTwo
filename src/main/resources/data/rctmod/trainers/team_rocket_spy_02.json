@@ -1,0 +1,132 @@
+{
+  "name": {
+    "literal": "Team Rocket Spy"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "banette",
+      "gender": "FEMALE",
+      "level": 59,
+      "nature": "adamant",
+      "ability": "frisk",
+      "moveset": [
+        "phantomforce",
+        "suckerpunch",
+        "shadowball",
+        "hex"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "gengar",
+      "gender": "MALE",
+      "level": 60,
+      "nature": "quirky",
+      "ability": "cursedbody",
+      "moveset": [
+        "darkpulse",
+        "shadowball",
+        "hypnosis",
+        "dreameater"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "mismagius",
+      "gender": "FEMALE",
+      "level": 59,
+      "nature": "lax",
+      "ability": "levitate",
+      "moveset": [
+        "powergem",
+        "phantomforce",
+        "magicalleaf",
+        "mysticalfire"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "trevenant",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "calm",
+      "ability": "naturalcure",
+      "moveset": [
+        "feintattack",
+        "hornleech",
+        "destinybond",
+        "shadowclaw"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "crobat",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "adamant",
+      "ability": "innerfocus",
+      "moveset": [
+        "venoshock",
+        "crosspoison",
+        "bite",
+        "wingattack"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

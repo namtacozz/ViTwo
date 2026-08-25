@@ -1,0 +1,114 @@
+{
+  "name": {
+    "literal": "Team Rocket Scientist"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 1
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "rotom",
+      "gender": "GENDERLESS",
+      "level": 54,
+      "nature": "rash",
+      "ability": "levitate",
+      "moveset": [
+        "thundershock",
+        "ominouswind",
+        "substitute",
+        "electroball"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      },
+      "aspects": [
+        "mow"
+      ]
+    },
+    {
+      "species": "kabutops",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "careful",
+      "ability": "weakarmor",
+      "moveset": [
+        "mudshot",
+        "nightslash",
+        "ancientpower",
+        "aquajet"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "aerodactyl",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "calm",
+      "ability": "rockhead",
+      "moveset": [
+        "ironhead",
+        "ancientpower",
+        "wingattack",
+        "rockslide"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "porygon2",
+      "gender": "GENDERLESS",
+      "level": 53,
+      "nature": "quiet",
+      "ability": "analytic",
+      "moveset": [
+        "psybeam",
+        "thundershock",
+        "zapcannon",
+        "discharge"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

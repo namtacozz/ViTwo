@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "OminoRosso"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "pikachu",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "bashful",
+      "ability": "static",
+      "moveset": [
+        "thunder",
+        "thunderbolt",
+        "spark",
+        "thundershock"
+      ],
+      "ivs": {
+        "hp": 7,
+        "atk": 7,
+        "def": 7,
+        "spa": 7,
+        "spd": 7,
+        "spe": 7
+      }
+    },
+    {
+      "species": "charizard",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "impish",
+      "ability": "blaze",
+      "moveset": [
+        "dragonclaw",
+        "ember",
+        "flamethrower",
+        "wingattack"
+      ],
+      "ivs": {
+        "hp": 7,
+        "atk": 7,
+        "def": 7,
+        "spa": 7,
+        "spd": 7,
+        "spe": 7
+      }
+    },
+    {
+      "species": "arcanine",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "lonely",
+      "ability": "flashfire",
+      "moveset": [
+        "ember",
+        "flamewheel",
+        "flamethrower",
+        "bite"
+      ],
+      "ivs": {
+        "hp": 7,
+        "atk": 7,
+        "def": 7,
+        "spa": 7,
+        "spd": 7,
+        "spe": 7
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Lass Kay"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "nuzleaf",
+      "gender": "MALE",
+      "level": 38,
+      "nature": "jolly",
+      "ability": "earlybird",
+      "moveset": [
+        "nightslash",
+        "leafblade",
+        "swagger",
+        "extrasensory"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "pumpkaboo",
+      "gender": "MALE",
+      "level": 38,
+      "nature": "sassy",
+      "ability": "frisk",
+      "moveset": [
+        "trickortreat",
+        "magicalleaf",
+        "shadowball",
+        "hex"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    }
+  ]
+}

@@ -1,0 +1,233 @@
+{
+  "name": {
+    "literal": "Bruno"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 4
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "closecombat",
+        "flareblitz",
+        "dragonclaw",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "gimmicks": {
+        "tera": "fighting"
+      },
+      "species": "koraidon",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "jolly",
+      "ability": "orichalcumpulse",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "closecombat",
+        "flareblitz",
+        "protect",
+        "ragingbull"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 112,
+        "spd": 48,
+        "def": 56,
+        "atk": 176,
+        "hp": 116
+      },
+      "heldItem": [
+        "ability_shield"
+      ],
+      "aspects": [
+        "paldea-blaze"
+      ],
+      "gimmicks": {
+        "tera": "fighting"
+      },
+      "species": "tauros",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "jolly",
+      "ability": "intimidate"
+    },
+    {
+      "moveset": [
+        "surgingstrikes",
+        "detect",
+        "closecombat",
+        "thunderpunch"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "mystic_water"
+      ],
+      "aspects": [
+        "rapid_strike-style"
+      ],
+      "gimmicks": {
+        "tera": "fighting"
+      },
+      "species": "urshifu",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "jolly",
+      "ability": "unseenfist"
+    },
+    {
+      "moveset": [
+        "closecombat",
+        "acrobatics",
+        "direclaw",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "white_herb"
+      ],
+      "gimmicks": {
+        "tera": "fighting"
+      },
+      "species": "sneasler",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "unburden"
+    },
+    {
+      "moveset": [
+        "knockoff",
+        "closecombat",
+        "thunderpunch",
+        "nuzzle"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 156,
+        "spd": 36,
+        "def": 64,
+        "atk": 116,
+        "hp": 136
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "gimmicks": {
+        "tera": "electric"
+      },
+      "species": "pawmot",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "jolly",
+      "ability": "ironfist"
+    },
+    {
+      "moveset": [
+        "sacredsword",
+        "psychocut",
+        "protect",
+        "swordsdance"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 16,
+        "spd": 36,
+        "def": 96,
+        "atk": 252,
+        "hp": 108
+      },
+      "heldItem": [
+        "mega_showdown:galladite"
+      ],
+      "gimmicks": {
+        "tera": "psychic"
+      },
+      "species": "gallade",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "innerfocus"
+    }
+  ],
+  "identity": "Bruno",
+  "battleFormat": "GEN_9_DOUBLES"
+}

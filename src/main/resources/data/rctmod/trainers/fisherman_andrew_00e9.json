@@ -1,0 +1,108 @@
+{
+  "name": {
+    "literal": "Fisherman Andrew"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "froslass",
+      "gender": "FEMALE",
+      "level": 88,
+      "nature": "timid",
+      "ability": "snowcloak",
+      "moveset": [
+        "auroraveil",
+        "blizzard",
+        "shadowball",
+        "freezedry"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "spa": 252,
+        "spd": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "light_clay"
+      ]
+    },
+    {
+      "species": "barbaracle",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "jolly",
+      "ability": "toughclaws",
+      "moveset": [
+        "shellsmash",
+        "liquidation",
+        "closecombat",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "spd": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "white_herb"
+      ]
+    },
+    {
+      "species": "arctozolt",
+      "gender": "GENDERLESS",
+      "level": 89,
+      "nature": "naive",
+      "ability": "slushrush",
+      "moveset": [
+        "boltbeak",
+        "blizzard",
+        "lowkick",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "spd": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "magnet"
+      ]
+    }
+  ]
+}

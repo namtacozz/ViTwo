@@ -1,0 +1,96 @@
+{
+  "name": {
+    "literal": "Pokémon Trainer Lucas"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:super_potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "clefairy",
+      "gender": "FEMALE",
+      "level": 25,
+      "nature": "quiet",
+      "ability": "cutecharm",
+      "moveset": [
+        "sing",
+        "disarmingvoice",
+        "growl",
+        "lifedew"
+      ],
+      "ivs": {
+        "hp": 31,
+        "def": 31,
+        "spd": 31
+      },
+      "evs": {
+        "hp": 172,
+        "def": 168,
+        "spd": 168
+      }
+    },
+    {
+      "species": "kadabra",
+      "gender": "MALE",
+      "level": 25,
+      "nature": "modest",
+      "ability": "synchronize",
+      "moveset": [
+        "kinesis",
+        "psybeam",
+        "reflect",
+        "allyswitch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "def": 31,
+        "spd": 31
+      },
+      "evs": {
+        "hp": 172,
+        "def": 168,
+        "spd": 168
+      }
+    },
+    {
+      "species": "grotle",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "brave",
+      "ability": "overgrow",
+      "moveset": [
+        "razorleaf",
+        "curse",
+        "bite",
+        "megadrain"
+      ],
+      "ivs": {
+        "hp": 31,
+        "def": 31,
+        "spd": 31
+      },
+      "evs": {
+        "hp": 172,
+        "def": 168,
+        "spd": 168
+      }
+    }
+  ]
+}

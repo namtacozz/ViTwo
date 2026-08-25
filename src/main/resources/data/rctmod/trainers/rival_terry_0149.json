@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Rival Terry"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "starly",
+      "gender": "MALE",
+      "level": 9,
+      "nature": "mild",
+      "ability": "frisk",
+      "moveset": [
+        "tackle",
+        "growl",
+        "quickattack",
+        "wingattack"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "squirtle",
+      "gender": "FEMALE",
+      "level": 9,
+      "nature": "relaxed",
+      "ability": "torrent",
+      "moveset": [
+        "tackle",
+        "falseswipe",
+        "tailwhip",
+        "bubble"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    }
+  ]
+}

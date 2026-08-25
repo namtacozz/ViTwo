@@ -1,0 +1,234 @@
+{
+  "name": {
+    "literal": "Pryce"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 4
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "woodhammer",
+        "icespinner",
+        "protect",
+        "avalanche"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 76,
+        "spd": 144,
+        "def": 56,
+        "atk": 76,
+        "hp": 156
+      },
+      "heldItem": [
+        "mega_showdown:abomasite"
+      ],
+      "gimmicks": {
+        "tera": "grass"
+      },
+      "species": "abomasnow",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "adamant",
+      "ability": "snowwarning"
+    },
+    {
+      "moveset": [
+        "spikes",
+        "taunt",
+        "blizzard",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 8,
+        "spd": 36,
+        "spa": 252,
+        "def": 60,
+        "hp": 152
+      },
+      "heldItem": [
+        "bright_powder"
+      ],
+      "gimmicks": {
+        "tera": "ice"
+      },
+      "species": "froslass",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "modest",
+      "ability": "snowcloak"
+    },
+    {
+      "moveset": [
+        "hydropump",
+        "icebeam",
+        "protect",
+        "thunder"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 56,
+        "spd": 32,
+        "spa": 232,
+        "def": 72,
+        "hp": 116
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "gimmicks": {
+        "tera": "water"
+      },
+      "species": "lapras",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "modest",
+      "ability": "shellarmor"
+    },
+    {
+      "moveset": [
+        "fusionbolt",
+        "dragonclaw",
+        "freezeshock",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 100,
+        "spd": 52,
+        "def": 84,
+        "atk": 116,
+        "hp": 156
+      },
+      "heldItem": [
+        "power_herb"
+      ],
+      "aspects": [
+        "black-fusion"
+      ],
+      "gimmicks": {
+        "tera": "dragon"
+      },
+      "species": "kyurem",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "adamant",
+      "ability": "teravolt",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "earthquake",
+        "iceshard",
+        "iciclecrash",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 148,
+        "spd": 28,
+        "def": 48,
+        "atk": 128,
+        "hp": 156
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "gimmicks": {
+        "tera": "ice"
+      },
+      "species": "mamoswine",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "adamant",
+      "ability": "oblivious"
+    },
+    {
+      "moveset": [
+        "scaleshot",
+        "protect",
+        "glaiverush",
+        "zenheadbutt"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 68,
+        "spd": 56,
+        "def": 72,
+        "atk": 156,
+        "hp": 156
+      },
+      "heldItem": [
+        "loaded_dice"
+      ],
+      "gimmicks": {
+        "tera": "dragon"
+      },
+      "species": "baxcalibur",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "adamant",
+      "ability": "thermalexchange"
+    }
+  ],
+  "identity": "Alfredo",
+  "battleFormat": "GEN_9_DOUBLES"
+}

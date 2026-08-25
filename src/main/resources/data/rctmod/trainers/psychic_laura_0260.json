@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "Psychic Laura"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "natu",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "modest",
+      "ability": "earlybird",
+      "moveset": [
+        "psychoshift",
+        "futuresight",
+        "powerswap",
+        "guardswap"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "natu",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "bold",
+      "ability": "earlybird",
+      "moveset": [
+        "psychoshift",
+        "futuresight",
+        "powerswap",
+        "guardswap"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "xatu",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "gentle",
+      "ability": "earlybird",
+      "moveset": [
+        "psychic",
+        "miracleeye",
+        "psychoshift",
+        "futuresight"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

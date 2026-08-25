@@ -1,0 +1,66 @@
+{
+  "name": {
+    "literal": "Pokémon Trainer Cedric"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "starly",
+      "gender": "FEMALE",
+      "level": 7,
+      "nature": "jolly",
+      "ability": "keeneye",
+      "moveset": [
+        "tackle",
+        "quickattack",
+        "growl"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "turtwig",
+      "gender": "MALE",
+      "level": 9,
+      "nature": "careful",
+      "ability": "overgrow",
+      "moveset": [
+        "tackle",
+        "withdraw"
+      ],
+      "ivs": {
+        "hp": 11,
+        "atk": 11,
+        "def": 11,
+        "spa": 11,
+        "spd": 11,
+        "spe": 11
+      }
+    }
+  ]
+}

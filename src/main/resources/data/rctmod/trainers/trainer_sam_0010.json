@@ -1,0 +1,115 @@
+{
+  "name": {
+    "literal": "Trainer Sam"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "luvdisc",
+      "gender": "MALE",
+      "level": 44,
+      "nature": "timid",
+      "ability": "soulheart",
+      "moveset": [
+        "lovelykiss",
+        "dazzlinggleam",
+        "hydropump",
+        "icebeam"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "flapple",
+      "gender": "MALE",
+      "level": 44,
+      "nature": "lonely",
+      "ability": "hustle",
+      "moveset": [
+        "scaleshot",
+        "gravapple",
+        "dracometeor",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 128,
+        "spa": 128,
+        "spe": 252
+      },
+      "heldItem": [
+        "eject_pack"
+      ]
+    },
+    {
+      "species": "farfetchd",
+      "gender": "FEMALE",
+      "level": 44,
+      "nature": "jolly",
+      "ability": "sharpness",
+      "moveset": [
+        "bravebird",
+        "sacredsword",
+        "leafblade",
+        "nightslash"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "medicinal_leek"
+      ]
+    }
+  ]
+}

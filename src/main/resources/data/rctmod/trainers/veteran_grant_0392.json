@@ -1,0 +1,66 @@
+{
+  "name": {
+    "literal": "Veteran Grant"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "riolu",
+      "gender": "FEMALE",
+      "level": 33,
+      "nature": "hardy",
+      "ability": "innerfocus",
+      "moveset": [
+        "feint",
+        "metalclaw",
+        "workup",
+        "rocksmash"
+      ]
+    },
+    {
+      "species": "staraptor",
+      "gender": "MALE",
+      "level": 34,
+      "nature": "relaxed",
+      "ability": "intimidate",
+      "moveset": [
+        "growl",
+        "quickattack",
+        "whirlwind",
+        "aerialace"
+      ]
+    },
+    {
+      "species": "graveler",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "relaxed",
+      "ability": "sturdy",
+      "moveset": [
+        "sandstorm",
+        "smackdown",
+        "bulldoze",
+        "stealthrock"
+      ]
+    }
+  ]
+}

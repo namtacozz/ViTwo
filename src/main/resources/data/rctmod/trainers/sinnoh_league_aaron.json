@@ -1,0 +1,219 @@
+{
+  "name": {
+    "literal": "Aaron"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 6
+  },
+  "bag": [
+    {
+      "item": "max_revive",
+      "quantity": 1
+    },
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": "5"
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "thunderpunch",
+        "coaching",
+        "poweruppunch",
+        "lunge"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 76,
+        "def": 44,
+        "atk": 252,
+        "hp": 136
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "species": "buzzwole",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "beastboost",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "xscissor",
+        "poisonjab",
+        "uturn",
+        "swordsdance"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 136,
+        "spd": 16,
+        "def": 96,
+        "atk": 252,
+        "hp": 8
+      },
+      "heldItem": [
+        "mega_showdown:beedrillite"
+      ],
+      "species": "beedrill",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "adaptability",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "quiverdance",
+        "fierydance",
+        "tailwind",
+        "bugbuzz"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "charti_berry"
+      ],
+      "species": "volcarona",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "modest",
+      "ability": "flamebody",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "bugbuzz",
+        "gigadrain",
+        "hurricane",
+        "pollenpuff"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 36,
+        "spa": 136,
+        "def": 84,
+        "hp": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "species": "butterfree",
+      "gender": "FEMALE",
+      "level": 100,
+      "nature": "modest",
+      "ability": "compoundeyes",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "stonea",
+        "xscissor",
+        "furycutter",
+        "nightslash"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 176,
+        "spd": 24,
+        "def": 48,
+        "atk": 196,
+        "hp": 64
+      },
+      "heldItem": [
+        "assault_vest"
+      ],
+      "species": "kleavor",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "sharpness",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "technoblast",
+        "flashcannon",
+        "thunderbolt",
+        "hiddenpower"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 156,
+        "spd": 4,
+        "spa": 252,
+        "def": 28,
+        "hp": 68
+      },
+      "heldItem": [
+        "mega_showdown:chill_drive"
+      ],
+      "gimmicks": {
+        "tera": "bug"
+      },
+      "species": "genesect",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "timid",
+      "ability": "download",
+      "shiny": true
+    }
+  ],
+  "battleFormat": "GEN_9_DOUBLES"
+}

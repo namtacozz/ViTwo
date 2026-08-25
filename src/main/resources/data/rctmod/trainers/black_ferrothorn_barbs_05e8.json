@@ -1,0 +1,135 @@
+{
+  "name": {
+    "literal": "Black Ferrothorn Barbs"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "honchkrow",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "timid",
+      "ability": "superluck",
+      "moveset": [
+        "darkpulse",
+        "aircutter",
+        "heatwave",
+        "tailwind"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      }
+    },
+    {
+      "species": "heracross",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "jolly",
+      "ability": "skilllink",
+      "moveset": [
+        "pinmissile",
+        "brickbreak",
+        "rockblast",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:heracronite",
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "muk",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "adamant",
+      "ability": "poisontouch",
+      "moveset": [
+        "gunkshot",
+        "crunch",
+        "icepunch",
+        "minimize"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 6
+      },
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "ferrothorn",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "careful",
+      "ability": "ironbarbs",
+      "moveset": [
+        "powerwhip",
+        "gyroball",
+        "leechseed",
+        "thunderwave"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spd": 252
+      },
+      "heldItem": [
+        "rocky_helmet"
+      ]
+    }
+  ]
+}

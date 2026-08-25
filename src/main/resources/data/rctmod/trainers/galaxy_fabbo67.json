@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "Fabbo67"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "growlithe",
+      "gender": "FEMALE",
+      "level": 27,
+      "nature": "mild",
+      "ability": "flashfire",
+      "moveset": [
+        "ember",
+        "flamewheel",
+        "bite",
+        "firefang"
+      ],
+      "ivs": {
+        "hp": 12,
+        "atk": 12,
+        "def": 12,
+        "spa": 12,
+        "spd": 12,
+        "spe": 12
+      }
+    },
+    {
+      "species": "lycanroc",
+      "gender": "MALE",
+      "level": 25,
+      "nature": "quiet",
+      "ability": "sandrush",
+      "moveset": [
+        "rocktomb",
+        "bite",
+        "accelerock",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 11,
+        "atk": 11,
+        "def": 11,
+        "spa": 11,
+        "spd": 11,
+        "spe": 11
+      }
+    },
+    {
+      "species": "yamper",
+      "gender": "MALE",
+      "level": 24,
+      "nature": "quirky",
+      "ability": "ballfetch",
+      "moveset": [
+        "spark",
+        "bite",
+        "nuzzle",
+        "roar"
+      ],
+      "ivs": {
+        "hp": 13,
+        "atk": 13,
+        "def": 13,
+        "spa": 13,
+        "spd": 13,
+        "spe": 13
+      }
+    }
+  ]
+}

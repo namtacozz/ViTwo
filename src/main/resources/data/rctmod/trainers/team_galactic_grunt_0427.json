@@ -1,0 +1,61 @@
+{
+  "name": {
+    "literal": "Team Galactic Grunt"
+  },
+  "identity": "Team Galactic Grunt (11)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "croagunk",
+      "gender": "FEMALE",
+      "level": 34,
+      "nature": "hardy",
+      "ability": "anticipation",
+      "moveset": [
+        "taunt",
+        "revenge",
+        "suckerpunch",
+        "poisonjab"
+      ]
+    },
+    {
+      "species": "dustox",
+      "gender": "MALE",
+      "level": 31,
+      "nature": "docile",
+      "ability": "shielddust",
+      "moveset": [
+        "poisonpowder",
+        "venoshock",
+        "leechlife",
+        "lightscreen"
+      ]
+    },
+    {
+      "species": "beautifly",
+      "gender": "FEMALE",
+      "level": 31,
+      "nature": "serious",
+      "ability": "swarm",
+      "moveset": [
+        "aircutter",
+        "megadrain",
+        "leechlife",
+        "attract"
+      ]
+    }
+  ]
+}

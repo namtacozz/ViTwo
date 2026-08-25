@@ -1,0 +1,47 @@
+{
+  "name": {
+    "literal": "Ranchers Ava & Matt"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "stunky",
+      "gender": "MALE",
+      "level": 21,
+      "nature": "relaxed",
+      "ability": "stench",
+      "moveset": [
+        "poisongas",
+        "smokescreen",
+        "acidspray",
+        "bite"
+      ]
+    },
+    {
+      "species": "glameow",
+      "gender": "FEMALE",
+      "level": 21,
+      "nature": "relaxed",
+      "ability": "limber",
+      "moveset": [
+        "fakeout",
+        "growl",
+        "aerialace",
+        "furyswipes"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "name": {
+    "literal": "Poké Kid Meghan"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "pikachu",
+      "gender": "MALE",
+      "level": 41,
+      "nature": "jolly",
+      "ability": "static",
+      "moveset": [
+        "nuzzle",
+        "charm",
+        "spark",
+        "lightscreen"
+      ]
+    },
+    {
+      "species": "pikachu",
+      "gender": "MALE",
+      "level": 41,
+      "nature": "jolly",
+      "ability": "static",
+      "moveset": [
+        "charm",
+        "doubleteam",
+        "spark",
+        "lightscreen"
+      ]
+    },
+    {
+      "species": "pikachu",
+      "gender": "MALE",
+      "level": 41,
+      "nature": "timid",
+      "ability": "static",
+      "moveset": [
+        "charm",
+        "electroball",
+        "agility",
+        "lightscreen"
+      ]
+    },
+    {
+      "species": "pikachu",
+      "gender": "MALE",
+      "level": 41,
+      "nature": "timid",
+      "ability": "static",
+      "moveset": [
+        "charm",
+        "nastyplot",
+        "thunderbolt",
+        "lightscreen"
+      ]
+    }
+  ]
+}

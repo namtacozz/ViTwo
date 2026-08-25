@@ -1,0 +1,48 @@
+{
+  "name": {
+    "literal": "Team Galactic Grunt"
+  },
+  "identity": "Team Galactic Grunt (9)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "beautifly",
+      "gender": "MALE",
+      "level": 25,
+      "nature": "hardy",
+      "ability": "swarm",
+      "moveset": [
+        "gust",
+        "stunspore",
+        "aircutter",
+        "leechlife"
+      ]
+    },
+    {
+      "species": "croagunk",
+      "gender": "FEMALE",
+      "level": 27,
+      "nature": "docile",
+      "ability": "anticipation",
+      "moveset": [
+        "mudslap",
+        "taunt",
+        "revenge",
+        "suckerpunch"
+      ]
+    }
+  ]
+}

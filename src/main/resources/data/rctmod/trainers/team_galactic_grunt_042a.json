@@ -1,0 +1,48 @@
+{
+  "name": {
+    "literal": "Team Galactic Grunt"
+  },
+  "identity": "Team Galactic Grunt (13)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "zubat",
+      "gender": "FEMALE",
+      "level": 14,
+      "nature": "bashful",
+      "ability": "innerfocus",
+      "moveset": [
+        "absorb",
+        "supersonic",
+        "astonish",
+        "meanlook"
+      ]
+    },
+    {
+      "species": "glameow",
+      "gender": "MALE",
+      "level": 14,
+      "nature": "quirky",
+      "ability": "owntempo",
+      "moveset": [
+        "fakeout",
+        "scratch",
+        "growl",
+        "hypnosis"
+      ]
+    }
+  ]
+}

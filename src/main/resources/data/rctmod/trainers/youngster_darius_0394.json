@@ -1,0 +1,45 @@
+{
+  "name": {
+    "literal": "Youngster Darius"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "geodude",
+      "gender": "MALE",
+      "level": 8,
+      "nature": "impish",
+      "ability": "rockhead",
+      "moveset": [
+        "tackle",
+        "defensecurl"
+      ]
+    },
+    {
+      "species": "onix",
+      "gender": "FEMALE",
+      "level": 8,
+      "nature": "impish",
+      "ability": "rockhead",
+      "moveset": [
+        "tackle",
+        "harden",
+        "bind",
+        "smackdown"
+      ]
+    }
+  ]
+}

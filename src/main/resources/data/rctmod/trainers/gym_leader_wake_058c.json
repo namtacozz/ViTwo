@@ -1,0 +1,202 @@
+{
+  "name": {
+    "literal": "Wake"
+  },
+  "identity": "Gym Leader Wake",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "politoed",
+      "gender": "MALE",
+      "level": 68,
+      "nature": "timid",
+      "ability": "drizzle",
+      "moveset": [
+        "surf",
+        "icebeam",
+        "focusblast",
+        "perishsong"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "damp_rock"
+      ]
+    },
+    {
+      "species": "kingdra",
+      "gender": "FEMALE",
+      "level": 68,
+      "nature": "timid",
+      "ability": "swiftswim",
+      "moveset": [
+        "hydropump",
+        "dragonpulse",
+        "icebeam",
+        "rest"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "chesto_berry"
+      ]
+    },
+    {
+      "species": "ludicolo",
+      "gender": "MALE",
+      "level": 68,
+      "nature": "modest",
+      "ability": "swiftswim",
+      "moveset": [
+        "energyball",
+        "hydropump",
+        "substitute",
+        "teeterdance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "huntail",
+      "gender": "FEMALE",
+      "level": 70,
+      "nature": "jolly",
+      "ability": "swiftswim",
+      "moveset": [
+        "crunch",
+        "aquatail",
+        "icefang",
+        "shellsmash"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "gyarados",
+      "gender": "FEMALE",
+      "level": 70,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "aquatail",
+        "stoneedge",
+        "earthquake",
+        "dragondance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "wacan_berry"
+      ]
+    },
+    {
+      "species": "floatzel",
+      "gender": "FEMALE",
+      "level": 72,
+      "nature": "jolly",
+      "ability": "swiftswim",
+      "moveset": [
+        "aquatail",
+        "brickbreak",
+        "crunch",
+        "icefang"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

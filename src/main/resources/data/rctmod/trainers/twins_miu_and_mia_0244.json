@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Twins Miu & Mia"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "pikachu",
+      "gender": "MALE",
+      "level": 50,
+      "nature": "hasty",
+      "ability": "static",
+      "moveset": [
+        "extremespeed",
+        "thunderbolt",
+        "agility",
+        "wildcharge"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "pikachu",
+      "gender": "MALE",
+      "level": 50,
+      "nature": "lax",
+      "ability": "static",
+      "moveset": [
+        "extremespeed",
+        "thunderbolt",
+        "agility",
+        "wildcharge"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    }
+  ]
+}

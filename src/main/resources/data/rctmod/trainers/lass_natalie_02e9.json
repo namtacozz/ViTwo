@@ -1,0 +1,43 @@
+{
+  "name": {
+    "literal": "Lass Natalie"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "bidoof",
+      "gender": "MALE",
+      "level": 3,
+      "nature": "jolly",
+      "ability": "unaware",
+      "moveset": [
+        "tackle",
+        "growl"
+      ]
+    },
+    {
+      "species": "bidoof",
+      "gender": "MALE",
+      "level": 3,
+      "nature": "jolly",
+      "ability": "unaware",
+      "moveset": [
+        "tackle",
+        "growl"
+      ]
+    }
+  ]
+}

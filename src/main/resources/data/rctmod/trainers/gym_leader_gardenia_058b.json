@@ -1,0 +1,201 @@
+{
+  "name": {
+    "literal": "Gardenia"
+  },
+  "identity": "Gym Leader Gardenia",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "jumpluff",
+      "gender": "MALE",
+      "level": 66,
+      "nature": "timid",
+      "ability": "chlorophyll",
+      "moveset": [
+        "gigadrain",
+        "sleeppowder",
+        "leechseed",
+        "sunnyday"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 76,
+        "def": 44,
+        "spa": 128,
+        "spd": 8,
+        "spe": 252
+      },
+      "heldItem": [
+        "heat_rock"
+      ]
+    },
+    {
+      "species": "sunflora",
+      "gender": "FEMALE",
+      "level": 70,
+      "nature": "timid",
+      "ability": "solarpower",
+      "moveset": [
+        "solarbeam"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "cherrim",
+      "gender": "MALE",
+      "level": 69,
+      "nature": "mild",
+      "ability": "flowergift",
+      "moveset": [
+        "petalblizzard",
+        "solarbeam",
+        "growth",
+        "sunnyday"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "spa": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "breloom",
+      "gender": "MALE",
+      "level": 68,
+      "nature": "jolly",
+      "ability": "poisonheal",
+      "moveset": [
+        "focuspunch",
+        "leechseed",
+        "substitute",
+        "spore"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 120,
+        "atk": 138,
+        "spe": 252
+      },
+      "heldItem": [
+        "toxic_orb"
+      ]
+    },
+    {
+      "species": "torterra",
+      "gender": "MALE",
+      "level": 68,
+      "nature": "adamant",
+      "ability": "overgrow",
+      "moveset": [
+        "woodhammer",
+        "earthquake",
+        "stoneedge",
+        "irontail"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "roserade",
+      "gender": "FEMALE",
+      "level": 72,
+      "nature": "modest",
+      "ability": "naturalcure",
+      "moveset": [
+        "solarbeam",
+        "sludgebomb",
+        "grassyterrain",
+        "sunnyday"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "power_herb"
+      ]
+    }
+  ]
+}

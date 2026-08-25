@@ -1,0 +1,60 @@
+{
+  "name": {
+    "literal": "Psychic Bryce"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "haunter",
+      "gender": "FEMALE",
+      "level": 43,
+      "nature": "sassy",
+      "ability": "levitate",
+      "moveset": [
+        "confuseray",
+        "curse",
+        "hex",
+        "darkpulse"
+      ]
+    },
+    {
+      "species": "alakazam",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "sassy",
+      "ability": "innerfocus",
+      "moveset": [
+        "recover",
+        "psyshock",
+        "roleplay",
+        "futuresight"
+      ]
+    },
+    {
+      "species": "gengar",
+      "gender": "FEMALE",
+      "level": 46,
+      "nature": "sassy",
+      "ability": "cursedbody",
+      "moveset": [
+        "shadowpunch",
+        "confuseray",
+        "hex",
+        "darkpulse"
+      ]
+    }
+  ]
+}

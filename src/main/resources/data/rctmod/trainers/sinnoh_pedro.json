@@ -1,0 +1,201 @@
+{
+  "name": {
+    "literal": "Roark"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "rockblast",
+        "xscissor",
+        "aquajet",
+        "earthquake"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 4,
+        "atk": 252,
+        "hp": 252
+      },
+      "heldItem": [
+        "assault_vest"
+      ],
+      "species": "armaldo",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "adamant",
+      "ability": "battlearmor"
+    },
+    {
+      "moveset": [
+        "bodypress",
+        "irondefense",
+        "rockblast",
+        "metalburst"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 252,
+        "atk": 4,
+        "hp": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "species": "bastiodon",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "sassy",
+      "ability": "sturdy"
+    },
+    {
+      "moveset": [
+        "stoneedge",
+        "liquidation",
+        "knockoff",
+        "swordsdance"
+      ],
+      "ivs": {
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "species": "kabutops",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "adamant",
+      "ability": "battlearmor"
+    },
+    {
+      "moveset": [
+        "hypervoice",
+        "earthpower",
+        "icywind",
+        "auroraveil"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 4,
+        "spa": 252,
+        "hp": 252
+      },
+      "heldItem": [
+        "throat_spray"
+      ],
+      "species": "aurorus",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "modest",
+      "ability": "refrigerate"
+    },
+    {
+      "moveset": [
+        "headsmash",
+        "zenheadbutt",
+        "crunch",
+        "earthquake"
+      ],
+      "ivs": {
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "choice_band"
+      ],
+      "species": "rampardos",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "jolly",
+      "ability": "sheerforce",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "eruption",
+        "earthpower",
+        "ancientpower",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 4,
+        "spa": 252,
+        "hp": 252
+      },
+      "heldItem": [
+        "mega_showdown:cameruptite"
+      ],
+      "species": "camerupt",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "quiet",
+      "ability": "sheerforce"
+    }
+  ],
+  "identity": "Gym Leader Pedro",
+  "battleFormat": "GEN_9_DOUBLES"
+}

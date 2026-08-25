@@ -1,0 +1,47 @@
+{
+  "name": {
+    "literal": "Skier Edward"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "sneasel",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "jolly",
+      "ability": "innerfocus",
+      "moveset": [
+        "leer",
+        "taunt",
+        "icywind",
+        "furyswipes"
+      ]
+    },
+    {
+      "species": "piloswine",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "impish",
+      "ability": "thickfat",
+      "moveset": [
+        "iceshard",
+        "bulldoze",
+        "iciclecrash",
+        "stealthrock"
+      ]
+    }
+  ]
+}

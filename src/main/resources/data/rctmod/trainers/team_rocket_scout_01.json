@@ -1,0 +1,137 @@
+{
+  "name": {
+    "literal": "Team Rocket Scout"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.18
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 1
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "skuntank",
+      "gender": "FEMALE",
+      "level": 67,
+      "nature": "rash",
+      "ability": "keeneye",
+      "moveset": [
+        "flamethrower",
+        "nightslash",
+        "venoshock",
+        "belch"
+      ],
+      "ivs": {
+        "hp": 18,
+        "atk": 18,
+        "def": 18,
+        "spa": 18,
+        "spd": 18,
+        "spe": 18
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "oran_berry"
+      ]
+    },
+    {
+      "species": "sharpedo",
+      "gender": "MALE",
+      "level": 66,
+      "nature": "timid",
+      "ability": "roughskin",
+      "moveset": [
+        "aquajet",
+        "nightslash",
+        "icefang",
+        "poisonfang"
+      ],
+      "ivs": {
+        "hp": 18,
+        "atk": 18,
+        "def": 18,
+        "spa": 18,
+        "spd": 18,
+        "spe": 18
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      }
+    },
+    {
+      "species": "pyroar",
+      "gender": "MALE",
+      "level": 66,
+      "nature": "timid",
+      "ability": "rivalry",
+      "moveset": [
+        "incinerate",
+        "crunch",
+        "flamethrower",
+        "headbutt"
+      ],
+      "ivs": {
+        "hp": 18,
+        "atk": 18,
+        "def": 18,
+        "spa": 18,
+        "spd": 18,
+        "spe": 18
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "claydol",
+      "gender": "MALE",
+      "level": 66,
+      "nature": "hardy",
+      "ability": "levitate",
+      "moveset": [
+        "psybeam",
+        "confusion",
+        "ancientpower",
+        "extrasensory"
+      ],
+      "ivs": {
+        "hp": 18,
+        "atk": 18,
+        "def": 18,
+        "spa": 18,
+        "spd": 18,
+        "spe": 18
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      }
+    }
+  ]
+}

@@ -1,0 +1,179 @@
+{
+  "name": {
+    "literal": "Pokémon Trainer Cedric"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:super_potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "staravia",
+      "gender": "MALE",
+      "level": 32,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "quickattack",
+        "doubleteam",
+        "endeavor",
+        "pluck"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      },
+      "evs": {
+        "hp": 40,
+        "atk": 72,
+        "def": 16,
+        "spd": 16,
+        "spe": 56
+      },
+      "heldItem": [
+        "quick_claw"
+      ]
+    },
+    {
+      "species": "roselia",
+      "gender": "MALE",
+      "level": 33,
+      "nature": "timid",
+      "ability": "naturalcure",
+      "moveset": [
+        "growth",
+        "stunspore",
+        "leechseed",
+        "gigadrain"
+      ],
+      "ivs": {
+        "hp": 6,
+        "atk": 6,
+        "def": 6,
+        "spa": 6,
+        "spd": 6,
+        "spe": 6
+      },
+      "evs": {
+        "hp": 16,
+        "def": 24,
+        "spa": 48,
+        "spd": 24,
+        "spe": 56
+      },
+      "heldItem": [
+        "big_root"
+      ]
+    },
+    {
+      "species": "heracross",
+      "gender": "MALE",
+      "level": 32,
+      "nature": "jolly",
+      "ability": "swarm",
+      "moveset": [
+        "leer",
+        "aerialace",
+        "brickbreak",
+        "thief"
+      ],
+      "ivs": {
+        "hp": 9,
+        "atk": 9,
+        "def": 9,
+        "spa": 9,
+        "spd": 9,
+        "spe": 9
+      },
+      "evs": {
+        "hp": 16,
+        "atk": 64,
+        "def": 24,
+        "spd": 24,
+        "spe": 32
+      }
+    },
+    {
+      "species": "ponyta",
+      "gender": "MALE",
+      "level": 34,
+      "nature": "jolly",
+      "ability": "flashfire",
+      "moveset": [
+        "growl",
+        "agility",
+        "flamewheel",
+        "stomp"
+      ],
+      "ivs": {
+        "hp": 7,
+        "atk": 7,
+        "def": 7,
+        "spa": 7,
+        "spd": 7,
+        "spe": 7
+      },
+      "evs": {
+        "hp": 40,
+        "atk": 64,
+        "def": 16,
+        "spd": 16,
+        "spe": 64
+      },
+      "heldItem": [
+        "shell_bell"
+      ]
+    },
+    {
+      "species": "prinplup",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "timid",
+      "ability": "torrent",
+      "moveset": [
+        "metalclaw",
+        "charm",
+        "grassknot",
+        "brine"
+      ],
+      "ivs": {
+        "hp": 11,
+        "atk": 11,
+        "def": 11,
+        "spa": 11,
+        "spd": 11,
+        "spe": 11
+      },
+      "evs": {
+        "hp": 48,
+        "def": 24,
+        "spa": 80,
+        "spd": 24,
+        "spe": 80
+      },
+      "heldItem": [
+        "mystic_water"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "name": {
+    "literal": "Ninja Boy Fabian"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "geodude",
+      "gender": "FEMALE",
+      "level": 23,
+      "nature": "naive",
+      "ability": "rockhead",
+      "moveset": [
+        "sandstorm",
+        "rockthrow",
+        "smackdown",
+        "bulldoze"
+      ]
+    },
+    {
+      "species": "geodude",
+      "gender": "MALE",
+      "level": 23,
+      "nature": "naive",
+      "ability": "rockhead",
+      "moveset": [
+        "harden",
+        "rockthrow",
+        "smackdown",
+        "bulldoze"
+      ]
+    },
+    {
+      "species": "geodude",
+      "gender": "MALE",
+      "level": 26,
+      "nature": "naive",
+      "ability": "rockhead",
+      "moveset": [
+        "rockthrow",
+        "smackdown",
+        "bulldoze",
+        "selfdestruct"
+      ]
+    }
+  ]
+}

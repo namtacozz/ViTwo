@@ -1,0 +1,60 @@
+{
+  "name": {
+    "literal": "PI Carlos"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "seaking",
+      "gender": "MALE",
+      "level": 56,
+      "nature": "timid",
+      "ability": "waterveil",
+      "moveset": [
+        "tailwhip",
+        "supersonic",
+        "waterpulse",
+        "soak"
+      ]
+    },
+    {
+      "species": "seaking",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "jolly",
+      "ability": "waterveil",
+      "moveset": [
+        "peck",
+        "aquaring",
+        "waterfall",
+        "megahorn"
+      ]
+    },
+    {
+      "species": "seaking",
+      "gender": "FEMALE",
+      "level": 58,
+      "nature": "jolly",
+      "ability": "waterveil",
+      "moveset": [
+        "agility",
+        "flail",
+        "waterfall",
+        "horndrill"
+      ]
+    }
+  ]
+}

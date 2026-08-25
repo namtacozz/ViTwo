@@ -1,11 +1,11 @@
 package com.vitwo.client.gui;
 
+import com.vitwo.client.gui.widget.TowerButton;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.client.gui.widget.ButtonWidget;
+
 import net.minecraft.text.Text;
 
-public class TowerRunSummaryScreen extends Screen {
+public class TowerRunSummaryScreen extends AbstractTowerScreen {
     private final int floor;
     private final boolean isVictory;
     private final boolean isTrueRun;
@@ -32,7 +32,7 @@ public class TowerRunSummaryScreen extends Screen {
         int centerX = this.width / 2;
         int centerY = this.height / 2;
 
-        this.addDrawableChild(ButtonWidget.builder(Text.literal("§fClose Summary"), btn -> this.close())
+        this.addDrawableChild(TowerButton.towerBuilder(Text.literal("§fClose Summary"), btn -> this.close())
                 .dimensions(centerX - 80, centerY + 80, 160, 22)
                 .build());
     }
@@ -43,9 +43,9 @@ public class TowerRunSummaryScreen extends Screen {
         int centerX = this.width / 2;
         int centerY = this.height / 2;
 
-        // Container Window (Glassmorphic dark slate with gold or crimson border)
-        int borderColor = isVictory ? 0xFFFFD700 : 0xFFE74C3C;
-        context.fill(centerX - 160, centerY - 110, centerX + 160, centerY + 115, 0xF012171E);
+        // Container Window
+        int borderColor = isVictory ? TowerTheme.SECONDARY_GOLD : TowerTheme.DANGER_RED;
+        context.fill(centerX - 160, centerY - 110, centerX + 160, centerY + 115, TowerTheme.PANEL_BACKGROUND);
         context.drawBorder(centerX - 160, centerY - 110, 320, 225, borderColor);
         context.fill(centerX - 159, centerY - 109, centerX + 159, centerY - 106, borderColor);
 

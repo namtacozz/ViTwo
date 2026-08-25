@@ -1,0 +1,61 @@
+{
+  "name": {
+    "literal": "Team Galactic Grunt"
+  },
+  "identity": "Team Galactic Grunt (42)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "zubat",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "serious",
+      "ability": "innerfocus",
+      "moveset": [
+        "astonish",
+        "meanlook",
+        "poisonfang",
+        "aircutter"
+      ]
+    },
+    {
+      "species": "stunky",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "bashful",
+      "ability": "stench",
+      "moveset": [
+        "poisongas",
+        "smokescreen",
+        "bite",
+        "venoshock"
+      ]
+    },
+    {
+      "species": "croagunk",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "quirky",
+      "ability": "anticipation",
+      "moveset": [
+        "poisonsting",
+        "mudslap",
+        "flatter",
+        "venoshock"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,238 @@
+{
+  "name": {
+    "literal": "Blue"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 6
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 6
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "toxicspikes",
+        "dynamaxcannon",
+        "venoshock",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 156,
+        "spd": 96,
+        "spa": 84,
+        "def": 96,
+        "hp": 76
+      },
+      "heldItem": [
+        "black_sludge"
+      ],
+      "aspects": [
+        "eternamax"
+      ],
+      "gimmicks": {
+        "tera": "poison"
+      },
+      "species": "eternatus",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "timid",
+      "ability": "pressure",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "thunderbolt",
+        "dazzlinggleam",
+        "voltswitch",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 56,
+        "spd": 56,
+        "spa": 188,
+        "def": 76,
+        "hp": 132
+      },
+      "heldItem": [
+        "air_balloon"
+      ],
+      "gimmicks": {
+        "tera": "electric"
+      },
+      "species": "tapukoko",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "modest",
+      "ability": "electricsurge",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "dracometeor",
+        "flashcannon",
+        "bodypress",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 116,
+        "spd": 136,
+        "spa": 44,
+        "def": 116,
+        "hp": 96
+      },
+      "heldItem": [
+        "eviolite"
+      ],
+      "gimmicks": {
+        "tera": "steel"
+      },
+      "species": "duraludon",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "bold",
+      "ability": "stalwart",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "dragondance",
+        "flareblitz",
+        "dragonclaw",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 96,
+        "spd": 116,
+        "def": 72,
+        "atk": 92,
+        "hp": 132
+      },
+      "heldItem": [
+        "mega_showdown:charizardite_x"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "gimmicks": {
+        "tera": "fire"
+      },
+      "species": "charizard",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "toughclaws",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "closecombat",
+        "swordsdance",
+        "knockoff",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 92,
+        "spd": 116,
+        "def": 60,
+        "atk": 156,
+        "hp": 84
+      },
+      "heldItem": [
+        "mega_showdown:booster_energy"
+      ],
+      "gimmicks": {
+        "tera": "fairy"
+      },
+      "species": "ironvaliant",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "quarkdrive",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "iciclecrash",
+        "suckerpunch",
+        "sacredsword",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "gimmicks": {
+        "tera": "dark"
+      },
+      "species": "chienpao",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "jolly",
+      "ability": "swordofruin",
+      "shiny": true
+    }
+  ],
+  "battleFormat": "GEN_9_DOUBLES"
+}

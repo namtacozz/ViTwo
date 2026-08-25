@@ -1,0 +1,164 @@
+{
+  "name": {
+    "literal": "Mega Trainer Ernesto"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "archeops",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "jolly",
+      "ability": "klutz",
+      "moveset": [
+        "rockslide",
+        "acrobatics",
+        "crunch",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      }
+    },
+    {
+      "species": "walrein",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "calm",
+      "ability": "regenerator",
+      "moveset": [
+        "frostbreath",
+        "surf",
+        "aquaring",
+        "yawn"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spd": 252
+      },
+      "heldItem": [
+        "chople_berry"
+      ]
+    },
+    {
+      "species": "vileplume",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "bold",
+      "ability": "chlorophyll",
+      "moveset": [
+        "solarbeam",
+        "sunnyday",
+        "moonlight",
+        "sleeppowder"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spd": 4
+      },
+      "heldItem": [
+        "coba_berry"
+      ]
+    },
+    {
+      "species": "leavanny",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "jolly",
+      "ability": "swarm",
+      "moveset": [
+        "leafblade",
+        "xscissor",
+        "throatchop",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "occa_berry"
+      ]
+    },
+    {
+      "species": "medicham",
+      "gender": "FEMALE",
+      "level": 59,
+      "nature": "jolly",
+      "ability": "purepower",
+      "moveset": [
+        "highjumpkick",
+        "zenheadbutt",
+        "firepunch",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:medichamite",
+        "choice_scarf"
+      ]
+    }
+  ]
+}

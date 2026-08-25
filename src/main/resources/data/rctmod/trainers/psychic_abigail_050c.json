@@ -1,0 +1,60 @@
+{
+  "name": {
+    "literal": "Psychic Abigail"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "gengar",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "timid",
+      "ability": "cursedbody",
+      "moveset": [
+        "confuseray",
+        "payback",
+        "nightshade",
+        "darkpulse"
+      ]
+    },
+    {
+      "species": "misdreavus",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "psybeam",
+        "payback",
+        "shadowball",
+        "powergem"
+      ]
+    },
+    {
+      "species": "alakazam",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "timid",
+      "ability": "synchronize",
+      "moveset": [
+        "recover",
+        "psyshock",
+        "psychic",
+        "futuresight"
+      ]
+    }
+  ]
+}

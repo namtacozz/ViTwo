@@ -1,0 +1,47 @@
+{
+  "name": {
+    "literal": "Police Officer Danny"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "hoothoot",
+      "gender": "FEMALE",
+      "level": 20,
+      "nature": "timid",
+      "ability": "keeneye",
+      "moveset": [
+        "peck",
+        "growl",
+        "confusion",
+        "psychoshift"
+      ]
+    },
+    {
+      "species": "machop",
+      "gender": "FEMALE",
+      "level": 20,
+      "nature": "jolly",
+      "ability": "noguard",
+      "moveset": [
+        "lowkick",
+        "leer",
+        "lowsweep",
+        "knockoff"
+      ]
+    }
+  ]
+}

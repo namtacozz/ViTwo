@@ -1,0 +1,203 @@
+{
+  "name": {
+    "literal": "Silly Jojo Fan"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "galvantula",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "timid",
+      "ability": "compoundeyes",
+      "moveset": [
+        "stickyweb",
+        "voltswitch",
+        "thunder",
+        "bugbuzz"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "garchomp",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "roughskin",
+      "moveset": [
+        "swordsdance",
+        "earthquake",
+        "rockslide",
+        "firefang"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:garchompite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "huntail",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "adamant",
+      "ability": "intimidate",
+      "moveset": [
+        "shellsmash",
+        "liquidation",
+        "crunch",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "white_herb"
+      ]
+    },
+    {
+      "species": "necrozma",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "adamant",
+      "ability": "prismarmor",
+      "moveset": [
+        "dragondance",
+        "photongeyser",
+        "earthquake",
+        "heatwave"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "weakness_policy"
+      ],
+      "aspects": [
+        "dusk_mane"
+      ]
+    },
+    {
+      "species": "machamp",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "adamant",
+      "ability": "guts",
+      "moveset": [
+        "poweruppunch",
+        "drainpunch",
+        "icepunch",
+        "bulletpunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "hoopa",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "timid",
+      "ability": "magician",
+      "moveset": [
+        "nastyplot",
+        "darkpulse",
+        "psychic",
+        "focusblast"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:fightinium-z",
+        "fighting_gem"
+      ],
+      "aspects": [
+        "unbound"
+      ]
+    }
+  ]
+}

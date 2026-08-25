@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "Fisherman Barny"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "tentacool",
+      "gender": "MALE",
+      "level": 25,
+      "nature": "hasty",
+      "ability": "liquidooze",
+      "moveset": [
+        "waterpulse",
+        "acidspray",
+        "sludge",
+        "bubblebeam"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "arrokuda",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "naughty",
+      "ability": "swiftswim",
+      "moveset": [
+        "furyattack",
+        "bite",
+        "agility",
+        "dive"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "mantyke",
+      "gender": "FEMALE",
+      "level": 26,
+      "nature": "mild",
+      "ability": "waterabsorb",
+      "moveset": [
+        "wingattack",
+        "headbutt",
+        "waterpulse",
+        "wideguard"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

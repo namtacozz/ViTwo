@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "Hiker Brice"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "sudowoodo",
+      "gender": "MALE",
+      "level": 30,
+      "nature": "naughty",
+      "ability": "rockhead",
+      "moveset": [
+        "feintattack",
+        "tearfullook",
+        "rocktomb",
+        "block"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "carbink",
+      "gender": "GENDERLESS",
+      "level": 30,
+      "nature": "lonely",
+      "ability": "clearbody",
+      "moveset": [
+        "smackdown",
+        "reflect",
+        "stealthrock",
+        "guardsplit"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "minior",
+      "gender": "GENDERLESS",
+      "level": 30,
+      "nature": "serious",
+      "ability": "shieldsdown",
+      "moveset": [
+        "ancientpower",
+        "selfdestruct",
+        "stealthrock",
+        "takedown"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

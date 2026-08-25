@@ -1,0 +1,93 @@
+{
+  "name": {
+    "literal": "Black Belt Hitoshi"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "sawk",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "lax",
+      "ability": "innerfocus",
+      "moveset": [
+        "retaliate",
+        "endure",
+        "quickguard",
+        "reversal"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    },
+    {
+      "species": "throh",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "adamant",
+      "ability": "technician",
+      "moveset": [
+        "assurance",
+        "wideguard",
+        "superpower",
+        "reversal"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    },
+    {
+      "species": "falinks",
+      "gender": "GENDERLESS",
+      "level": 45,
+      "nature": "hardy",
+      "ability": "battlearmor",
+      "moveset": [
+        "reversal",
+        "firstimpression",
+        "noretreat",
+        "irondefense"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    }
+  ]
+}

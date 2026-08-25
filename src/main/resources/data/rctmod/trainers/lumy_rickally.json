@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "RickAlly"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "serperior",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "bashful",
+      "ability": "overgrow",
+      "moveset": [
+        "magicalleaf",
+        "leaftornado",
+        "megadrain",
+        "tackle"
+      ],
+      "ivs": {
+        "hp": 12,
+        "atk": 12,
+        "def": 12,
+        "spa": 12,
+        "spd": 12,
+        "spe": 12
+      }
+    },
+    {
+      "species": "krookodile",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "impish",
+      "ability": "moxie",
+      "moveset": [
+        "dig",
+        "crunch",
+        "foulplay",
+        "retaliate"
+      ],
+      "ivs": {
+        "hp": 12,
+        "atk": 12,
+        "def": 12,
+        "spa": 12,
+        "spd": 12,
+        "spe": 12
+      }
+    },
+    {
+      "species": "luxray",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "lonely",
+      "ability": "intimidate",
+      "moveset": [
+        "thundershock",
+        "spark",
+        "bite",
+        "voltswitch"
+      ],
+      "ivs": {
+        "hp": 12,
+        "atk": 12,
+        "def": 12,
+        "spa": 12,
+        "spd": 12,
+        "spe": 12
+      }
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "name": {
+    "literal": "Picnicker Gwen"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "nidorina",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "modest",
+      "ability": "poisontouch",
+      "moveset": [
+        "toxicspikes",
+        "flatter",
+        "crunch",
+        "captivate"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "eevee",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "sassy",
+      "ability": "runaway",
+      "moveset": [
+        "charm",
+        "doubleedge",
+        "lastresort",
+        "trumpcard"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "prinplup",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "lax",
+      "ability": "torrent",
+      "moveset": [
+        "whirlpool",
+        "mist",
+        "drillpeck",
+        "hydropump"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "riolu",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "bold",
+      "ability": "steadfast",
+      "moveset": [
+        "screech",
+        "reversal",
+        "nastyplot",
+        "finalgambit"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    }
+  ]
+}

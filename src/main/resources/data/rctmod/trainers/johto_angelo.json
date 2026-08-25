@@ -1,0 +1,224 @@
+{
+  "name": {
+    "literal": "Morty"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 3
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 3
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "taunt",
+        "encore",
+        "willowisp",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 172,
+        "def": 104,
+        "hp": 232
+      },
+      "heldItem": [
+        "mega_showdown:banettite"
+      ],
+      "species": "banette",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "calm",
+      "ability": "prankster"
+    },
+    {
+      "moveset": [
+        "protect",
+        "icywind",
+        "dazzlinggleam",
+        "taunt"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 56,
+        "spa": 16,
+        "def": 88,
+        "hp": 96
+      },
+      "heldItem": [
+        "mega_showdown:booster_energy"
+      ],
+      "gimmicks": {
+        "tera": "ghost"
+      },
+      "species": "fluttermane",
+      "gender": "FEMALE",
+      "level": 65,
+      "nature": "timid",
+      "ability": "protosynthesis"
+    },
+    {
+      "moveset": [
+        "clearsmog",
+        "shadowball",
+        "sludgebomb",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 68,
+        "spd": 60,
+        "spa": 108,
+        "def": 116,
+        "hp": 156
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "gimmicks": {
+        "tera": "ghost"
+      },
+      "species": "gengar",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "modest",
+      "ability": "cursedbody",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "bulkup",
+        "protect",
+        "ragefist",
+        "drainpunch"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 36,
+        "spd": 96,
+        "def": 36,
+        "atk": 124,
+        "hp": 216
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ],
+      "gimmicks": {
+        "tera": "fighting"
+      },
+      "species": "annihilape",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "adamant",
+      "ability": "defiant"
+    },
+    {
+      "moveset": [
+        "protect",
+        "nastyplot",
+        "makeitrain",
+        "shadowball"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 52,
+        "spd": 24,
+        "spa": 76,
+        "def": 176,
+        "hp": 180
+      },
+      "heldItem": [
+        "metal_coat"
+      ],
+      "gimmicks": {
+        "tera": "steel"
+      },
+      "species": "gholdengo",
+      "gender": "GENDERLESS",
+      "level": 65,
+      "nature": "modest",
+      "ability": "goodasgold",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "astralbarrage",
+        "psychic",
+        "nastyplot",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 96,
+        "spd": 44,
+        "spa": 156,
+        "def": 76,
+        "hp": 136
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "gimmicks": {
+        "tera": "psychic"
+      },
+      "species": "calyrex",
+      "gender": "GENDERLESS",
+      "level": 65,
+      "nature": "timid",
+      "ability": "asonespectrier"
+    }
+  ],
+  "identity": "Angelo",
+  "battleFormat": "GEN_9_DOUBLES"
+}

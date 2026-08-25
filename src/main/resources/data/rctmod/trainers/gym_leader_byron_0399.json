@@ -1,0 +1,104 @@
+{
+  "name": {
+    "literal": "Gym Leader Byron"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "bronzor",
+      "gender": "GENDERLESS",
+      "level": 36,
+      "nature": "relaxed",
+      "ability": "levitate",
+      "moveset": [
+        "confuseray",
+        "sandstorm",
+        "trickroom",
+        "flashcannon"
+      ],
+      "ivs": {
+        "hp": 17,
+        "def": 17,
+        "spa": 17,
+        "spd": 17
+      },
+      "evs": {
+        "hp": 68,
+        "def": 68,
+        "spa": 44,
+        "spd": 68
+      }
+    },
+    {
+      "species": "steelix",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "brave",
+      "ability": "sturdy",
+      "moveset": [
+        "thunderfang",
+        "earthquake",
+        "sandstorm",
+        "gyroball"
+      ],
+      "ivs": {
+        "atk": 23,
+        "def": 17,
+        "spd": 17
+      },
+      "evs": {
+        "atk": 100,
+        "def": 68,
+        "spd": 68
+      },
+      "heldItem": [
+        "soft_sand"
+      ]
+    },
+    {
+      "species": "bastiodon",
+      "gender": "FEMALE",
+      "level": 39,
+      "nature": "relaxed",
+      "ability": "sturdy",
+      "moveset": [
+        "irondefense",
+        "thunderbolt",
+        "stoneedge",
+        "flashcannon"
+      ],
+      "ivs": {
+        "def": 17,
+        "spa": 23,
+        "spd": 17
+      },
+      "evs": {
+        "def": 68,
+        "spa": 100,
+        "spd": 68
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

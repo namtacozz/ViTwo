@@ -1,0 +1,203 @@
+{
+  "name": {
+    "literal": "Brock"
+  },
+  "identity": "Leader Brock",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "gigalith",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "adamant",
+      "ability": "sandstream",
+      "moveset": [
+        "stealthrock",
+        "stoneedge",
+        "earthquake",
+        "explosion"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "smooth_rock"
+      ]
+    },
+    {
+      "species": "omastar",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "modest",
+      "ability": "swiftswim",
+      "moveset": [
+        "shellsmash",
+        "meteorbeam",
+        "icebeam",
+        "surf"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "power_herb"
+      ]
+    },
+    {
+      "species": "sandslash",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "adamant",
+      "ability": "sandrush",
+      "moveset": [
+        "swordsdance",
+        "earthquake",
+        "stoneedge",
+        "xscissor"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "soft_sand"
+      ]
+    },
+    {
+      "species": "lycanroc",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "jolly",
+      "ability": "toughclaws",
+      "moveset": [
+        "accelerock",
+        "stoneedge",
+        "closecombat",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "tyranitar",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "jolly",
+      "ability": "sandstream",
+      "moveset": [
+        "stoneedge",
+        "firepunch",
+        "crunch",
+        "dragondance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "weakness_policy"
+      ]
+    },
+    {
+      "species": "aerodactyl",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "jolly",
+      "ability": "unnerve",
+      "moveset": [
+        "stoneedge",
+        "earthquake",
+        "dualwingbeat",
+        "dragondance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:aerodactylite",
+        "life_orb"
+      ]
+    }
+  ]
+}

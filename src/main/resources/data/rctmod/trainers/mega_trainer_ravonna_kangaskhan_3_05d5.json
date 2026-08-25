@@ -1,0 +1,81 @@
+{
+  "name": {
+    "literal": "Mega Trainer Ravonna"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "charizard",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "jolly",
+      "ability": "blaze",
+      "moveset": [
+        "flareblitz",
+        "dragondance",
+        "dragonclaw",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "spd": 12,
+        "spe": 244
+      },
+      "heldItem": [
+        "mega_showdown:charizardite_x"
+      ]
+    },
+    {
+      "species": "kangaskhan",
+      "gender": "FEMALE",
+      "level": 75,
+      "nature": "jolly",
+      "ability": "parentalbond",
+      "moveset": [
+        "doubleedge",
+        "retaliate",
+        "drainpunch",
+        "sleeptalk"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "def": 78,
+        "spe": 180
+      },
+      "heldItem": [
+        "mega_showdown:kangaskhanite",
+        "leftovers"
+      ]
+    }
+  ]
+}

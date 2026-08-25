@@ -1,0 +1,176 @@
+{
+  "name": {
+    "literal": "Ace Trainer George"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "exeggutor",
+      "gender": "FEMALE",
+      "level": 83,
+      "nature": "modest",
+      "ability": "chlorophyll",
+      "moveset": [
+        "sleeppowder",
+        "gigadrain",
+        "dragonpulse",
+        "flamethrower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "spa": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "miracle_seed"
+      ],
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "donphan",
+      "gender": "FEMALE",
+      "level": 84,
+      "nature": "adamant",
+      "ability": "technician",
+      "moveset": [
+        "bonemerang",
+        "iceshard",
+        "rockblast",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "cloyster",
+      "gender": "MALE",
+      "level": 84,
+      "nature": "jolly",
+      "ability": "skilllink",
+      "moveset": [
+        "rockblast",
+        "iciclespear",
+        "liquidation",
+        "shellsmash"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "white_herb"
+      ]
+    },
+    {
+      "species": "mienshao",
+      "gender": "FEMALE",
+      "level": 84,
+      "nature": "jolly",
+      "ability": "regenerator",
+      "moveset": [
+        "fakeout",
+        "closecombat",
+        "uturn",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "pinsir",
+      "gender": "FEMALE",
+      "level": 84,
+      "nature": "jolly",
+      "ability": "moldbreaker",
+      "moveset": [
+        "quickattack",
+        "xscissor",
+        "doubleedge",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:pinsirite",
+        "life_orb"
+      ]
+    }
+  ]
+}

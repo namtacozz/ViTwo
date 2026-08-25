@@ -1,0 +1,218 @@
+{
+  "name": {
+    "literal": "Koga"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 5
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 5
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "spikes",
+        "toxic",
+        "sludgebomb",
+        "meteorbeam"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 188,
+        "spa": 4,
+        "def": 64,
+        "hp": 252
+      },
+      "heldItem": [
+        "power_herb"
+      ],
+      "gimmicks": {
+        "tera": "rock"
+      },
+      "species": "glimmora",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "calm",
+      "ability": "toxicdebris"
+    },
+    {
+      "moveset": [
+        "dynamaxcannon",
+        "sludgebomb",
+        "flamethrower",
+        "recover"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 132,
+        "spa": 8,
+        "def": 132,
+        "hp": 236
+      },
+      "heldItem": [
+        "black_sludge"
+      ],
+      "gimmicks": {
+        "tera": "poison"
+      },
+      "species": "eternatus",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "modest",
+      "ability": "pressure"
+    },
+    {
+      "moveset": [
+        "banefulbunker",
+        "toxic",
+        "sludgebomb",
+        "surf"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 92,
+        "spa": 72,
+        "def": 92,
+        "hp": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "gimmicks": {
+        "tera": "poison"
+      },
+      "species": "toxapex",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "modest",
+      "ability": "merciless"
+    },
+    {
+      "moveset": [
+        "energyball",
+        "earthpower",
+        "sludgebomb",
+        "venoshock"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 56,
+        "spd": 88,
+        "spa": 156,
+        "def": 92,
+        "hp": 116
+      },
+      "heldItem": [
+        "assault_vest"
+      ],
+      "gimmicks": {
+        "tera": "grass"
+      },
+      "species": "venusaur",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "modest",
+      "ability": "chlorophyll"
+    },
+    {
+      "moveset": [
+        "poisonjab",
+        "icefang",
+        "closecombat",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "gimmicks": {
+        "tera": "poison"
+      },
+      "species": "okidogi",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "toxicchain"
+    },
+    {
+      "moveset": [
+        "toxic",
+        "haze",
+        "darkpulse",
+        "icywind"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 16,
+        "spd": 56,
+        "spa": 168,
+        "def": 52,
+        "hp": 216
+      },
+      "heldItem": [
+        "mega_showdown:gengarite"
+      ],
+      "gimmicks": {
+        "tera": "ghost"
+      },
+      "species": "gengar",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "modest",
+      "ability": "shadowtag",
+      "shiny": true
+    }
+  ],
+  "identity": "Koga",
+  "battleFormat": "GEN_9_DOUBLES"
+}

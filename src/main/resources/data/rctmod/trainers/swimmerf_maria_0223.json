@@ -1,0 +1,140 @@
+{
+  "name": {
+    "literal": "Swimmer♀ Maria"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "inteleon",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "timid",
+      "ability": "sniper",
+      "moveset": [
+        "snipeshot",
+        "icebeam",
+        "uturn",
+        "hiddenpower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 30,
+        "def": 31,
+        "spa": 30,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "scope_lens"
+      ]
+    },
+    {
+      "species": "dragalge",
+      "gender": "MALE",
+      "level": 90,
+      "nature": "modest",
+      "ability": "adaptability",
+      "moveset": [
+        "dracometeor",
+        "sludgewave",
+        "flipturn",
+        "scald"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "choice_specs"
+      ]
+    },
+    {
+      "species": "starmie",
+      "gender": "GENDERLESS",
+      "level": 93,
+      "nature": "timid",
+      "ability": "illuminate",
+      "moveset": [
+        "hydropump",
+        "thunder",
+        "blizzard",
+        "psyshock"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "basculegion",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "timid",
+      "ability": "adaptability",
+      "moveset": [
+        "hydropump",
+        "shadowball",
+        "icebeam",
+        "flipturn"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "aspects": [
+        "f"
+      ]
+    }
+  ]
+}

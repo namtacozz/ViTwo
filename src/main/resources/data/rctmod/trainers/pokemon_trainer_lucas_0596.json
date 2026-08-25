@@ -1,0 +1,204 @@
+{
+  "name": {
+    "literal": "Pokémon Trainer Lucas"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "absol",
+      "gender": "FEMALE",
+      "level": 68,
+      "nature": "jolly",
+      "ability": "superluck",
+      "moveset": [
+        "megahorn",
+        "psychocut",
+        "stoneedge",
+        "nightslash"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "razor_claw"
+      ]
+    },
+    {
+      "species": "kabutops",
+      "gender": "MALE",
+      "level": 69,
+      "nature": "adamant",
+      "ability": "weakarmor",
+      "moveset": [
+        "rockslide",
+        "liquidation",
+        "leechlife",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "espeon",
+      "gender": "MALE",
+      "level": 70,
+      "nature": "modest",
+      "ability": "magicbounce",
+      "moveset": [
+        "psychic",
+        "psyshock",
+        "grassknot",
+        "dazzlinggleam"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "rotom",
+      "gender": "GENDERLESS",
+      "level": 69,
+      "nature": "modest",
+      "ability": "levitate",
+      "moveset": [
+        "leafstorm",
+        "thunderbolt",
+        "voltswitch",
+        "hex"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "choice_specs"
+      ],
+      "aspects": [
+        "mow-appliance"
+      ]
+    },
+    {
+      "species": "porygonz",
+      "gender": "GENDERLESS",
+      "level": 70,
+      "nature": "modest",
+      "ability": "adaptability",
+      "moveset": [
+        "triattack",
+        "hyperbeam",
+        "thunderwave",
+        "darkpulse"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "silk_scarf"
+      ]
+    },
+    {
+      "species": "infernape",
+      "gender": "MALE",
+      "level": 74,
+      "nature": "jolly",
+      "ability": "blaze",
+      "moveset": [
+        "earthquake",
+        "closecombat",
+        "flareblitz",
+        "acrobatics"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "white_herb"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "name": {
+    "literal": "Dragon Tamer Patrick"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "gabite",
+      "gender": "FEMALE",
+      "level": 63,
+      "nature": "jolly",
+      "ability": "sandveil",
+      "moveset": [
+        "bite",
+        "dragonclaw",
+        "dig",
+        "sandstorm"
+      ]
+    },
+    {
+      "species": "haxorus",
+      "gender": "MALE",
+      "level": 63,
+      "nature": "jolly",
+      "ability": "moldbreaker",
+      "moveset": [
+        "dragondance",
+        "dragonclaw",
+        "earthquake",
+        "nightslash"
+      ]
+    }
+  ]
+}

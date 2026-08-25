@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Bird Keeper Keith"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "farfetchd",
+      "gender": "MALE",
+      "level": 39,
+      "nature": "calm",
+      "ability": "innerfocus",
+      "moveset": [
+        "swordsdance",
+        "agility",
+        "nightslash",
+        "acrobatics"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "fearow",
+      "gender": "MALE",
+      "level": 39,
+      "nature": "lonely",
+      "ability": "technician",
+      "moveset": [
+        "assurance",
+        "agility",
+        "dualwingbeat",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

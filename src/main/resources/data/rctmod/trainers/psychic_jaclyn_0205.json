@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "Psychic Jaclyn"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "natu",
+      "gender": "FEMALE",
+      "level": 48,
+      "nature": "lonely",
+      "ability": "synchronize",
+      "moveset": [
+        "nightshade",
+        "confuseray",
+        "futuresight",
+        "wish"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "slowbro",
+      "gender": "FEMALE",
+      "level": 48,
+      "nature": "naive",
+      "ability": "oblivious",
+      "moveset": [
+        "psychic",
+        "headbutt",
+        "amnesia",
+        "yawn"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "kadabra",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "modest",
+      "ability": "synchronize",
+      "moveset": [
+        "psychic",
+        "futuresight",
+        "recover",
+        "reflect"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

@@ -29,5 +29,8 @@ public class ViTwoPackets {
         PayloadTypeRegistry.playS2C().register(OpenRunSummaryS2CPacket.ID, OpenRunSummaryS2CPacket.CODEC);
         PayloadTypeRegistry.playS2C().register(SyncGhostSupportS2CPacket.ID, SyncGhostSupportS2CPacket.CODEC);
         PayloadTypeRegistry.playS2C().register(OpenTeamPreviewS2CPacket.ID, OpenTeamPreviewS2CPacket.CODEC);
+        PayloadTypeRegistry.playS2C().register(SyncLeaderboardS2CPacket.ID, SyncLeaderboardS2CPacket.CODEC);
+        PayloadTypeRegistry.playS2C().register(TowerBossIntroS2CPacket.ID, TowerBossIntroS2CPacket.CODEC);
+        PayloadTypeRegistry.playS2C().register(TowerBattleGradeS2CPacket.ID, TowerBattleGradeS2CPacket.CODEC);
     }
 }

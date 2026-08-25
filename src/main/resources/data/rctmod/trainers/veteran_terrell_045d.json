@@ -1,0 +1,66 @@
+{
+  "name": {
+    "literal": "Veteran Terrell"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "kricketune",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "hardy",
+      "ability": "swarm",
+      "moveset": [
+        "sing",
+        "nightslash",
+        "stickyweb",
+        "bugbuzz"
+      ]
+    },
+    {
+      "species": "quagsire",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "relaxed",
+      "ability": "waterabsorb",
+      "moveset": [
+        "yawn",
+        "muddywater",
+        "toxic",
+        "earthquake"
+      ]
+    },
+    {
+      "species": "gengar",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "sassy",
+      "ability": "cursedbody",
+      "moveset": [
+        "confuseray",
+        "curse",
+        "darkpulse",
+        "shadowball"
+      ]
+    }
+  ]
+}

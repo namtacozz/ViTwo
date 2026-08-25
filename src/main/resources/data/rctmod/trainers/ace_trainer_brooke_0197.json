@@ -1,0 +1,164 @@
+{
+  "name": {
+    "literal": "Ace Trainer Brooke"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "tangela",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "modest",
+      "ability": "regenerator",
+      "moveset": [
+        "bind",
+        "megadrain",
+        "ingrain"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spd": 252
+      },
+      "heldItem": [
+        "hyper_potion"
+      ]
+    },
+    {
+      "species": "gloom",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "modest",
+      "ability": "stench",
+      "moveset": [
+        "moonlight",
+        "sleeppowder",
+        "stunspore"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spd": 252
+      }
+    },
+    {
+      "species": "vileplume",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "modest",
+      "ability": "effectspore",
+      "moveset": [
+        "acid",
+        "stunspore",
+        "aromatherapy"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spd": 252
+      },
+      "heldItem": [
+        "ability_capsule"
+      ]
+    },
+    {
+      "species": "ivysaur",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "modest",
+      "ability": "chlorophyll",
+      "moveset": [
+        "sweetscent",
+        "growl",
+        "leechseed"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spd": 252
+      },
+      "heldItem": [
+        "x_attack"
+      ]
+    },
+    {
+      "species": "venusaur",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "modest",
+      "ability": "chlorophyll",
+      "moveset": [
+        "growth",
+        "sleeppowder",
+        "poisonpowder"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spd": 252
+      },
+      "heldItem": [
+        "x_attack"
+      ]
+    }
+  ]
+}

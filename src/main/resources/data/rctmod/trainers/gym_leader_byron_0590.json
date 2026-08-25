@@ -1,0 +1,198 @@
+{
+  "name": {
+    "literal": "Byron"
+  },
+  "identity": "Gym Leader Byron",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "skarmory",
+      "gender": "MALE",
+      "level": 69,
+      "nature": "impish",
+      "ability": "sturdy",
+      "moveset": [
+        "steelwing",
+        "stealthrock",
+        "irondefense",
+        "taunt"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "steelix",
+      "gender": "FEMALE",
+      "level": 69,
+      "nature": "adamant",
+      "ability": "sheerforce",
+      "moveset": [
+        "irontail",
+        "earthquake",
+        "icefang",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 76,
+        "atk": 252,
+        "spd": 180
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "magnezone",
+      "gender": "GENDERLESS",
+      "level": 70,
+      "nature": "quiet",
+      "ability": "analytic",
+      "moveset": [
+        "thunderbolt",
+        "flashcannon",
+        "lightscreen",
+        "magnetrise"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31
+      },
+      "evs": {
+        "hp": 248,
+        "spa": 252,
+        "spd": 8
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "empoleon",
+      "gender": "MALE",
+      "level": 70,
+      "nature": "modest",
+      "ability": "torrent",
+      "moveset": [
+        "hydropump",
+        "flashcannon",
+        "icebeam",
+        "roar"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 244,
+        "spa": 252,
+        "spd": 12
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "aggron",
+      "gender": "FEMALE",
+      "level": 71,
+      "nature": "jolly",
+      "ability": "rockhead",
+      "moveset": [
+        "headsmash"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "bastiodon",
+      "gender": "MALE",
+      "level": 72,
+      "nature": "brave",
+      "ability": "sturdy",
+      "moveset": [
+        "heavyslam",
+        "metalburst",
+        "roar",
+        "stealthrock"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 16,
+        "spd": 240
+      },
+      "heldItem": [
+        "lum_berry"
+      ]
+    }
+  ]
+}

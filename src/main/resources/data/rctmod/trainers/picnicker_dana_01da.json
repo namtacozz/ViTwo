@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "Picnicker Dana"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "zorua",
+      "gender": "FEMALE",
+      "level": 34,
+      "nature": "relaxed",
+      "ability": "illusion",
+      "moveset": [
+        "scaryface",
+        "taunt",
+        "foulplay",
+        "torment"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "clobbopus",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "docile",
+      "ability": "limber",
+      "moveset": [
+        "lowsweep",
+        "bulkup",
+        "submission",
+        "taunt"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "golduck",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "adamant",
+      "ability": "swiftswim",
+      "moveset": [
+        "zenheadbutt",
+        "aquatail",
+        "soak",
+        "psychic"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    }
+  ]
+}

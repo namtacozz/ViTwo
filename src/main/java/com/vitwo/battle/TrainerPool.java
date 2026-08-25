@@ -152,22 +152,20 @@ public class TrainerPool {
      */
     public static String getRctTrainerIdForFloor(int floor) {
         if (floor >= 100) {
-            return "champion_cynthia_f63d"; // Final Boss Avatar
+            return "champion_cynthia_05a7"; // Valid Final Boss Avatar in RCT
         }
         int stage = getStageForFloor(floor);
         List<String> list = RCT_STAGE_TRAINERS.get(stage);
         if (list != null && !list.isEmpty()) {
-            // Consistent, varied index per floor
-            int idx = Math.abs((floor * 47 + (floor / 3) * 19)) % list.size();
-            return list.get(idx);
+            return list.get(RANDOM.nextInt(list.size()));
         }
-        return "ace_trainer_abel_04a5";
+        return "youngster_joey_005d";
     }
 
     /**
      * Returns the authentic human-readable display name corresponding to the NPC avatar
      */
-    public static String getTrainerDisplayName(int floor) {
+    public static String getTrainerDisplayName(int floor, String rctId) {
         if (floor >= 100) {
             return "§4§lGENESIS ARCEUS";
         }
@@ -180,13 +178,19 @@ public class TrainerPool {
             return "§c" + mythicalTitles[(floor - 91) % mythicalTitles.length];
         }
 
-        String rctId = getRctTrainerIdForFloor(floor);
-        String name = RCT_TRAINER_NAMES.get(rctId);
-        if (name != null && !name.isEmpty()) {
-            return name;
+        if (rctId != null) {
+            String name = RCT_TRAINER_NAMES.get(rctId);
+            if (name != null && !name.isEmpty()) {
+                return name;
+            }
+            return formatFallbackName(rctId);
         }
 
-        return formatFallbackName(rctId);
+        return "Tower Challenger";
+    }
+
+    public static String getTrainerDisplayName(int floor) {
+        return getTrainerDisplayName(floor, getRctTrainerIdForFloor(floor));
     }
 
     private static String formatFallbackName(String rctId) {

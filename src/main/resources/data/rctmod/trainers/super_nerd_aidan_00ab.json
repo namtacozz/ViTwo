@@ -1,0 +1,104 @@
+{
+  "name": {
+    "literal": "Super Nerd Aidan"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "voltorb",
+      "gender": "GENDERLESS",
+      "level": 35,
+      "nature": "hardy",
+      "ability": "static",
+      "moveset": [
+        "sonicboom",
+        "screech",
+        "sonicboom",
+        "spark"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "koffing",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "lax",
+      "ability": "neutralizinggas",
+      "moveset": [
+        "sludge",
+        "smog",
+        "selfdestruct",
+        "sludge"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "eelektrik",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "gentle",
+      "ability": "levitate",
+      "moveset": [
+        "sonicboom",
+        "discharge",
+        "crunch",
+        "charge"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "elgyem",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "hasty",
+      "ability": "synchronize",
+      "moveset": [
+        "sonicboom",
+        "psybeam",
+        "headbutt"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

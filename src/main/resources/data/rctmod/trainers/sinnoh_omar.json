@@ -1,0 +1,202 @@
+{
+  "name": {
+    "literal": "Crasher Wake"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.9,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 3
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 3
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "scald",
+        "perishsong",
+        "encore",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 4,
+        "def": 252,
+        "hp": 252
+      },
+      "heldItem": [
+        "damp_rock"
+      ],
+      "species": "politoed",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "bold",
+      "ability": "drizzle",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "hydropump",
+        "gigadrain",
+        "icebeam",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "species": "ludicolo",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "modest",
+      "ability": "raindish"
+    },
+    {
+      "moveset": [
+        "waterfall",
+        "earthquake",
+        "icepunch",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "mega_showdown:swampertite"
+      ],
+      "species": "swampert",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "adamant",
+      "ability": "swiftswim"
+    },
+    {
+      "moveset": [
+        "liquidation",
+        "stoneedge",
+        "superpower",
+        "crunch"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "species": "drednaw",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "jolly",
+      "ability": "swiftswim"
+    },
+    {
+      "moveset": [
+        "toxic",
+        "toxicspikes",
+        "banefulbunker",
+        "icespinner"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "def": 252,
+        "hp": 252
+      },
+      "heldItem": [
+        "black_sludge"
+      ],
+      "species": "toxapex",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "bold",
+      "ability": "merciless"
+    },
+    {
+      "moveset": [
+        "weatherball",
+        "muddywater",
+        "hurricane",
+        "icebeam"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "assault_vest"
+      ],
+      "species": "kingdra",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "modest",
+      "ability": "swiftswim"
+    }
+  ],
+  "identity": "Gym Leader Omar",
+  "battleFormat": "GEN_9_DOUBLES"
+}

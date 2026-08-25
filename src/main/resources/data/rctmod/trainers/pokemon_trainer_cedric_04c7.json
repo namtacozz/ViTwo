@@ -1,0 +1,206 @@
+{
+  "name": {
+    "literal": "Pokémon Trainer Cedric"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "munchlax",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "adamant",
+      "ability": "thickfat",
+      "moveset": [
+        "lick",
+        "covet",
+        "bite",
+        "bodyslam"
+      ],
+      "ivs": {
+        "hp": 9,
+        "atk": 9,
+        "def": 9,
+        "spa": 9,
+        "spd": 9,
+        "spe": 9
+      },
+      "evs": {
+        "hp": 96,
+        "atk": 96,
+        "def": 56,
+        "spd": 88
+      }
+    },
+    {
+      "species": "staraptor",
+      "gender": "FEMALE",
+      "level": 41,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "closecombat",
+        "quickattack",
+        "doubleteam",
+        "pluck"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      },
+      "evs": {
+        "hp": 56,
+        "atk": 104,
+        "def": 32,
+        "spd": 32,
+        "spe": 104
+      },
+      "heldItem": [
+        "quick_claw"
+      ]
+    },
+    {
+      "species": "buizel",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "jolly",
+      "ability": "swiftswim",
+      "moveset": [
+        "tailwhip",
+        "bite",
+        "swift",
+        "brine"
+      ],
+      "ivs": {
+        "hp": 6,
+        "atk": 6,
+        "def": 6,
+        "spa": 6,
+        "spd": 6,
+        "spe": 6
+      },
+      "evs": {
+        "hp": 40,
+        "atk": 96,
+        "def": 40,
+        "spd": 40,
+        "spe": 96
+      },
+      "heldItem": [
+        "mystic_water"
+      ]
+    },
+    {
+      "species": "heracross",
+      "gender": "MALE",
+      "level": 43,
+      "nature": "jolly",
+      "ability": "swarm",
+      "moveset": [
+        "leer",
+        "brickbreak",
+        "pinmissile",
+        "thief"
+      ],
+      "ivs": {
+        "hp": 9,
+        "atk": 9,
+        "def": 9,
+        "spa": 9,
+        "spd": 9,
+        "spe": 9
+      },
+      "evs": {
+        "hp": 40,
+        "atk": 104,
+        "def": 40,
+        "spd": 40,
+        "spe": 96
+      }
+    },
+    {
+      "species": "ponyta",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "jolly",
+      "ability": "flashfire",
+      "moveset": [
+        "tailwhip",
+        "agility",
+        "flamewheel",
+        "stomp"
+      ],
+      "ivs": {
+        "hp": 7,
+        "atk": 7,
+        "def": 7,
+        "spa": 7,
+        "spd": 7,
+        "spe": 7
+      },
+      "evs": {
+        "hp": 40,
+        "atk": 64,
+        "def": 16,
+        "spd": 16,
+        "spe": 64
+      },
+      "heldItem": [
+        "shell_bell"
+      ]
+    },
+    {
+      "species": "torterra",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "careful",
+      "ability": "overgrow",
+      "moveset": [
+        "razorleaf",
+        "bite",
+        "leechseed",
+        "stealthrock"
+      ],
+      "ivs": {
+        "hp": 11,
+        "atk": 11,
+        "def": 11,
+        "spa": 11,
+        "spd": 11,
+        "spe": 11
+      },
+      "evs": {
+        "hp": 164,
+        "atk": 52,
+        "def": 52,
+        "spa": 52,
+        "spd": 124
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    }
+  ]
+}

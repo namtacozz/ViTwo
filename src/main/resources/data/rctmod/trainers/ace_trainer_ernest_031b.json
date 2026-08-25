@@ -1,0 +1,66 @@
+{
+  "name": {
+    "literal": "Ace Trainer Ernest"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "mothim",
+      "gender": "MALE",
+      "level": 25,
+      "nature": "hardy",
+      "ability": "swarm",
+      "moveset": [
+        "quiverdance",
+        "bugbite",
+        "stringshot",
+        "confusion"
+      ]
+    },
+    {
+      "species": "onix",
+      "gender": "FEMALE",
+      "level": 26,
+      "nature": "relaxed",
+      "ability": "rockhead",
+      "moveset": [
+        "harden",
+        "smackdown",
+        "curse",
+        "rockslide"
+      ]
+    },
+    {
+      "species": "luxio",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "hardy",
+      "ability": "intimidate",
+      "moveset": [
+        "leer",
+        "bite",
+        "spark",
+        "roar"
+      ]
+    }
+  ]
+}

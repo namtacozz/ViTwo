@@ -1,0 +1,50 @@
+{
+  "name": {
+    "literal": "Youngster Dallas"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "kricketune",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "jolly",
+      "ability": "swarm",
+      "moveset": [
+        "xscissor",
+        "screech",
+        "fellstinger",
+        "nightslash"
+      ]
+    },
+    {
+      "species": "toxtricity",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "rash",
+      "ability": "punkrock",
+      "moveset": [
+        "overdrive",
+        "poisonjab",
+        "boomburst",
+        "spark"
+      ],
+      "aspects": [
+        "amped-form"
+      ]
+    }
+  ]
+}

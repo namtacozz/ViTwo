@@ -3,9 +3,13 @@
   "id": "vitwo",
   "version": "${version}",
   "name": "CobbleTower",
-  "description": "Roguelike Battle Tower for Cobblemon with 100 floors, Solo 2-Slot & Duo Co-op Double Battles, Level Cap tiers, Perfect 6x31 IVs & Shiny Bosses, Rest Floors, and 4 Battle Gimmicks.",
+  "description": "The definitive Roguelike Double Battle Tower experience for Cobblemon & CobbleVerse! Features 100 progressive floors, Solo 6v6 & Co-op Duo (3+3) Double Battles, full competitive AI with 6x31 IVs & optimized EVs, cinematic Boss Floor cutscenes, BP Exchange Shop, Hall of Fame Leaderboard, Prestige Ascension, and Post-Battle Grade evaluations.",
   "authors": [
-    "ViTwo Team"
+    "Vit",
+    "Arjun",
+    "Serik",
+    "Zitj",
+    "Nam"
   ],
   "contact": {
     "homepage": "https://github.com/namtacozz/ViTwo",

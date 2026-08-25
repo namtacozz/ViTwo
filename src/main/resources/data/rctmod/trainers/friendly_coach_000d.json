@@ -1,0 +1,130 @@
+{
+  "name": {
+    "literal": "Friendly Coach (Spd)"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15,
+      "statusMoveBias": 1
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "dustox",
+      "gender": "MALE",
+      "level": 1,
+      "nature": "adamant",
+      "ability": "shielddust",
+      "moveset": [
+        "memento"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "dustox",
+      "gender": "MALE",
+      "level": 1,
+      "nature": "docile",
+      "ability": "shielddust",
+      "moveset": [
+        "memento"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "dustox",
+      "gender": "FEMALE",
+      "level": 1,
+      "nature": "hardy",
+      "ability": "shielddust",
+      "moveset": [
+        "memento"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "dustox",
+      "gender": "MALE",
+      "level": 1,
+      "nature": "serious",
+      "ability": "shielddust",
+      "moveset": [
+        "memento"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "dustox",
+      "gender": "MALE",
+      "level": 1,
+      "nature": "modest",
+      "ability": "shielddust",
+      "moveset": [
+        "memento"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "dustox",
+      "gender": "FEMALE",
+      "level": 1,
+      "nature": "lax",
+      "ability": "shielddust",
+      "moveset": [
+        "memento"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

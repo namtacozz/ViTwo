@@ -1,0 +1,137 @@
+{
+  "name": {
+    "literal": "Leader Mirskle"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:super_potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "floette",
+      "gender": "FEMALE",
+      "level": 19,
+      "nature": "careful",
+      "ability": "flowerveil",
+      "moveset": [
+        "fairywind",
+        "razorleaf",
+        "wish",
+        "grassyterrain"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spd": 252
+      },
+      "heldItem": [
+        "grass_gem"
+      ]
+    },
+    {
+      "species": "gloom",
+      "gender": "FEMALE",
+      "level": 21,
+      "nature": "calm",
+      "ability": "chlorophyll",
+      "moveset": [
+        "acid",
+        "megadrain",
+        "ingrain",
+        "sleeppowder"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spd": 252
+      }
+    },
+    {
+      "species": "weedle",
+      "gender": "FEMALE",
+      "level": 17,
+      "nature": "adamant",
+      "ability": "technician",
+      "moveset": [
+        "bugbite",
+        "electroweb",
+        "poisonsting",
+        "stringshot"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "silver_powder"
+      ]
+    },
+    {
+      "species": "comfey",
+      "gender": "FEMALE",
+      "level": 18,
+      "nature": "bold",
+      "ability": "flowerveil",
+      "moveset": [
+        "magicalleaf",
+        "helpinghand",
+        "flowershield",
+        "floralhealing"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spd": 252
+      }
+    }
+  ]
+}

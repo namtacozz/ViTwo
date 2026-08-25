@@ -1,0 +1,105 @@
+{
+  "name": {
+    "literal": "Psychic Johan"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "grumpig",
+      "gender": "MALE",
+      "level": 53,
+      "nature": "hasty",
+      "ability": "owntempo",
+      "moveset": [
+        "snore",
+        "psyshock",
+        "payback",
+        "psychic"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "meowstic",
+      "gender": "MALE",
+      "level": 53,
+      "nature": "modest",
+      "ability": "cursedbody",
+      "moveset": [
+        "imprison",
+        "suckerpunch",
+        "mistyterrain",
+        "quickguard"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "gallade",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "careful",
+      "ability": "steadfast",
+      "moveset": [
+        "feint",
+        "falseswipe",
+        "protect",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "espeon",
+      "gender": "FEMALE",
+      "level": 53,
+      "nature": "rash",
+      "ability": "synchronize",
+      "moveset": [
+        "morningsun",
+        "psychic",
+        "lastresort",
+        "powerswap"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

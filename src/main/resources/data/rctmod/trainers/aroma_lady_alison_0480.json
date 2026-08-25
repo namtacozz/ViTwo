@@ -1,0 +1,47 @@
+{
+  "name": {
+    "literal": "Aroma Lady Alison"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "roselia",
+      "gender": "MALE",
+      "level": 23,
+      "nature": "calm",
+      "ability": "poisonpoint",
+      "moveset": [
+        "poisonsting",
+        "megadrain",
+        "leechseed",
+        "magicalleaf"
+      ]
+    },
+    {
+      "species": "comfey",
+      "gender": "FEMALE",
+      "level": 23,
+      "nature": "calm",
+      "ability": "triage",
+      "moveset": [
+        "drainingkiss",
+        "magicalleaf",
+        "growth",
+        "sweetkiss"
+      ]
+    }
+  ]
+}

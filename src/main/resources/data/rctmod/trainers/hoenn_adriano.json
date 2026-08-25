@@ -1,0 +1,213 @@
+{
+  "name": {
+    "literal": "Wallace"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 5
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 5
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "electroshot",
+        "bodypress",
+        "flashcannon",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 116,
+        "spd": 76,
+        "spa": 116,
+        "def": 56,
+        "hp": 144
+      },
+      "heldItem": [
+        "power_herb"
+      ],
+      "gimmicks": {
+        "tera": "steel"
+      },
+      "species": "archaludon",
+      "gender": "MALE",
+      "level": 95,
+      "nature": "bold",
+      "ability": "stamina"
+    },
+    {
+      "moveset": [
+        "weatherball",
+        "tailwind",
+        "protect",
+        "muddywater"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spa": 8,
+        "def": 252,
+        "hp": 248
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "species": "pelipper",
+      "gender": "MALE",
+      "level": 95,
+      "nature": "bold",
+      "ability": "drizzle"
+    },
+    {
+      "moveset": [
+        "hypervoice",
+        "moonblast",
+        "protect",
+        "weatherball"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 96,
+        "spd": 72,
+        "spa": 196,
+        "def": 56,
+        "hp": 88
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "species": "primarina",
+      "gender": "FEMALE",
+      "level": 95,
+      "nature": "modest",
+      "ability": "liquidvoice"
+    },
+    {
+      "moveset": [
+        "waterspout",
+        "icebeam",
+        "aurasphere",
+        "darkpulse"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 60,
+        "spd": 16,
+        "spa": 252,
+        "def": 56,
+        "hp": 124
+      },
+      "heldItem": [
+        "assault_vest"
+      ],
+      "species": "blastoise",
+      "gender": "MALE",
+      "level": 95,
+      "nature": "modest",
+      "ability": "raindish"
+    },
+    {
+      "moveset": [
+        "icywind",
+        "flamethrower",
+        "earthpower",
+        "dragonpulse"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 144,
+        "spd": 76,
+        "spa": 136,
+        "def": 36,
+        "hp": 116
+      },
+      "heldItem": [
+        "mega_showdown:lustrous_globe"
+      ],
+      "aspects": [
+        "origin-forme"
+      ],
+      "species": "palkia",
+      "gender": "MALE",
+      "level": 95,
+      "nature": "modest",
+      "ability": "telepathy"
+    },
+    {
+      "moveset": [
+        "aquatail",
+        "stoneedge",
+        "waterfall",
+        "crunch"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 52,
+        "spd": 16,
+        "def": 68,
+        "atk": 252,
+        "hp": 120
+      },
+      "heldItem": [
+        "mega_showdown:gyaradosite"
+      ],
+      "species": "gyarados",
+      "gender": "MALE",
+      "level": 95,
+      "nature": "jolly",
+      "ability": "moldbreaker"
+    }
+  ],
+  "identity": "Adriano",
+  "battleFormat": "GEN_9_DOUBLES"
+}

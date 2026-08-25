@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "Scientist Ed"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "accelgor",
+      "gender": "FEMALE",
+      "level": 44,
+      "nature": "lax",
+      "ability": "hydration",
+      "moveset": [
+        "bugbuzz",
+        "gigadrain",
+        "sludgebomb",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "heliolisk",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "bashful",
+      "ability": "dryskin",
+      "moveset": [
+        "thunderbolt",
+        "hypervoice",
+        "grassknot",
+        "voltswitch"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "archeops",
+      "gender": "FEMALE",
+      "level": 44,
+      "nature": "quirky",
+      "ability": "defeatist",
+      "moveset": [
+        "acrobatics",
+        "rockslide",
+        "supersonic",
+        "zenheadbutt"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

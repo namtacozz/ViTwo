@@ -1,0 +1,60 @@
+{
+  "name": {
+    "literal": "Youngster Austin"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "starly",
+      "gender": "FEMALE",
+      "level": 15,
+      "nature": "docile",
+      "ability": "keeneye",
+      "moveset": [
+        "growl",
+        "quickattack",
+        "wingattack",
+        "doubleteam"
+      ]
+    },
+    {
+      "species": "geodude",
+      "gender": "FEMALE",
+      "level": 15,
+      "nature": "naive",
+      "ability": "rockhead",
+      "moveset": [
+        "defensecurl",
+        "sandstorm",
+        "rockpolish",
+        "rollout"
+      ]
+    },
+    {
+      "species": "chimchar",
+      "gender": "MALE",
+      "level": 18,
+      "nature": "docile",
+      "ability": "blaze",
+      "moveset": [
+        "leer",
+        "taunt",
+        "furyswipes",
+        "flamewheel"
+      ]
+    }
+  ]
+}

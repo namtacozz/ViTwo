@@ -1,0 +1,105 @@
+{
+  "name": {
+    "literal": "Cue Ball Jamal"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "feraligatr",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "sassy",
+      "ability": "sheerforce",
+      "moveset": [
+        "crunch",
+        "chipaway",
+        "slash",
+        "screech"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "rapidash",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "quirky",
+      "ability": "flashfire",
+      "moveset": [
+        "fireblast",
+        "bounce",
+        "flareblitz",
+        "jumpkick"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "obstagoon",
+      "gender": "FEMALE",
+      "level": 56,
+      "nature": "docile",
+      "ability": "guts",
+      "moveset": [
+        "scaryface",
+        "counter",
+        "taunt",
+        "doubleedge"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "dodrio",
+      "gender": "MALE",
+      "level": 56,
+      "nature": "relaxed",
+      "ability": "earlybird",
+      "moveset": [
+        "jumpkick",
+        "doubleedge",
+        "endeavor",
+        "thrash"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "name": {
+    "literal": "Team Rocket Officer"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.18
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "salazzle",
+      "gender": "FEMALE",
+      "level": 71,
+      "nature": "timid",
+      "ability": "oblivious",
+      "moveset": [
+        "incinerate",
+        "dragonpulse",
+        "venoshock",
+        "flamethrower"
+      ],
+      "ivs": {
+        "hp": 18,
+        "atk": 18,
+        "def": 18,
+        "spa": 18,
+        "spd": 18,
+        "spe": 18
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "muk",
+      "gender": "MALE",
+      "level": 70,
+      "nature": "careful",
+      "ability": "stickyhold",
+      "moveset": [
+        "rest",
+        "sleeptalk",
+        "poisonjab",
+        "firepunch"
+      ],
+      "ivs": {
+        "hp": 18,
+        "atk": 18,
+        "def": 18,
+        "spa": 18,
+        "spd": 18,
+        "spe": 18
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "raticate",
+      "gender": "MALE",
+      "level": 70,
+      "nature": "jolly",
+      "ability": "hustle",
+      "moveset": [
+        "doubleedge",
+        "crunch",
+        "pursuit",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 18,
+        "atk": 18,
+        "def": 18,
+        "spa": 18,
+        "spd": 18,
+        "spe": 18
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "choice_band"
+      ]
+    },
+    {
+      "species": "golem",
+      "gender": "MALE",
+      "level": 70,
+      "nature": "adamant",
+      "ability": "sturdy",
+      "moveset": [
+        "stealthrock",
+        "earthquake",
+        "suckerpunch",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 18,
+        "atk": 18,
+        "def": 18,
+        "spa": 18,
+        "spd": 18,
+        "spe": 18
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "weakness_policy"
+      ]
+    },
+    {
+      "species": "nosepass",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "relaxed",
+      "ability": "sturdy",
+      "moveset": [
+        "stealthrock",
+        "rockblast",
+        "thunderwave",
+        "voltswitch"
+      ],
+      "ivs": {
+        "hp": 18,
+        "atk": 18,
+        "def": 18,
+        "spa": 18,
+        "spd": 18,
+        "spe": 18
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "berry_juice"
+      ]
+    }
+  ]
+}

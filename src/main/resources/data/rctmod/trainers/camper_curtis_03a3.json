@@ -1,0 +1,45 @@
+{
+  "name": {
+    "literal": "Camper Curtis"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "shinx",
+      "gender": "FEMALE",
+      "level": 7,
+      "nature": "docile",
+      "ability": "intimidate",
+      "moveset": [
+        "tackle",
+        "leer",
+        "thundershock"
+      ]
+    },
+    {
+      "species": "burmy",
+      "gender": "MALE",
+      "level": 7,
+      "nature": "gentle",
+      "ability": "shedskin",
+      "moveset": [
+        "protect",
+        "tackle",
+        "stringshot"
+      ]
+    }
+  ]
+}

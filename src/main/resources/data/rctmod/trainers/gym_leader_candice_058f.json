@@ -1,0 +1,202 @@
+{
+  "name": {
+    "literal": "Candice"
+  },
+  "identity": "Gym Leader Candice",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "abomasnow",
+      "gender": "FEMALE",
+      "level": 68,
+      "nature": "brave",
+      "ability": "snowwarning",
+      "moveset": [
+        "woodhammer",
+        "icepunch",
+        "earthquake",
+        "auroraveil"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31
+      },
+      "evs": {
+        "hp": 240,
+        "atk": 252,
+        "def": 12,
+        "spd": 4
+      },
+      "heldItem": [
+        "icy_rock"
+      ]
+    },
+    {
+      "species": "jynx",
+      "gender": "FEMALE",
+      "level": 70,
+      "nature": "modest",
+      "ability": "dryskin",
+      "moveset": [
+        "blizzard",
+        "focusblast",
+        "sweetkiss",
+        "lovelykiss"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "mamoswine",
+      "gender": "FEMALE",
+      "level": 68,
+      "nature": "adamant",
+      "ability": "snowcloak",
+      "moveset": [
+        "iceshard",
+        "earthquake",
+        "stoneedge",
+        "doubleteam"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "froslass",
+      "gender": "FEMALE",
+      "level": 70,
+      "nature": "modest",
+      "ability": "snowcloak",
+      "moveset": [
+        "blizzard",
+        "shadowball",
+        "doubleteam",
+        "auroraveil"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "glaceon",
+      "gender": "FEMALE",
+      "level": 70,
+      "nature": "modest",
+      "ability": "icebody",
+      "moveset": [
+        "blizzard",
+        "freezedry",
+        "babydolleyes",
+        "doubleteam"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "spa": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "weavile",
+      "gender": "MALE",
+      "level": 72,
+      "nature": "adamant",
+      "ability": "pressure",
+      "moveset": [
+        "iceshard",
+        "nightslash",
+        "brickbreak",
+        "xscissor"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

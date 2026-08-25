@@ -1,0 +1,230 @@
+{
+  "name": {
+    "literal": "Lt. Surge"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "electrodrift",
+        "dracometeor",
+        "dazzlinggleam",
+        "voltswitch"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "choice_specs"
+      ],
+      "gimmicks": {
+        "tera": "electric"
+      },
+      "species": "miraidon",
+      "gender": "GENDERLESS",
+      "level": 42,
+      "nature": "timid",
+      "ability": "hadronengine",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "tailwind",
+        "airslash",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 216,
+        "spa": 40,
+        "hp": 252
+      },
+      "heldItem": [
+        "covert_cloak"
+      ],
+      "gimmicks": {
+        "tera": "electric"
+      },
+      "species": "kilowattrel",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "timid",
+      "ability": "windpower"
+    },
+    {
+      "moveset": [
+        "psychicnoise",
+        "overdrive",
+        "thunderbolt",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 136,
+        "spd": 36,
+        "spa": 220,
+        "def": 36,
+        "hp": 80
+      },
+      "heldItem": [
+        "throat_spray"
+      ],
+      "aspects": [
+        "low_key-form"
+      ],
+      "gimmicks": {
+        "tera": "electric"
+      },
+      "species": "toxtricity",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "modest",
+      "ability": "punkrock"
+    },
+    {
+      "moveset": [
+        "thunderbolt",
+        "protect",
+        "voltswitch",
+        "roar"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 124,
+        "spd": 28,
+        "spa": 156,
+        "def": 84,
+        "hp": 116
+      },
+      "heldItem": [
+        "mega_showdown:manectite"
+      ],
+      "gimmicks": {
+        "tera": "electric"
+      },
+      "species": "manectric",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "timid",
+      "ability": "intimidate"
+    },
+    {
+      "moveset": [
+        "fakeout",
+        "closecombat",
+        "supercellslam",
+        "icepunch"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 56,
+        "spd": 16,
+        "def": 64,
+        "atk": 156,
+        "hp": 216
+      },
+      "heldItem": [
+        "assault_vest"
+      ],
+      "gimmicks": {
+        "tera": "fighting"
+      },
+      "species": "ironhands",
+      "gender": "GENDERLESS",
+      "level": 42,
+      "nature": "adamant",
+      "ability": "quarkdrive"
+    },
+    {
+      "moveset": [
+        "psychicnoise",
+        "thunderbolt",
+        "surf",
+        "calmmind"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 108,
+        "spd": 48,
+        "spa": 104,
+        "def": 76,
+        "hp": 172
+      },
+      "heldItem": [
+        "rocky_helmet"
+      ],
+      "aspects": [
+        "alolan"
+      ],
+      "gimmicks": {
+        "tera": "electric"
+      },
+      "species": "raichu",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "timid",
+      "ability": "surgesurfer"
+    }
+  ],
+  "battleFormat": "GEN_9_DOUBLES"
+}

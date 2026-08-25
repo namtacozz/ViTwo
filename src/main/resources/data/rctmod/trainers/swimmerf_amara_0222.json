@@ -1,0 +1,111 @@
+{
+  "name": {
+    "literal": "Swimmer♀ Amara"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "milotic",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "modest",
+      "ability": "competitive",
+      "moveset": [
+        "hydropump",
+        "icebeam",
+        "hiddenpower",
+        "haze"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 30,
+        "def": 31,
+        "spa": 30,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "milotic",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "modest",
+      "ability": "serenegrace",
+      "moveset": [
+        "scorchingsands",
+        "moonblast",
+        "scald",
+        "recover"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "aspects": [
+        "sevii"
+      ]
+    },
+    {
+      "species": "dewgong",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "calm",
+      "ability": "icescales",
+      "moveset": [
+        "scald",
+        "icebeam",
+        "rest",
+        "sleeptalk"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "name": {
+    "literal": "Ace Trainer Paul"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "slowpoke",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "jolly",
+      "ability": "oblivious",
+      "moveset": [
+        "headbutt",
+        "confusion",
+        "watergun",
+        "disable"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "shellder",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "jolly",
+      "ability": "battlearmor",
+      "moveset": [
+        "aurorabeam",
+        "clamp",
+        "supersonic",
+        "leer"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "kingler",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "impish",
+      "ability": "hypercutter",
+      "moveset": [
+        "guillotine",
+        "stomp",
+        "mudshot",
+        "bubble"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "starmie",
+      "gender": "GENDERLESS",
+      "level": 42,
+      "nature": "naive",
+      "ability": "naturalcure",
+      "moveset": [
+        "bubblebeam",
+        "swift",
+        "recover",
+        "rapidspin"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "golduck",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "relaxed",
+      "ability": "swiftswim",
+      "moveset": [
+        "confusion",
+        "scratch",
+        "screech",
+        "disable"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    }
+  ]
+}

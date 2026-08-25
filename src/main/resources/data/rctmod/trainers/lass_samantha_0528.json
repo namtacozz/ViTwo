@@ -1,0 +1,46 @@
+{
+  "name": {
+    "literal": "Lass Samantha"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "roselia",
+      "gender": "MALE",
+      "level": 31,
+      "nature": "timid",
+      "ability": "poisonpoint",
+      "moveset": [
+        "poisonsting",
+        "magicalleaf",
+        "gigadrain"
+      ]
+    },
+    {
+      "species": "flaaffy",
+      "gender": "FEMALE",
+      "level": 31,
+      "nature": "calm",
+      "ability": "static",
+      "moveset": [
+        "discharge",
+        "thunderwave",
+        "cottonspore",
+        "lightscreen"
+      ]
+    }
+  ]
+}

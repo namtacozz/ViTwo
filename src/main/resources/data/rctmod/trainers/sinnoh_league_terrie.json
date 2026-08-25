@@ -1,0 +1,231 @@
+{
+  "name": {
+    "literal": "Bertha"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 6
+  },
+  "bag": [
+    {
+      "item": "max_revive",
+      "quantity": 1
+    },
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": "5"
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "earthquake",
+        "stealthrock",
+        "stoneedge",
+        "uturn"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 88,
+        "spd": 136,
+        "def": 28,
+        "atk": 156,
+        "hp": 100
+      },
+      "heldItem": [
+        "assault_vest"
+      ],
+      "aspects": [
+        "therian-forme"
+      ],
+      "species": "landorus",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "rocktomb",
+        "highhorsepower",
+        "stoneedge",
+        "bodypress"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 128,
+        "spd": 96,
+        "def": 16,
+        "atk": 168,
+        "hp": 100
+      },
+      "heldItem": [
+        "rocky_helmet"
+      ],
+      "species": "sandaconda",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "sandspit",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "heavyslam",
+        "stoneedge",
+        "irontail",
+        "earthquake"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 48,
+        "spd": 156,
+        "def": 16,
+        "atk": 252,
+        "hp": 36
+      },
+      "heldItem": [
+        "mega_showdown:steelixite"
+      ],
+      "species": "steelix",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "sandforce",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "icebea",
+        "surf",
+        "earthpower",
+        "muddywater"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 12,
+        "spd": 124,
+        "spa": 176,
+        "def": 72,
+        "hp": 124
+      },
+      "heldItem": [
+        "rindo_berry"
+      ],
+      "species": "gastrodon",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "modest",
+      "ability": "stormdrain",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "thousandarrows",
+        "extremespeed",
+        "superpower",
+        "dragontail"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 176,
+        "spd": 52,
+        "def": 4,
+        "atk": 252,
+        "hp": 24
+      },
+      "heldItem": [
+        "choice_band"
+      ],
+      "aspects": [
+        "complete-percent"
+      ],
+      "gimmicks": {
+        "tera": "dragon"
+      },
+      "species": "zygarde",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "powerconstruct",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "bloodmoon",
+        "earthpower",
+        "calmmind",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31
+      },
+      "evs": {
+        "spe": 52,
+        "spd": 180,
+        "spa": 116,
+        "def": 12,
+        "hp": 148
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "aspects": [
+        "bloodmoon"
+      ],
+      "species": "ursaluna",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "modest",
+      "ability": "mindseye"
+    }
+  ],
+  "battleFormat": "GEN_9_DOUBLES"
+}

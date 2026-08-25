@@ -1,0 +1,53 @@
+{
+  "name": {
+    "literal": "Ace Trainer Stefan"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "larvitar",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "impish",
+      "ability": "guts",
+      "moveset": [
+        "stoneedge",
+        "earthquake",
+        "crunch",
+        "scaryface"
+      ]
+    },
+    {
+      "species": "magcargo",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "relaxed",
+      "ability": "flamebody",
+      "moveset": [
+        "flamethrower",
+        "ancientpower",
+        "clearsmog",
+        "bodyslam"
+      ]
+    }
+  ]
+}

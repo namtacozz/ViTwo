@@ -1,0 +1,167 @@
+{
+  "name": {
+    "literal": "Biker Jared"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "crustle",
+      "gender": "FEMALE",
+      "level": 88,
+      "nature": "adamant",
+      "ability": "sturdy",
+      "moveset": [
+        "stealthrock",
+        "spikes",
+        "stoneedge",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "def": 4
+      },
+      "heldItem": [
+        "custap_berry"
+      ]
+    },
+    {
+      "species": "leavanny",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "adamant",
+      "ability": "chlorophyll",
+      "moveset": [
+        "solarblade",
+        "swordsdance",
+        "xscissor",
+        "sacredsword"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "camerupt",
+      "gender": "MALE",
+      "level": 88,
+      "nature": "modest",
+      "ability": "solidrock",
+      "moveset": [
+        "fireblast",
+        "earthpower",
+        "solarbeam",
+        "ancientpower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "mega_showdown:cameruptite",
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "eelektross",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "calm",
+      "ability": "levitate",
+      "moveset": [
+        "thunderbolt",
+        "fireblast",
+        "gigadrain",
+        "voltswitch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "spa": 4,
+        "spd": 252
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "mamoswine",
+      "gender": "MALE",
+      "level": 90,
+      "nature": "jolly",
+      "ability": "thickfat",
+      "moveset": [
+        "headlongrush",
+        "iciclecrash",
+        "iceshard",
+        "rocktomb"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "soft_sand"
+      ]
+    }
+  ]
+}

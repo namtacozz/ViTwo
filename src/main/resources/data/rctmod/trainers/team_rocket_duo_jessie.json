@@ -1,0 +1,83 @@
+{
+  "name": {
+    "literal": "Team Rocket Jessie"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.25
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "arbok",
+      "gender": "MALE",
+      "level": 53,
+      "nature": "bold",
+      "ability": "shedskin",
+      "moveset": [
+        "sludgebomb",
+        "gastroacid",
+        "acid",
+        "icefang"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "wobbuffet",
+      "gender": "MALE",
+      "level": 50,
+      "nature": "hardy",
+      "ability": "shadowtag",
+      "moveset": [
+        "destinybond",
+        "amnesia",
+        "safeguard"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "mimikyu",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "mild",
+      "ability": "disguise",
+      "moveset": [
+        "woodhammer",
+        "shadowsneak",
+        "shadowclaw",
+        "slash"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

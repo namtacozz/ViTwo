@@ -1,0 +1,230 @@
+{
+  "name": {
+    "literal": "Whitney"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "followme",
+        "fakeout",
+        "playnice",
+        "psychic"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 20,
+        "spd": 16,
+        "spa": 176,
+        "def": 96,
+        "hp": 200
+      },
+      "heldItem": [
+        "terrain_extender"
+      ],
+      "gimmicks": {
+        "tera": "psychic"
+      },
+      "species": "indeedee",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "timid",
+      "ability": "psychicsurge"
+    },
+    {
+      "moveset": [
+        "helpinghand",
+        "hypervoice",
+        "expandingforce",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 20,
+        "spd": 116,
+        "spa": 252,
+        "def": 56,
+        "hp": 64
+      },
+      "heldItem": [
+        "throat_spray"
+      ],
+      "gimmicks": {
+        "tera": "normal"
+      },
+      "species": "farigiraf",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "calm",
+      "ability": "armortail"
+    },
+    {
+      "moveset": [
+        "spore",
+        "fakeout",
+        "tailwind",
+        "helpinghand"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "atk": 4,
+        "hp": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "gimmicks": {
+        "tera": "normal"
+      },
+      "species": "smeargle",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "jolly",
+      "ability": "moody"
+    },
+    {
+      "moveset": [
+        "yawn",
+        "helpinghand",
+        "psyshock",
+        "dazzlinggleam"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 84,
+        "spd": 48,
+        "spa": 184,
+        "def": 80,
+        "hp": 112
+      },
+      "heldItem": [
+        "mega_showdown:audinite"
+      ],
+      "gimmicks": {
+        "tera": "normal"
+      },
+      "species": "audino",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "modest",
+      "ability": "healer"
+    },
+    {
+      "moveset": [
+        "dazzlinggleam",
+        "psychic",
+        "willowisp",
+        "calmmind"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 36,
+        "spa": 188,
+        "def": 128,
+        "hp": 156
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "gimmicks": {
+        "tera": "normal"
+      },
+      "species": "arceus",
+      "gender": "GENDERLESS",
+      "level": 55,
+      "nature": "modest",
+      "ability": "multitype",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "aurasphere",
+        "terastarstorm",
+        "calmmind",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 15,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 44,
+        "spd": 40,
+        "spa": 172,
+        "def": 96,
+        "hp": 156
+      },
+      "heldItem": [
+        "mental_herb"
+      ],
+      "aspects": [
+        "stellar-form"
+      ],
+      "gimmicks": {
+        "tera": "stellar"
+      },
+      "species": "terapagos",
+      "gender": "GENDERLESS",
+      "level": 55,
+      "nature": "modest",
+      "ability": "teraformzero"
+    }
+  ],
+  "identity": "Chiara",
+  "battleFormat": "GEN_9_DOUBLES"
+}

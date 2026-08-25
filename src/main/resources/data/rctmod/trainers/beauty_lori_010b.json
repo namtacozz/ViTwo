@@ -1,0 +1,58 @@
+{
+  "name": {
+    "literal": "Beauty Lori"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "exeggutor",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "calm",
+      "ability": "chlorophyll",
+      "moveset": [
+        "hypnosis",
+        "confusion",
+        "psyshock",
+        "eggbomb"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      },
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "ampharos",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "modest",
+      "ability": "static",
+      "moveset": [
+        "thunderbolt",
+        "signalbeam",
+        "cottonspore",
+        "charge"
+      ]
+    }
+  ]
+}

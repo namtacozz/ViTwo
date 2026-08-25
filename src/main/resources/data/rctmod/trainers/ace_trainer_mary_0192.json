@@ -1,0 +1,132 @@
+{
+  "name": {
+    "literal": "Ace Trainer Mary"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "grotle",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "brave",
+      "ability": "overgrow",
+      "moveset": [
+        "curse",
+        "bite",
+        "seedbomb",
+        "leechseed"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "graveler",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "quirky",
+      "ability": "rockhead",
+      "moveset": [
+        "bulldoze",
+        "selfdestruct",
+        "stealthrock",
+        "rockblast"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "ferroseed",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "rash",
+      "ability": "ironbarbs",
+      "moveset": [
+        "gyroball",
+        "irondefense",
+        "mirrorshot",
+        "ingrain"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "tentacruel",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "serious",
+      "ability": "clearbody",
+      "moveset": [
+        "bubblebeam",
+        "barrier",
+        "poisonjab",
+        "scald"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "lombre",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "brave",
+      "ability": "swiftswim",
+      "moveset": [
+        "bubblebeam",
+        "naturepower",
+        "uproar",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "name": {
+    "literal": "Ace Trainer Michelle"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "persian",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "modest",
+      "ability": "limber",
+      "moveset": [
+        "slash",
+        "screech",
+        "feintattack",
+        "bite"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "dewgong",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "timid",
+      "ability": "thickfat",
+      "moveset": [
+        "icebeam",
+        "takedown",
+        "icywind",
+        "growl"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "ninetales",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "brave",
+      "ability": "flashfire",
+      "moveset": [
+        "flamethrower",
+        "confuseray",
+        "willowisp",
+        "grudge"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "rapidash",
+      "gender": "FEMALE",
+      "level": 48,
+      "nature": "mild",
+      "ability": "reckless",
+      "moveset": [
+        "bounce",
+        "agility",
+        "firespin",
+        "takedown"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "girafarig",
+      "gender": "FEMALE",
+      "level": 50,
+      "nature": "hasty",
+      "ability": "sapsipper",
+      "moveset": [
+        "crunch",
+        "psybeam",
+        "stomp",
+        "odorsleuth"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    }
+  ]
+}

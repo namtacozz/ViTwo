@@ -1,0 +1,62 @@
+{
+  "name": {
+    "literal": "Biker Jaxon"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "swalot",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "naughty",
+      "ability": "stickyhold",
+      "moveset": [
+        "sludge",
+        "sludgebomb",
+        "icebeam"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "qwilfish",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "bold",
+      "ability": "swiftswim",
+      "moveset": [
+        "screech",
+        "waterfall",
+        "poisonjab",
+        "explosion"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

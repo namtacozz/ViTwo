@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Hiker Wayne"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "nosepass",
+      "gender": "MALE",
+      "level": 20,
+      "nature": "bold",
+      "ability": "magnetpull",
+      "moveset": [
+        "bulldoze",
+        "thunderwave",
+        "rest",
+        "discharge"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "machop",
+      "gender": "MALE",
+      "level": 20,
+      "nature": "brave",
+      "ability": "guts",
+      "moveset": [
+        "karatechop",
+        "lowsweep",
+        "focusenergy",
+        "rocktomb"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

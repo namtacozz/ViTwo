@@ -1,0 +1,66 @@
+{
+  "name": {
+    "literal": "Morn27015"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "mimikyu",
+      "gender": "MALE",
+      "level": 29,
+      "nature": "rash",
+      "ability": "disguise",
+      "moveset": [
+        "mimic",
+        "feintattack",
+        "woodhammer",
+        "astonish"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      },
+      "heldItem": [
+        "spell_tag"
+      ]
+    },
+    {
+      "species": "pikachu",
+      "gender": "FEMALE",
+      "level": 25,
+      "nature": "sassy",
+      "ability": "static",
+      "moveset": [
+        "thundershock",
+        "spark",
+        "quickattack",
+        "tailwhip"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

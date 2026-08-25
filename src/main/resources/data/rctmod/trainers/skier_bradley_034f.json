@@ -1,0 +1,60 @@
+{
+  "name": {
+    "literal": "Skier Bradley"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "geodude",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "naive",
+      "ability": "rockhead",
+      "moveset": [
+        "harden",
+        "stealthrock",
+        "rockblast",
+        "earthquake"
+      ]
+    },
+    {
+      "species": "graveler",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "naive",
+      "ability": "sturdy",
+      "moveset": [
+        "harden",
+        "bulldoze",
+        "stealthrock",
+        "rockblast"
+      ]
+    },
+    {
+      "species": "snover",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "hasty",
+      "ability": "snowwarning",
+      "moveset": [
+        "iceshard",
+        "razorleaf",
+        "icywind",
+        "ingrain"
+      ]
+    }
+  ]
+}

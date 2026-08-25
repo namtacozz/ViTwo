@@ -1,0 +1,85 @@
+{
+  "name": {
+    "literal": "Team Rocket Grunt"
+  },
+  "identity": "Team Rocket Grunt (23)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "golbat",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "brave",
+      "ability": "sniper",
+      "moveset": [
+        "poisonfang",
+        "leechlife",
+        "dualwingbeat",
+        "haze"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "shiftry",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "naive",
+      "ability": "earlybird",
+      "moveset": [
+        "nastyplot",
+        "fakeout",
+        "leaftornado",
+        "hurricane"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "luxray",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "gentle",
+      "ability": "intimidate",
+      "moveset": [
+        "roar",
+        "swagger",
+        "thunderfang",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

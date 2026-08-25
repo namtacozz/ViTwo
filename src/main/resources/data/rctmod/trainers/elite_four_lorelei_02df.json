@@ -1,0 +1,136 @@
+{
+  "name": {
+    "literal": "Lorelei"
+  },
+  "identity": "Elite Four Lorelei",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "dewgong",
+      "gender": "FEMALE",
+      "level": 64,
+      "nature": "naughty",
+      "ability": "icescales",
+      "moveset": [
+        "icebeam",
+        "surf",
+        "signalbeam",
+        "doubleteam"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    {
+      "species": "cloyster",
+      "gender": "FEMALE",
+      "level": 63,
+      "nature": "bold",
+      "ability": "skilllink",
+      "moveset": [
+        "icebeam",
+        "surf",
+        "supersonic",
+        "raindance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    {
+      "species": "piloswine",
+      "gender": "FEMALE",
+      "level": 63,
+      "nature": "quirky",
+      "ability": "snowcloak",
+      "moveset": [
+        "blizzard",
+        "earthquake",
+        "doubleedge",
+        "rockslide"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    {
+      "species": "jynx",
+      "gender": "FEMALE",
+      "level": 66,
+      "nature": "relaxed",
+      "ability": "forewarn",
+      "moveset": [
+        "icebeam",
+        "psychic",
+        "lovelykiss",
+        "attract"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    {
+      "species": "lapras",
+      "gender": "FEMALE",
+      "level": 66,
+      "nature": "naive",
+      "ability": "hydration",
+      "moveset": [
+        "icebeam",
+        "surf",
+        "psychic",
+        "thunder"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "heldItem": [
+        "cheri_berry"
+      ]
+    }
+  ]
+}

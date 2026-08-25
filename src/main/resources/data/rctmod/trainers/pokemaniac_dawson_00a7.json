@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "Pokémaniac Dawson"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "lapras",
+      "gender": "FEMALE",
+      "level": 80,
+      "nature": "brave",
+      "ability": "waterabsorb",
+      "moveset": [
+        "dragonpulse",
+        "wish",
+        "boomburst",
+        "dragonhammer"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "lickilicky",
+      "gender": "FEMALE",
+      "level": 81,
+      "nature": "sassy",
+      "ability": "owntempo",
+      "moveset": [
+        "screech",
+        "powerwhip",
+        "wringout",
+        "gyroball"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "flareon",
+      "gender": "FEMALE",
+      "level": 80,
+      "nature": "serious",
+      "ability": "flashfire",
+      "moveset": [
+        "lavaplume",
+        "lastresort",
+        "flareblitz",
+        "sacredfire"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "name": {
+    "literal": "Whitney"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:super_potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "wigglytuff",
+      "gender": "MALE",
+      "level": 30,
+      "nature": "adamant",
+      "ability": "sheerforce",
+      "moveset": [
+        "drainpunch",
+        "firepunch",
+        "lovelykiss",
+        "playrough"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spd": 252
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "vigoroth",
+      "gender": "FEMALE",
+      "level": 31,
+      "nature": "jolly",
+      "ability": "vitalspirit",
+      "moveset": [
+        "bulkup",
+        "slackoff",
+        "bodyslam",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "eviolite"
+      ]
+    },
+    {
+      "species": "miltank",
+      "gender": "FEMALE",
+      "level": 32,
+      "nature": "adamant",
+      "ability": "thickfat",
+      "moveset": [
+        "bodyslam",
+        "bodypress",
+        "stompingtantrum",
+        "milkdrink"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "indeedee",
+      "gender": "MALE",
+      "level": 32,
+      "nature": "timid",
+      "ability": "psychicsurge",
+      "moveset": [
+        "psyshock",
+        "hypervoice",
+        "mysticalfire",
+        "drainingkiss"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "twisted_spoon"
+      ]
+    },
+    {
+      "species": "drampa",
+      "gender": "FEMALE",
+      "level": 32,
+      "nature": "modest",
+      "ability": "berserk",
+      "moveset": [
+        "dragonbreath",
+        "roost",
+        "flamethrower",
+        "thunderbolt"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "spa": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    }
+  ]
+}

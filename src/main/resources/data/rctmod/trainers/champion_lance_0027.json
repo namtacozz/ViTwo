@@ -1,0 +1,115 @@
+{
+  "name": {
+    "literal": "Lance"
+  },
+  "identity": "Elite Four Lance",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "dragapult",
+      "gender": "MALE",
+      "level": 82,
+      "nature": "jolly",
+      "ability": "clearbody",
+      "moveset": [
+        "dragondarts",
+        "phantomforce",
+        "reflect",
+        "lightscreen"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "light_clay"
+      ]
+    },
+    {
+      "species": "dialga",
+      "gender": "GENDERLESS",
+      "level": 83,
+      "nature": "modest",
+      "ability": "pressure",
+      "moveset": [
+        "dragonpulse",
+        "flashcannon",
+        "thunderbolt",
+        "flamethrower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "spa": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "salamence",
+      "gender": "FEMALE",
+      "level": 82,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "doubleedge",
+        "earthquake",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:salamencite",
+        "life_orb"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "Team Rocket James"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.25
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "carnivine",
+      "gender": "MALE",
+      "level": 52,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "vinewhip",
+        "leaftornado",
+        "crunch",
+        "bite"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "cacnea",
+      "gender": "MALE",
+      "level": 53,
+      "nature": "relaxed",
+      "ability": "sandveil",
+      "moveset": [
+        "energyball",
+        "absorb",
+        "feintattack",
+        "cottonspore"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "mimejr",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "brave",
+      "ability": "filter",
+      "moveset": [
+        "barrier",
+        "teeterdance",
+        "psychic",
+        "confusion"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

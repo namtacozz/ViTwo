@@ -1,0 +1,121 @@
+{
+  "name": {
+    "literal": "Team Rocket Grunt"
+  },
+  "identity": "Team Rocket Grunt (9)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "persian",
+      "gender": "MALE",
+      "level": 89,
+      "nature": "timid",
+      "ability": "cursedbody",
+      "moveset": [
+        "snarl",
+        "waterpulse",
+        "partingshot",
+        "shockwave"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "heldItem": [
+        "black_glasses"
+      ],
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "golbat",
+      "gender": "MALE",
+      "level": 90,
+      "nature": "naive",
+      "ability": "sniper",
+      "moveset": [
+        "megadrain",
+        "crosspoison",
+        "aircutter",
+        "hiddenpower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 30,
+        "def": 31,
+        "spa": 30,
+        "spd": 31,
+        "spe": 30
+      },
+      "heldItem": [
+        "eviolite"
+      ]
+    },
+    {
+      "species": "raticate",
+      "gender": "FEMALE",
+      "level": 89,
+      "nature": "jolly",
+      "ability": "hustle",
+      "moveset": [
+        "hyperfang",
+        "stompingtantrum",
+        "throatchop",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 30,
+        "spd": 31,
+        "spe": 31
+      },
+      "heldItem": [
+        "silk_scarf"
+      ]
+    },
+    {
+      "species": "octillery",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "rash",
+      "ability": "skilllink",
+      "moveset": [
+        "bulletseed",
+        "rockblast",
+        "waterpulse",
+        "icywind"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "heldItem": [
+        "rindo_berry"
+      ]
+    }
+  ]
+}

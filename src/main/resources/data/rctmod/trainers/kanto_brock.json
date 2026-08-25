@@ -1,0 +1,239 @@
+{
+  "name": {
+    "literal": "Brock"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "rockslide",
+        "extremespeed",
+        "flareblitz",
+        "closecombat"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 64,
+        "spd": 48,
+        "def": 16,
+        "atk": 216,
+        "hp": 164
+      },
+      "heldItem": [
+        "choice_band"
+      ],
+      "aspects": [
+        "hisuian"
+      ],
+      "gimmicks": {
+        "tera": "fire"
+      },
+      "species": "arcanine",
+      "gender": "MALE",
+      "level": 30,
+      "nature": "jolly",
+      "ability": "intimidate"
+    },
+    {
+      "moveset": [
+        "highhorsepower",
+        "stoneedge",
+        "protect",
+        "knockoff"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 8,
+        "spd": 64,
+        "def": 84,
+        "atk": 156,
+        "hp": 196
+      },
+      "heldItem": [
+        "mega_showdown:tyranitarite"
+      ],
+      "gimmicks": {
+        "tera": "rock"
+      },
+      "species": "tyranitar",
+      "gender": "MALE",
+      "level": 30,
+      "nature": "adamant",
+      "ability": "sandstream",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "psychocut",
+        "sacredsword",
+        "protect",
+        "mightycleave"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 104,
+        "spd": 40,
+        "def": 64,
+        "atk": 116,
+        "hp": 184
+      },
+      "heldItem": [
+        "mega_showdown:booster_energy"
+      ],
+      "gimmicks": {
+        "tera": "rock"
+      },
+      "species": "ironboulder",
+      "gender": "MALE",
+      "level": 30,
+      "nature": "adamant",
+      "ability": "quarkdrive"
+    },
+    {
+      "moveset": [
+        "earthpower",
+        "bodypress",
+        "flamethrower",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 4,
+        "spd": 72,
+        "spa": 64,
+        "def": 116,
+        "hp": 252
+      },
+      "heldItem": [
+        "weakness_policy"
+      ],
+      "gimmicks": {
+        "tera": "rock"
+      },
+      "species": "coalossal",
+      "gender": "MALE",
+      "level": 30,
+      "nature": "bold",
+      "ability": "steamengine"
+    },
+    {
+      "moveset": [
+        "followme",
+        "hornleech",
+        "ivycudgel",
+        "spikyshield"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 164,
+        "spd": 36,
+        "def": 68,
+        "atk": 116,
+        "hp": 124
+      },
+      "heldItem": [
+        "mega_showdown:cornerstone_mask"
+      ],
+      "aspects": [
+        "cornerstone-mask"
+      ],
+      "gimmicks": {
+        "tera": "rock"
+      },
+      "species": "ogerpon",
+      "gender": "FEMALE",
+      "level": 30,
+      "nature": "adamant",
+      "ability": "sturdy",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "irontail",
+        "stoneedge",
+        "thunderfang",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 20,
+        "spd": 80,
+        "def": 56,
+        "atk": 104,
+        "hp": 248
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "gimmicks": {
+        "tera": "steel"
+      },
+      "species": "steelix",
+      "gender": "MALE",
+      "level": 30,
+      "nature": "adamant",
+      "ability": "sheerforce"
+    }
+  ],
+  "battleFormat": "GEN_9_DOUBLES"
+}

@@ -1,0 +1,66 @@
+{
+  "name": {
+    "literal": "Painter Edna"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "smeargle",
+      "gender": "FEMALE",
+      "level": 50,
+      "nature": "mild",
+      "ability": "owntempo",
+      "moveset": [
+        "fakeout",
+        "extremespeed",
+        "protect",
+        "quickattack"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "oricorio",
+      "gender": "MALE",
+      "level": 50,
+      "nature": "modest",
+      "ability": "dancer",
+      "moveset": [
+        "revelationdance",
+        "airslash",
+        "calmmind",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      },
+      "aspects": [
+        "pom_pom-style"
+      ]
+    }
+  ]
+}

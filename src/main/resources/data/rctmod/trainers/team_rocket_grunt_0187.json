@@ -1,0 +1,88 @@
+{
+  "name": {
+    "literal": "Team Rocket Grunt"
+  },
+  "identity": "Team Rocket Grunt (45)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "shedinja",
+      "gender": "GENDERLESS",
+      "level": 48,
+      "nature": "quirky",
+      "ability": "wonderguard",
+      "moveset": [
+        "shadowball",
+        "grudge",
+        "healblock",
+        "phantomforce"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "ninjask",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "quirky",
+      "ability": "speedboost",
+      "moveset": [
+        "mindreader",
+        "firstimpression",
+        "swordsdance",
+        "xscissor"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "raticate",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "docile",
+      "ability": "hustle",
+      "moveset": [
+        "suckerpunch",
+        "superfang",
+        "doubleedge",
+        "endeavor"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      },
+      "aspects": [
+        "alolan"
+      ]
+    }
+  ]
+}

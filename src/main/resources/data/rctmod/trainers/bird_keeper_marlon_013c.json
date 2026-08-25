@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "Bird Keeper Marlon"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "dodrio",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "sassy",
+      "ability": "rockhead",
+      "moveset": [
+        "jumpkick",
+        "doubleedge",
+        "endeavor",
+        "thrash"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "toucannon",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "bold",
+      "ability": "frisk",
+      "moveset": [
+        "drillpeck",
+        "bulletseed",
+        "featherdance",
+        "hypervoice"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "murkrow",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "modest",
+      "ability": "insomnia",
+      "moveset": [
+        "meanlook",
+        "snarl",
+        "tailwind",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

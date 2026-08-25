@@ -1,0 +1,105 @@
+{
+  "name": {
+    "literal": "Hiker Nob"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "phanpy",
+      "gender": "MALE",
+      "level": 18,
+      "nature": "hardy",
+      "ability": "pickup",
+      "moveset": [
+        "flail",
+        "iceshard",
+        "rollout",
+        "magnitude"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "sandile",
+      "gender": "MALE",
+      "level": 18,
+      "nature": "adamant",
+      "ability": "moxie",
+      "moveset": [
+        "rockthrow",
+        "torment",
+        "sandtomb",
+        "bulldoze"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "machop",
+      "gender": "FEMALE",
+      "level": 19,
+      "nature": "brave",
+      "ability": "noguard",
+      "moveset": [
+        "rocktomb",
+        "lowsweep",
+        "seismictoss",
+        "revenge"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "makuhita",
+      "gender": "FEMALE",
+      "level": 19,
+      "nature": "docile",
+      "ability": "guts",
+      "moveset": [
+        "fakeout",
+        "forcepalm",
+        "whirlwind",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

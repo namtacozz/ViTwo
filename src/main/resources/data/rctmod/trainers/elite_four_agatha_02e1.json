@@ -1,0 +1,136 @@
+{
+  "name": {
+    "literal": "Agatha"
+  },
+  "identity": "Elite Four Agatha",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "gengar",
+      "gender": "FEMALE",
+      "level": 66,
+      "nature": "lax",
+      "ability": "levitate",
+      "moveset": [
+        "shadowball",
+        "psychic",
+        "confuseray",
+        "hypnosis"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    {
+      "species": "crobat",
+      "gender": "FEMALE",
+      "level": 66,
+      "nature": "bashful",
+      "ability": "infiltrator",
+      "moveset": [
+        "sludgebomb",
+        "aircutter",
+        "shadowball",
+        "confuseray"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    {
+      "species": "misdreavus",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "docile",
+      "ability": "levitate",
+      "moveset": [
+        "shadowball",
+        "psychic",
+        "thunderbolt",
+        "attract"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    {
+      "species": "arbok",
+      "gender": "FEMALE",
+      "level": 68,
+      "nature": "serious",
+      "ability": "intimidate",
+      "moveset": [
+        "sludgebomb",
+        "earthquake",
+        "gigadrain",
+        "doubleteam"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    {
+      "species": "gengar",
+      "gender": "FEMALE",
+      "level": 70,
+      "nature": "naughty",
+      "ability": "levitate",
+      "moveset": [
+        "shadowball",
+        "psychic",
+        "thunderbolt",
+        "sludgebomb"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "heldItem": [
+        "chesto_berry"
+      ]
+    }
+  ]
+}

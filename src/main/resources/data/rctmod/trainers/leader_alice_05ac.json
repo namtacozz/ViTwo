@@ -1,0 +1,167 @@
+{
+  "name": {
+    "literal": "Leader Alice"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:super_potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "minior",
+      "gender": "GENDERLESS",
+      "level": 31,
+      "nature": "adamant",
+      "ability": "shieldsdown",
+      "moveset": [
+        "ancientpower",
+        "acrobatics",
+        "stealthrock",
+        "confuseray"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "muscle_band"
+      ]
+    },
+    {
+      "species": "gliscor",
+      "gender": "MALE",
+      "level": 31,
+      "nature": "impish",
+      "ability": "hypercutter",
+      "moveset": [
+        "bulldoze",
+        "acrobatics",
+        "knockoff",
+        "firefang"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spd": 4
+      },
+      "heldItem": [
+        "flying_gem"
+      ]
+    },
+    {
+      "species": "dodrio",
+      "gender": "MALE",
+      "level": 32,
+      "nature": "jolly",
+      "ability": "earlybird",
+      "moveset": [
+        "aerialace",
+        "quickattack",
+        "steelwing",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      }
+    },
+    {
+      "species": "pinsir",
+      "gender": "MALE",
+      "level": 33,
+      "nature": "jolly",
+      "ability": "aerilate",
+      "moveset": [
+        "xscissor",
+        "doublehit",
+        "brickbreak",
+        "rocktomb"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 4,
+        "def": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:pinsirite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "crobat",
+      "gender": "FEMALE",
+      "level": 32,
+      "nature": "modest",
+      "ability": "infiltrator",
+      "moveset": [
+        "venoshock",
+        "aircutter",
+        "acrobatics",
+        "bite"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      }
+    }
+  ]
+}

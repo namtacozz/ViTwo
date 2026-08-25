@@ -24,6 +24,15 @@ public class TowerParty {
 
     private BlockPos originalLeaderPos;
     private BlockPos originalMemberPos;
+    private String originalLeaderDim = "minecraft:overworld";
+    private String originalMemberDim = "minecraft:overworld";
+    private double originalLeaderX, originalLeaderY, originalLeaderZ;
+    private double originalMemberX, originalMemberY, originalMemberZ;
+    private float originalLeaderYaw, originalLeaderPitch;
+    private float originalMemberYaw, originalMemberPitch;
+
+    private String currentTrainerId = "";
+    private String currentBossName = "";
 
     private final Set<UUID> spectatingPlayers = ConcurrentHashMap.newKeySet();
     private final Map<UUID, Integer> restChoices = new ConcurrentHashMap<>();
@@ -42,6 +51,99 @@ public class TowerParty {
     private int warPrepFloorsRemaining = 0;
     private int ghostSupportCharges = 0;
     private int turnsSinceLastSupportCharge = 0;
+    private int attemptId = (int) (System.currentTimeMillis() % 100000);
+    private int arenaSlot = -1;
+
+    public void rollFloorTrainer(int floor) {
+        this.currentTrainerId = com.vitwo.battle.TrainerPool.getRctTrainerIdForFloor(floor);
+        this.currentBossName = com.vitwo.battle.TrainerPool.getTrainerDisplayName(floor, this.currentTrainerId);
+    }
+
+    public String getCurrentTrainerId() {
+        if (currentTrainerId == null || currentTrainerId.isEmpty()) {
+            rollFloorTrainer(currentFloor);
+        }
+        return currentTrainerId;
+    }
+
+    public void setCurrentTrainerId(String trainerId) {
+        this.currentTrainerId = trainerId;
+    }
+
+    public String getCurrentBossName() {
+        if (currentBossName == null || currentBossName.isEmpty()) {
+            rollFloorTrainer(currentFloor);
+        }
+        return currentBossName;
+    }
+
+    public void setCurrentBossName(String bossName) {
+        this.currentBossName = bossName;
+    }
+
+    public String getOriginalLeaderDim() {
+        return originalLeaderDim;
+    }
+
+    public void setOriginalLeaderDim(String dim) {
+        this.originalLeaderDim = dim;
+    }
+
+    public String getOriginalMemberDim() {
+        return originalMemberDim;
+    }
+
+    public void setOriginalMemberDim(String dim) {
+        this.originalMemberDim = dim;
+    }
+
+    public double getOriginalLeaderX() { return originalLeaderX; }
+    public double getOriginalLeaderY() { return originalLeaderY; }
+    public double getOriginalLeaderZ() { return originalLeaderZ; }
+    public float getOriginalLeaderYaw() { return originalLeaderYaw; }
+    public float getOriginalLeaderPitch() { return originalLeaderPitch; }
+
+    public void setOriginalLeaderExact(String dim, double x, double y, double z, float yaw, float pitch) {
+        this.originalLeaderDim = dim != null ? dim : "minecraft:overworld";
+        this.originalLeaderX = x;
+        this.originalLeaderY = y;
+        this.originalLeaderZ = z;
+        this.originalLeaderYaw = yaw;
+        this.originalLeaderPitch = pitch;
+        this.originalLeaderPos = new BlockPos((int) Math.floor(x), (int) Math.floor(y), (int) Math.floor(z));
+    }
+
+    public double getOriginalMemberX() { return originalMemberX; }
+    public double getOriginalMemberY() { return originalMemberY; }
+    public double getOriginalMemberZ() { return originalMemberZ; }
+    public float getOriginalMemberYaw() { return originalMemberYaw; }
+    public float getOriginalMemberPitch() { return originalMemberPitch; }
+
+    public void setOriginalMemberExact(String dim, double x, double y, double z, float yaw, float pitch) {
+        this.originalMemberDim = dim != null ? dim : "minecraft:overworld";
+        this.originalMemberX = x;
+        this.originalMemberY = y;
+        this.originalMemberZ = z;
+        this.originalMemberYaw = yaw;
+        this.originalMemberPitch = pitch;
+        this.originalMemberPos = new BlockPos((int) Math.floor(x), (int) Math.floor(y), (int) Math.floor(z));
+    }
+
+    public int getArenaSlot() {
+        return arenaSlot;
+    }
+
+    public void setArenaSlot(int arenaSlot) {
+        this.arenaSlot = arenaSlot;
+    }
+
+    public int getAttemptId() {
+        return attemptId;
+    }
+
+    public void rollNewAttempt() {
+        this.attemptId = (int) ((System.currentTimeMillis() + (long)(Math.random() * 10000)) % 100000);
+    }
 
     public TowerParty(UUID leaderId, int startingCheckpoint) {
         this(leaderId, null, startingCheckpoint);

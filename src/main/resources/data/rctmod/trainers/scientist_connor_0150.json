@@ -1,0 +1,105 @@
+{
+  "name": {
+    "literal": "Scientist Connor"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "muk",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "sassy",
+      "ability": "poisontouch",
+      "moveset": [
+        "crunch",
+        "poisonjab",
+        "shadowsneak"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      },
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "weezing",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "naughty",
+      "ability": "levitate",
+      "moveset": [
+        "explosion",
+        "sludgebomb",
+        "flamethrower"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "klinklang",
+      "gender": "GENDERLESS",
+      "level": 45,
+      "nature": "lonely",
+      "ability": "clearbody",
+      "moveset": [
+        "shiftgear",
+        "geargrind"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      },
+      "heldItem": [
+        "metal_coat"
+      ]
+    },
+    {
+      "species": "beheeyem",
+      "gender": "FEMALE",
+      "level": 46,
+      "nature": "calm",
+      "ability": "analytic",
+      "moveset": [
+        "psychic",
+        "shadowball"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

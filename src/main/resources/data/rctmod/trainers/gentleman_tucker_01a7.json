@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Gentleman Tucker"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "electabuzz",
+      "gender": "FEMALE",
+      "level": 29,
+      "nature": "lonely",
+      "ability": "static",
+      "moveset": [
+        "shockwave",
+        "thunderwave",
+        "electroball",
+        "lightscreen"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "porygon",
+      "gender": "MALE",
+      "level": 29,
+      "nature": "modest",
+      "ability": "download",
+      "moveset": [
+        "psybeam",
+        "shockwave",
+        "recover",
+        "signalbeam"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

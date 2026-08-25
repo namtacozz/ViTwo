@@ -1,0 +1,53 @@
+{
+  "name": {
+    "literal": "Ace Trainer Sydney"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "clefable",
+      "gender": "FEMALE",
+      "level": 46,
+      "nature": "calm",
+      "ability": "cutecharm",
+      "moveset": [
+        "moonlight",
+        "meteormash",
+        "cosmicpower",
+        "moonblast"
+      ]
+    },
+    {
+      "species": "torterra",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "impish",
+      "ability": "overgrow",
+      "moveset": [
+        "earthquake",
+        "woodhammer",
+        "crunch",
+        "synthesis"
+      ]
+    }
+  ]
+}

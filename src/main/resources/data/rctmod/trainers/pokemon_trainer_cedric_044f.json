@@ -1,0 +1,206 @@
+{
+  "name": {
+    "literal": "Pokémon Trainer Cedric"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "staraptor",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "closecombat",
+        "pluck",
+        "steelwing",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      },
+      "evs": {
+        "hp": 56,
+        "atk": 148,
+        "def": 36,
+        "spd": 36,
+        "spe": 148
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "floatzel",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "jolly",
+      "ability": "swiftswim",
+      "moveset": [
+        "icefang",
+        "crunch",
+        "swift",
+        "brine"
+      ],
+      "ivs": {
+        "hp": 6,
+        "atk": 6,
+        "def": 6,
+        "spa": 6,
+        "spd": 6,
+        "spe": 6
+      },
+      "evs": {
+        "hp": 40,
+        "atk": 104,
+        "def": 40,
+        "spd": 40,
+        "spe": 160
+      },
+      "heldItem": [
+        "quick_claw"
+      ]
+    },
+    {
+      "species": "heracross",
+      "gender": "MALE",
+      "level": 51,
+      "nature": "jolly",
+      "ability": "swarm",
+      "moveset": [
+        "pinmissile",
+        "swordsdance",
+        "rockslide",
+        "thief"
+      ],
+      "ivs": {
+        "hp": 9,
+        "atk": 9,
+        "def": 9,
+        "spa": 9,
+        "spd": 9,
+        "spe": 9
+      },
+      "evs": {
+        "hp": 44,
+        "atk": 104,
+        "def": 44,
+        "spd": 44,
+        "spe": 156
+      }
+    },
+    {
+      "species": "roserade",
+      "gender": "MALE",
+      "level": 49,
+      "nature": "timid",
+      "ability": "poisonpoint",
+      "moveset": [
+        "grassyterrain",
+        "gigadrain",
+        "toxic",
+        "grassknot"
+      ],
+      "ivs": {
+        "hp": 7,
+        "atk": 7,
+        "def": 7,
+        "spa": 7,
+        "spd": 7,
+        "spe": 7
+      },
+      "evs": {
+        "hp": 48,
+        "def": 48,
+        "spa": 116,
+        "spd": 48,
+        "spe": 172
+      },
+      "heldItem": [
+        "big_root"
+      ]
+    },
+    {
+      "species": "snorlax",
+      "gender": "MALE",
+      "level": 52,
+      "nature": "adamant",
+      "ability": "thickfat",
+      "moveset": [
+        "covet",
+        "yawn",
+        "crunch",
+        "hammerarm"
+      ],
+      "ivs": {
+        "hp": 9,
+        "atk": 9,
+        "def": 9,
+        "spa": 9,
+        "spd": 9,
+        "spe": 9
+      },
+      "evs": {
+        "hp": 96,
+        "atk": 120,
+        "def": 96,
+        "spd": 88
+      }
+    },
+    {
+      "species": "infernape",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "jolly",
+      "ability": "blaze",
+      "moveset": [
+        "closecombat",
+        "flamewheel",
+        "uturn",
+        "shadowclaw"
+      ],
+      "ivs": {
+        "hp": 11,
+        "atk": 11,
+        "def": 11,
+        "spa": 11,
+        "spd": 11,
+        "spe": 11
+      },
+      "evs": {
+        "hp": 52,
+        "atk": 156,
+        "def": 52,
+        "spd": 52,
+        "spe": 164
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    }
+  ]
+}

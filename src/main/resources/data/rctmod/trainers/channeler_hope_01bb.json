@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Channeler Hope"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "banette",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "hasty",
+      "ability": "insomnia",
+      "moveset": [
+        "hex",
+        "curse",
+        "shadowball",
+        "embargo"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "cacturne",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "adamant",
+      "ability": "sandveil",
+      "moveset": [
+        "needlearm",
+        "feintattack",
+        "leechseed",
+        "spikyshield"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

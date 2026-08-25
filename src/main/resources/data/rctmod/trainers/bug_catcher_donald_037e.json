@@ -1,0 +1,44 @@
+{
+  "name": {
+    "literal": "Bug Catcher Donald"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "burmy",
+      "gender": "MALE",
+      "level": 12,
+      "nature": "docile",
+      "ability": "shedskin",
+      "moveset": [
+        "protect",
+        "tackle"
+      ]
+    },
+    {
+      "species": "kricketune",
+      "gender": "FEMALE",
+      "level": 12,
+      "nature": "docile",
+      "ability": "swarm",
+      "moveset": [
+        "furycutter",
+        "growl",
+        "pound"
+      ]
+    }
+  ]
+}

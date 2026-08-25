@@ -1,0 +1,53 @@
+{
+  "name": {
+    "literal": "Veteran Armando"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "staraptor",
+      "gender": "FEMALE",
+      "level": 58,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "bravebird",
+        "closecombat",
+        "quickattack",
+        "takedown"
+      ]
+    },
+    {
+      "species": "pelipper",
+      "gender": "FEMALE",
+      "level": 58,
+      "nature": "modest",
+      "ability": "drizzle",
+      "moveset": [
+        "hurricane",
+        "roost",
+        "waterpulse",
+        "tailwind"
+      ]
+    }
+  ]
+}

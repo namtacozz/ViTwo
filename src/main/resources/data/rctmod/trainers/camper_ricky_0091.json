@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Camper Ricky"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "marshtomp",
+      "gender": "FEMALE",
+      "level": 24,
+      "nature": "bold",
+      "ability": "torrent",
+      "moveset": [
+        "bodyslam",
+        "rocktomb",
+        "bide",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "nuzleaf",
+      "gender": "MALE",
+      "level": 24,
+      "nature": "brave",
+      "ability": "earlybird",
+      "moveset": [
+        "razorleaf",
+        "fakeout",
+        "naturepower",
+        "growth"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    }
+  ]
+}

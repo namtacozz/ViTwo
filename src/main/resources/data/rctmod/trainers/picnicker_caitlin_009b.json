@@ -1,0 +1,108 @@
+{
+  "name": {
+    "literal": "Picnicker Caitlin"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "smeargle",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "jolly",
+      "ability": "owntempo",
+      "moveset": [
+        "vcreate",
+        "dragonascent",
+        "trick",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "spinda",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "contrary",
+      "moveset": [
+        "assist"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    {
+      "species": "sneasel",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "bashful",
+      "ability": "innerfocus",
+      "moveset": [
+        "assist"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "heldItem": [
+        "eviolite"
+      ],
+      "aspects": [
+        "hisuian"
+      ]
+    },
+    {
+      "species": "liepard",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "bashful",
+      "ability": "prankster",
+      "moveset": [
+        "assist"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    }
+  ]
+}

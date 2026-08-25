@@ -10,8 +10,10 @@ import com.vitwo.network.s2c.SyncPartyStateS2CPacket;
 import com.vitwo.network.s2c.TowerTitleS2CPacket;
 import com.vitwo.reward.TowerRewardManager;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 
 import java.util.*;
@@ -200,6 +202,7 @@ public class TowerPartyManager {
             return;
         }
 
+        party.rollNewAttempt();
         if (isSolo) {
             int maxCp = getSoloCheckpoint(leader.getUuid());
             if (checkpointFloor > maxCp) checkpointFloor = maxCp;
@@ -207,7 +210,8 @@ public class TowerPartyManager {
             party.setCurrentFloor(checkpointFloor);
             party.setHighestCheckpoint(maxCp);
             party.setState(TowerParty.State.PREPARING);
-            party.setOriginalLeaderPos(leader.getBlockPos());
+            String leaderDim = leader.getServerWorld().getRegistryKey().getValue().toString();
+            party.setOriginalLeaderExact(leaderDim, leader.getX(), leader.getY(), leader.getZ(), leader.getYaw(), leader.getPitch());
             party.clearForfeitVotes();
 
             startFloor(party, server);
@@ -235,12 +239,24 @@ public class TowerPartyManager {
             party.setCurrentFloor(checkpointFloor);
             party.setHighestCheckpoint(effectiveCp);
             party.setState(TowerParty.State.PREPARING);
-            party.setOriginalLeaderPos(leader.getBlockPos());
-            party.setOriginalMemberPos(member.getBlockPos());
+            String leaderDim = leader.getServerWorld().getRegistryKey().getValue().toString();
+            String memberDim = member.getServerWorld().getRegistryKey().getValue().toString();
+            party.setOriginalLeaderExact(leaderDim, leader.getX(), leader.getY(), leader.getZ(), leader.getYaw(), leader.getPitch());
+            party.setOriginalMemberExact(memberDim, member.getX(), member.getY(), member.getZ(), member.getYaw(), member.getPitch());
             party.clearForfeitVotes();
 
             startFloor(party, server);
         }
+    }
+
+    public void registerRestoredParty(TowerParty party, MinecraftServer server) {
+        activeParties.put(party.getLeaderId(), party);
+        playerToPartyLeader.put(party.getLeaderId(), party.getLeaderId());
+        if (party.getMemberId() != null) {
+            playerToPartyLeader.put(party.getMemberId(), party.getLeaderId());
+        }
+        party.setState(TowerParty.State.IN_BATTLE);
+        syncParty(party, server);
     }
 
     public void startFloor(TowerParty party, MinecraftServer server) {
@@ -248,16 +264,19 @@ public class TowerPartyManager {
         party.setState(TowerParty.State.IN_BATTLE);
         party.clearSpectators();
         party.clearForfeitVotes();
+        party.rollFloorTrainer(floor);
 
         ServerPlayerEntity leader = server.getPlayerManager().getPlayer(party.getLeaderId());
         ServerPlayerEntity member = party.isSolo() ? null : server.getPlayerManager().getPlayer(party.getMemberId());
 
         if (leader == null) return;
 
+        party.setState(TowerParty.State.PREPARING);
+
         // Teleport party to fresh floor arena and barrier boundary
         TowerArenaManager.getInstance().teleportPartyToArena(party, leader, member);
 
-        String bossName = TowerBattleManager.getInstance().getBossNameForFloor(floor);
+        String bossName = party.getCurrentBossName();
         TowerTitleS2CPacket titlePayload = new TowerTitleS2CPacket(
                 "§b§lCOBBLE TOWER",
                 "§eFloor " + floor + " §7| §cBoss: §f" + bossName,
@@ -267,6 +286,16 @@ public class TowerPartyManager {
 
         ServerPlayNetworking.send(leader, titlePayload);
         if (member != null) ServerPlayNetworking.send(member, titlePayload);
+
+        // Trigger Boss Cutscene for key milestone floors
+        boolean isBossFloor = (floor == 10 || floor == 25 || floor == 50 || floor == 75 || floor == 90 || floor >= 91);
+        if (isBossFloor) {
+            String bossTitle = floor >= 100 ? "Genesis Deity" : (floor >= 91 ? "Primal Sovereign" : "Tower Sentinel");
+            String quote = floor >= 100 ? "The cosmos kneels before the divine sovereign." : (floor >= 91 ? "Witness the primal majesty of ancient titans." : "Only the strongest trainers may ascend past this summit.");
+            com.vitwo.network.s2c.TowerBossIntroS2CPacket intro = new com.vitwo.network.s2c.TowerBossIntroS2CPacket(floor, bossName, bossTitle, quote, floor >= 91);
+            ServerPlayNetworking.send(leader, intro);
+            if (member != null) ServerPlayNetworking.send(member, intro);
+        }
 
         // Announce active floor curse
         String curseMsg = com.vitwo.battle.TowerCurseManager.getInstance().getCurseNotification(floor);
@@ -299,9 +328,11 @@ public class TowerPartyManager {
             updateDuoCheckpoint(member.getUuid(), clearedFloor + 1);
         }
 
-        party.incrementTurns(3); // Estimated turns per win
+        int turnsThisFloor = 3;
+        int faintsThisFloor = 0;
+        party.incrementTurns(turnsThisFloor);
 
-        TowerRewardManager.getInstance().grantFloorReward(leader, member, clearedFloor, party.isTrueRun());
+        TowerRewardManager.getInstance().grantFloorReward(leader, member, clearedFloor, party.isTrueRun(), turnsThisFloor, faintsThisFloor);
         TowerRewardManager.getInstance().checkMilestones(leader, member, clearedFloor, party.isTrueRun());
 
         if (clearedFloor >= 100) {
@@ -312,6 +343,14 @@ public class TowerPartyManager {
             int duration = party.getDurationSeconds();
             int faints = party.getFaintsCount();
             int bpEarned = party.isTrueRun() ? 3000 : 1000;
+
+            String playerNames = leader != null ? leader.getName().getString() : "Leader";
+            if (member != null) {
+                playerNames += " & " + member.getName().getString();
+            }
+            if (party.isTrueRun()) {
+                com.vitwo.config.TowerLeaderboardManager.getInstance().recordCompletion(playerNames, party.isSolo(), duration, turns, faints);
+            }
 
             if (leader != null) {
                 TowerPlayerDataManager.getInstance().recordRunResult(leader.getUuid(), 100, party.isTrueRun(), turns, duration, true);
@@ -324,6 +363,8 @@ public class TowerPartyManager {
                 TowerArenaManager.getInstance().returnPlayerToOriginalPos(member, party.getOriginalMemberPos());
             }
 
+            TowerRunPersistenceManager.getInstance().deleteRun(party.getLeaderId());
+            TowerArenaManager.getInstance().cleanupFloorArena(party, server);
             disbandParty(party);
             if (leader != null) syncPlayerState(leader);
             if (member != null) syncPlayerState(member);
@@ -338,10 +379,12 @@ public class TowerPartyManager {
             if (leader != null) TowerRewardManager.getInstance().applyBaseHeal(leader);
             if (member != null) TowerRewardManager.getInstance().applyBaseHeal(member);
 
+            // Directly open Rest Station GUI in place without teleporting away
             if (leader != null) ServerPlayNetworking.send(leader, new OpenRestScreenS2CPacket(clearedFloor));
             if (member != null) ServerPlayNetworking.send(member, new OpenRestScreenS2CPacket(clearedFloor));
             syncParty(party, server);
         } else {
+            // Do NOT cleanup arena on floor advance, Arena Pooling reuses the structure!
             party.setCurrentFloor(clearedFloor + 1);
             startFloor(party, server);
         }
@@ -429,11 +472,16 @@ public class TowerPartyManager {
             TowerArenaManager.getInstance().returnPlayerToOriginalPos(member, party.getOriginalMemberPos());
         }
 
+        TowerRunPersistenceManager.getInstance().deleteRun(party.getLeaderId());
+        TowerArenaManager.getInstance().cleanupFloorArena(party, server);
         disbandParty(party);
         if (leader != null) syncPlayerState(leader);
         if (member != null) syncPlayerState(member);
     }
 
+    /**
+     * Handles party defeat when all player Pokémon faint in battle.
+     */
     public void onPartyDefeated(TowerParty party, MinecraftServer server) {
         int failedFloor = party.getCurrentFloor();
         ServerPlayerEntity leader = server.getPlayerManager().getPlayer(party.getLeaderId());
@@ -459,6 +507,9 @@ public class TowerPartyManager {
             TowerArenaManager.getInstance().returnPlayerToOriginalPos(member, party.getOriginalMemberPos());
         }
 
+        TowerRunPersistenceManager.getInstance().deleteRun(party.getLeaderId());
+        TowerArenaManager.getInstance().cleanupFloorArena(party, server);
+
         disbandParty(party);
         if (leader != null) syncPlayerState(leader);
         if (member != null) syncPlayerState(member);
@@ -469,8 +520,9 @@ public class TowerPartyManager {
         if (partyOpt.isEmpty()) return;
 
         TowerParty party = partyOpt.get();
+        TowerRunPersistenceManager.getInstance().saveRun(party);
+
         if (party.isSolo()) {
-            disbandParty(party);
             return;
         }
 
@@ -485,8 +537,27 @@ public class TowerPartyManager {
     }
 
     public void handleReconnect(ServerPlayerEntity player) {
+        if (player == null || player.getServer() == null) return;
+        this.currentServer = player.getServer();
+
         Optional<TowerParty> partyOpt = getParty(player.getUuid());
         if (partyOpt.isEmpty()) {
+            boolean restored = TowerRunPersistenceManager.getInstance().restoreRun(player, player.getServer());
+            if (!restored && player.getServerWorld() != null && player.getServerWorld().getRegistryKey().getValue().getPath().contains("tower")) {
+                int soloCp = getSoloCheckpoint(player.getUuid());
+                TowerParty recoveredParty = new TowerParty(player.getUuid(), soloCp);
+                recoveredParty.setSolo(true);
+                recoveredParty.setCurrentFloor(soloCp);
+                recoveredParty.setHighestCheckpoint(soloCp);
+                recoveredParty.rollFloorTrainer(soloCp);
+                recoveredParty.setState(TowerParty.State.IN_BATTLE);
+                registerRestoredParty(recoveredParty, player.getServer());
+                TowerRunPersistenceManager.getInstance().saveRun(recoveredParty);
+                return;
+            }
+            if (restored) {
+                return;
+            }
             syncPlayerState(player);
             return;
         }
@@ -503,8 +574,8 @@ public class TowerPartyManager {
                     otherPlayer.sendMessage(Text.translatable("vitwo.tower.reconnect_success"), false);
                 }
             }
-            syncParty(party, player.getServer());
         }
+        syncParty(party, player.getServer());
     }
 
     public void tick(MinecraftServer server) {
@@ -522,6 +593,33 @@ public class TowerPartyManager {
                 }
             }
         }
+
+        // Spawn Visual Cosmetic Auras for online players
+        if (server.getTicks() % 4 == 0) {
+            for (ServerPlayerEntity p : server.getPlayerManager().getPlayerList()) {
+                String aura = TowerPlayerDataManager.getInstance().getActiveCosmeticAura(p.getUuid());
+                if (aura != null && !aura.equals("NONE")) {
+                    ServerWorld world = p.getServerWorld();
+                    double px = p.getX();
+                    double py = p.getY();
+                    double pz = p.getZ();
+
+                    if ("cosmetic_shiny_aura".equals(aura)) {
+                        for (int i = 0; i < 2; i++) {
+                            double angle = (server.getTicks() * 0.15 + (i * Math.PI)) % (2 * Math.PI);
+                            double radius = 0.75;
+                            double ox = Math.cos(angle) * radius;
+                            double oz = Math.sin(angle) * radius;
+                            double oy = 0.3 + ((server.getTicks() % 24) / 24.0) * 1.5;
+                            world.spawnParticles(ParticleTypes.WAX_ON, px + ox, py + oy, pz + oz, 1, 0.0, 0.02, 0.0, 0.01);
+                        }
+                    } else if ("cosmetic_particle_trail".equals(aura)) {
+                        world.spawnParticles(ParticleTypes.SOUL_FIRE_FLAME, px, py + 0.1, pz, 2, 0.15, 0.05, 0.15, 0.01);
+                        world.spawnParticles(ParticleTypes.GLOW_SQUID_INK, px, py + 0.5, pz, 1, 0.1, 0.1, 0.1, 0.01);
+                    }
+                }
+            }
+        }
     }
 
     public void disbandParty(TowerParty party) {
@@ -533,10 +631,29 @@ public class TowerPartyManager {
     }
 
     public void syncPlayerState(ServerPlayerEntity player) {
+        if (player == null || player.getServer() == null) return;
+        this.currentServer = player.getServer();
+
         Optional<TowerParty> partyOpt = getParty(player.getUuid());
         if (partyOpt.isPresent()) {
             syncParty(partyOpt.get(), player.getServer());
         } else {
+            boolean inTowerDim = player.getServerWorld() != null && player.getServerWorld().getRegistryKey().getValue().getPath().contains("tower");
+            if (inTowerDim) {
+                boolean restored = TowerRunPersistenceManager.getInstance().restoreRun(player, player.getServer());
+                if (restored) return;
+                int soloCp = getSoloCheckpoint(player.getUuid());
+                TowerParty recoveredParty = new TowerParty(player.getUuid(), soloCp);
+                recoveredParty.setSolo(true);
+                recoveredParty.setCurrentFloor(soloCp);
+                recoveredParty.setHighestCheckpoint(soloCp);
+                recoveredParty.rollFloorTrainer(soloCp);
+                recoveredParty.setState(TowerParty.State.IN_BATTLE);
+                registerRestoredParty(recoveredParty, player.getServer());
+                TowerRunPersistenceManager.getInstance().saveRun(recoveredParty);
+                return;
+            }
+
             String pendingName = pendingInviterNames.getOrDefault(player.getUuid(), "");
             int bp = TowerPlayerDataManager.getInstance().getBp(player.getUuid());
             ServerPlayNetworking.send(player, new SyncPartyStateS2CPacket(
@@ -556,6 +673,7 @@ public class TowerPartyManager {
                     bp,
                     true
             ));
+            ServerPlayNetworking.send(player, new com.vitwo.network.s2c.SyncLeaderboardS2CPacket(com.vitwo.config.TowerLeaderboardManager.getInstance().getTopEntries()));
         }
     }
 
@@ -569,10 +687,12 @@ public class TowerPartyManager {
 
         int soloCpLeader = leader != null ? getSoloCheckpoint(leader.getUuid()) : 1;
         boolean inSession = party.getState() == TowerParty.State.IN_BATTLE
-                || party.getState() == TowerParty.State.REST_FLOOR
-                || party.getState() == TowerParty.State.PREPARING;
-        String bossName = TowerBattleManager.getInstance().getBossNameForFloor(party.getCurrentFloor());
+                || party.getState() == TowerParty.State.PREPARING
+                || party.getState() == TowerParty.State.REST_FLOOR;
+        String bossName = party.getCurrentBossName();
         int votes = party.getForfeitVoteCount();
+
+        var leaderboardPacket = new com.vitwo.network.s2c.SyncLeaderboardS2CPacket(com.vitwo.config.TowerLeaderboardManager.getInstance().getTopEntries());
 
         if (leader != null) {
             int bpLeader = TowerPlayerDataManager.getInstance().getBp(leader.getUuid());
@@ -593,6 +713,7 @@ public class TowerPartyManager {
                     bpLeader,
                     party.isTrueRun()
             ));
+            ServerPlayNetworking.send(leader, leaderboardPacket);
         }
         if (member != null) {
             int soloCpMember = getSoloCheckpoint(member.getUuid());
@@ -614,6 +735,7 @@ public class TowerPartyManager {
                     bpMember,
                     party.isTrueRun()
             ));
+            ServerPlayNetworking.send(member, leaderboardPacket);
         }
     }
 

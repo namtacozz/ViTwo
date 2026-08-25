@@ -1,0 +1,132 @@
+{
+  "name": {
+    "literal": "Ace Trainer Julie"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "persian",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "hasty",
+      "ability": "technician",
+      "moveset": [
+        "furyswipes",
+        "bite",
+        "screech",
+        "feintattack"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "ninetales",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "bashful",
+      "ability": "flashfire",
+      "moveset": [
+        "flamethrower",
+        "willowisp",
+        "confuseray",
+        "grudge"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "rapidash",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "docile",
+      "ability": "flashfire",
+      "moveset": [
+        "furyattack",
+        "firespin",
+        "takedown",
+        "agility"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "pikachu",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "careful",
+      "ability": "static",
+      "moveset": [
+        "thunderbolt",
+        "thunderwave",
+        "doubleteam",
+        "quickattack"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "raichu",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "bold",
+      "ability": "static",
+      "moveset": [
+        "thunder",
+        "thunderwave",
+        "slam",
+        "doubleteam"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    }
+  ]
+}

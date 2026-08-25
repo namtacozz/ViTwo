@@ -1,0 +1,217 @@
+{
+  "name": {
+    "literal": "Flint"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 6
+  },
+  "bag": [
+    {
+      "item": "max_revive",
+      "quantity": 1
+    },
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": "5"
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "eruption",
+        "heatwave",
+        "earthpower",
+        "protect"
+      ],
+      "ivs": {
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spa": 148,
+        "def": 108,
+        "hp": 252
+      },
+      "heldItem": [
+        "heat_rock"
+      ],
+      "gimmicks": {
+        "tera": "fire"
+      },
+      "species": "torkoal",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "quiet",
+      "ability": "drought",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "solarbeam",
+        "flamethrower",
+        "ancientpower",
+        "weatherball"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 176,
+        "spd": 28,
+        "spa": 148,
+        "def": 8,
+        "hp": 148
+      },
+      "heldItem": [
+        "mega_showdown:charizardite_y"
+      ],
+      "species": "charizard",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "modest",
+      "ability": "drought",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "solarbeam",
+        "tailwind",
+        "taunt",
+        "moonblast"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "species": "whimsicott",
+      "gender": "FEMALE",
+      "level": 100,
+      "nature": "modest",
+      "ability": "chlorophyll",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "flareblitz",
+        "closecombat",
+        "flamecharge",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "species": "koraidon",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "orichalcumpulse",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "fakeout",
+        "knockoff",
+        "flareblitz",
+        "uturn"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 44,
+        "spd": 40,
+        "def": 56,
+        "atk": 116,
+        "hp": 252
+      },
+      "heldItem": [
+        "safety_goggles"
+      ],
+      "species": "incineroar",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "intimidate",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "stoneedge",
+        "bodypress",
+        "flamethrower",
+        "solarbeam"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 32,
+        "spa": 64,
+        "def": 148,
+        "atk": 88,
+        "hp": 176
+      },
+      "heldItem": [
+        "weakness_policy"
+      ],
+      "species": "coalossal",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "sassy",
+      "ability": "steamengine",
+      "shiny": true
+    }
+  ],
+  "battleFormat": "GEN_9_DOUBLES"
+}

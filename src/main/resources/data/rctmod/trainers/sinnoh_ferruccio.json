@@ -1,0 +1,209 @@
+{
+  "name": {
+    "literal": "Byron"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 5
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 5
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "reflect",
+        "lightscreen",
+        "dazzlinggleam",
+        "mistyterrain"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 180,
+        "def": 76,
+        "hp": 252
+      },
+      "heldItem": [
+        "light_clay"
+      ],
+      "species": "klefki",
+      "gender": "MALE",
+      "level": 80,
+      "nature": "calm",
+      "ability": "prankster"
+    },
+    {
+      "moveset": [
+        "drainpunch",
+        "wildcharge",
+        "fakeout",
+        "icepunch"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 4,
+        "atk": 252,
+        "hp": 252
+      },
+      "heldItem": [
+        "weakness_policy"
+      ],
+      "species": "ironhands",
+      "gender": "MALE",
+      "level": 80,
+      "nature": "adamant",
+      "ability": "quarkdrive"
+    },
+    {
+      "moveset": [
+        "heavyslam",
+        "aerialace",
+        "ironhead",
+        "icepunch"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 4,
+        "spd": 52,
+        "def": 96,
+        "atk": 204,
+        "hp": 152
+      },
+      "heldItem": [
+        "mega_showdown:aggronite"
+      ],
+      "species": "aggron",
+      "gender": "MALE",
+      "level": 80,
+      "nature": "adamant",
+      "ability": "heavymetal"
+    },
+    {
+      "moveset": [
+        "meteormash",
+        "thunderpunch",
+        "icepunch",
+        "bulletpunch"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 4,
+        "atk": 252,
+        "hp": 252
+      },
+      "heldItem": [
+        "assault_vest"
+      ],
+      "species": "metagross",
+      "gender": "GENDERLESS",
+      "level": 80,
+      "nature": "adamant",
+      "ability": "clearbody"
+    },
+    {
+      "moveset": [
+        "thunderbolt",
+        "flashcannon",
+        "ironhead",
+        "wildcharge"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 4,
+        "spd": 48,
+        "spa": 216,
+        "def": 24,
+        "atk": 140,
+        "hp": 76
+      },
+      "heldItem": [
+        "air_balloon"
+      ],
+      "species": "magnezone",
+      "gender": "MALE",
+      "level": 80,
+      "nature": "brave",
+      "ability": "analytic"
+    },
+    {
+      "moveset": [
+        "suckerpunch",
+        "kowtowcleave",
+        "ironhead",
+        "swordsdance"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 44,
+        "spd": 4,
+        "def": 12,
+        "atk": 196,
+        "hp": 252
+      },
+      "heldItem": [
+        "safety_goggles"
+      ],
+      "species": "kingambit",
+      "gender": "MALE",
+      "level": 80,
+      "nature": "adamant",
+      "ability": "supremeoverlord"
+    }
+  ],
+  "identity": "Gym Leader Ferruccio",
+  "battleFormat": "GEN_9_DOUBLES"
+}

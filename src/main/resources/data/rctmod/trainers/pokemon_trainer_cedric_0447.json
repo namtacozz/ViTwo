@@ -1,0 +1,137 @@
+{
+  "name": {
+    "literal": "Pokémon Trainer Cedric"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:super_potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "starly",
+      "gender": "MALE",
+      "level": 19,
+      "nature": "jolly",
+      "ability": "keeneye",
+      "moveset": [
+        "quickattack",
+        "doubleteam",
+        "endeavor",
+        "pluck"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      },
+      "evs": {
+        "hp": 12,
+        "atk": 28,
+        "def": 4,
+        "spd": 4,
+        "spe": 12
+      }
+    },
+    {
+      "species": "roselia",
+      "gender": "MALE",
+      "level": 20,
+      "nature": "timid",
+      "ability": "naturalcure",
+      "moveset": [
+        "growth",
+        "stunspore",
+        "leechseed",
+        "magicalleaf"
+      ],
+      "ivs": {
+        "hp": 6,
+        "atk": 6,
+        "def": 6,
+        "spa": 6,
+        "spd": 6,
+        "spe": 6
+      },
+      "evs": {
+        "def": 4,
+        "spa": 28,
+        "spd": 4,
+        "spe": 12
+      }
+    },
+    {
+      "species": "ponyta",
+      "gender": "MALE",
+      "level": 20,
+      "nature": "jolly",
+      "ability": "flashfire",
+      "moveset": [
+        "tackle",
+        "growl",
+        "flamecharge",
+        "agility"
+      ],
+      "ivs": {
+        "hp": 7,
+        "atk": 7,
+        "def": 7,
+        "spa": 7,
+        "spd": 7,
+        "spe": 7
+      },
+      "evs": {
+        "atk": 28,
+        "def": 4,
+        "spd": 4,
+        "spe": 12
+      }
+    },
+    {
+      "species": "prinplup",
+      "gender": "MALE",
+      "level": 21,
+      "nature": "timid",
+      "ability": "torrent",
+      "moveset": [
+        "metalclaw",
+        "bubblebeam",
+        "stealthrock",
+        "grassknot"
+      ],
+      "ivs": {
+        "hp": 11,
+        "atk": 11,
+        "def": 11,
+        "spa": 11,
+        "spd": 11,
+        "spe": 11
+      },
+      "evs": {
+        "hp": 12,
+        "def": 4,
+        "spa": 36,
+        "spd": 4,
+        "spe": 36
+      }
+    }
+  ]
+}

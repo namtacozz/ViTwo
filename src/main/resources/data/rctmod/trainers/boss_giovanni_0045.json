@@ -1,0 +1,202 @@
+{
+  "name": {
+    "literal": "Boss Giovanni"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "scrafty",
+      "gender": "FEMALE",
+      "level": 80,
+      "nature": "modest",
+      "ability": "moxie",
+      "moveset": [
+        "roar",
+        "knockoff",
+        "drainpunch",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "spa": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "psychic_seed"
+      ]
+    },
+    {
+      "species": "tapulele",
+      "gender": "GENDERLESS",
+      "level": 80,
+      "nature": "timid",
+      "ability": "psychicsurge",
+      "moveset": [
+        "moonblast",
+        "psychic",
+        "thunderbolt",
+        "focusblast"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "terrain_extender"
+      ]
+    },
+    {
+      "species": "excadrill",
+      "gender": "MALE",
+      "level": 80,
+      "nature": "adamant",
+      "ability": "sandrush",
+      "moveset": [
+        "highhorsepower",
+        "ironhead",
+        "rockslide",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "tyranitar",
+      "gender": "FEMALE",
+      "level": 80,
+      "nature": "careful",
+      "ability": "sandstream",
+      "moveset": [
+        "crunch",
+        "rockslide",
+        "highhorsepower",
+        "firepunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 4,
+        "spd": 252
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "celesteela",
+      "gender": "GENDERLESS",
+      "level": 80,
+      "nature": "modest",
+      "ability": "beastboost",
+      "moveset": [
+        "autotomize",
+        "meteorbeam",
+        "flamethrower",
+        "airslash"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "power_herb"
+      ]
+    },
+    {
+      "species": "mewtwo",
+      "gender": "GENDERLESS",
+      "level": 80,
+      "nature": "timid",
+      "ability": "pressure",
+      "moveset": [
+        "expandingforce",
+        "psystrike",
+        "aurasphere",
+        "flamethrower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:mewtwonite_y",
+        "expert_belt"
+      ]
+    }
+  ]
+}

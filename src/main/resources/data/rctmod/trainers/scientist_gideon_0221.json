@@ -1,0 +1,126 @@
+{
+  "name": {
+    "literal": "Scientist Gideon"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "voltorb",
+      "gender": "GENDERLESS",
+      "level": 46,
+      "nature": "naive",
+      "ability": "soundproof",
+      "moveset": [
+        "swift",
+        "screech",
+        "spark",
+        "sonicboom"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "electrode",
+      "gender": "GENDERLESS",
+      "level": 46,
+      "nature": "adamant",
+      "ability": "soundproof",
+      "moveset": [
+        "spark",
+        "sonicboom",
+        "screech",
+        "charge"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "magnemite",
+      "gender": "GENDERLESS",
+      "level": 46,
+      "nature": "lonely",
+      "ability": "magnetpull",
+      "moveset": [
+        "screech",
+        "swift",
+        "spark",
+        "thunderwave"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "magneton",
+      "gender": "GENDERLESS",
+      "level": 46,
+      "nature": "gentle",
+      "ability": "magnetpull",
+      "moveset": [
+        "triattack",
+        "spark",
+        "thunderwave",
+        "sonicboom"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "porygon",
+      "gender": "GENDERLESS",
+      "level": 46,
+      "nature": "naughty",
+      "ability": "trace",
+      "moveset": [
+        "triattack",
+        "shadowball",
+        "recover",
+        "psybeam"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

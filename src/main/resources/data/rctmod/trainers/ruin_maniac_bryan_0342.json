@@ -1,0 +1,60 @@
+{
+  "name": {
+    "literal": "Ruin Maniac Bryan"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "cranidos",
+      "gender": "MALE",
+      "level": 24,
+      "nature": "relaxed",
+      "ability": "moldbreaker",
+      "moveset": [
+        "headbutt",
+        "leer",
+        "scaryface",
+        "assurance"
+      ]
+    },
+    {
+      "species": "geodude",
+      "gender": "MALE",
+      "level": 22,
+      "nature": "relaxed",
+      "ability": "sturdy",
+      "moveset": [
+        "sandstorm",
+        "harden",
+        "smackdown",
+        "bulldoze"
+      ]
+    },
+    {
+      "species": "bronzor",
+      "gender": "GENDERLESS",
+      "level": 23,
+      "nature": "hardy",
+      "ability": "levitate",
+      "moveset": [
+        "confusion",
+        "confuseray",
+        "payback",
+        "gyroball"
+      ]
+    }
+  ]
+}

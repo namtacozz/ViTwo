@@ -1,0 +1,82 @@
+{
+  "name": {
+    "literal": "Bug Catcher Colton"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "butterfree",
+      "gender": "FEMALE",
+      "level": 27,
+      "nature": "lonely",
+      "ability": "compoundeyes",
+      "moveset": [
+        "silverwind",
+        "supersonic",
+        "safeguard",
+        "aircutter"
+      ],
+      "ivs": {
+        "hp": 1,
+        "atk": 1,
+        "def": 1,
+        "spa": 1,
+        "spd": 1,
+        "spe": 1
+      }
+    },
+    {
+      "species": "kakuna",
+      "gender": "FEMALE",
+      "level": 27,
+      "nature": "docile",
+      "ability": "shedskin",
+      "moveset": [
+        "harden",
+        "bugbite"
+      ],
+      "ivs": {
+        "hp": 1,
+        "atk": 1,
+        "def": 1,
+        "spa": 1,
+        "spd": 1,
+        "spe": 1
+      }
+    },
+    {
+      "species": "butterfree",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "quirky",
+      "ability": "compoundeyes",
+      "moveset": [
+        "silverwind",
+        "supersonic",
+        "safeguard",
+        "aircutter"
+      ],
+      "ivs": {
+        "hp": 1,
+        "atk": 1,
+        "def": 1,
+        "spa": 1,
+        "spd": 1,
+        "spe": 1
+      }
+    }
+  ]
+}

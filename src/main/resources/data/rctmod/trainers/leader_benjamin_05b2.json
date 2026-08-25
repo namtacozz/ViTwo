@@ -1,0 +1,202 @@
+{
+  "name": {
+    "literal": "Leader Benjamin"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "araquanid",
+      "gender": "FEMALE",
+      "level": 61,
+      "nature": "impish",
+      "ability": "waterbubble",
+      "moveset": [
+        "liquidation",
+        "leechlife",
+        "mirrorcoat",
+        "stickyweb"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spd": 4
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "forretress",
+      "gender": "FEMALE",
+      "level": 61,
+      "nature": "careful",
+      "ability": "sturdy",
+      "moveset": [
+        "gyroball",
+        "counter",
+        "reflect",
+        "lightscreen"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spd": 252
+      },
+      "heldItem": [
+        "light_clay"
+      ]
+    },
+    {
+      "species": "drapion",
+      "gender": "MALE",
+      "level": 61,
+      "nature": "impish",
+      "ability": "superluck",
+      "moveset": [
+        "crosspoison",
+        "nightslash",
+        "pinmissile",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spd": 4
+      },
+      "heldItem": [
+        "eviolite"
+      ]
+    },
+    {
+      "species": "volcarona",
+      "gender": "FEMALE",
+      "level": 62,
+      "nature": "modest",
+      "ability": "flamebody",
+      "moveset": [
+        "bugbuzz",
+        "heatwave",
+        "wildcharge",
+        "quiverdance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "def": 252,
+        "spa": 252
+      },
+      "heldItem": [
+        "bug_gem"
+      ]
+    },
+    {
+      "species": "scizor",
+      "gender": "MALE",
+      "level": 62,
+      "nature": "careful",
+      "ability": "technician",
+      "moveset": [
+        "bugbite",
+        "bulletpunch",
+        "dualwingbeat",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spd": 252
+      },
+      "heldItem": [
+        "mega_showdown:scizorite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "flygon",
+      "gender": "FEMALE",
+      "level": 62,
+      "nature": "adamant",
+      "ability": "levitate",
+      "moveset": [
+        "earthquake",
+        "dragonclaw",
+        "rockslide",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "eviolite"
+      ]
+    }
+  ]
+}

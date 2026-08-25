@@ -7,7 +7,6 @@ import net.minecraft.server.network.ServerPlayerEntity;
 
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.nio.file.Path;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -28,6 +27,7 @@ public class TowerRunPersistenceManager {
     }
 
     public static class ActiveRunData {
+        public int schema_version = 1;
         public UUID playerA;
         public UUID playerB;
         public boolean isSolo = true;
@@ -43,6 +43,14 @@ public class TowerRunPersistenceManager {
         public long pauseTimestamp = 0;
         public String activeWarPrepBuff = "NONE";
         public int warPrepFloorsRemaining = 0;
+        public String currentTrainerId = "";
+        public String currentBossName = "";
+        public String originalLeaderDim = "minecraft:overworld";
+        public String originalMemberDim = "minecraft:overworld";
+        public double originalLeaderX, originalLeaderY, originalLeaderZ;
+        public double originalMemberX, originalMemberY, originalMemberZ;
+        public float originalLeaderYaw, originalLeaderPitch;
+        public float originalMemberYaw, originalMemberPitch;
         public List<SavedPokemonState> teamA = new ArrayList<>();
         public List<SavedPokemonState> teamB = new ArrayList<>();
     }
@@ -52,7 +60,13 @@ public class TowerRunPersistenceManager {
     private TowerRunPersistenceManager() {}
 
     private File getRunFile(UUID uuid) {
-        Path baseDir = FabricLoader.getInstance().getGameDir().resolve("cobbletower_data").resolve("runs");
+        net.minecraft.server.MinecraftServer server = TowerPartyManager.getInstance().getCurrentServer();
+        Path baseDir;
+        if (server != null) {
+            baseDir = server.getSavePath(net.minecraft.util.WorldSavePath.ROOT).resolve("cobbletower_data").resolve("runs");
+        } else {
+            baseDir = FabricLoader.getInstance().getGameDir().resolve("cobbletower_data").resolve("runs");
+        }
         File dir = baseDir.toFile();
         if (!dir.exists()) {
             dir.mkdirs();
@@ -79,6 +93,20 @@ public class TowerRunPersistenceManager {
         data.mercyUsed = party.isMercyUsed();
         data.activeWarPrepBuff = party.getWarPrepBuff();
         data.warPrepFloorsRemaining = party.getWarPrepFloorsRemaining();
+        data.currentTrainerId = party.getCurrentTrainerId();
+        data.currentBossName = party.getCurrentBossName();
+        data.originalLeaderDim = party.getOriginalLeaderDim();
+        data.originalLeaderX = party.getOriginalLeaderX();
+        data.originalLeaderY = party.getOriginalLeaderY();
+        data.originalLeaderZ = party.getOriginalLeaderZ();
+        data.originalLeaderYaw = party.getOriginalLeaderYaw();
+        data.originalLeaderPitch = party.getOriginalLeaderPitch();
+        data.originalMemberDim = party.getOriginalMemberDim();
+        data.originalMemberX = party.getOriginalMemberX();
+        data.originalMemberY = party.getOriginalMemberY();
+        data.originalMemberZ = party.getOriginalMemberZ();
+        data.originalMemberYaw = party.getOriginalMemberYaw();
+        data.originalMemberPitch = party.getOriginalMemberPitch();
 
         activeRuns.put(party.getLeaderId(), data);
         if (party.getMemberId() != null) {
@@ -90,10 +118,27 @@ public class TowerRunPersistenceManager {
 
     private void saveToFile(UUID uuid, ActiveRunData data) {
         File file = getRunFile(uuid);
-        try (FileWriter writer = new FileWriter(file)) {
-            GSON.toJson(data, writer);
+        File tmpFile = new File(file.getAbsolutePath() + ".tmp");
+        File bakFile = new File(file.getAbsolutePath() + ".bak");
+
+        try {
+            try (java.io.FileOutputStream fos = new java.io.FileOutputStream(tmpFile);
+                 java.io.OutputStreamWriter osw = new java.io.OutputStreamWriter(fos, java.nio.charset.StandardCharsets.UTF_8);
+                 java.io.BufferedWriter writer = new java.io.BufferedWriter(osw)) {
+                GSON.toJson(data, writer);
+                writer.flush();
+                fos.getFD().sync();
+            }
+
+            if (file.exists()) {
+                try {
+                    java.nio.file.Files.copy(file.toPath(), bakFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+                } catch (Exception ignored) {}
+            }
+
+            java.nio.file.Files.move(tmpFile.toPath(), file.toPath(), java.nio.file.StandardCopyOption.ATOMIC_MOVE, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
         } catch (Exception e) {
-            e.printStackTrace();
+            org.slf4j.LoggerFactory.getLogger("vitwo").error("[CobbleTower] Failed to atomically save run data for " + uuid, e);
         }
     }
 
@@ -103,6 +148,8 @@ public class TowerRunPersistenceManager {
         }
 
         File file = getRunFile(playerUuid);
+        File bakFile = new File(file.getAbsolutePath() + ".bak");
+
         if (file.exists()) {
             try (FileReader reader = new FileReader(file)) {
                 ActiveRunData data = GSON.fromJson(reader, ActiveRunData.class);
@@ -111,9 +158,24 @@ public class TowerRunPersistenceManager {
                     return Optional.of(data);
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                org.slf4j.LoggerFactory.getLogger("vitwo").warn("[CobbleTower] Corrupted run data file for " + playerUuid + ", attempting backup recovery: " + e.getMessage());
             }
         }
+
+        if (bakFile.exists()) {
+            try (FileReader reader = new FileReader(bakFile)) {
+                ActiveRunData data = GSON.fromJson(reader, ActiveRunData.class);
+                if (data != null) {
+                    org.slf4j.LoggerFactory.getLogger("vitwo").info("[CobbleTower] Successfully recovered run data from backup (.bak) for " + playerUuid);
+                    activeRuns.put(playerUuid, data);
+                    saveToFile(playerUuid, data);
+                    return Optional.of(data);
+                }
+            } catch (Exception e) {
+                org.slf4j.LoggerFactory.getLogger("vitwo").error("[CobbleTower] Failed to recover from backup file for " + playerUuid, e);
+            }
+        }
+
         return Optional.empty();
     }
 
@@ -134,9 +196,12 @@ public class TowerRunPersistenceManager {
         Optional<ActiveRunData> runOpt = getActiveRun(playerUuid);
         activeRuns.remove(playerUuid);
         File file = getRunFile(playerUuid);
-        if (file.exists()) {
-            file.delete();
-        }
+        if (file.exists()) file.delete();
+        File tmpFile = new File(file.getAbsolutePath() + ".tmp");
+        if (tmpFile.exists()) tmpFile.delete();
+        File bakFile = new File(file.getAbsolutePath() + ".bak");
+        if (bakFile.exists()) bakFile.delete();
+
         if (runOpt.isPresent()) {
             ActiveRunData data = runOpt.get();
             UUID other = data.playerA.equals(playerUuid) ? data.playerB : data.playerA;
@@ -144,6 +209,10 @@ public class TowerRunPersistenceManager {
                 activeRuns.remove(other);
                 File file2 = getRunFile(other);
                 if (file2.exists()) file2.delete();
+                File tmpFile2 = new File(file2.getAbsolutePath() + ".tmp");
+                if (tmpFile2.exists()) tmpFile2.delete();
+                File bakFile2 = new File(file2.getAbsolutePath() + ".bak");
+                if (bakFile2.exists()) bakFile2.delete();
             }
         }
     }
@@ -173,7 +242,15 @@ public class TowerRunPersistenceManager {
             party.setMemberId(data.playerB);
         }
 
-        TowerPartyManager.getInstance().startTowerSession(party, data.isSolo, data.currentFloor, server);
+        if (data.currentTrainerId != null && !data.currentTrainerId.isEmpty()) {
+            party.setCurrentTrainerId(data.currentTrainerId);
+            party.setCurrentBossName(data.currentBossName);
+        }
+
+        party.setOriginalLeaderExact(data.originalLeaderDim, data.originalLeaderX, data.originalLeaderY, data.originalLeaderZ, data.originalLeaderYaw, data.originalLeaderPitch);
+        party.setOriginalMemberExact(data.originalMemberDim, data.originalMemberX, data.originalMemberY, data.originalMemberZ, data.originalMemberYaw, data.originalMemberPitch);
+
+        TowerPartyManager.getInstance().registerRestoredParty(party, server);
         return true;
     }
 }

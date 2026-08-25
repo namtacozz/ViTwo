@@ -1,0 +1,66 @@
+{
+  "name": {
+    "literal": "Dragon Tamer Clinton"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "gible",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "hardy",
+      "ability": "sandveil",
+      "moveset": [
+        "sandtomb",
+        "sandattack",
+        "bulldoze",
+        "dragonclaw"
+      ]
+    },
+    {
+      "species": "gyarados",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "sassy",
+      "ability": "intimidate",
+      "moveset": [
+        "icefang",
+        "waterfall",
+        "crunch",
+        "dragondance"
+      ]
+    },
+    {
+      "species": "gible",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "hardy",
+      "ability": "sandveil",
+      "moveset": [
+        "bite",
+        "slash",
+        "dragonclaw",
+        "dig"
+      ]
+    }
+  ]
+}

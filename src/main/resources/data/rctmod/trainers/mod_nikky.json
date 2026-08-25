@@ -1,0 +1,112 @@
+{
+  "name": {
+    "literal": "Nikky"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 3
+  },
+  "bag": [
+    {
+      "item": "cobblemon:max_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "chimchar",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "impish",
+      "ability": "blaze",
+      "moveset": [
+        "flamethrower",
+        "flamewheel",
+        "acrobatics",
+        "furyswipes"
+      ],
+      "ivs": {
+        "hp": 28,
+        "atk": 28,
+        "def": 28,
+        "spa": 28,
+        "spd": 28,
+        "spe": 28
+      },
+      "evs": {
+        "hp": 250,
+        "spa": 250,
+        "spe": 6
+      },
+      "heldItem": [
+        "everstone"
+      ]
+    },
+    {
+      "species": "flareon",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "brave",
+      "ability": "flashfire",
+      "moveset": [
+        "ember",
+        "firespin",
+        "lavaplume",
+        "quickattack"
+      ],
+      "ivs": {
+        "hp": 28,
+        "atk": 28,
+        "def": 28,
+        "spa": 28,
+        "spd": 28,
+        "spe": 28
+      },
+      "evs": {
+        "hp": 4,
+        "spe": 40
+      },
+      "heldItem": [
+        "charcoal_stick"
+      ]
+    },
+    {
+      "species": "rapidash",
+      "gender": "FEMALE",
+      "level": 48,
+      "nature": "rash",
+      "ability": "flashfire",
+      "moveset": [
+        "flamecharge",
+        "flamewheel",
+        "stomp",
+        "megahorn"
+      ],
+      "ivs": {
+        "hp": 30,
+        "atk": 30,
+        "def": 30,
+        "spa": 30,
+        "spd": 30,
+        "spe": 30
+      },
+      "evs": {
+        "hp": 250,
+        "def": 250
+      },
+      "heldItem": [
+        "oran_berry"
+      ]
+    }
+  ]
+}

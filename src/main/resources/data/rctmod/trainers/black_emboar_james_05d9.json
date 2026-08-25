@@ -1,0 +1,131 @@
+{
+  "name": {
+    "literal": "Black Emboar James"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "accelgor",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "modest",
+      "ability": "hydration",
+      "moveset": [
+        "strugglebug",
+        "acidspray",
+        "megadrain",
+        "toxicspikes"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "spa": 252,
+        "spe": 6
+      }
+    },
+    {
+      "species": "grimer",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "adamant",
+      "ability": "poisontouch",
+      "moveset": [
+        "poisonfang",
+        "bite",
+        "icepunch",
+        "minimize"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "def": 252
+      },
+      "heldItem": [
+        "black_sludge"
+      ],
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "pignite",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "adamant",
+      "ability": "blaze",
+      "moveset": [
+        "flamecharge",
+        "lowsweep",
+        "rocktomb",
+        "assurance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 6
+      }
+    },
+    {
+      "species": "koffing",
+      "gender": "MALE",
+      "level": 26,
+      "nature": "calm",
+      "ability": "levitate",
+      "moveset": [
+        "sludge",
+        "assurance",
+        "painsplit",
+        "poisongas"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spd": 252
+      }
+    }
+  ]
+}

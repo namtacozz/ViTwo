@@ -1,0 +1,81 @@
+{
+  "name": {
+    "literal": "Lass Anne"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "togepi",
+      "gender": "FEMALE",
+      "level": 89,
+      "nature": "bashful",
+      "ability": "serenegrace",
+      "moveset": [
+        "metronome"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "heldItem": [
+        "eviolite"
+      ]
+    },
+    {
+      "species": "clefairy",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "bashful",
+      "ability": "magicguard",
+      "moveset": [
+        "metronome"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "audino",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "bashful",
+      "ability": "klutz",
+      "moveset": [
+        "swagger",
+        "protect",
+        "wish",
+        "yawn"
+      ],
+      "ivs": {
+        "atk": 31,
+        "spa": 31,
+        "spe": 31
+      }
+    }
+  ]
+}

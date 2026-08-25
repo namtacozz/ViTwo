@@ -1,0 +1,228 @@
+{
+  "name": {
+    "literal": "Karen"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 4
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "knockoff",
+        "fakeout",
+        "flareblitz",
+        "uturn"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 44,
+        "spd": 32,
+        "def": 72,
+        "atk": 116,
+        "hp": 244
+      },
+      "heldItem": [
+        "assault_vest"
+      ],
+      "gimmicks": {
+        "tera": "fire"
+      },
+      "species": "incineroar",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "intimidate"
+    },
+    {
+      "moveset": [
+        "tailwind",
+        "dracometeor",
+        "taunt",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 132,
+        "spd": 28,
+        "spa": 76,
+        "def": 56,
+        "hp": 216
+      },
+      "heldItem": [
+        "mental_herb"
+      ],
+      "gimmicks": {
+        "tera": "dark"
+      },
+      "species": "hydreigon",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "timid",
+      "ability": "levitate",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "wickedblow",
+        "closecombat",
+        "uturn",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "choice_band"
+      ],
+      "gimmicks": {
+        "tera": "fighting"
+      },
+      "species": "urshifu",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "jolly",
+      "ability": "unseenfist"
+    },
+    {
+      "moveset": [
+        "swordsdance",
+        "kowtowcleave",
+        "suckerpunch",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 32,
+        "spd": 28,
+        "def": 40,
+        "atk": 156,
+        "hp": 252
+      },
+      "heldItem": [
+        "safety_goggles"
+      ],
+      "gimmicks": {
+        "tera": "dark"
+      },
+      "species": "kingambit",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "defiant"
+    },
+    {
+      "moveset": [
+        "bodypress",
+        "foulplay",
+        "rockslide",
+        "earthquake"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 28,
+        "spd": 96,
+        "def": 72,
+        "atk": 196,
+        "hp": 116
+      },
+      "heldItem": [
+        "mega_showdown:tyranitarite"
+      ],
+      "gimmicks": {
+        "tera": "rock"
+      },
+      "species": "tyranitar",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "sandstream"
+    },
+    {
+      "moveset": [
+        "icespinner",
+        "sacredsword",
+        "psychicfangs",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "gimmicks": {
+        "tera": "dark"
+      },
+      "species": "chienpao",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "jolly",
+      "ability": "swordofruin"
+    }
+  ],
+  "identity": "Karen",
+  "battleFormat": "GEN_9_DOUBLES"
+}

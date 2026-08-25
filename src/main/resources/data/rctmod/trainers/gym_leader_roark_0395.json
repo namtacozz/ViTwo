@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Gym Leader Roark"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "geodude",
+      "gender": "MALE",
+      "level": 12,
+      "nature": "impish",
+      "ability": "rockhead",
+      "moveset": [
+        "stealthrock",
+        "defensecurl",
+        "rollout"
+      ]
+    },
+    {
+      "species": "onix",
+      "gender": "FEMALE",
+      "level": 12,
+      "nature": "adamant",
+      "ability": "sturdy",
+      "moveset": [
+        "stealthrock",
+        "rockthrow",
+        "bind"
+      ]
+    },
+    {
+      "species": "cranidos",
+      "gender": "MALE",
+      "level": 14,
+      "nature": "jolly",
+      "ability": "moldbreaker",
+      "moveset": [
+        "headbutt",
+        "bulldoze",
+        "leer"
+      ]
+    }
+  ]
+}

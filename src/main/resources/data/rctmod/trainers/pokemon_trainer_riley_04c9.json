@@ -1,0 +1,73 @@
+{
+  "name": {
+    "literal": "Pokémon Trainer Riley"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:super_potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "lucario",
+      "gender": "MALE",
+      "level": 34,
+      "nature": "jolly",
+      "ability": "innerfocus",
+      "moveset": [
+        "screech",
+        "forcepalm",
+        "metalclaw",
+        "laserfocus"
+      ],
+      "ivs": {
+        "hp": 31,
+        "def": 31,
+        "spd": 31
+      },
+      "evs": {
+        "hp": 172,
+        "def": 168,
+        "spd": 168
+      }
+    },
+    {
+      "species": "gallade",
+      "gender": "MALE",
+      "level": 34,
+      "nature": "adamant",
+      "ability": "steadfast",
+      "moveset": [
+        "psychocut",
+        "swordsdance",
+        "slash",
+        "drainpunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "def": 31,
+        "spd": 31
+      },
+      "evs": {
+        "hp": 172,
+        "def": 168,
+        "spd": 168
+      }
+    }
+  ]
+}

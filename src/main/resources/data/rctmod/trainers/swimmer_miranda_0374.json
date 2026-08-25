@@ -1,0 +1,47 @@
+{
+  "name": {
+    "literal": "Swimmer Miranda"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "lumineon",
+      "gender": "MALE",
+      "level": 43,
+      "nature": "timid",
+      "ability": "swiftswim",
+      "moveset": [
+        "attract",
+        "raindance",
+        "aquaring",
+        "whirlpool"
+      ]
+    },
+    {
+      "species": "luvdisc",
+      "gender": "FEMALE",
+      "level": 43,
+      "nature": "timid",
+      "ability": "swiftswim",
+      "moveset": [
+        "waterpulse",
+        "attract",
+        "icebeam",
+        "aquaring"
+      ]
+    }
+  ]
+}

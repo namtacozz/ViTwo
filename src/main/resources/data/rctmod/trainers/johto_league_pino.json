@@ -1,0 +1,226 @@
+{
+  "name": {
+    "literal": "Will"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 4
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "trickroom",
+        "helpinghand",
+        "followme",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 140,
+        "def": 116,
+        "hp": 252
+      },
+      "heldItem": [
+        "psychic_seed"
+      ],
+      "gimmicks": {
+        "tera": "psychic"
+      },
+      "species": "indeedee",
+      "gender": "FEMALE",
+      "level": 100,
+      "nature": "bold",
+      "ability": "psychicsurge"
+    },
+    {
+      "moveset": [
+        "glaciallance",
+        "trickroom",
+        "leechseed",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 24,
+        "spd": 96,
+        "def": 40,
+        "atk": 96,
+        "hp": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "aspects": [
+        "ice-rider"
+      ],
+      "gimmicks": {
+        "tera": "psychic"
+      },
+      "species": "calyrex",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "impish",
+      "ability": "asoneglastrier",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "trickroom",
+        "hypervoice",
+        "expandingforce",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 56,
+        "spa": 156,
+        "def": 108,
+        "hp": 188
+      },
+      "heldItem": [
+        "throat_spray"
+      ],
+      "gimmicks": {
+        "tera": "normal"
+      },
+      "species": "farigiraf",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "modest",
+      "ability": "armortail"
+    },
+    {
+      "moveset": [
+        "smartstrike",
+        "protect",
+        "nightslash",
+        "swordsdance"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 80,
+        "spd": 56,
+        "def": 72,
+        "atk": 144,
+        "hp": 156
+      },
+      "heldItem": [
+        "booster_energy"
+      ],
+      "gimmicks": {
+        "tera": "grass"
+      },
+      "species": "ironleaves",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "jolly",
+      "ability": "quarkdrive"
+    },
+    {
+      "moveset": [
+        "expandingforce",
+        "protect",
+        "psychic",
+        "calmmind"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "heldItem": [
+        "mega_showdown:alakazite"
+      ],
+      "gimmicks": {
+        "tera": "psychic"
+      },
+      "species": "alakazam",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "modest",
+      "ability": "trace",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "sunsteelstrike",
+        "psychicfangs",
+        "ironhead",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 40,
+        "def": 76,
+        "atk": 212,
+        "hp": 180
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "aspects": [
+        "dusk-mane"
+      ],
+      "gimmicks": {
+        "tera": "psychic"
+      },
+      "species": "necrozma",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "prismarmor"
+    }
+  ],
+  "identity": "Pino",
+  "battleFormat": "GEN_9_DOUBLES"
+}

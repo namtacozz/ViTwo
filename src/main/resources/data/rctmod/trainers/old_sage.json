@@ -1,0 +1,201 @@
+{
+  "name": {
+    "literal": "The Old Sage"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 3
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 3
+    }
+  ],
+  "team": [
+    {
+      "species": "entei",
+      "gender": "GENDERLESS",
+      "level": 60,
+      "nature": "adamant",
+      "ability": "innerfocus",
+      "moveset": [
+        "sacredfire",
+        "extremespeed",
+        "stoneedge",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "choice_band"
+      ]
+    },
+    {
+      "species": "suicune",
+      "gender": "GENDERLESS",
+      "level": 60,
+      "nature": "bold",
+      "ability": "pressure",
+      "moveset": [
+        "scald",
+        "calmmind",
+        "icebeam",
+        "mirrorcoat"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "spa": 6,
+        "spe": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "raikou",
+      "gender": "GENDERLESS",
+      "level": 60,
+      "nature": "timid",
+      "ability": "pressure",
+      "moveset": [
+        "thunderbolt",
+        "voltswitch",
+        "shadowball",
+        "aurasphere"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "meganium",
+      "gender": "MALE",
+      "level": 60,
+      "nature": "bold",
+      "ability": "overgrow",
+      "moveset": [
+        "leechseed",
+        "aromatherapy",
+        "gigadrain",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spd": 6
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "typhlosion",
+      "gender": "MALE",
+      "level": 60,
+      "nature": "timid",
+      "ability": "blaze",
+      "moveset": [
+        "eruption",
+        "flamethrower",
+        "focusblast",
+        "extrasensory"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "feraligatr",
+      "gender": "MALE",
+      "level": 60,
+      "nature": "adamant",
+      "ability": "sheerforce",
+      "moveset": [
+        "dragondance",
+        "liquidation",
+        "icepunch",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

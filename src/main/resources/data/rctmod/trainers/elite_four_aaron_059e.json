@@ -1,0 +1,166 @@
+{
+  "name": {
+    "literal": "Aaron"
+  },
+  "identity": "Elite Four Aaron",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "yanmega",
+      "gender": "FEMALE",
+      "level": 65,
+      "nature": "timid",
+      "ability": "speedboost",
+      "moveset": [
+        "bugbuzz",
+        "airslash",
+        "detect",
+        "ancientpower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 52,
+        "spa": 252,
+        "spe": 204
+      },
+      "heldItem": [
+        "wise_glasses"
+      ]
+    },
+    {
+      "species": "scizor",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "adamant",
+      "ability": "technician",
+      "moveset": [
+        "bulletpunch",
+        "xscissor",
+        "nightslash",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252
+      },
+      "heldItem": [
+        "occa_berry"
+      ]
+    },
+    {
+      "species": "vespiquen",
+      "gender": "FEMALE",
+      "level": 66,
+      "nature": "adamant",
+      "ability": "unnerve",
+      "moveset": [
+        "powergem",
+        "attackorder",
+        "aerialace",
+        "defendorder"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "heracross",
+      "gender": "FEMALE",
+      "level": 67,
+      "nature": "jolly",
+      "ability": "guts",
+      "moveset": [
+        "earthquake",
+        "rockslide",
+        "facade",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 52,
+        "atk": 252,
+        "spe": 204
+      },
+      "heldItem": [
+        "flame_orb"
+      ]
+    },
+    {
+      "species": "drapion",
+      "gender": "FEMALE",
+      "level": 69,
+      "nature": "jolly",
+      "ability": "sniper",
+      "moveset": [
+        "crosspoison",
+        "nightslash",
+        "earthquake",
+        "xscissor"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 52,
+        "atk": 252,
+        "spe": 204
+      },
+      "heldItem": [
+        "scope_lens"
+      ]
+    }
+  ]
+}

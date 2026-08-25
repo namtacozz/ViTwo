@@ -1,0 +1,203 @@
+{
+  "name": {
+    "literal": "Fantina"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.7,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 4
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "tailwind",
+        "willowisp",
+        "strengthsap",
+        "shadowball"
+      ],
+      "ivs": {
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spa": 4,
+        "hp": 252
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ],
+      "species": "drifblim",
+      "gender": "FEMALE",
+      "level": 75,
+      "nature": "timid",
+      "ability": "aftermath"
+    },
+    {
+      "moveset": [
+        "playrough",
+        "shadowclaw",
+        "shadowsneak",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "species": "mimikyu",
+      "gender": "FEMALE",
+      "level": 75,
+      "nature": "jolly",
+      "ability": "disguise"
+    },
+    {
+      "moveset": [
+        "shadowball",
+        "sludgewave",
+        "focusblast",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "mega_showdown:gengarite"
+      ],
+      "species": "gengar",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "timid",
+      "ability": "shadowtag"
+    },
+    {
+      "moveset": [
+        "shadowclaw",
+        "psychocut",
+        "kingsshield",
+        "shadowsneak"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 16,
+        "spd": 36,
+        "def": 24,
+        "atk": 252,
+        "hp": 180
+      },
+      "heldItem": [
+        "spell_tag"
+      ],
+      "species": "aegislash",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "modest",
+      "ability": "stancechange",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "dazzlinggleam",
+        "psychic",
+        "mysticalfire",
+        "trickroom"
+      ],
+      "ivs": {
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 4,
+        "spa": 252,
+        "hp": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "species": "hatterene",
+      "gender": "FEMALE",
+      "level": 75,
+      "nature": "quiet",
+      "ability": "magicbounce"
+    },
+    {
+      "moveset": [
+        "heatwave",
+        "shadowball",
+        "energyball",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "species": "chandelure",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "modest",
+      "ability": "infiltrator"
+    }
+  ],
+  "identity": "Gym Leader Fannie",
+  "battleFormat": "GEN_9_DOUBLES"
+}

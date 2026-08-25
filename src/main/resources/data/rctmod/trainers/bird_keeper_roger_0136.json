@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "Bird Keeper Roger"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "pelipper",
+      "gender": "MALE",
+      "level": 63,
+      "nature": "lax",
+      "ability": "raindish",
+      "moveset": [
+        "roost",
+        "tailwind",
+        "hydropump",
+        "hurricane"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "corviknight",
+      "gender": "MALE",
+      "level": 63,
+      "nature": "quiet",
+      "ability": "unnerve",
+      "moveset": [
+        "drillpeck",
+        "swagger",
+        "bravebird",
+        "irondefense"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "unfezant",
+      "gender": "FEMALE",
+      "level": 64,
+      "nature": "brave",
+      "ability": "superluck",
+      "moveset": [
+        "nightslash",
+        "swagger",
+        "facade",
+        "tailwind"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

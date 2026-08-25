@@ -1,0 +1,172 @@
+{
+  "name": {
+    "literal": "Lyris"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 5
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 5
+    }
+  ],
+  "team": [
+    {
+      "species": "noivern",
+      "gender": "FEMALE",
+      "level": 72,
+      "nature": "timid",
+      "ability": "infiltrator",
+      "moveset": [
+        "hurricane",
+        "boomburst",
+        "focusblast",
+        "dragonpulse"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "altaria",
+      "gender": "FEMALE",
+      "level": 73,
+      "nature": "jolly",
+      "ability": "naturalcure",
+      "moveset": [
+        "dragondance",
+        "return",
+        "earthquake",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "tyrantrum",
+      "gender": "MALE",
+      "level": 74,
+      "nature": "jolly",
+      "ability": "rockhead",
+      "moveset": [
+        "dragonclaw",
+        "headsmash",
+        "highhorsepower",
+        "ironhead"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "goodra",
+      "gender": "FEMALE",
+      "level": 73,
+      "nature": "adamant",
+      "ability": "sapsipper",
+      "moveset": [
+        "dragonhammer",
+        "firepunch",
+        "powerwhip",
+        "irontail"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spd": 4
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "salamence",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "naive",
+      "ability": "intimidate",
+      "moveset": [
+        "doubleedge",
+        "dragonclaw",
+        "earthquake",
+        "fireblast"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "spa": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:salamencite"
+      ]
+    }
+  ]
+}

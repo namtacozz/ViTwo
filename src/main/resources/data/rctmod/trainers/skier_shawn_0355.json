@@ -1,0 +1,73 @@
+{
+  "name": {
+    "literal": "Skier Shawn"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "snover",
+      "gender": "FEMALE",
+      "level": 34,
+      "nature": "hasty",
+      "ability": "snowwarning",
+      "moveset": [
+        "leer",
+        "iceshard",
+        "razorleaf",
+        "icywind"
+      ]
+    },
+    {
+      "species": "snover",
+      "gender": "MALE",
+      "level": 33,
+      "nature": "hasty",
+      "ability": "snowwarning",
+      "moveset": [
+        "mist",
+        "iceshard",
+        "razorleaf",
+        "icywind"
+      ]
+    },
+    {
+      "species": "golduck",
+      "gender": "FEMALE",
+      "level": 34,
+      "nature": "hasty",
+      "ability": "damp",
+      "moveset": [
+        "aquajet",
+        "waterpulse",
+        "zenheadbutt",
+        "soak"
+      ]
+    },
+    {
+      "species": "snover",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "hasty",
+      "ability": "snowwarning",
+      "moveset": [
+        "iceshard",
+        "razorleaf",
+        "icywind",
+        "ingrain"
+      ]
+    }
+  ]
+}

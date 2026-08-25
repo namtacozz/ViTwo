@@ -1,0 +1,214 @@
+{
+  "name": {
+    "literal": "Brawly"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 1
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "bulkup",
+        "drainpunch",
+        "ragefist",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 20,
+        "spd": 108,
+        "def": 52,
+        "atk": 252,
+        "hp": 76
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ],
+      "gimmicks": {
+        "tera": "fighting"
+      },
+      "species": "annihilape",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "jolly",
+      "ability": "defiant",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "fakeout",
+        "supercellslam",
+        "closecombat",
+        "icepunch"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 56,
+        "spd": 24,
+        "def": 72,
+        "atk": 252,
+        "hp": 104
+      },
+      "heldItem": [
+        "assault_vest"
+      ],
+      "species": "ironhands",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "adamant",
+      "ability": "quarkdrive"
+    },
+    {
+      "moveset": [
+        "closecombat",
+        "aurasphere",
+        "meteormash",
+        "crunch"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 32,
+        "spd": 128,
+        "spa": 36,
+        "def": 104,
+        "atk": 132,
+        "hp": 76
+      },
+      "heldItem": [
+        "mega_showdown:lucarionite"
+      ],
+      "species": "lucario",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "naughty",
+      "ability": "adaptability"
+    },
+    {
+      "moveset": [
+        "irondefense",
+        "bodypress",
+        "protect",
+        "brickbreak"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 40,
+        "def": 252,
+        "atk": 4,
+        "hp": 212
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "species": "zamazenta",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "impish",
+      "ability": "dauntlessshield"
+    },
+    {
+      "moveset": [
+        "wickedblow",
+        "uturn",
+        "closecombat",
+        "detect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "species": "urshifu",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "jolly",
+      "ability": "unseenfist"
+    },
+    {
+      "moveset": [
+        "close",
+        "acrobatics",
+        "direclaw",
+        "fakeout"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "white_herb"
+      ],
+      "species": "sneasler",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "adamant",
+      "ability": "unburden"
+    }
+  ],
+  "identity": "Rudi",
+  "battleFormat": "GEN_9_DOUBLES"
+}

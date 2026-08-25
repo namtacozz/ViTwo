@@ -1,0 +1,202 @@
+{
+  "name": {
+    "literal": "Maylene"
+  },
+  "identity": "Gym Leader Maylene",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "hitmontop",
+      "gender": "FEMALE",
+      "level": 64,
+      "nature": "adamant",
+      "ability": "intimidate",
+      "moveset": [
+        "closecombat",
+        "stoneedge",
+        "suckerpunch",
+        "brickbreak"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "breloom",
+      "gender": "FEMALE",
+      "level": 66,
+      "nature": "adamant",
+      "ability": "technician",
+      "moveset": [
+        "bulletseed",
+        "machpunch",
+        "rocktomb",
+        "forcepalm"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "heracross",
+      "gender": "MALE",
+      "level": 68,
+      "nature": "jolly",
+      "ability": "guts",
+      "moveset": [
+        "megahorn",
+        "closecombat",
+        "facade",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "flame_orb"
+      ]
+    },
+    {
+      "species": "infernape",
+      "gender": "FEMALE",
+      "level": 70,
+      "nature": "lonely",
+      "ability": "blaze",
+      "moveset": [
+        "flareblitz",
+        "closecombat",
+        "acrobatics",
+        "overheat"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "spa": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "white_herb"
+      ]
+    },
+    {
+      "species": "medicham",
+      "gender": "FEMALE",
+      "level": 72,
+      "nature": "adamant",
+      "ability": "purepower",
+      "moveset": [
+        "highjumpkick",
+        "zenheadbutt",
+        "firepunch",
+        "thunderpunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "choice_band"
+      ]
+    },
+    {
+      "species": "lucario",
+      "gender": "MALE",
+      "level": 74,
+      "nature": "modest",
+      "ability": "justified",
+      "moveset": [
+        "aurasphere",
+        "flashcannon",
+        "waterpulse",
+        "vacuumwave"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    }
+  ]
+}

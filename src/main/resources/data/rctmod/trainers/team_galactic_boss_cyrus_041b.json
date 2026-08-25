@@ -1,0 +1,131 @@
+{
+  "name": {
+    "literal": "Team Galactic Boss Cyrus"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "honchkrow",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "jolly",
+      "ability": "superluck",
+      "moveset": [
+        "aircutter",
+        "nightslash",
+        "steelwing",
+        "defog"
+      ],
+      "ivs": {
+        "hp": 15,
+        "def": 15,
+        "spd": 15
+      },
+      "evs": {
+        "hp": 68,
+        "def": 68,
+        "spd": 68
+      },
+      "heldItem": [
+        "scope_lens"
+      ]
+    },
+    {
+      "species": "crobat",
+      "gender": "FEMALE",
+      "level": 46,
+      "nature": "jolly",
+      "ability": "infiltrator",
+      "moveset": [
+        "crosspoison",
+        "tailwind",
+        "aircutter",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 15,
+        "def": 15,
+        "spd": 15
+      },
+      "evs": {
+        "hp": 68,
+        "def": 68,
+        "spd": 68
+      },
+      "heldItem": [
+        "quick_claw"
+      ]
+    },
+    {
+      "species": "gyarados",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "icefang",
+        "waterfall",
+        "crunch",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 15,
+        "def": 15,
+        "spd": 15
+      },
+      "evs": {
+        "hp": 68,
+        "def": 68,
+        "spd": 68
+      },
+      "heldItem": [
+        "wacan_berry"
+      ]
+    },
+    {
+      "species": "weavile",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "jolly",
+      "ability": "pickpocket",
+      "moveset": [
+        "metalclaw",
+        "fling",
+        "dig",
+        "aerialace"
+      ],
+      "ivs": {
+        "hp": 15,
+        "def": 15,
+        "spd": 15
+      },
+      "evs": {
+        "hp": 68,
+        "def": 68,
+        "spd": 68
+      },
+      "heldItem": [
+        "chople_berry"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "name": {
+    "literal": "Commander Jupiter"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:super_potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "zubat",
+      "gender": "MALE",
+      "level": 18,
+      "nature": "modest",
+      "ability": "innerfocus",
+      "moveset": [
+        "absorb",
+        "supersonic",
+        "meanlook",
+        "poisonfang"
+      ],
+      "ivs": {
+        "hp": 15,
+        "def": 15,
+        "spd": 15
+      },
+      "evs": {
+        "hp": 68,
+        "def": 68,
+        "spd": 68
+      }
+    },
+    {
+      "species": "skuntank",
+      "gender": "MALE",
+      "level": 20,
+      "nature": "modest",
+      "ability": "aftermath",
+      "moveset": [
+        "flamethrower",
+        "poisongas",
+        "acidspray",
+        "snarl"
+      ],
+      "ivs": {
+        "hp": 15,
+        "def": 15,
+        "spd": 15
+      },
+      "evs": {
+        "hp": 68,
+        "def": 68,
+        "spd": 68
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

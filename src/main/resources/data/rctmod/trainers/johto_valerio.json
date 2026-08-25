@@ -1,0 +1,228 @@
+{
+  "name": {
+    "literal": "Falkner"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.86,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 1
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "hurricane",
+        "tailwind",
+        "weatherball",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 76,
+        "def": 24,
+        "hp": 156
+      },
+      "heldItem": [
+        "covert_cloak"
+      ],
+      "gimmicks": {
+        "tera": "water"
+      },
+      "species": "pelipper",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "timid",
+      "ability": "drizzle"
+    },
+    {
+      "moveset": [
+        "psychic",
+        "airslash",
+        "freezingglare",
+        "hurricane"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "choice_specs"
+      ],
+      "aspects": [
+        "galarian"
+      ],
+      "gimmicks": {
+        "tera": "psychic"
+      },
+      "species": "articuno",
+      "gender": "GENDERLESS",
+      "level": 36,
+      "nature": "timid",
+      "ability": "competitive",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "substitute",
+        "earthquake",
+        "spikes",
+        "swordsdance"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 8,
+        "spd": 68,
+        "def": 84,
+        "atk": 252,
+        "hp": 96
+      },
+      "heldItem": [
+        "black_sludge"
+      ],
+      "gimmicks": {
+        "tera": "ground"
+      },
+      "species": "gliscor",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "jolly",
+      "ability": "poisonheal"
+    },
+    {
+      "moveset": [
+        "xscissor",
+        "swordsdance",
+        "headbutt",
+        "knockoff"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 16,
+        "spd": 56,
+        "def": 72,
+        "atk": 156,
+        "hp": 208
+      },
+      "heldItem": [
+        "mega_showdown:pinsirite"
+      ],
+      "gimmicks": {
+        "tera": "bug"
+      },
+      "species": "pinsir",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "jolly",
+      "ability": "aerilate"
+    },
+    {
+      "moveset": [
+        "bravebird",
+        "bodypress",
+        "uturn",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 20,
+        "spd": 68,
+        "def": 164,
+        "atk": 60,
+        "hp": 196
+      },
+      "heldItem": [
+        "mirror_herb"
+      ],
+      "gimmicks": {
+        "tera": "flying"
+      },
+      "species": "corviknight",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "impish",
+      "ability": "mirrorarmor"
+    },
+    {
+      "moveset": [
+        "faketears",
+        "moonblast",
+        "quiverdance",
+        "lightscreen"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "gimmicks": {
+        "tera": "bug"
+      },
+      "species": "ribombee",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "modest",
+      "ability": "shielddust"
+    }
+  ],
+  "identity": "Valerio",
+  "battleFormat": "GEN_9_DOUBLES"
+}

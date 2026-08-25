@@ -1,0 +1,230 @@
+{
+  "name": {
+    "literal": "Misty"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "tailwind",
+        "hurricane",
+        "weatherball",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spa": 8,
+        "def": 252,
+        "hp": 248
+      },
+      "heldItem": [
+        "damp_rock"
+      ],
+      "gimmicks": {
+        "tera": "water"
+      },
+      "species": "pelipper",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "bold",
+      "ability": "drizzle"
+    },
+    {
+      "moveset": [
+        "surgingstrikes",
+        "closecombat",
+        "detect",
+        "uturn"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 92,
+        "def": 4,
+        "atk": 156,
+        "hp": 4
+      },
+      "heldItem": [
+        "mystic_water"
+      ],
+      "aspects": [
+        "rapid-strike"
+      ],
+      "gimmicks": {
+        "tera": "water"
+      },
+      "species": "urshifu",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "adamant",
+      "ability": "unseenfist"
+    },
+    {
+      "moveset": [
+        "hypervoice",
+        "moonblast",
+        "haze",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 196,
+        "spd": 4,
+        "spa": 252,
+        "def": 4,
+        "hp": 52
+      },
+      "heldItem": [
+        "throat_spray"
+      ],
+      "gimmicks": {
+        "tera": "water"
+      },
+      "species": "primarina",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "modest",
+      "ability": "liquidvoice"
+    },
+    {
+      "moveset": [
+        "crabhammer",
+        "knockoff",
+        "metalclaw",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 236,
+        "spd": 48,
+        "def": 24,
+        "atk": 52,
+        "hp": 148
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "gimmicks": {
+        "tera": "water"
+      },
+      "species": "kingler",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "adamant",
+      "ability": "sheerforce"
+    },
+    {
+      "moveset": [
+        "dragondance",
+        "waterfall",
+        "crunch",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 28,
+        "spd": 64,
+        "def": 96,
+        "atk": 164,
+        "hp": 156
+      },
+      "heldItem": [
+        "mega_showdown:gyaradosite"
+      ],
+      "gimmicks": {
+        "tera": "water"
+      },
+      "species": "gyarados",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "adamant",
+      "ability": "moldbreaker",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "lastrespects",
+        "wavecrash",
+        "flipturn",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 124,
+        "spd": 40,
+        "def": 64,
+        "atk": 164,
+        "hp": 116
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "gimmicks": {
+        "tera": "water"
+      },
+      "species": "basculegion",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "adamant",
+      "ability": "swiftswim"
+    }
+  ],
+  "battleFormat": "GEN_9_DOUBLES"
+}

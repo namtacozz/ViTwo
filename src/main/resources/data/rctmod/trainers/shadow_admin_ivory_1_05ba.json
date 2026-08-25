@@ -1,0 +1,106 @@
+{
+  "name": {
+    "literal": "Shadow Admin Ivory"
+  },
+  "identity": "Shadow Admin Ivory",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "misdreavus",
+      "gender": "MALE",
+      "level": 33,
+      "nature": "bold",
+      "ability": "levitate",
+      "moveset": [
+        "hex",
+        "willowisp",
+        "meanlook",
+        "confuseray"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spd": 4
+      }
+    },
+    {
+      "species": "kadabra",
+      "gender": "MALE",
+      "level": 32,
+      "nature": "timid",
+      "ability": "synchronize",
+      "moveset": [
+        "psybeam",
+        "knockoff",
+        "thunderwave",
+        "reflect"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "spa": 4,
+        "spe": 252
+      }
+    },
+    {
+      "species": "persian",
+      "gender": "MALE",
+      "level": 34,
+      "nature": "adamant",
+      "ability": "furcoat",
+      "moveset": [
+        "punishment",
+        "aerialace",
+        "hypnosis",
+        "swagger"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "def": 252
+      },
+      "heldItem": [
+        "wide_lens"
+      ],
+      "aspects": [
+        "alolan"
+      ]
+    }
+  ]
+}

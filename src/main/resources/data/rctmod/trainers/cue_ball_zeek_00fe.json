@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Cue Ball Zeek"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "hitmonchan",
+      "gender": "MALE",
+      "level": 56,
+      "nature": "careful",
+      "ability": "frisk",
+      "moveset": [
+        "skyuppercut",
+        "megapunch",
+        "suckerpunch",
+        "focuspunch"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "primeape",
+      "gender": "MALE",
+      "level": 56,
+      "nature": "jolly",
+      "ability": "angerpoint",
+      "moveset": [
+        "closecombat",
+        "earthquake",
+        "uturn",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

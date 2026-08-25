@@ -1,0 +1,203 @@
+{
+  "name": {
+    "literal": "Rocket Admins Archer & Ariana"
+  },
+  "identity": "Rocket Admin Archer",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "incineroar",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "adamant",
+      "ability": "intimidate",
+      "moveset": [
+        "fakeout",
+        "partingshot",
+        "darkestlariat",
+        "firepunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "gothitelle",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "modest",
+      "ability": "competitive",
+      "moveset": [
+        "psychic",
+        "shadowball",
+        "hiddenpower",
+        "thunderwave"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 30,
+        "spa": 30,
+        "spd": 30,
+        "spe": 30
+      },
+      "evs": {
+        "hp": 252,
+        "spa": 252,
+        "spe": 4
+      },
+      "heldItem": [
+        "colbur_berry"
+      ]
+    },
+    {
+      "species": "primarina",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "modest",
+      "ability": "liquidvoice",
+      "moveset": [
+        "hypervoice",
+        "scald",
+        "psychic",
+        "dazzlinggleam"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "throat_spray"
+      ]
+    },
+    {
+      "species": "aegislash",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "adamant",
+      "ability": "stancechange",
+      "moveset": [
+        "ironhead",
+        "shadowclaw",
+        "shadowsneak",
+        "kingsshield"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "mawile",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "adamant",
+      "ability": "intimidate",
+      "moveset": [
+        "playrough",
+        "suckerpunch",
+        "ironhead",
+        "thunderpunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "mega_showdown:mawilite",
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "houndoom",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "timid",
+      "ability": "unnerve",
+      "moveset": [
+        "heatwave",
+        "darkpulse",
+        "scorchingsands",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    }
+  ]
+}

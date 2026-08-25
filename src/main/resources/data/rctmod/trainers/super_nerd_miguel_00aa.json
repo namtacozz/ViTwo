@@ -1,0 +1,120 @@
+{
+  "name": {
+    "literal": "Super Nerd Miguel"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "thwackey",
+      "gender": "FEMALE",
+      "level": 90,
+      "nature": "bashful",
+      "ability": "grassysurge",
+      "moveset": [
+        "fakeout",
+        "razorleaf",
+        "knockoff",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "heldItem": [
+        "eviolite"
+      ]
+    },
+    {
+      "species": "voltorb",
+      "gender": "GENDERLESS",
+      "level": 88,
+      "nature": "naive",
+      "ability": "reckless",
+      "moveset": [
+        "magicalleaf",
+        "selfdestruct",
+        "voltswitch",
+        "hiddenpower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 30,
+        "def": 30,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "aspects": [
+        "hisuian"
+      ]
+    },
+    {
+      "species": "bibarel",
+      "gender": "FEMALE",
+      "level": 89,
+      "nature": "careful",
+      "ability": "simple",
+      "moveset": [
+        "headbutt",
+        "aquajet",
+        "curse",
+        "rocksmash"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "heldItem": [
+        "grassy_seed"
+      ]
+    },
+    {
+      "species": "sableye",
+      "gender": "MALE",
+      "level": 90,
+      "nature": "careful",
+      "ability": "prankster",
+      "moveset": [
+        "willowisp",
+        "recover",
+        "protect",
+        "foulplay"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "name": {
+    "literal": "Tate&Liza"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 5
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 5
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "trickroom",
+        "moongeistbeam",
+        "dazzlinggleam",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 36,
+        "spa": 136,
+        "def": 84,
+        "hp": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "gimmicks": {
+        "tera": "psychic"
+      },
+      "species": "lunala",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "modest",
+      "ability": "shadowshield"
+    },
+    {
+      "moveset": [
+        "followme",
+        "trickroom",
+        "helpinghand",
+        "psychic"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 100,
+        "spa": 4,
+        "def": 152,
+        "hp": 252
+      },
+      "heldItem": [
+        "mental_herb"
+      ],
+      "species": "indeedee",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "sassy",
+      "ability": "psychicsurge"
+    },
+    {
+      "moveset": [
+        "expandingforce",
+        "armorcannon",
+        "willowisp",
+        "aurasphere"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 72,
+        "spa": 252,
+        "def": 28,
+        "hp": 156
+      },
+      "heldItem": [
+        "white_herb"
+      ],
+      "species": "armarouge",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "modest",
+      "ability": "flashfire",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "psychic",
+        "moonblast",
+        "protect",
+        "psychicnoise"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 44,
+        "spa": 208,
+        "def": 76,
+        "hp": 180
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "species": "hatterene",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "modest",
+      "ability": "magic"
+    },
+    {
+      "moveset": [
+        "zenheadbutt",
+        "earthquake",
+        "bulletpunch",
+        "meteormash"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 144,
+        "def": 56,
+        "atk": 252,
+        "hp": 56
+      },
+      "heldItem": [
+        "mega_showdown:metagrossite"
+      ],
+      "species": "metagross",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "adamant",
+      "ability": "toughclaws"
+    },
+    {
+      "moveset": [
+        "swordsdance",
+        "nightslash",
+        "sacredsword",
+        "psychocut"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "atk": 252,
+        "hp": 4
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "species": "gallade",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "sharpness"
+    }
+  ],
+  "identity": "Tell",
+  "battleFormat": "GEN_9_DOUBLES"
+}

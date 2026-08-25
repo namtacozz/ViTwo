@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Pokémaniac Herman"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "marowak",
+      "gender": "FEMALE",
+      "level": 29,
+      "nature": "serious",
+      "ability": "rockhead",
+      "moveset": [
+        "focusenergy",
+        "bonemerang",
+        "rage",
+        "falseswipe"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "slowbro",
+      "gender": "FEMALE",
+      "level": 29,
+      "nature": "naive",
+      "ability": "oblivious",
+      "moveset": [
+        "disable",
+        "headbutt",
+        "icywind",
+        "psybeam"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

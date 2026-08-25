@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Gentleman Lamar"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "ponyta",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "gentle",
+      "ability": "flashfire",
+      "moveset": [
+        "lowkick",
+        "willowisp",
+        "flamecharge",
+        "firespin"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "herdier",
+      "gender": "MALE",
+      "level": 26,
+      "nature": "calm",
+      "ability": "sandrush",
+      "moveset": [
+        "takedown",
+        "workup",
+        "retaliate",
+        "crunch"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

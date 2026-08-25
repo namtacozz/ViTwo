@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "Rocker Randall"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "voltorb",
+      "gender": "GENDERLESS",
+      "level": 20,
+      "nature": "rash",
+      "ability": "static",
+      "moveset": [
+        "rollout",
+        "screech",
+        "chargebeam",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "magnemite",
+      "gender": "GENDERLESS",
+      "level": 20,
+      "nature": "adamant",
+      "ability": "sturdy",
+      "moveset": [
+        "magnetbomb",
+        "lightscreen",
+        "sonicboom",
+        "spark"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "voltorb",
+      "gender": "GENDERLESS",
+      "level": 20,
+      "nature": "hasty",
+      "ability": "static",
+      "moveset": [
+        "rollout",
+        "screech",
+        "chargebeam",
+        "swift"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

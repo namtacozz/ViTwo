@@ -1,0 +1,80 @@
+{
+  "name": {
+    "literal": "Bug Catcher Robby"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "caterpie",
+      "gender": "MALE",
+      "level": 12,
+      "nature": "impish",
+      "ability": "shielddust",
+      "moveset": [
+        "tackle",
+        "stringshot",
+        "bugbite"
+      ],
+      "ivs": {
+        "hp": 1,
+        "atk": 1,
+        "def": 1,
+        "spa": 1,
+        "spd": 1,
+        "spe": 1
+      }
+    },
+    {
+      "species": "karrablast",
+      "gender": "MALE",
+      "level": 12,
+      "nature": "mild",
+      "ability": "shedskin",
+      "moveset": [
+        "peck",
+        "leer",
+        "endure"
+      ],
+      "ivs": {
+        "hp": 1,
+        "atk": 1,
+        "def": 1,
+        "spa": 1,
+        "spd": 1,
+        "spe": 1
+      }
+    },
+    {
+      "species": "butterfree",
+      "gender": "FEMALE",
+      "level": 10,
+      "nature": "quiet",
+      "ability": "compoundeyes",
+      "moveset": [
+        "gust",
+        "confusion"
+      ],
+      "ivs": {
+        "hp": 1,
+        "atk": 1,
+        "def": 1,
+        "spa": 1,
+        "spd": 1,
+        "spe": 1
+      }
+    }
+  ]
+}

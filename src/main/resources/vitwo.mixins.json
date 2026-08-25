@@ -4,13 +4,15 @@
   "package": "com.vitwo.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "BattleItemUseMixin"
+    "BattleItemUseMixin",
+    "BattleRegistryMixin",
+    "LeavesDecayMixin"
   ],
   "client": [
     "PlayerInteractionMenuMixin",
     "ClientScreenMixin"
   ],
   "injectors": {
-    "defaultRequire": 1
+    "defaultRequire": 0
   }
 }

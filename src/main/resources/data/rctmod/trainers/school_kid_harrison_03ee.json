@@ -1,0 +1,44 @@
+{
+  "name": {
+    "literal": "School Kid Harrison"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "abra",
+      "gender": "MALE",
+      "level": 6,
+      "nature": "hasty",
+      "ability": "synchronize",
+      "moveset": [
+        "chargebeam"
+      ]
+    },
+    {
+      "species": "pichu",
+      "gender": "FEMALE",
+      "level": 6,
+      "nature": "timid",
+      "ability": "static",
+      "moveset": [
+        "thunders",
+        "charm",
+        "sweetkiss",
+        "nastyplot"
+      ]
+    }
+  ]
+}

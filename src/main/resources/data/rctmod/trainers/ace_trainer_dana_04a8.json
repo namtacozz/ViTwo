@@ -1,0 +1,53 @@
+{
+  "name": {
+    "literal": "Ace Trainer Dana"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "mightyena",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "relaxed",
+      "ability": "intimidate",
+      "moveset": [
+        "crunch",
+        "suckerpunch",
+        "thunderfang",
+        "scaryface"
+      ]
+    },
+    {
+      "species": "kirlia",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "sassy",
+      "ability": "synchronize",
+      "moveset": [
+        "hypnosis",
+        "psychic",
+        "calmmind",
+        "dreameater"
+      ]
+    }
+  ]
+}

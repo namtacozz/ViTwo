@@ -1,0 +1,69 @@
+{
+  "name": {
+    "literal": "Lass Ann"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "dewott",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "bashful",
+      "ability": "battlearmor",
+      "moveset": [
+        "waterpledge",
+        "flashcannon",
+        "icebeam",
+        "hiddenpower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 30,
+        "def": 31,
+        "spa": 30,
+        "spd": 31,
+        "spe": 31
+      },
+      "heldItem": [
+        "eviolite"
+      ]
+    },
+    {
+      "species": "simisear",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "naive",
+      "ability": "gluttony",
+      "moveset": [
+        "firepledge",
+        "lowkick",
+        "grassknot",
+        "hiddenpower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 30,
+        "def": 30,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "heldItem": [
+        "charcoal_stick"
+      ]
+    }
+  ]
+}

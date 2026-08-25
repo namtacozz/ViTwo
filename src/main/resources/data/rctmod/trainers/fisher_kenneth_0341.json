@@ -1,0 +1,58 @@
+{
+  "name": {
+    "literal": "Fisher Kenneth"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "magikarp",
+      "gender": "MALE",
+      "level": 19,
+      "nature": "relaxed",
+      "ability": "swiftswim",
+      "moveset": [
+        "splash",
+        "tackle"
+      ]
+    },
+    {
+      "species": "remoraid",
+      "gender": "MALE",
+      "level": 19,
+      "nature": "hardy",
+      "ability": "hustle",
+      "moveset": [
+        "waterpulse",
+        "focusenergy",
+        "psybeam",
+        "aurorabeam"
+      ]
+    },
+    {
+      "species": "gyarados",
+      "gender": "MALE",
+      "level": 22,
+      "nature": "sassy",
+      "ability": "intimidate",
+      "moveset": [
+        "leer",
+        "twister",
+        "icefang",
+        "waterfall"
+      ]
+    }
+  ]
+}

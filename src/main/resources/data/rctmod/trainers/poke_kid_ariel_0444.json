@@ -1,0 +1,47 @@
+{
+  "name": {
+    "literal": "Poké Kid Ariel"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "pikachu",
+      "gender": "MALE",
+      "level": 15,
+      "nature": "jolly",
+      "ability": "static",
+      "moveset": [
+        "nuzzle",
+        "charm",
+        "thundershock",
+        "quickattack"
+      ]
+    },
+    {
+      "species": "pikachu",
+      "gender": "FEMALE",
+      "level": 15,
+      "nature": "timid",
+      "ability": "static",
+      "moveset": [
+        "nastyplot",
+        "thundershock",
+        "doubleteam",
+        "electroball"
+      ]
+    }
+  ]
+}

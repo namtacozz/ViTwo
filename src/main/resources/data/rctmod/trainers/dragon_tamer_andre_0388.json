@@ -1,0 +1,53 @@
+{
+  "name": {
+    "literal": "Dragon Tamer Andre"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "gabite",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "relaxed",
+      "ability": "sandveil",
+      "moveset": [
+        "sandtomb",
+        "sandattack",
+        "bite",
+        "dragonclaw"
+      ]
+    },
+    {
+      "species": "altaria",
+      "gender": "MALE",
+      "level": 49,
+      "nature": "modest",
+      "ability": "naturalcure",
+      "moveset": [
+        "dragonpulse",
+        "sing",
+        "moonblast",
+        "roost"
+      ]
+    }
+  ]
+}

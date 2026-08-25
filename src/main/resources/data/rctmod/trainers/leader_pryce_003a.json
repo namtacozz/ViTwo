@@ -1,0 +1,208 @@
+{
+  "name": {
+    "literal": "Pryce"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "ninetales",
+      "gender": "MALE",
+      "level": 62,
+      "nature": "timid",
+      "ability": "snowwarning",
+      "moveset": [
+        "auroraveil",
+        "freezedry",
+        "blizzard",
+        "moonblast"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "icy_rock"
+      ],
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "arctozolt",
+      "gender": "GENDERLESS",
+      "level": 62,
+      "nature": "jolly",
+      "ability": "slushrush",
+      "moveset": [
+        "boltbeak",
+        "iciclecrash",
+        "stompingtantrum",
+        "rockslide"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "choice_band"
+      ]
+    },
+    {
+      "species": "frosmoth",
+      "gender": "FEMALE",
+      "level": 62,
+      "nature": "modest",
+      "ability": "icescales",
+      "moveset": [
+        "quiverdance",
+        "icebeam",
+        "bugbuzz",
+        "gigadrain"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "sandslash",
+      "gender": "MALE",
+      "level": 62,
+      "nature": "adamant",
+      "ability": "icescales",
+      "moveset": [
+        "earthquake",
+        "iciclecrash",
+        "ironhead",
+        "iceshard"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "assault_vest"
+      ],
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "beartic",
+      "gender": "MALE",
+      "level": 62,
+      "nature": "jolly",
+      "ability": "slushrush",
+      "moveset": [
+        "playrough",
+        "tripleaxel",
+        "superpower",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "glalie",
+      "gender": "FEMALE",
+      "level": 62,
+      "nature": "jolly",
+      "ability": "icebody",
+      "moveset": [
+        "doubleedge",
+        "earthquake",
+        "crunch",
+        "iceshard"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:glalitite",
+        "leftovers"
+      ]
+    }
+  ]
+}

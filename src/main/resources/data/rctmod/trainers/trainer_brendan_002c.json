@@ -1,0 +1,68 @@
+{
+  "name": {
+    "literal": "Trainer Brendan"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "corphish",
+      "gender": "FEMALE",
+      "level": 7,
+      "nature": "rash",
+      "ability": "battlearmor",
+      "moveset": [
+        "bubble",
+        "harden",
+        "visegrip",
+        "leer"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "treecko",
+      "gender": "FEMALE",
+      "level": 8,
+      "nature": "hardy",
+      "ability": "overgrow",
+      "moveset": [
+        "pound",
+        "leer",
+        "absorb"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

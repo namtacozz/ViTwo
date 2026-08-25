@@ -1,0 +1,150 @@
+{
+  "name": {
+    "literal": "Pokémon Trainer Cedric"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:super_potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "starly",
+      "gender": "MALE",
+      "level": 26,
+      "nature": "jolly",
+      "ability": "keeneye",
+      "moveset": [
+        "quickattack",
+        "doubleteam",
+        "endeavor",
+        "pluck"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      },
+      "evs": {
+        "hp": 28,
+        "atk": 52,
+        "def": 12,
+        "spd": 12,
+        "spe": 52
+      },
+      "heldItem": [
+        "quick_claw"
+      ]
+    },
+    {
+      "species": "buizel",
+      "gender": "FEMALE",
+      "level": 26,
+      "nature": "jolly",
+      "ability": "swiftswim",
+      "moveset": [
+        "tailwhip",
+        "bite",
+        "swift",
+        "aquajet"
+      ],
+      "ivs": {
+        "hp": 6,
+        "atk": 6,
+        "def": 6,
+        "spa": 6,
+        "spd": 6,
+        "spe": 6
+      },
+      "evs": {
+        "atk": 44,
+        "def": 12,
+        "spd": 12,
+        "spe": 36
+      },
+      "heldItem": [
+        "mystic_water"
+      ]
+    },
+    {
+      "species": "roselia",
+      "gender": "FEMALE",
+      "level": 27,
+      "nature": "timid",
+      "ability": "poisonpoint",
+      "moveset": [
+        "poisonsting",
+        "megadrain",
+        "sweetscent",
+        "grassknot"
+      ],
+      "ivs": {
+        "hp": 7,
+        "atk": 7,
+        "def": 7,
+        "spa": 7,
+        "spd": 7,
+        "spe": 7
+      },
+      "evs": {
+        "hp": 4,
+        "def": 12,
+        "spa": 44,
+        "spd": 12,
+        "spe": 12
+      },
+      "heldItem": [
+        "miracle_seed"
+      ]
+    },
+    {
+      "species": "monferno",
+      "gender": "MALE",
+      "level": 31,
+      "nature": "jolly",
+      "ability": "blaze",
+      "moveset": [
+        "machpunch",
+        "leer",
+        "poweruppunch",
+        "flamewheel"
+      ],
+      "ivs": {
+        "hp": 11,
+        "atk": 11,
+        "def": 11,
+        "spa": 11,
+        "spd": 11,
+        "spe": 11
+      },
+      "evs": {
+        "hp": 36,
+        "atk": 52,
+        "def": 12,
+        "spd": 12,
+        "spe": 52
+      },
+      "heldItem": [
+        "shell_bell"
+      ]
+    }
+  ]
+}

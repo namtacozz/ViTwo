@@ -1,0 +1,105 @@
+{
+  "name": {
+    "literal": "Tamer John"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "rhyhorn",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "jolly",
+      "ability": "lightningrod",
+      "moveset": [
+        "rockblast",
+        "drillrun",
+        "takedown",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 20,
+        "atk": 20,
+        "def": 20,
+        "spa": 20,
+        "spd": 20,
+        "spe": 20
+      }
+    },
+    {
+      "species": "primeape",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "calm",
+      "ability": "vitalspirit",
+      "moveset": [
+        "assurance",
+        "punishment",
+        "thrash",
+        "screech"
+      ],
+      "ivs": {
+        "hp": 20,
+        "atk": 20,
+        "def": 20,
+        "spa": 20,
+        "spd": 20,
+        "spe": 20
+      }
+    },
+    {
+      "species": "arbok",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "naughty",
+      "ability": "intimidate",
+      "moveset": [
+        "swallow",
+        "spitup",
+        "poisonfang",
+        "coil"
+      ],
+      "ivs": {
+        "hp": 20,
+        "atk": 20,
+        "def": 20,
+        "spa": 20,
+        "spd": 20,
+        "spe": 20
+      }
+    },
+    {
+      "species": "tauros",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "quirky",
+      "ability": "intimidate",
+      "moveset": [
+        "payback",
+        "workup",
+        "takedown",
+        "zenheadbutt"
+      ],
+      "ivs": {
+        "hp": 20,
+        "atk": 20,
+        "def": 20,
+        "spa": 20,
+        "spd": 20,
+        "spe": 20
+      }
+    }
+  ]
+}

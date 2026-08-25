@@ -1,0 +1,105 @@
+{
+  "name": {
+    "literal": "Bug Catcher Jonah"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "yanma",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "calm",
+      "ability": "compoundeyes",
+      "moveset": [
+        "pursuit",
+        "ancientpower",
+        "hypnosis",
+        "wingattack"
+      ],
+      "ivs": {
+        "hp": 1,
+        "atk": 1,
+        "def": 1,
+        "spa": 1,
+        "spd": 1,
+        "spe": 1
+      }
+    },
+    {
+      "species": "beedrill",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "lax",
+      "ability": "swarm",
+      "moveset": [
+        "poisonjab",
+        "agility",
+        "endeavor",
+        "fellstinger"
+      ],
+      "ivs": {
+        "hp": 1,
+        "atk": 1,
+        "def": 1,
+        "spa": 1,
+        "spd": 1,
+        "spe": 1
+      }
+    },
+    {
+      "species": "yanma",
+      "gender": "FEMALE",
+      "level": 46,
+      "nature": "calm",
+      "ability": "compoundeyes",
+      "moveset": [
+        "ancientpower",
+        "hypnosis",
+        "wingattack",
+        "screech"
+      ],
+      "ivs": {
+        "hp": 1,
+        "atk": 1,
+        "def": 1,
+        "spa": 1,
+        "spd": 1,
+        "spe": 1
+      }
+    },
+    {
+      "species": "beedrill",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "bashful",
+      "ability": "swarm",
+      "moveset": [
+        "poisonjab",
+        "agility",
+        "endeavor",
+        "fellstinger"
+      ],
+      "ivs": {
+        "hp": 1,
+        "atk": 1,
+        "def": 1,
+        "spa": 1,
+        "spd": 1,
+        "spe": 1
+      }
+    }
+  ]
+}

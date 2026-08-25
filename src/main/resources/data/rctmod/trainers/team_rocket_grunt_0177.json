@@ -1,0 +1,85 @@
+{
+  "name": {
+    "literal": "Team Rocket Grunt"
+  },
+  "identity": "Team Rocket Grunt (29)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "cacturne",
+      "gender": "MALE",
+      "level": 46,
+      "nature": "naive",
+      "ability": "waterabsorb",
+      "moveset": [
+        "spikes",
+        "suckerpunch",
+        "pinmissile",
+        "needlearm"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "hypno",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "calm",
+      "ability": "forewarn",
+      "moveset": [
+        "psychup",
+        "synchronoise",
+        "psychic",
+        "swagger"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "bisharp",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "docile",
+      "ability": "innerfocus",
+      "moveset": [
+        "slash",
+        "assurance",
+        "metalsound",
+        "embargo"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

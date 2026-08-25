@@ -1,0 +1,47 @@
+{
+  "name": {
+    "literal": "Cyclist John"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "staravia",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "growl",
+        "doubleteam",
+        "aerialace",
+        "takedown"
+      ]
+    },
+    {
+      "species": "staravia",
+      "gender": "MALE",
+      "level": 39,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "quickattack",
+        "doubleteam",
+        "aerialace",
+        "takedown"
+      ]
+    }
+  ]
+}

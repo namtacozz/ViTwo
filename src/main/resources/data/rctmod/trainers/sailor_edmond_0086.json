@@ -1,0 +1,90 @@
+{
+  "name": {
+    "literal": "Sailor Edmond"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "lileep",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "modest",
+      "ability": "stormdrain",
+      "moveset": [
+        "ancientpower",
+        "gigadrain",
+        "earthpower",
+        "hiddenpower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 30,
+        "def": 31,
+        "spa": 30,
+        "spd": 31,
+        "spe": 30
+      },
+      "heldItem": [
+        "eviolite"
+      ]
+    },
+    {
+      "species": "lumineon",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "timid",
+      "ability": "stormdrain",
+      "moveset": [
+        "scald",
+        "icebeam",
+        "hiddenpower",
+        "flipturn"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 30,
+        "def": 31,
+        "spa": 30,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    {
+      "species": "gastrodon",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "modest",
+      "ability": "stormdrain",
+      "moveset": [
+        "scald",
+        "earthpower",
+        "protect",
+        "sludgebomb"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "heldItem": [
+        "rindo_berry"
+      ]
+    }
+  ]
+}

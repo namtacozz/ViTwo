@@ -1,0 +1,114 @@
+{
+  "name": {
+    "literal": "Ash"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "charizard",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "brave",
+      "ability": "blaze",
+      "moveset": [
+        "flamethrower",
+        "rocktomb",
+        "firepunch",
+        "dragonclaw"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spa": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "pikachu",
+      "gender": "MALE",
+      "level": 40,
+      "nature": "timid",
+      "ability": "static",
+      "moveset": [
+        "volttackle",
+        "thunderbolt",
+        "irontail",
+        "quickattack"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "light_ball"
+      ]
+    },
+    {
+      "species": "venusaur",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "calm",
+      "ability": "chlorophyll",
+      "moveset": [
+        "venoshock",
+        "razorleaf",
+        "magicalleaf",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spa": 252
+      },
+      "heldItem": [
+        "shell_bell"
+      ]
+    }
+  ]
+}

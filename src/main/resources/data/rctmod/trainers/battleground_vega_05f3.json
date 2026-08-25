@@ -1,0 +1,198 @@
+{
+  "name": {
+    "literal": "Battleground Vega"
+  },
+  "identity": "Ruin Agent Vega",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "weavile",
+      "gender": "FEMALE",
+      "level": 82,
+      "nature": "jolly",
+      "ability": "pickpocket",
+      "moveset": [
+        "knockoff",
+        "tripleaxel",
+        "iceshard",
+        "poisonjab"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "hydreigon",
+      "gender": "MALE",
+      "level": 84,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "darkpulse",
+        "earthpower",
+        "flamethrower",
+        "nastyplot"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "spiritomb",
+      "gender": "FEMALE",
+      "level": 83,
+      "nature": "bold",
+      "ability": "pressure",
+      "moveset": [
+        "snarl",
+        "calmmind",
+        "willowisp",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spd": 4
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "greninja",
+      "gender": "MALE",
+      "level": 83,
+      "nature": "timid",
+      "ability": "battlebond",
+      "moveset": [
+        "watershuriken",
+        "surf",
+        "darkpulse",
+        "icebeam"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:waterium-z",
+        "water_gem"
+      ]
+    },
+    {
+      "species": "absol",
+      "gender": "MALE",
+      "level": 84,
+      "nature": "jolly",
+      "ability": "magicbounce",
+      "moveset": [
+        "knockoff",
+        "closecombat",
+        "playrough",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:absolite",
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "pyukumuku",
+      "gender": "FEMALE",
+      "level": 81,
+      "nature": "calm",
+      "ability": "unaware",
+      "moveset": [
+        "counter",
+        "mirrorcoat",
+        "toxic",
+        "recover"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spd": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    }
+  ]
+}

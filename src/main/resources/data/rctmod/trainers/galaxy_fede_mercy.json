@@ -1,0 +1,70 @@
+{
+  "name": {
+    "literal": "Fede_Mercy"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "trevenant",
+      "gender": "MALE",
+      "level": 60,
+      "nature": "gentle",
+      "ability": "naturalcure",
+      "moveset": [
+        "ingrain",
+        "destinybond",
+        "woodhammer",
+        "forestscurse"
+      ],
+      "ivs": {
+        "hp": 30,
+        "atk": 30,
+        "def": 30,
+        "spa": 30,
+        "spd": 30,
+        "spe": 30
+      },
+      "heldItem": [
+        "miracle_seed"
+      ],
+      "shiny": "true"
+    },
+    {
+      "species": "chandelure",
+      "gender": "MALE",
+      "level": 60,
+      "nature": "modest",
+      "ability": "flashfire",
+      "moveset": [
+        "shadowball",
+        "flamethrower",
+        "energyball",
+        "calmmind"
+      ],
+      "ivs": {
+        "hp": 30,
+        "atk": 30,
+        "def": 30,
+        "spa": 30,
+        "spd": 30,
+        "spe": 30
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    }
+  ]
+}

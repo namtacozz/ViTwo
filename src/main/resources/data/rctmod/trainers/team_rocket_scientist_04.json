@@ -1,0 +1,114 @@
+{
+  "name": {
+    "literal": "Team Rocket Scientist"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 1
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "aerodactyl",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "calm",
+      "ability": "rockhead",
+      "moveset": [
+        "ironhead",
+        "ancientpower",
+        "wingattack",
+        "rockslide"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "porygonz",
+      "gender": "GENDERLESS",
+      "level": 53,
+      "nature": "quiet",
+      "ability": "download",
+      "moveset": [
+        "psybeam",
+        "thundershock",
+        "triattack",
+        "discharge"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "omastar",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "calm",
+      "ability": "shellarmor",
+      "moveset": [
+        "crunch",
+        "ancientpower",
+        "watergun",
+        "mudshot"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "rotom",
+      "gender": "GENDERLESS",
+      "level": 45,
+      "nature": "relaxed",
+      "ability": "levitate",
+      "moveset": [
+        "hydropump",
+        "electroball",
+        "shockwave",
+        "astonish"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      },
+      "aspects": [
+        "wash-appliance"
+      ]
+    }
+  ]
+}

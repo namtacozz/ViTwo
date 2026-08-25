@@ -1,0 +1,223 @@
+{
+  "name": {
+    "literal": "Erika"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 3
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 3
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "eruption",
+        "lavaplume",
+        "bodypress",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 40,
+        "spa": 136,
+        "def": 156,
+        "hp": 176
+      },
+      "heldItem": [
+        "heat_rock"
+      ],
+      "gimmicks": {
+        "tera": "fire"
+      },
+      "species": "torkoal",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "bold",
+      "ability": "drought"
+    },
+    {
+      "moveset": [
+        "solarblade",
+        "afteryou",
+        "protect",
+        "closecombat"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 156,
+        "spd": 88,
+        "atk": 200,
+        "hp": 64
+      },
+      "heldItem": [
+        "covert_cloak"
+      ],
+      "aspects": [
+        "hisuian"
+      ],
+      "gimmicks": {
+        "tera": "grass"
+      },
+      "species": "lilligant",
+      "gender": "FEMALE",
+      "level": 48,
+      "nature": "timid",
+      "ability": "chlorophyll"
+    },
+    {
+      "moveset": [
+        "woodhammer",
+        "grassyglide",
+        "fakeout",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 44,
+        "spd": 64,
+        "def": 32,
+        "atk": 116,
+        "hp": 252
+      },
+      "heldItem": [
+        "miracle_seed"
+      ],
+      "gimmicks": {
+        "tera": "grass"
+      },
+      "species": "rillaboom",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "adamant",
+      "ability": "grassysurge",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "spore",
+        "ragepowder",
+        "sludgebomb",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 116,
+        "def": 180,
+        "hp": 212
+      },
+      "heldItem": [
+        "rocky_helmet"
+      ],
+      "gimmicks": {
+        "tera": "grass"
+      },
+      "species": "amoonguss",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "bold",
+      "ability": "effectspore"
+    },
+    {
+      "moveset": [
+        "followme",
+        "spikyshield",
+        "ivycudgel",
+        "hornleech"
+      ],
+      "evs": {
+        "spe": 120,
+        "spd": 36,
+        "def": 28,
+        "atk": 172,
+        "hp": 152
+      },
+      "heldItem": [
+        "megas_showdown:wellspring_mask"
+      ],
+      "aspects": [
+        "wellspring-mask"
+      ],
+      "gimmicks": {
+        "tera": "water"
+      },
+      "species": "ogerpon",
+      "gender": "FEMALE",
+      "level": 48,
+      "nature": "adamant",
+      "ability": "waterabsorb"
+    },
+    {
+      "moveset": [
+        "solarbeam",
+        "dragonpulse",
+        "energyball",
+        "detect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 80,
+        "spd": 20,
+        "spa": 156,
+        "def": 36,
+        "hp": 216
+      },
+      "heldItem": [
+        "mega_showdown:sceptilite"
+      ],
+      "gimmicks": {
+        "tera": "grass"
+      },
+      "species": "sceptile",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "timid",
+      "ability": "lightningrod"
+    }
+  ],
+  "battleFormat": "GEN_9_DOUBLES"
+}

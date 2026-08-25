@@ -1,0 +1,167 @@
+{
+  "name": {
+    "literal": "Mega Trainer Krystal"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "oranguru",
+      "gender": "FEMALE",
+      "level": 72,
+      "nature": "bold",
+      "ability": "innerfocus",
+      "moveset": [
+        "psychic",
+        "reflect",
+        "lightscreen",
+        "trickroom"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spd": 4
+      },
+      "heldItem": [
+        "light_clay"
+      ]
+    },
+    {
+      "species": "jellicent",
+      "gender": "MALE",
+      "level": 72,
+      "nature": "calm",
+      "ability": "waterabsorb",
+      "moveset": [
+        "hex",
+        "willowisp",
+        "strengthsap",
+        "trickroom"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spd": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "snorlax",
+      "gender": "MALE",
+      "level": 74,
+      "nature": "adamant",
+      "ability": "thickfat",
+      "moveset": [
+        "doubleedge",
+        "darkestlariat",
+        "earthquake",
+        "firepunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "def": 252
+      },
+      "heldItem": [
+        "choice_band"
+      ]
+    },
+    {
+      "species": "druddigon",
+      "gender": "FEMALE",
+      "level": 73,
+      "nature": "adamant",
+      "ability": "sheerforce",
+      "moveset": [
+        "outrage",
+        "suckerpunch",
+        "firepunch",
+        "irontail"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spd": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "absol",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "jolly",
+      "ability": "magicbounce",
+      "moveset": [
+        "knockoff",
+        "playrough",
+        "suckerpunch",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:absolite",
+        "expert_belt"
+      ]
+    }
+  ]
+}

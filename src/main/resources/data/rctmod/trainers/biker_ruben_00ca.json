@@ -1,0 +1,167 @@
+{
+  "name": {
+    "literal": "Biker Ruben"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "accelgor",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "timid",
+      "ability": "sheerforce",
+      "moveset": [
+        "uturn",
+        "bugbuzz",
+        "focusblast",
+        "sludgebomb"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "spa": 252,
+        "spd": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "excadrill",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "adamant",
+      "ability": "sandrush",
+      "moveset": [
+        "earthquake",
+        "ironhead",
+        "stoneedge",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "spd": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "air_balloon"
+      ]
+    },
+    {
+      "species": "gigalith",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "careful",
+      "ability": "sandforce",
+      "moveset": [
+        "earthquake",
+        "stoneedge",
+        "explosion",
+        "bodypress"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spd": 4
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "roserade",
+      "gender": "MALE",
+      "level": 92,
+      "nature": "timid",
+      "ability": "technician",
+      "moveset": [
+        "gigadrain",
+        "weatherball",
+        "hiddenpower",
+        "sleeppowder"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 30,
+        "def": 31,
+        "spa": 30,
+        "spd": 31,
+        "spe": 30
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "lum_berry"
+      ]
+    },
+    {
+      "species": "lopunny",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "limber",
+      "moveset": [
+        "fakeout",
+        "return",
+        "closecombat",
+        "tripleaxel"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:lopunnite",
+        "life_orb"
+      ]
+    }
+  ]
+}

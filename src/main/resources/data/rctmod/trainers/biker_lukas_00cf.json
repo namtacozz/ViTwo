@@ -1,0 +1,102 @@
+{
+  "name": {
+    "literal": "Biker Lukas"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "toxicroak",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "lonely",
+      "ability": "dryskin",
+      "moveset": [
+        "smokescreen",
+        "drainpunch",
+        "poisonjab",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "dragalge",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "naive",
+      "ability": "poisontouch",
+      "moveset": [
+        "smokescreen",
+        "sludgebomb",
+        "dragonpulse"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "swalot",
+      "gender": "FEMALE",
+      "level": 56,
+      "nature": "lax",
+      "ability": "stickyhold",
+      "moveset": [
+        "screech",
+        "sludgebomb",
+        "gigadrain",
+        "icebeam"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "weezing",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "jolly",
+      "ability": "neutralizinggas",
+      "moveset": [
+        "smokescreen",
+        "explosion"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

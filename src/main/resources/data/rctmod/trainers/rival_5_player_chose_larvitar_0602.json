@@ -1,0 +1,199 @@
+{
+  "name": {
+    "literal": "Rival Wayne"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_SINGLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "mamoswine",
+      "gender": "MALE",
+      "level": 63,
+      "nature": "adamant",
+      "ability": "thickfat",
+      "moveset": [
+        "icefang",
+        "bulldoze",
+        "iceshard",
+        "stealthrock"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "rotom",
+      "gender": "GENDERLESS",
+      "level": 61,
+      "nature": "modest",
+      "ability": "levitate",
+      "moveset": [
+        "leafstorm",
+        "discharge",
+        "voltswitch",
+        "hex"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "white_herb"
+      ],
+      "aspects": [
+        "mow-appliance"
+      ]
+    },
+    {
+      "species": "vaporeon",
+      "gender": "MALE",
+      "level": 62,
+      "nature": "bold",
+      "ability": "waterabsorb",
+      "moveset": [
+        "hydropump",
+        "icebeam",
+        "acidarmor",
+        "aquaring"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spd": 4
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "haxorus",
+      "gender": "MALE",
+      "level": 63,
+      "nature": "jolly",
+      "ability": "moldbreaker",
+      "moveset": [
+        "dragonclaw",
+        "crunch",
+        "earthquake",
+        "dragondance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "safety_goggles"
+      ]
+    },
+    {
+      "species": "talonflame",
+      "gender": "FEMALE",
+      "level": 63,
+      "nature": "adamant",
+      "ability": "galewings",
+      "moveset": [
+        "flareblitz",
+        "acrobatics",
+        "steelwing",
+        "overheat"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "flying_gem"
+      ]
+    },
+    {
+      "species": "metagross",
+      "gender": "GENDERLESS",
+      "level": 65,
+      "nature": "jolly",
+      "ability": "toughclaws",
+      "moveset": [
+        "meteormash",
+        "zenheadbutt",
+        "hammerarm",
+        "agility"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:metagrossite",
+        "assault_vest"
+      ]
+    }
+  ]
+}

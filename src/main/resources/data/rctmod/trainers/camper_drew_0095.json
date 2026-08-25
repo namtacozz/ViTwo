@@ -1,0 +1,108 @@
+{
+  "name": {
+    "literal": "Camper Drew"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "persian",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "serious",
+      "ability": "furcoat",
+      "moveset": [
+        "furyswipes",
+        "screech",
+        "feintattack",
+        "taunt"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      },
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "palpitoad",
+      "gender": "FEMALE",
+      "level": 27,
+      "nature": "hardy",
+      "ability": "swiftswim",
+      "moveset": [
+        "bubblebeam",
+        "mudshot",
+        "aquaring",
+        "uproar"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "stunky",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "brave",
+      "ability": "stench",
+      "moveset": [
+        "acidspray",
+        "bite",
+        "slash",
+        "toxic"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "spinda",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "naughty",
+      "ability": "owntempo",
+      "moveset": [
+        "psybeam",
+        "hypnosis",
+        "dizzypunch",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "name": {
+    "literal": "Team Rocket Grunt"
+  },
+  "identity": "Team Rocket Grunt (39)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "perrserker",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "gentle",
+      "ability": "toughclaws",
+      "moveset": [
+        "furyswipes",
+        "screech",
+        "slash",
+        "metalsound"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "golbat",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "careful",
+      "ability": "sniper",
+      "moveset": [
+        "dualwingbeat",
+        "haze",
+        "venoshock",
+        "airslash"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "thievul",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "adamant",
+      "ability": "unburden",
+      "moveset": [
+        "nightslash",
+        "darkpulse",
+        "mysticalfire",
+        "foulplay"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "raticate",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "adamant",
+      "ability": "hustle",
+      "moveset": [
+        "suckerpunch",
+        "superfang",
+        "doubleedge",
+        "endeavor"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      },
+      "aspects": [
+        "alolan"
+      ]
+    }
+  ]
+}

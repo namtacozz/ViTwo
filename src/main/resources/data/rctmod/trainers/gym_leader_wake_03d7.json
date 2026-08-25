@@ -1,0 +1,109 @@
+{
+  "name": {
+    "literal": "Gym Leader Wake"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:super_potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "gyarados",
+      "gender": "MALE",
+      "level": 27,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "brine",
+        "icefang",
+        "crunch",
+        "flail"
+      ],
+      "ivs": {
+        "hp": 16,
+        "atk": 16,
+        "spe": 16
+      },
+      "evs": {
+        "hp": 40,
+        "atk": 56,
+        "spe": 40
+      },
+      "heldItem": [
+        "wide_lens"
+      ]
+    },
+    {
+      "species": "quagsire",
+      "gender": "FEMALE",
+      "level": 27,
+      "nature": "quiet",
+      "ability": "damp",
+      "moveset": [
+        "raindance",
+        "haze",
+        "mudshot",
+        "scald"
+      ],
+      "ivs": {
+        "hp": 16,
+        "atk": 16,
+        "def": 5,
+        "spa": 16,
+        "spd": 5
+      },
+      "evs": {
+        "hp": 40,
+        "atk": 40,
+        "def": 4,
+        "spa": 56,
+        "spd": 4
+      },
+      "heldItem": [
+        "damp_rock"
+      ]
+    },
+    {
+      "species": "floatzel",
+      "gender": "MALE",
+      "level": 30,
+      "nature": "adamant",
+      "ability": "swiftswim",
+      "moveset": [
+        "brine",
+        "icefang",
+        "bite",
+        "aquajet"
+      ],
+      "ivs": {
+        "atk": 17,
+        "spa": 17,
+        "spe": 17
+      },
+      "evs": {
+        "atk": 84,
+        "spa": 20,
+        "spe": 84
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

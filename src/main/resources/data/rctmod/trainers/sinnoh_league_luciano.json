@@ -1,0 +1,224 @@
+{
+  "name": {
+    "literal": "Lucian"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.86,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 6
+  },
+  "bag": [
+    {
+      "item": "max_revive",
+      "quantity": 1
+    },
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": "5"
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "moongeistbeam",
+        "wideguard",
+        "dazzlinggleam",
+        "tailwind"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 12,
+        "spd": 12,
+        "spa": 180,
+        "def": 172,
+        "hp": 132
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "gimmicks": {
+        "tera": "psychic"
+      },
+      "species": "lunala",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "modest",
+      "ability": "shadowshield",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "followme",
+        "helpinghand",
+        "shadowball",
+        "psychic"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 96,
+        "spd": 84,
+        "spa": 112,
+        "def": 156,
+        "hp": 60
+      },
+      "heldItem": [
+        "rocky_helmet"
+      ],
+      "species": "indeedee",
+      "gender": "FEMALE",
+      "level": 100,
+      "nature": "calm",
+      "ability": "psychicsurge",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "astralbarrage",
+        "expandingforce",
+        "nastyplot",
+        "substitute"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 168,
+        "spd": 48,
+        "spa": 108,
+        "def": 52,
+        "hp": 132
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "aspects": [
+        "shadow-rider"
+      ],
+      "species": "calyrex",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "timid",
+      "ability": "asonespectrier",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "helpinghand",
+        "lunarblessing",
+        "icebeam",
+        "moonlight"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 76,
+        "def": 180,
+        "hp": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "species": "cresselia",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "bold",
+      "ability": "levitate",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "moongeistbeam",
+        "sunsteelstrike",
+        "dragonpulse",
+        "psychic"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spa": 252,
+        "atk": 4
+      },
+      "heldItem": [
+        "mega_showdown:ultranecrozium-z"
+      ],
+      "aspects": [
+        "ultra-fusion"
+      ],
+      "species": "necrozma",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "naive",
+      "ability": "neuroforce",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "calmmind",
+        "dazzlinggleam",
+        "psychic",
+        "shadowball"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 204,
+        "spd": 24,
+        "spa": 156,
+        "def": 64,
+        "hp": 60
+      },
+      "heldItem": [
+        "mega_showdown:alakazite"
+      ],
+      "species": "alakazam",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "timid",
+      "ability": "trace",
+      "shiny": true
+    }
+  ],
+  "battleFormat": "GEN_9_DOUBLES"
+}

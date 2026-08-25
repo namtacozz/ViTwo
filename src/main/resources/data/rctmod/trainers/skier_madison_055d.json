@@ -1,0 +1,47 @@
+{
+  "name": {
+    "literal": "Skier Madison"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_SINGLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "snover",
+      "gender": "FEMALE",
+      "level": 40,
+      "nature": "sassy",
+      "ability": "snowwarning",
+      "moveset": [
+        "iceshard",
+        "razorleaf",
+        "icywind",
+        "ingrain"
+      ]
+    },
+    {
+      "species": "sealeo",
+      "gender": "MALE",
+      "level": 40,
+      "nature": "relaxed",
+      "ability": "thickfat",
+      "moveset": [
+        "iceball",
+        "surf",
+        "aurorabeam",
+        "rest"
+      ]
+    }
+  ]
+}

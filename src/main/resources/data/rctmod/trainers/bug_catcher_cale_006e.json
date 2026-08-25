@@ -1,0 +1,105 @@
+{
+  "name": {
+    "literal": "Bug Catcher Cale"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "karrablast",
+      "gender": "FEMALE",
+      "level": 16,
+      "nature": "bold",
+      "ability": "swarm",
+      "moveset": [
+        "leer",
+        "endure",
+        "furycutter",
+        "bugbite"
+      ],
+      "ivs": {
+        "hp": 1,
+        "atk": 1,
+        "def": 1,
+        "spa": 1,
+        "spd": 1,
+        "spe": 1
+      }
+    },
+    {
+      "species": "joltik",
+      "gender": "FEMALE",
+      "level": 17,
+      "nature": "lonely",
+      "ability": "compoundeyes",
+      "moveset": [
+        "thunderwave",
+        "screech",
+        "strugglebug",
+        "electroweb"
+      ],
+      "ivs": {
+        "hp": 1,
+        "atk": 1,
+        "def": 1,
+        "spa": 1,
+        "spd": 1,
+        "spe": 1
+      }
+    },
+    {
+      "species": "kricketune",
+      "gender": "MALE",
+      "level": 15,
+      "nature": "lax",
+      "ability": "technician",
+      "moveset": [
+        "growl",
+        "bide",
+        "rocktomb",
+        "megadrain"
+      ],
+      "ivs": {
+        "hp": 1,
+        "atk": 1,
+        "def": 1,
+        "spa": 1,
+        "spd": 1,
+        "spe": 1
+      }
+    },
+    {
+      "species": "ledyba",
+      "gender": "FEMALE",
+      "level": 17,
+      "nature": "adamant",
+      "ability": "swarm",
+      "moveset": [
+        "lightscreen",
+        "reflect",
+        "safeguard",
+        "machpunch"
+      ],
+      "ivs": {
+        "hp": 1,
+        "atk": 1,
+        "def": 1,
+        "spa": 1,
+        "spd": 1,
+        "spe": 1
+      }
+    }
+  ]
+}

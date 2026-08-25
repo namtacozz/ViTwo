@@ -1,0 +1,109 @@
+{
+  "name": {
+    "literal": "Biker Goon"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "grimmsnarl",
+      "gender": "MALE",
+      "level": 90,
+      "nature": "impish",
+      "ability": "prankster",
+      "moveset": [
+        "reflect",
+        "lightscreen",
+        "thunderwave",
+        "spiritbreak"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spe": 4
+      },
+      "heldItem": [
+        "light_clay"
+      ]
+    },
+    {
+      "species": "flygon",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "jolly",
+      "ability": "tintedlens",
+      "moveset": [
+        "headlongrush",
+        "dragonclaw",
+        "uturn",
+        "firepunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:groundium-z",
+        "ground_gem"
+      ]
+    },
+    {
+      "species": "kleavor",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "jolly",
+      "ability": "technician",
+      "moveset": [
+        "accelerock",
+        "uturn",
+        "closecombat",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "rock_gem"
+      ]
+    }
+  ]
+}

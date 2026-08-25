@@ -1,0 +1,115 @@
+{
+  "name": {
+    "literal": "Trainer Brendan"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "masquerain",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "modest",
+      "ability": "intimidate",
+      "moveset": [
+        "bugbuzz",
+        "scald",
+        "gigadrain",
+        "stunspore"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "spa": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "iapapa_berry"
+      ]
+    },
+    {
+      "species": "exploud",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "timid",
+      "ability": "punkrock",
+      "moveset": [
+        "flamethrower",
+        "surf",
+        "focusblast",
+        "hypervoice"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "silk_scarf"
+      ]
+    },
+    {
+      "species": "sceptile",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "timid",
+      "ability": "unburden",
+      "moveset": [
+        "megadrain",
+        "dragonbreath",
+        "focusblast",
+        "hiddenpower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 30,
+        "def": 31,
+        "spa": 30,
+        "spd": 31,
+        "spe": 30
+      },
+      "evs": {
+        "spa": 252,
+        "spd": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:sceptilite",
+        "expert_belt"
+      ]
+    }
+  ]
+}

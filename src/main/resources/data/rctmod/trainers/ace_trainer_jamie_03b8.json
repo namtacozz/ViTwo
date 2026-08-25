@@ -1,0 +1,56 @@
+{
+  "name": {
+    "literal": "Ace Trainer Jamie"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "metagross",
+      "gender": "GENDERLESS",
+      "level": 56,
+      "nature": "jolly",
+      "ability": "clearbody",
+      "moveset": [
+        "meteormash",
+        "hammerarm",
+        "psychic",
+        "zenheadbutt"
+      ]
+    },
+    {
+      "species": "gliscor",
+      "gender": "MALE",
+      "level": 56,
+      "nature": "impish",
+      "ability": "poisonheal",
+      "moveset": [
+        "earthquake",
+        "roost",
+        "icefang",
+        "swordsdance"
+      ],
+      "heldItem": [
+        "toxic_orb"
+      ]
+    }
+  ]
+}

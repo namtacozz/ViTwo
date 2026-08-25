@@ -1,0 +1,61 @@
+{
+  "name": {
+    "literal": "Team Galactic Grunt"
+  },
+  "identity": "Team Galactic Grunt (39)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "golbat",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "serious",
+      "ability": "innerfocus",
+      "moveset": [
+        "screech",
+        "astonish",
+        "poisonfang",
+        "bite"
+      ]
+    },
+    {
+      "species": "glameow",
+      "gender": "FEMALE",
+      "level": 37,
+      "nature": "bashful",
+      "ability": "owntempo",
+      "moveset": [
+        "fakeout",
+        "hypnosis",
+        "aerialace",
+        "retaliate"
+      ]
+    },
+    {
+      "species": "bronzor",
+      "gender": "GENDERLESS",
+      "level": 37,
+      "nature": "quirky",
+      "ability": "levitate",
+      "moveset": [
+        "confuseray",
+        "extrasensory",
+        "heavyslam",
+        "irondefense"
+      ]
+    }
+  ]
+}

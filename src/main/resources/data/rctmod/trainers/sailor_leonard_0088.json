@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Sailor Leonard"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "corsola",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "timid",
+      "ability": "regenerator",
+      "moveset": [
+        "ancientpower",
+        "spikecannon",
+        "luckychant",
+        "brine"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "chinchou",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "calm",
+      "ability": "voltabsorb",
+      "moveset": [
+        "spark",
+        "waterpulse",
+        "confuseray",
+        "bubblebeam"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

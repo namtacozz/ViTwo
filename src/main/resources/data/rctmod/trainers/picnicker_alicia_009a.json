@@ -1,0 +1,105 @@
+{
+  "name": {
+    "literal": "Picnicker Alicia"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "oddish",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "impish",
+      "ability": "chlorophyll",
+      "moveset": [
+        "sleeppowder",
+        "megadrain",
+        "sludge",
+        "moonlight"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "bellsprout",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "careful",
+      "ability": "chlorophyll",
+      "moveset": [
+        "poisonpowder",
+        "stunspore",
+        "sludge",
+        "megadrain"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "sewaddle",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "lonely",
+      "ability": "swarm",
+      "moveset": [
+        "stringshot",
+        "bugbite",
+        "razorleaf",
+        "strugglebug"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "morelull",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "gentle",
+      "ability": "effectspore",
+      "moveset": [
+        "megadrain",
+        "sleeppowder",
+        "ingrain",
+        "confuseray"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    }
+  ]
+}

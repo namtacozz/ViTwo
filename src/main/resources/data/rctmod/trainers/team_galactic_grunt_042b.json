@@ -1,0 +1,48 @@
+{
+  "name": {
+    "literal": "Team Galactic Grunt"
+  },
+  "identity": "Team Galactic Grunt (14)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "silcoon",
+      "gender": "FEMALE",
+      "level": 15,
+      "nature": "hardy",
+      "ability": "shedskin",
+      "moveset": [
+        "tackle",
+        "stringshot",
+        "poisonsting",
+        "harden"
+      ]
+    },
+    {
+      "species": "zubat",
+      "gender": "MALE",
+      "level": 15,
+      "nature": "jolly",
+      "ability": "innerfocus",
+      "moveset": [
+        "bite",
+        "supersonic",
+        "astonish",
+        "wingattack"
+      ]
+    }
+  ]
+}

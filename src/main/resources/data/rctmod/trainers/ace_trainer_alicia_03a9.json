@@ -1,0 +1,53 @@
+{
+  "name": {
+    "literal": "Ace Trainer Alicia"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "sneasel",
+      "gender": "FEMALE",
+      "level": 37,
+      "nature": "jolly",
+      "ability": "innerfocus",
+      "moveset": [
+        "metalclaw",
+        "icywind",
+        "honeclaws",
+        "attract"
+      ]
+    },
+    {
+      "species": "tentacruel",
+      "gender": "FEMALE",
+      "level": 37,
+      "nature": "modest",
+      "ability": "clearbody",
+      "moveset": [
+        "bubblebeam",
+        "acidarmor",
+        "icebeam",
+        "sludgebomb"
+      ]
+    }
+  ]
+}

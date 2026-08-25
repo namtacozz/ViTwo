@@ -1,0 +1,225 @@
+{
+  "name": {
+    "literal": "Cynthia"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 7
+  },
+  "bag": [
+    {
+      "item": "max_revive",
+      "quantity": 1
+    },
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": "6"
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "earthquake",
+        "dragonclaw",
+        "stoneedge",
+        "brickbreak"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 140,
+        "spd": 68,
+        "def": 40,
+        "atk": 188,
+        "hp": 72
+      },
+      "heldItem": [
+        "mega_showdown:garchompite"
+      ],
+      "species": "garchomp",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "jolly",
+      "ability": "roughskin",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "originpulse",
+        "calmmind",
+        "thunder",
+        "waterspout"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 112,
+        "spa": 180,
+        "def": 56,
+        "hp": 160
+      },
+      "heldItem": [
+        "mega_showdown:blue_orb"
+      ],
+      "aspects": [
+        "primal"
+      ],
+      "gimmicks": {
+        "tera": "water"
+      },
+      "species": "kyogre",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "modest",
+      "ability": "primordialsea",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "dynamaxcannon",
+        "flamethrower",
+        "recover",
+        "sludgewave"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 128,
+        "spd": 44,
+        "spa": 128,
+        "def": 72,
+        "hp": 136
+      },
+      "heldItem": [
+        "black_sludge"
+      ],
+      "aspects": [
+        "eternamax"
+      ],
+      "species": "eternatus",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "timid",
+      "ability": "pressure",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "surgingstrikes",
+        "closecombat",
+        "uturn",
+        "detect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "mystic_water"
+      ],
+      "aspects": [
+        "rapid_strike-style"
+      ],
+      "species": "urshifu",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "jolly",
+      "ability": "unseenfist",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "hurricane",
+        "thunderbolt",
+        "aurasphere",
+        "earthpower"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "species": "mewtwo",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "timid",
+      "ability": "unnerve",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "darkvoid",
+        "dreameater",
+        "darkpulse",
+        "sludgebomb"
+      ],
+      "ivs": {
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 80,
+        "spa": 128,
+        "def": 52,
+        "hp": 248
+      },
+      "heldItem": [
+        "zoom_lens"
+      ],
+      "species": "darkrai",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "quiet",
+      "ability": "baddreams",
+      "shiny": true
+    }
+  ],
+  "identity": "Champion Camilla",
+  "battleFormat": "GEN_9_DOUBLES"
+}

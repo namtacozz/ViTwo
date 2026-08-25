@@ -1,0 +1,54 @@
+{
+  "name": {
+    "literal": "Bug Catcher Sammy"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "grubbin",
+      "gender": "MALE",
+      "level": 9,
+      "nature": "mild",
+      "ability": "swarm",
+      "moveset": [
+        "visegrip",
+        "stringshot",
+        "mudslap"
+      ],
+      "ivs": {
+        "hp": 1,
+        "atk": 1,
+        "def": 1,
+        "spa": 1,
+        "spd": 1,
+        "spe": 1
+      }
+    },
+    {
+      "species": "spinarak",
+      "gender": "MALE",
+      "level": 9,
+      "nature": "brave",
+      "ability": "swarm",
+      "moveset": [
+        "poisonsting",
+        "stringshot",
+        "constrict",
+        "scaryface"
+      ]
+    }
+  ]
+}

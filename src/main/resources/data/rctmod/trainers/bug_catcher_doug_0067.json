@@ -1,0 +1,80 @@
+{
+  "name": {
+    "literal": "Bug Catcher Doug"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "kakuna",
+      "gender": "FEMALE",
+      "level": 7,
+      "nature": "lax",
+      "ability": "shedskin",
+      "moveset": [
+        "harden",
+        "bugbite"
+      ],
+      "ivs": {
+        "hp": 1,
+        "atk": 1,
+        "def": 1,
+        "spa": 1,
+        "spd": 1,
+        "spe": 1
+      }
+    },
+    {
+      "species": "spinarak",
+      "gender": "FEMALE",
+      "level": 7,
+      "nature": "brave",
+      "ability": "swarm",
+      "moveset": [
+        "poisonsting",
+        "stringshot",
+        "constrict",
+        "absorb"
+      ],
+      "ivs": {
+        "hp": 1,
+        "atk": 1,
+        "def": 1,
+        "spa": 1,
+        "spd": 1,
+        "spe": 1
+      }
+    },
+    {
+      "species": "ledyba",
+      "gender": "MALE",
+      "level": 7,
+      "nature": "calm",
+      "ability": "swarm",
+      "moveset": [
+        "tackle",
+        "supersonic"
+      ],
+      "ivs": {
+        "hp": 1,
+        "atk": 1,
+        "def": 1,
+        "spa": 1,
+        "spd": 1,
+        "spe": 1
+      }
+    }
+  ]
+}

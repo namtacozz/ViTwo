@@ -1,0 +1,147 @@
+{
+  "name": {
+    "literal": "Gym Leader Volkner"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "raichu",
+      "gender": "FEMALE",
+      "level": 46,
+      "nature": "timid",
+      "ability": "static",
+      "moveset": [
+        "nuzzle",
+        "voltswitch",
+        "surf",
+        "chargebeam"
+      ],
+      "ivs": {
+        "hp": 11,
+        "def": 11,
+        "spa": 28,
+        "spd": 11,
+        "spe": 28
+      },
+      "evs": {
+        "hp": 12,
+        "def": 12,
+        "spa": 160,
+        "spd": 12,
+        "spe": 160
+      },
+      "heldItem": [
+        "shuca_berry"
+      ]
+    },
+    {
+      "species": "ambipom",
+      "gender": "MALE",
+      "level": 47,
+      "nature": "naive",
+      "ability": "technician",
+      "moveset": [
+        "fakeout",
+        "thunderbolt",
+        "doublehit",
+        "lastresort"
+      ],
+      "ivs": {
+        "hp": 11,
+        "atk": 20,
+        "def": 11,
+        "spa": 20,
+        "spd": 11,
+        "spe": 28
+      },
+      "evs": {
+        "hp": 12,
+        "atk": 80,
+        "def": 12,
+        "spa": 80,
+        "spd": 12,
+        "spe": 160
+      },
+      "heldItem": [
+        "chople_berry"
+      ]
+    },
+    {
+      "species": "octillery",
+      "gender": "FEMALE",
+      "level": 47,
+      "nature": "modest",
+      "ability": "sniper",
+      "moveset": [
+        "octazooka",
+        "focusenergy",
+        "aurorabeam",
+        "chargebeam"
+      ],
+      "ivs": {
+        "hp": 11,
+        "def": 11,
+        "spa": 28,
+        "spd": 11,
+        "spe": 28
+      },
+      "evs": {
+        "hp": 12,
+        "def": 12,
+        "spa": 160,
+        "spd": 12,
+        "spe": 160
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "luxray",
+      "gender": "FEMALE",
+      "level": 49,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "thunderfang",
+        "icefang",
+        "crunch",
+        "irontail"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 28,
+        "def": 15,
+        "spe": 30
+      },
+      "evs": {
+        "hp": 28,
+        "atk": 160,
+        "def": 28,
+        "spe": 200
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

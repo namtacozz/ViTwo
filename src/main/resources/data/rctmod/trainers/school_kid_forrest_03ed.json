@@ -1,0 +1,47 @@
+{
+  "name": {
+    "literal": "School Kid Forrest"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "mrmime",
+      "gender": "FEMALE",
+      "level": 44,
+      "nature": "timid",
+      "ability": "filter",
+      "moveset": [
+        "reflect",
+        "dazzlinggleam",
+        "thunderbolt",
+        "energyball"
+      ]
+    },
+    {
+      "species": "hypno",
+      "gender": "MALE",
+      "level": 44,
+      "nature": "calm",
+      "ability": "insomnia",
+      "moveset": [
+        "psychic",
+        "hypnosis",
+        "dream",
+        "barrier"
+      ]
+    }
+  ]
+}

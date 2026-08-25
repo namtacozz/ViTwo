@@ -1,0 +1,143 @@
+{
+  "name": {
+    "literal": "Black Belt Shea"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "decidueye",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "reckless",
+      "moveset": [
+        "woodhammer",
+        "closecombat",
+        "bravebird",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "choice_scarf"
+      ],
+      "aspects": [
+        "hisuian"
+      ]
+    },
+    {
+      "species": "probopass",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "bold",
+      "ability": "levitate",
+      "moveset": [
+        "thunderwave",
+        "voltswitch",
+        "flashcannon",
+        "powergem"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spa": 4
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "conkeldurr",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "adamant",
+      "ability": "guts",
+      "moveset": [
+        "facade",
+        "drainpunch",
+        "knockoff",
+        "machpunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 4
+      },
+      "heldItem": [
+        "flame_orb"
+      ]
+    },
+    {
+      "species": "dodrio",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "jolly",
+      "ability": "rockhead",
+      "moveset": [
+        "flareblitz",
+        "earthquake",
+        "uturn",
+        "bravebird"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "choice_band"
+      ],
+      "aspects": [
+        "sevii"
+      ]
+    }
+  ]
+}

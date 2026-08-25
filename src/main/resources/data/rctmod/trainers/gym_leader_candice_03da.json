@@ -1,0 +1,134 @@
+{
+  "name": {
+    "literal": "Gym Leader Candice"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "snover",
+      "gender": "MALE",
+      "level": 38,
+      "nature": "relaxed",
+      "ability": "snowwarning",
+      "moveset": [
+        "mist",
+        "razorleaf",
+        "waterpulse",
+        "avalanche"
+      ],
+      "ivs": {
+        "hp": 19,
+        "atk": 25,
+        "spa": 25
+      },
+      "evs": {
+        "hp": 60,
+        "atk": 124,
+        "spa": 124
+      },
+      "heldItem": [
+        "icy_rock"
+      ]
+    },
+    {
+      "species": "sneasel",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "jolly",
+      "ability": "pickpocket",
+      "moveset": [
+        "metalclaw",
+        "honeclaws",
+        "dig",
+        "avalanche"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 25,
+        "def": 10,
+        "spe": 25
+      },
+      "evs": {
+        "hp": 64,
+        "atk": 124,
+        "spe": 124
+      },
+      "heldItem": [
+        "chople_berry"
+      ]
+    },
+    {
+      "species": "medicham",
+      "gender": "MALE",
+      "level": 40,
+      "nature": "jolly",
+      "ability": "purepower",
+      "moveset": [
+        "icepunch",
+        "bulkup",
+        "brickbreak",
+        "rockslide"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 25,
+        "spe": 25
+      },
+      "evs": {
+        "hp": 64,
+        "atk": 124,
+        "spe": 124
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "abomasnow",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "quiet",
+      "ability": "snowwarning",
+      "moveset": [
+        "auroraveil",
+        "gigadrain",
+        "earthquake",
+        "blizzard"
+      ],
+      "ivs": {
+        "hp": 13,
+        "atk": 25,
+        "def": 10,
+        "spa": 27,
+        "spd": 10
+      },
+      "evs": {
+        "hp": 124,
+        "atk": 60,
+        "spa": 164
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

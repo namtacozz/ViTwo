@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Sailor Phillip"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "meditite",
+      "gender": "FEMALE",
+      "level": 29,
+      "nature": "sassy",
+      "ability": "hugepower",
+      "moveset": [
+        "bulletpunch",
+        "calmmind",
+        "mindreader",
+        "highjumpkick"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "poliwhirl",
+      "gender": "MALE",
+      "level": 29,
+      "nature": "hardy",
+      "ability": "waterabsorb",
+      "moveset": [
+        "bubblebeam",
+        "bodyslam",
+        "hypnosis",
+        "brickbreak"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Breeder Bethany"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "chansey",
+      "gender": "FEMALE",
+      "level": 50,
+      "nature": "careful",
+      "ability": "serenegrace",
+      "moveset": [
+        "fling",
+        "healpulse",
+        "eggbomb",
+        "lightscreen"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "ampharos",
+      "gender": "FEMALE",
+      "level": 50,
+      "nature": "calm",
+      "ability": "static",
+      "moveset": [
+        "thunderbolt",
+        "lightscreen",
+        "healbell",
+        "powergem"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "name": {
+    "literal": "Team Rocket Grunt"
+  },
+  "identity": "Team Rocket Grunt (22)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "weezing",
+      "gender": "MALE",
+      "level": 38,
+      "nature": "mild",
+      "ability": "neutralizinggas",
+      "moveset": [
+        "selfdestruct",
+        "haze",
+        "gyroball",
+        "sludgebomb"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "ninjask",
+      "gender": "MALE",
+      "level": 38,
+      "nature": "mild",
+      "ability": "speedboost",
+      "moveset": [
+        "slash",
+        "dualwingbeat",
+        "mindreader",
+        "firstimpression"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

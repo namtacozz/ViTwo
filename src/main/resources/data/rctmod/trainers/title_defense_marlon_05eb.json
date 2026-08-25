@@ -1,0 +1,197 @@
+{
+  "name": {
+    "literal": "Title Defense Marlon"
+  },
+  "identity": "Shadow Admin Marlon",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "dusknoir",
+      "gender": "FEMALE",
+      "level": 78,
+      "nature": "adamant",
+      "ability": "ironfist",
+      "moveset": [
+        "poltergeist",
+        "poweruppunch",
+        "icepunch",
+        "thunderpunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "machamp",
+      "gender": "MALE",
+      "level": 78,
+      "nature": "adamant",
+      "ability": "guts",
+      "moveset": [
+        "dynamicpunch",
+        "knockoff",
+        "stoneedge",
+        "bulletpunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "krookodile",
+      "gender": "FEMALE",
+      "level": 79,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "highhorsepower",
+        "darkestlariat",
+        "rockslide",
+        "closecombat"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "beedrill",
+      "gender": "FEMALE",
+      "level": 79,
+      "nature": "jolly",
+      "ability": "adaptability",
+      "moveset": [
+        "uturn",
+        "poisonjab",
+        "drillrun",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:beedrillite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "nihilego",
+      "gender": "GENDERLESS",
+      "level": 79,
+      "nature": "timid",
+      "ability": "beastboost",
+      "moveset": [
+        "meteorbeam",
+        "sludgewave",
+        "thunderbolt",
+        "hiddenpower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 30,
+        "def": 31,
+        "spa": 30,
+        "spd": 31,
+        "spe": 30
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "power_herb"
+      ]
+    },
+    {
+      "species": "zapdos",
+      "gender": "GENDERLESS",
+      "level": 80,
+      "nature": "timid",
+      "ability": "pressure",
+      "moveset": [
+        "heatwave",
+        "thunderbolt",
+        "extrasensory",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "heavy_duty_boots"
+      ]
+    }
+  ]
+}

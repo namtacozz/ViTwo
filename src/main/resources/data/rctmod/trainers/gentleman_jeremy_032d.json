@@ -1,0 +1,47 @@
+{
+  "name": {
+    "literal": "Gentleman Jeremy"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "chatot",
+      "gender": "MALE",
+      "level": 19,
+      "nature": "timid",
+      "ability": "tangledfeet",
+      "moveset": [
+        "hypervoice",
+        "chatter",
+        "confide",
+        "growl"
+      ]
+    },
+    {
+      "species": "roselia",
+      "gender": "FEMALE",
+      "level": 19,
+      "nature": "calm",
+      "ability": "naturalcure",
+      "moveset": [
+        "magicalleaf",
+        "stunspore",
+        "leechseed",
+        "megadrain"
+      ]
+    }
+  ]
+}

@@ -1,14 +1,20 @@
 package com.vitwo.client.gui;
 
 import com.vitwo.battle.LevelCapManager;
-import com.vitwo.network.c2s.*;
+import com.vitwo.client.gui.widget.TowerButton;
+import com.vitwo.config.TowerLeaderboardManager.LeaderboardEntry;
+import com.vitwo.network.c2s.ForfeitTowerC2SPacket;
+import com.vitwo.network.c2s.LeavePartyC2SPacket;
+import com.vitwo.network.c2s.StartTowerC2SPacket;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.gui.DrawContext;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.text.Text;
 
-public class TowerHubScreen extends Screen {
+import java.util.ArrayList;
+import java.util.List;
+
+public class TowerHubScreen extends AbstractTowerScreen {
     public static boolean hasParty = false;
     public static boolean isLeader = false;
     public static String leaderName = "";
@@ -23,10 +29,12 @@ public class TowerHubScreen extends Screen {
     public static int forfeitVotes = 0;
     public static int playerBp = 0;
     public static boolean isTrueRun = true;
+    public static List<LeaderboardEntry> cachedLeaderboard = new ArrayList<>();
 
     private static final int[] CHECKPOINTS = {1, 10, 25, 50, 75, 90, 100};
     private int selectedCheckpoint = 1;
     private boolean isSoloTab = true;
+    private boolean isLeaderboardView = false;
 
     public TowerHubScreen() {
         super(Text.literal("CobbleTower Hub"));
@@ -34,11 +42,34 @@ public class TowerHubScreen extends Screen {
 
     @Override
     protected void init() {
+        net.minecraft.client.MinecraftClient mc = net.minecraft.client.MinecraftClient.getInstance();
+        if (mc.world != null && mc.world.getRegistryKey().getValue().getPath().contains("tower")) {
+            inTowerSession = true;
+        }
+
+        if (inTowerSession && inBattle) {
+            this.close();
+            return;
+        }
+
         int centerX = this.width / 2;
         int centerY = this.height / 2;
 
         if (hasParty) {
             isSoloTab = false;
+        }
+
+        if (isLeaderboardView) {
+            // Back button from Leaderboard
+            this.addDrawableChild(create3DButton(
+                    Text.literal("§fBack to Hub"),
+                    centerX - 60, centerY + 95, 120, 22,
+                    btn -> {
+                        isLeaderboardView = false;
+                        this.clearAndInit();
+                    }
+            ));
+            return;
         }
 
         // Tab Selectors
@@ -69,15 +100,15 @@ public class TowerHubScreen extends Screen {
 
         for (int i = 0; i < CHECKPOINTS.length; i++) {
             int cp = CHECKPOINTS[i];
-            boolean unlocked = cp <= maxCp;
+            boolean unlocked = cp <= maxCp && !inTowerSession;
             boolean isSelected = (cp == selectedCheckpoint);
 
-            String label = (unlocked ? (isSelected ? "§b§l" : "§f") : "§8🔒 ") + "F." + cp;
+            String label = (unlocked ? (isSelected ? "§b§l" : "§f") : (inTowerSession ? "§8" : "§8🔒 ")) + "F." + cp;
             ButtonWidget cpBtn = create3DButton(
                     Text.literal(label),
                     startX + (i * (cpBtnW + cpGap)), centerY - 15, cpBtnW, 22,
                     btn -> this.selectedCheckpoint = cp
-            );
+                );
             cpBtn.active = unlocked;
             this.addDrawableChild(cpBtn);
         }
@@ -98,11 +129,8 @@ public class TowerHubScreen extends Screen {
             ));
         } else {
             if (isSoloTab) {
-                String runTitle = (selectedCheckpoint == 1)
-                        ? "§a§lSTART TRUE RUN (F.1)"
-                        : "§e§lSTART (F." + selectedCheckpoint + ")";
                 this.addDrawableChild(create3DButton(
-                        Text.literal(runTitle),
+                        Text.literal("§a§lSTART RUN"),
                         centerX - 160, centerY + 40, 155, 26,
                         btn -> {
                             ClientPlayNetworking.send(new StartTowerC2SPacket(true, selectedCheckpoint));
@@ -111,11 +139,8 @@ public class TowerHubScreen extends Screen {
                 ));
             } else {
                 if (hasParty && isLeader) {
-                    String runTitle = (selectedCheckpoint == 1)
-                            ? "§a§lSTART CO-OP TRUE RUN"
-                            : "§e§lSTART CO-OP (F." + selectedCheckpoint + ")";
                     this.addDrawableChild(create3DButton(
-                            Text.literal(runTitle),
+                            Text.literal("§a§lSTART CO-OP"),
                             centerX - 160, centerY + 40, 155, 26,
                             btn -> {
                                 ClientPlayNetworking.send(new StartTowerC2SPacket(false, selectedCheckpoint));
@@ -131,6 +156,12 @@ public class TowerHubScreen extends Screen {
                                 this.close();
                             }
                     ));
+                } else {
+                    this.addDrawableChild(create3DButton(
+                            Text.literal("§7(Invite Partner)"),
+                            centerX - 160, centerY + 40, 155, 26,
+                            btn -> {}
+                    ));
                 }
             }
         }
@@ -145,117 +176,26 @@ public class TowerHubScreen extends Screen {
                 }
         ));
 
+        // Leaderboard Button
+        this.addDrawableChild(create3DButton(
+                Text.literal("§e🏆 LEADERBOARD"),
+                centerX - 140, centerY + 78, 120, 20,
+                btn -> {
+                    isLeaderboardView = true;
+                    this.clearAndInit();
+                }
+        ));
+
         // Close Button
         this.addDrawableChild(create3DButton(
                 Text.literal("§fClose Hub"),
-                centerX - 60, centerY + 78, 120, 20,
+                centerX + 20, centerY + 78, 120, 20,
                 btn -> this.close()
-        ));
-
-        // ==========================================
-        // LEFT DEV / CHEAT MENU PANEL (FOR TESTING)
-        // ==========================================
-        int debugPanelX = centerX - 175 - 146;
-        int debugPanelY = centerY - 118;
-        int btnW = 130;
-        int btnH = 18;
-
-        // 1. Unlock All Checkpoints (F1 - F100)
-        this.addDrawableChild(create3DButton(
-                Text.literal("§a🔓 Unlock All (F100)"),
-                debugPanelX + 5, debugPanelY + 22, btnW, btnH,
-                btn -> {
-                    ClientPlayNetworking.send(new com.vitwo.network.c2s.DebugTowerActionC2SPacket("UNLOCK_ALL", 100));
-                    soloCheckpoint = 100;
-                    duoCheckpoint = 100;
-                    this.clearAndInit();
-                }
-        ));
-
-        // 2. Add 5,000 Battle Points
-        this.addDrawableChild(create3DButton(
-                Text.literal("§6💰 +5,000 BP"),
-                debugPanelX + 5, debugPanelY + 44, btnW, btnH,
-                btn -> {
-                    ClientPlayNetworking.send(new com.vitwo.network.c2s.DebugTowerActionC2SPacket("ADD_BP", 5000));
-                    playerBp += 5000;
-                    this.clearAndInit();
-                }
-        ));
-
-        // 3. Set Max Prestige Level (P.5)
-        this.addDrawableChild(create3DButton(
-                Text.literal("§b⭐ Max Prestige (P.5)"),
-                debugPanelX + 5, debugPanelY + 66, btnW, btnH,
-                btn -> {
-                    ClientPlayNetworking.send(new com.vitwo.network.c2s.DebugTowerActionC2SPacket("SET_PRESTIGE", 5));
-                    this.clearAndInit();
-                }
-        ));
-
-        // 4. Full Party Heal (Instant Revive & Max PP)
-        this.addDrawableChild(create3DButton(
-                Text.literal("§2❤ Full Party Heal"),
-                debugPanelX + 5, debugPanelY + 88, btnW, btnH,
-                btn -> {
-                    ClientPlayNetworking.send(new com.vitwo.network.c2s.DebugTowerActionC2SPacket("HEAL_PARTY", 0));
-                }
-        ));
-
-        // 5. Toggle Ghost Mode / Extra Ghost Charges
-        this.addDrawableChild(create3DButton(
-                Text.literal("§d👻 Max Ghost Energy"),
-                debugPanelX + 5, debugPanelY + 110, btnW, btnH,
-                btn -> {
-                    ClientPlayNetworking.send(new com.vitwo.network.c2s.DebugTowerActionC2SPacket("MAX_GHOST", 2));
-                }
-        ));
-
-        // 6. Fast Win Current Battle / Floor Clear
-        this.addDrawableChild(create3DButton(
-                Text.literal("§c⚔ Auto-Clear Floor"),
-                debugPanelX + 5, debugPanelY + 132, btnW, btnH,
-                btn -> {
-                    ClientPlayNetworking.send(new com.vitwo.network.c2s.DebugTowerActionC2SPacket("CLEAR_FLOOR", currentFloor));
-                    this.close();
-                }
-        ));
-
-        // 7. Fast Jump to Boss Floors
-        this.addDrawableChild(create3DButton(
-                Text.literal("§e⚡ Jump F.90"),
-                debugPanelX + 5, debugPanelY + 154, 63, btnH,
-                btn -> {
-                    ClientPlayNetworking.send(new com.vitwo.network.c2s.DebugTowerActionC2SPacket("START_FLOOR", 90));
-                    this.close();
-                }
-        ));
-
-        this.addDrawableChild(create3DButton(
-                Text.literal("§4👑 Jump F.100"),
-                debugPanelX + 72, debugPanelY + 154, 63, btnH,
-                btn -> {
-                    ClientPlayNetworking.send(new com.vitwo.network.c2s.DebugTowerActionC2SPacket("START_FLOOR", 100));
-                    this.close();
-                }
-        ));
-
-        // 8. Reset All Tower Save Data
-        this.addDrawableChild(create3DButton(
-                Text.literal("§9🔄 Reset All Data"),
-                debugPanelX + 5, debugPanelY + 176, btnW, btnH,
-                btn -> {
-                    ClientPlayNetworking.send(new com.vitwo.network.c2s.DebugTowerActionC2SPacket("RESET_DATA", 0));
-                    soloCheckpoint = 1;
-                    duoCheckpoint = 1;
-                    playerBp = 0;
-                    this.clearAndInit();
-                }
         ));
     }
 
-    private ButtonWidget create3DButton(Text text, int x, int y, int width, int height, ButtonWidget.PressAction onPress) {
-        return ButtonWidget.builder(text, onPress)
+    private TowerButton create3DButton(Text text, int x, int y, int width, int height, ButtonWidget.PressAction onPress) {
+        return TowerButton.towerBuilder(text, onPress)
                 .dimensions(x, y, width, height)
                 .build();
     }
@@ -266,25 +206,13 @@ public class TowerHubScreen extends Screen {
         int centerX = this.width / 2;
         int centerY = this.height / 2;
 
-        // Container Window (Slate & Vibrant Cyan)
-        context.fill(centerX - 175, centerY - 118, centerX + 175, centerY + 120, 0xF212171E);
-        context.drawBorder(centerX - 175, centerY - 118, 350, 238, 0xFF0FD9C2);
-        context.fill(centerX - 174, centerY - 117, centerX + 174, centerY - 114, 0xFF0FD9C2);
+        if (isLeaderboardView) {
+            renderLeaderboardView(context, centerX, centerY, mouseX, mouseY, delta);
+            return;
+        }
 
-        // ==========================================
-        // LEFT DEV / CHEAT MENU CONTAINER RENDER
-        // ==========================================
-        int debugPanelX = centerX - 175 - 146;
-        int debugPanelY = centerY - 118;
-        int debugPanelWidth = 140;
-        int debugPanelHeight = 238;
-
-        context.fill(debugPanelX, debugPanelY, debugPanelX + debugPanelWidth, debugPanelY + debugPanelHeight, 0xF212171E);
-        context.drawBorder(debugPanelX, debugPanelY, debugPanelWidth, debugPanelHeight, 0xFFE5A50A);
-        context.fill(debugPanelX + 1, debugPanelY + 1, debugPanelX + debugPanelWidth - 1, debugPanelY + 3, 0xFFE5A50A);
-
-        context.drawCenteredTextWithShadow(this.textRenderer, "§e§l🛠 DEV CHEAT MENU", debugPanelX + (debugPanelWidth / 2), debugPanelY + 8, 0xFFE5A50A);
-        context.drawCenteredTextWithShadow(this.textRenderer, "§8[Direct Mod Testing]", debugPanelX + (debugPanelWidth / 2), debugPanelY + 200, 0x888888);
+        // Container Window
+        this.renderPanelBackground(context, centerX - 175, centerY - 118, 350, 238);
 
         super.render(context, mouseX, mouseY, delta);
 
@@ -308,17 +236,78 @@ public class TowerHubScreen extends Screen {
         }
 
         // Starting Floor & Level Cap Indicator
-        int maxCap = LevelCapManager.getMaxLevelCapForFloor(selectedCheckpoint);
-        boolean isTrue = (selectedCheckpoint == 1);
-        String runTypeDesc = isTrue
-                ? "§a★ True Run: Full BP & Milestones"
-                : "§e⚡ Checkpoint Run: 50% Floor BP";
+        if (inTowerSession) {
+            int floorCap = LevelCapManager.getMaxLevelCapForFloor(currentFloor);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§6⚔ §eCurrent Floor: §f" + currentFloor + " §7(Level Cap: Lv." + floorCap + ")", centerX, centerY + 12, 0xFFD700);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§aActive Run: Right-click Trainer to battle, or click Forfeit to exit.", centerX, centerY + 24, 0x55FF55);
+        } else {
+            int maxCap = LevelCapManager.getMaxLevelCapForFloor(selectedCheckpoint);
+            boolean isTrue = (selectedCheckpoint == 1);
+            String runTypeDesc = isTrue
+                    ? "§a★ True Run: Full BP & Milestones"
+                    : "§e⚡ Checkpoint Run: 50% Floor BP";
 
-        context.drawCenteredTextWithShadow(this.textRenderer, "§fSelected: §bFloor " + selectedCheckpoint + " §7(Cap: Lv." + maxCap + ") §7— " + runTypeDesc, centerX, centerY + 12, 0x0FD9C2);
-        context.drawCenteredTextWithShadow(this.textRenderer, "§8[Clauses: Species Clause | Item Clause | Max 1 Restricted Legend | Locked Party]", centerX, centerY + 24, 0x888888);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§fSelected: §bFloor " + selectedCheckpoint + " §7(Cap: Lv." + maxCap + ") §7— " + runTypeDesc, centerX, centerY + 12, 0x0FD9C2);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§8[Clauses: Species Clause | Item Clause | Max 1 Restricted Legend | Locked Party]", centerX, centerY + 24, 0x888888);
+        }
 
         // Authors Credit
-        context.drawCenteredTextWithShadow(this.textRenderer, "§7CobbleTower - Made by Vit, Arjun, Serik, Zitj and Nam", centerX, centerY + 104, 0xAAAAAA);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§7CobbleTower — Developed for CobbleVerse Modpack", centerX, centerY + 106, 0x888888);
+    }
+
+    private void renderLeaderboardView(DrawContext context, int centerX, int centerY, int mouseX, int mouseY, float delta) {
+        int panelW = 360;
+        int panelH = 240;
+        this.renderPanelBackground(context, centerX - panelW / 2, centerY - panelH / 2, panelW, panelH);
+
+        super.render(context, mouseX, mouseY, delta);
+
+        context.drawCenteredTextWithShadow(this.textRenderer, "§6§l🏆 TRUE RUN HALL OF FAME 🏆", centerX, centerY - 105, TowerTheme.SECONDARY_GOLD);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§7Top 10 Fastest Floor 100 True Run Clearers", centerX, centerY - 92, 0xCCCCCC);
+
+        int startY = centerY - 75;
+        int rowH = 15;
+
+        // Table Header
+        context.drawTextWithShadow(this.textRenderer, "§8RANK", centerX - 160, startY, 0x888888);
+        context.drawTextWithShadow(this.textRenderer, "§8CHALLENGER(S)", centerX - 120, startY, 0x888888);
+        context.drawTextWithShadow(this.textRenderer, "§8TIME", centerX + 35, startY, 0x888888);
+        context.drawTextWithShadow(this.textRenderer, "§8TURNS", centerX + 85, startY, 0x888888);
+        context.drawTextWithShadow(this.textRenderer, "§8FAINTS", centerX + 130, startY, 0x888888);
+
+        context.fill(centerX - 165, startY + 11, centerX + 165, startY + 12, 0xFF333333);
+
+        if (cachedLeaderboard.isEmpty()) {
+            context.drawCenteredTextWithShadow(this.textRenderer, "§7No completions recorded yet. Be the first to conquer Floor 100!", centerX, centerY, 0x888888);
+        } else {
+            for (int i = 0; i < Math.min(10, cachedLeaderboard.size()); i++) {
+                LeaderboardEntry entry = cachedLeaderboard.get(i);
+                int rowY = startY + 16 + (i * rowH);
+
+                String rankStr = switch (entry.rank()) {
+                    case 1 -> "§6🥇 1st";
+                    case 2 -> "§f🥈 2nd";
+                    case 3 -> "§c🥉 3rd";
+                    default -> "§7#" + entry.rank();
+                };
+
+                int min = entry.durationSeconds() / 60;
+                int sec = entry.durationSeconds() % 60;
+                String timeStr = String.format("%02d:%02d", min, sec);
+
+                String name = entry.playerNames();
+                if (this.textRenderer.getWidth(name) > 140) {
+                    name = this.textRenderer.trimToWidth(name, 135) + "...";
+                }
+
+                int nameColor = entry.rank() == 1 ? 0xFFFFD700 : 0xFFFFFF;
+                context.drawTextWithShadow(this.textRenderer, rankStr, centerX - 160, rowY, 0xFFFFFF);
+                context.drawTextWithShadow(this.textRenderer, (entry.isSolo() ? "§b[S] " : "§d[D] ") + "§f" + name, centerX - 120, rowY, nameColor);
+                context.drawTextWithShadow(this.textRenderer, "§e" + timeStr, centerX + 35, rowY, 0xFFFF55);
+                context.drawTextWithShadow(this.textRenderer, "§7" + entry.totalTurns(), centerX + 90, rowY, 0xCCCCCC);
+                context.drawTextWithShadow(this.textRenderer, (entry.faints() == 0 ? "§a0" : "§c" + entry.faints()), centerX + 138, rowY, 0xCCCCCC);
+            }
+        }
     }
 
     @Override

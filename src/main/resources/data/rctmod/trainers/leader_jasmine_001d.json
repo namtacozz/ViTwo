@@ -1,0 +1,202 @@
+{
+  "name": {
+    "literal": "Jasmine"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "excadrill",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "moldbreaker",
+      "moveset": [
+        "rapidspin",
+        "earthquake",
+        "rocktomb",
+        "stealthrock"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "magearna",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "timid",
+      "ability": "soulheart",
+      "moveset": [
+        "shiftgear",
+        "thunderbolt",
+        "icebeam",
+        "flashcannon"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:steelium-z",
+        "steel_gem"
+      ]
+    },
+    {
+      "species": "heatran",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "calm",
+      "ability": "flashfire",
+      "moveset": [
+        "lavaplume",
+        "toxic",
+        "earthpower",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "spd": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "latios",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "psychic",
+        "aurasphere",
+        "thunderbolt",
+        "calmmind"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:latiosite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "togekiss",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "timid",
+      "ability": "serenegrace",
+      "moveset": [
+        "airslash",
+        "dazzlinggleam",
+        "flamethrower",
+        "trick"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "choice_scarf"
+      ]
+    },
+    {
+      "species": "copperajah",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "adamant",
+      "ability": "heavymetal",
+      "moveset": [
+        "doubleironbash",
+        "superpower",
+        "heatcrash",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    }
+  ]
+}

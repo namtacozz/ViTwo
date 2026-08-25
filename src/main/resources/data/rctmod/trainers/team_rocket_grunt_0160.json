@@ -1,0 +1,88 @@
+{
+  "name": {
+    "literal": "Team Rocket Grunt"
+  },
+  "identity": "Team Rocket Grunt (6)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "poochyena",
+      "gender": "MALE",
+      "level": 15,
+      "nature": "jolly",
+      "ability": "quickfeet",
+      "moveset": [
+        "tackle",
+        "howl",
+        "bite",
+        "odorsleuth"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "rattata",
+      "gender": "MALE",
+      "level": 15,
+      "nature": "docile",
+      "ability": "hustle",
+      "moveset": [
+        "quickattack",
+        "focusenergy",
+        "hyperfang",
+        "pursuit"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      },
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "zubat",
+      "gender": "FEMALE",
+      "level": 16,
+      "nature": "bold",
+      "ability": "sniper",
+      "moveset": [
+        "supersonic",
+        "astonish",
+        "bite",
+        "wingattack"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

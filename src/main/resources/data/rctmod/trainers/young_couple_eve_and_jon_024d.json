@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Young Couple Eve & Jon"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "golduck",
+      "gender": "MALE",
+      "level": 50,
+      "nature": "modest",
+      "ability": "cloudnine",
+      "moveset": [
+        "psychic",
+        "psychup",
+        "nastyplot",
+        "hydropump"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "psyduck",
+      "gender": "MALE",
+      "level": 50,
+      "nature": "careful",
+      "ability": "cloudnine",
+      "moveset": [
+        "psychup",
+        "amnesia",
+        "hydropump",
+        "wonderroom"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

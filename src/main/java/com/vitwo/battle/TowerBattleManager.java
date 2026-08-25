@@ -1,10 +1,13 @@
 package com.vitwo.battle;
 
 import com.cobblemon.mod.common.api.Priority;
+import com.cobblemon.mod.common.api.battles.model.PokemonBattle;
 import com.cobblemon.mod.common.api.battles.model.actor.BattleActor;
 import com.cobblemon.mod.common.api.events.CobblemonEvents;
 import com.cobblemon.mod.common.api.events.battles.BattleFledEvent;
+import com.cobblemon.mod.common.api.events.battles.BattleStartedEvent;
 import com.cobblemon.mod.common.api.events.battles.BattleVictoryEvent;
+import com.cobblemon.mod.common.battles.actor.PlayerBattleActor;
 import com.vitwo.party.TowerParty;
 import com.vitwo.party.TowerPartyManager;
 import net.minecraft.server.MinecraftServer;
@@ -31,13 +34,14 @@ public class TowerBattleManager {
     private TowerBattleManager() {}
 
     /**
-     * Subscribes to Cobblemon battle end events (Victory & Fled) to automatically progress tower floors
+     * Subscribes to Cobblemon battle events to scale NPC teams to 6x max level cap and handle victory/defeat/fled outcomes.
      */
     public void registerBattleEvents() {
         try {
+            subscribeObservable(CobblemonEvents.BATTLE_STARTED_POST, this::handleBattleStarted);
             subscribeObservable(CobblemonEvents.BATTLE_VICTORY, this::handleBattleVictory);
             subscribeObservable(CobblemonEvents.BATTLE_FLED, this::handleBattleFled);
-            LOGGER.info("[CobbleTower] Successfully registered Cobblemon BATTLE_VICTORY and BATTLE_FLED event listeners!");
+            LOGGER.info("[CobbleTower] Successfully registered Cobblemon BATTLE_STARTED_POST, BATTLE_VICTORY, and BATTLE_FLED listeners!");
         } catch (Throwable t) {
             LOGGER.error("[CobbleTower] Error registering battle event listeners: {}", t.getMessage());
         }
@@ -68,7 +72,6 @@ public class TowerBattleManager {
                     }
             );
 
-            // Find subscribe(Priority, Function1) or subscribe(Function1)
             for (Method m : observable.getClass().getMethods()) {
                 if ("subscribe".equals(m.getName()) && m.getParameterCount() == 2) {
                     m.invoke(observable, Priority.NORMAL, handlerProxy);
@@ -86,6 +89,35 @@ public class TowerBattleManager {
         }
     }
 
+    /**
+     * Dynamically scales the NPC trainer team to FULL 6 POKÉMON all at MAX LEVEL CAP when battle starts
+     */
+    private void handleBattleStarted(BattleStartedEvent.Post event) {
+        if (event == null || event.getBattle() == null) return;
+        PokemonBattle battle = event.getBattle();
+
+        // 1. Find if any battle participant is in a Tower Party
+        int partyFloor = -1;
+        for (UUID playerId : battle.getPlayerUUIDs()) {
+            Optional<TowerParty> partyOpt = TowerPartyManager.getInstance().getParty(playerId);
+            if (partyOpt.isPresent()) {
+                TowerParty party = partyOpt.get();
+                if (party.getState() == TowerParty.State.PREPARING || party.getState() == TowerParty.State.IN_BATTLE) {
+                    party.setState(TowerParty.State.IN_BATTLE);
+                    partyFloor = party.getCurrentFloor();
+                    MinecraftServer srv = resolveServer(battle, party);
+                    if (srv != null) {
+                        TowerPartyManager.getInstance().syncParty(party, srv);
+                    }
+                    break;
+                }
+            }
+        }
+
+        if (partyFloor <= 0) return;
+        LOGGER.info("[CobbleTower] Double Battle started successfully for Floor {}", partyFloor);
+    }
+
     private void handleBattleVictory(BattleVictoryEvent event) {
         if (event == null) return;
 
@@ -96,23 +128,13 @@ public class TowerBattleManager {
                 Optional<TowerParty> partyOpt = TowerPartyManager.getInstance().getParty(playerId);
                 if (partyOpt.isPresent()) {
                     TowerParty party = partyOpt.get();
-                    if (party.getState() == TowerParty.State.IN_BATTLE) {
+                    if (party.getState() == TowerParty.State.IN_BATTLE || party.getState() == TowerParty.State.PREPARING) {
                         for (UUID memId : party.getAllMembers()) {
                             inTowerBattlePlayers.remove(memId);
                         }
 
-                        // Retrieve server from one of the party members
-                        ServerPlayerEntity leader = null;
-                        for (UUID id : party.getAllMembers()) {
-                            ServerPlayerEntity p = getServerPlayer(id);
-                            if (p != null) {
-                                leader = p;
-                                break;
-                            }
-                        }
-
-                        if (leader != null && leader.getServer() != null) {
-                            MinecraftServer server = leader.getServer();
+                        MinecraftServer server = resolveServer(event.getBattle(), party);
+                        if (server != null) {
                             server.execute(() -> {
                                 for (UUID id : party.getAllMembers()) {
                                     ServerPlayerEntity p = server.getPlayerManager().getPlayer(id);
@@ -136,14 +158,13 @@ public class TowerBattleManager {
                 Optional<TowerParty> partyOpt = TowerPartyManager.getInstance().getParty(playerId);
                 if (partyOpt.isPresent()) {
                     TowerParty party = partyOpt.get();
-                    if (party.getState() == TowerParty.State.IN_BATTLE) {
+                    if (party.getState() == TowerParty.State.IN_BATTLE || party.getState() == TowerParty.State.PREPARING) {
                         for (UUID memId : party.getAllMembers()) {
                             inTowerBattlePlayers.remove(memId);
                         }
 
-                        ServerPlayerEntity leader = getServerPlayer(playerId);
-                        if (leader != null && leader.getServer() != null) {
-                            MinecraftServer server = leader.getServer();
+                        MinecraftServer server = resolveServer(event.getBattle(), party);
+                        if (server != null) {
                             server.execute(() -> {
                                 for (UUID id : party.getAllMembers()) {
                                     ServerPlayerEntity p = server.getPlayerManager().getPlayer(id);
@@ -161,26 +182,74 @@ public class TowerBattleManager {
         }
     }
 
+    /**
+     * Handles fleeing/running from battle: immediately triggers defeat, shows defeat screen, and returns player to Hub.
+     */
     private void handleBattleFled(BattleFledEvent event) {
-        if (event == null || event.getPlayer() == null) return;
-        UUID playerId = event.getPlayer().getUuid();
-        Optional<TowerParty> partyOpt = TowerPartyManager.getInstance().getParty(playerId);
-        if (partyOpt.isPresent()) {
-            TowerParty party = partyOpt.get();
-            if (party.getState() == TowerParty.State.IN_BATTLE) {
-                for (UUID memId : party.getAllMembers()) {
-                    inTowerBattlePlayers.remove(memId);
+        if (event == null) return;
+
+        List<UUID> playerIds = new ArrayList<>();
+        if (event.getPlayer() != null) {
+            try {
+                Object pObj = event.getPlayer();
+                if (pObj instanceof PlayerBattleActor pba) {
+                    playerIds.add(pba.getUuid());
+                } else {
+                    for (Method m : pObj.getClass().getMethods()) {
+                        if ("getUuid".equals(m.getName()) && m.getParameterCount() == 0) {
+                            Object res = m.invoke(pObj);
+                            if (res instanceof UUID u) playerIds.add(u);
+                            break;
+                        }
+                    }
                 }
-                ServerPlayerEntity player = getServerPlayer(playerId);
-                if (player != null && player.getServer() != null) {
-                    MinecraftServer server = player.getServer();
-                    server.execute(() -> {
-                        player.sendMessage(Text.literal("§c[CobbleTower] You fled from the battle! Tower run ended."), false);
-                        TowerPartyManager.getInstance().onPartyDefeated(party, server);
-                    });
+            } catch (Throwable ignored) {}
+        }
+        if (event.getBattle() != null) {
+            for (UUID id : event.getBattle().getPlayerUUIDs()) {
+                if (!playerIds.contains(id)) playerIds.add(id);
+            }
+        }
+
+        for (UUID playerId : playerIds) {
+            Optional<TowerParty> partyOpt = TowerPartyManager.getInstance().getParty(playerId);
+            if (partyOpt.isPresent()) {
+                TowerParty party = partyOpt.get();
+                if (party.getState() == TowerParty.State.IN_BATTLE || party.getState() == TowerParty.State.PREPARING) {
+                    for (UUID memId : party.getAllMembers()) {
+                        inTowerBattlePlayers.remove(memId);
+                    }
+
+                    MinecraftServer server = resolveServer(event.getBattle(), party);
+                    if (server != null) {
+                        server.execute(() -> {
+                            ServerPlayerEntity player = server.getPlayerManager().getPlayer(playerId);
+                            if (player != null) {
+                                player.sendMessage(Text.literal("§c[CobbleTower] You fled from the battle! Tower run ended."), false);
+                            }
+                            TowerPartyManager.getInstance().onPartyDefeated(party, server);
+                        });
+                    }
+                    return;
                 }
             }
         }
+    }
+
+    private MinecraftServer resolveServer(PokemonBattle battle, TowerParty party) {
+        if (party != null) {
+            for (UUID id : party.getAllMembers()) {
+                ServerPlayerEntity p = getServerPlayer(id);
+                if (p != null && p.getServer() != null) return p.getServer();
+            }
+        }
+        if (battle != null) {
+            for (UUID id : battle.getPlayerUUIDs()) {
+                ServerPlayerEntity p = getServerPlayer(id);
+                if (p != null && p.getServer() != null) return p.getServer();
+            }
+        }
+        return TowerPartyManager.getInstance().getCurrentServer();
     }
 
     private ServerPlayerEntity getServerPlayer(UUID uuid) {

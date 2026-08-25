@@ -1,0 +1,208 @@
+{
+  "name": {
+    "literal": "Morty"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "mimikyu",
+      "gender": "FEMALE",
+      "level": 96,
+      "nature": "jolly",
+      "ability": "disguise",
+      "moveset": [
+        "playrough",
+        "shadowclaw",
+        "shadowsneak",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "lum_berry"
+      ]
+    },
+    {
+      "species": "dusknoir",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "adamant",
+      "ability": "hustle",
+      "moveset": [
+        "shadowpunch",
+        "shadowsneak",
+        "dynamicpunch",
+        "willowisp"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "def": 4
+      },
+      "heldItem": [
+        "reaper_cloth"
+      ]
+    },
+    {
+      "species": "zoroark",
+      "gender": "FEMALE",
+      "level": 96,
+      "nature": "timid",
+      "ability": "illusion",
+      "moveset": [
+        "hypervoice",
+        "shadowball",
+        "flamethrower",
+        "nastyplot"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "colbur_berry"
+      ],
+      "aspects": [
+        "sevii"
+      ]
+    },
+    {
+      "species": "typhlosion",
+      "gender": "FEMALE",
+      "level": 96,
+      "nature": "timid",
+      "ability": "flashfire",
+      "moveset": [
+        "flamethrower",
+        "infernalparade",
+        "focusblast",
+        "hiddenpower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 30,
+        "def": 31,
+        "spa": 30,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "charcoal_stick"
+      ],
+      "aspects": [
+        "hisuian"
+      ]
+    },
+    {
+      "species": "gengar",
+      "gender": "FEMALE",
+      "level": 94,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "sludgewave",
+        "shadowball",
+        "focusblast",
+        "nastyplot"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:gengarite",
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "weavile",
+      "gender": "MALE",
+      "level": 44,
+      "nature": "jolly",
+      "ability": "infiltrator",
+      "moveset": [
+        "knockoff",
+        "tripleaxel",
+        "iceshard",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    }
+  ]
+}

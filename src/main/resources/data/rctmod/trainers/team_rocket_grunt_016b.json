@@ -1,0 +1,126 @@
+{
+  "name": {
+    "literal": "Team Rocket Grunt"
+  },
+  "identity": "Team Rocket Grunt (17)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "golbat",
+      "gender": "MALE",
+      "level": 41,
+      "nature": "brave",
+      "ability": "sniper",
+      "moveset": [
+        "bite",
+        "bite",
+        "dualwingbeat",
+        "confuseray"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "muk",
+      "gender": "MALE",
+      "level": 41,
+      "nature": "mild",
+      "ability": "stickyhold",
+      "moveset": [
+        "smog",
+        "sludge",
+        "sludgebomb",
+        "screech"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "cacturne",
+      "gender": "FEMALE",
+      "level": 40,
+      "nature": "gentle",
+      "ability": "waterabsorb",
+      "moveset": [
+        "sludge",
+        "pinmissile",
+        "gigadrain",
+        "feintattack"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "bisharp",
+      "gender": "MALE",
+      "level": 40,
+      "nature": "hardy",
+      "ability": "innerfocus",
+      "moveset": [
+        "bite",
+        "suckerpunch",
+        "ironhead"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "vullaby",
+      "gender": "FEMALE",
+      "level": 40,
+      "nature": "brave",
+      "ability": "overcoat",
+      "moveset": [
+        "hyperfang",
+        "pluck",
+        "foulplay",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

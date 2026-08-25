@@ -1,0 +1,226 @@
+{
+  "name": {
+    "literal": "Jasmine"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 3
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 3
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "trickroom",
+        "dracometeor"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 52,
+        "spa": 80,
+        "def": 124,
+        "hp": 252
+      },
+      "heldItem": [
+        "adamant_crystal"
+      ],
+      "aspects": [
+        "origin-forme"
+      ],
+      "gimmicks": {
+        "tera": "steel"
+      },
+      "species": "dialga",
+      "gender": "GENDERLESS",
+      "level": 80,
+      "nature": "sassy",
+      "ability": "telepathy",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "gigatonhammer",
+        "playrough",
+        "knockoff",
+        "brutalswing"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 124,
+        "spd": 16,
+        "def": 92,
+        "atk": 168,
+        "hp": 108
+      },
+      "heldItem": [
+        "assault_vest"
+      ],
+      "gimmicks": {
+        "tera": "fairy"
+      },
+      "species": "tinkaton",
+      "gender": "FEMALE",
+      "level": 80,
+      "nature": "adamant",
+      "ability": "moldbreaker"
+    },
+    {
+      "moveset": [
+        "bodypress",
+        "powerwhip",
+        "gyroball",
+        "spikes"
+      ],
+      "ivs": {
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 88,
+        "def": 156,
+        "atk": 76,
+        "hp": 188
+      },
+      "heldItem": [
+        "occa_berry"
+      ],
+      "gimmicks": {
+        "tera": "grass"
+      },
+      "species": "ferrothorn",
+      "gender": "MALE",
+      "level": 80,
+      "nature": "brave",
+      "ability": "ironbarbs"
+    },
+    {
+      "moveset": [
+        "aquatail",
+        "irondefense",
+        "bodypress",
+        "metalclaw"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 92,
+        "def": 180,
+        "atk": 44,
+        "hp": 192
+      },
+      "heldItem": [
+        "mega_showdown:aggronite"
+      ],
+      "gimmicks": {
+        "tera": "steel"
+      },
+      "species": "aggron",
+      "gender": "MALE",
+      "level": 80,
+      "nature": "impish",
+      "ability": "filter"
+    },
+    {
+      "moveset": [
+        "doubleironbash",
+        "icepunch",
+        "earthquake",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 72,
+        "def": 112,
+        "atk": 208,
+        "hp": 116
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "gimmicks": {
+        "tera": "steel"
+      },
+      "species": "melmetal",
+      "gender": "GENDERLESS",
+      "level": 80,
+      "nature": "adamant",
+      "ability": "ironfist"
+    },
+    {
+      "moveset": [
+        "bodypress",
+        "electroshot",
+        "flashcannon",
+        "snarl"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 72,
+        "spa": 148,
+        "def": 136,
+        "hp": 152
+      },
+      "heldItem": [
+        "power_herb"
+      ],
+      "gimmicks": {
+        "tera": "steel"
+      },
+      "species": "archaludon",
+      "gender": "MALE",
+      "level": 80,
+      "nature": "calm",
+      "ability": "stamina"
+    }
+  ],
+  "identity": "Jasmine",
+  "battleFormat": "GEN_9_DOUBLES"
+}

@@ -1,0 +1,87 @@
+{
+  "name": {
+    "literal": "Lass Andrea"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "meowth",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "docile",
+      "ability": "pickup",
+      "moveset": [
+        "taunt",
+        "shockwave",
+        "payday",
+        "slash"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "meowth",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "calm",
+      "ability": "pickup",
+      "moveset": [
+        "feintattack",
+        "taunt",
+        "payday",
+        "slash"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      },
+      "aspects": [
+        "alolan"
+      ]
+    },
+    {
+      "species": "cutiefly",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "naive",
+      "ability": "swarm",
+      "moveset": [
+        "sweetscent",
+        "bugbuzz",
+        "dazzlinggleam",
+        "aromatherapy"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "name": {
+    "literal": "Ace Trainer Micah"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "bibarel",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "hardy",
+      "ability": "simple",
+      "moveset": [
+        "aquajet",
+        "crunch",
+        "swordsdance",
+        "superpower"
+      ]
+    },
+    {
+      "species": "rapidash",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "sassy",
+      "ability": "runaway",
+      "moveset": [
+        "smartstrike",
+        "flamewheel",
+        "firespin",
+        "inferno"
+      ]
+    },
+    {
+      "species": "beautifly",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "hardy",
+      "ability": "swarm",
+      "moveset": [
+        "stunspore",
+        "aircutter",
+        "bugbuzz",
+        "quiverdance"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "name": {
+    "literal": "Gym Leader Fantina"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:super_potion",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "drifblim",
+      "gender": "FEMALE",
+      "level": 32,
+      "nature": "timid",
+      "ability": "aftermath",
+      "moveset": [
+        "strengthsap",
+        "hex",
+        "fly",
+        "willowisp"
+      ],
+      "ivs": {
+        "hp": 19,
+        "def": 5,
+        "spa": 19,
+        "spd": 5,
+        "spe": 19
+      },
+      "evs": {
+        "hp": 52,
+        "def": 4,
+        "spa": 68,
+        "spd": 4,
+        "spe": 52
+      },
+      "heldItem": [
+        "zoom_lens"
+      ]
+    },
+    {
+      "species": "gengar",
+      "gender": "MALE",
+      "level": 34,
+      "nature": "timid",
+      "ability": "cursedbody",
+      "moveset": [
+        "shadowclaw",
+        "confuseray",
+        "sludgebomb",
+        "dazzlinggleam"
+      ],
+      "ivs": {
+        "hp": 19,
+        "def": 5,
+        "spa": 19,
+        "spd": 5,
+        "spe": 19
+      },
+      "evs": {
+        "hp": 52,
+        "def": 4,
+        "spa": 76,
+        "spd": 4,
+        "spe": 68
+      },
+      "heldItem": [
+        "colbur_berry"
+      ]
+    },
+    {
+      "species": "mismagius",
+      "gender": "FEMALE",
+      "level": 36,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "confuseray",
+        "phantomforce",
+        "magicalleaf",
+        "dazzlinggleam"
+      ],
+      "ivs": {
+        "hp": 19,
+        "def": 5,
+        "spa": 19,
+        "spd": 5,
+        "spe": 19
+      },
+      "evs": {
+        "hp": 44,
+        "def": 4,
+        "spa": 92,
+        "spd": 4,
+        "spe": 68
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    }
+  ]
+}

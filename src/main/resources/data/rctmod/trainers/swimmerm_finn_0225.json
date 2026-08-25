@@ -1,0 +1,137 @@
+{
+  "name": {
+    "literal": "Swimmer♂ Finn"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "overqwil",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "moveset": [
+        "poisonjab",
+        "throatchop",
+        "toxicspikes",
+        "destinybond"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 30,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "custap_berry"
+      ]
+    },
+    {
+      "species": "barraskewda",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "jolly",
+      "ability": "swiftswim",
+      "moveset": [
+        "waterfall",
+        "flipturn",
+        "closecombat",
+        "psychicfangs"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "mystic_water"
+      ]
+    },
+    {
+      "species": "cloyster",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "jolly",
+      "ability": "skilllink",
+      "moveset": [
+        "shellsmash",
+        "waterfall",
+        "iciclespear",
+        "rockblast"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "drednaw",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "adamant",
+      "ability": "strongjaw",
+      "moveset": [
+        "liquidation",
+        "jawlock",
+        "icefang",
+        "rockpolish"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "def": 4
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

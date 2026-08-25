@@ -1,0 +1,53 @@
+{
+  "name": {
+    "literal": "Ace Trainer Brenna"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "snover",
+      "gender": "MALE",
+      "level": 39,
+      "nature": "relaxed",
+      "ability": "snowwarning",
+      "moveset": [
+        "iceshard",
+        "razorleaf",
+        "icywind",
+        "ingrain"
+      ]
+    },
+    {
+      "species": "piloswine",
+      "gender": "MALE",
+      "level": 39,
+      "nature": "adamant",
+      "ability": "thickfat",
+      "moveset": [
+        "icefang",
+        "mudbomb",
+        "takedown",
+        "endure"
+      ]
+    }
+  ]
+}

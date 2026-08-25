@@ -2,7 +2,7 @@
   "parent": "vitwo:ultra_tower",
   "display": {
     "icon": {
-      "id": "cobblemon:origin_ball"
+      "id": "cobblemon:master_ball"
     },
     "title": {
       "translate": "advancements.vitwo.master_tower.title"

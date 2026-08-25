@@ -1,0 +1,203 @@
+{
+  "name": {
+    "literal": "Trainer Cole"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "yanmega",
+      "gender": "FEMALE",
+      "level": 40,
+      "nature": "timid",
+      "ability": "frisk",
+      "moveset": [
+        "airslash",
+        "bugbuzz",
+        "gigadrain",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "tyrantrum",
+      "gender": "FEMALE",
+      "level": 40,
+      "nature": "jolly",
+      "ability": "rockhead",
+      "moveset": [
+        "dragondance",
+        "headsmash",
+        "dragonclaw",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "shuca_berry"
+      ]
+    },
+    {
+      "species": "weezing",
+      "gender": "MALE",
+      "level": 40,
+      "nature": "bold",
+      "ability": "neutralizinggas",
+      "moveset": [
+        "sludgebomb",
+        "strangesteam",
+        "flamethrower",
+        "haze"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252
+      },
+      "heldItem": [
+        "rocky_helmet"
+      ],
+      "aspects": [
+        "galarian"
+      ]
+    },
+    {
+      "species": "ferrothorn",
+      "gender": "FEMALE",
+      "level": 40,
+      "nature": "impish",
+      "ability": "ironbarbs",
+      "moveset": [
+        "leechseed",
+        "powerwhip",
+        "gyroball",
+        "thunderwave"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 128,
+        "spd": 128,
+        "spe": 4
+      },
+      "heldItem": [
+        "rocky_helmet"
+      ]
+    },
+    {
+      "species": "gastrodon",
+      "gender": "FEMALE",
+      "level": 40,
+      "nature": "calm",
+      "ability": "stormdrain",
+      "moveset": [
+        "scald",
+        "recover",
+        "earthpower",
+        "mirrorcoat"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "spd": 252
+      },
+      "heldItem": [
+        "rocky_helmet"
+      ]
+    },
+    {
+      "species": "centiskorch",
+      "gender": "MALE",
+      "level": 40,
+      "nature": "adamant",
+      "ability": "flashfire",
+      "moveset": [
+        "coil",
+        "leechlife",
+        "firelash",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

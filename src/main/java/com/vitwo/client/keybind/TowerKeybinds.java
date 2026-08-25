@@ -56,6 +56,9 @@ public class TowerKeybinds {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (openHubKey.wasPressed()) {
                 if (client.player != null && client.currentScreen == null) {
+                    if (TowerHudOverlay.inTowerSession && TowerHudOverlay.inBattle) {
+                        continue;
+                    }
                     client.setScreen(new TowerHubScreen());
                 }
             }

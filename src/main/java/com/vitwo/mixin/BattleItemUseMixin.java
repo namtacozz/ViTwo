@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ItemStack.class)
 public class BattleItemUseMixin {
-    @Inject(method = "use", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "use", at = @At("HEAD"), cancellable = true, require = 0)
     private void vitwo$cancelBagItemsInTower(World world, PlayerEntity user, Hand hand, CallbackInfoReturnable<TypedActionResult<ItemStack>> cir) {
         if (!world.isClient() && TowerBattleManager.getInstance().isInTowerBattle(user.getUuid())) {
             ItemStack stack = (ItemStack) (Object) this;

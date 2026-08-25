@@ -1,0 +1,125 @@
+{
+  "name": {
+    "literal": "Rival Terry"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "pidgeotto",
+      "gender": "MALE",
+      "level": 25,
+      "nature": "adamant",
+      "ability": "tangledfeet",
+      "moveset": [
+        "quickattack",
+        "takedown",
+        "whirlwind",
+        "return"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    {
+      "species": "gyarados",
+      "gender": "MALE",
+      "level": 23,
+      "nature": "impish",
+      "ability": "intimidate",
+      "moveset": [
+        "bite",
+        "thrash",
+        "leer"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    {
+      "species": "growlithe",
+      "gender": "FEMALE",
+      "level": 22,
+      "nature": "jolly",
+      "ability": "flashfire",
+      "moveset": [
+        "helpinghand",
+        "flamewheel",
+        "reversal",
+        "firefang"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    {
+      "species": "kadabra",
+      "gender": "FEMALE",
+      "level": 20,
+      "nature": "bashful",
+      "ability": "innerfocus",
+      "moveset": [
+        "teleport",
+        "confusion",
+        "hiddenpower",
+        "disable"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    {
+      "species": "ivysaur",
+      "gender": "FEMALE",
+      "level": 25,
+      "nature": "lonely",
+      "ability": "overgrow",
+      "moveset": [
+        "sleeppowder",
+        "sludge",
+        "megadrain",
+        "takedown"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    }
+  ]
+}

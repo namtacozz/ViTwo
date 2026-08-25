@@ -1,0 +1,106 @@
+{
+  "name": {
+    "literal": "Team Rocket Grunt"
+  },
+  "identity": "Team Rocket Grunt (15)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "krokorok",
+      "gender": "MALE",
+      "level": 41,
+      "nature": "jolly",
+      "ability": "moxie",
+      "moveset": [
+        "crunch",
+        "dig",
+        "scaryface",
+        "foulplay"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "mightyena",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "lonely",
+      "ability": "strongjaw",
+      "moveset": [
+        "scaryface",
+        "crunch",
+        "taunt",
+        "embargo"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "gumshoos",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "careful",
+      "ability": "strongjaw",
+      "moveset": [
+        "icefang",
+        "superfang",
+        "takedown",
+        "scaryface"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "stunky",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "brave",
+      "ability": "aftermath",
+      "moveset": [
+        "nightslash",
+        "poisonjab",
+        "venomdrench",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

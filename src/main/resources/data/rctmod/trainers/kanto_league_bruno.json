@@ -1,0 +1,233 @@
+{
+  "name": {
+    "literal": "Bruno"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 4
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "drainpunch",
+        "ragefist",
+        "bulkup",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 40,
+        "spd": 116,
+        "def": 76,
+        "atk": 120,
+        "hp": 156
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ],
+      "gimmicks": {
+        "tera": "fighting"
+      },
+      "species": "annihilape",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "defiant"
+    },
+    {
+      "moveset": [
+        "closecombat",
+        "wildcharge",
+        "swordsdance",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 100,
+        "spd": 72,
+        "def": 92,
+        "atk": 100,
+        "hp": 144
+      },
+      "heldItem": [
+        "mega_showdown:booster_energy"
+      ],
+      "gimmicks": {
+        "tera": "fighting"
+      },
+      "species": "ironhands",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "quarkdrive"
+    },
+    {
+      "moveset": [
+        "wickedblow",
+        "closecombat",
+        "uturn",
+        "detect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "def": 4,
+        "atk": 152,
+        "hp": 96
+      },
+      "heldItem": [
+        "black_glasses"
+      ],
+      "aspects": [
+        "single_strike-style"
+      ],
+      "gimmicks": {
+        "tera": "fighting"
+      },
+      "species": "urshifu",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "jolly",
+      "ability": "unseenfist"
+    },
+    {
+      "moveset": [
+        "closecombat",
+        "machpunch",
+        "knockoff",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 156,
+        "spd": 36,
+        "def": 36,
+        "atk": 84,
+        "hp": 196
+      },
+      "heldItem": [
+        "flame_orb"
+      ],
+      "gimmicks": {
+        "tera": "fighting"
+      },
+      "species": "conkeldurr",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "guts",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "bodypress",
+        "irondefense",
+        "snarl",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 112,
+        "spd": 84,
+        "spa": 16,
+        "def": 156,
+        "hp": 140
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "gimmicks": {
+        "tera": "fighting"
+      },
+      "species": "zamazenta",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "bold",
+      "ability": "dauntlessshield"
+    },
+    {
+      "moveset": [
+        "aurasphere",
+        "darkpulse",
+        "nastyplot",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 108,
+        "spd": 56,
+        "spa": 156,
+        "def": 72,
+        "hp": 116
+      },
+      "heldItem": [
+        "mega_showdown:lucarionite"
+      ],
+      "gimmicks": {
+        "tera": "fighting"
+      },
+      "species": "lucario",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "modest",
+      "ability": "adaptability"
+    }
+  ],
+  "battleFormat": "GEN_9_DOUBLES"
+}

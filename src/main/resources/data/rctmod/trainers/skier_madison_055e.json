@@ -1,0 +1,47 @@
+{
+  "name": {
+    "literal": "Skier Madison"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "snover",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "sassy",
+      "ability": "snowwarning",
+      "moveset": [
+        "iceshard",
+        "ingrain",
+        "woodhammer",
+        "blizzard"
+      ]
+    },
+    {
+      "species": "abomasnow",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "brave",
+      "ability": "snowwarning",
+      "moveset": [
+        "blizzard",
+        "woodhammer",
+        "iceshard",
+        "earthquake"
+      ]
+    }
+  ]
+}

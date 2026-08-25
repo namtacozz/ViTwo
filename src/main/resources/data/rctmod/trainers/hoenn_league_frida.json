@@ -1,0 +1,228 @@
+{
+  "name": {
+    "literal": "Glacia"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 5
+  },
+  "bag": [
+    {
+      "item": "max_revive",
+      "quantity": 1
+    },
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": "4"
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "auroraveil",
+        "blizzard",
+        "moonblast",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "light_clay"
+      ],
+      "aspects": [
+        "alolan"
+      ],
+      "gimmicks": {
+        "tera": "ice"
+      },
+      "species": "ninetales",
+      "gender": "FEMALE",
+      "level": 100,
+      "nature": "timid",
+      "ability": "snowwarning",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "icebeam",
+        "psychic",
+        "lifedew",
+        "helpinghand"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 76,
+        "spd": 84,
+        "spa": 136,
+        "def": 56,
+        "hp": 156
+      },
+      "heldItem": [
+        "mystic_water"
+      ],
+      "species": "lapras",
+      "gender": "FEMALE",
+      "level": 100,
+      "nature": "modest",
+      "ability": "shellarmor"
+    },
+    {
+      "moveset": [
+        "dragonpulse",
+        "blizzard",
+        "freezedry",
+        "ancientpower"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 96,
+        "spd": 64,
+        "spa": 252,
+        "def": 36,
+        "hp": 60
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "aspects": [
+        "white-fusion"
+      ],
+      "gimmicks": {
+        "tera": "fairy"
+      },
+      "species": "kyurem",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "modest",
+      "ability": "turboblaze"
+    },
+    {
+      "moveset": [
+        "leechseed",
+        "glaciallance",
+        "protect",
+        "encore"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 52,
+        "def": 44,
+        "atk": 176,
+        "hp": 236
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "aspects": [
+        "ice-rider"
+      ],
+      "species": "calyrex",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "asoneglastrier"
+    },
+    {
+      "moveset": [
+        "iciclespear",
+        "earthquake",
+        "stoneedge",
+        "knockoff"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 12,
+        "spd": 44,
+        "def": 112,
+        "atk": 136,
+        "hp": 204
+      },
+      "heldItem": [
+        "assault_vest"
+      ],
+      "species": "mamoswine",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "oblivious"
+    },
+    {
+      "moveset": [
+        "earthquake",
+        "woodhammer",
+        "icespinner",
+        "avalanche"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 96,
+        "def": 96,
+        "atk": 128,
+        "hp": 188
+      },
+      "heldItem": [
+        "mega_showdown:abomasite"
+      ],
+      "species": "abomasnow",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "snowwarning"
+    }
+  ],
+  "identity": "Frida",
+  "battleFormat": "GEN_9_DOUBLES"
+}

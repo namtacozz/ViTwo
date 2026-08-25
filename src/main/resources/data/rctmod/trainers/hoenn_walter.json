@@ -1,0 +1,210 @@
+{
+  "name": {
+    "literal": "Wattson"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "voltswitch",
+        "electrodrift",
+        "dracometeor",
+        "dazzlinggleam"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "choice_specs"
+      ],
+      "gimmicks": {
+        "tera": "electric"
+      },
+      "species": "miraidon",
+      "gender": "GENDERLESS",
+      "level": 55,
+      "nature": "timid",
+      "ability": "hadronengine"
+    },
+    {
+      "moveset": [
+        "thunder",
+        "scald",
+        "acidspray",
+        "reflect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 52,
+        "spa": 252,
+        "def": 40,
+        "hp": 164
+      },
+      "heldItem": [
+        "weakness_policy"
+      ],
+      "species": "bellibolt",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "modest",
+      "ability": "electromorphosis"
+    },
+    {
+      "moveset": [
+        "thunderbolt",
+        "voltswitch",
+        "flamethrower",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 80,
+        "spd": 28,
+        "spa": 176,
+        "def": 64,
+        "hp": 160
+      },
+      "heldItem": [
+        "mega_showdown:manectite"
+      ],
+      "species": "manectric",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "timid",
+      "ability": "intimidate"
+    },
+    {
+      "moveset": [
+        "followme",
+        "helpinghand",
+        "protect",
+        "knockoff"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 144,
+        "spd": 28,
+        "def": 80,
+        "atk": 4,
+        "hp": 252
+      },
+      "heldItem": [
+        "eviolite"
+      ],
+      "species": "electabuzz",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "jolly",
+      "ability": "static"
+    },
+    {
+      "moveset": [
+        "tailwind",
+        "electroweb",
+        "protect",
+        "bravebird"
+      ],
+      "ivs": {
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "species": "kilowattrel",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "jolly",
+      "ability": "competitive"
+    },
+    {
+      "moveset": [
+        "bodypress",
+        "highhorsepower",
+        "icepunch",
+        "snarl"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 30,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 56,
+        "spd": 12,
+        "spa": 4,
+        "def": 68,
+        "atk": 212,
+        "hp": 156
+      },
+      "heldItem": [
+        "assault_vest"
+      ],
+      "species": "ironthorns",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "adamant",
+      "ability": "quarkdrive"
+    }
+  ],
+  "identity": "Walter",
+  "battleFormat": "GEN_9_DOUBLES"
+}

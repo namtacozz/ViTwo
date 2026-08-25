@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "Breeder Alize"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "pikachu",
+      "gender": "MALE",
+      "level": 53,
+      "nature": "lax",
+      "ability": "static",
+      "moveset": [
+        "thunderbolt",
+        "agility",
+        "wildcharge",
+        "lightscreen"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "clefairy",
+      "gender": "MALE",
+      "level": 53,
+      "nature": "hardy",
+      "ability": "magicguard",
+      "moveset": [
+        "softboiled",
+        "moonblast",
+        "gravity",
+        "meteormash"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "marill",
+      "gender": "FEMALE",
+      "level": 53,
+      "nature": "naughty",
+      "ability": "hugepower",
+      "moveset": [
+        "raindance",
+        "doubleedge",
+        "superpower",
+        "hydropump"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

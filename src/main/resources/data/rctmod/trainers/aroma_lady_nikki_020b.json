@@ -1,0 +1,195 @@
+{
+  "name": {
+    "literal": "Aroma Lady Nikki"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "sableye",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "calm",
+      "ability": "prankster",
+      "moveset": [
+        "recover",
+        "toxic",
+        "foulplay",
+        "willowisp"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 30,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 248,
+        "def": 8,
+        "spd": 252
+      },
+      "heldItem": [
+        "mega_showdown:sablenite",
+        "leftovers"
+      ]
+    },
+    {
+      "species": "tangrowth",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "timid",
+      "ability": "regenerator",
+      "moveset": [
+        "gigadrain",
+        "earthquake",
+        "knockoff",
+        "focusblast"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spd": 4
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "blissey",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "bold",
+      "ability": "naturalcure",
+      "moveset": [
+        "teleport",
+        "softboiled",
+        "seismictoss",
+        "thunderwave"
+      ],
+      "ivs": {
+        "hp": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spd": 4
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "toxapex",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "impish",
+      "ability": "regenerator",
+      "moveset": [
+        "toxicspikes",
+        "scald",
+        "knockoff",
+        "recover"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spd": 4
+      },
+      "heldItem": [
+        "black_sludge"
+      ]
+    },
+    {
+      "species": "reuniclus",
+      "gender": "MALE",
+      "level": 91,
+      "nature": "modest",
+      "ability": "regenerator",
+      "moveset": [
+        "futuresight",
+        "psyshock",
+        "focusblast",
+        "teleport"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "drapion",
+      "gender": "FEMALE",
+      "level": 91,
+      "nature": "jolly",
+      "ability": "sniper",
+      "moveset": [
+        "wickedblow",
+        "poisonjab",
+        "earthquake",
+        "leechlife"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "choice_band"
+      ]
+    }
+  ]
+}

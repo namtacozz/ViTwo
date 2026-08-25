@@ -1,0 +1,138 @@
+{
+  "name": {
+    "literal": "Picnicker Claire"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "alakazam",
+      "gender": "FEMALE",
+      "level": 92,
+      "nature": "timid",
+      "ability": "synchronize",
+      "moveset": [
+        "expandingforce",
+        "shadowball",
+        "nastyplot",
+        "focusblast"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:alakazite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "indeedee",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "timid",
+      "ability": "psychicsurge",
+      "moveset": [
+        "expandingforce",
+        "followme",
+        "fakeout",
+        "hypervoice"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "tanga_berry"
+      ]
+    },
+    {
+      "species": "dugtrio",
+      "gender": "MALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "arenatrap",
+      "moveset": [
+        "earthquake",
+        "stompingtantrum",
+        "reversal",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "lucario",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "justified",
+      "moveset": [
+        "crunch",
+        "closecombat",
+        "meteormash",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    }
+  ]
+}

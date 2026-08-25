@@ -1,0 +1,198 @@
+{
+  "name": {
+    "literal": "Battleground Big Mo"
+  },
+  "identity": "Leader Big Mo",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "mudsdale",
+      "gender": "FEMALE",
+      "level": 81,
+      "nature": "impish",
+      "ability": "stamina",
+      "moveset": [
+        "earthquake",
+        "bodypress",
+        "smackdown",
+        "roar"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spd": 4
+      },
+      "heldItem": [
+        "rocky_helmet"
+      ]
+    },
+    {
+      "species": "wailord",
+      "gender": "MALE",
+      "level": 84,
+      "nature": "modest",
+      "ability": "waterveil",
+      "moveset": [
+        "waterspout",
+        "surf",
+        "icebeam",
+        "toxic"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "spa": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "mystic_water"
+      ]
+    },
+    {
+      "species": "hariyama",
+      "gender": "FEMALE",
+      "level": 83,
+      "nature": "adamant",
+      "ability": "guts",
+      "moveset": [
+        "stormthrow",
+        "knockoff",
+        "icepunch",
+        "facade"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spd": 252
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "snorlax",
+      "gender": "MALE",
+      "level": 84,
+      "nature": "adamant",
+      "ability": "thickfat",
+      "moveset": [
+        "return",
+        "darkestlariat",
+        "earthquake",
+        "firepunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "def": 252
+      },
+      "heldItem": [
+        "assault_vest"
+      ]
+    },
+    {
+      "species": "aggron",
+      "gender": "FEMALE",
+      "level": 83,
+      "nature": "careful",
+      "ability": "filter",
+      "moveset": [
+        "ironhead",
+        "bodypress",
+        "roar",
+        "curse"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spd": 252
+      },
+      "heldItem": [
+        "mega_showdown:aggronite",
+        "iron_ball"
+      ]
+    },
+    {
+      "species": "guzzlord",
+      "gender": "GENDERLESS",
+      "level": 82,
+      "nature": "modest",
+      "ability": "beastboost",
+      "moveset": [
+        "darkpulse",
+        "chatter",
+        "flamethrower",
+        "sludgewave"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "def": 252,
+        "spa": 252
+      },
+      "heldItem": [
+        "mega_showdown:darkinium-z",
+        "dark_gem"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "name": {
+    "literal": "Ace Trainer Andrew"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "infernape",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "blaze",
+      "moveset": [
+        "pyroball",
+        "closecombat",
+        "thunderpunch",
+        "stealthrock"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "sceptile",
+      "gender": "FEMALE",
+      "level": 95,
+      "nature": "jolly",
+      "ability": "overgrow",
+      "moveset": [
+        "swordsdance",
+        "bulletseed",
+        "scaleshot",
+        "rocktomb"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "torterra",
+      "gender": "FEMALE",
+      "level": 94,
+      "nature": "jolly",
+      "ability": "rockhead",
+      "moveset": [
+        "shellsmash",
+        "woodhammer",
+        "headlongrush",
+        "headsmash"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "yache_berry"
+      ]
+    },
+    {
+      "species": "blaziken",
+      "gender": "FEMALE",
+      "level": 93,
+      "nature": "jolly",
+      "ability": "reckless",
+      "moveset": [
+        "closecombat",
+        "flareblitz",
+        "knockoff",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:blazikenite",
+        "life_orb"
+      ]
+    },
+    {
+      "species": "greninja",
+      "gender": "MALE",
+      "level": 95,
+      "nature": "careful",
+      "ability": "battlebond",
+      "moveset": [
+        "hydrocannon",
+        "darkpulse",
+        "icebeam",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "inteleon",
+      "gender": "FEMALE",
+      "level": 95,
+      "nature": "timid",
+      "ability": "sniper",
+      "moveset": [
+        "snipeshot",
+        "icebeam",
+        "hiddenpower",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 30,
+        "def": 31,
+        "spa": 30,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "scope_lens"
+      ]
+    }
+  ]
+}

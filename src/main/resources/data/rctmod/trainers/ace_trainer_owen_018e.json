@@ -1,0 +1,132 @@
+{
+  "name": {
+    "literal": "Ace Trainer Owen"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "nidorino",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "sassy",
+      "ability": "poisontouch",
+      "moveset": [
+        "scratch",
+        "poisonsting",
+        "doublekick",
+        "bite"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "nidorina",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "calm",
+      "ability": "poisontouch",
+      "moveset": [
+        "hornattack",
+        "poisonsting",
+        "doublekick",
+        "leer"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "raticate",
+      "gender": "MALE",
+      "level": 42,
+      "nature": "timid",
+      "ability": "runaway",
+      "moveset": [
+        "superfang",
+        "pursuit",
+        "scaryface",
+        "quickattack"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "sandslash",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "quirky",
+      "ability": "sandveil",
+      "moveset": [
+        "furyswipes",
+        "swift",
+        "slash",
+        "poisonsting"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "rhyhorn",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "relaxed",
+      "ability": "lightningrod",
+      "moveset": [
+        "rockblast",
+        "scaryface",
+        "stomp",
+        "tailwhip"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    }
+  ]
+}

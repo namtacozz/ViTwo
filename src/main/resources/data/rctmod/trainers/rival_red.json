@@ -1,0 +1,201 @@
+{
+  "name": {
+    "literal": "Red"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 5
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 5
+    }
+  ],
+  "team": [
+    {
+      "species": "venusaur",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "mild",
+      "ability": "chlorophyll",
+      "moveset": [
+        "gigadrain",
+        "earthpower",
+        "sludgebomb",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 6,
+        "spd": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "charizard",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "timid",
+      "ability": "blaze",
+      "moveset": [
+        "thunderpunch",
+        "metalclaw",
+        "sunnyday",
+        "solarbeam"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "blastoise",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "modest",
+      "ability": "torrent",
+      "moveset": [
+        "surf",
+        "icebeam",
+        "aurasphere",
+        "bravebird"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "spd": 6,
+        "spe": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "pikachu",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "jolly",
+      "ability": "static",
+      "moveset": [
+        "thunderbolt",
+        "dig",
+        "surf",
+        "playrough"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spd": 252
+      },
+      "heldItem": [
+        "air_balloon"
+      ]
+    },
+    {
+      "species": "snorlax",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "jolly",
+      "ability": "immunity",
+      "moveset": [
+        "zenheadbutt",
+        "ironhead",
+        "earthquake",
+        "hardpress"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "lapras",
+      "gender": "FEMALE",
+      "level": 100,
+      "nature": "serious",
+      "ability": "shellarmor",
+      "moveset": [
+        "surf",
+        "icebeam",
+        "alluringvoice",
+        "smartstrike"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 86,
+        "atk": 212,
+        "spa": 212
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    }
+  ]
+}

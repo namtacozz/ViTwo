@@ -1,0 +1,132 @@
+{
+  "name": {
+    "literal": "Ace Trainer Yuji"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:fine_remedy",
+      "quantity": 1
+    }
+  ],
+  "team": [
+    {
+      "species": "sandslash",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "hasty",
+      "ability": "sandveil",
+      "moveset": [
+        "slash",
+        "swift",
+        "sandattack",
+        "poisonsting"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "graveler",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "docile",
+      "ability": "rockhead",
+      "moveset": [
+        "rockblast",
+        "magnitude",
+        "mudsport",
+        "defensecurl"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "onix",
+      "gender": "MALE",
+      "level": 38,
+      "nature": "mild",
+      "ability": "rockhead",
+      "moveset": [
+        "dragonbreath",
+        "sandstorm",
+        "rockthrow",
+        "bind"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "graveler",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "brave",
+      "ability": "rockhead",
+      "moveset": [
+        "rockblast",
+        "magnitude",
+        "rollout",
+        "defensecurl"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "marowak",
+      "gender": "FEMALE",
+      "level": 38,
+      "nature": "naive",
+      "ability": "rockhead",
+      "moveset": [
+        "bonemerang",
+        "headbutt",
+        "leer",
+        "growl"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    }
+  ]
+}

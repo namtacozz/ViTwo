@@ -1,0 +1,162 @@
+{
+  "name": {
+    "literal": "Elite Four Lucian"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "mrmime",
+      "gender": "FEMALE",
+      "level": 59,
+      "nature": "bold",
+      "ability": "filter",
+      "moveset": [
+        "lightscreen",
+        "reflect",
+        "psychic",
+        "dazzlinggleam"
+      ],
+      "ivs": {
+        "hp": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 12,
+        "spa": 12,
+        "spd": 12,
+        "spe": 12
+      },
+      "heldItem": [
+        "light_clay"
+      ]
+    },
+    {
+      "species": "girafarig",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "calm",
+      "ability": "sapsipper",
+      "moveset": [
+        "lightscreen",
+        "psychic",
+        "thunderbolt",
+        "trickroom"
+      ],
+      "ivs": {
+        "hp": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 12,
+        "spa": 12,
+        "spd": 12
+      },
+      "heldItem": [
+        "mental_herb"
+      ]
+    },
+    {
+      "species": "medicham",
+      "gender": "MALE",
+      "level": 60,
+      "nature": "brave",
+      "ability": "purepower",
+      "moveset": [
+        "zenheadbutt",
+        "highjumpkick",
+        "thunderpunch",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spd": 31
+      },
+      "evs": {
+        "atk": 252
+      },
+      "heldItem": [
+        "muscle_band"
+      ]
+    },
+    {
+      "species": "alakazam",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "timid",
+      "ability": "magicguard",
+      "moveset": [
+        "nastyplot",
+        "psychic",
+        "futuresight",
+        "shockwave"
+      ],
+      "ivs": {
+        "hp": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "bronzong",
+      "gender": "GENDERLESS",
+      "level": 63,
+      "nature": "brave",
+      "ability": "levitate",
+      "moveset": [
+        "gyroball",
+        "earthquake",
+        "payback",
+        "trickroom"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spd": 31
+      },
+      "evs": {
+        "hp": 12,
+        "atk": 252
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

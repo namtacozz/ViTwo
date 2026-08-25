@@ -1,0 +1,99 @@
+{
+  "name": {
+    "literal": "Commander Mars"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "bronzor",
+      "gender": "GENDERLESS",
+      "level": 41,
+      "nature": "sassy",
+      "ability": "levitate",
+      "moveset": [
+        "confuseray",
+        "payback",
+        "gyroball",
+        "reflect"
+      ],
+      "ivs": {
+        "hp": 15,
+        "def": 15,
+        "spd": 15
+      },
+      "evs": {
+        "hp": 68,
+        "def": 68,
+        "spd": 68
+      }
+    },
+    {
+      "species": "golbat",
+      "gender": "FEMALE",
+      "level": 42,
+      "nature": "jolly",
+      "ability": "innerfocus",
+      "moveset": [
+        "poisonfang",
+        "bite",
+        "haze",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 15,
+        "def": 15,
+        "spd": 15
+      },
+      "evs": {
+        "hp": 68,
+        "def": 68,
+        "spd": 68
+      }
+    },
+    {
+      "species": "purugly",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "jolly",
+      "ability": "thickfat",
+      "moveset": [
+        "aerialace",
+        "bodyslam",
+        "dig",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 15,
+        "def": 15,
+        "spd": 15
+      },
+      "evs": {
+        "hp": 68,
+        "def": 68,
+        "spd": 68
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

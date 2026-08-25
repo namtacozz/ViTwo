@@ -1,0 +1,156 @@
+{
+  "name": {
+    "literal": "Rival Terry"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "heracross",
+      "gender": "MALE",
+      "level": 72,
+      "nature": "careful",
+      "ability": "guts",
+      "moveset": [
+        "megahorn",
+        "earthquake",
+        "counter",
+        "rocktomb"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    {
+      "species": "alakazam",
+      "gender": "FEMALE",
+      "level": 73,
+      "nature": "lax",
+      "ability": "innerfocus",
+      "moveset": [
+        "psychic",
+        "shadowball",
+        "calmmind",
+        "reflect"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    {
+      "species": "tyranitar",
+      "gender": "FEMALE",
+      "level": 72,
+      "nature": "bashful",
+      "ability": "sandstream",
+      "moveset": [
+        "crunch",
+        "earthquake",
+        "thunderbolt",
+        "aerialace"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    {
+      "species": "exeggutor",
+      "gender": "MALE",
+      "level": 73,
+      "nature": "gentle",
+      "ability": "chlorophyll",
+      "moveset": [
+        "gigadrain",
+        "psychic",
+        "sleeppowder",
+        "lightscreen"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    {
+      "species": "gyarados",
+      "gender": "MALE",
+      "level": 73,
+      "nature": "lonely",
+      "ability": "intimidate",
+      "moveset": [
+        "hydropump",
+        "dragondance",
+        "earthquake",
+        "hyperbeam"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      }
+    },
+    {
+      "species": "charizard",
+      "gender": "FEMALE",
+      "level": 75,
+      "nature": "relaxed",
+      "ability": "blaze",
+      "moveset": [
+        "fireblast",
+        "dragonclaw",
+        "aerialace",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

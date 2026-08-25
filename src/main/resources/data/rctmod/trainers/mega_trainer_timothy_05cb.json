@@ -1,0 +1,167 @@
+{
+  "name": {
+    "literal": "Mega Trainer Timothy"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "musharna",
+      "gender": "FEMALE",
+      "level": 58,
+      "nature": "bold",
+      "ability": "synchronize",
+      "moveset": [
+        "psychic",
+        "hypnosis",
+        "reflect",
+        "lightscreen"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spd": 4
+      },
+      "heldItem": [
+        "light_clay"
+      ]
+    },
+    {
+      "species": "gengar",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "modest",
+      "ability": "levitate",
+      "moveset": [
+        "shadowball",
+        "sludgebomb",
+        "gigadrain",
+        "dazzlinggleam"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "kasib_berry"
+      ]
+    },
+    {
+      "species": "bellossom",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "modest",
+      "ability": "chlorophyll",
+      "moveset": [
+        "appleacid",
+        "moonblast",
+        "quiverdance",
+        "sleeppowder"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "def": 252,
+        "spa": 252
+      },
+      "heldItem": [
+        "coba_berry"
+      ]
+    },
+    {
+      "species": "swampert",
+      "gender": "MALE",
+      "level": 59,
+      "nature": "impish",
+      "ability": "torrent",
+      "moveset": [
+        "flipturn",
+        "earthquake",
+        "counter",
+        "mirrorcoat"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spd": 4
+      },
+      "heldItem": [
+        "rindo_berry"
+      ]
+    },
+    {
+      "species": "alakazam",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "modest",
+      "ability": "trace",
+      "moveset": [
+        "psychic",
+        "shadowball",
+        "dazzlinggleam",
+        "calmmind"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:alakazite",
+        "life_orb"
+      ]
+    }
+  ]
+}

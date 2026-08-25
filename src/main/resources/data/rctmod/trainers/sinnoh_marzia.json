@@ -1,0 +1,203 @@
+{
+  "name": {
+    "literal": "Maylene"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 3
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 3
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "closecombat",
+        "machpunch",
+        "stoneedge",
+        "fakeout"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 4,
+        "atk": 252,
+        "hp": 252
+      },
+      "heldItem": [
+        "assault_vest"
+      ],
+      "species": "hitmontop",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "adamant",
+      "ability": "intimidate"
+    },
+    {
+      "moveset": [
+        "sacredsword",
+        "psychocut",
+        "swordsdance",
+        "aquacutter"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "species": "lucario",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "jolly",
+      "ability": "sharpness"
+    },
+    {
+      "moveset": [
+        "drainpunch",
+        "gunkshot",
+        "suckerpunch",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "black_sludge"
+      ],
+      "species": "toxicroak",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "jolly",
+      "ability": "dryskin",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "psychocut",
+        "sacredsword",
+        "knockoff",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "mega_showdown:galladite"
+      ],
+      "species": "gallade",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "jolly",
+      "ability": "innerfocus"
+    },
+    {
+      "moveset": [
+        "drainpunch",
+        "stoneedge",
+        "icepunch",
+        "facade"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 4,
+        "atk": 252,
+        "hp": 252
+      },
+      "heldItem": [
+        "flame_orb"
+      ],
+      "species": "conkeldurr",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "adamant",
+      "ability": "guts"
+    },
+    {
+      "moveset": [
+        "hammerarm",
+        "darkestlariat",
+        "drainpunch",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 4,
+        "atk": 252,
+        "hp": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "species": "bewear",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "adamant",
+      "ability": "fluffy"
+    }
+  ],
+  "identity": "Gym Leader Marzia",
+  "battleFormat": "GEN_9_DOUBLES"
+}

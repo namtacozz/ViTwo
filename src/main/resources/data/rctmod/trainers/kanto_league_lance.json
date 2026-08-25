@@ -1,0 +1,230 @@
+{
+  "name": {
+    "literal": "Lance"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 4
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "dragondarts",
+        "phantomforce",
+        "uturn",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 12,
+        "def": 36,
+        "atk": 156,
+        "hp": 52
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "gimmicks": {
+        "tera": "dragon"
+      },
+      "species": "dragapult",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "jolly",
+      "ability": "infiltrator"
+    },
+    {
+      "moveset": [
+        "blueflare",
+        "dragonpulse",
+        "tailwind",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 76,
+        "spa": 156,
+        "def": 100,
+        "hp": 176
+      },
+      "heldItem": [
+        "zoom_lens"
+      ],
+      "gimmicks": {
+        "tera": "dragon"
+      },
+      "species": "reshiram",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "quiet",
+      "ability": "turboblaze",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "extremespeed",
+        "dragonclaw",
+        "icespinner",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 128,
+        "spd": 20,
+        "def": 48,
+        "atk": 184,
+        "hp": 128
+      },
+      "heldItem": [
+        "choice_band"
+      ],
+      "gimmicks": {
+        "tera": "dragon"
+      },
+      "species": "dragonite",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "multiscale"
+    },
+    {
+      "moveset": [
+        "sludgebomb",
+        "dracometeor",
+        "toxicspikes",
+        "protect"
+      ],
+      "ivs": {
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 64,
+        "spd": 56,
+        "spa": 144,
+        "def": 88,
+        "hp": 156
+      },
+      "heldItem": [
+        "poison_barb"
+      ],
+      "gimmicks": {
+        "tera": "poison"
+      },
+      "species": "dragalge",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "calm",
+      "ability": "adaptability"
+    },
+    {
+      "moveset": [
+        "dragonascent",
+        "protect",
+        "dragondance",
+        "dragonclaw"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 60,
+        "spd": 76,
+        "def": 56,
+        "atk": 156,
+        "hp": 160
+      },
+      "heldItem": [
+        "yache_berry"
+      ],
+      "aspects": [
+        "mega"
+      ],
+      "gimmicks": {
+        "tera": "dragon"
+      },
+      "species": "rayquaza",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "deltastream"
+    },
+    {
+      "moveset": [
+        "clangingscales",
+        "clangoroussoul",
+        "bodypress",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 88,
+        "spd": 116,
+        "spa": 56,
+        "def": 132,
+        "hp": 116
+      },
+      "heldItem": [
+        "throat_spray"
+      ],
+      "gimmicks": {
+        "tera": "dragon"
+      },
+      "species": "kommoo",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "bold",
+      "ability": "bulletproof"
+    }
+  ],
+  "battleFormat": "GEN_9_DOUBLES"
+}

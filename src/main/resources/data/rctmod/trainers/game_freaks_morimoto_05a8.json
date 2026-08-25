@@ -1,0 +1,201 @@
+{
+  "name": {
+    "literal": "GAME FREAK’s Morimoto"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "spiritomb",
+      "gender": "FEMALE",
+      "level": 63,
+      "nature": "quiet",
+      "ability": "infiltrator",
+      "moveset": [
+        "shadowball",
+        "darkpulse",
+        "willowisp",
+        "destinybond"
+      ],
+      "ivs": {
+        "hp": 30,
+        "atk": 30,
+        "def": 30,
+        "spa": 30,
+        "spd": 30,
+        "spe": 30
+      },
+      "evs": {
+        "hp": 252,
+        "spa": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "ambipom",
+      "gender": "MALE",
+      "level": 64,
+      "nature": "jolly",
+      "ability": "technician",
+      "moveset": [
+        "fakeout",
+        "fling",
+        "doublehit",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 30,
+        "atk": 30,
+        "def": 30,
+        "spa": 30,
+        "spd": 30,
+        "spe": 30
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "kings_rock"
+      ]
+    },
+    {
+      "species": "hippowdon",
+      "gender": "FEMALE",
+      "level": 64,
+      "nature": "impish",
+      "ability": "sandstream",
+      "moveset": [
+        "earthquake",
+        "stealthrock",
+        "yawn",
+        "rocktomb"
+      ],
+      "ivs": {
+        "hp": 30,
+        "atk": 30,
+        "def": 30,
+        "spa": 30,
+        "spd": 30,
+        "spe": 30
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 6,
+        "def": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "vaporeon",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "calm",
+      "ability": "waterabsorb",
+      "moveset": [
+        "hydropump",
+        "acidarmor",
+        "icebeam",
+        "quickattack"
+      ],
+      "ivs": {
+        "hp": 30,
+        "atk": 30,
+        "def": 30,
+        "spa": 30,
+        "spd": 30,
+        "spe": 30
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spd": 252
+      },
+      "heldItem": [
+        "wiki_berry"
+      ]
+    },
+    {
+      "species": "jolteon",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "timid",
+      "ability": "voltabsorb",
+      "moveset": [
+        "thunderbolt",
+        "shadowball",
+        "thunderwave",
+        "voltswitch"
+      ],
+      "ivs": {
+        "hp": 30,
+        "atk": 30,
+        "def": 30,
+        "spa": 30,
+        "spd": 30,
+        "spe": 30
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "lum_berry"
+      ]
+    },
+    {
+      "species": "flareon",
+      "gender": "MALE",
+      "level": 65,
+      "nature": "adamant",
+      "ability": "flashfire",
+      "moveset": [
+        "flareblitz",
+        "superpower",
+        "quickattack",
+        "willowisp"
+      ],
+      "ivs": {
+        "hp": 30,
+        "atk": 30,
+        "def": 30,
+        "spa": 30,
+        "spd": 30,
+        "spe": 30
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "iapapa_berry"
+      ]
+    }
+  ]
+}

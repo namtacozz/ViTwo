@@ -1,0 +1,61 @@
+{
+  "name": {
+    "literal": "Team Galactic Grunt"
+  },
+  "identity": "Team Galactic Grunt (35)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "croagunk",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "quirky",
+      "ability": "anticipation",
+      "moveset": [
+        "taunt",
+        "revenge",
+        "suckerpunch",
+        "poisonjab"
+      ]
+    },
+    {
+      "species": "stunky",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "hardy",
+      "ability": "aftermath",
+      "moveset": [
+        "poisongas",
+        "smokescreen",
+        "acidspray",
+        "bite"
+      ]
+    },
+    {
+      "species": "glameow",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "docile",
+      "ability": "owntempo",
+      "moveset": [
+        "growl",
+        "hypnosis",
+        "aerialace",
+        "retaliate"
+      ]
+    }
+  ]
+}

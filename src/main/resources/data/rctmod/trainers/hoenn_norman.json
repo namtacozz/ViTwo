@@ -1,0 +1,210 @@
+{
+  "name": {
+    "literal": "Norman"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 3
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 3
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "calmmind",
+        "lastresort",
+        "mudslap",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 4,
+        "spa": 252,
+        "hp": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "species": "eevee",
+      "gender": "GENDERLESS",
+      "level": 75,
+      "nature": "modest",
+      "ability": "adaptability",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "trickroom",
+        "icebeam",
+        "recover",
+        "conversion"
+      ],
+      "ivs": {
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 48,
+        "spa": 108,
+        "def": 100,
+        "hp": 252
+      },
+      "heldItem": [
+        "eviolite"
+      ],
+      "species": "porygon",
+      "gender": "GENDERLESS",
+      "level": 75,
+      "nature": "modest",
+      "ability": "download"
+    },
+    {
+      "moveset": [
+        "followme",
+        "helpinghand",
+        "superfang",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "hp": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "aspects": [
+        "maushold-family-four"
+      ],
+      "species": "maushold",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "timid",
+      "ability": "friendguard",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "bloodmoon",
+        "hypervoice",
+        "earthpower",
+        "vacuumwave"
+      ],
+      "ivs": {
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 88,
+        "spa": 252,
+        "def": 52,
+        "hp": 116
+      },
+      "heldItem": [
+        "assault_vest"
+      ],
+      "aspects": [
+        "bloodmoon"
+      ],
+      "gimmicks": {
+        "tera": "ground"
+      },
+      "species": "ursaluna",
+      "gender": "GENDERLESS",
+      "level": 75,
+      "nature": "quiet",
+      "ability": "mindseye"
+    },
+    {
+      "moveset": [
+        "poweruppunch",
+        "drainpunch",
+        "protect",
+        "rockslide"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 56,
+        "spd": 52,
+        "def": 56,
+        "atk": 164,
+        "hp": 180
+      },
+      "heldItem": [
+        "mega_showdown:kangaskhanite"
+      ],
+      "species": "kangaskhan",
+      "gender": "FEMALE",
+      "level": 75,
+      "nature": "adamant",
+      "ability": "parentalbond"
+    },
+    {
+      "moveset": [
+        "facade",
+        "highhorsepower",
+        "protect",
+        "playrough"
+      ],
+      "ivs": {
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 24,
+        "def": 56,
+        "atk": 252,
+        "hp": 176
+      },
+      "heldItem": [
+        "flame_orb"
+      ],
+      "species": "ursaluna",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "adamant",
+      "ability": "guts"
+    }
+  ],
+  "battleFormat": "GEN_9_DOUBLES"
+}

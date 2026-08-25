@@ -1,0 +1,198 @@
+{
+  "name": {
+    "literal": "Elite Four Moleman"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "excadrill",
+      "gender": "MALE",
+      "level": 74,
+      "nature": "adamant",
+      "ability": "sandrush",
+      "moveset": [
+        "earthquake",
+        "ironhead",
+        "rockslide",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "flygon",
+      "gender": "FEMALE",
+      "level": 76,
+      "nature": "modest",
+      "ability": "levitate",
+      "moveset": [
+        "clangingscales",
+        "earthpower",
+        "heatwave",
+        "boomburst"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      }
+    },
+    {
+      "species": "sandslash",
+      "gender": "FEMALE",
+      "level": 76,
+      "nature": "adamant",
+      "ability": "sandrush",
+      "moveset": [
+        "earthquake",
+        "rockslide",
+        "leechlife",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "ground_gem"
+      ]
+    },
+    {
+      "species": "quagsire",
+      "gender": "FEMALE",
+      "level": 74,
+      "nature": "calm",
+      "ability": "waterabsorb",
+      "moveset": [
+        "muddywater",
+        "recover",
+        "yawn",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spd": 252
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "gliscor",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "careful",
+      "ability": "sandveil",
+      "moveset": [
+        "earthquake",
+        "rockslide",
+        "doubleteam",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spd": 252
+      },
+      "heldItem": [
+        "bright_powder"
+      ]
+    },
+    {
+      "species": "landorus",
+      "gender": "MALE",
+      "level": 76,
+      "nature": "careful",
+      "ability": "intimidate",
+      "moveset": [
+        "earthquake",
+        "rockslide",
+        "uturn",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spd": 252
+      },
+      "aspects": [
+        "therian"
+      ]
+    }
+  ]
+}

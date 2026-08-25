@@ -1,0 +1,220 @@
+{
+  "name": {
+    "literal": "Sidney"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 5
+  },
+  "bag": [
+    {
+      "item": "max_revive",
+      "quantity": 1
+    },
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": "4"
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "reflect",
+        "lightscreen",
+        "playrough",
+        "falsesurrender"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 76,
+        "spd": 72,
+        "def": 52,
+        "atk": 188,
+        "hp": 120
+      },
+      "heldItem": [
+        "light_clay"
+      ],
+      "species": "grimmsnarl",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "prankster"
+    },
+    {
+      "moveset": [
+        "spore",
+        "ragepowder",
+        "seedbomb",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 64,
+        "def": 160,
+        "atk": 32,
+        "hp": 252
+      },
+      "heldItem": [
+        "mental_herb"
+      ],
+      "species": "brutebonnet",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "impish",
+      "ability": "protosynthesis"
+    },
+    {
+      "moveset": [
+        "waterfall",
+        "earthquake",
+        "dragondance",
+        "substitute"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 28,
+        "spd": 56,
+        "def": 104,
+        "atk": 216,
+        "hp": 104
+      },
+      "heldItem": [
+        "mega_showdown:gyaradosite"
+      ],
+      "species": "gyarados",
+      "gender": "MALE",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "moldbreaker"
+    },
+    {
+      "moveset": [
+        "icespinner",
+        "iciclecrash",
+        "sacredsword",
+        "psychicfangs"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 124,
+        "spd": 36,
+        "def": 60,
+        "atk": 116,
+        "hp": 172
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "species": "chienpao",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "jolly",
+      "ability": "swordofruin"
+    },
+    {
+      "moveset": [
+        "psychicnoise",
+        "darkpulse",
+        "calmmind",
+        "hyperspacehole"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 136,
+        "spd": 76,
+        "spa": 196,
+        "def": 44,
+        "hp": 56
+      },
+      "heldItem": [
+        "choice_specs"
+      ],
+      "aspects": [
+        "unbound"
+      ],
+      "species": "hoopa",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "modest",
+      "ability": "magician",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "acrobatics",
+        "tailwind",
+        "dragondance",
+        "breakingswipe"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 28,
+        "spd": 148,
+        "def": 72,
+        "atk": 160,
+        "hp": 100
+      },
+      "heldItem": [
+        "mega_showdown:booster_energy"
+      ],
+      "species": "roaringmoon",
+      "gender": "GENDERLESS",
+      "level": 100,
+      "nature": "adamant",
+      "ability": "protosynthesis"
+    }
+  ],
+  "identity": "Fosco",
+  "battleFormat": "GEN_9_DOUBLES"
+}

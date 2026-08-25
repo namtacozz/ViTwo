@@ -1,0 +1,106 @@
+{
+  "name": {
+    "literal": "Team Rocket Grunt"
+  },
+  "identity": "Team Rocket Grunt (25)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "seviper",
+      "gender": "MALE",
+      "level": 43,
+      "nature": "gentle",
+      "ability": "shedskin",
+      "moveset": [
+        "haze",
+        "swordsdance",
+        "crunch",
+        "belch"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "gumshoos",
+      "gender": "MALE",
+      "level": 43,
+      "nature": "brave",
+      "ability": "strongjaw",
+      "moveset": [
+        "takedown",
+        "scaryface",
+        "crunch",
+        "hyperfang"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "scolipede",
+      "gender": "FEMALE",
+      "level": 43,
+      "nature": "sassy",
+      "ability": "swarm",
+      "moveset": [
+        "bugbite",
+        "venoshock",
+        "agility",
+        "steamroller"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "meowstic",
+      "gender": "MALE",
+      "level": 44,
+      "nature": "brave",
+      "ability": "cursedbody",
+      "moveset": [
+        "miracleeye",
+        "reflect",
+        "psychic",
+        "roleplay"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

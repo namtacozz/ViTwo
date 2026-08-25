@@ -46,6 +46,14 @@ public class TowerConfig {
     public DuoConfig duo = new DuoConfig();
     public AiConfig ai = new AiConfig();
     public BpConfig bp = new BpConfig();
+    public ArenaConfig arena = new ArenaConfig();
+
+    public static class ArenaConfig {
+        public int sectorSpacing = 300;
+        public int groundY = 64;
+        public int battlefieldHeightOffset = 19;
+        public int maxArenaSlots = 64;
+    }
 
     public static class GeneralConfig {
         public String keybind = "KEY_Y";
@@ -128,11 +136,14 @@ public class TowerConfig {
 
     public static class BpConfig {
         public int perFloor = 10;
+        public int bossBonus = 50;
         public int checkpoint25Bonus = 200;
         public int checkpoint50Bonus = 400;
         public int checkpoint75Bonus = 800;
-        public int clear100TrueRun = 2000;
-        public int clear100CheckpointRun = 500;
+        public int clear100TrueRun = 3000;
+        public int clear100CheckpointRun = 1000;
+        public double trueRunMultiplier = 1.0;
+        public double checkpointMultiplier = 0.5;
         public double checkpointRunRewardMultiplier = 0.5;
     }
 

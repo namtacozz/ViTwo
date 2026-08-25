@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Cool Couple Lex & Nya"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "miltank",
+      "gender": "FEMALE",
+      "level": 52,
+      "nature": "quiet",
+      "ability": "scrappy",
+      "moveset": [
+        "bodyslam",
+        "milkdrink",
+        "growl",
+        "defensecurl"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    },
+    {
+      "species": "tauros",
+      "gender": "MALE",
+      "level": 52,
+      "nature": "impish",
+      "ability": "angerpoint",
+      "moveset": [
+        "thrash",
+        "hornattack",
+        "pursuit",
+        "swagger"
+      ],
+      "ivs": {
+        "hp": 25,
+        "atk": 25,
+        "def": 25,
+        "spa": 25,
+        "spd": 25,
+        "spe": 25
+      }
+    }
+  ]
+}

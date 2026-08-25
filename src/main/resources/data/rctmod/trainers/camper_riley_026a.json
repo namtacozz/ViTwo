@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Camper Riley"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "pinsir",
+      "gender": "MALE",
+      "level": 49,
+      "nature": "naughty",
+      "ability": "moldbreaker",
+      "moveset": [
+        "stormthrow",
+        "swordsdance",
+        "thrash",
+        "superpower"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "heracross",
+      "gender": "MALE",
+      "level": 50,
+      "nature": "hardy",
+      "ability": "guts",
+      "moveset": [
+        "takedown",
+        "megahorn",
+        "closecombat",
+        "reversal"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    }
+  ]
+}

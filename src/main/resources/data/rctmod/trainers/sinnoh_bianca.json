@@ -1,0 +1,205 @@
+{
+  "name": {
+    "literal": "Candice"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 5
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 5
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "blizzard",
+        "auroraveil",
+        "icebeam",
+        "moonblast"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spa": 252,
+        "hp": 4
+      },
+      "heldItem": [
+        "focus_sash"
+      ],
+      "aspects": [
+        "alolan"
+      ],
+      "species": "ninetales",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "timid",
+      "ability": "snowwarning"
+    },
+    {
+      "moveset": [
+        "boltbeak",
+        "blizzard",
+        "lowkick",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spa": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "species": "arctozolt",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "naive",
+      "ability": "slushrush"
+    },
+    {
+      "moveset": [
+        "icywind",
+        "shadowball",
+        "blizzard",
+        "spikes"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "bright_powder"
+      ],
+      "species": "froslass",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "timid",
+      "ability": "snowcloak"
+    },
+    {
+      "moveset": [
+        "iciclecrash",
+        "liquidation",
+        "highhorsepower",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 4,
+        "atk": 252,
+        "hp": 252
+      },
+      "heldItem": [
+        "weakness_policy"
+      ],
+      "species": "cetitan",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "adamant",
+      "ability": "slushrush"
+    },
+    {
+      "moveset": [
+        "hypervoice",
+        "psychic",
+        "mysticalfire",
+        "dazzlinggleam"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "mega_showdown:gardevoirite"
+      ],
+      "species": "gardevoir",
+      "gender": "FEMALE",
+      "level": 85,
+      "nature": "modest",
+      "ability": "pixilate"
+    },
+    {
+      "moveset": [
+        "spiritbreak",
+        "icepunch",
+        "closecombat",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "mega_showdown:booster_energy"
+      ],
+      "species": "ironvaliant",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "quarkdrive"
+    }
+  ],
+  "identity": "Gym Leader Bianca",
+  "battleFormat": "GEN_9_DOUBLES"
+}

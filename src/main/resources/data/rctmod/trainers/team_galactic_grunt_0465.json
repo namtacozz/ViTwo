@@ -1,0 +1,48 @@
+{
+  "name": {
+    "literal": "Team Galactic Grunt"
+  },
+  "identity": "Team Galactic Grunt (23)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "stunky",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "docile",
+      "ability": "aftermath",
+      "moveset": [
+        "smokescreen",
+        "venoshock",
+        "toxic",
+        "nightslash"
+      ]
+    },
+    {
+      "species": "crobat",
+      "gender": "MALE",
+      "level": 37,
+      "nature": "jolly",
+      "ability": "innerfocus",
+      "moveset": [
+        "poisonfang",
+        "acrobatics",
+        "confuseray",
+        "bite"
+      ]
+    }
+  ]
+}

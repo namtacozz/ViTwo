@@ -1,0 +1,99 @@
+{
+  "name": {
+    "literal": "Team Galactic Boss Cyrus"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "murkrow",
+      "gender": "FEMALE",
+      "level": 40,
+      "nature": "jolly",
+      "ability": "insomnia",
+      "moveset": [
+        "wingattack",
+        "nightshade",
+        "assurance",
+        "taunt"
+      ],
+      "ivs": {
+        "hp": 15,
+        "def": 15,
+        "spd": 15
+      },
+      "evs": {
+        "hp": 68,
+        "def": 68,
+        "spd": 68
+      }
+    },
+    {
+      "species": "golbat",
+      "gender": "FEMALE",
+      "level": 40,
+      "nature": "jolly",
+      "ability": "innerfocus",
+      "moveset": [
+        "screech",
+        "poisonfang",
+        "aircutter",
+        "bite"
+      ],
+      "ivs": {
+        "hp": 15,
+        "def": 15,
+        "spd": 15
+      },
+      "evs": {
+        "hp": 68,
+        "def": 68,
+        "spd": 68
+      }
+    },
+    {
+      "species": "sneasel",
+      "gender": "FEMALE",
+      "level": 43,
+      "nature": "jolly",
+      "ability": "keeneye",
+      "moveset": [
+        "metalclaw",
+        "icywind",
+        "honeclaws",
+        "beatup"
+      ],
+      "ivs": {
+        "hp": 15,
+        "def": 15,
+        "spd": 15
+      },
+      "evs": {
+        "hp": 68,
+        "def": 68,
+        "spd": 68
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    }
+  ]
+}

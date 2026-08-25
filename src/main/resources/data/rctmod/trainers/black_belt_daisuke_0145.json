@@ -1,0 +1,93 @@
+{
+  "name": {
+    "literal": "Black Belt Daisuke"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "machoke",
+      "gender": "FEMALE",
+      "level": 80,
+      "nature": "naughty",
+      "ability": "noguard",
+      "moveset": [
+        "bulkup",
+        "crosschop",
+        "scaryface",
+        "dynamicpunch"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    },
+    {
+      "species": "conkeldurr",
+      "gender": "FEMALE",
+      "level": 80,
+      "nature": "serious",
+      "ability": "sheerforce",
+      "moveset": [
+        "hammerarm",
+        "stoneedge",
+        "focuspunch",
+        "superpower"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    },
+    {
+      "species": "passimian",
+      "gender": "FEMALE",
+      "level": 81,
+      "nature": "rash",
+      "ability": "receiver",
+      "moveset": [
+        "closecombat",
+        "reversal",
+        "suckerpunch",
+        "courtchange"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      },
+      "heldItem": [
+        "black_belt"
+      ]
+    }
+  ]
+}

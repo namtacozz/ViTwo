@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "Youngster Johnson"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "arbok",
+      "gender": "FEMALE",
+      "level": 71,
+      "nature": "docile",
+      "ability": "shedskin",
+      "moveset": [
+        "jawlock",
+        "belch",
+        "haze",
+        "gunkshot"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "grimmsnarl",
+      "gender": "MALE",
+      "level": 71,
+      "nature": "relaxed",
+      "ability": "frisk",
+      "moveset": [
+        "nastyplot",
+        "playrough",
+        "foulplay",
+        "hammerarm"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    },
+    {
+      "species": "krookodile",
+      "gender": "FEMALE",
+      "level": 71,
+      "nature": "calm",
+      "ability": "moxie",
+      "moveset": [
+        "foulplay",
+        "sandstorm",
+        "earthquake",
+        "wickedblow"
+      ],
+      "ivs": {
+        "hp": 5,
+        "atk": 5,
+        "def": 5,
+        "spa": 5,
+        "spd": 5,
+        "spe": 5
+      }
+    }
+  ]
+}

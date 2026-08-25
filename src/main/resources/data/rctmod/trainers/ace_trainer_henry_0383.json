@@ -1,0 +1,53 @@
+{
+  "name": {
+    "literal": "Ace Trainer Henry"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "honchkrow",
+      "gender": "MALE",
+      "level": 49,
+      "nature": "hardy",
+      "ability": "insomnia",
+      "moveset": [
+        "astonish",
+        "wingattack",
+        "swagger",
+        "foulplay"
+      ]
+    },
+    {
+      "species": "houndoom",
+      "gender": "MALE",
+      "level": 49,
+      "nature": "timid",
+      "ability": "flashfire",
+      "moveset": [
+        "flamethrower",
+        "darkpulse",
+        "nastyplot",
+        "willowisp"
+      ]
+    }
+  ]
+}

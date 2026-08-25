@@ -1,0 +1,60 @@
+{
+  "name": {
+    "literal": "Rancher Marco"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "ambipom",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "jolly",
+      "ability": "pickup",
+      "moveset": [
+        "sandattack",
+        "screech",
+        "doublehit",
+        "fling"
+      ]
+    },
+    {
+      "species": "golduck",
+      "gender": "MALE",
+      "level": 58,
+      "nature": "hasty",
+      "ability": "cloudnine",
+      "moveset": [
+        "aquajet",
+        "confusion",
+        "waterpulse",
+        "soak"
+      ]
+    },
+    {
+      "species": "girafarig",
+      "gender": "MALE",
+      "level": 56,
+      "nature": "naive",
+      "ability": "innerfocus",
+      "moveset": [
+        "growl",
+        "stomp",
+        "crunch",
+        "psychic"
+      ]
+    }
+  ]
+}

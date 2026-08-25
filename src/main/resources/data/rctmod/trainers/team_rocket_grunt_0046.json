@@ -1,0 +1,85 @@
+{
+  "name": {
+    "literal": "Team Rocket Grunt"
+  },
+  "identity": "Team Rocket Grunt (1)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "golbat",
+      "gender": "MALE",
+      "level": 75,
+      "nature": "brave",
+      "ability": "sniper",
+      "moveset": [
+        "haze",
+        "venoshock",
+        "airslash",
+        "quickguard"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "mandibuzz",
+      "gender": "FEMALE",
+      "level": 74,
+      "nature": "quirky",
+      "ability": "overcoat",
+      "moveset": [
+        "embargo",
+        "whirlwind",
+        "bravebird",
+        "mirrormove"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    },
+    {
+      "species": "perrserker",
+      "gender": "FEMALE",
+      "level": 75,
+      "nature": "hasty",
+      "ability": "toughclaws",
+      "moveset": [
+        "screech",
+        "slash",
+        "metalsound",
+        "thrash"
+      ],
+      "ivs": {
+        "hp": 15,
+        "atk": 15,
+        "def": 15,
+        "spa": 15,
+        "spd": 15,
+        "spe": 15
+      }
+    }
+  ]
+}

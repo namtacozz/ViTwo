@@ -1,0 +1,200 @@
+{
+  "name": {
+    "literal": "Pokémon Trainer Lucas"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "dusknoir",
+      "gender": "FEMALE",
+      "level": 68,
+      "nature": "brave",
+      "ability": "pressure",
+      "moveset": [
+        "brickbreak",
+        "earthquake",
+        "trickroom",
+        "willowisp"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "def": 6
+      },
+      "heldItem": [
+        "lum_berry"
+      ]
+    },
+    {
+      "species": "flareon",
+      "gender": "MALE",
+      "level": 69,
+      "nature": "adamant",
+      "ability": "guts",
+      "moveset": [
+        "flareblitz",
+        "facade",
+        "irontail",
+        "willowisp"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "def": 6
+      },
+      "heldItem": [
+        "toxic_orb"
+      ]
+    },
+    {
+      "species": "rampardos",
+      "gender": "MALE",
+      "level": 70,
+      "nature": "adamant",
+      "ability": "moldbreaker",
+      "moveset": [
+        "headsmash",
+        "earthquake",
+        "irontail",
+        "zenheadbutt"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "def": 6
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "rotom",
+      "gender": "GENDERLESS",
+      "level": 69,
+      "nature": "modest",
+      "ability": "levitate",
+      "moveset": [
+        "hydropump",
+        "thunderbolt",
+        "voltswitch",
+        "hex"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "spa": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "choice_specs"
+      ],
+      "aspects": [
+        "wash-appliance"
+      ]
+    },
+    {
+      "species": "dunsparce",
+      "gender": "MALE",
+      "level": 70,
+      "nature": "jolly",
+      "ability": "serenegrace",
+      "moveset": [
+        "rockslide",
+        "roost",
+        "coil",
+        "glare"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spd": 6
+      },
+      "heldItem": [
+        "kings_rock"
+      ]
+    },
+    {
+      "species": "torterra",
+      "gender": "MALE",
+      "level": 74,
+      "nature": "brave",
+      "ability": "overgrow",
+      "moveset": [
+        "earthquake",
+        "synthesis",
+        "leechseed",
+        "curse"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spd": 6
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    }
+  ]
+}

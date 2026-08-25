@@ -1,0 +1,237 @@
+{
+  "name": {
+    "literal": "Clair"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 5
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "poisontail",
+        "toxicspikes",
+        "reflect",
+        "cosmicpower"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spd": 128,
+        "spa": 56,
+        "def": 128,
+        "hp": 196
+      },
+      "heldItem": [
+        "black_sludge"
+      ],
+      "aspects": [
+        "eternamax"
+      ],
+      "gimmicks": {
+        "tera": "poison"
+      },
+      "species": "eternatus",
+      "gender": "GENDERLESS",
+      "level": 95,
+      "nature": "bold",
+      "ability": "pressure",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "sunnyday",
+        "solarbeam",
+        "dracometeor",
+        "calmmind"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 32,
+        "spd": 56,
+        "spa": 148,
+        "def": 56,
+        "hp": 216
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ],
+      "aspects": [
+        "alolan"
+      ],
+      "gimmicks": {
+        "tera": "grass"
+      },
+      "species": "exeggutor",
+      "gender": "MALE",
+      "level": 95,
+      "nature": "modest",
+      "ability": "harvest"
+    },
+    {
+      "moveset": [
+        "dragondarts",
+        "phantomforce",
+        "uturn",
+        "breakingswipe"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 116,
+        "spd": 56,
+        "def": 44,
+        "atk": 156,
+        "hp": 136
+      },
+      "heldItem": [
+        "choice_band"
+      ],
+      "gimmicks": {
+        "tera": "dragon"
+      },
+      "species": "dragapult",
+      "gender": "MALE",
+      "level": 95,
+      "nature": "jolly",
+      "ability": "infiltrator"
+    },
+    {
+      "moveset": [
+        "calmmind",
+        "thunderclap",
+        "dragonpulse",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 20,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 4,
+        "spd": 12,
+        "spa": 156,
+        "def": 84,
+        "hp": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ],
+      "gimmicks": {
+        "tera": "electric"
+      },
+      "species": "ragingbolt",
+      "gender": "GENDERLESS",
+      "level": 95,
+      "nature": "modest",
+      "ability": "protosynthesis"
+    },
+    {
+      "moveset": [
+        "burningbulwark",
+        "howl",
+        "breakingswipe",
+        "flareblitz"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 164,
+        "spd": 68,
+        "def": 4,
+        "atk": 20,
+        "hp": 252
+      },
+      "heldItem": [
+        "booster_energy"
+      ],
+      "gimmicks": {
+        "tera": "fire"
+      },
+      "species": "gougingfire",
+      "gender": "MALE",
+      "level": 95,
+      "nature": "jolly",
+      "ability": "protosynthesis"
+    },
+    {
+      "moveset": [
+        "earthquake",
+        "dragonclaw",
+        "swordsdance",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 84,
+        "spd": 40,
+        "def": 56,
+        "atk": 196,
+        "hp": 132
+      },
+      "heldItem": [
+        "mega_showdown:garchompite"
+      ],
+      "gimmicks": {
+        "tera": "dragon"
+      },
+      "species": "garchomp",
+      "gender": "MALE",
+      "level": 95,
+      "nature": "jolly",
+      "ability": "roughskin"
+    }
+  ],
+  "identity": "Sandra",
+  "battleFormat": "GEN_9_DOUBLES"
+}

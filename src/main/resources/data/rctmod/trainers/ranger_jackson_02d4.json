@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "Ranger Jackson"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "tangela",
+      "gender": "FEMALE",
+      "level": 53,
+      "nature": "gentle",
+      "ability": "leafguard",
+      "moveset": [
+        "slam",
+        "megadrain",
+        "bind",
+        "ingrain"
+      ],
+      "ivs": {
+        "hp": 20,
+        "atk": 20,
+        "def": 20,
+        "spa": 20,
+        "spd": 20,
+        "spe": 20
+      }
+    },
+    {
+      "species": "exeggutor",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "docile",
+      "ability": "chlorophyll",
+      "moveset": [
+        "confusion",
+        "eggbomb",
+        "stunspore",
+        "reflect"
+      ],
+      "ivs": {
+        "hp": 20,
+        "atk": 20,
+        "def": 20,
+        "spa": 20,
+        "spd": 20,
+        "spe": 20
+      }
+    },
+    {
+      "species": "exeggutor",
+      "gender": "FEMALE",
+      "level": 55,
+      "nature": "relaxed",
+      "ability": "chlorophyll",
+      "moveset": [
+        "confusion",
+        "eggbomb",
+        "sleeppowder",
+        "stomp"
+      ],
+      "ivs": {
+        "hp": 20,
+        "atk": 20,
+        "def": 20,
+        "spa": 20,
+        "spd": 20,
+        "spe": 20
+      }
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "name": {
+    "literal": "Ace Trainer Omar"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:superb_remedy",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "rapidash",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "sassy",
+      "ability": "runaway",
+      "moveset": [
+        "smartstrike",
+        "poisonjab",
+        "tailwhip",
+        "flamewheel"
+      ]
+    },
+    {
+      "species": "carnivine",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "hardy",
+      "ability": "levitate",
+      "moveset": [
+        "bind",
+        "growth",
+        "leaftornado",
+        "crunch"
+      ]
+    },
+    {
+      "species": "rampardos",
+      "gender": "MALE",
+      "level": 48,
+      "nature": "relaxed",
+      "ability": "moldbreaker",
+      "moveset": [
+        "headbutt",
+        "zenheadbutt",
+        "assurance",
+        "swordsdance"
+      ]
+    }
+  ]
+}

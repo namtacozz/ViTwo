@@ -1,0 +1,47 @@
+{
+  "name": {
+    "literal": "Skier Lexie"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "marill",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "quirky",
+      "ability": "thickfat",
+      "moveset": [
+        "bubblebeam",
+        "charm",
+        "bounce",
+        "playrough"
+      ]
+    },
+    {
+      "species": "clefairy",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "timid",
+      "ability": "cutecharm",
+      "moveset": [
+        "charm",
+        "moonlight",
+        "gravity",
+        "meteormash"
+      ]
+    }
+  ]
+}

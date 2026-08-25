@@ -1,0 +1,60 @@
+{
+  "name": {
+    "literal": "Team Galactic Grunt"
+  },
+  "identity": "Team Galactic Grunt (17)",
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "silcoon",
+      "gender": "MALE",
+      "level": 32,
+      "nature": "bashful",
+      "ability": "shedskin",
+      "moveset": [
+        "tackle",
+        "poisonsting",
+        "harden"
+      ]
+    },
+    {
+      "species": "golbat",
+      "gender": "MALE",
+      "level": 32,
+      "nature": "quirky",
+      "ability": "innerfocus",
+      "moveset": [
+        "screech",
+        "poisonfang",
+        "quickguard",
+        "aircutter"
+      ]
+    },
+    {
+      "species": "glameow",
+      "gender": "FEMALE",
+      "level": 32,
+      "nature": "hardy",
+      "ability": "owntempo",
+      "moveset": [
+        "growl",
+        "aerialace",
+        "furyswipes",
+        "retaliate"
+      ]
+    }
+  ]
+}

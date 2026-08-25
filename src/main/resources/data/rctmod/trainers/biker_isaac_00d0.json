@@ -1,0 +1,84 @@
+{
+  "name": {
+    "literal": "Biker Isaac"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "garbodor",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "brave",
+      "ability": "weakarmor",
+      "moveset": [
+        "screech",
+        "toxicspikes",
+        "sludgebomb",
+        "spikes"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "crobat",
+      "gender": "MALE",
+      "level": 57,
+      "nature": "lax",
+      "ability": "sniper",
+      "moveset": [
+        "screech",
+        "bravebird",
+        "sludgebomb",
+        "heatwave"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "rhydon",
+      "gender": "FEMALE",
+      "level": 57,
+      "nature": "relaxed",
+      "ability": "rockhead",
+      "moveset": [
+        "smokescreen",
+        "earthquake",
+        "rockblast",
+        "megahorn"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

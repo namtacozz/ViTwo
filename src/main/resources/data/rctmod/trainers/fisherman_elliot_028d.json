@@ -1,0 +1,105 @@
+{
+  "name": {
+    "literal": "Fisherman Elliot"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "poliwhirl",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "bold",
+      "ability": "waterabsorb",
+      "moveset": [
+        "doubleslap",
+        "raindance",
+        "bodyslam",
+        "bubblebeam"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "cloyster",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "mild",
+      "ability": "battlearmor",
+      "moveset": [
+        "aurorabeam",
+        "spikecannon",
+        "iceshard",
+        "spikes"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "seaking",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "impish",
+      "ability": "lightningrod",
+      "moveset": [
+        "hornattack",
+        "flail",
+        "aquajet",
+        "aquaring"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "seadra",
+      "gender": "FEMALE",
+      "level": 28,
+      "nature": "brave",
+      "ability": "poisontouch",
+      "moveset": [
+        "watergun",
+        "twister",
+        "bubblebeam",
+        "focusenergy"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "name": {
+    "literal": "Black Belt Colby"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "machoke",
+      "gender": "MALE",
+      "level": 25,
+      "nature": "jolly",
+      "ability": "guts",
+      "moveset": [
+        "leer",
+        "revenge",
+        "knockoff",
+        "bulldoze"
+      ]
+    },
+    {
+      "species": "machoke",
+      "gender": "FEMALE",
+      "level": 25,
+      "nature": "impish",
+      "ability": "guts",
+      "moveset": [
+        "leer",
+        "revenge",
+        "dig",
+        "bulkup"
+      ]
+    },
+    {
+      "species": "machoke",
+      "gender": "MALE",
+      "level": 25,
+      "nature": "impish",
+      "ability": "guts",
+      "moveset": [
+        "leer",
+        "revenge",
+        "earthquake",
+        "bulkup"
+      ]
+    }
+  ]
+}

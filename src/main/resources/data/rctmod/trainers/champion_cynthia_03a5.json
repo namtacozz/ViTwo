@@ -1,0 +1,196 @@
+{
+  "name": {
+    "literal": "Champion Cynthia"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "spiritomb",
+      "gender": "MALE",
+      "level": 61,
+      "nature": "quiet",
+      "ability": "pressure",
+      "moveset": [
+        "shadowball",
+        "darkpulse",
+        "psychic",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 6,
+        "spa": 252
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "roserade",
+      "gender": "MALE",
+      "level": 60,
+      "nature": "timid",
+      "ability": "poisonpoint",
+      "moveset": [
+        "dazzlinggleam",
+        "shadowball",
+        "sludgebomb",
+        "energyball"
+      ],
+      "ivs": {
+        "hp": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 52,
+        "spa": 252,
+        "spe": 204
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "gastrodon",
+      "gender": "FEMALE",
+      "level": 60,
+      "nature": "relaxed",
+      "ability": "stormdrain",
+      "moveset": [
+        "scald",
+        "earthquake",
+        "sludgebomb",
+        "rocktomb"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spd": 6
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "lucario",
+      "gender": "MALE",
+      "level": 63,
+      "nature": "timid",
+      "ability": "innerfocus",
+      "moveset": [
+        "aurasphere",
+        "dragonpulse",
+        "flashcannon",
+        "nastyplot"
+      ],
+      "ivs": {
+        "hp": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 52,
+        "spa": 252,
+        "spe": 204
+      },
+      "heldItem": [
+        "wise_glasses"
+      ]
+    },
+    {
+      "species": "milotic",
+      "gender": "FEMALE",
+      "level": 63,
+      "nature": "bold",
+      "ability": "marvelscale",
+      "moveset": [
+        "recover",
+        "mirrorcoat",
+        "icebeam",
+        "scald"
+      ],
+      "ivs": {
+        "hp": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 252,
+        "spa": 6
+      },
+      "heldItem": [
+        "flame_orb"
+      ]
+    },
+    {
+      "species": "garchomp",
+      "gender": "MALE",
+      "level": 66,
+      "nature": "jolly",
+      "ability": "roughskin",
+      "moveset": [
+        "dragonclaw",
+        "earthquake",
+        "swordsdance",
+        "poisonjab"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 52,
+        "atk": 252,
+        "spe": 204
+      },
+      "heldItem": [
+        "yache_berry"
+      ]
+    }
+  ]
+}

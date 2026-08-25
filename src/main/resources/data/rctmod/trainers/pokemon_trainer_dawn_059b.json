@@ -1,0 +1,200 @@
+{
+  "name": {
+    "literal": "Pokémon Trainer Dawn"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "crobat",
+      "gender": "MALE",
+      "level": 68,
+      "nature": "jolly",
+      "ability": "innerfocus",
+      "moveset": [
+        "crosspoison",
+        "uturn",
+        "superfang",
+        "tailwind"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 128,
+        "def": 128,
+        "spe": 252
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ]
+    },
+    {
+      "species": "arcanine",
+      "gender": "MALE",
+      "level": 69,
+      "nature": "adamant",
+      "ability": "intimidate",
+      "moveset": [
+        "flareblitz",
+        "playrough",
+        "extremespeed",
+        "reversal"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "mrmime",
+      "gender": "MALE",
+      "level": 70,
+      "nature": "timid",
+      "ability": "filter",
+      "moveset": [
+        "psychic",
+        "powerwhip",
+        "reflect",
+        "lightscreen"
+      ],
+      "ivs": {
+        "hp": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 6,
+        "spe": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "blastoise",
+      "gender": "MALE",
+      "level": 69,
+      "nature": "modest",
+      "ability": "torrent",
+      "moveset": [
+        "hydropump",
+        "icebeam",
+        "focusblast",
+        "shellsmash"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "lickilicky",
+      "gender": "FEMALE",
+      "level": 70,
+      "nature": "modest",
+      "ability": "owntempo",
+      "moveset": [
+        "focusblast",
+        "icebeam",
+        "fireblast",
+        "shadowball"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "spa": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "expert_belt"
+      ]
+    },
+    {
+      "species": "torterra",
+      "gender": "MALE",
+      "level": 74,
+      "nature": "brave",
+      "ability": "overgrow",
+      "moveset": [
+        "woodhammer",
+        "earthquake",
+        "stoneedge",
+        "curse"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 128,
+        "atk": 252,
+        "def": 128
+      },
+      "heldItem": [
+        "yache_berry"
+      ]
+    }
+  ]
+}

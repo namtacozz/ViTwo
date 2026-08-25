@@ -1,0 +1,63 @@
+{
+  "name": {
+    "literal": "Ruin Mamoac Foster"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "golem",
+      "gender": "FEMALE",
+      "level": 50,
+      "nature": "relaxed",
+      "ability": "rockhead",
+      "moveset": [
+        "earthquake",
+        "explosion",
+        "headlongrush",
+        "doubleedge"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    },
+    {
+      "species": "cofagrigus",
+      "gender": "MALE",
+      "level": 50,
+      "nature": "relaxed",
+      "ability": "mummy",
+      "moveset": [
+        "shadowball",
+        "willowisp",
+        "hex",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 10,
+        "atk": 10,
+        "def": 10,
+        "spa": 10,
+        "spd": 10,
+        "spe": 10
+      }
+    }
+  ]
+}

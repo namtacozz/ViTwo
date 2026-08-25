@@ -1,0 +1,176 @@
+{
+  "name": {
+    "literal": "Boss Giovanni"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:hyper_potion",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "nidoking",
+      "gender": "MALE",
+      "level": 45,
+      "nature": "timid",
+      "ability": "sheerforce",
+      "moveset": [
+        "earthpower",
+        "icebeam",
+        "sludgebomb",
+        "thunderbolt"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "life_orb"
+      ]
+    },
+    {
+      "species": "honchkrow",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "jolly",
+      "ability": "superluck",
+      "moveset": [
+        "nightslash",
+        "suckerpunch",
+        "drillpeck",
+        "heatwave"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "scope_lens"
+      ]
+    },
+    {
+      "species": "infernape",
+      "gender": "FEMALE",
+      "level": 45,
+      "nature": "jolly",
+      "ability": "blaze",
+      "moveset": [
+        "pyroball",
+        "closecombat",
+        "thunderpunch",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "atk": 252,
+        "def": 4,
+        "spe": 252
+      },
+      "heldItem": [
+        "focus_sash"
+      ]
+    },
+    {
+      "species": "kangaskhan",
+      "gender": "FEMALE",
+      "level": 46,
+      "nature": "jolly",
+      "ability": "innerfocus",
+      "moveset": [
+        "fakeout",
+        "bodyslam",
+        "crunch",
+        "poweruppunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "def": 4,
+        "spa": 252
+      },
+      "heldItem": [
+        "mega_showdown:kangaskhanite",
+        "leftovers"
+      ]
+    },
+    {
+      "species": "rotom",
+      "gender": "GENDERLESS",
+      "level": 45,
+      "nature": "timid",
+      "ability": "levitate",
+      "moveset": [
+        "willowisp",
+        "voltswitch",
+        "frostbreath",
+        "freezedry"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "def": 4,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "sitrus_berry"
+      ],
+      "aspects": [
+        "frost-appliance"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "name": {
+    "literal": "Koga"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.65,
+      "statMoveBias": 0.85,
+      "itemBias": 0.85,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 3
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 3
+    }
+  ],
+  "team": [
+    {
+      "moveset": [
+        "sunnyday",
+        "spore",
+        "ragepowder",
+        "sludgebomb"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 48,
+        "spd": 160,
+        "def": 156,
+        "hp": 144
+      },
+      "heldItem": [
+        "mental_herb"
+      ],
+      "gimmicks": {
+        "tera": "grass"
+      },
+      "species": "amoonguss",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "bold",
+      "ability": "effectspore",
+      "shiny": true
+    },
+    {
+      "moveset": [
+        "taunt",
+        "willowisp",
+        "disable",
+        "shadowball"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 156,
+        "spd": 24,
+        "spa": 4,
+        "def": 72,
+        "hp": 252
+      },
+      "heldItem": [
+        "mega_showdown:gengarite"
+      ],
+      "gimmicks": {
+        "tera": "ghost"
+      },
+      "species": "gengar",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "timid",
+      "ability": "shadowtag"
+    },
+    {
+      "moveset": [
+        "toxic",
+        "venomdrench",
+        "dracometeor",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 128,
+        "spd": 36,
+        "spa": 180,
+        "def": 12,
+        "hp": 152
+      },
+      "heldItem": [
+        "life_orb"
+      ],
+      "gimmicks": {
+        "tera": "poison"
+      },
+      "species": "naganadel",
+      "gender": "GENDERLESS",
+      "level": 55,
+      "nature": "modest",
+      "ability": "beastboost"
+    },
+    {
+      "moveset": [
+        "solarbeam",
+        "acidspray",
+        "sludgebomb",
+        "gigadrain"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 36,
+        "spd": 60,
+        "spa": 204,
+        "def": 52,
+        "hp": 156
+      },
+      "heldItem": [
+        "assault_vest"
+      ],
+      "gimmicks": {
+        "tera": "grass"
+      },
+      "species": "venusaur",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "modest",
+      "ability": "chlorophyll"
+    },
+    {
+      "moveset": [
+        "closecombat",
+        "direclaw",
+        "coaching",
+        "acrobatics"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 252,
+        "spd": 4,
+        "atk": 252
+      },
+      "heldItem": [
+        "white_herb"
+      ],
+      "gimmicks": {
+        "tera": "fighting"
+      },
+      "species": "sneasler",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "adamant",
+      "ability": "unburden"
+    },
+    {
+      "moveset": [
+        "barbbarrage",
+        "aquatail",
+        "taunt",
+        "protect"
+      ],
+      "ivs": {
+        "spe": 31,
+        "spd": 31,
+        "spa": 31,
+        "def": 31,
+        "atk": 31,
+        "hp": 31
+      },
+      "evs": {
+        "spe": 88,
+        "spd": 44,
+        "def": 12,
+        "atk": 156,
+        "hp": 208
+      },
+      "heldItem": [
+        "black_sludge"
+      ],
+      "gimmicks": {
+        "tera": "dark"
+      },
+      "species": "overqwil",
+      "gender": "MALE",
+      "level": 55,
+      "nature": "adamant",
+      "ability": "intimidate"
+    }
+  ],
+  "battleFormat": "GEN_9_DOUBLES"
+}

@@ -1,0 +1,60 @@
+{
+  "name": {
+    "literal": "Hiker Alexander"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "golbat",
+      "gender": "MALE",
+      "level": 35,
+      "nature": "sassy",
+      "ability": "innerfocus",
+      "moveset": [
+        "meanlook",
+        "poisonfang",
+        "aircutter",
+        "bite"
+      ]
+    },
+    {
+      "species": "graveler",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "relaxed",
+      "ability": "rockhead",
+      "moveset": [
+        "sandstorm",
+        "harden",
+        "smackdown",
+        "bulldoze"
+      ]
+    },
+    {
+      "species": "onix",
+      "gender": "FEMALE",
+      "level": 35,
+      "nature": "relaxed",
+      "ability": "sturdy",
+      "moveset": [
+        "smackdown",
+        "curse",
+        "screech",
+        "sandtomb"
+      ]
+    }
+  ]
+}

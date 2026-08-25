@@ -1,0 +1,195 @@
+{
+  "name": {
+    "literal": "Silly Kid"
+  },
+  "ai": {
+    "type": "rct",
+    "data": {
+      "moveBias": 1,
+      "switchBias": 0.7,
+      "statMoveBias": 1,
+      "itemBias": 0.8,
+      "maxSelectMargin": 0.15
+    }
+  },
+  "battleFormat": "GEN_9_DOUBLES",
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "team": [
+    {
+      "species": "swampert",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "adamant",
+      "ability": "torrent",
+      "moveset": [
+        "stealthrock",
+        "flipturn",
+        "liquidation",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "rindo_berry"
+      ]
+    },
+    {
+      "species": "pelipper",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "modest",
+      "ability": "drizzle",
+      "moveset": [
+        "surf",
+        "hurricane",
+        "uturn",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "damp_rock"
+      ]
+    },
+    {
+      "species": "scizor",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "adamant",
+      "ability": "technician",
+      "moveset": [
+        "swordsdance",
+        "uturn",
+        "bulletpunch",
+        "superpower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "spe": 6
+      },
+      "heldItem": [
+        "metal_coat"
+      ]
+    },
+    {
+      "species": "frosmoth",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "modest",
+      "ability": "icescales",
+      "moveset": [
+        "quiverdance",
+        "icebeam",
+        "hurricane",
+        "bugbuzz"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "spa": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "leftovers"
+      ]
+    },
+    {
+      "species": "seaking",
+      "gender": "MALE",
+      "level": 54,
+      "nature": "adamant",
+      "ability": "raindish",
+      "moveset": [
+        "fishiousrend",
+        "megahorn",
+        "flipturn"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "choice_band"
+      ]
+    },
+    {
+      "species": "swampert",
+      "gender": "FEMALE",
+      "level": 54,
+      "nature": "adamant",
+      "ability": "torrent",
+      "moveset": [
+        "liquidation",
+        "earthquake",
+        "icepunch",
+        "flipturn"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 6,
+        "atk": 252,
+        "spe": 252
+      },
+      "heldItem": [
+        "mega_showdown:swampertite",
+        "leftovers"
+      ]
+    }
+  ]
+}
