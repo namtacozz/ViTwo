@@ -43,7 +43,7 @@ jobs:
         if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/')
         with:
           tag_name: ${{ startsWith(github.ref, 'refs/tags/') && github.ref_name || 'v1.3.0' }}
-          name: "CobbleTower v1.3.0 - Definitive Roguelike Battle Tower Overhaul"
+          name: "CobbleTower v1.3.0 - Definitive Roguelike Double Battle Tower Overhaul"
           draft: false
           prerelease: false
           body: |
@@ -52,23 +52,25 @@ jobs:
             Bản cập nhật lớn toàn diện **CobbleTower v1.3.0** cho Cobblemon Minecraft 1.21.1 mang đến trải nghiệm Đấu Trường VGC 100 Tầng đỉnh cao.
 
             ### 🌟 Tính Năng & Sửa Lỗi Nổi Bật trong v1.3.0:
-            1. **Triệu Hồi 1,559 RCT Trainers Đa Dạng & Bypass Cốt Truyện:**
-               - Tích hợp kho dữ liệu 1,559 NPC Trainer phân theo 6 bậc độ khó.
-               - Tự động spawn Trainer NPC trong sàn đấu và khởi tạo trận đấu trực tiếp khi tương tác.
-            2. **An Toàn Bề Mặt & Sửa Lỗi Kẹt Trục Z:**
-               - Tự động dò tìm bề mặt sàn đấu và Overworld, lấp đầy nền tảng Deepslate an toàn, loại bỏ triệt để việc kẹt trong lòng đất hoặc rớt vào hố ở Tầng 100.
-            3. **Hoạt Ảnh 3D Pokémon Trong Team Preview:**
-               - Hiển thị mô hình 3D Animated của Cobblemon cho cả đội hình đối thủ và người chơi. Hỗ trợ hoán đổi vị trí Lead & Bench mượt mà.
-            4. **Hiển Thị Item Icon Trong Shop BP:**
-               - Hiển thị trực quan Icon của Mint, Bottle Cap, Tera Shard, Master Ball và các phần thưởng đặc biệt.
-            5. **Giao Diện Thẻ Rest Station Xuống Dòng Rõ Ràng:**
-               - Thiết kế lại màn hình Rest Station với 3 Thẻ Lựa Chọn kèm gạch đầu dòng đặc tả chi tiết.
-            6. **HUD Tự Động Co Giãn & Menu Dev Cheat Test:**
-               - Viền HUD sắc nét, tự co giãn theo độ dài tên Affix/Boss. Thêm đủ 6 mốc Checkpoint và thanh công cụ Dev Test hỗ trợ nhảy tầng nhanh.
-            7. **Arena Curses, Dual Curse Matrix, và Anti-Cheese VGC Clauses.**
+            1. **Tích Hợp Toàn Diện Hell Mode (1.663 Trainers & Bể 861 Team Pool):**
+               - Đồng bộ 1.663 hồ sơ Trainer và 861 đội hình thi đấu chuẩn Hell Mode cho cả Overworld và Tower.
+               - Tự động ép thể thức `GEN_9_DOUBLES` 2v2 và cấu hình AI thông minh (Smart Switching, Move Bias, Stat Move Setup).
+            2. **Bypass Rào Cản Cốt Truyện & Kích Hoạt Đấu Trực Tiếp:**
+               - Bỏ qua toàn bộ hạn chế huy hiệu của RCTMod trong Tháp, click NPC là vào trận và xuất Pokémon ngay ở Turn 0.
+            3. **Boss Floor Cutscenes Hoành Tráng:**
+               - Hiệu ứng Letterbox điện ảnh, âm thanh tiếng gầm Boss và danh hiệu phát sáng tại các tầng mốc 10, 25, 50, 75, 90, 91–99, 100.
+            4. **Hệ Thống Xếp Hạng Grade Sau Trận (Rank S/A/B/C/D):**
+               - Đánh giá hiệu suất trận đấu dựa trên số turn và số Pokémon ngất (Rank S cộng +25% BP).
+            5. **Bảng Vinh Danh Leaderboard & Prestige Ascension:**
+               - Ghi nhận Top 10 kỷ lục hoàn thành True Run Floor 100 nhanh nhất (`/tower leaderboard`).
+               - Thăng cấp Prestige (`/tower prestige`) nhận vĩnh viễn hệ số nhân BP (+5%/cấp) và hiệu ứng hạt hào quang.
+            6. **Lưu Trữ Dữ Liệu Cách Ly Theo Từng World:**
+               - Tiến trình tháp và checkpoint được lưu riêng biệt theo từng thư mục `saves/<world>/cobbletower_data/`.
+            7. **Shop BP Đầy Đủ Vật Phẩm Thi Đấu & Restock Theo Tuần:**
+               - Bottle Cap, Tera Shard, Mint, Ability Patch, Mega Stones, giáp tiến hóa và đồ thi đấu VGC.
 
             ### 📦 Cài Đặt:
-            - Yêu cầu: Fabric Loader >= 0.16.0, Minecraft 1.21.1, Cobblemon >= 1.7.0.
+            - Yêu cầu: Fabric Loader >= 0.16.0, Minecraft 1.21.1, Cobblemon >= 1.7.0, Java 21.
             - Tải file `.jar` bên dưới và đặt vào thư mục `.minecraft/mods/`.
           files: build/libs/*.jar
         env:
