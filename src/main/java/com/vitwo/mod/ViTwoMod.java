@@ -147,67 +147,79 @@ public class ViTwoMod implements ModInitializer {
         // 4. Register Dimension Block Interaction Restrictions
         com.vitwo.event.TowerBlockInteractionHandler.register();
 
-        // 5. Register Trainer NPC Direct Battle Interaction (Triggering RCTMod Trainer Battle)
+        // 5. Register Trainer NPC Direct Battle Interaction (Triggering RCTMod Trainer Battle & Overworld Team Refresh)
         UseEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
-            if (world.getRegistryKey().getValue().getPath().contains("tower")) {
+            if (!world.isClient() && hand == net.minecraft.util.Hand.MAIN_HAND) {
                 String entityTypeId = Registries.ENTITY_TYPE.getId(entity.getType()).toString();
                 if (entityTypeId.contains("trainer")) {
-                    if (hand == net.minecraft.util.Hand.MAIN_HAND && player instanceof ServerPlayerEntity serverPlayer) {
-                        try {
-                            if (com.cobblemon.mod.common.battles.BattleRegistry.getBattleByParticipatingPlayer(serverPlayer) != null) {
-                                return ActionResult.SUCCESS;
-                            }
+                    // Refresh trainer team in Overworld so old save entities get updated
+                    try {
+                        Method getTrainerIdMethod = entity.getClass().getMethod("getTrainerId");
+                        String trainerId = (String) getTrainerIdMethod.invoke(entity);
+                        if (trainerId != null && !trainerId.isBlank()) {
+                            Method setTrainerIdMethod = entity.getClass().getMethod("setTrainerId", String.class);
+                            setTrainerIdMethod.invoke(entity, trainerId);
+                        }
+                    } catch (Throwable ignored) {}
 
-                            // 1. Orient Trainer NPC to face player directly
-                            float faceYaw = serverPlayer.getYaw() + 180.0f;
-                            entity.setYaw(faceYaw);
-                            entity.setHeadYaw(faceYaw);
-                            entity.setBodyYaw(faceYaw);
-                            entity.setPitch(0.0f);
-
-                            // 2. Invoke makeBattle on RCTMod to bypass storyline/badge restrictions in tower
+                    if (world.getRegistryKey().getValue().getPath().contains("tower")) {
+                        if (player instanceof ServerPlayerEntity serverPlayer) {
                             try {
-                                Class<?> rctModClass = Class.forName("com.gitlab.srcmc.rctmod.api.RCTMod");
-                                Object rctModInstance = rctModClass.getMethod("getInstance").invoke(null);
-                                Method makeBattleMethod = null;
-                                for (Method m : rctModClass.getMethods()) {
-                                    if (m.getName().equals("makeBattle") && m.getParameterCount() == 2) {
-                                        makeBattleMethod = m;
-                                        break;
-                                    }
+                                if (com.cobblemon.mod.common.battles.BattleRegistry.getBattleByParticipatingPlayer(serverPlayer) != null) {
+                                    return ActionResult.SUCCESS;
                                 }
-                                if (makeBattleMethod != null) {
-                                    makeBattleMethod.setAccessible(true);
-                                    boolean success = (boolean) makeBattleMethod.invoke(rctModInstance, entity, serverPlayer);
-                                    if (success) {
-                                        for (Method m : entity.getClass().getMethods()) {
-                                            if (m.getName().equals("setOpponent") && m.getParameterCount() == 1) {
-                                                m.setAccessible(true);
-                                                m.invoke(entity, serverPlayer);
-                                                break;
-                                            }
+
+                                // 1. Orient Trainer NPC to face player directly
+                                float faceYaw = serverPlayer.getYaw() + 180.0f;
+                                entity.setYaw(faceYaw);
+                                entity.setHeadYaw(faceYaw);
+                                entity.setBodyYaw(faceYaw);
+                                entity.setPitch(0.0f);
+
+                                // 2. Invoke makeBattle on RCTMod to bypass storyline/badge restrictions in tower
+                                try {
+                                    Class<?> rctModClass = Class.forName("com.gitlab.srcmc.rctmod.api.RCTMod");
+                                    Object rctModInstance = rctModClass.getMethod("getInstance").invoke(null);
+                                    Method makeBattleMethod = null;
+                                    for (Method m : rctModClass.getMethods()) {
+                                        if (m.getName().equals("makeBattle") && m.getParameterCount() == 2) {
+                                            makeBattleMethod = m;
+                                            break;
                                         }
-                                        try {
-                                            Object trainerManager = rctModClass.getMethod("getTrainerManager").invoke(rctModInstance);
-                                            for (Method m : trainerManager.getClass().getMethods()) {
-                                                if (m.getName().equals("addBattle") && m.getParameterCount() == 2) {
+                                    }
+                                    if (makeBattleMethod != null) {
+                                        makeBattleMethod.setAccessible(true);
+                                        boolean success = (boolean) makeBattleMethod.invoke(rctModInstance, entity, serverPlayer);
+                                        if (success) {
+                                            for (Method m : entity.getClass().getMethods()) {
+                                                if (m.getName().equals("setOpponent") && m.getParameterCount() == 1) {
                                                     m.setAccessible(true);
-                                                    m.invoke(trainerManager, serverPlayer, entity);
+                                                    m.invoke(entity, serverPlayer);
                                                     break;
                                                 }
                                             }
-                                        } catch (Throwable ignored) {}
-                                        return ActionResult.SUCCESS;
+                                            try {
+                                                Object trainerManager = rctModClass.getMethod("getTrainerManager").invoke(rctModInstance);
+                                                for (Method m : trainerManager.getClass().getMethods()) {
+                                                    if (m.getName().equals("addBattle") && m.getParameterCount() == 2) {
+                                                        m.setAccessible(true);
+                                                        m.invoke(trainerManager, serverPlayer, entity);
+                                                        break;
+                                                    }
+                                                }
+                                            } catch (Throwable ignored) {}
+                                            return ActionResult.SUCCESS;
+                                        }
                                     }
+                                } catch (Throwable t) {
+                                    LOGGER.warn("[CobbleTower] Failed to invoke RCTMod makeBattle via reflection: {}", t.getMessage());
                                 }
                             } catch (Throwable t) {
-                                LOGGER.warn("[CobbleTower] Failed to invoke RCTMod makeBattle via reflection: {}", t.getMessage());
+                                LOGGER.error("[CobbleTower] Error triggering trainer battle: ", t);
                             }
-                        } catch (Throwable t) {
-                            LOGGER.error("[CobbleTower] Error triggering trainer battle: ", t);
                         }
+                        return ActionResult.PASS;
                     }
-                    return ActionResult.PASS;
                 }
             }
             return ActionResult.PASS;

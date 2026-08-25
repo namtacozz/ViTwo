@@ -2,6 +2,7 @@ package com.vitwo.mixin;
 
 import com.cobblemon.mod.common.api.battles.model.actor.ActorType;
 import com.cobblemon.mod.common.api.battles.model.actor.BattleActor;
+import com.cobblemon.mod.common.api.battles.model.actor.EntityBackedBattleActor;
 import com.cobblemon.mod.common.api.pokemon.stats.Stat;
 import com.cobblemon.mod.common.api.pokemon.stats.Stats;
 import com.cobblemon.mod.common.battles.BattleFormat;
@@ -10,6 +11,7 @@ import com.cobblemon.mod.common.battles.BattleSide;
 import com.cobblemon.mod.common.battles.actor.PlayerBattleActor;
 import com.cobblemon.mod.common.battles.pokemon.BattlePokemon;
 import com.cobblemon.mod.common.pokemon.Pokemon;
+import com.vitwo.battle.HellModeTeamLoader;
 import com.vitwo.battle.LevelCapManager;
 import com.vitwo.battle.TowerPokemon;
 import com.vitwo.battle.TowerTeam;
@@ -23,6 +25,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
+import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -96,11 +99,24 @@ public class BattleRegistryMixin {
             isInTowerDimension = towerPlayer.getWorld().getRegistryKey().getValue().getPath().contains("tower");
         }
 
-        // If NOT in TowerDimension:
-        // ONLY enforce GEN_9_DOUBLES if it's an NPC Trainer battle (Gym Leaders, E4, Overworld Trainers)
-        // For WILD Pokémon battles, leave format COMPLETELY UNTOUCHED!
+        // If NOT in TowerDimension (Overworld):
+        // Automatically inject fresh Hell Mode team into the NPC BattleActor in place!
         if (towerParty == null || !isInTowerDimension) {
             if (hasNpcTrainer) {
+                for (BattleSide side : new BattleSide[]{side1, side2}) {
+                    if (side == null || side.getActors() == null) continue;
+                    for (BattleActor actor : side.getActors()) {
+                        if (actor == null || actor.getType() != ActorType.NPC) continue;
+
+                        String trainerId = extractTrainerId(actor);
+                        if (trainerId != null && !trainerId.isBlank()) {
+                            boolean applied = HellModeTeamLoader.applyHellModeTeamToActor(actor, trainerId, null);
+                            if (!applied && !trainerId.contains("_")) {
+                                HellModeTeamLoader.applyHellModeTeamToActor(actor, "kanto_" + trainerId, null);
+                            }
+                        }
+                    }
+                }
                 return BattleFormat.Companion.getGEN_9_DOUBLES();
             }
             return format;
@@ -162,5 +178,35 @@ public class BattleRegistryMixin {
 
         // Enforce 2v2 Double Battle Format for all tower battles
         return BattleFormat.Companion.getGEN_9_DOUBLES();
+    }
+
+    private static String extractTrainerId(BattleActor actor) {
+        if (actor == null) return null;
+        try {
+            if (actor instanceof EntityBackedBattleActor<?> entityActor) {
+                Object entity = entityActor.getEntity();
+                if (entity != null) {
+                    try {
+                        Method m = entity.getClass().getMethod("getTrainerId");
+                        Object tid = m.invoke(entity);
+                        if (tid instanceof String s && !s.isBlank()) {
+                            return s;
+                        }
+                    } catch (Throwable ignored) {}
+                }
+            }
+        } catch (Throwable ignored) {}
+
+        // Fallback: Check actor name
+        try {
+            String name = actor.getName().getString();
+            if (name != null && !name.isBlank()) {
+                String cleanName = name.toLowerCase(java.util.Locale.ROOT).trim();
+                cleanName = cleanName.replace("leader ", "").replace("champion ", "").replace("elite four ", "").trim();
+                return cleanName;
+            }
+        } catch (Throwable ignored) {}
+
+        return null;
     }
 }
