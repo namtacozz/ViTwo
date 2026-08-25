@@ -17,10 +17,6 @@
   },
   "bag": [
     {
-      "item": "cobblemon:revive",
-      "quantity": 1
-    },
-    {
       "item": "cobblemon:full_restore",
       "quantity": "6"
     }
