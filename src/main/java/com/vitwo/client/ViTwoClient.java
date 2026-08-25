@@ -116,18 +116,7 @@ public class ViTwoClient implements ClientModInitializer {
             });
         });
 
-        ClientPlayNetworking.registerGlobalReceiver(OpenTeamPreviewS2CPacket.ID, (payload, context) -> {
-            context.client().execute(() -> {
-                MinecraftClient.getInstance().setScreen(new com.vitwo.client.gui.TeamPreviewScreen(
-                        payload.floor(),
-                        payload.durationSeconds(),
-                        payload.opponentName(),
-                        payload.opponentTitle(),
-                        payload.opponentTeam(),
-                        payload.playerTeam()
-                ));
-            });
-        });
+
 
         // Leaderboard Sync Receiver
         ClientPlayNetworking.registerGlobalReceiver(SyncLeaderboardS2CPacket.ID, (payload, context) -> {

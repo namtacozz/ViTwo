@@ -129,11 +129,7 @@ public class ViTwoMod implements ModInitializer {
             });
         });
 
-        ServerPlayNetworking.registerGlobalReceiver(ReadyTeamPreviewC2SPacket.ID, (payload, context) -> {
-            ServerPlayerEntity player = context.player();
-            if (player == null || !player.isAlive() || payload.slotOrder() == null) return;
-            context.server().execute(() -> com.vitwo.battle.TowerBattleManager.getInstance().handleReadyTeamPreview(player, payload.slotOrder()));
-        });
+
 
         ServerPlayNetworking.registerGlobalReceiver(com.vitwo.network.c2s.DebugTowerActionC2SPacket.ID, (payload, context) -> {
             ServerPlayerEntity player = context.player();

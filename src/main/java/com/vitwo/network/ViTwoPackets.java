@@ -17,7 +17,6 @@ public class ViTwoPackets {
         PayloadTypeRegistry.playC2S().register(ForfeitTowerC2SPacket.ID, ForfeitTowerC2SPacket.CODEC);
         PayloadTypeRegistry.playC2S().register(BuyBpItemC2SPacket.ID, BuyBpItemC2SPacket.CODEC);
         PayloadTypeRegistry.playC2S().register(GhostSupportActionC2SPacket.ID, GhostSupportActionC2SPacket.CODEC);
-        PayloadTypeRegistry.playC2S().register(ReadyTeamPreviewC2SPacket.ID, ReadyTeamPreviewC2SPacket.CODEC);
         PayloadTypeRegistry.playC2S().register(DebugTowerActionC2SPacket.ID, DebugTowerActionC2SPacket.CODEC);
 
         // Register S2C (Server -> Client)
@@ -28,7 +27,6 @@ public class ViTwoPackets {
         PayloadTypeRegistry.playS2C().register(OpenRestScreenS2CPacket.ID, OpenRestScreenS2CPacket.CODEC);
         PayloadTypeRegistry.playS2C().register(OpenRunSummaryS2CPacket.ID, OpenRunSummaryS2CPacket.CODEC);
         PayloadTypeRegistry.playS2C().register(SyncGhostSupportS2CPacket.ID, SyncGhostSupportS2CPacket.CODEC);
-        PayloadTypeRegistry.playS2C().register(OpenTeamPreviewS2CPacket.ID, OpenTeamPreviewS2CPacket.CODEC);
         PayloadTypeRegistry.playS2C().register(SyncLeaderboardS2CPacket.ID, SyncLeaderboardS2CPacket.CODEC);
         PayloadTypeRegistry.playS2C().register(TowerBossIntroS2CPacket.ID, TowerBossIntroS2CPacket.CODEC);
         PayloadTypeRegistry.playS2C().register(TowerBattleGradeS2CPacket.ID, TowerBattleGradeS2CPacket.CODEC);

@@ -335,13 +335,4 @@ public class TowerBattleManager {
         leader.sendMessage(Text.translatable("vitwo.tower.bag_item_banned"), false);
         member.sendMessage(Text.translatable("vitwo.tower.bag_item_banned"), false);
     }
-
-    public void sendTeamPreview(TowerParty party, ServerPlayerEntity leader, ServerPlayerEntity member, int floor) {
-        // Disabled per request for pure mystery battle flow
-    }
-
-    public void handleReadyTeamPreview(ServerPlayerEntity player, List<Integer> slotOrder) {
-        if (player == null) return;
-        player.sendMessage(Text.literal("§a✔ Ready for battle!"), false);
-    }
 }
