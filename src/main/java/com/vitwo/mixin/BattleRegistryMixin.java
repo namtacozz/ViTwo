@@ -117,23 +117,6 @@ public class BattleRegistryMixin {
                                     HellModeTeamLoader.applyHellModeTeamToActor(actor, "kanto_" + trainerId, null);
                                 }
                             }
-                            // Ensure all moves have valid PP and Pokemon are healthy
-                            for (BattlePokemon bp : actor.getPokemonList()) {
-                                if (bp != null) {
-                                    if (bp.getEffectedPokemon() != null) bp.getEffectedPokemon().heal();
-                                    if (bp.getOriginalPokemon() != null) bp.getOriginalPokemon().heal();
-                                    if (bp.getMoveSet() != null) {
-                                        bp.getMoveSet().heal();
-                                        for (Move m : bp.getMoveSet()) {
-                                            if (m != null) {
-                                                m.setCurrentPp(m.getMaxPp());
-                                                m.update();
-                                            }
-                                        }
-                                        bp.getMoveSet().update();
-                                    }
-                                }
-                            }
                         }
                     }
                 }

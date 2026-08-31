@@ -269,6 +269,12 @@ public class HellModeTeamLoader {
                 String cleanMove = mEl.getAsString().toLowerCase(Locale.ROOT).trim().replace(" ", "_").replace("-", "_");
                 try {
                     MoveTemplate template = Moves.getByName(cleanMove);
+                    if (template == null) {
+                        template = Moves.getByName(cleanMove.replace("_", ""));
+                    }
+                    if (template == null) {
+                        template = Moves.getByName(cleanMove.replace("_", "-"));
+                    }
                     if (template != null) {
                         customMoves.add(template.create());
                     }
@@ -341,21 +347,6 @@ public class HellModeTeamLoader {
             if (bp.getOriginalPokemon() != null && bp.getOriginalPokemon() != targetMon && sourceMon != null) {
                 copyPokemonData(sourceMon, bp.getOriginalPokemon());
             }
-
-            // Synchronize BattlePokemon wrapper moveset with target Pokemon moveset
-            if (bp.getMoveSet() != null && targetMon != null && targetMon.getMoveSet() != null) {
-                try {
-                    bp.getMoveSet().clear();
-                    for (Move m : targetMon.getMoveSet()) {
-                        if (m != null && m.getTemplate() != null) {
-                            Move newMove = m.getTemplate().create();
-                            newMove.setCurrentPp(newMove.getMaxPp());
-                            bp.getMoveSet().add(newMove);
-                        }
-                    }
-                    bp.getMoveSet().update();
-                } catch (Throwable ignored) {}
-            }
             bp.setActor(actor);
         }
 
@@ -365,19 +356,6 @@ public class HellModeTeamLoader {
             Pokemon mon = newTeam.get(idx);
             BattlePokemon bp = BattlePokemon.Companion.safeCopyOf(mon);
             bp.setActor(actor);
-            if (bp.getEffectedPokemon() != null) {
-                bp.getEffectedPokemon().heal();
-            }
-            if (bp.getMoveSet() != null) {
-                bp.getMoveSet().heal();
-                for (Move m : bp.getMoveSet()) {
-                    if (m != null) {
-                        m.setCurrentPp(m.getMaxPp());
-                        m.update();
-                    }
-                }
-                bp.getMoveSet().update();
-            }
             battleTeam.add(bp);
         }
 
@@ -399,46 +377,35 @@ public class HellModeTeamLoader {
                 } catch (Throwable ignored) {}
             }
 
-            // Gimmick 1: Held Items (Mega Stones / Z-Crystals / Choice items) - DO NOT emit event to avoid null-context NPE
             try {
                 ItemStack itemCopy = (source.heldItem() != null && !source.heldItem().isEmpty()) ? source.heldItem().copy() : ItemStack.EMPTY;
                 target.swapHeldItem(itemCopy, false, false);
             } catch (Throwable ignored) {}
 
-            // Gimmick 2: Aspects (Mega / Forms / Gmax aspects)
             try {
                 target.getAspects().clear();
                 target.getAspects().addAll(source.getAspects());
                 target.updateAspects();
             } catch (Throwable ignored) {}
 
-            // Gimmick 3: Gmax Factor
             try {
                 target.setGmaxFactor(source.getGmaxFactor());
             } catch (Throwable ignored) {}
 
-            // Gimmick 4: Terastallization
             try {
                 if (source.getTeraType() != null) {
                     target.setTeraType(source.getTeraType());
                 }
             } catch (Throwable ignored) {}
 
-            target.getMoveSet().clear();
-            for (Move m : source.getMoveSet()) {
-                if (m != null && m.getTemplate() != null) {
-                    Move newMove = m.getTemplate().create();
-                    newMove.setCurrentPp(newMove.getMaxPp());
-                    target.getMoveSet().add(newMove);
+            if (source.getMoveSet() != null && !source.getMoveSet().getMoves().isEmpty()) {
+                target.getMoveSet().clear();
+                for (Move m : source.getMoveSet()) {
+                    if (m != null) {
+                        target.getMoveSet().add(m);
+                    }
                 }
             }
-            if (target.getMoveSet().getMoves().isEmpty()) {
-                try {
-                    MoveTemplate tackle = Moves.getByName("tackle");
-                    if (tackle != null) target.getMoveSet().add(tackle.create());
-                } catch (Throwable ignored) {}
-            }
-            target.getMoveSet().update();
 
             for (Stat stat : Stats.Companion.getPERMANENT()) {
                 target.getIvs().set(stat, source.getIvs().getOrDefault(stat));
