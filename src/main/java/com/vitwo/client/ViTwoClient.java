@@ -135,17 +135,6 @@ public class ViTwoClient implements ClientModInitializer {
             });
         });
 
-        // Boss Pokemon Egg Draft Screen Receiver (Legacy)
-        ClientPlayNetworking.registerGlobalReceiver(com.vitwo.network.s2c.OpenPokemonDraftS2CPacket.ID, (payload, context) -> {
-            context.client().execute(() -> {
-                MinecraftClient.getInstance().setScreen(new com.vitwo.client.gui.TowerPokemonDraftScreen(
-                        payload.floor(),
-                        payload.bossName(),
-                        payload.options()
-                ));
-            });
-        });
-
         // Boss CS:GO Pokemon Gacha Screen Receiver
         ClientPlayNetworking.registerGlobalReceiver(com.vitwo.network.s2c.OpenPokemonGachaS2CPacket.ID, (payload, context) -> {
             context.client().execute(() -> {

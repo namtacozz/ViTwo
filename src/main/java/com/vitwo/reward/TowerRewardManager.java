@@ -14,7 +14,6 @@ import com.vitwo.config.TowerPlayerDataManager;
 import com.vitwo.network.c2s.ClaimGachaPokemonC2SPacket;
 import com.vitwo.network.c2s.ClaimItemGachaC2SPacket;
 import com.vitwo.network.s2c.OpenItemGachaS2CPacket;
-import com.vitwo.network.s2c.OpenPokemonDraftS2CPacket.DraftOption;
 import com.vitwo.network.s2c.OpenPokemonGachaS2CPacket;
 import com.vitwo.network.s2c.TowerBattleGradeS2CPacket;
 import com.vitwo.party.TowerParty;
@@ -256,104 +255,18 @@ public class TowerRewardManager {
             playerB.sendMessage(Text.literal("§6[CobbleTower] §a+" + finalBp + " BP §7(Grade: §e" + grade + "§7) §f— Total BP: §e" + TowerPlayerDataManager.getInstance().getBp(playerB.getUuid()) + " BP"), false);
             ServerPlayNetworking.send(playerB, new TowerBattleGradeS2CPacket(floor, grade, rankBonusBp, turnsThisFloor, faintsThisFloor));
         }
-
-        // 2. Generous Resource & Pokémon Item Distribution
-        grantRichItemsForFloor(playerA, floor);
-        if (playerB != null) {
-            grantRichItemsForFloor(playerB, floor);
-        }
     }
 
     public void grantFloorReward(ServerPlayerEntity playerA, ServerPlayerEntity playerB, int floor, boolean isTrueRun) {
         grantFloorReward(playerA, playerB, floor, isTrueRun, 5, 0);
     }
 
-    private void grantRichItemsForFloor(ServerPlayerEntity player, int floor) {
-        if (player == null) return;
-
-        // A. Minecraft Ores & Valuables
-        if (floor <= 10) {
-            giveItemToPlayer(player, new ItemStack(Items.DIAMOND, 3), floor);
-            giveItemToPlayer(player, new ItemStack(Items.EMERALD, 2), floor);
-            giveItemToPlayer(player, getCobblemonItem("exp_candy_l", 5), floor);
-            giveItemToPlayer(player, getCobblemonItem("rare_candy", 1), floor);
-            giveItemToPlayer(player, getRandomStone(), floor);
-        } else if (floor <= 25) {
-            giveItemToPlayer(player, new ItemStack(Items.DIAMOND, 8), floor);
-            giveItemToPlayer(player, new ItemStack(Items.NETHERITE_SCRAP, 2), floor);
-            giveItemToPlayer(player, new ItemStack(Items.GOLDEN_APPLE, 1), floor);
-            giveItemToPlayer(player, getCobblemonItem("exp_candy_xl", 5), floor);
-            giveItemToPlayer(player, getCobblemonItem("rare_candy", 2), floor);
-            giveItemToPlayer(player, getCobblemonItem("bottle_cap", 1), floor);
-        } else if (floor <= 50) {
-            giveItemToPlayer(player, new ItemStack(Items.DIAMOND, 16), floor);
-            giveItemToPlayer(player, new ItemStack(Items.NETHERITE_INGOT, 1), floor);
-            giveItemToPlayer(player, new ItemStack(Items.GOLDEN_APPLE, 3), floor);
-            giveItemToPlayer(player, getCobblemonItem("exp_candy_xl", 8), floor);
-            giveItemToPlayer(player, getCobblemonItem("rare_candy", 3), floor);
-            giveItemToPlayer(player, getCobblemonItem("ability_capsule", 1), floor);
-            giveItemToPlayer(player, getCobblemonItem("bottle_cap", 1), floor);
-        } else if (floor <= 75) {
-            giveItemToPlayer(player, new ItemStack(Items.DIAMOND, 32), floor);
-            giveItemToPlayer(player, new ItemStack(Items.NETHERITE_INGOT, 2), floor);
-            giveItemToPlayer(player, new ItemStack(Items.ENCHANTED_GOLDEN_APPLE, 1), floor);
-            giveItemToPlayer(player, getCobblemonItem("exp_candy_xl", 10), floor);
-            giveItemToPlayer(player, getCobblemonItem("rare_candy", 5), floor);
-            giveItemToPlayer(player, getCobblemonItem("ability_patch", 1), floor);
-            giveItemToPlayer(player, getCobblemonItem("gold_bottle_cap", 1), floor);
-        } else if (floor < 100) {
-            giveItemToPlayer(player, new ItemStack(Items.DIAMOND, 64), floor);
-            giveItemToPlayer(player, new ItemStack(Items.NETHERITE_INGOT, 4), floor);
-            giveItemToPlayer(player, new ItemStack(Items.ENCHANTED_GOLDEN_APPLE, 2), floor);
-            giveItemToPlayer(player, getCobblemonItem("exp_candy_xl", 15), floor);
-            giveItemToPlayer(player, getCobblemonItem("rare_candy", 8), floor);
-            giveItemToPlayer(player, getCobblemonItem("ability_patch", 2), floor);
-            giveItemToPlayer(player, getCobblemonItem("gold_bottle_cap", 2), floor);
-            if (floor % 5 == 0) {
-                giveItemToPlayer(player, getCobblemonItem("master_ball", 1), floor);
-            }
-        } else {
-            // Floor 100 Champion Apex Rewards
-            giveItemToPlayer(player, new ItemStack(Items.DIAMOND_BLOCK, 64), floor);
-            giveItemToPlayer(player, new ItemStack(Items.NETHERITE_INGOT, 8), floor);
-            giveItemToPlayer(player, new ItemStack(Items.ENCHANTED_GOLDEN_APPLE, 5), floor);
-            giveItemToPlayer(player, getCobblemonItem("exp_candy_xl", 20), floor);
-            giveItemToPlayer(player, getCobblemonItem("rare_candy", 10), floor);
-            giveItemToPlayer(player, getCobblemonItem("ability_patch", 5), floor);
-            giveItemToPlayer(player, getCobblemonItem("gold_bottle_cap", 5), floor);
-            giveItemToPlayer(player, getCobblemonItem("master_ball", 2), floor);
-            giveItemToPlayer(player, getCobblemonItem("tera_shard_stellar", 10), floor);
-        }
-    }
-
-    private ItemStack getCobblemonItem(String name, int count) {
+    public ItemStack getCobblemonItem(String name, int count) {
         Identifier id = Identifier.of("cobblemon", name);
         if (Registries.ITEM.containsId(id)) {
-            return new ItemStack(Registries.ITEM.get(id), count);
+            return new ItemStack(Registries.ITEM.get(id), Math.max(1, count));
         }
-        return new ItemStack(Items.DIAMOND, count);
-    }
-
-    private ItemStack getRandomStone() {
-        String[] stones = {"fire_stone", "water_stone", "thunder_stone", "leaf_stone", "moon_stone", "sun_stone", "shiny_stone", "dusk_stone", "dawn_stone", "ice_stone"};
-        String chosen = stones[RANDOM.nextInt(stones.length)];
-        return getCobblemonItem(chosen, 1);
-    }
-
-    // ==========================================
-    // 🥚 BOSS POKÉMON EGG DRAFTING SYSTEM
-    // ==========================================
-
-    private final Map<UUID, List<DraftOption>> activeDraftOptions = new java.util.concurrent.ConcurrentHashMap<>();
-
-    public void clearDraftOptionsForPlayer(UUID playerId) {
-        if (playerId != null) {
-            activeDraftOptions.remove(playerId);
-        }
-    }
-
-    public void clearAllDraftOptions() {
-        activeDraftOptions.clear();
+        return new ItemStack(Items.DIAMOND, Math.max(1, count));
     }
 
     public static Species getBaseSpecies(Species species) {
@@ -400,49 +313,59 @@ public class TowerRewardManager {
         return false;
     }
 
-    public List<DraftOption> getDraftOptionsForTrainer(String trainerId, int floor) {
+    private void populateCandidatesFromTrainer(List<GachaPokemonCandidate> pool, String trainerId, int floor) {
         if (trainerId == null || trainerId.isBlank()) {
             trainerId = TrainerPool.getRctTrainerIdForFloor(floor);
         }
         List<Pokemon> team = HellModeTeamLoader.createTeamFromTrainerId(trainerId, 50);
-        List<DraftOption> options = new ArrayList<>();
+        if (team == null || team.isEmpty()) return;
 
-        if (team == null || team.isEmpty()) {
-            // Fallback iconic boss pool
-            String[] fallbacks = {"garchomp", "lucario", "roserade", "milotic", "togekiss", "spiritomb"};
-            for (int i = 0; i < fallbacks.length; i++) {
-                String orig = fallbacks[i];
-                var sp = com.cobblemon.mod.common.api.pokemon.PokemonSpecies.getByName(orig);
-                var base = getBaseSpecies(sp);
-                String baseName = base != null ? base.getName().toLowerCase(Locale.ROOT) : orig;
-                options.add(new DraftOption(i, orig, baseName, "", capitalize(orig), "Dragon", "Ground", false, false));
-            }
-            return options;
-        }
-
-        for (int i = 0; i < Math.min(6, team.size()); i++) {
-            Pokemon mon = team.get(i);
+        for (Pokemon mon : team) {
             if (mon == null || mon.getSpecies() == null) continue;
             Species origSpecies = mon.getSpecies();
             String origName = origSpecies.getName().toLowerCase(Locale.ROOT);
+            boolean exists = pool.stream().anyMatch(c -> c.speciesName().equalsIgnoreCase(origName));
+            if (exists) continue;
+
             Species baseSpecies = getBaseSpecies(origSpecies);
             String baseName = baseSpecies != null ? baseSpecies.getName().toLowerCase(Locale.ROOT) : origName;
             String regionalAspect = extractRegionalAspect(mon);
-
             boolean isLegend = isLegendaryOrMythical(origSpecies);
             boolean isShiny = mon.getShiny();
             String t1 = mon.getPrimaryType() != null ? mon.getPrimaryType().getName() : "Normal";
             String t2 = mon.getSecondaryType() != null ? mon.getSecondaryType().getName() : "";
             String display = mon.getDisplayName(false).getString();
 
-            options.add(new DraftOption(i, origName, baseName, regionalAspect, display, t1, t2, isShiny, isLegend));
+            pool.add(GachaPokemonCandidate.of(pool.size(), origName, display, baseName, regionalAspect, t1, t2, isLegend, isShiny));
         }
-
-        return options;
     }
 
-    public List<DraftOption> getDraftOptionsForFloor(int floor) {
-        return getDraftOptionsForTrainer(null, floor);
+    private void enrichBossGachaPool(List<GachaPokemonCandidate> pool, int floor) {
+        if (floor >= 90) {
+            // Floors 90 - 100: Grand Elite Four & Cynthia Apex Pool
+            String[] apexBosses = {
+                    // High Legends & Mythicals
+                    "mewtwo", "rayquaza", "giratina", "dialga", "palkia", "arceus", "koraidon", "miraidon", "darkrai", "mew", "deoxys", "jirachi", "kyogre", "groudon",
+                    // Sub-Legends & Paradox
+                    "urshifu", "roaring_moon", "iron_valiant", "ogerpon", "chien_pao", "chi_yu", "ting_lu", "wo_chien", "zapdos", "moltres", "articuno", "raikou", "entei", "suicune", "latios", "latias",
+                    // Champion & E4 Aces
+                    "garchomp", "metagross", "dragonite", "salamence", "tyranitar", "dragapult", "baxcalibur", "volcarona", "lucario", "togekiss", "spiritomb", "milotic", "hydreigon", "kingambit", "gengar", "scizor",
+                    // Starters
+                    "charizard", "greninja", "skeledirge", "meowscarada", "blaziken", "swampert", "sceptile", "infernape"
+            };
+            for (String mon : apexBosses) {
+                boolean exists = pool.stream().anyMatch(c -> c.speciesName().equalsIgnoreCase(mon));
+                if (!exists) {
+                    var sp = com.cobblemon.mod.common.api.pokemon.PokemonSpecies.getByName(mon);
+                    var base = getBaseSpecies(sp);
+                    String baseName = base != null ? base.getName().toLowerCase(Locale.ROOT) : mon;
+                    String t1 = (sp != null && sp.getPrimaryType() != null) ? sp.getPrimaryType().getName() : "Normal";
+                    String t2 = (sp != null && sp.getSecondaryType() != null) ? sp.getSecondaryType().getName() : "";
+                    boolean isLegend = isLegendaryOrMythical(sp);
+                    pool.add(GachaPokemonCandidate.of(pool.size(), mon, capitalize(mon), baseName, "", t1, t2, isLegend, false));
+                }
+            }
+        }
     }
 
     // ==========================================
@@ -459,30 +382,17 @@ public class TowerRewardManager {
         // 1. Drain all encountered Pokemon since last gacha
         List<GachaPokemonCandidate> pool = party.drainEncounteredCandidates(floor);
 
-        // 2. If pool is too small (e.g. checkpoint jump or first entry), populate from recent floors
+        // 2. If pool is small, populate from recent floors
         if (pool.size() < 6) {
             int startFloor = Math.max(1, floor - 4);
             for (int f = startFloor; f <= floor; f++) {
                 String tid = TrainerPool.getRctTrainerIdForFloor(f);
-                List<DraftOption> drafts = getDraftOptionsForTrainer(tid, f);
-                for (DraftOption d : drafts) {
-                    boolean exists = pool.stream().anyMatch(c -> c.speciesName().equalsIgnoreCase(d.originalSpecies()));
-                    if (!exists) {
-                        pool.add(GachaPokemonCandidate.of(
-                                pool.size(),
-                                d.originalSpecies(),
-                                d.displayName(),
-                                d.baseSpecies(),
-                                d.formAspect(),
-                                d.primaryType(),
-                                d.secondaryType(),
-                                d.isLegendary(),
-                                d.isShiny()
-                        ));
-                    }
-                }
+                populateCandidatesFromTrainer(pool, tid, f);
             }
         }
+
+        // 3. For Late Game (Floors 90-100), enrich the pool with the Apex Legendaries, Mythicals & Champion Aces
+        enrichBossGachaPool(pool, floor);
 
         if (pool.isEmpty()) {
             pool.addAll(List.of(
@@ -495,7 +405,7 @@ public class TowerRewardManager {
             ));
         }
 
-        // 3. Weighted Rarity Selection for the Winning Pokémon (0.6% High Legend, 4% Low Legend, 12% Pseudo, 25% Starter, 58.4% Common)
+        // 4. Weighted Rarity Selection for the Winning Pokémon (0.6% High Legend, 4% Low Legend, 12% Pseudo, 25% Starter, 58.4% Common)
         Random rng = new Random();
         List<GachaPokemonCandidate> highLegends = pool.stream().filter(c -> c.rarity() == PokemonRarity.HIGH_LEGEND || c.rarity() == PokemonRarity.MYTHICAL).toList();
         List<GachaPokemonCandidate> lowLegends = pool.stream().filter(c -> c.rarity() == PokemonRarity.LOW_LEGEND).toList();
@@ -519,7 +429,7 @@ public class TowerRewardManager {
             winningBase = pool.get(rng.nextInt(pool.size()));
         }
 
-        // 4. Construct an extended 50-item CS:GO carousel reel from pool, placing winningBase at target winning index
+        // 5. Construct an extended 50-item CS:GO carousel reel from pool, placing winningBase at target winning index
         int winningIndex = 38 + rng.nextInt(6); // Slot 38-43
         List<GachaPokemonCandidate> reel = new ArrayList<>(50);
         for (int i = 0; i < 50; i++) {
@@ -758,12 +668,6 @@ public class TowerRewardManager {
             player.sendMessage(Text.literal("§6★ [CobbleTower Gacha] §fYou received §e" + winner.displayName() + "§f!"), false);
         }
         player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0f, 1.0f);
-    }
-
-    public void handleDraftChoice(ServerPlayerEntity player, int floor, int slotIndex) {
-        if (player == null) return;
-        int[] ivs = new int[]{31, 31, 31, 31, 31, 31};
-        handleGachaPokemonClaim(player, new ClaimGachaPokemonC2SPacket(floor, slotIndex, false, ivs));
     }
 
     public static void fullHeal(Pokemon mon) {

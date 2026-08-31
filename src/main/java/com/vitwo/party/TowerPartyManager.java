@@ -797,10 +797,8 @@ public class TowerPartyManager {
     public void disbandParty(TowerParty party) {
         activeParties.remove(party.getLeaderId());
         playerToPartyLeader.remove(party.getLeaderId());
-        com.vitwo.reward.TowerRewardManager.getInstance().clearDraftOptionsForPlayer(party.getLeaderId());
         if (party.getMemberId() != null) {
             playerToPartyLeader.remove(party.getMemberId());
-            com.vitwo.reward.TowerRewardManager.getInstance().clearDraftOptionsForPlayer(party.getMemberId());
         }
     }
 

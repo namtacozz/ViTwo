@@ -284,11 +284,11 @@ public class TowerHubScreen extends AbstractTowerScreen {
             int maxCap = LevelCapManager.getMaxLevelCapForFloor(selectedCheckpoint);
             boolean isTrue = (selectedCheckpoint == 1);
             String runTypeDesc = isTrue
-                    ? "§a★ True Run: Full BP & Rewards"
-                    : "§e⚡ Checkpoint Run: 50% BP";
+                    ? "§a★ True Run: 100% BP"
+                    : "§e⚡ Checkpoint: 50% BP";
 
-            context.drawCenteredTextWithShadow(this.textRenderer, "§fStarting Floor: §bFloor " + selectedCheckpoint + " §7(Cap: Lv." + maxCap + " | Unlocked: §aF." + soloCheckpoint + "§7) §7— " + runTypeDesc, centerX, centerY + 12, 0xFF0FD9C2);
-            context.drawCenteredTextWithShadow(this.textRenderer, "§8[Rules: Mega / Z-Move / Dynamax / Terastallization Enabled]", centerX, centerY + 24, 0xFF888888);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§fStart: §bFloor " + selectedCheckpoint + " §7(Cap: Lv." + maxCap + ") • " + runTypeDesc, centerX, centerY + 12, 0xFF0FD9C2);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§8[Gimmicks: Mega / Z-Moves / Dynamax / Tera Active]", centerX, centerY + 24, 0xFF888888);
         }
 
         // Authors Credit

@@ -25,9 +25,9 @@ public class TowerItemGachaScreen extends AbstractTowerScreen {
 
     private long startTime = 0;
     private final long DURATION_MS = 3800L;
-    private final int CARD_WIDTH = 80;
-    private final int CARD_HEIGHT = 90;
-    private final int CARD_SPACING = 6;
+    private final int CARD_WIDTH = 86;
+    private final int CARD_HEIGHT = 96;
+    private final int CARD_SPACING = 8;
     private final int CARD_STEP = CARD_WIDTH + CARD_SPACING;
 
     private int lastTickCard = -1;
@@ -54,7 +54,7 @@ public class TowerItemGachaScreen extends AbstractTowerScreen {
             this.addDrawableChild(TowerButton.towerBuilder(
                     Text.literal("§a§l✔ CLAIM REWARD & CONTINUE"),
                     btn -> claimAndClose()
-            ).dimensions(centerX - 110, centerY + 65, 220, 24).style(TowerButton.ButtonStyle.GREEN).build());
+            ).dimensions(centerX - 110, centerY + 68, 220, 24).style(TowerButton.ButtonStyle.GREEN).build());
         } else {
             this.addDrawableChild(TowerButton.towerBuilder(
                     Text.literal("§7Skip / Claim Immediately"),
@@ -62,7 +62,7 @@ public class TowerItemGachaScreen extends AbstractTowerScreen {
                         finished = true;
                         claimAndClose();
                     }
-                ).dimensions(centerX - 90, centerY + 65, 180, 20).style(TowerButton.ButtonStyle.SECONDARY).build());
+                ).dimensions(centerX - 90, centerY + 68, 180, 20).style(TowerButton.ButtonStyle.SECONDARY).build());
         }
     }
 
@@ -77,13 +77,13 @@ public class TowerItemGachaScreen extends AbstractTowerScreen {
         int centerX = this.width / 2;
         int centerY = this.height / 2;
 
-        int panelW = 390;
-        int panelH = 190;
+        int panelW = 410;
+        int panelH = 205;
         this.renderPanelBackground(context, centerX - panelW / 2, centerY - panelH / 2, panelW, panelH);
 
         // Header Title
-        context.drawCenteredTextWithShadow(this.textRenderer, "§6§l🎁 FLOOR " + floor + " REWARD ROULETTE 🎁", centerX, centerY - 80, 0xFFFFD700);
-        context.drawCenteredTextWithShadow(this.textRenderer, "§7Competitive Items & Battle Points (BP) Rewards", centerX, centerY - 68, 0xFFCCCCCC);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§6§l🎁 FLOOR " + floor + " REWARD ROULETTE 🎁", centerX, centerY - 88, 0xFFFFD700);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§7Competitive Items & Battle Points (BP) Rewards", centerX, centerY - 76, 0xFFCCCCCC);
 
         // Carousel Calculation
         long elapsed = System.currentTimeMillis() - startTime;
@@ -110,14 +110,14 @@ public class TowerItemGachaScreen extends AbstractTowerScreen {
         }
 
         // Viewport
-        int viewW = 360;
+        int viewW = 380;
         int viewH = CARD_HEIGHT + 8;
         int viewX = centerX - (viewW / 2);
-        int viewY = centerY - 50;
+        int viewY = centerY - 55;
 
-        context.fill(viewX, viewY, viewX + viewW, viewY + viewH, 0xFF0D0D14);
-        context.fill(viewX, viewY, viewX + viewW, viewY + 1, 0xFF353545);
-        context.fill(viewX, viewY + viewH - 1, viewX + viewW, viewY + viewH, 0xFF353545);
+        context.fill(viewX, viewY, viewX + viewW, viewY + viewH, 0xFF0B0C12);
+        context.fill(viewX, viewY, viewX + viewW, viewY + 1, 0xFF353548);
+        context.fill(viewX, viewY + viewH - 1, viewX + viewW, viewY + viewH, 0xFF353548);
 
         context.enableScissor(viewX, viewY, viewX + viewW, viewY + viewH);
 
@@ -126,12 +126,13 @@ public class TowerItemGachaScreen extends AbstractTowerScreen {
             int cardX = (int) (centerX + (i * CARD_STEP) - currentPixelOffset);
             int cardY = viewY + 4;
 
-            if (cardX + CARD_WIDTH < viewX - 20 || cardX > viewX + viewW + 20) continue;
+            if (cardX + CARD_WIDTH < viewX - 30 || cardX > viewX + viewW + 30) continue;
 
             boolean isWinnerGlow = (i == winningIndex && finished);
-            int border = isWinnerGlow ? 0xFFFFD700 : 0xFF2A2A38;
-            int bg = isWinnerGlow ? 0xFF252835 : 0xFF14141E;
+            int border = isWinnerGlow ? 0xFFFFD700 : 0xFF2D3142;
+            int bg = isWinnerGlow ? 0xFF262A38 : 0xFF141620;
 
+            // Card body & border
             context.fill(cardX, cardY, cardX + CARD_WIDTH, cardY + CARD_HEIGHT, border);
             context.fill(cardX + 1, cardY + 1, cardX + CARD_WIDTH - 1, cardY + CARD_HEIGHT - 1, bg);
 
@@ -142,29 +143,65 @@ public class TowerItemGachaScreen extends AbstractTowerScreen {
             String tierLabel = item.rarityTier() == 3 ? "★ JACKPOT" : (item.rarityTier() == 2 ? "RARE" : (item.rarityTier() == 1 ? "UNCOMMON" : "COMMON"));
             context.drawCenteredTextWithShadow(this.textRenderer, tierLabel, cardX + (CARD_WIDTH / 2), cardY + 7, item.color());
 
+            // Dedicated Item Icon Socket
+            context.fill(cardX + (CARD_WIDTH / 2) - 14, cardY + 18, cardX + (CARD_WIDTH / 2) + 14, cardY + 46, 0xFF0D0E16);
+            context.drawBorder(cardX + (CARD_WIDTH / 2) - 14, cardY + 18, 28, 28, 0xFF252838);
+
             // Item Icon
             ItemStack icon = getItemIcon(item);
-            context.drawItem(icon, cardX + (CARD_WIDTH / 2) - 8, cardY + 20);
+            context.drawItem(icon, cardX + (CARD_WIDTH / 2) - 8, cardY + 24);
 
-            // Item Name
-            context.drawCenteredTextWithShadow(this.textRenderer, truncate(item.displayName(), 11), cardX + (CARD_WIDTH / 2), cardY + 42, 0xFFFFFFFF);
+            // Item Name & Quantity
+            String mainTitle = getItemMainTitle(item);
+            String subTitle = getItemSubTitle(item);
+            context.drawCenteredTextWithShadow(this.textRenderer, mainTitle, cardX + (CARD_WIDTH / 2), cardY + 50, 0xFFFFFFFF);
+            context.drawCenteredTextWithShadow(this.textRenderer, subTitle, cardX + (CARD_WIDTH / 2), cardY + 62, 0xFF00E5FF);
 
-            // Category tag
-            String cat = "bp".equalsIgnoreCase(item.category()) ? "§e+" + item.bpAmount() + " BP" : "§bItem";
-            context.drawCenteredTextWithShadow(this.textRenderer, cat, cardX + (CARD_WIDTH / 2), cardY + 56, 0xFFCCCCCC);
+            // Winner Bottom Bar
+            if (isWinnerGlow) {
+                context.fill(cardX + 1, cardY + CARD_HEIGHT - 3, cardX + CARD_WIDTH - 1, cardY + CARD_HEIGHT - 1, 0xFFFFD700);
+            }
         }
 
         context.disableScissor();
 
         // Center Red Needle Marker
         context.fill(centerX - 1, viewY - 3, centerX + 1, viewY + viewH + 3, 0xFFFF2233);
+        context.fill(centerX - 3, viewY - 5, centerX + 3, viewY - 2, 0xFFFF2233);
+        context.fill(centerX - 3, viewY + viewH + 2, centerX + 3, viewY + viewH + 5, 0xFFFF2233);
 
         if (finished && winningIndex >= 0 && winningIndex < candidates.size()) {
             GachaItemCandidate win = candidates.get(winningIndex);
-            context.drawCenteredTextWithShadow(this.textRenderer, "§e★ REWARD: §a" + win.displayName().toUpperCase() + " ★", centerX, centerY + 48, 0xFF55FF55);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§e★ REWARD WON: §a" + win.displayName().toUpperCase() + " ★", centerX, centerY + 52, 0xFF55FF55);
         }
 
         super.render(context, mouseX, mouseY, delta);
+    }
+
+    private String getItemMainTitle(GachaItemCandidate item) {
+        if ("bp".equalsIgnoreCase(item.category())) {
+            return "+" + item.bpAmount() + " BP";
+        }
+        String name = item.displayName();
+        if (name.contains(" x")) {
+            return name.substring(0, name.lastIndexOf(" x"));
+        }
+        return name;
+    }
+
+    private String getItemSubTitle(GachaItemCandidate item) {
+        if ("bp".equalsIgnoreCase(item.category())) {
+            return item.bpAmount() >= 1000 ? "§6Jackpot" : "§eBattle Points";
+        }
+        if (item.quantity() > 1) {
+            return "§eAmount: x" + item.quantity();
+        }
+        return "§b" + capitalize(item.category());
+    }
+
+    private static String capitalize(String s) {
+        if (s == null || s.isEmpty()) return "Item";
+        return s.substring(0, 1).toUpperCase(java.util.Locale.ROOT) + s.substring(1).toLowerCase(java.util.Locale.ROOT);
     }
 
     private ItemStack getItemIcon(GachaItemCandidate item) {
@@ -176,11 +213,6 @@ public class TowerItemGachaScreen extends AbstractTowerScreen {
             return new ItemStack(Registries.ITEM.get(id), Math.max(1, item.quantity()));
         }
         return new ItemStack(Items.CHEST);
-    }
-
-    private static String truncate(String s, int maxLen) {
-        if (s == null) return "";
-        return s.length() <= maxLen ? s : s.substring(0, maxLen - 1) + "…";
     }
 }
 

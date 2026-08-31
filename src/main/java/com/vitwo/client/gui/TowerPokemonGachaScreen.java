@@ -54,7 +54,7 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
     private final boolean[] ivFinished = new boolean[6];
     private final long[] ivStartTimes = new long[6];
     private final long IV_SPIN_DURATION_MS = 2500L;
-    private static final String[] STAT_NAMES = {"HP", "TẤN CÔNG (ATK)", "PHÒNG THỦ (DEF)", "SP. ATK", "SP. DEF", "TỐC ĐỘ (SPE)"};
+    private static final String[] STAT_NAMES = {"HP", "ATTACK (ATK)", "DEFENSE (DEF)", "SP. ATK", "SP. DEF", "SPEED (SPE)"};
     private static final int[] STAT_COLORS = {0xFFFF5555, 0xFFFFAA00, 0xFFFFFF55, 0xFF55FFFF, 0xFF55FF55, 0xFFFF55FF};
 
     public TowerPokemonGachaScreen(
@@ -302,28 +302,37 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
     }
 
     private void renderGachaCard(DrawContext context, int x, int y, int w, int h, GachaPokemonCandidate c, boolean isWinnerGlow) {
-        int border = isWinnerGlow ? 0xFFFFD700 : 0xFF2A2A38;
-        int bg = isWinnerGlow ? 0xFF252835 : 0xFF14141E;
+        int border = isWinnerGlow ? 0xFFFFD700 : 0xFF2D3144;
+        int bg = isWinnerGlow ? 0xFF262A38 : 0xFF141622;
 
         // Card Frame
         context.fill(x, y, x + w, y + h, border);
         context.fill(x + 1, y + 1, x + w - 1, y + h - 1, bg);
 
-        // CS:GO Rarity Top Header Bar
+        // CS:GO Rarity Top Header Bar (3px thick)
         context.fill(x + 1, y + 1, x + w - 1, y + 4, c.rarity().getHeaderColor());
 
         // Pokemon Name
-        String name = truncate(c.displayName(), 11);
-        context.drawCenteredTextWithShadow(this.textRenderer, name, x + (w / 2), y + 12, 0xFFFFFFFF);
+        String name = truncate(c.displayName(), 15);
+        context.drawCenteredTextWithShadow(this.textRenderer, name, x + (w / 2), y + 14, 0xFFFFFFFF);
 
-        // Type Pill / Text
-        String typeStr = c.secondaryType() != null && !c.secondaryType().isEmpty()
-                ? c.primaryType() + "/" + c.secondaryType()
+        // Dual Type / Primary Type
+        String typeStr = (c.secondaryType() != null && !c.secondaryType().isEmpty())
+                ? c.primaryType() + " / " + c.secondaryType()
                 : c.primaryType();
-        context.drawCenteredTextWithShadow(this.textRenderer, "§7" + truncate(typeStr, 12), x + (w / 2), y + 26, 0xFFAAAAAA);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§b" + truncate(typeStr, 16), x + (w / 2), y + 32, 0xFF00E5FF);
 
-        // Rarity Tag
-        context.drawCenteredTextWithShadow(this.textRenderer, "§8" + truncate(c.rarity().getDisplayName(), 12), x + (w / 2), y + 38, 0xFF777788);
+        // Rarity Tag (Colored by Glow Color)
+        context.drawCenteredTextWithShadow(this.textRenderer, c.rarity().getDisplayName(), x + (w / 2), y + 50, c.rarity().getGlowColor());
+
+        // Regional / Shiny Aspect Tag if present
+        if (c.isShiny()) {
+            context.drawCenteredTextWithShadow(this.textRenderer, "§6★ SHINY ★", x + (w / 2), y + 68, 0xFFFFD700);
+        } else if (c.formAspect() != null && !c.formAspect().isBlank()) {
+            context.drawCenteredTextWithShadow(this.textRenderer, "§e[" + c.formAspect().toUpperCase() + "]", x + (w / 2), y + 68, 0xFFFFFFAA);
+        } else {
+            context.drawCenteredTextWithShadow(this.textRenderer, "§8Standard", x + (w / 2), y + 68, 0xFF888899);
+        }
 
         // Winner Accent Glow
         if (isWinnerGlow) {

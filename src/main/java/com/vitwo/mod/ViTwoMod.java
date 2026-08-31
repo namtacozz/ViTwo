@@ -120,14 +120,6 @@ public class ViTwoMod implements ModInitializer {
 
 
 
-        ServerPlayNetworking.registerGlobalReceiver(com.vitwo.network.c2s.ChooseDraftPokemonC2SPacket.ID, (payload, context) -> {
-            ServerPlayerEntity player = context.player();
-            if (player == null || !player.isAlive()) return;
-            context.server().execute(() -> {
-                com.vitwo.reward.TowerRewardManager.getInstance().handleDraftChoice(player, payload.floor(), payload.chosenSlotIndex());
-            });
-        });
-
         ServerPlayNetworking.registerGlobalReceiver(com.vitwo.network.c2s.ClaimGachaPokemonC2SPacket.ID, (payload, context) -> {
             ServerPlayerEntity player = context.player();
             if (player == null || !player.isAlive()) return;
