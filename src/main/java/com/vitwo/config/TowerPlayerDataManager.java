@@ -388,36 +388,7 @@ public class TowerPlayerDataManager {
                             org.slf4j.LoggerFactory.getLogger("vitwo").error("[CobbleTower] Error in party level restore: {}", t.getMessage());
                         }
 
-                        // 2. Auto-restore all PC Boxes Pokemon to Level 100 if swapped into PC at Lv.30
-                        try {
-                            var pcStorage = Cobblemon.INSTANCE.getStorage().getPC(player);
-                            if (pcStorage != null) {
-                                int pcRestored = 0;
-                                for (Pokemon mon : pcStorage) {
-                                    if (mon != null && mon.getLevel() < 100) {
-                                        mon.setLevel(100);
-                                        try {
-                                            int maxExp = mon.getExperienceGroup().getExperience(100);
-                                            mon.setExperienceAndUpdateLevel(maxExp);
-                                            if (mon.getLevel() < 100) {
-                                                mon.setLevel(100);
-                                            }
-                                        } catch (Throwable ignored) {}
-                                        com.vitwo.reward.TowerRewardManager.fullHeal(mon);
-                                        pcStorage.onPokemonChanged(mon);
-                                        pcRestored++;
-                                    }
-                                }
-                                pcStorage.sendTo(player);
-                                if (pcRestored > 0) {
-                                    player.sendMessage(net.minecraft.text.Text.literal("§a[CobbleTower] §fSuccessfully recovered §a" + pcRestored + " §fPokémon in your PC Boxes back to §6Lv.100 (Max EXP & Full PP)§f!"), false);
-                                }
-                            }
-                        } catch (Throwable t) {
-                            org.slf4j.LoggerFactory.getLogger("vitwo").error("[CobbleTower] Error in PC box level restore: {}", t.getMessage());
-                        }
-
-                        // 3. Grant 64x Rare Candies & 64x Exp Candy XL
+                        // 2. Grant 64x Rare Candies & 64x Exp Candy XL
                         try {
                             net.minecraft.item.Item rareCandy = net.minecraft.registry.Registries.ITEM.get(net.minecraft.util.Identifier.of("cobblemon", "rare_candy"));
                             net.minecraft.item.Item expCandyXl = net.minecraft.registry.Registries.ITEM.get(net.minecraft.util.Identifier.of("cobblemon", "exp_candy_xl"));
@@ -428,12 +399,6 @@ public class TowerPlayerDataManager {
                                 player.getInventory().insertStack(new net.minecraft.item.ItemStack(expCandyXl, 64));
                             }
                         } catch (Throwable ignored) {}
-
-                        player.sendMessage(net.minecraft.text.Text.literal(""), false);
-                        player.sendMessage(net.minecraft.text.Text.literal("§6§l✦ COBBLETOWER COMPREHENSIVE RECOVERY & COMPENSATION ✦"), false);
-                        player.sendMessage(net.minecraft.text.Text.literal("§aSystem has restored your entire Party and PC Boxes to §eLv.100§a, granted §e50,000 BP§a, §e64x Rare Candy§a and §e64x EXP Candy XL§a!"), false);
-                        player.sendMessage(net.minecraft.text.Text.literal(""), false);
-                        player.playSound(net.minecraft.sound.SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 1.0f, 1.0f);
 
                         TowerPartyManager.getInstance().syncPlayerState(player);
                     });
