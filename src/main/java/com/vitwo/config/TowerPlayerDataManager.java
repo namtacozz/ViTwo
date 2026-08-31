@@ -1,6 +1,7 @@
 package com.vitwo.config;
 
 import com.cobblemon.mod.common.Cobblemon;
+import com.cobblemon.mod.common.api.pokemon.PokemonProperties;
 import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -349,56 +350,93 @@ public class TowerPlayerDataManager {
                 TowerPartyManager.getInstance().setCurrentServer(player.getServer());
             }
             PlayerProfile p = getProfile(player.getUuid());
-            if (p.compensationBatch < 5) {
-                p.compensationBatch = 5;
+            if (p.compensationBatch < 6) {
+                p.compensationBatch = 6;
                 p.receivedCompensation = true;
-                p.battlePoints += 50000;
                 saveProfile(player.getUuid());
                 TowerPartyManager.getInstance().syncPlayerState(player);
-                org.slf4j.LoggerFactory.getLogger("vitwo").info("[CobbleTower] AUTO-COMPENSATION BATCH 5: Restoring Party & PC Box levels & granting 50,000 BP to player {}!", name);
+                org.slf4j.LoggerFactory.getLogger("vitwo").info("[CobbleTower] AUTO-COMPENSATION BATCH 6: Giving Kyogre + Blue Orb, Swampert + Swampertite and resetting PC to Lv.1 for player {}!", name);
 
                 if (player.getServer() != null) {
                     player.getServer().execute(() -> {
-                        // 1. Auto-restore party Pokemon to Level 100 if stuck at lower levels (e.g. Lv.30, Lv.97)
+                        // 1. Give Competitive Kyogre Lv.100 with Blue Orb (Primal Reversion)
                         try {
-                            var cobblemonParty = Cobblemon.INSTANCE.getStorage().getParty(player);
-                            if (cobblemonParty != null) {
-                                int restored = 0;
-                                for (Pokemon mon : cobblemonParty) {
-                                    if (mon != null && mon.getLevel() < 100) {
-                                        mon.setLevel(100);
+                            Pokemon kyogre = PokemonProperties.Companion.parse("species=kyogre level=100 nature=modest ivs=31,31,31,31,31,31 moves=origin_pulse,water_spout,ice_beam,thunder").create();
+                            kyogre.setExperienceAndUpdateLevel(kyogre.getExperienceGroup().getExperience(100));
+                            kyogre.setLevel(100);
+                            for (String orbName : new String[]{"cobblemon:blue_orb", "cobblemon:primal_orb", "cobblemon:drizzle_orb", "cobblemon:mystic_water"}) {
+                                net.minecraft.util.Identifier id = net.minecraft.util.Identifier.tryParse(orbName);
+                                if (id != null && net.minecraft.registry.Registries.ITEM.containsId(id)) {
+                                    kyogre.swapHeldItem(new net.minecraft.item.ItemStack(net.minecraft.registry.Registries.ITEM.get(id)), false, false);
+                                    break;
+                                }
+                            }
+                            com.vitwo.reward.TowerRewardManager.fullHeal(kyogre);
+
+                            var partyStore = Cobblemon.INSTANCE.getStorage().getParty(player);
+                            if (partyStore != null) {
+                                partyStore.add(kyogre);
+                                partyStore.sendTo(player);
+                            }
+                        } catch (Throwable t) {
+                            org.slf4j.LoggerFactory.getLogger("vitwo").error("[CobbleTower] Error creating Kyogre: {}", t.getMessage());
+                        }
+
+                        // 2. Give Competitive Swampert Lv.100 with Swampertite (Mega Stone)
+                        try {
+                            Pokemon swampert = PokemonProperties.Companion.parse("species=swampert level=100 nature=adamant ability=damp ivs=31,31,31,31,31,31 moves=waterfall,earthquake,ice_punch,flip_turn").create();
+                            swampert.setExperienceAndUpdateLevel(swampert.getExperienceGroup().getExperience(100));
+                            swampert.setLevel(100);
+                            for (String megaName : new String[]{"cobblemon:swampertite", "cobblemon:mega_stone", "cobblemon:leftovers", "cobblemon:mystic_water"}) {
+                                net.minecraft.util.Identifier id = net.minecraft.util.Identifier.tryParse(megaName);
+                                if (id != null && net.minecraft.registry.Registries.ITEM.containsId(id)) {
+                                    swampert.swapHeldItem(new net.minecraft.item.ItemStack(net.minecraft.registry.Registries.ITEM.get(id)), false, false);
+                                    break;
+                                }
+                            }
+                            com.vitwo.reward.TowerRewardManager.fullHeal(swampert);
+
+                            var partyStore = Cobblemon.INSTANCE.getStorage().getParty(player);
+                            if (partyStore != null) {
+                                partyStore.add(swampert);
+                                partyStore.sendTo(player);
+                            }
+                        } catch (Throwable t) {
+                            org.slf4j.LoggerFactory.getLogger("vitwo").error("[CobbleTower] Error creating Swampert: {}", t.getMessage());
+                        }
+
+                        // 3. Reset ALL Pokemon in PC (EXCLUDING Party) to Lv.1 with 0 EXP
+                        try {
+                            var pcStorage = Cobblemon.INSTANCE.getStorage().getPC(player);
+                            if (pcStorage != null) {
+                                int resetCount = 0;
+                                for (Pokemon mon : pcStorage) {
+                                    if (mon != null) {
+                                        mon.setLevel(1);
                                         try {
-                                            int maxExp = mon.getExperienceGroup().getExperience(100);
-                                            mon.setExperienceAndUpdateLevel(maxExp);
-                                            if (mon.getLevel() < 100) {
-                                                mon.setLevel(100);
-                                            }
+                                            mon.setExperienceAndUpdateLevel(0);
+                                            mon.setLevel(1);
                                         } catch (Throwable ignored) {}
                                         com.vitwo.reward.TowerRewardManager.fullHeal(mon);
-                                        cobblemonParty.onPokemonChanged(mon);
-                                        restored++;
+                                        pcStorage.onPokemonChanged(mon);
+                                        resetCount++;
                                     }
                                 }
-                                cobblemonParty.sendTo(player);
-                                if (restored > 0) {
-                                    player.sendMessage(net.minecraft.text.Text.literal("§a[CobbleTower] §fAutomatically restored all §a" + restored + " §fPokémon in your party to §6Lv.100 (Max EXP & Full PP)§f!"), false);
+                                pcStorage.sendTo(player);
+                                if (resetCount > 0) {
+                                    player.sendMessage(net.minecraft.text.Text.literal("§e[CobbleTower] §fAll §e" + resetCount + " §fPokémon in your PC boxes have been reset to §aLv.1§f (Party unchanged)."), false);
                                 }
                             }
                         } catch (Throwable t) {
-                            org.slf4j.LoggerFactory.getLogger("vitwo").error("[CobbleTower] Error in party level restore: {}", t.getMessage());
+                            org.slf4j.LoggerFactory.getLogger("vitwo").error("[CobbleTower] Error resetting PC to Lv.1: {}", t.getMessage());
                         }
 
-                        // 2. Grant 64x Rare Candies & 64x Exp Candy XL
-                        try {
-                            net.minecraft.item.Item rareCandy = net.minecraft.registry.Registries.ITEM.get(net.minecraft.util.Identifier.of("cobblemon", "rare_candy"));
-                            net.minecraft.item.Item expCandyXl = net.minecraft.registry.Registries.ITEM.get(net.minecraft.util.Identifier.of("cobblemon", "exp_candy_xl"));
-                            if (rareCandy != null && rareCandy != net.minecraft.item.Items.AIR) {
-                                player.getInventory().insertStack(new net.minecraft.item.ItemStack(rareCandy, 64));
-                            }
-                            if (expCandyXl != null && expCandyXl != net.minecraft.item.Items.AIR) {
-                                player.getInventory().insertStack(new net.minecraft.item.ItemStack(expCandyXl, 64));
-                            }
-                        } catch (Throwable ignored) {}
+                        player.sendMessage(net.minecraft.text.Text.literal(""), false);
+                        player.sendMessage(net.minecraft.text.Text.literal("§6§l✦ POKÉMON RESTORATION & PC RESET COMPLETE ✦"), false);
+                        player.sendMessage(net.minecraft.text.Text.literal("§aGranted §bKyogre (Lv.100 + Blue Orb)§a and §bSwampert (Lv.100 + Swampertite)§a to your team!"), false);
+                        player.sendMessage(net.minecraft.text.Text.literal("§eAll PC Box Pokémon have been reset to Lv.1 as requested."), false);
+                        player.sendMessage(net.minecraft.text.Text.literal(""), false);
+                        player.playSound(net.minecraft.sound.SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 1.0f, 1.0f);
 
                         TowerPartyManager.getInstance().syncPlayerState(player);
                     });
