@@ -62,17 +62,6 @@ public class TowerParty {
 
     private final List<com.vitwo.reward.GachaPokemonCandidate> encounteredPokemonHistory = new java.util.concurrent.CopyOnWriteArrayList<>();
     private int lastGachaFloor = 0;
-    private final List<com.vitwo.battle.TowerAugmentManager.TowerAugment> activeAugments = new java.util.concurrent.CopyOnWriteArrayList<>();
-
-    public List<com.vitwo.battle.TowerAugmentManager.TowerAugment> getActiveAugments() {
-        return activeAugments;
-    }
-
-    public void addAugment(com.vitwo.battle.TowerAugmentManager.TowerAugment augment) {
-        if (augment != null && !activeAugments.contains(augment)) {
-            activeAugments.add(augment);
-        }
-    }
 
     public void recordEncounteredPokemon(com.cobblemon.mod.common.pokemon.Pokemon mon) {
         if (mon == null || mon.getSpecies() == null) return;
