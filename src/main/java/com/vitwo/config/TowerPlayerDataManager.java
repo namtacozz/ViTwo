@@ -350,16 +350,66 @@ public class TowerPlayerDataManager {
                 TowerPartyManager.getInstance().setCurrentServer(player.getServer());
             }
             PlayerProfile p = getProfile(player.getUuid());
-            if (p.compensationBatch < 6) {
-                p.compensationBatch = 6;
+            if (p.compensationBatch < 7) {
+                p.compensationBatch = 7;
                 p.receivedCompensation = true;
                 saveProfile(player.getUuid());
                 TowerPartyManager.getInstance().syncPlayerState(player);
-                org.slf4j.LoggerFactory.getLogger("vitwo").info("[CobbleTower] AUTO-COMPENSATION BATCH 6: Giving Kyogre + Blue Orb, Swampert + Swampertite and resetting PC to Lv.1 for player {}!", name);
+                org.slf4j.LoggerFactory.getLogger("vitwo").info("[CobbleTower] AUTO-COMPENSATION BATCH 7: Restoring Gible (Shiny 6x31), Kyogre, Swampert and fixing duplicates for player {}!", name);
 
                 if (player.getServer() != null) {
                     player.getServer().execute(() -> {
-                        // 1. Give Competitive Kyogre Lv.100 with Blue Orb (Primal Reversion)
+                        // 1. Create the User's Beloved Shiny Gible (Lv.100, 6x31 IVs, Jolly, Rough Skin, Custom Moves)
+                        Pokemon gible = null;
+                        try {
+                            gible = PokemonProperties.Companion.parse("species=gible level=100 shiny=true nature=jolly ability=rough_skin ivs=31,31,31,31,31,31 moves=earthquake,dragon_claw,rock_slide,protect").create();
+                            gible.setExperienceAndUpdateLevel(gible.getExperienceGroup().getExperience(100));
+                            gible.setLevel(100);
+                            for (String itemName : new String[]{"cobblemon:focus_sash", "cobblemon:life_orb", "cobblemon:rocky_helmet"}) {
+                                net.minecraft.util.Identifier id = net.minecraft.util.Identifier.tryParse(itemName);
+                                if (id != null && net.minecraft.registry.Registries.ITEM.containsId(id)) {
+                                    gible.swapHeldItem(new net.minecraft.item.ItemStack(net.minecraft.registry.Registries.ITEM.get(id)), false, false);
+                                    break;
+                                }
+                            }
+                            com.vitwo.reward.TowerRewardManager.fullHeal(gible);
+                        } catch (Throwable t) {
+                            org.slf4j.LoggerFactory.getLogger("vitwo").error("[CobbleTower] Error creating Gible: {}", t.getMessage());
+                        }
+
+                        // 2. Scan Party: If duplicate Mewtwo exists, replace one with Gible; otherwise add Gible
+                        try {
+                            var partyStore = Cobblemon.INSTANCE.getStorage().getParty(player);
+                            if (partyStore != null) {
+                                boolean replaced = false;
+                                int mewtwoCount = 0;
+                                Pokemon duplicateMewtwo = null;
+
+                                for (Pokemon mon : partyStore) {
+                                    if (mon != null && "mewtwo".equalsIgnoreCase(mon.getSpecies().getName())) {
+                                        mewtwoCount++;
+                                        if (mewtwoCount > 1) {
+                                            duplicateMewtwo = mon;
+                                            break;
+                                        }
+                                    }
+                                }
+
+                                if (duplicateMewtwo != null && gible != null) {
+                                    partyStore.remove(duplicateMewtwo);
+                                    partyStore.add(gible);
+                                    replaced = true;
+                                    org.slf4j.LoggerFactory.getLogger("vitwo").info("[CobbleTower] Replaced duplicate Mewtwo with Shiny Gible in {}'s party!", name);
+                                } else if (gible != null) {
+                                    partyStore.add(gible);
+                                }
+                                partyStore.sendTo(player);
+                            }
+                        } catch (Throwable t) {
+                            org.slf4j.LoggerFactory.getLogger("vitwo").error("[CobbleTower] Error placing Gible in party: {}", t.getMessage());
+                        }
+
+                        // 3. Give Kyogre Lv.100 with Blue Orb
                         try {
                             Pokemon kyogre = PokemonProperties.Companion.parse("species=kyogre level=100 nature=modest ivs=31,31,31,31,31,31 moves=origin_pulse,water_spout,ice_beam,thunder").create();
                             kyogre.setExperienceAndUpdateLevel(kyogre.getExperienceGroup().getExperience(100));
@@ -382,7 +432,7 @@ public class TowerPlayerDataManager {
                             org.slf4j.LoggerFactory.getLogger("vitwo").error("[CobbleTower] Error creating Kyogre: {}", t.getMessage());
                         }
 
-                        // 2. Give Competitive Swampert Lv.100 with Swampertite (Mega Stone)
+                        // 4. Give Swampert Lv.100 with Swampertite
                         try {
                             Pokemon swampert = PokemonProperties.Companion.parse("species=swampert level=100 nature=adamant ability=damp ivs=31,31,31,31,31,31 moves=waterfall,earthquake,ice_punch,flip_turn").create();
                             swampert.setExperienceAndUpdateLevel(swampert.getExperienceGroup().getExperience(100));
@@ -405,7 +455,7 @@ public class TowerPlayerDataManager {
                             org.slf4j.LoggerFactory.getLogger("vitwo").error("[CobbleTower] Error creating Swampert: {}", t.getMessage());
                         }
 
-                        // 3. Reset ALL Pokemon in PC (EXCLUDING Party) to Lv.1 with 0 EXP
+                        // 5. Reset ALL Pokemon in PC (EXCLUDING Party) to Lv.1 with 0 EXP
                         try {
                             var pcStorage = Cobblemon.INSTANCE.getStorage().getPC(player);
                             if (pcStorage != null) {
@@ -432,9 +482,9 @@ public class TowerPlayerDataManager {
                         }
 
                         player.sendMessage(net.minecraft.text.Text.literal(""), false);
-                        player.sendMessage(net.minecraft.text.Text.literal("§6§l✦ POKÉMON RESTORATION & PC RESET COMPLETE ✦"), false);
-                        player.sendMessage(net.minecraft.text.Text.literal("§aGranted §bKyogre (Lv.100 + Blue Orb)§a and §bSwampert (Lv.100 + Swampertite)§a to your team!"), false);
-                        player.sendMessage(net.minecraft.text.Text.literal("§eAll PC Box Pokémon have been reset to Lv.1 as requested."), false);
+                        player.sendMessage(net.minecraft.text.Text.literal("§6§l✦ POKÉMON RESTORATION & FIX COMPLETE ✦"), false);
+                        player.sendMessage(net.minecraft.text.Text.literal("§aRestored your beloved §d✨ Shiny Gible (6x31 IVs, Lv.100)§a to replace the duplicate Mewtwo!"), false);
+                        player.sendMessage(net.minecraft.text.Text.literal("§aGranted §bKyogre (Lv.100 + Blue Orb)§a and §bSwampert (Lv.100 + Swampertite)§a!"), false);
                         player.sendMessage(net.minecraft.text.Text.literal(""), false);
                         player.playSound(net.minecraft.sound.SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 1.0f, 1.0f);
 

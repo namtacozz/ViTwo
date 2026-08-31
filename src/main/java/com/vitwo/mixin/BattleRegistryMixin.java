@@ -262,48 +262,27 @@ public class BattleRegistryMixin {
                 }
             }
 
-            // 2. Setup Side 2 (NPC Side): Split Boss 6-mon team into 2 TrainerBattleActors (3 mons + 3 mons)
+            // 2. Setup Side 2 (NPC Side): Apply 6-mon Hell Mode team to primary NPC entity (Preserving world entity)
             if (npcSide != null && npcSide.getActors() != null && npcSide.getActors().length >= 1) {
                 BattleActor primaryNpcActor = npcSide.getActors()[0];
-                List<Pokemon> fullTeam = HellModeTeamLoader.createTeamFromTrainerId(chosenTrainerId, targetCap);
-                if (fullTeam == null || fullTeam.isEmpty()) {
-                    if (!chosenTrainerId.contains("_")) {
-                        fullTeam = HellModeTeamLoader.createTeamFromTrainerId("kanto_" + chosenTrainerId, targetCap);
-                    }
+                boolean applied = HellModeTeamLoader.applyHellModeTeamToActor(primaryNpcActor, chosenTrainerId, targetCap);
+                if (!applied && !chosenTrainerId.contains("_")) {
+                    HellModeTeamLoader.applyHellModeTeamToActor(primaryNpcActor, "kanto_" + chosenTrainerId, targetCap);
                 }
 
-                if (fullTeam != null && !fullTeam.isEmpty()) {
-                    List<BattlePokemon> npcTeam1 = new ArrayList<>();
-                    List<BattlePokemon> npcTeam2 = new ArrayList<>();
-
-                    for (int i = 0; i < fullTeam.size(); i++) {
-                        Pokemon pkm = fullTeam.get(i);
-                        towerParty.recordEncounteredPokemon(pkm);
-                        if (i < 3) {
-                            npcTeam1.add(BattlePokemon.Companion.safeCopyOf(pkm));
-                        } else if (i < 6) {
-                            npcTeam2.add(BattlePokemon.Companion.safeCopyOf(pkm));
+                if (primaryNpcActor != null && primaryNpcActor.getPokemonList() != null) {
+                    for (BattlePokemon bp : primaryNpcActor.getPokemonList()) {
+                        if (bp != null && bp.getOriginalPokemon() != null) {
+                            towerParty.recordEncounteredPokemon(bp.getOriginalPokemon());
                         }
                     }
-
-                    String bossName = primaryNpcActor.getName().getString();
-                    BattleAI ai = (primaryNpcActor instanceof AIBattleActor aiba && aiba.getBattleAI() != null)
-                            ? aiba.getBattleAI()
-                            : new StrongBattleAI(100);
-
-                    TrainerBattleActor npcActor1 = new TrainerBattleActor(bossName, UUID.randomUUID(), npcTeam1, ai);
-                    for (BattlePokemon bp : npcTeam1) bp.setActor(npcActor1);
-
-                    TrainerBattleActor npcActor2 = new TrainerBattleActor(bossName, UUID.randomUUID(), npcTeam2, ai);
-                    for (BattlePokemon bp : npcTeam2) bp.setActor(npcActor2);
-
-                    ((BattleSideAccessor) (Object) npcSide).vitwo$setActors(new BattleActor[]{ npcActor1, npcActor2 });
-                    org.slf4j.LoggerFactory.getLogger("CobbleTower-BattleRegistry").info("[CobbleTower] Successfully split Boss {} into 2 Multi-Battle Actors (3+3)", bossName);
                 }
+                org.slf4j.LoggerFactory.getLogger("CobbleTower-BattleRegistry").info("[CobbleTower] Successfully set up Duo Battle with Boss entity {}", primaryNpcActor != null ? primaryNpcActor.getName().getString() : "Unknown");
             }
 
-            // Return GEN_9_MULTI for Duo Co-op Battles so each player controls their own slot!
-            return BattleFormat.Companion.getGEN_9_MULTI();
+            // Return GEN_9_DOUBLES for Duo Co-op Battles (2v1 Double Battle)
+            // Each player controls their own slot (Leader Slot 1, Member Slot 2) vs 1 Boss entity in world!
+            return BattleFormat.Companion.getGEN_9_DOUBLES();
         }
     }
 

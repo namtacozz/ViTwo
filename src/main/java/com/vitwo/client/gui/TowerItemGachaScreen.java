@@ -24,7 +24,7 @@ public class TowerItemGachaScreen extends AbstractTowerScreen {
     private final int winningIndex;
 
     private long startTime = 0;
-    private final long DURATION_MS = 3800L;
+    private final long DURATION_MS = 7200L;
     private final int CARD_WIDTH = 86;
     private final int CARD_HEIGHT = 96;
     private final int CARD_SPACING = 8;
@@ -59,10 +59,10 @@ public class TowerItemGachaScreen extends AbstractTowerScreen {
             this.addDrawableChild(TowerButton.towerBuilder(
                     Text.literal("§7Skip / Claim Immediately"),
                     btn -> {
-                        finished = true;
-                        claimAndClose();
+                        this.finished = true;
+                        this.init();
                     }
-                ).dimensions(centerX - 90, centerY + 68, 180, 20).style(TowerButton.ButtonStyle.SECONDARY).build());
+                ).dimensions(centerX - 90, centerY + 68, 180, 22).style(TowerButton.ButtonStyle.SECONDARY).build());
         }
     }
 
@@ -85,10 +85,10 @@ public class TowerItemGachaScreen extends AbstractTowerScreen {
         context.drawCenteredTextWithShadow(this.textRenderer, "§6§l🎁 FLOOR " + floor + " REWARD ROULETTE 🎁", centerX, centerY - 88, 0xFFFFD700);
         context.drawCenteredTextWithShadow(this.textRenderer, "§7Competitive Items & Battle Points (BP) Rewards", centerX, centerY - 76, 0xFFCCCCCC);
 
-        // Carousel Calculation
+        // Carousel Calculation with Quintic Ease-Out for dramatic slow-down
         long elapsed = System.currentTimeMillis() - startTime;
         float progress = MathHelper.clamp((float) elapsed / (float) DURATION_MS, 0.0f, 1.0f);
-        float eased = 1.0f - (float) Math.pow(1.0f - progress, 4.0);
+        float eased = 1.0f - (float) Math.pow(1.0f - progress, 4.5);
 
         int targetPixelOffset = (winningIndex * CARD_STEP) + (CARD_WIDTH / 2);
         float currentPixelOffset = targetPixelOffset * eased;
@@ -97,7 +97,7 @@ public class TowerItemGachaScreen extends AbstractTowerScreen {
         if (currentCardPassed != lastTickCard && currentCardPassed <= winningIndex) {
             lastTickCard = currentCardPassed;
             if (this.client != null && this.client.getSoundManager() != null) {
-                this.client.getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_BUTTON_CLICK, 0.9f + (progress * 0.3f)));
+                this.client.getSoundManager().play(PositionedSoundInstance.master(SoundEvents.UI_BUTTON_CLICK, 0.8f + (progress * 0.4f)));
             }
         }
 

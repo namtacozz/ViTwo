@@ -33,7 +33,7 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
 
     // --- STAGE 1: CS:GO ROULETTE STATE ---
     private long stage1StartTime = 0;
-    private final long STAGE1_DURATION_MS = 5500L;
+    private final long STAGE1_DURATION_MS = 8000L;
     private final int CARD_WIDTH = 92;
     private final int CARD_HEIGHT = 110;
     private final int CARD_SPACING = 6;
@@ -43,7 +43,7 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
 
     // --- STAGE 2: SHINY WHEEL STATE ---
     private long stage2StartTime = 0;
-    private final long STAGE2_DURATION_MS = 3200L;
+    private final long STAGE2_DURATION_MS = 5500L;
     private boolean stage2Spinning = false;
     private boolean stage2Finished = false;
     private int lastShinyTick = -1;
@@ -53,7 +53,7 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
     private final boolean[] ivSpinning = new boolean[6];
     private final boolean[] ivFinished = new boolean[6];
     private final long[] ivStartTimes = new long[6];
-    private final long IV_SPIN_DURATION_MS = 2500L;
+    private final long IV_SPIN_DURATION_MS = 3200L;
     private static final String[] STAT_NAMES = {"HP", "ATTACK (ATK)", "DEFENSE (DEF)", "SP. ATK", "SP. DEF", "SPEED (SPE)"};
     private static final int[] STAT_COLORS = {0xFFFF5555, 0xFFFFAA00, 0xFFFFFF55, 0xFF55FFFF, 0xFF55FF55, 0xFFFF55FF};
 

@@ -819,14 +819,9 @@ public class TowerRewardManager {
 
     private void giveItemToPlayer(ServerPlayerEntity player, ItemStack stack, int floor) {
         if (player == null || stack.isEmpty()) return;
-        String itemName = stack.getName().getString();
-        int count = stack.getCount();
-
         if (!player.getInventory().insertStack(stack)) {
             player.dropItem(stack, false);
         }
-
-        player.sendMessage(Text.literal("§6[CobbleTower] §aReceived: §e" + itemName + (count > 1 ? (" x" + count) : "")), false);
     }
 
     public void checkMilestones(ServerPlayerEntity p1, ServerPlayerEntity p2, int floor, boolean isTrueRun) {
