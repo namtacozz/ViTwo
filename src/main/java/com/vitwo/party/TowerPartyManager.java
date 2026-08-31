@@ -726,10 +726,10 @@ public class TowerPartyManager {
             if (party.getState() == TowerParty.State.IN_BATTLE) {
                 ServerPlayerEntity leader = server.getPlayerManager().getPlayer(party.getLeaderId());
                 if (leader != null) {
-                    // Prevent Overworld Party Leaks: If player is not in the tower dimension, forfeit the run immediately
+                    // Prevent Overworld Party Leaks: If player is not in the tower dimension, silently disband the stale party without touching Overworld battles!
                     if (leader.getServerWorld() == null || !leader.getServerWorld().getRegistryKey().getValue().getPath().contains("tower")) {
-                        LOGGER.warn("[CobbleTower] Player {} is in a TowerParty but not in the tower dimension! Auto-forfeiting run.", leader.getName().getString());
-                        forfeitTower(party.getLeaderId(), server);
+                        LOGGER.warn("[CobbleTower] Player {} is in a TowerParty but not in the tower dimension! Disbanding stale party.", leader.getName().getString());
+                        disbandParty(party);
                         continue;
                     }
 

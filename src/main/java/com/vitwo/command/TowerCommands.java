@@ -159,6 +159,54 @@ public class TowerCommands {
                                         )
                                 )
                         )
+                        .then(CommandManager.literal("recover")
+                                .then(CommandManager.argument("player", EntityArgumentType.player())
+                                        .executes(ctx -> {
+                                            ServerPlayerEntity target = EntityArgumentType.getPlayer(ctx, "player");
+                                            int partyRestored = 0;
+                                            int pcRestored = 0;
+                                            var party = com.cobblemon.mod.common.Cobblemon.INSTANCE.getStorage().getParty(target);
+                                            if (party != null) {
+                                                for (com.cobblemon.mod.common.pokemon.Pokemon mon : party) {
+                                                    if (mon != null && mon.getLevel() < 100) {
+                                                        mon.setLevel(100);
+                                                        try {
+                                                            int targetExp = mon.getExperienceGroup().getExperience(100);
+                                                            mon.setExperienceAndUpdateLevel(targetExp);
+                                                            if (mon.getLevel() < 100) mon.setLevel(100);
+                                                        } catch (Throwable ignored) {}
+                                                        com.vitwo.reward.TowerRewardManager.fullHeal(mon);
+                                                        party.onPokemonChanged(mon);
+                                                        partyRestored++;
+                                                    }
+                                                }
+                                                party.sendTo(target);
+                                            }
+                                            var pc = com.cobblemon.mod.common.Cobblemon.INSTANCE.getStorage().getPC(target);
+                                            if (pc != null) {
+                                                for (com.cobblemon.mod.common.pokemon.Pokemon mon : pc) {
+                                                    if (mon != null && mon.getLevel() < 100) {
+                                                        mon.setLevel(100);
+                                                        try {
+                                                            int targetExp = mon.getExperienceGroup().getExperience(100);
+                                                            mon.setExperienceAndUpdateLevel(targetExp);
+                                                            if (mon.getLevel() < 100) mon.setLevel(100);
+                                                        } catch (Throwable ignored) {}
+                                                        com.vitwo.reward.TowerRewardManager.fullHeal(mon);
+                                                        pc.onPokemonChanged(mon);
+                                                        pcRestored++;
+                                                    }
+                                                }
+                                                pc.sendTo(target);
+                                            }
+                                            final int pCount = partyRestored;
+                                            final int pcCount = pcRestored;
+                                            ctx.getSource().sendFeedback(() -> Text.literal("§aSuccessfully recovered " + pCount + " Party Pokémon and " + pcCount + " PC Box Pokémon of " + target.getName().getString() + " back to Lv.100!"), false);
+                                            target.sendMessage(Text.literal("§6[CobbleTower] §aRecovered §e" + pCount + " §aParty Pokémon & §e" + pcCount + " §aPC Box Pokémon back to §6Lv.100 (Max EXP & Full PP)§a!"), false);
+                                            return 1;
+                                        })
+                                )
+                        )
                         .then(CommandManager.literal("fixlevels")
                                 .then(CommandManager.argument("player", EntityArgumentType.player())
                                         .executes(ctx -> {
@@ -189,6 +237,52 @@ public class TowerCommands {
                                 )
                         )
                 )
+
+                // /tower recover (for self)
+                .then(CommandManager.literal("recover")
+                        .executes(ctx -> {
+                            ServerPlayerEntity target = ctx.getSource().getPlayerOrThrow();
+                            int partyRestored = 0;
+                            int pcRestored = 0;
+                            var party = com.cobblemon.mod.common.Cobblemon.INSTANCE.getStorage().getParty(target);
+                            if (party != null) {
+                                for (com.cobblemon.mod.common.pokemon.Pokemon mon : party) {
+                                    if (mon != null && mon.getLevel() < 100) {
+                                        mon.setLevel(100);
+                                        try {
+                                            int targetExp = mon.getExperienceGroup().getExperience(100);
+                                            mon.setExperienceAndUpdateLevel(targetExp);
+                                            if (mon.getLevel() < 100) mon.setLevel(100);
+                                        } catch (Throwable ignored) {}
+                                        com.vitwo.reward.TowerRewardManager.fullHeal(mon);
+                                        party.onPokemonChanged(mon);
+                                        partyRestored++;
+                                    }
+                                }
+                                party.sendTo(target);
+                            }
+                            var pc = com.cobblemon.mod.common.Cobblemon.INSTANCE.getStorage().getPC(target);
+                            if (pc != null) {
+                                for (com.cobblemon.mod.common.pokemon.Pokemon mon : pc) {
+                                    if (mon != null && mon.getLevel() < 100) {
+                                        mon.setLevel(100);
+                                        try {
+                                            int targetExp = mon.getExperienceGroup().getExperience(100);
+                                            mon.setExperienceAndUpdateLevel(targetExp);
+                                            if (mon.getLevel() < 100) mon.setLevel(100);
+                                        } catch (Throwable ignored) {}
+                                        com.vitwo.reward.TowerRewardManager.fullHeal(mon);
+                                        pc.onPokemonChanged(mon);
+                                        pcRestored++;
+                                    }
+                                }
+                                pc.sendTo(target);
+                            }
+                            final int pCount = partyRestored;
+                            final int pcCount = pcRestored;
+                            target.sendMessage(Text.literal("§6[CobbleTower] §aSelf-recovery complete! Restored §e" + pCount + " §aParty Pokémon & §e" + pcCount + " §aPC Box Pokémon back to §6Lv.100 (Max EXP & Full PP)§a!"), false);
+                            return 1;
+                        }))
 
 
                 // /tower leaderboard

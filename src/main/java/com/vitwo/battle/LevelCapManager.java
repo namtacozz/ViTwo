@@ -185,6 +185,28 @@ public class LevelCapManager {
             }
             cobblemonParty.sendTo(player);
 
+            // Schedule delayed re-sync to ensure client GUI receives data after dimension teleportation
+            if (player.getServer() != null) {
+                new Thread(() -> {
+                    try {
+                        Thread.sleep(600);
+                        if (player.getServer() != null) {
+                            player.getServer().execute(() -> {
+                                try {
+                                    var p = Cobblemon.INSTANCE.getStorage().getParty(player);
+                                    if (p != null) {
+                                        for (Pokemon mon : p) {
+                                            if (mon != null) p.onPokemonChanged(mon);
+                                        }
+                                        p.sendTo(player);
+                                    }
+                                } catch (Throwable ignored) {}
+                            });
+                        }
+                    } catch (Throwable ignored) {}
+                }).start();
+            }
+
             LOGGER.info("[CobbleTower] Level & experience restoration complete for {}: restored={}, failed={}", 
                     player.getName().getString(), restoredCount, failedCount);
 
