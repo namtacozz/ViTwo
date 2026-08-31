@@ -496,27 +496,49 @@ public class TowerRewardManager {
             ));
         }
 
-        // 3. Construct an extended 50-item CS:GO carousel reel from pool
+        // 3. Weighted Rarity Selection for the Winning Pokémon (0.6% High Legend, 4% Low Legend, 12% Pseudo, 25% Starter, 58.4% Common)
         Random rng = new Random();
+        List<GachaPokemonCandidate> highLegends = pool.stream().filter(c -> c.rarity() == PokemonRarity.HIGH_LEGEND || c.rarity() == PokemonRarity.MYTHICAL).toList();
+        List<GachaPokemonCandidate> lowLegends = pool.stream().filter(c -> c.rarity() == PokemonRarity.LOW_LEGEND).toList();
+        List<GachaPokemonCandidate> pseudos = pool.stream().filter(c -> c.rarity() == PokemonRarity.PSEUDO_LEGENDARY).toList();
+        List<GachaPokemonCandidate> starters = pool.stream().filter(c -> c.rarity() == PokemonRarity.STARTER).toList();
+        List<GachaPokemonCandidate> commons = pool.stream().filter(c -> c.rarity() == PokemonRarity.COMMON).toList();
+
+        GachaPokemonCandidate winningBase;
+        float roll = rng.nextFloat();
+        if (roll < 0.006f && !highLegends.isEmpty()) {
+            winningBase = highLegends.get(rng.nextInt(highLegends.size())); // 0.6% Holy Grail Tier
+        } else if (roll < 0.046f && !lowLegends.isEmpty()) {
+            winningBase = lowLegends.get(rng.nextInt(lowLegends.size())); // 4% Sub-Legendary
+        } else if (roll < 0.166f && !pseudos.isEmpty()) {
+            winningBase = pseudos.get(rng.nextInt(pseudos.size())); // 12% Pseudo-Legendary
+        } else if (roll < 0.416f && !starters.isEmpty()) {
+            winningBase = starters.get(rng.nextInt(starters.size())); // 25% Starter
+        } else if (!commons.isEmpty()) {
+            winningBase = commons.get(rng.nextInt(commons.size()));
+        } else {
+            winningBase = pool.get(rng.nextInt(pool.size()));
+        }
+
+        // 4. Construct an extended 50-item CS:GO carousel reel from pool, placing winningBase at target winning index
+        int winningIndex = 38 + rng.nextInt(6); // Slot 38-43
         List<GachaPokemonCandidate> reel = new ArrayList<>(50);
         for (int i = 0; i < 50; i++) {
-            GachaPokemonCandidate base = pool.get(rng.nextInt(pool.size()));
+            GachaPokemonCandidate cardBase = (i == winningIndex) ? winningBase : pool.get(rng.nextInt(pool.size()));
             reel.add(new GachaPokemonCandidate(
                     i,
-                    base.speciesName(),
-                    base.displayName(),
-                    base.baseSpecies(),
-                    base.formAspect(),
-                    base.primaryType(),
-                    base.secondaryType(),
-                    base.rarity(),
-                    base.isLegendary(),
-                    base.isShiny()
+                    cardBase.speciesName(),
+                    cardBase.displayName(),
+                    cardBase.baseSpecies(),
+                    cardBase.formAspect(),
+                    cardBase.primaryType(),
+                    cardBase.secondaryType(),
+                    cardBase.rarity(),
+                    cardBase.isLegendary(),
+                    cardBase.isShiny()
             ));
         }
 
-        // 4. Select winner card near the end of the reel (index 38 to 44)
-        int winningIndex = 38 + rng.nextInt(6);
         boolean isShinyWinner = rng.nextFloat() < 0.01f; // 1% Shiny chance
 
         // Pre-roll IVs (with bonus stats for higher floors)
@@ -563,54 +585,74 @@ public class TowerRewardManager {
 
         int floor = packet.floor();
 
-        if (winner.isLegendary()) {
-            giveItemToPlayer(player, getCobblemonItem("master_ball", 1), floor);
-            TowerPlayerDataManager.getInstance().addBp(player.getUuid(), 500);
-            player.sendMessage(Text.literal("§6★ [CobbleTower Gacha] §fQuay trúng Pokémon Huyền Thoại/Thần Thoại (§e" + winner.displayName() + "§f)! Bạn nhận được §d1x Master Ball §f+ §e500 BP§f!"), false);
-            player.playSound(SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 1.0f, 1.0f);
-        } else {
-            try {
-                String baseSpecies = winner.baseSpecies();
-                String formStr = (winner.formAspect() != null && !winner.formAspect().isBlank()) ? (" " + winner.formAspect()) : "";
-                String parseStr = baseSpecies + formStr + " level=1" + (packet.isShiny() ? " shiny=true" : "");
-                Pokemon babyMon = PokemonProperties.Companion.parse(parseStr).create();
+        try {
+            String baseSpecies = winner.baseSpecies();
+            String formStr = (winner.formAspect() != null && !winner.formAspect().isBlank()) ? (" " + winner.formAspect()) : "";
+            String parseStr = baseSpecies + formStr + " level=1" + (packet.isShiny() ? " shiny=true" : "");
+            Pokemon babyMon = PokemonProperties.Companion.parse(parseStr).create();
 
-                List<Stat> permanentStats = new ArrayList<>(Stats.Companion.getPERMANENT());
-                int perfectCount = 0;
-                for (int i = 0; i < Math.min(6, permanentStats.size()); i++) {
-                    int ivVal = (packet.rolledIvs() != null && packet.rolledIvs().length > i)
-                            ? Math.min(31, Math.max(0, packet.rolledIvs()[i]))
-                            : 31;
-                    babyMon.getIvs().set(permanentStats.get(i), ivVal);
-                    if (ivVal == 31) perfectCount++;
-                }
-
-                babyMon.setLevel(1);
-                babyMon.setShiny(packet.isShiny());
-                fullHeal(babyMon);
-
-                var partyStorage = Cobblemon.INSTANCE.getStorage().getParty(player);
-                boolean addedToParty = false;
-                if (partyStorage != null) {
-                    addedToParty = partyStorage.add(babyMon);
-                }
-
-                if (!addedToParty) {
-                    var pcStorage = Cobblemon.INSTANCE.getStorage().getPC(player);
-                    if (pcStorage != null) {
-                        pcStorage.add(babyMon);
-                    }
-                }
-
-                String formPrefix = (winner.formAspect() != null && !winner.formAspect().isBlank()) ? (" [" + capitalize(winner.formAspect()) + "] ") : " ";
-                String shinyTag = packet.isShiny() ? " §6✨ [SHINY]" : "";
-                String destText = addedToParty ? "§a(Đã thêm vào Đội hình!)" : "§e(Đội hình đầy, đã gửi an toàn vào PC Box!)";
-                player.sendMessage(Text.literal("§d★ [CobbleTower Gacha] §fChúc mừng! Bạn đã quay trúng §e" + capitalize(baseSpecies) + formPrefix + shinyTag + " §7(Từ §f" + winner.displayName() + "§7) §a" + perfectCount + "/6 dòng Max 31 IVs! " + destText), false);
-                player.playSound(SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 1.0f, 1.0f);
-            } catch (Throwable t) {
-                LOGGER.error("[CobbleTower] Failed to create gacha pokemon for player {}: ", player.getName().getString(), t);
-                giveItemToPlayer(player, new ItemStack(Items.DIAMOND_BLOCK, 4), floor);
+            List<Stat> permanentStats = new ArrayList<>(Stats.Companion.getPERMANENT());
+            int perfectCount = 0;
+            for (int i = 0; i < Math.min(6, permanentStats.size()); i++) {
+                int ivVal = (packet.rolledIvs() != null && packet.rolledIvs().length > i)
+                        ? Math.min(31, Math.max(0, packet.rolledIvs()[i]))
+                        : 31;
+                babyMon.getIvs().set(permanentStats.get(i), ivVal);
+                if (ivVal == 31) perfectCount++;
             }
+
+            babyMon.setLevel(1);
+            babyMon.setShiny(packet.isShiny());
+            fullHeal(babyMon);
+
+            var partyStorage = Cobblemon.INSTANCE.getStorage().getParty(player);
+            boolean addedToParty = false;
+            if (partyStorage != null) {
+                addedToParty = partyStorage.add(babyMon);
+            }
+
+            if (!addedToParty) {
+                var pcStorage = Cobblemon.INSTANCE.getStorage().getPC(player);
+                if (pcStorage != null) {
+                    pcStorage.add(babyMon);
+                }
+            }
+
+            String formPrefix = (winner.formAspect() != null && !winner.formAspect().isBlank()) ? (" [" + capitalize(winner.formAspect()) + "] ") : " ";
+            String shinyTag = packet.isShiny() ? " §6✨ [SHINY]" : "";
+            String destText = addedToParty ? "§a(Đã thêm vào Đội hình!)" : "§e(Đội hình đầy, đã gửi an toàn vào PC Box!)";
+            player.sendMessage(Text.literal("§d★ [CobbleTower Gacha] §fChúc mừng! Bạn đã quay trúng §e" + capitalize(baseSpecies) + formPrefix + shinyTag + " §7(Từ §f" + winner.displayName() + "§7) §a" + perfectCount + "/6 dòng Max 31 IVs! " + destText), false);
+            player.playSound(SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 1.0f, 1.0f);
+
+            // Grand Server Broadcast for Ultra Rare Jackpots (High Legend / Mythical, Shiny 1%, or 5-6 Max 31 IVs)
+            boolean isHighJackpot = winner.rarity() == PokemonRarity.HIGH_LEGEND || winner.rarity() == PokemonRarity.MYTHICAL;
+            if (isHighJackpot || packet.isShiny() || perfectCount >= 5) {
+                broadcastGrandJackpot(player.getServer(), player.getName().getString(), capitalize(baseSpecies) + formPrefix, packet.isShiny(), perfectCount, floor);
+            }
+        } catch (Throwable t) {
+            LOGGER.error("[CobbleTower] Failed to create gacha pokemon for player {}: ", player.getName().getString(), t);
+            giveItemToPlayer(player, new ItemStack(Items.DIAMOND_BLOCK, 4), floor);
+        }
+    }
+
+    public static void broadcastGrandJackpot(MinecraftServer server, String playerName, String pokemonName, boolean isShiny, int maxIvs, int floor) {
+        if (server == null) return;
+        String shinyTag = isShiny ? " §6✨ [SHINY]" : "";
+        Text line1 = Text.literal("§6§m-----------------------------------------------------");
+        Text line2 = Text.literal("§6§l✦ [COBBLETOWER TOÀN CẢNH] §eSỰ KIỆN NỔ HŨ VẬN MAY THẾ KỶ! ✦");
+        Text line3 = Text.literal("§fNhà Huấn Luyện §e§l" + playerName + " §fđã làm chấn động Đấu Tháp Tầng §6" + floor + "§f!");
+        Text line4 = Text.literal("§fQuay trúng: §d§l" + pokemonName + shinyTag + " §f| Chỉ số: §a§l" + maxIvs + "/6 dòng Max 31 IVs (Best)§f!");
+        Text line5 = Text.literal("§6§l✦ Chúc mừng nhà vô địch may mắn bậc nhất máy chủ! ✦");
+        Text line6 = Text.literal("§6§m-----------------------------------------------------");
+
+        for (ServerPlayerEntity p : server.getPlayerManager().getPlayerList()) {
+            p.sendMessage(line1, false);
+            p.sendMessage(line2, false);
+            p.sendMessage(line3, false);
+            p.sendMessage(line4, false);
+            p.sendMessage(line5, false);
+            p.sendMessage(line6, false);
+            p.playSound(SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 1.0f, 1.0f);
         }
     }
 

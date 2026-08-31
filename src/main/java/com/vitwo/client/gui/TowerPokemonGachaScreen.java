@@ -101,7 +101,7 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
                 this.addDrawableChild(TowerButton.towerBuilder(
                         Text.literal("§e§lQUAY TIẾP: VÒNG SHINY (1%) ►"),
                         btn -> advanceToStage2()
-                ).dimensions(centerX - 110, centerY + 85, 220, 22).build());
+                ).dimensions(centerX - 110, centerY + 85, 220, 22).style(TowerButton.ButtonStyle.GOLD).build());
             } else {
                 // Skip Button
                 this.addDrawableChild(TowerButton.towerBuilder(
@@ -110,7 +110,7 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
                             stage1Finished = true;
                             advanceToStage2();
                         }
-                ).dimensions(centerX - 70, centerY + 85, 140, 18).build());
+                ).dimensions(centerX - 70, centerY + 85, 140, 18).style(TowerButton.ButtonStyle.SECONDARY).build());
             }
         } else if (currentStage == GachaStage.STAGE_2_SHINY_SPIN) {
             if (!stage2Spinning && !stage2Finished) {
@@ -121,12 +121,12 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
                             stage2StartTime = System.currentTimeMillis();
                             this.clearChildren();
                         }
-                ).dimensions(centerX - 120, centerY + 70, 240, 24).build());
+                ).dimensions(centerX - 120, centerY + 70, 240, 24).style(TowerButton.ButtonStyle.GOLD).build());
             } else if (stage2Finished) {
                 this.addDrawableChild(TowerButton.towerBuilder(
                         Text.literal("§b§lQUAY BẢNG 6 DÒNG CHỈ SỐ IVS ►"),
                         btn -> advanceToStage3()
-                ).dimensions(centerX - 120, centerY + 75, 240, 22).build());
+                ).dimensions(centerX - 120, centerY + 75, 240, 22).style(TowerButton.ButtonStyle.DEFAULT).build());
             }
         } else if (currentStage == GachaStage.STAGE_3_IV_MATRIX) {
             // Spin All Button
@@ -139,7 +139,7 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
                 this.addDrawableChild(TowerButton.towerBuilder(
                         Text.literal("§6§l🎲 QUAY TẤT CẢ 6 DÒNG (SPIN ALL)"),
                         btn -> spinAllIvs()
-                ).dimensions(centerX - 120, centerY - 80, 240, 20).build());
+                ).dimensions(centerX - 120, centerY - 80, 240, 20).style(TowerButton.ButtonStyle.GOLD).build());
 
                 // Individual spin buttons for each of the 6 stats
                 int startY = centerY - 50;
@@ -150,20 +150,20 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
                         this.addDrawableChild(TowerButton.towerBuilder(
                                 Text.literal("§eQuay"),
                                 btn -> spinSingleIv(statIdx)
-                        ).dimensions(centerX + 115, startY + i * rowH, 50, 18).build());
+                        ).dimensions(centerX + 115, startY + i * rowH, 50, 18).style(TowerButton.ButtonStyle.DEFAULT).build());
                     }
                 }
             } else {
                 this.addDrawableChild(TowerButton.towerBuilder(
                         Text.literal("§a§lXÁC NHẬN KẾT QUẢ IVS & TIẾP TỤC ►"),
                         btn -> advanceToStage4()
-                ).dimensions(centerX - 120, centerY + 85, 240, 22).build());
+                ).dimensions(centerX - 120, centerY + 85, 240, 22).style(TowerButton.ButtonStyle.GREEN).build());
             }
         } else if (currentStage == GachaStage.STAGE_4_SUMMARY) {
             this.addDrawableChild(TowerButton.towerBuilder(
                     Text.literal("§a§l✔ NHẬN POKÉMON VÀO ĐỘI HÌNH / PC"),
                     btn -> claimPokemonAndClose()
-            ).dimensions(centerX - 130, centerY + 80, 260, 26).build());
+            ).dimensions(centerX - 130, centerY + 80, 260, 26).style(TowerButton.ButtonStyle.GREEN).build());
         }
     }
 

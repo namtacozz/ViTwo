@@ -54,7 +54,7 @@ public class TowerItemGachaScreen extends AbstractTowerScreen {
             this.addDrawableChild(TowerButton.towerBuilder(
                     Text.literal("§a§l✔ NHẬN PHẦN THƯỞNG & TIẾP TỤC"),
                     btn -> claimAndClose()
-            ).dimensions(centerX - 110, centerY + 65, 220, 24).build());
+            ).dimensions(centerX - 110, centerY + 65, 220, 24).style(TowerButton.ButtonStyle.GREEN).build());
         } else {
             this.addDrawableChild(TowerButton.towerBuilder(
                     Text.literal("§7Bỏ qua / Nhận ngay (Skip)"),
@@ -62,7 +62,7 @@ public class TowerItemGachaScreen extends AbstractTowerScreen {
                         finished = true;
                         claimAndClose();
                     }
-                ).dimensions(centerX - 90, centerY + 65, 180, 20).build());
+                ).dimensions(centerX - 90, centerY + 65, 180, 20).style(TowerButton.ButtonStyle.SECONDARY).build());
         }
     }
 

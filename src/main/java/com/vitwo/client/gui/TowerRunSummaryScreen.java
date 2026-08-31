@@ -34,6 +34,7 @@ public class TowerRunSummaryScreen extends AbstractTowerScreen {
 
         this.addDrawableChild(TowerButton.towerBuilder(Text.literal("§fClose Summary"), btn -> this.close())
                 .dimensions(centerX - 80, centerY + 80, 160, 22)
+                .style(TowerButton.ButtonStyle.DEFAULT)
                 .build());
     }
 
@@ -53,38 +54,38 @@ public class TowerRunSummaryScreen extends AbstractTowerScreen {
 
         // Header Title
         String title = isVictory ? "§6§l🏆 TOWER CONQUERED! 🏆" : "§c§l💀 RUN DEFEATED 💀";
-        context.drawCenteredTextWithShadow(this.textRenderer, title, centerX, centerY - 95, 0xFFFFFF);
+        context.drawCenteredTextWithShadow(this.textRenderer, title, centerX, centerY - 95, 0xFFFFFFFF);
 
         // Run Type Badge
         String runTypeBadge = isTrueRun ? "§a[★ TRUE RUN]" : "§e[⚡ CHECKPOINT RUN]";
-        context.drawCenteredTextWithShadow(this.textRenderer, runTypeBadge, centerX, centerY - 80, 0xFFFFFF);
+        context.drawCenteredTextWithShadow(this.textRenderer, runTypeBadge, centerX, centerY - 80, 0xFFFFFFFF);
 
         // Stats Lines
         int min = durationSeconds / 60;
         int sec = durationSeconds % 60;
         String timeStr = String.format("%02d:%02d", min, sec);
 
-        context.drawTextWithShadow(this.textRenderer, "§7Floor Reached:", centerX - 120, centerY - 55, 0xCCCCCC);
-        context.drawTextWithShadow(this.textRenderer, "§eFloor " + floor + (isVictory ? " (Cleared)" : ""), centerX + 20, centerY - 55, 0xFFFFFF);
+        context.drawTextWithShadow(this.textRenderer, "§7Floor Reached:", centerX - 120, centerY - 55, 0xFFCCCCCC);
+        context.drawTextWithShadow(this.textRenderer, "§eFloor " + floor + (isVictory ? " (Cleared)" : ""), centerX + 20, centerY - 55, 0xFFFFFFFF);
 
-        context.drawTextWithShadow(this.textRenderer, "§7Total Time:", centerX - 120, centerY - 38, 0xCCCCCC);
-        context.drawTextWithShadow(this.textRenderer, "§b" + timeStr, centerX + 20, centerY - 38, 0xFFFFFF);
+        context.drawTextWithShadow(this.textRenderer, "§7Total Time:", centerX - 120, centerY - 38, 0xFFCCCCCC);
+        context.drawTextWithShadow(this.textRenderer, "§b" + timeStr, centerX + 20, centerY - 38, 0xFFFFFFFF);
 
-        context.drawTextWithShadow(this.textRenderer, "§7Total Turns:", centerX - 120, centerY - 21, 0xCCCCCC);
-        context.drawTextWithShadow(this.textRenderer, "§f" + totalTurns + " turns", centerX + 20, centerY - 21, 0xFFFFFF);
+        context.drawTextWithShadow(this.textRenderer, "§7Total Turns:", centerX - 120, centerY - 21, 0xFFCCCCCC);
+        context.drawTextWithShadow(this.textRenderer, "§f" + totalTurns + " turns", centerX + 20, centerY - 21, 0xFFFFFFFF);
 
-        context.drawTextWithShadow(this.textRenderer, "§7Pokémon Fainted:", centerX - 120, centerY - 4, 0xCCCCCC);
-        context.drawTextWithShadow(this.textRenderer, "§c" + totalFaints, centerX + 20, centerY - 4, 0xFFFFFF);
+        context.drawTextWithShadow(this.textRenderer, "§7Pokémon Fainted:", centerX - 120, centerY - 4, 0xFFCCCCCC);
+        context.drawTextWithShadow(this.textRenderer, "§c" + totalFaints, centerX + 20, centerY - 4, 0xFFFFFFFF);
 
-        context.drawTextWithShadow(this.textRenderer, "§7Battle Points Earned:", centerX - 120, centerY + 13, 0xCCCCCC);
-        context.drawTextWithShadow(this.textRenderer, "§6+" + bpEarned + " BP", centerX + 20, centerY + 13, 0xFFD700);
+        context.drawTextWithShadow(this.textRenderer, "§7Battle Points Earned:", centerX - 120, centerY + 13, 0xFFCCCCCC);
+        context.drawTextWithShadow(this.textRenderer, "§6+" + bpEarned + " BP", centerX + 20, centerY + 13, 0xFFFFD700);
 
-        context.drawTextWithShadow(this.textRenderer, "§7Personal Best Floor:", centerX - 120, centerY + 30, 0xCCCCCC);
-        context.drawTextWithShadow(this.textRenderer, "§dFloor " + newHighestFloor, centerX + 20, centerY + 30, 0xFFFFFF);
+        context.drawTextWithShadow(this.textRenderer, "§7Personal Best Floor:", centerX - 120, centerY + 30, 0xFFCCCCCC);
+        context.drawTextWithShadow(this.textRenderer, "§dFloor " + newHighestFloor, centerX + 20, centerY + 30, 0xFFFFFFFF);
 
         // Motivational / Footer note
         String note = isVictory ? "§aCongratulations on conquering all 100 floors!" : "§7Train hard and challenge the Tower again!";
-        context.drawCenteredTextWithShadow(this.textRenderer, note, centerX, centerY + 58, 0xAAAAAA);
+        context.drawCenteredTextWithShadow(this.textRenderer, note, centerX, centerY + 58, 0xFFAAAAAA);
     }
 
     @Override

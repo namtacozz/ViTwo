@@ -99,6 +99,11 @@ public class BattleRegistryMixin {
             }
         }
 
+        // Strict Dimension Isolation: If NOT in Tower Dimension, do not alter battle format or actors!
+        if (towerParty == null || !isInTowerDimension) {
+            return format;
+        }
+
         BattleSide playerSide = null;
         BattleSide npcSide = null;
 
@@ -113,7 +118,7 @@ public class BattleRegistryMixin {
             }
         }
 
-        // Ensure ALL Player BattlePokemon enter EVERY battle (Overworld & Tower) with 100% Full HP & 100% Full PP (5/5)
+        // Ensure ALL Player BattlePokemon enter Tower battle with 100% Full HP & 100% Full PP (5/5)
         if (playerSide != null) {
             for (BattleActor actor : playerSide.getActors()) {
                 if (actor == null) continue;
@@ -145,31 +150,6 @@ public class BattleRegistryMixin {
                     }
                 }
             }
-        }
-
-        // If NOT in TowerDimension (Overworld):
-        // Automatically inject fresh Hell Mode team into the NPC BattleActor in place!
-        if (towerParty == null || !isInTowerDimension) {
-            if (hasNpcTrainer && npcSide != null) {
-                for (BattleActor actor : npcSide.getActors()) {
-                    if (actor == null || actor.getType() != ActorType.NPC) continue;
-
-                    String trainerId = extractTrainerId(actor);
-                    if (trainerId != null && !trainerId.isBlank()) {
-                        boolean applied = HellModeTeamLoader.applyHellModeTeamToActor(actor, trainerId, null);
-                        if (!applied) {
-                            for (String prefix : new String[]{"kanto_", "johto_", "hoenn_", "gym_leader_", "leader_", "champion_"}) {
-                                if (!trainerId.startsWith(prefix)) {
-                                    applied = HellModeTeamLoader.applyHellModeTeamToActor(actor, prefix + trainerId, null);
-                                    if (applied) break;
-                                }
-                            }
-                        }
-                    }
-                }
-                return BattleFormat.Companion.getGEN_9_DOUBLES();
-            }
-            return format;
         }
 
         // =========================================================================

@@ -575,7 +575,7 @@ public class TowerBpShopScreen extends AbstractTowerScreen {
 
         // Header Title & Balance
         context.drawCenteredTextWithShadow(this.textRenderer, "§6§l❖ BP EXCHANGE SHOP ❖", centerX + 20, centerY - 121, TowerTheme.SECONDARY_GOLD);
-        context.drawTextWithShadow(this.textRenderer, "§6BP: §e" + currentBpBalance, centerX + 115, centerY - 121, 0xFFFFFF);
+        context.drawTextWithShadow(this.textRenderer, "§6BP: §e" + currentBpBalance, centerX + 115, centerY - 121, 0xFFFFFFFF);
 
         List<ShopEntry> currentList = getFilteredEntries();
         int maxRows = (int) Math.ceil((double) currentList.size() / COLS);
@@ -635,7 +635,7 @@ public class TowerBpShopScreen extends AbstractTowerScreen {
                 if (this.textRenderer.getWidth(name) > cellW - 4) {
                     name = this.textRenderer.trimToWidth(name, cellW - 10) + "...";
                 }
-                context.drawCenteredTextWithShadow(this.textRenderer, name, cellX + cellW / 2, cellY + 22, 0xFFFFFF);
+                context.drawCenteredTextWithShadow(this.textRenderer, name, cellX + cellW / 2, cellY + 22, 0xFFFFFFFF);
 
                 // Price
                 int priceColor = currentBpBalance >= entry.price() ? 0xFFFFD700 : 0xFFFF5555;
@@ -653,10 +653,10 @@ public class TowerBpShopScreen extends AbstractTowerScreen {
             if (this.textRenderer.getWidth(detailStr) > 345) {
                 detailStr = this.textRenderer.trimToWidth(detailStr, 340) + "...";
             }
-            context.drawTextWithShadow(this.textRenderer, detailStr, centerX - 175, panelY + 4, 0xFFFFFF);
+            context.drawTextWithShadow(this.textRenderer, detailStr, centerX - 175, panelY + 4, 0xFFFFFFFF);
 
             // Draw Quantity Indicator inside Qty Box
-            context.drawCenteredTextWithShadow(this.textRenderer, "§e" + selectedQuantity, centerX - 140, centerY + 96, 0xFFFFFF);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§e" + selectedQuantity, centerX - 140, centerY + 96, 0xFFFFFFFF);
         }
 
         // Draw Authentic Vanilla Item Tooltip on Hover
@@ -683,8 +683,8 @@ public class TowerBpShopScreen extends AbstractTowerScreen {
 
             int totalCost = selectedEntry.price() * selectedQuantity;
             context.drawCenteredTextWithShadow(this.textRenderer, "§6§lCONFIRM PURCHASE", centerX, modalY + 10, TowerTheme.SECONDARY_GOLD);
-            context.drawCenteredTextWithShadow(this.textRenderer, "§fBuy §e" + selectedQuantity + "x " + selectedEntry.displayName() + "§f?", centerX, modalY + 28, 0xFFFFFF);
-            context.drawCenteredTextWithShadow(this.textRenderer, "§7Total Cost: §6" + totalCost + " BP §7(Balance: §e" + currentBpBalance + " BP§7)", centerX, modalY + 44, 0xCCCCCC);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§fBuy §e" + selectedQuantity + "x " + selectedEntry.displayName() + "§f?", centerX, modalY + 28, 0xFFFFFFFF);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§7Total Cost: §6" + totalCost + " BP §7(Balance: §e" + currentBpBalance + " BP§7)", centerX, modalY + 44, 0xFFCCCCCC);
         }
     }
 

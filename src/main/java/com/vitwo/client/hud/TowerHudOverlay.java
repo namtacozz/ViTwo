@@ -153,7 +153,7 @@ public class TowerHudOverlay {
         context.drawBorder(startX, startY, boxW, boxH, borderColor);
 
         // Floor Text
-        context.drawTextWithShadow(client.textRenderer, cachedFloorText, startX + 6, startY + 5, 0xFFFFFF);
+        context.drawTextWithShadow(client.textRenderer, cachedFloorText, startX + 6, startY + 5, 0xFFFFFFFF);
 
         // Progress Bar
         int barW = boxW - 12;
@@ -186,7 +186,7 @@ public class TowerHudOverlay {
         int textW = client.textRenderer.getWidth(cachedBattleInfo);
         context.fill(startX - 4, startY - 2, startX + textW + 4, startY + 11, 0xAA10141D);
         context.drawBorder(startX - 4, startY - 2, textW + 8, 13, 0xFF3D4A5D);
-        context.drawTextWithShadow(client.textRenderer, cachedBattleInfo, startX, startY, 0xFFFFFF);
+        context.drawTextWithShadow(client.textRenderer, cachedBattleInfo, startX, startY, 0xFFFFFFFF);
     }
 
     private static void renderForfeitPanel(DrawContext context, MinecraftClient client, int screenWidth, int screenHeight) {
@@ -202,13 +202,13 @@ public class TowerHudOverlay {
         context.drawCenteredTextWithShadow(client.textRenderer, "LEAVE RUN?", startX + boxW / 2, startY + 5, 0xFFFF5555);
         
         String partnerVote = partnerVotedForfeit ? "✅ Voted YES" : "❌ Not Voted";
-        context.drawTextWithShadow(client.textRenderer, "Partner: " + partnerVote, startX + 5, startY + 18, 0xFFFFFF);
+        context.drawTextWithShadow(client.textRenderer, "Partner: " + partnerVote, startX + 5, startY + 18, 0xFFFFFFFF);
         
         context.drawCenteredTextWithShadow(client.textRenderer, "[F] YES, FORFEIT", startX + boxW / 4, startY + 32, 0xFFFF5555);
         context.drawCenteredTextWithShadow(client.textRenderer, "[X] NO, FIGHT", startX + boxW * 3 / 4, startY + 32, 0xFF55FF55);
 
         // Time bar
-        context.drawTextWithShadow(client.textRenderer, "Vote Time: " + forfeitTimeLeft + "s", startX + 5, startY + 45, 0xCCCCCC);
+        context.drawTextWithShadow(client.textRenderer, "Vote Time: " + forfeitTimeLeft + "s", startX + 5, startY + 45, 0xFFCCCCCC);
         context.fill(startX + 5, startY + 56, startX + boxW - 5, startY + 58, 0xFF333333);
         int timeFill = (int) ((forfeitTimeLeft / 15f) * (boxW - 10));
         context.fill(startX + 5, startY + 56, startX + 5 + timeFill, startY + 58, 0xFFFF5555);
@@ -223,16 +223,16 @@ public class TowerHudOverlay {
         context.fill(startX, startY, startX + boxW, startY + boxH, 0xF212171E);
         context.drawBorder(startX, startY, boxW, boxH, 0xFF00E5FF);
 
-        context.drawTextWithShadow(client.textRenderer, "§c● SPECTATING §7([Y] Hub)", startX + 5, startY + 5, 0xFF5555);
+        context.drawTextWithShadow(client.textRenderer, "§c● SPECTATING §7([Y] Hub)", startX + 5, startY + 5, 0xFFFF5555);
         
         if (ghostCharges != lastRenderedCharges) {
             lastRenderedCharges = ghostCharges;
             cachedGhostIcons = "§e" + "⚡ ".repeat(Math.max(0, ghostCharges)) + "§8" + "⚡ ".repeat(Math.max(0, maxGhostCharges - ghostCharges));
         }
-        context.drawTextWithShadow(client.textRenderer, "§b👻 GHOST SUPPORT: " + cachedGhostIcons.trim(), startX + 5, startY + 18, 0x55FFFF);
+        context.drawTextWithShadow(client.textRenderer, "§b👻 GHOST SUPPORT: " + cachedGhostIcons.trim(), startX + 5, startY + 18, 0xFF55FFFF);
         
-        context.drawTextWithShadow(client.textRenderer, "§b[Z] Heal Pulse (1⚡)", startX + 10, startY + 31, 0xAAFFFF);
-        context.drawTextWithShadow(client.textRenderer, "§e[X] Quick Guard (1⚡)", startX + 10, startY + 42, 0xFFFF88);
-        context.drawTextWithShadow(client.textRenderer, "§c[C] Battle Cry (2⚡)", startX + 10, startY + 53, 0xFF8888);
+        context.drawTextWithShadow(client.textRenderer, "§b[Z] Heal Pulse (1⚡)", startX + 10, startY + 31, 0xFFAAFFFF);
+        context.drawTextWithShadow(client.textRenderer, "§e[X] Quick Guard (1⚡)", startX + 10, startY + 42, 0xFFFFFF88);
+        context.drawTextWithShadow(client.textRenderer, "§c[C] Battle Cry (2⚡)", startX + 10, startY + 53, 0xFFFF8888);
     }
 }
