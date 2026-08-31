@@ -264,10 +264,12 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
         int viewX = centerX - (viewW / 2);
         int viewY = centerY - 55;
 
-        // Clip / Viewport Dark Background
-        context.fill(viewX, viewY, viewX + viewW, viewY + viewH, 0xFF0D0D14);
-        context.fill(viewX, viewY, viewX + viewW, viewY + 1, 0xFF353545);
-        context.fill(viewX, viewY + viewH - 1, viewX + viewW, viewY + viewH, 0xFF353545);
+        // Solid Viewport Cavity with 2px borders
+        context.fill(viewX, viewY, viewX + viewW, viewY + viewH, 0xFF08090E);
+        context.fill(viewX, viewY, viewX + viewW, viewY + 2, 0xFF353548);
+        context.fill(viewX, viewY + viewH - 2, viewX + viewW, viewY + viewH, 0xFF353548);
+        context.fill(viewX, viewY, viewX + 2, viewY + viewH, 0xFF353548);
+        context.fill(viewX + viewW - 2, viewY, viewX + viewW, viewY + viewH, 0xFF353548);
 
         context.enableScissor(viewX, viewY, viewX + viewW, viewY + viewH);
 
@@ -296,21 +298,35 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
             GachaPokemonCandidate winner = (winningIndex >= 0 && winningIndex < candidates.size()) ? candidates.get(winningIndex) : null;
             if (winner != null) {
                 String name = winner.displayName().toUpperCase();
-                context.drawCenteredTextWithShadow(this.textRenderer, "§aSelected Species: §e" + name + " §7(" + winner.rarity().getDisplayName() + ")", centerX, viewY + viewH + 12, 0xFF55FF55);
+                int badgeW = 360;
+                int badgeH = 26;
+                int badgeX = centerX - (badgeW / 2);
+                int badgeY = viewY + viewH + 8;
+                context.fill(badgeX, badgeY, badgeX + badgeW, badgeY + badgeH, 0xFF0E2214);
+                context.fill(badgeX, badgeY, badgeX + badgeW, badgeY + 2, 0xFF55FF55);
+                context.fill(badgeX, badgeY + badgeH - 2, badgeX + badgeW, badgeY + badgeH, 0xFF55FF55);
+                context.fill(badgeX, badgeY, badgeX + 2, badgeY + badgeH, 0xFF55FF55);
+                context.fill(badgeX + badgeW - 2, badgeY, badgeX + badgeW, badgeY + badgeH, 0xFF55FF55);
+                context.drawCenteredTextWithShadow(this.textRenderer, "§aSelected: §e" + name + " §7(" + winner.rarity().getDisplayName() + ")", centerX, badgeY + 8, 0xFF55FF55);
             }
         }
     }
 
     private void renderGachaCard(DrawContext context, int x, int y, int w, int h, GachaPokemonCandidate c, boolean isWinnerGlow) {
         int border = isWinnerGlow ? 0xFFFFD700 : 0xFF2D3144;
-        int bg = isWinnerGlow ? 0xFF262A38 : 0xFF141622;
+        int bg = isWinnerGlow ? 0xFF282512 : 0xFF141622;
 
-        // Card Frame
-        context.fill(x, y, x + w, y + h, border);
-        context.fill(x + 1, y + 1, x + w - 1, y + h - 1, bg);
+        // 100% Solid Card Body
+        context.fill(x, y, x + w, y + h, bg);
 
-        // CS:GO Rarity Top Header Bar (3px thick)
-        context.fill(x + 1, y + 1, x + w - 1, y + 4, c.rarity().getHeaderColor());
+        // Bold 2px Solid Outer Border
+        context.fill(x, y, x + w, y + 2, border);
+        context.fill(x, y + h - 2, x + w, y + h, border);
+        context.fill(x, y, x + 2, y + h, border);
+        context.fill(x + w - 2, y, x + w, y + h, border);
+
+        // CS:GO Rarity Top Header Bar (4px thick solid color)
+        context.fill(x + 2, y + 2, x + w - 2, y + 6, c.rarity().getHeaderColor());
 
         // Pokemon Name
         String name = truncate(c.displayName(), 15);
@@ -336,7 +352,7 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
 
         // Winner Accent Glow
         if (isWinnerGlow) {
-            context.fill(x + 1, y + h - 4, x + w - 1, y + h - 1, 0xFFFFD700);
+            context.fill(x + 2, y + h - 5, x + w - 2, y + h - 2, 0xFFFFD700);
         }
     }
 

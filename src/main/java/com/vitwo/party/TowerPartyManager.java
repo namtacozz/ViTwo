@@ -642,8 +642,10 @@ public class TowerPartyManager {
 
         Optional<TowerParty> partyOpt = getParty(player.getUuid());
         if (partyOpt.isEmpty()) {
-            boolean restored = TowerRunPersistenceManager.getInstance().restoreRun(player, player.getServer());
-            if (!restored && player.getServerWorld() != null && player.getServerWorld().getRegistryKey().getValue().getPath().contains("tower")) {
+            boolean inTowerDim = player.getServerWorld() != null && player.getServerWorld().getRegistryKey().getValue().getPath().contains("tower");
+            if (inTowerDim) {
+                boolean restored = TowerRunPersistenceManager.getInstance().restoreRun(player, player.getServer());
+                if (restored) return;
                 int soloCp = getSoloCheckpoint(player.getUuid());
                 TowerParty recoveredParty = new TowerParty(player.getUuid(), soloCp);
                 recoveredParty.setSolo(true);
@@ -654,20 +656,16 @@ public class TowerPartyManager {
                 registerRestoredParty(recoveredParty, player.getServer());
                 TowerRunPersistenceManager.getInstance().saveRun(recoveredParty);
                 return;
-            }
-            if (!restored && player.getServerWorld() != null && !player.getServerWorld().getRegistryKey().getValue().getPath().contains("tower")) {
-                // If player is in Overworld but has dangling run data, failsafe restore their levels
+            } else {
+                // If player is in Overworld but has dangling run data, failsafe restore their levels and delete dangling run
                 var runOpt = TowerRunPersistenceManager.getInstance().getActiveRun(player.getUuid());
                 if (runOpt.isPresent()) {
                     LevelCapManager.restorePlayerLevelsFromRunData(player, runOpt.get());
                     TowerRunPersistenceManager.getInstance().deleteRun(player.getUuid());
                 }
-            }
-            if (restored) {
+                syncPlayerState(player);
                 return;
             }
-            syncPlayerState(player);
-            return;
         }
 
         TowerParty party = partyOpt.get();

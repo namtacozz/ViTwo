@@ -266,7 +266,10 @@ public class HellModeTeamLoader {
         if (obj.has("moveset") && obj.get("moveset").isJsonArray()) {
             List<Move> customMoves = new ArrayList<>();
             for (JsonElement mEl : obj.getAsJsonArray("moveset")) {
-                String cleanMove = mEl.getAsString().toLowerCase(Locale.ROOT).trim().replace(" ", "_").replace("-", "_");
+                if (!mEl.isJsonPrimitive()) continue;
+                String raw = mEl.getAsString();
+                if (raw == null || raw.isBlank()) continue;
+                String cleanMove = raw.toLowerCase(Locale.ROOT).trim().replace(" ", "_").replace("-", "_");
                 try {
                     MoveTemplate template = Moves.getByName(cleanMove);
                     if (template == null) {
@@ -283,9 +286,18 @@ public class HellModeTeamLoader {
             if (!customMoves.isEmpty()) {
                 mon.getMoveSet().clear();
                 for (Move m : customMoves) {
-                    mon.getMoveSet().add(m);
+                    if (m != null) {
+                        mon.getMoveSet().add(m);
+                    }
                 }
             }
+        }
+
+        // Failsafe: Ensure moveset is never empty
+        if (mon.getMoveSet() == null || mon.getMoveSet().getMoves().isEmpty()) {
+            try {
+                mon.initializeMoveset(true);
+            } catch (Throwable ignored) {}
         }
 
         // 5. IVs

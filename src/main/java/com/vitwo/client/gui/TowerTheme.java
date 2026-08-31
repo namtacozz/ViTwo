@@ -10,8 +10,8 @@ public class TowerTheme {
     public static final int MUTED_SLATE = 0xFF555555;
     
     // Backgrounds and Borders
-    public static final int PANEL_BACKGROUND = 0xF610151C; // Deep solid slate with 96% opacity
-    public static final int PANEL_BORDER_OUTER = 0xFF00E5FF; // Vivid Cyan
+    public static final int PANEL_BACKGROUND = 0xFF0E1118; // 100% Solid Deep Slate (No Transparency/No World Bleed)
+    public static final int PANEL_BORDER_OUTER = 0xFF00E5FF; // Vivid Neon Cyan
     public static final int PANEL_BORDER_INNER = 0xFF00838F; // Deep Cyan
     public static final int BEVEL_DARK = 0xFF2A2A2A;
     public static final int BEVEL_LIGHT = 0xFF5A5A5A;

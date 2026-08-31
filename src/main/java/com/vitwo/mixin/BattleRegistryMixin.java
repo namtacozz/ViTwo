@@ -106,6 +106,7 @@ public class BattleRegistryMixin {
         if (towerParty == null || !isInTowerDimension) {
             if (hasNpcTrainer) {
                 // Find and apply Hell Mode team to any NPC trainer in the Overworld
+                int maxNpcCount = 0;
                 for (BattleSide side : new BattleSide[]{side1, side2}) {
                     if (side == null || side.getActors() == null) continue;
                     for (BattleActor actor : side.getActors()) {
@@ -117,10 +118,16 @@ public class BattleRegistryMixin {
                                     HellModeTeamLoader.applyHellModeTeamToActor(actor, "kanto_" + trainerId, null);
                                 }
                             }
+                            if (actor.getPokemonList() != null) {
+                                maxNpcCount = Math.max(maxNpcCount, actor.getPokemonList().size());
+                            }
                         }
                     }
                 }
-                return BattleFormat.Companion.getGEN_9_DOUBLES();
+                // Only enforce Doubles if NPC has at least 2 Pokémon; otherwise preserve original format
+                if (maxNpcCount >= 2) {
+                    return BattleFormat.Companion.getGEN_9_DOUBLES();
+                }
             }
             return format;
         }

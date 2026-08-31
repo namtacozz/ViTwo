@@ -115,9 +115,12 @@ public class TowerItemGachaScreen extends AbstractTowerScreen {
         int viewX = centerX - (viewW / 2);
         int viewY = centerY - 55;
 
-        context.fill(viewX, viewY, viewX + viewW, viewY + viewH, 0xFF0B0C12);
-        context.fill(viewX, viewY, viewX + viewW, viewY + 1, 0xFF353548);
-        context.fill(viewX, viewY + viewH - 1, viewX + viewW, viewY + viewH, 0xFF353548);
+        // Solid Viewport Cavity with 2px borders
+        context.fill(viewX, viewY, viewX + viewW, viewY + viewH, 0xFF08090E);
+        context.fill(viewX, viewY, viewX + viewW, viewY + 2, 0xFF353548);
+        context.fill(viewX, viewY + viewH - 2, viewX + viewW, viewY + viewH, 0xFF353548);
+        context.fill(viewX, viewY, viewX + 2, viewY + viewH, 0xFF353548);
+        context.fill(viewX + viewW - 2, viewY, viewX + viewW, viewY + viewH, 0xFF353548);
 
         context.enableScissor(viewX, viewY, viewX + viewW, viewY + viewH);
 
@@ -130,36 +133,46 @@ public class TowerItemGachaScreen extends AbstractTowerScreen {
 
             boolean isWinnerGlow = (i == winningIndex && finished);
             int border = isWinnerGlow ? 0xFFFFD700 : 0xFF2D3142;
-            int bg = isWinnerGlow ? 0xFF262A38 : 0xFF141620;
+            int bg = isWinnerGlow ? 0xFF282512 : 0xFF141620;
 
-            // Card body & border
-            context.fill(cardX, cardY, cardX + CARD_WIDTH, cardY + CARD_HEIGHT, border);
-            context.fill(cardX + 1, cardY + 1, cardX + CARD_WIDTH - 1, cardY + CARD_HEIGHT - 1, bg);
+            // 100% Solid Card Body
+            context.fill(cardX, cardY, cardX + CARD_WIDTH, cardY + CARD_HEIGHT, bg);
 
-            // CS:GO Top Header Bar
-            context.fill(cardX + 1, cardY + 1, cardX + CARD_WIDTH - 1, cardY + 4, item.color());
+            // Bold 2px Solid Outer Border
+            context.fill(cardX, cardY, cardX + CARD_WIDTH, cardY + 2, border);
+            context.fill(cardX, cardY + CARD_HEIGHT - 2, cardX + CARD_WIDTH, cardY + CARD_HEIGHT, border);
+            context.fill(cardX, cardY, cardX + 2, cardY + CARD_HEIGHT, border);
+            context.fill(cardX + CARD_WIDTH - 2, cardY, cardX + CARD_WIDTH, cardY + CARD_HEIGHT, border);
+
+            // CS:GO Top Header Bar (4px thick solid color)
+            context.fill(cardX + 2, cardY + 2, cardX + CARD_WIDTH - 2, cardY + 6, item.color());
 
             // Tier text
             String tierLabel = item.rarityTier() == 3 ? "★ JACKPOT" : (item.rarityTier() == 2 ? "RARE" : (item.rarityTier() == 1 ? "UNCOMMON" : "COMMON"));
-            context.drawCenteredTextWithShadow(this.textRenderer, tierLabel, cardX + (CARD_WIDTH / 2), cardY + 7, item.color());
+            context.drawCenteredTextWithShadow(this.textRenderer, tierLabel, cardX + (CARD_WIDTH / 2), cardY + 8, item.color());
 
-            // Dedicated Item Icon Socket
-            context.fill(cardX + (CARD_WIDTH / 2) - 14, cardY + 18, cardX + (CARD_WIDTH / 2) + 14, cardY + 46, 0xFF0D0E16);
-            context.drawBorder(cardX + (CARD_WIDTH / 2) - 14, cardY + 18, 28, 28, 0xFF252838);
+            // Dedicated Item Icon Socket with 1px border
+            int sockX = cardX + (CARD_WIDTH / 2) - 14;
+            int sockY = cardY + 20;
+            context.fill(sockX, sockY, sockX + 28, sockY + 28, 0xFF0A0B10);
+            context.fill(sockX, sockY, sockX + 28, sockY + 1, 0xFF35384D);
+            context.fill(sockX, sockY + 27, sockX + 28, sockY + 28, 0xFF35384D);
+            context.fill(sockX, sockY, sockX + 1, sockY + 28, 0xFF35384D);
+            context.fill(sockX + 27, sockY, sockX + 28, sockY + 28, 0xFF35384D);
 
             // Item Icon
             ItemStack icon = getItemIcon(item);
-            context.drawItem(icon, cardX + (CARD_WIDTH / 2) - 8, cardY + 24);
+            context.drawItem(icon, cardX + (CARD_WIDTH / 2) - 8, cardY + 26);
 
             // Item Name & Quantity
             String mainTitle = getItemMainTitle(item);
             String subTitle = getItemSubTitle(item);
-            context.drawCenteredTextWithShadow(this.textRenderer, mainTitle, cardX + (CARD_WIDTH / 2), cardY + 50, 0xFFFFFFFF);
-            context.drawCenteredTextWithShadow(this.textRenderer, subTitle, cardX + (CARD_WIDTH / 2), cardY + 62, 0xFF00E5FF);
+            context.drawCenteredTextWithShadow(this.textRenderer, mainTitle, cardX + (CARD_WIDTH / 2), cardY + 52, 0xFFFFFFFF);
+            context.drawCenteredTextWithShadow(this.textRenderer, subTitle, cardX + (CARD_WIDTH / 2), cardY + 64, 0xFF00E5FF);
 
             // Winner Bottom Bar
             if (isWinnerGlow) {
-                context.fill(cardX + 1, cardY + CARD_HEIGHT - 3, cardX + CARD_WIDTH - 1, cardY + CARD_HEIGHT - 1, 0xFFFFD700);
+                context.fill(cardX + 2, cardY + CARD_HEIGHT - 5, cardX + CARD_WIDTH - 2, cardY + CARD_HEIGHT - 2, 0xFFFFD700);
             }
         }
 
@@ -172,7 +185,16 @@ public class TowerItemGachaScreen extends AbstractTowerScreen {
 
         if (finished && winningIndex >= 0 && winningIndex < candidates.size()) {
             GachaItemCandidate win = candidates.get(winningIndex);
-            context.drawCenteredTextWithShadow(this.textRenderer, "§e★ REWARD WON: §a" + win.displayName().toUpperCase() + " ★", centerX, centerY + 52, 0xFF55FF55);
+            int badgeW = 340;
+            int badgeH = 26;
+            int badgeX = centerX - (badgeW / 2);
+            int badgeY = centerY + 46;
+            context.fill(badgeX, badgeY, badgeX + badgeW, badgeY + badgeH, 0xFF0E2214);
+            context.fill(badgeX, badgeY, badgeX + badgeW, badgeY + 2, 0xFF55FF55);
+            context.fill(badgeX, badgeY + badgeH - 2, badgeX + badgeW, badgeY + badgeH, 0xFF55FF55);
+            context.fill(badgeX, badgeY, badgeX + 2, badgeY + badgeH, 0xFF55FF55);
+            context.fill(badgeX + badgeW - 2, badgeY, badgeX + badgeW, badgeY + badgeH, 0xFF55FF55);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§a★ REWARD WON: §e" + win.displayName().toUpperCase() + " §a★", centerX, badgeY + 8, 0xFF55FF55);
         }
 
         super.render(context, mouseX, mouseY, delta);
