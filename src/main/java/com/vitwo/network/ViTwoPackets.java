@@ -13,7 +13,6 @@ public class ViTwoPackets {
         PayloadTypeRegistry.playC2S().register(RespondInviteC2SPacket.ID, RespondInviteC2SPacket.CODEC);
         PayloadTypeRegistry.playC2S().register(StartTowerC2SPacket.ID, StartTowerC2SPacket.CODEC);
         PayloadTypeRegistry.playC2S().register(LeavePartyC2SPacket.ID, LeavePartyC2SPacket.CODEC);
-        PayloadTypeRegistry.playC2S().register(RestChoiceC2SPacket.ID, RestChoiceC2SPacket.CODEC);
         PayloadTypeRegistry.playC2S().register(ForfeitTowerC2SPacket.ID, ForfeitTowerC2SPacket.CODEC);
         PayloadTypeRegistry.playC2S().register(BuyBpItemC2SPacket.ID, BuyBpItemC2SPacket.CODEC);
         PayloadTypeRegistry.playC2S().register(GhostSupportActionC2SPacket.ID, GhostSupportActionC2SPacket.CODEC);
@@ -28,7 +27,6 @@ public class ViTwoPackets {
         PayloadTypeRegistry.playS2C().register(SyncPartyStateS2CPacket.ID, SyncPartyStateS2CPacket.CODEC);
         PayloadTypeRegistry.playS2C().register(OpenTowerEntryS2CPacket.ID, OpenTowerEntryS2CPacket.CODEC);
         PayloadTypeRegistry.playS2C().register(TowerTitleS2CPacket.ID, TowerTitleS2CPacket.CODEC);
-        PayloadTypeRegistry.playS2C().register(OpenRestScreenS2CPacket.ID, OpenRestScreenS2CPacket.CODEC);
         PayloadTypeRegistry.playS2C().register(OpenRunSummaryS2CPacket.ID, OpenRunSummaryS2CPacket.CODEC);
         PayloadTypeRegistry.playS2C().register(SyncGhostSupportS2CPacket.ID, SyncGhostSupportS2CPacket.CODEC);
         PayloadTypeRegistry.playS2C().register(SyncLeaderboardS2CPacket.ID, SyncLeaderboardS2CPacket.CODEC);

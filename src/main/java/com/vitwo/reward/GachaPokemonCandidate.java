@@ -2,8 +2,6 @@ package com.vitwo.reward;
 
 import net.minecraft.network.PacketByteBuf;
 
-import java.util.Locale;
-
 public record GachaPokemonCandidate(
         int slotIndex,
         String speciesName,

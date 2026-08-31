@@ -91,9 +91,11 @@ CobbleTower v1.8.0 tích hợp hệ thống Gacha vòng quay phong cách CS:GO h
 1. **Khởi tạo Pokémon tùy chỉnh:** KHÔNG can thiệp trực tiếp bằng reflection nếu không cần thiết. Luôn ưu tiên sử dụng `PokemonProperties.Companion.parse(...).create()` kết hợp chuỗi tham số để khởi tạo chuẩn xác (VD: `species level=100 ivs=31,31,31,31,31,31 shiny=true moves=x,y,z`).
 2. **Khởi tạo NPC (TrainerMob - RCTMod):** Luôn khởi tạo Trainer NPC của mod RCTMod (`rctmod:trainer`) thông qua `EntityType`, set tọa độ bằng `setHomePos`, set Trainer ID (`TrainerPool.getRctTrainerIdForFloor()`), và đảm bảo bật cờ `setPersistent(true)`.
 3. **Môi trường Build (Build Environment):** Dự án sử dụng Java 21 và Fabric 1.21.1. Khi chạy lệnh build, bắt buộc phải trỏ biến môi trường `JAVA_HOME` đến Java 21:
+
    ```bash
    JAVA_HOME="/home/arjunsharma/.local/share/PrismLauncher/java/java-runtime-delta" ./gradlew build
    ```
+
    **Sau khi sửa lỗi hoặc nâng cấp tính năng xong, BẮT BUỘC phải chạy lệnh build lại mod và đảm bảo file JAR mới đã được copy tự động (via Gradle Deploy) vào thư mục mods của PrismLauncher để người chơi có thể test ngay lập tức.**
 4. **Không Warning/Lỗi thời (No Deprecation):** Khi tương tác với BlockStates của MC 1.21, phải dùng `state.getFluidState().isEmpty()` thay vì `state.isLiquid()` để tránh cảnh báo.
 5. **Hồi phục Full PP/HP Tuyệt Đối:** Sử dụng `TowerRewardManager.fullHeal(mon)` và `PartyStore.sendTo(player)` để đảm bảo 100% PP thật trên cả Showdown battle actor và Minecraft client inventory sau mỗi trận đấu.

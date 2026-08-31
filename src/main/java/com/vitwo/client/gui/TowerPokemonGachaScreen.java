@@ -3,17 +3,11 @@ package com.vitwo.client.gui;
 import com.vitwo.client.gui.widget.TowerButton;
 import com.vitwo.network.c2s.ClaimGachaPokemonC2SPacket;
 import com.vitwo.reward.GachaPokemonCandidate;
-import com.vitwo.reward.PokemonRarity;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.sound.PositionedSoundInstance;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.registry.Registries;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 
 import java.util.ArrayList;
@@ -442,7 +436,6 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
                 long elapsed = now - ivStartTimes[i];
                 if (elapsed > 0) {
                     float prog = MathHelper.clamp((float) elapsed / (float) IV_SPIN_DURATION_MS, 0.0f, 1.0f);
-                    float eased = 1.0f - (float) Math.pow(1.0f - prog, 3.0);
 
                     // Rapid rolling number
                     if (prog < 1.0f) {

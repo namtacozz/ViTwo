@@ -482,35 +482,6 @@ public class TowerPartyManager {
         startFloor(party, server);
     }
 
-    public void handleRestChoice(ServerPlayerEntity player, int choice) {
-        Optional<TowerParty> partyOpt = getParty(player.getUuid());
-        if (partyOpt.isEmpty()) return;
-
-        TowerParty party = partyOpt.get();
-        if (party.getState() != TowerParty.State.REST_FLOOR) return;
-
-        party.setRestChoice(player.getUuid(), choice);
-
-        if (choice == 1) {
-            TowerRewardManager.getInstance().applyFullTeamRest(player);
-            player.sendMessage(Text.literal("§a[Rest Station] Selected Full Team Rest!"), false);
-        } else if (choice == 2) {
-            TowerRewardManager.getInstance().applyWarPrep(player, party, 1);
-            player.sendMessage(Text.literal("§c[Rest Station] Selected War Preparation Buff!"), false);
-        } else {
-            TowerRewardManager.getInstance().grantLootCache(player, party.getCurrentFloor());
-            player.sendMessage(Text.literal("§6[Rest Station] Selected Treasure Cache!"), false);
-        }
-
-        if (party.haveBothChosenRest()) {
-            MinecraftServer server = player.getServer();
-            if (server != null) {
-                party.setCurrentFloor(party.getCurrentFloor() + 1);
-                startFloor(party, server);
-            }
-        }
-    }
-
     public static void terminateActiveBattleForPlayer(ServerPlayerEntity player) {
         if (player == null) return;
         // STRICT DIMENSION ISOLATION: Never terminate battles in the Overworld!

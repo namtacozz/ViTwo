@@ -14,7 +14,6 @@ import com.vitwo.config.TowerPlayerDataManager;
 import com.vitwo.network.c2s.ClaimGachaPokemonC2SPacket;
 import com.vitwo.network.c2s.ClaimItemGachaC2SPacket;
 import com.vitwo.network.s2c.OpenItemGachaS2CPacket;
-import com.vitwo.network.s2c.OpenPokemonDraftS2CPacket;
 import com.vitwo.network.s2c.OpenPokemonDraftS2CPacket.DraftOption;
 import com.vitwo.network.s2c.OpenPokemonGachaS2CPacket;
 import com.vitwo.network.s2c.TowerBattleGradeS2CPacket;
@@ -816,56 +815,6 @@ public class TowerRewardManager {
             LOGGER.error("[CobbleTower] Error applying full team rest for player {}", player.getName().getString(), t);
         }
         player.sendMessage(Text.literal("§a[CobbleTower] §fYour Pokémon team has been fully healed (100% HP, 100% PP & status cured)!"), false);
-    }
-
-    public void applyWarPrep(ServerPlayerEntity player, TowerParty party, int buffType) {
-        if (player == null || party == null) return;
-        String buffName;
-        if (buffType == 1) {
-            party.setWarPrepBuff("ATTACK", 5);
-            buffName = "§c+10% Attack & Sp. Atk";
-        } else if (buffType == 2) {
-            party.setWarPrepBuff("SPEED", 5);
-            buffName = "§e+10% Speed";
-        } else {
-            party.setWarPrepBuff("DEFENSE", 5);
-            buffName = "§9+10% Defense & Sp. Def";
-        }
-        player.sendMessage(Text.literal("§6[War Preparation] Activated " + buffName + " §6buff for the next 5 floors!"), false);
-    }
-
-    public void grantLootCache(ServerPlayerEntity player, int floor) {
-        if (player == null) return;
-
-        int bonusBp;
-        Identifier lootId;
-        int count = 1;
-
-        if (floor <= 25) {
-            bonusBp = 100;
-            lootId = Identifier.of("cobblemon", "exp_candy_xl");
-            count = 3;
-        } else if (floor <= 50) {
-            bonusBp = 250;
-            lootId = Identifier.of("cobblemon", "bottle_cap");
-            count = 2;
-        } else if (floor <= 75) {
-            bonusBp = 500;
-            lootId = Identifier.of("cobblemon", "ability_patch");
-            count = 1;
-        } else {
-            bonusBp = 1000;
-            lootId = Identifier.of("cobblemon", "gold_bottle_cap");
-            count = 2;
-        }
-
-        TowerPlayerDataManager.getInstance().addBp(player.getUuid(), bonusBp);
-        player.sendMessage(Text.literal("§6[Treasure Cache] §a+" + bonusBp + " BP §7found inside treasure chest!"), false);
-
-        if (Registries.ITEM.containsId(lootId)) {
-            ItemStack stack = new ItemStack(Registries.ITEM.get(lootId), count);
-            giveItemToPlayer(player, stack, floor);
-        }
     }
 
     public void handleBpPurchase(ServerPlayerEntity player, String itemId, int quantity) {

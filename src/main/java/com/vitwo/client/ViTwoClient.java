@@ -1,6 +1,5 @@
 package com.vitwo.client;
 
-import com.vitwo.client.gui.RestFloorScreen;
 import com.vitwo.client.gui.TowerBpShopScreen;
 import com.vitwo.client.gui.TowerHubScreen;
 import com.vitwo.client.gui.TowerRunSummaryScreen;
@@ -88,12 +87,6 @@ public class ViTwoClient implements ClientModInitializer {
                     context.client().inGameHud.setSubtitle(Text.literal(payload.subTitle()));
                     context.client().inGameHud.setTitleTicks(10, 70, 20);
                 }
-            });
-        });
-
-        ClientPlayNetworking.registerGlobalReceiver(OpenRestScreenS2CPacket.ID, (payload, context) -> {
-            context.client().execute(() -> {
-                MinecraftClient.getInstance().setScreen(new RestFloorScreen(payload.floor()));
             });
         });
 

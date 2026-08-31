@@ -16,7 +16,6 @@ import net.minecraft.util.ActionResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.lang.reflect.Method;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
@@ -89,17 +88,6 @@ public class ViTwoMod implements ModInitializer {
             ServerPlayerEntity player = context.player();
             if (player == null || !player.isAlive()) return;
             context.server().execute(() -> TowerPartyManager.getInstance().leaveParty(player));
-        });
-
-        ServerPlayNetworking.registerGlobalReceiver(RestChoiceC2SPacket.ID, (payload, context) -> {
-            ServerPlayerEntity player = context.player();
-            if (player == null || !player.isAlive()) return;
-            context.server().execute(() -> {
-                Optional<TowerParty> partyOpt = TowerPartyManager.getInstance().getParty(player.getUuid());
-                if (partyOpt.isPresent() && (partyOpt.get().getState() == TowerParty.State.REST_FLOOR || partyOpt.get().getState() == TowerParty.State.LOBBY)) {
-                    TowerPartyManager.getInstance().handleRestChoice(player, payload.choiceType());
-                }
-            });
         });
 
         ServerPlayNetworking.registerGlobalReceiver(ForfeitTowerC2SPacket.ID, (payload, context) -> {
