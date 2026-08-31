@@ -101,12 +101,11 @@ public class BattleRegistryMixin {
 
         // =========================================================================
         // OVERWORLD BATTLES (NOT IN TOWER DIMENSION):
-        // Enforce 2v2 Double Battle (GEN_9_DOUBLES) and apply Hell Mode Teams for NPC Trainers!
+        // Always enforce 2v2 Double Battle (GEN_9_DOUBLES) and apply Hell Mode Teams for NPC Trainers!
         // =========================================================================
         if (towerParty == null || !isInTowerDimension) {
             if (hasNpcTrainer) {
                 // Find and apply Hell Mode team to any NPC trainer in the Overworld
-                int maxNpcCount = 0;
                 for (BattleSide side : new BattleSide[]{side1, side2}) {
                     if (side == null || side.getActors() == null) continue;
                     for (BattleActor actor : side.getActors()) {
@@ -118,16 +117,11 @@ public class BattleRegistryMixin {
                                     HellModeTeamLoader.applyHellModeTeamToActor(actor, "kanto_" + trainerId, null);
                                 }
                             }
-                            if (actor.getPokemonList() != null) {
-                                maxNpcCount = Math.max(maxNpcCount, actor.getPokemonList().size());
-                            }
                         }
                     }
                 }
-                // Only enforce Doubles if NPC has at least 2 Pokémon; otherwise preserve original format
-                if (maxNpcCount >= 2) {
-                    return BattleFormat.Companion.getGEN_9_DOUBLES();
-                }
+                // Always return GEN_9_DOUBLES for Overworld NPC trainer battles
+                return BattleFormat.Companion.getGEN_9_DOUBLES();
             }
             return format;
         }
