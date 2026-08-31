@@ -14,6 +14,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.vitwo.mod.ViTwoMod;
+import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,6 +29,73 @@ import java.util.concurrent.ConcurrentHashMap;
 public class HellModeTeamLoader {
     private static final Logger LOGGER = LoggerFactory.getLogger(HellModeTeamLoader.class);
     private static final Map<String, JsonObject> TRAINER_JSON_CACHE = new ConcurrentHashMap<>();
+    private static final Map<String, String> TRAINER_ALIASES = new HashMap<>();
+
+    static {
+        // Kanto Gym Leaders
+        TRAINER_ALIASES.put("brock", "kanto_brock");
+        TRAINER_ALIASES.put("misty", "kanto_misty");
+        TRAINER_ALIASES.put("ltsurge", "kanto_ltsurge");
+        TRAINER_ALIASES.put("lt_surge", "kanto_ltsurge");
+        TRAINER_ALIASES.put("lt surge", "kanto_ltsurge");
+        TRAINER_ALIASES.put("surge", "kanto_ltsurge");
+        TRAINER_ALIASES.put("erika", "kanto_erika");
+        TRAINER_ALIASES.put("koga", "kanto_koga");
+        TRAINER_ALIASES.put("sabrina", "kanto_sabrina");
+        TRAINER_ALIASES.put("blaine", "kanto_blaine");
+        TRAINER_ALIASES.put("giovanni", "kanto_giovanni");
+        TRAINER_ALIASES.put("blue", "kanto_champion_blue");
+        TRAINER_ALIASES.put("red", "trainer_red_0003");
+
+        // Johto Gym Leaders
+        TRAINER_ALIASES.put("falkner", "johto_valerio");
+        TRAINER_ALIASES.put("valerio", "johto_valerio");
+        TRAINER_ALIASES.put("bugsy", "johto_raffaello");
+        TRAINER_ALIASES.put("raffaello", "johto_raffaello");
+        TRAINER_ALIASES.put("whitney", "johto_chiara");
+        TRAINER_ALIASES.put("chiara", "johto_chiara");
+        TRAINER_ALIASES.put("morty", "johto_angelo");
+        TRAINER_ALIASES.put("angelo", "johto_angelo");
+        TRAINER_ALIASES.put("chuck", "johto_furio");
+        TRAINER_ALIASES.put("furio", "johto_furio");
+        TRAINER_ALIASES.put("jasmine", "johto_jasmine");
+        TRAINER_ALIASES.put("pryce", "johto_alfredo");
+        TRAINER_ALIASES.put("alfredo", "johto_alfredo");
+        TRAINER_ALIASES.put("clair", "johto_sandra");
+        TRAINER_ALIASES.put("sandra", "johto_sandra");
+
+        // Hoenn Gym Leaders
+        TRAINER_ALIASES.put("roxanne", "hoenn_petra");
+        TRAINER_ALIASES.put("petra", "hoenn_petra");
+        TRAINER_ALIASES.put("brawly", "hoenn_rudi");
+        TRAINER_ALIASES.put("rudi", "hoenn_rudi");
+        TRAINER_ALIASES.put("wattson", "hoenn_walter");
+        TRAINER_ALIASES.put("walter", "hoenn_walter");
+        TRAINER_ALIASES.put("flannery", "hoenn_fiammetta");
+        TRAINER_ALIASES.put("fiammetta", "hoenn_fiammetta");
+        TRAINER_ALIASES.put("norman", "hoenn_norman");
+        TRAINER_ALIASES.put("winona", "hoenn_alice");
+        TRAINER_ALIASES.put("tate", "hoenn_tell");
+        TRAINER_ALIASES.put("liza", "hoenn_tell");
+        TRAINER_ALIASES.put("tell", "hoenn_tell");
+        TRAINER_ALIASES.put("wallace", "hoenn_adriano");
+        TRAINER_ALIASES.put("adriano", "hoenn_adriano");
+        TRAINER_ALIASES.put("steven", "hoenn_champion_rocco");
+        TRAINER_ALIASES.put("rocco", "hoenn_champion_rocco");
+
+        // Sinnoh Gym Leaders & Cynthia
+        TRAINER_ALIASES.put("roark", "gym_leader_roark_058a");
+        TRAINER_ALIASES.put("gardenia", "gym_leader_gardenia_058b");
+        TRAINER_ALIASES.put("maylene", "gym_leader_maylene_058d");
+        TRAINER_ALIASES.put("wake", "gym_leader_wake_058c");
+        TRAINER_ALIASES.put("crasher_wake", "gym_leader_wake_058c");
+        TRAINER_ALIASES.put("fantina", "gym_leader_fantina_058e");
+        TRAINER_ALIASES.put("byron", "gym_leader_byron_0590");
+        TRAINER_ALIASES.put("candice", "gym_leader_candice_058f");
+        TRAINER_ALIASES.put("volkner", "gym_leader_volkner_0591");
+        TRAINER_ALIASES.put("cynthia", "champion_cynthia_05a7");
+        TRAINER_ALIASES.put("camilla", "sinnoh_champion_camilla");
+    }
 
     public static JsonObject getTrainerJson(String trainerId) {
         if (trainerId == null || trainerId.isBlank()) return null;
@@ -35,16 +105,46 @@ public class HellModeTeamLoader {
             return TRAINER_JSON_CACHE.get(cleanId);
         }
 
-        // Try exact path
+        // 1. Direct Alias Lookup
+        if (TRAINER_ALIASES.containsKey(cleanId)) {
+            String targetKey = TRAINER_ALIASES.get(cleanId);
+            JsonObject obj = loadJsonFromResource("/data/rctmod/trainers/" + targetKey + ".json");
+            if (obj != null) {
+                TRAINER_JSON_CACHE.put(cleanId, obj);
+                return obj;
+            }
+        }
+
+        // 2. Try stripped prefix alias (e.g. "leader_clair_004a" -> "clair" -> "johto_sandra")
+        String stripped = cleanId;
+        for (String prefix : new String[]{"gym_leader_", "leader_", "champion_", "elite_four_", "boss_", "trainer_"}) {
+            if (stripped.startsWith(prefix)) {
+                stripped = stripped.substring(prefix.length());
+                break;
+            }
+        }
+        if (stripped.contains("_")) {
+            int lastUnderscore = stripped.lastIndexOf('_');
+            String potentialSuffix = stripped.substring(lastUnderscore + 1);
+            if (potentialSuffix.length() <= 4) {
+                stripped = stripped.substring(0, lastUnderscore);
+            }
+        }
+        if (TRAINER_ALIASES.containsKey(stripped)) {
+            String targetKey = TRAINER_ALIASES.get(stripped);
+            JsonObject obj = loadJsonFromResource("/data/rctmod/trainers/" + targetKey + ".json");
+            if (obj != null) {
+                TRAINER_JSON_CACHE.put(cleanId, obj);
+                return obj;
+            }
+        }
+
+        // 3. Try exact path
         JsonObject obj = loadJsonFromResource("/data/rctmod/trainers/" + cleanId + ".json");
         if (obj == null) {
-            // Try common prefix aliases (e.g. "brock" -> "kanto_brock", "misty" -> "kanto_misty")
-            obj = loadJsonFromResource("/data/rctmod/trainers/kanto_" + cleanId + ".json");
-        }
-        if (obj == null && cleanId.contains("_")) {
-            // Try matching in catalog
-            for (String known : new String[]{"kanto_" + cleanId, "leader_" + cleanId, "champion_" + cleanId}) {
-                obj = loadJsonFromResource("/data/rctmod/trainers/" + known + ".json");
+            // Try common prefix aliases
+            for (String pfx : new String[]{"kanto_", "johto_", "hoenn_", "gym_leader_", "leader_", "champion_"}) {
+                obj = loadJsonFromResource("/data/rctmod/trainers/" + pfx + cleanId + ".json");
                 if (obj != null) break;
             }
         }
@@ -126,7 +226,7 @@ public class HellModeTeamLoader {
 
         mon.setLevel(level);
 
-        // Held Item
+        // 1. Held Item (Mega Stones, Z-Crystals, Items)
         if (obj.has("heldItem") && obj.get("heldItem").isJsonArray()) {
             JsonArray items = obj.getAsJsonArray("heldItem");
             if (!items.isEmpty()) {
@@ -134,10 +234,35 @@ public class HellModeTeamLoader {
                 try {
                     PokemonProperties.Companion.parse("item=" + item).apply(mon);
                 } catch (Throwable ignored) {}
+
+                // Robust fallback via ItemStack
+                if (mon.heldItem().isEmpty()) {
+                    try {
+                        Identifier itemId = Identifier.tryParse(item.contains(":") ? item : "cobblemon:" + item);
+                        if (itemId != null && Registries.ITEM.containsId(itemId)) {
+                            mon.swapHeldItem(new ItemStack(Registries.ITEM.get(itemId)), false, false);
+                        }
+                    } catch (Throwable ignored) {}
+                }
             }
         }
 
-        // Moveset
+        // 2. Gimmick: Terastallization (Tera Type)
+        if (obj.has("teraType") || obj.has("tera_type")) {
+            String tera = obj.has("teraType") ? obj.get("teraType").getAsString() : obj.get("tera_type").getAsString();
+            try {
+                PokemonProperties.Companion.parse("tera_type=" + tera.toLowerCase(Locale.ROOT)).apply(mon);
+            } catch (Throwable ignored) {}
+        }
+
+        // 3. Gimmick: Dynamax / Gigantamax (Gmax Factor)
+        if (obj.has("gmax") && obj.get("gmax").getAsBoolean()) {
+            try {
+                mon.setGmaxFactor(true);
+            } catch (Throwable ignored) {}
+        }
+
+        // 4. Moveset
         if (obj.has("moveset") && obj.get("moveset").isJsonArray()) {
             List<Move> customMoves = new ArrayList<>();
             for (JsonElement mEl : obj.getAsJsonArray("moveset")) {
@@ -157,7 +282,7 @@ public class HellModeTeamLoader {
             }
         }
 
-        // IVs
+        // 5. IVs
         if (obj.has("ivs") && obj.get("ivs").isJsonObject()) {
             JsonObject ivsObj = obj.getAsJsonObject("ivs");
             for (Stat stat : Stats.Companion.getPERMANENT()) {
@@ -171,7 +296,7 @@ public class HellModeTeamLoader {
             }
         }
 
-        // EVs
+        // 6. EVs
         if (obj.has("evs") && obj.get("evs").isJsonObject()) {
             JsonObject evsObj = obj.getAsJsonObject("evs");
             for (Stat stat : Stats.Companion.getPERMANENT()) {
@@ -224,6 +349,9 @@ public class HellModeTeamLoader {
             Pokemon mon = newTeam.get(idx);
             BattlePokemon bp = BattlePokemon.Companion.safeCopyOf(mon);
             bp.setActor(actor);
+            if (bp.getEffectedPokemon() != null) {
+                bp.getEffectedPokemon().heal();
+            }
             battleTeam.add(bp);
         }
 
@@ -245,14 +373,45 @@ public class HellModeTeamLoader {
                 } catch (Throwable ignored) {}
             }
 
+            // Gimmick 1: Held Items (Mega Stones / Z-Crystals / Choice items) - DO NOT emit event to avoid null-context NPE
             try {
-                target.swapHeldItem(source.heldItem(), true, true);
+                target.swapHeldItem(source.heldItem(), false, false);
+            } catch (Throwable ignored) {}
+
+            // Gimmick 2: Aspects (Mega / Forms / Gmax aspects)
+            try {
+                target.getAspects().clear();
+                target.getAspects().addAll(source.getAspects());
+                target.updateAspects();
+            } catch (Throwable ignored) {}
+
+            // Gimmick 3: Gmax Factor
+            try {
+                target.setGmaxFactor(source.getGmaxFactor());
+            } catch (Throwable ignored) {}
+
+            // Gimmick 4: Terastallization
+            try {
+                if (source.getTeraType() != null) {
+                    target.setTeraType(source.getTeraType());
+                }
             } catch (Throwable ignored) {}
 
             target.getMoveSet().clear();
             for (Move m : source.getMoveSet()) {
-                target.getMoveSet().add(m);
+                if (m != null && m.getTemplate() != null) {
+                    Move newMove = m.getTemplate().create();
+                    newMove.setCurrentPp(newMove.getMaxPp());
+                    target.getMoveSet().add(newMove);
+                }
             }
+            if (target.getMoveSet().getMoves().isEmpty()) {
+                try {
+                    MoveTemplate tackle = Moves.getByName("tackle");
+                    if (tackle != null) target.getMoveSet().add(tackle.create());
+                } catch (Throwable ignored) {}
+            }
+            target.getMoveSet().update();
 
             for (Stat stat : Stats.Companion.getPERMANENT()) {
                 target.getIvs().set(stat, source.getIvs().getOrDefault(stat));

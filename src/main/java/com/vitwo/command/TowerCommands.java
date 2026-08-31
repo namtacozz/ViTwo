@@ -92,6 +92,104 @@ public class TowerCommands {
                             TowerPartyManager.getInstance().handleForfeitVote(player);
                             return 1;
                         }))
+                // /tower admin addbp <player> <amount>
+                .then(CommandManager.literal("admin")
+                        .requires(source -> source.hasPermissionLevel(2))
+                        .then(CommandManager.literal("addbp")
+                                .then(CommandManager.argument("player", EntityArgumentType.player())
+                                        .then(CommandManager.argument("amount", IntegerArgumentType.integer(1))
+                                                .executes(ctx -> {
+                                                    ServerPlayerEntity target = EntityArgumentType.getPlayer(ctx, "player");
+                                                    int amount = IntegerArgumentType.getInteger(ctx, "amount");
+                                                    TowerPlayerDataManager.getInstance().addBp(target.getUuid(), amount);
+                                                    TowerPartyManager.getInstance().syncPlayerState(target);
+                                                    ctx.getSource().sendFeedback(() -> Text.literal("§aAdded " + amount + " BP to " + target.getName().getString() + " (Total: " + TowerPlayerDataManager.getInstance().getBp(target.getUuid()) + " BP)."), false);
+                                                    target.sendMessage(Text.literal("§6[CobbleTower] §aYou received " + amount + " BP from an Admin!"), false);
+                                                    return 1;
+                                                })
+                                        )
+                                )
+                        )
+                        .then(CommandManager.literal("setbp")
+                                .then(CommandManager.argument("player", EntityArgumentType.player())
+                                        .then(CommandManager.argument("amount", IntegerArgumentType.integer(0))
+                                                .executes(ctx -> {
+                                                    ServerPlayerEntity target = EntityArgumentType.getPlayer(ctx, "player");
+                                                    int amount = IntegerArgumentType.getInteger(ctx, "amount");
+                                                    TowerPlayerDataManager.PlayerProfile prof = TowerPlayerDataManager.getInstance().getProfile(target.getUuid());
+                                                    prof.battlePoints = amount;
+                                                    TowerPlayerDataManager.getInstance().saveProfile(target.getUuid());
+                                                    TowerPartyManager.getInstance().syncPlayerState(target);
+                                                    ctx.getSource().sendFeedback(() -> Text.literal("§aSet BP of " + target.getName().getString() + " to " + amount + " BP."), false);
+                                                    target.sendMessage(Text.literal("§6[CobbleTower] §aYour BP was set to " + amount + " BP by an Admin!"), false);
+                                                    return 1;
+                                                })
+                                        )
+                                )
+                        )
+                        .then(CommandManager.literal("setlevel")
+                                .then(CommandManager.argument("player", EntityArgumentType.player())
+                                        .then(CommandManager.argument("level", IntegerArgumentType.integer(1, 100))
+                                                .executes(ctx -> {
+                                                    ServerPlayerEntity target = EntityArgumentType.getPlayer(ctx, "player");
+                                                    int lvl = IntegerArgumentType.getInteger(ctx, "level");
+                                                    var party = com.cobblemon.mod.common.Cobblemon.INSTANCE.getStorage().getParty(target);
+                                                    int count = 0;
+                                                    if (party != null) {
+                                                        for (com.cobblemon.mod.common.pokemon.Pokemon mon : party) {
+                                                            if (mon != null) {
+                                                                mon.setLevel(lvl);
+                                                                try {
+                                                                    int targetExp = mon.getExperienceGroup().getExperience(lvl);
+                                                                    mon.setExperienceAndUpdateLevel(targetExp);
+                                                                    if (mon.getLevel() < lvl) mon.setLevel(lvl);
+                                                                } catch (Throwable ignored) {}
+                                                                com.vitwo.reward.TowerRewardManager.fullHeal(mon);
+                                                                party.onPokemonChanged(mon);
+                                                                count++;
+                                                            }
+                                                        }
+                                                        party.sendTo(target);
+                                                    }
+                                                    final int finalCount = count;
+                                                    ctx.getSource().sendFeedback(() -> Text.literal("§aSuccessfully set all " + finalCount + " Pokémon of " + target.getName().getString() + " to Lv." + lvl + "!"), false);
+                                                    target.sendMessage(Text.literal("§6[CobbleTower] §aToàn bộ đội hình của bạn đã được Admin đặt lại thành §eLv." + lvl + "§a (Đầy đủ EXP & PP)!"), false);
+                                                    return 1;
+                                                })
+                                        )
+                                )
+                        )
+                        .then(CommandManager.literal("fixlevels")
+                                .then(CommandManager.argument("player", EntityArgumentType.player())
+                                        .executes(ctx -> {
+                                            ServerPlayerEntity target = EntityArgumentType.getPlayer(ctx, "player");
+                                            var party = com.cobblemon.mod.common.Cobblemon.INSTANCE.getStorage().getParty(target);
+                                            int count = 0;
+                                            if (party != null) {
+                                                for (com.cobblemon.mod.common.pokemon.Pokemon mon : party) {
+                                                    if (mon != null && mon.getLevel() < 100) {
+                                                        mon.setLevel(100);
+                                                        try {
+                                                            int targetExp = mon.getExperienceGroup().getExperience(100);
+                                                            mon.setExperienceAndUpdateLevel(targetExp);
+                                                            if (mon.getLevel() < 100) mon.setLevel(100);
+                                                        } catch (Throwable ignored) {}
+                                                        com.vitwo.reward.TowerRewardManager.fullHeal(mon);
+                                                        party.onPokemonChanged(mon);
+                                                        count++;
+                                                    }
+                                                }
+                                                party.sendTo(target);
+                                            }
+                                            final int finalCount = count;
+                                            ctx.getSource().sendFeedback(() -> Text.literal("§aRestored " + finalCount + " Pokémon of " + target.getName().getString() + " to Lv.100!"), false);
+                                            target.sendMessage(Text.literal("§6[CobbleTower] §aĐã tự động phục hồi " + finalCount + " Pokémon về §6Lv.100§a!"), false);
+                                            return 1;
+                                        })
+                                )
+                        )
+                )
+
 
                 // /tower leaderboard
                 .then(CommandManager.literal("leaderboard")
@@ -186,7 +284,59 @@ public class TowerCommands {
                             ctx.getSource().sendFeedback(() -> Text.literal("§a[CobbleTower] Config reloaded successfully!"), true);
                             return 1;
                         }))
+
+                // /tower admin compensate <player> <level> — Restore all Pokémon to target level (Admin only)
+                .then(CommandManager.literal("admin")
+                        .requires(src -> src.hasPermissionLevel(2))
+                        .then(CommandManager.literal("compensate")
+                                .then(CommandManager.argument("target", EntityArgumentType.player())
+                                        .then(CommandManager.argument("level", IntegerArgumentType.integer(1, 100))
+                                                .executes(ctx -> {
+                                                    ServerPlayerEntity target = EntityArgumentType.getPlayer(ctx, "target");
+                                                    int targetLevel = IntegerArgumentType.getInteger(ctx, "level");
+                                                    return compensatePlayer(ctx.getSource(), target, targetLevel);
+                                                })))))
         );
+    }
+
+    private static int compensatePlayer(ServerCommandSource source, ServerPlayerEntity target, int targetLevel) {
+        try {
+            var cobblemonParty = com.cobblemon.mod.common.Cobblemon.INSTANCE.getStorage().getParty(target);
+            if (cobblemonParty == null) {
+                source.sendError(Text.literal("§c[CobbleTower] Failed to access Cobblemon party for " + target.getName().getString()));
+                return 0;
+            }
+
+            int restoredCount = 0;
+            StringBuilder details = new StringBuilder();
+            for (com.cobblemon.mod.common.pokemon.Pokemon mon : cobblemonParty) {
+                if (mon == null) continue;
+                int oldLevel = mon.getLevel();
+                if (oldLevel < targetLevel) {
+                    mon.setLevel(targetLevel);
+                    com.vitwo.reward.TowerRewardManager.fullHeal(mon);
+                    details.append(String.format("  %s: Lv.%d → Lv.%d\n", mon.getSpecies().getName(), oldLevel, targetLevel));
+                    restoredCount++;
+                }
+            }
+
+            final int finalRestoredCount = restoredCount;
+            final String detailsStr = details.toString();
+
+            if (finalRestoredCount > 0) {
+                source.sendFeedback(() -> Text.literal("§a[CobbleTower] Compensated " + target.getName().getString() + 
+                        ": " + finalRestoredCount + " Pokémon restored to Lv." + targetLevel + "\n" + detailsStr), true);
+                target.sendMessage(Text.literal("§a[CobbleTower] §fAdmin đã bồi thường: §a" + finalRestoredCount + 
+                        " §fPokémon được nâng cấp lên §aLv." + targetLevel + "§f. Xin lỗi vì sự cố!"), false);
+                target.sendMessage(Text.literal("§6[CobbleTower] §fChi tiết:\n" + detailsStr), false);
+            } else {
+                source.sendFeedback(() -> Text.literal("§7[CobbleTower] No Pokémon needed compensation — all are already at or above Lv." + targetLevel), false);
+            }
+            return 1;
+        } catch (Exception e) {
+            source.sendError(Text.literal("§c[CobbleTower] Compensation failed: " + e.getMessage()));
+            return 0;
+        }
     }
 
     private static int startSolo(ServerCommandSource source, int checkpointFloor) {

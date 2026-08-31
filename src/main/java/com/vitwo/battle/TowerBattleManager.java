@@ -18,7 +18,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
@@ -34,58 +33,16 @@ public class TowerBattleManager {
     private TowerBattleManager() {}
 
     /**
-     * Subscribes to Cobblemon battle events to scale NPC teams to 6x max level cap and handle victory/defeat/fled outcomes.
+     * Subscribes to Cobblemon battle events to handle victory/defeat/fled outcomes.
      */
     public void registerBattleEvents() {
         try {
-            subscribeObservable(CobblemonEvents.BATTLE_STARTED_POST, this::handleBattleStarted);
-            subscribeObservable(CobblemonEvents.BATTLE_VICTORY, this::handleBattleVictory);
-            subscribeObservable(CobblemonEvents.BATTLE_FLED, this::handleBattleFled);
-            LOGGER.info("[CobbleTower] Successfully registered Cobblemon BATTLE_STARTED_POST, BATTLE_VICTORY, and BATTLE_FLED listeners!");
+            CobblemonEvents.BATTLE_STARTED_POST.subscribe(Priority.NORMAL, (Consumer<BattleStartedEvent.Post>) this::handleBattleStarted);
+            CobblemonEvents.BATTLE_VICTORY.subscribe(Priority.NORMAL, (Consumer<BattleVictoryEvent>) this::handleBattleVictory);
+            CobblemonEvents.BATTLE_FLED.subscribe(Priority.NORMAL, (Consumer<BattleFledEvent>) this::handleBattleFled);
+            LOGGER.info("[CobbleTower] Successfully registered Cobblemon BATTLE_STARTED_POST, BATTLE_VICTORY, and BATTLE_FLED listeners natively!");
         } catch (Throwable t) {
-            LOGGER.error("[CobbleTower] Error registering battle event listeners: {}", t.getMessage());
-        }
-    }
-
-    private <T> void subscribeObservable(Object observable, Consumer<T> consumer) {
-        if (observable == null) return;
-        try {
-            Class<?> function1Class = Class.forName("kotlin.jvm.functions.Function1");
-            Class<?> unitClass = Class.forName("kotlin.Unit");
-            Object unitInstance = unitClass.getField("INSTANCE").get(null);
-
-            Object handlerProxy = Proxy.newProxyInstance(
-                    function1Class.getClassLoader(),
-                    new Class<?>[]{function1Class},
-                    (proxy, method, args) -> {
-                        if ("invoke".equals(method.getName()) && args != null && args.length == 1) {
-                            try {
-                                @SuppressWarnings("unchecked")
-                                T event = (T) args[0];
-                                consumer.accept(event);
-                            } catch (Throwable t) {
-                                LOGGER.error("[CobbleTower] Error in battle event consumer", t);
-                            }
-                            return unitInstance;
-                        }
-                        return null;
-                    }
-            );
-
-            for (Method m : observable.getClass().getMethods()) {
-                if ("subscribe".equals(m.getName()) && m.getParameterCount() == 2) {
-                    m.invoke(observable, Priority.NORMAL, handlerProxy);
-                    return;
-                }
-            }
-            for (Method m : observable.getClass().getMethods()) {
-                if ("subscribe".equals(m.getName()) && m.getParameterCount() == 1) {
-                    m.invoke(observable, handlerProxy);
-                    return;
-                }
-            }
-        } catch (Throwable t) {
-            LOGGER.warn("[CobbleTower] Failed to subscribe to observable {}: {}", observable, t.getMessage());
+            LOGGER.error("[CobbleTower] Error registering battle event listeners natively: {}", t.getMessage(), t);
         }
     }
 
@@ -102,15 +59,20 @@ public class TowerBattleManager {
             Optional<TowerParty> partyOpt = TowerPartyManager.getInstance().getParty(playerId);
             if (partyOpt.isPresent()) {
                 TowerParty party = partyOpt.get();
-                if (party.getState() == TowerParty.State.PREPARING || party.getState() == TowerParty.State.IN_BATTLE) {
-                    party.setState(TowerParty.State.IN_BATTLE);
-                    partyFloor = party.getCurrentFloor();
-                    MinecraftServer srv = resolveServer(battle, party);
-                    if (srv != null) {
-                        TowerPartyManager.getInstance().syncParty(party, srv);
-                    }
-                    break;
+                ServerPlayerEntity p = getServerPlayer(playerId);
+                if (p == null || p.getServerWorld() == null || !p.getServerWorld().getRegistryKey().getValue().getPath().contains("tower")) {
+                    continue;
                 }
+                party.setState(TowerParty.State.IN_BATTLE);
+                partyFloor = party.getCurrentFloor();
+                for (UUID memId : party.getAllMembers()) {
+                    inTowerBattlePlayers.add(memId);
+                }
+                MinecraftServer srv = (p.getServer() != null) ? p.getServer() : resolveServer(battle, party);
+                if (srv != null) {
+                    TowerPartyManager.getInstance().syncParty(party, srv);
+                }
+                break;
             }
         }
 
@@ -120,64 +82,102 @@ public class TowerBattleManager {
 
     private void handleBattleVictory(BattleVictoryEvent event) {
         if (event == null) return;
+        LOGGER.info("[CobbleTower] handleBattleVictory fired! Winners: {}, Losers: {}", event.getWinners(), event.getLosers());
 
         // 1. Check if any winner is in an active Tower party
         for (BattleActor winner : event.getWinners()) {
             if (winner == null) continue;
+
+            ServerPlayerEntity winningPlayer = null;
+            if (winner instanceof PlayerBattleActor pba) {
+                winningPlayer = pba.getEntity();
+            }
+
             for (UUID playerId : winner.getPlayerUUIDs()) {
                 Optional<TowerParty> partyOpt = TowerPartyManager.getInstance().getParty(playerId);
-                if (partyOpt.isPresent()) {
-                    TowerParty party = partyOpt.get();
-                    if (party.getState() == TowerParty.State.IN_BATTLE || party.getState() == TowerParty.State.PREPARING) {
-                        for (UUID memId : party.getAllMembers()) {
-                            inTowerBattlePlayers.remove(memId);
-                        }
+                if (partyOpt.isEmpty()) continue;
 
-                        MinecraftServer server = resolveServer(event.getBattle(), party);
-                        if (server != null) {
-                            server.execute(() -> {
-                                for (UUID id : party.getAllMembers()) {
-                                    ServerPlayerEntity p = server.getPlayerManager().getPlayer(id);
-                                    if (p != null) {
-                                        p.playSound(SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 1.0f, 1.0f);
-                                    }
-                                }
-                                TowerPartyManager.getInstance().onFloorWon(party, server);
-                            });
-                        }
-                        return;
-                    }
+                TowerParty party = partyOpt.get();
+                ServerPlayerEntity p = (winningPlayer != null && winningPlayer.getUuid().equals(playerId))
+                        ? winningPlayer
+                        : (winningPlayer != null && winningPlayer.getServer() != null ? winningPlayer.getServer().getPlayerManager().getPlayer(playerId) : getServerPlayer(playerId));
+
+                // Ensure player is in the tower dimension before handling victory
+                if (p != null && p.getServerWorld() != null && !p.getServerWorld().getRegistryKey().getValue().getPath().contains("tower")) {
+                    continue;
                 }
+
+                LOGGER.info("[CobbleTower] Floor {} VICTORY confirmed for Party {}!", party.getCurrentFloor(), party.getLeaderId());
+
+                // Immediately transition out of IN_BATTLE to prevent tick() from triggering false defeat
+                party.setState(TowerParty.State.PREPARING);
+                party.resetNoBattleTicks();
+                party.resetStallTicks();
+                party.resetHardStallTicks();
+
+                for (UUID memId : party.getAllMembers()) {
+                    inTowerBattlePlayers.remove(memId);
+                }
+
+                MinecraftServer server = (p != null && p.getServer() != null) ? p.getServer() : resolveServer(event.getBattle(), party);
+                if (server != null) {
+                    server.execute(() -> {
+                        for (UUID id : party.getAllMembers()) {
+                            ServerPlayerEntity memberEntity = server.getPlayerManager().getPlayer(id);
+                            if (memberEntity != null) {
+                                memberEntity.playSound(SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 1.0f, 1.0f);
+                            }
+                        }
+                        TowerPartyManager.getInstance().onFloorWon(party, server);
+                    });
+                }
+                return;
             }
         }
 
         // 2. Check if any loser is in an active Tower party (Loss condition)
         for (BattleActor loser : event.getLosers()) {
             if (loser == null) continue;
+
+            ServerPlayerEntity losingPlayer = null;
+            if (loser instanceof PlayerBattleActor pba) {
+                losingPlayer = pba.getEntity();
+            }
+
             for (UUID playerId : loser.getPlayerUUIDs()) {
                 Optional<TowerParty> partyOpt = TowerPartyManager.getInstance().getParty(playerId);
-                if (partyOpt.isPresent()) {
-                    TowerParty party = partyOpt.get();
-                    if (party.getState() == TowerParty.State.IN_BATTLE || party.getState() == TowerParty.State.PREPARING) {
-                        for (UUID memId : party.getAllMembers()) {
-                            inTowerBattlePlayers.remove(memId);
-                        }
+                if (partyOpt.isEmpty()) continue;
 
-                        MinecraftServer server = resolveServer(event.getBattle(), party);
-                        if (server != null) {
-                            server.execute(() -> {
-                                for (UUID id : party.getAllMembers()) {
-                                    ServerPlayerEntity p = server.getPlayerManager().getPlayer(id);
-                                    if (p != null) {
-                                        p.playSound(SoundEvents.ENTITY_WITHER_DEATH, 0.7f, 0.8f);
-                                    }
-                                }
-                                TowerPartyManager.getInstance().onPartyDefeated(party, server);
-                            });
-                        }
-                        return;
-                    }
+                TowerParty party = partyOpt.get();
+                ServerPlayerEntity p = (losingPlayer != null && losingPlayer.getUuid().equals(playerId))
+                        ? losingPlayer
+                        : (losingPlayer != null && losingPlayer.getServer() != null ? losingPlayer.getServer().getPlayerManager().getPlayer(playerId) : getServerPlayer(playerId));
+
+                // Ensure player is in the tower dimension before handling defeat
+                if (p != null && p.getServerWorld() != null && !p.getServerWorld().getRegistryKey().getValue().getPath().contains("tower")) {
+                    continue;
                 }
+
+                LOGGER.info("[CobbleTower] Defeat on Floor {} confirmed for Party {}!", party.getCurrentFloor(), party.getLeaderId());
+
+                party.setState(TowerParty.State.PREPARING);
+                for (UUID memId : party.getAllMembers()) {
+                    inTowerBattlePlayers.remove(memId);
+                }
+
+                MinecraftServer server = (p != null && p.getServer() != null) ? p.getServer() : resolveServer(event.getBattle(), party);
+                if (server != null) {
+                    server.execute(() -> {
+                        for (UUID id : party.getAllMembers()) {
+                            ServerPlayerEntity memberEntity = server.getPlayerManager().getPlayer(id);
+                            if (memberEntity != null) {
+                                memberEntity.playSound(SoundEvents.ENTITY_WITHER_DEATH, 0.7f, 0.8f);
+                            }
+                        }
+                        TowerPartyManager.getInstance().onPartyDefeated(party, server);
+                    });
+                }
+                return;
             }
         }
     }
@@ -212,24 +212,43 @@ public class TowerBattleManager {
         }
 
         for (UUID playerId : playerIds) {
+            // Ensure player is in the tower dimension before handling tower fled defeat
+            ServerPlayerEntity p = getServerPlayer(playerId);
+            if (p == null || p.getServerWorld() == null || !p.getServerWorld().getRegistryKey().getValue().getPath().contains("tower")) {
+                continue;
+            }
+
             Optional<TowerParty> partyOpt = TowerPartyManager.getInstance().getParty(playerId);
             MinecraftServer server = resolveServer(event.getBattle(), partyOpt.orElse(null));
             if (partyOpt.isPresent()) {
                 TowerParty party = partyOpt.get();
-                for (UUID memId : party.getAllMembers()) {
-                    inTowerBattlePlayers.remove(memId);
-                }
+                if (party.isSolo()) {
+                    for (UUID memId : party.getAllMembers()) {
+                        inTowerBattlePlayers.remove(memId);
+                    }
 
-                if (server != null) {
-                    server.execute(() -> {
-                        ServerPlayerEntity player = server.getPlayerManager().getPlayer(playerId);
-                        if (player != null) {
-                            player.sendMessage(Text.literal("§c[CobbleTower] You fled from the battle! Tower run ended."), false);
-                        }
-                        TowerPartyManager.getInstance().forfeitTower(party.getLeaderId(), server);
-                    });
+                    if (server != null) {
+                        server.execute(() -> {
+                            ServerPlayerEntity player = server.getPlayerManager().getPlayer(playerId);
+                            if (player != null) {
+                                player.sendMessage(Text.literal("§c[CobbleTower] Bạn đã bỏ chạy khỏi trận đấu! Tháp kết thúc thất bại."), false);
+                            }
+                            TowerPartyManager.getInstance().onPartyDefeated(party, server);
+                        });
+                    }
+                    return;
+                } else {
+                    // Duo Co-op Mode: Cannot forfeit unilaterally via flee. Must vote in Menu Y!
+                    if (server != null) {
+                        server.execute(() -> {
+                            ServerPlayerEntity player = server.getPlayerManager().getPlayer(playerId);
+                            if (player != null) {
+                                player.sendMessage(Text.literal("§e[CobbleTower] §cTrong chế độ Duo, không thể bỏ chạy đơn lẻ! Vui lòng mở Menu phím [Y] để bỏ phiếu Forfeit cùng đồng đội."), false);
+                            }
+                        });
+                    }
+                    return;
                 }
-                return;
             } else if (server != null) {
                 // If player was in tower dimension without a party
                 ServerPlayerEntity player = server.getPlayerManager().getPlayer(playerId);
@@ -237,7 +256,7 @@ public class TowerBattleManager {
                     server.execute(() -> {
                         TowerPartyManager.terminateActiveBattleForPlayer(player);
                         com.vitwo.arena.TowerArenaManager.getInstance().returnPlayerToOriginalPos(player, null);
-                        player.sendMessage(Text.literal("§c[CobbleTower] You fled from the battle! Returned to Overworld."), false);
+                        player.sendMessage(Text.literal("§c[CobbleTower] Bạn đã bỏ chạy khỏi trận đấu! Đã quay trở về Overworld."), false);
                     });
                     return;
                 }
@@ -269,16 +288,23 @@ public class TowerBattleManager {
         return null;
     }
 
-    public TowerTeam getBossTeamForFloor(int floor) {
-        return TrainerPool.getTeamForFloor(floor);
-    }
-
     public String getBossNameForFloor(int floor) {
         return TrainerPool.getTrainerDisplayName(floor);
     }
 
     public List<String> getBossTeamSpeciesForFloor(int floor) {
-        return TrainerPool.generateDynamicTeam(floor);
+        String trainerId = TrainerPool.getRctTrainerIdForFloor(floor);
+        var team = HellModeTeamLoader.createTeamFromTrainerId(trainerId, 50);
+        if (team != null && !team.isEmpty()) {
+            List<String> list = new ArrayList<>();
+            for (var mon : team) {
+                if (mon != null && mon.getSpecies() != null) {
+                    list.add(mon.getSpecies().getName().toLowerCase(Locale.ROOT));
+                }
+            }
+            return list;
+        }
+        return List.of("pikachu", "charizard", "blastoise", "gengar", "snorlax", "dragonite");
     }
 
     public String getRandomBossSpecies(int floor) {
@@ -312,6 +338,21 @@ public class TowerBattleManager {
         String battleRules = GimmickController.getFloorBattleRulesDescription(floor);
         player.sendMessage(Text.literal(battleRules), false);
         player.sendMessage(Text.translatable("vitwo.tower.bag_item_banned"), false);
+    }
+
+    public boolean triggerDuoBattle(TowerParty party, ServerPlayerEntity leader, ServerPlayerEntity member, net.minecraft.entity.Entity npcEntity, int floor) {
+        try {
+            // Apply level caps before starting
+            LevelCapManager.applyLevelCapToPlayer(leader, floor, party);
+            LevelCapManager.applyLevelCapToPlayer(member, floor, party);
+
+            startDuoDoubleBattle(party, leader, member, floor);
+
+            return RCTModAdapter.startBattle(npcEntity, leader);
+        } catch (Exception e) {
+            org.slf4j.LoggerFactory.getLogger("vitwo").error("[CobbleTower] Error in triggerDuoBattle: {}", e.getMessage(), e);
+            return false;
+        }
     }
 
     public void startDuoDoubleBattle(TowerParty party, ServerPlayerEntity leader, ServerPlayerEntity member, int floor) {

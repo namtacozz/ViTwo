@@ -59,6 +59,7 @@ public class TowerKeybinds {
                     if (TowerHudOverlay.inTowerSession && TowerHudOverlay.inBattle) {
                         continue;
                     }
+                    ClientPlayNetworking.send(new com.vitwo.network.c2s.RequestHubSyncC2SPacket());
                     client.setScreen(new TowerHubScreen());
                 }
             }

@@ -48,6 +48,7 @@ public class ViTwoClient implements ClientModInitializer {
                 TowerHubScreen.forfeitVotes = payload.forfeitVotes();
                 TowerHubScreen.playerBp = payload.battlePoints();
                 TowerHubScreen.isTrueRun = payload.isTrueRun();
+                TowerHubScreen.highestFloor = payload.highestFloor();
 
                 // Update BP Shop
                 TowerBpShopScreen.currentBpBalance = payload.battlePoints();
@@ -66,6 +67,9 @@ public class ViTwoClient implements ClientModInitializer {
                     TowerHudOverlay.isTrueRun = payload.isTrueRun();
                     TowerHudOverlay.currentBossName = payload.currentBossName();
                     TowerHudOverlay.playerBp = payload.battlePoints();
+                    TowerHudOverlay.runDurationSeconds = payload.runDurationSeconds();
+                    TowerHudOverlay.battleTurns = payload.battleTurns();
+                    TowerHudOverlay.bpEarnedInRun = payload.bpEarnedInRun();
                     TowerHudOverlay.markDirty();
                 }
             });
@@ -138,6 +142,42 @@ public class ViTwoClient implements ClientModInitializer {
             });
         });
 
+        // Boss Pokemon Egg Draft Screen Receiver (Legacy)
+        ClientPlayNetworking.registerGlobalReceiver(com.vitwo.network.s2c.OpenPokemonDraftS2CPacket.ID, (payload, context) -> {
+            context.client().execute(() -> {
+                MinecraftClient.getInstance().setScreen(new com.vitwo.client.gui.TowerPokemonDraftScreen(
+                        payload.floor(),
+                        payload.bossName(),
+                        payload.options()
+                ));
+            });
+        });
+
+        // Boss CS:GO Pokemon Gacha Screen Receiver
+        ClientPlayNetworking.registerGlobalReceiver(com.vitwo.network.s2c.OpenPokemonGachaS2CPacket.ID, (payload, context) -> {
+            context.client().execute(() -> {
+                MinecraftClient.getInstance().setScreen(new com.vitwo.client.gui.TowerPokemonGachaScreen(
+                        payload.floor(),
+                        payload.bossName(),
+                        payload.candidates(),
+                        payload.winningIndex(),
+                        payload.isShinyWinner(),
+                        payload.rolledIvs()
+                ));
+            });
+        });
+
+        // Regular Floor CS:GO Item/BP Gacha Screen Receiver
+        ClientPlayNetworking.registerGlobalReceiver(com.vitwo.network.s2c.OpenItemGachaS2CPacket.ID, (payload, context) -> {
+            context.client().execute(() -> {
+                MinecraftClient.getInstance().setScreen(new com.vitwo.client.gui.TowerItemGachaScreen(
+                        payload.floor(),
+                        payload.candidates(),
+                        payload.winningIndex()
+                ));
+            });
+        });
+
         // Post-Battle Grade Receiver
         ClientPlayNetworking.registerGlobalReceiver(TowerBattleGradeS2CPacket.ID, (payload, context) -> {
             context.client().execute(() -> {
@@ -151,10 +191,15 @@ public class ViTwoClient implements ClientModInitializer {
             });
         });
 
-        // Client Tick for Animations
+        // Client Tick for Animations and HUD Timer
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             TowerBossIntroOverlay.tick();
             TowerBattleGradeOverlay.tick();
+            if (TowerHudOverlay.inTowerSession && client.world != null && !client.isPaused()) {
+                if (client.world.getTime() % 20 == 0) {
+                    TowerHudOverlay.runDurationSeconds++;
+                }
+            }
         });
 
         // Register HUD Rendering

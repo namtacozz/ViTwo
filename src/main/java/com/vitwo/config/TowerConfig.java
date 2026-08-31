@@ -135,13 +135,13 @@ public class TowerConfig {
     }
 
     public static class BpConfig {
-        public int perFloor = 10;
-        public int bossBonus = 50;
-        public int checkpoint25Bonus = 200;
-        public int checkpoint50Bonus = 400;
-        public int checkpoint75Bonus = 800;
-        public int clear100TrueRun = 3000;
-        public int clear100CheckpointRun = 1000;
+        public int perFloor = 50;
+        public int bossBonus = 150;
+        public int checkpoint25Bonus = 500;
+        public int checkpoint50Bonus = 1000;
+        public int checkpoint75Bonus = 2000;
+        public int clear100TrueRun = 10000;
+        public int clear100CheckpointRun = 5000;
         public double trueRunMultiplier = 1.0;
         public double checkpointMultiplier = 0.5;
         public double checkpointRunRewardMultiplier = 0.5;

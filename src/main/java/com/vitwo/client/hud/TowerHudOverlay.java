@@ -18,10 +18,7 @@ public class TowerHudOverlay {
     public static boolean isTrueRun = true;
     public static String currentBossName = "";
     
-    // Partner & Runtime variables
-    public static String partnerName = "";
-    public static int partnerAliveCount = 0;
-    public static float partnerHpPercent = 1.0f;
+    // Runtime variables (Bottom-Left Battle Info)
     public static int runDurationSeconds = 0;
     public static int battleTurns = 0;
     public static int bpEarnedInRun = 0;
@@ -41,9 +38,6 @@ public class TowerHudOverlay {
     private static String cachedFloorText = "FLOOR 1/100";
     private static String cachedBossAndCapText = "Next Boss: Unknown | Cap: Lv.36";
     private static String cachedRuleText = "⚠ Rules: Competitive Clause";
-    private static String cachedPartnerTitle = "CO-OP PARTNER";
-    private static String cachedPartnerInfo = "Name: Partner";
-    private static String cachedPartnerAlive = "Alive PKM: 0/6";
     private static String cachedBattleInfo = "⏱ 00:00  |  Turn 0  |  BP in run: +0";
     private static String cachedGhostIcons = "§8⚡ ⚡";
     private static int lastRenderedSecond = -1;
@@ -61,9 +55,6 @@ public class TowerHudOverlay {
         inBattle = false;
         isSpectating = false;
         currentBossName = "";
-        partnerName = "";
-        partnerAliveCount = 0;
-        partnerHpPercent = 1.0f;
         runDurationSeconds = 0;
         battleTurns = 0;
         bpEarnedInRun = 0;
@@ -79,21 +70,34 @@ public class TowerHudOverlay {
     private static void updateCacheIfNeeded() {
         if (!isDirty) return;
 
-        cachedFloorText = "FLOOR " + currentFloor + "/100";
+        if (currentFloor >= 100) {
+            cachedFloorText = "§6§l★ TẦNG 100/100 (CHAMPION CYNTHIA) ★";
+        } else if (currentFloor >= 90) {
+            cachedFloorText = "§d§l✦ TẦNG " + currentFloor + "/100 (TỨ HOÀNG & QUÁN QUÂN) ✦";
+        } else if (currentFloor % 5 == 0) {
+            cachedFloorText = "§6§l⬡ TẦNG " + currentFloor + "/100 (GYM LEADER) ⬡";
+        } else {
+            cachedFloorText = "§b§lTẦNG " + currentFloor + "/100";
+        }
+
         int maxCap = LevelCapManager.getMaxLevelCapForFloor(currentFloor);
         String bossName = currentBossName.isEmpty() ? "Unknown" : currentBossName;
-        cachedBossAndCapText = "Next Boss: " + bossName + " | Cap: Lv." + maxCap;
+        if (currentFloor >= 100) {
+            cachedBossAndCapText = "§cĐối thủ: §6Quán Quân Cynthia §7| §bGiới hạn: §aLv." + maxCap;
+        } else if (currentFloor >= 90) {
+            cachedBossAndCapText = "§cĐối thủ: §d" + bossName + " §7| §bGiới hạn: §aLv." + maxCap;
+        } else if (currentFloor % 5 == 0) {
+            cachedBossAndCapText = "§eĐối thủ: §6" + bossName + " §7| §bGiới hạn: §aLv." + maxCap;
+        } else {
+            cachedBossAndCapText = "§fĐối thủ: §e" + bossName + " §7| §bGiới hạn: §aLv." + maxCap;
+        }
 
         List<TowerCurseManager.TowerCurse> curses = TowerCurseManager.getInstance().getActiveCursesForFloor(currentFloor);
-        String ruleText = "⚠ Rules: Competitive Clause";
         if (!curses.isEmpty()) {
-            ruleText += " | 💀 " + curses.get(0).hudBadge;
+            cachedRuleText = "§c💀 Hiệu Ứng Sàn: " + curses.get(0).hudBadge;
+        } else {
+            cachedRuleText = "";
         }
-        cachedRuleText = ruleText;
-
-        String pName = partnerName.isEmpty() ? "Partner" : partnerName;
-        cachedPartnerInfo = "Name: " + pName;
-        cachedPartnerAlive = "Alive PKM: " + partnerAliveCount + "/6";
 
         isDirty = false;
     }
@@ -112,84 +116,76 @@ public class TowerHudOverlay {
         // 1. Top Floor Progress Box (Top-Center)
         renderTopProgressBox(context, client, width);
 
-        // 2. Co-op Partner Box (Top-Left)
-        if (!isSolo && !isSpectating) {
-            renderPartnerBox(context, client);
-        }
-
-        // 3. Battle Timer & Info (Bottom-Left)
+        // 2. Battle Timer & Info (Bottom-Left)
         if (!isSpectating) {
             renderBattleInfo(context, client, height);
         } else {
             renderGhostSupportPanel(context, client, height);
         }
 
-        // 4. Forfeit Voting Panel (Bottom-Right)
+        // 3. Forfeit Voting Panel (Bottom-Right)
         if (forfeitVoteActive && !isSpectating) {
             renderForfeitPanel(context, client, width, height);
         }
     }
 
     private static void renderTopProgressBox(DrawContext context, MinecraftClient client, int screenWidth) {
-        int boxW = 260;
-        int boxH = 50;
+        boolean hasRule = cachedRuleText != null && !cachedRuleText.isEmpty();
+        int boxW = 280;
+        int boxH = hasRule ? 50 : 38;
         int startX = (screenWidth - boxW) / 2;
         int startY = 5;
 
-        // Slate background with Primary Cyan border
-        context.fill(startX, startY, startX + boxW, startY + boxH, 0xF212171E);
-        context.drawBorder(startX, startY, boxW, boxH, 0xFF00E5FF);
+        // Dynamic Accent Border Color
+        int borderColor;
+        if (currentFloor >= 100) {
+            borderColor = 0xFFFFD700; // Gold
+        } else if (currentFloor >= 90) {
+            borderColor = 0xFFE040FB; // Magenta
+        } else if (currentFloor % 5 == 0) {
+            borderColor = 0xFFFF9100; // Orange
+        } else {
+            borderColor = 0xFF00E5FF; // Cyan
+        }
+
+        // Deep slate background with themed border
+        context.fill(startX, startY, startX + boxW, startY + boxH, 0xF210141D);
+        context.drawBorder(startX, startY, boxW, boxH, borderColor);
 
         // Floor Text
-        context.drawTextWithShadow(client.textRenderer, cachedFloorText, startX + 5, startY + 5, 0xFFFFFF);
+        context.drawTextWithShadow(client.textRenderer, cachedFloorText, startX + 6, startY + 5, 0xFFFFFF);
 
         // Progress Bar
-        int barW = boxW - 10;
-        context.fill(startX + 5, startY + 16, startX + 5 + barW, startY + 20, 0xFF333333);
+        int barW = boxW - 12;
+        context.fill(startX + 6, startY + 17, startX + 6 + barW, startY + 21, 0xFF2A2E39);
         int fillW = (int) ((Math.min(100, Math.max(1, currentFloor)) / 100f) * barW);
-        context.fill(startX + 5, startY + 16, startX + 5 + fillW, startY + 20, 0xFF00E5FF);
+        context.fill(startX + 6, startY + 17, startX + 6 + fillW, startY + 21, borderColor);
 
         // Next Boss & Cap Info
-        context.drawTextWithShadow(client.textRenderer, cachedBossAndCapText, startX + 5, startY + 24, 0xCCCCCC);
+        context.drawTextWithShadow(client.textRenderer, cachedBossAndCapText, startX + 6, startY + 26, 0xFFCCCCCC);
 
-        // Affixes / Rules
-        context.drawTextWithShadow(client.textRenderer, cachedRuleText, startX + 5, startY + 36, 0xFFFF5555);
-    }
-
-    private static void renderPartnerBox(DrawContext context, MinecraftClient client) {
-        int startX = 10;
-        int startY = 10;
-        int boxW = 140;
-        int boxH = 55;
-
-        // Muted Purple Border
-        context.fill(startX, startY, startX + boxW, startY + boxH, 0xF212171E);
-        context.drawBorder(startX, startY, boxW, boxH, 0xFFE040FB);
-
-        context.drawCenteredTextWithShadow(client.textRenderer, cachedPartnerTitle, startX + boxW / 2, startY + 5, 0xFFE040FB);
-        context.drawTextWithShadow(client.textRenderer, cachedPartnerInfo, startX + 5, startY + 18, 0xFFFFFF);
-        context.drawTextWithShadow(client.textRenderer, cachedPartnerAlive, startX + 5, startY + 29, 0xCCCCCC);
-
-        // Partner Team HP Bar
-        context.fill(startX + 5, startY + 42, startX + boxW - 5, startY + 46, 0xFF333333);
-        int hpFill = (int) (Math.min(1.0f, Math.max(0.0f, partnerHpPercent)) * (boxW - 10));
-        int hpColor = partnerHpPercent > 0.5f ? 0xFF55FF55 : (partnerHpPercent > 0.2f ? 0xFFFFFF55 : 0xFFFF5555);
-        context.fill(startX + 5, startY + 42, startX + 5 + hpFill, startY + 46, hpColor);
+        // Affixes / Rules (Only rendered when there is an active curse)
+        if (hasRule) {
+            context.drawTextWithShadow(client.textRenderer, cachedRuleText, startX + 6, startY + 38, 0xFFFFFFFF);
+        }
     }
 
     private static void renderBattleInfo(DrawContext context, MinecraftClient client, int screenHeight) {
         int startX = 10;
-        int startY = screenHeight - 20;
+        int startY = screenHeight - 22;
 
         if (runDurationSeconds != lastRenderedSecond || battleTurns != lastRenderedTurn || bpEarnedInRun != lastRenderedBp) {
             lastRenderedSecond = runDurationSeconds;
             lastRenderedTurn = battleTurns;
             lastRenderedBp = bpEarnedInRun;
-            int min = runDurationSeconds / 60;
-            int sec = runDurationSeconds % 60;
-            cachedBattleInfo = String.format("⏱ %02d:%02d  |  Turn %d  |  BP in run: +%d", min, sec, battleTurns, bpEarnedInRun);
+            int min = Math.max(0, runDurationSeconds) / 60;
+            int sec = Math.max(0, runDurationSeconds) % 60;
+            cachedBattleInfo = String.format("§f⏱ Thời gian: §b%02d:%02d  §7|  §fLượt: §eTurn %d  §7|  §fBP nhận được: §a+%d BP", min, sec, battleTurns, bpEarnedInRun);
         }
 
+        int textW = client.textRenderer.getWidth(cachedBattleInfo);
+        context.fill(startX - 4, startY - 2, startX + textW + 4, startY + 11, 0xAA10141D);
+        context.drawBorder(startX - 4, startY - 2, textW + 8, 13, 0xFF3D4A5D);
         context.drawTextWithShadow(client.textRenderer, cachedBattleInfo, startX, startY, 0xFFFFFF);
     }
 

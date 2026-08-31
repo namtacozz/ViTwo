@@ -20,6 +20,7 @@ public record SyncLeaderboardS2CPacket(List<LeaderboardEntry> entries) implement
                     buf.writeInt(entry.rank());
                     buf.writeString(entry.playerNames());
                     buf.writeBoolean(entry.isSolo());
+                    buf.writeInt(entry.highestFloor());
                     buf.writeInt(entry.durationSeconds());
                     buf.writeInt(entry.totalTurns());
                     buf.writeInt(entry.faints());
@@ -33,11 +34,12 @@ public record SyncLeaderboardS2CPacket(List<LeaderboardEntry> entries) implement
                     int rank = buf.readInt();
                     String names = buf.readString();
                     boolean solo = buf.readBoolean();
+                    int floor = buf.readInt();
                     int dur = buf.readInt();
                     int turns = buf.readInt();
                     int faints = buf.readInt();
                     long time = buf.readLong();
-                    list.add(new LeaderboardEntry(rank, names, solo, dur, turns, faints, time));
+                    list.add(new LeaderboardEntry(rank, names, solo, floor, dur, turns, faints, time));
                 }
                 return new SyncLeaderboardS2CPacket(list);
             }

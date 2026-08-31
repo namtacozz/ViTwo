@@ -29,14 +29,18 @@ public class TowerBpShopScreen extends AbstractTowerScreen {
     public record ShopEntry(
             String id,
             String displayName,
-            int price,
+            int rawPrice,
             String categoryKey,
             String categoryDisplay,
             int tier,
             String weeklyLimit,
             String description,
             String battleEffect
-    ) {}
+    ) {
+        public int price() {
+            return com.vitwo.reward.TowerRewardManager.BP_SHOP_PRICES.getOrDefault(this.id, this.rawPrice);
+        }
+    }
 
     private static final List<ShopEntry> ALL_ENTRIES = List.of(
             // === HELD & BATTLE ITEMS (Category: BATTLE) ===
@@ -136,6 +140,26 @@ public class TowerBpShopScreen extends AbstractTowerScreen {
                     "A glittering crystal of the Terastal phenomenon.",
                     "Unlocks and transforms a Pokémon's Tera Type to the supreme Stellar archetype."),
 
+            // Gems
+            new ShopEntry("normal_gem", "Normal Gem", 50, "BATTLE", "Held Item", 0, "Unlimited", "A gem with an ordinary essence.", "Boosts the power of the holder's first Normal-type move by 30%."),
+            new ShopEntry("fire_gem", "Fire Gem", 50, "BATTLE", "Held Item", 0, "Unlimited", "A gem with an essence of fire.", "Boosts the power of the holder's first Fire-type move by 30%."),
+            new ShopEntry("water_gem", "Water Gem", 50, "BATTLE", "Held Item", 0, "Unlimited", "A gem with an essence of water.", "Boosts the power of the holder's first Water-type move by 30%."),
+            new ShopEntry("electric_gem", "Electric Gem", 50, "BATTLE", "Held Item", 0, "Unlimited", "A gem with an essence of electricity.", "Boosts the power of the holder's first Electric-type move by 30%."),
+            new ShopEntry("grass_gem", "Grass Gem", 50, "BATTLE", "Held Item", 0, "Unlimited", "A gem with an essence of nature.", "Boosts the power of the holder's first Grass-type move by 30%."),
+            new ShopEntry("ice_gem", "Ice Gem", 50, "BATTLE", "Held Item", 0, "Unlimited", "A gem with an essence of ice.", "Boosts the power of the holder's first Ice-type move by 30%."),
+            new ShopEntry("fighting_gem", "Fighting Gem", 50, "BATTLE", "Held Item", 0, "Unlimited", "A gem with an essence of combat.", "Boosts the power of the holder's first Fighting-type move by 30%."),
+            new ShopEntry("poison_gem", "Poison Gem", 50, "BATTLE", "Held Item", 0, "Unlimited", "A gem with an essence of poison.", "Boosts the power of the holder's first Poison-type move by 30%."),
+            new ShopEntry("ground_gem", "Ground Gem", 50, "BATTLE", "Held Item", 0, "Unlimited", "A gem with an essence of earth.", "Boosts the power of the holder's first Ground-type move by 30%."),
+            new ShopEntry("flying_gem", "Flying Gem", 50, "BATTLE", "Held Item", 0, "Unlimited", "A gem with an essence of the sky.", "Boosts the power of the holder's first Flying-type move by 30%."),
+            new ShopEntry("psychic_gem", "Psychic Gem", 50, "BATTLE", "Held Item", 0, "Unlimited", "A gem with an essence of the mind.", "Boosts the power of the holder's first Psychic-type move by 30%."),
+            new ShopEntry("bug_gem", "Bug Gem", 50, "BATTLE", "Held Item", 0, "Unlimited", "A gem with an essence of insects.", "Boosts the power of the holder's first Bug-type move by 30%."),
+            new ShopEntry("rock_gem", "Rock Gem", 50, "BATTLE", "Held Item", 0, "Unlimited", "A gem with an essence of stone.", "Boosts the power of the holder's first Rock-type move by 30%."),
+            new ShopEntry("ghost_gem", "Ghost Gem", 50, "BATTLE", "Held Item", 0, "Unlimited", "A gem with an essence of spirits.", "Boosts the power of the holder's first Ghost-type move by 30%."),
+            new ShopEntry("dragon_gem", "Dragon Gem", 50, "BATTLE", "Held Item", 0, "Unlimited", "A gem with an essence of dragons.", "Boosts the power of the holder's first Dragon-type move by 30%."),
+            new ShopEntry("dark_gem", "Dark Gem", 50, "BATTLE", "Held Item", 0, "Unlimited", "A gem with an essence of darkness.", "Boosts the power of the holder's first Dark-type move by 30%."),
+            new ShopEntry("steel_gem", "Steel Gem", 50, "BATTLE", "Held Item", 0, "Unlimited", "A gem with an essence of steel.", "Boosts the power of the holder's first Steel-type move by 30%."),
+            new ShopEntry("fairy_gem", "Fairy Gem", 50, "BATTLE", "Held Item", 0, "Unlimited", "A gem with an essence of magic.", "Boosts the power of the holder's first Fairy-type move by 30%."),
+
             // === MINTS & TRAINING (Category: TRAINING) ===
             new ShopEntry("gold_bottle_cap", "Gold Bottle Cap", 350, "TRAINING", "Hyper Training", 2, "Max 2/wk",
                     "Supreme silver & gold bottle cap.",
@@ -212,6 +236,30 @@ public class TowerBpShopScreen extends AbstractTowerScreen {
             new ShopEntry("exp_candy_l", "EXP Candy L", 25, "TRAINING", "Leveling", 0, "Unlimited",
                     "Large concentration of EXP.",
                     "Grants 10,000 Experience Points to a single Pokémon."),
+
+            new ShopEntry("hp_up", "HP Up", 15, "TRAINING", "EV Training", 0, "Unlimited",
+                    "Nutritious drink for Pokémon.",
+                    "Increases HP Effort Values (EVs) by +10."),
+
+            new ShopEntry("protein", "Protein", 15, "TRAINING", "EV Training", 0, "Unlimited",
+                    "Nutritious drink for Pokémon.",
+                    "Increases Physical Attack Effort Values (EVs) by +10."),
+
+            new ShopEntry("iron", "Iron", 15, "TRAINING", "EV Training", 0, "Unlimited",
+                    "Nutritious drink for Pokémon.",
+                    "Increases Physical Defense Effort Values (EVs) by +10."),
+
+            new ShopEntry("calcium", "Calcium", 15, "TRAINING", "EV Training", 0, "Unlimited",
+                    "Nutritious drink for Pokémon.",
+                    "Increases Special Attack Effort Values (EVs) by +10."),
+
+            new ShopEntry("zinc", "Zinc", 15, "TRAINING", "EV Training", 0, "Unlimited",
+                    "Nutritious drink for Pokémon.",
+                    "Increases Special Defense Effort Values (EVs) by +10."),
+
+            new ShopEntry("carbos", "Carbos", 15, "TRAINING", "EV Training", 0, "Unlimited",
+                    "Nutritious drink for Pokémon.",
+                    "Increases Speed Effort Values (EVs) by +10."),
 
             new ShopEntry("power_bracer", "Power Bracer", 75, "TRAINING", "EV Training", 0, "Unlimited",
                     "Heavy physical training band.",
@@ -334,6 +382,25 @@ public class TowerBpShopScreen extends AbstractTowerScreen {
                     "Nutrient drink for moves.",
                     "Fully restores all PP for all four moves of a single Pokémon."),
 
+            new ShopEntry("poke_ball", "Poké Ball", 5, "BALLS", "Pokéball", 0, "Unlimited", "Standard Pokéball.", "A device for catching wild Pokémon."),
+            new ShopEntry("great_ball", "Great Ball", 10, "BALLS", "Pokéball", 0, "Unlimited", "High-performance Pokéball.", "Provides a higher catch rate than a standard Poké Ball."),
+            new ShopEntry("ultra_ball", "Ultra Ball", 20, "BALLS", "Pokéball", 0, "Unlimited", "Ultra-performance Pokéball.", "Provides a higher catch rate than a Great Ball."),
+            new ShopEntry("premier_ball", "Premier Ball", 20, "BALLS", "Pokéball", 0, "Unlimited", "Commemorative Pokéball.", "A rare Pokéball that has the same catch rate as a standard Poké Ball."),
+            new ShopEntry("heal_ball", "Heal Ball", 20, "BALLS", "Pokéball", 0, "Unlimited", "Restoring Pokéball.", "Fully heals the caught Pokémon's HP and status conditions."),
+            new ShopEntry("net_ball", "Net Ball", 20, "BALLS", "Pokéball", 0, "Unlimited", "Specialized Pokéball.", "More effective at catching Water- and Bug-type Pokémon."),
+            new ShopEntry("nest_ball", "Nest Ball", 20, "BALLS", "Pokéball", 0, "Unlimited", "Specialized Pokéball.", "More effective against lower-level Pokémon."),
+            new ShopEntry("dive_ball", "Dive Ball", 20, "BALLS", "Pokéball", 0, "Unlimited", "Specialized Pokéball.", "More effective when catching Pokémon in or on the water."),
+            new ShopEntry("dusk_ball", "Dusk Ball", 20, "BALLS", "Pokéball", 0, "Unlimited", "Specialized Pokéball.", "More effective at catching Pokémon at night or in caves."),
+            new ShopEntry("timer_ball", "Timer Ball", 20, "BALLS", "Pokéball", 0, "Unlimited", "Specialized Pokéball.", "Becomes more effective the more turns have passed in battle."),
+            new ShopEntry("quick_ball", "Quick Ball", 20, "BALLS", "Pokéball", 0, "Unlimited", "Specialized Pokéball.", "Highly effective if used on the very first turn of a battle."),
+            new ShopEntry("repeat_ball", "Repeat Ball", 20, "BALLS", "Pokéball", 0, "Unlimited", "Specialized Pokéball.", "More effective when catching a Pokémon species you already own."),
+            new ShopEntry("lure_ball", "Lure Ball", 100, "BALLS", "Pokéball", 0, "Unlimited", "Apricorn Pokéball.", "More effective when catching Pokémon hooked by a fishing rod."),
+            new ShopEntry("level_ball", "Level Ball", 100, "BALLS", "Pokéball", 0, "Unlimited", "Apricorn Pokéball.", "More effective if your active Pokémon is a higher level than the target."),
+            new ShopEntry("friend_ball", "Friend Ball", 100, "BALLS", "Pokéball", 0, "Unlimited", "Apricorn Pokéball.", "Sets the caught Pokémon's friendship base value to 200 immediately."),
+            new ShopEntry("love_ball", "Love Ball", 100, "BALLS", "Pokéball", 0, "Unlimited", "Apricorn Pokéball.", "More effective if catching a Pokémon of the opposite gender to yours."),
+            new ShopEntry("safari_ball", "Safari Ball", 150, "BALLS", "Pokéball", 0, "Unlimited", "Specialty Pokéball.", "A special Pokéball originally used only in the Safari Zone."),
+            new ShopEntry("sport_ball", "Sport Ball", 150, "BALLS", "Pokéball", 0, "Unlimited", "Specialty Pokéball.", "A special Pokéball originally used in the Bug-Catching Contest."),
+
             // === COSMETICS & PRESTIGE (Category: COSMETICS) ===
             new ShopEntry("cosmetic_shiny_aura", "Shiny Golden Aura", 3000, "COSMETICS", "Aura", 3, "1-time",
                     "Aesthetic Particle Aura.",
@@ -392,6 +459,7 @@ public class TowerBpShopScreen extends AbstractTowerScreen {
 
     @Override
     protected void init() {
+        ClientPlayNetworking.send(new com.vitwo.network.c2s.RequestHubSyncC2SPacket());
         int centerX = this.width / 2;
         int centerY = this.height / 2;
 
@@ -721,6 +789,7 @@ public class TowerBpShopScreen extends AbstractTowerScreen {
 
             return switch (k) {
                 case "rare_candy", "exp_candy_xl", "exp_candy_l", "pp_max", "pp_up" -> new ItemStack(Items.EXPERIENCE_BOTTLE);
+                case "hp_up", "protein", "iron", "calcium", "zinc", "carbos" -> new ItemStack(Items.POTION);
                 case "gold_bottle_cap" -> new ItemStack(Items.GOLD_INGOT);
                 case "bottle_cap" -> new ItemStack(Items.IRON_NUGGET);
                 case "master_ball", "beast_ball", "cherish_ball", "luxury_ball", "heavy_ball", "fast_ball", "moon_ball", "dream_ball" -> new ItemStack(Items.ENDER_EYE);

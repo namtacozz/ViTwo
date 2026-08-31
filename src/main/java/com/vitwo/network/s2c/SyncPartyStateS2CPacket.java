@@ -21,7 +21,13 @@ public record SyncPartyStateS2CPacket(
         int forfeitVotes,
         String currentBossName,
         int battlePoints,
-        boolean isTrueRun
+        boolean isTrueRun,
+        int highestFloor,
+        int runDurationSeconds,
+        int battleTurns,
+        int bpEarnedInRun,
+        int partnerAliveCount,
+        float partnerHpPercent
 ) implements CustomPayload {
     public static final Id<SyncPartyStateS2CPacket> ID = new Id<>(Identifier.of(ViTwoPackets.MOD_ID, "sync_party_state_s2c"));
 
@@ -42,24 +48,62 @@ public record SyncPartyStateS2CPacket(
                 buf.writeString(value.currentBossName());
                 buf.writeInt(value.battlePoints());
                 buf.writeBoolean(value.isTrueRun());
+                buf.writeInt(value.highestFloor());
+                buf.writeInt(value.runDurationSeconds());
+                buf.writeInt(value.battleTurns());
+                buf.writeInt(value.bpEarnedInRun());
+                buf.writeInt(value.partnerAliveCount());
+                buf.writeFloat(value.partnerHpPercent());
             },
-            buf -> new SyncPartyStateS2CPacket(
-                    buf.readBoolean(),
-                    buf.readBoolean(),
-                    buf.readString(),
-                    buf.readString(),
-                    buf.readInt(),
-                    buf.readInt(),
-                    buf.readInt(),
-                    buf.readBoolean(),
-                    buf.readBoolean(),
-                    buf.readString(),
-                    buf.readBoolean(),
-                    buf.readInt(),
-                    buf.readString(),
-                    buf.readInt(),
-                    buf.readBoolean()
-            )
+            buf -> {
+                boolean hasParty = buf.readBoolean();
+                boolean isLeader = buf.readBoolean();
+                String leaderName = buf.readString();
+                String memberName = buf.readString();
+                int currentFloor = buf.readInt();
+                int soloCheckpoint = buf.readInt();
+                int duoCheckpoint = buf.readInt();
+                boolean inBattle = buf.readBoolean();
+                boolean isSpectating = buf.readBoolean();
+                String pendingInviterName = buf.readString();
+                boolean inTowerSession = buf.readBoolean();
+                int forfeitVotes = buf.readInt();
+                String currentBossName = buf.readString();
+                int battlePoints = buf.readInt();
+                boolean isTrueRun = buf.readBoolean();
+                int highestFloor = buf.readInt();
+
+                // Gracefully handle backwards-compatibility with servers sending 16-field packet
+                int runDurationSeconds = buf.isReadable(4) ? buf.readInt() : 0;
+                int battleTurns = buf.isReadable(4) ? buf.readInt() : 0;
+                int bpEarnedInRun = buf.isReadable(4) ? buf.readInt() : 0;
+                int partnerAliveCount = buf.isReadable(4) ? buf.readInt() : 0;
+                float partnerHpPercent = buf.isReadable(4) ? buf.readFloat() : 1.0f;
+
+                return new SyncPartyStateS2CPacket(
+                        hasParty,
+                        isLeader,
+                        leaderName,
+                        memberName,
+                        currentFloor,
+                        soloCheckpoint,
+                        duoCheckpoint,
+                        inBattle,
+                        isSpectating,
+                        pendingInviterName,
+                        inTowerSession,
+                        forfeitVotes,
+                        currentBossName,
+                        battlePoints,
+                        isTrueRun,
+                        highestFloor,
+                        runDurationSeconds,
+                        battleTurns,
+                        bpEarnedInRun,
+                        partnerAliveCount,
+                        partnerHpPercent
+                );
+            }
     );
 
     @Override

@@ -31,6 +31,7 @@ public class TowerLeaderboardManager {
             int rank,
             String playerNames,
             boolean isSolo,
+            int highestFloor,
             int durationSeconds,
             int totalTurns,
             int faints,
@@ -84,13 +85,35 @@ public class TowerLeaderboardManager {
         }
     }
 
-    public synchronized boolean recordCompletion(String playerNames, boolean isSolo, int durationSeconds, int totalTurns, int faints) {
+    public synchronized boolean recordProgress(String playerNames, boolean isSolo, int highestFloor, int durationSeconds, int totalTurns, int faints) {
         if (playerNames == null || playerNames.isBlank()) return false;
+
+        // Check if an entry already exists for this challenger
+        int existingIndex = -1;
+        for (int i = 0; i < topEntries.size(); i++) {
+            LeaderboardEntry entry = topEntries.get(i);
+            if (entry.playerNames().equalsIgnoreCase(playerNames) && entry.isSolo() == isSolo) {
+                existingIndex = i;
+                break;
+            }
+        }
+
+        if (existingIndex >= 0) {
+            LeaderboardEntry old = topEntries.get(existingIndex);
+            // Only update if higher floor reached or same floor with better time/turns
+            if (highestFloor > old.highestFloor() || 
+               (highestFloor == old.highestFloor() && durationSeconds < old.durationSeconds())) {
+                topEntries.remove(existingIndex);
+            } else {
+                return false;
+            }
+        }
 
         LeaderboardEntry newEntry = new LeaderboardEntry(
                 1,
                 playerNames,
                 isSolo,
+                highestFloor,
                 durationSeconds,
                 totalTurns,
                 faints,
@@ -103,10 +126,15 @@ public class TowerLeaderboardManager {
         return true;
     }
 
+    public synchronized boolean recordCompletion(String playerNames, boolean isSolo, int durationSeconds, int totalTurns, int faints) {
+        return recordProgress(playerNames, isSolo, 100, durationSeconds, totalTurns, faints);
+    }
+
     private void sortAndTrim() {
-        // Sort primarily by duration (fastest time), then by total turns, then by faints
+        // Sort: 1. highestFloor DESC, 2. durationSeconds ASC, 3. totalTurns ASC, 4. faints ASC
         topEntries.sort(Comparator
-                .comparingInt(LeaderboardEntry::durationSeconds)
+                .comparingInt(LeaderboardEntry::highestFloor).reversed()
+                .thenComparingInt(LeaderboardEntry::durationSeconds)
                 .thenComparingInt(LeaderboardEntry::totalTurns)
                 .thenComparingInt(LeaderboardEntry::faints)
         );
@@ -120,6 +148,7 @@ public class TowerLeaderboardManager {
                     i + 1,
                     old.playerNames(),
                     old.isSolo(),
+                    old.highestFloor(),
                     old.durationSeconds(),
                     old.totalTurns(),
                     old.faints(),

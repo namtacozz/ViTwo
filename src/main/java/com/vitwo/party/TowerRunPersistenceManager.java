@@ -53,6 +53,8 @@ public class TowerRunPersistenceManager {
         public float originalMemberYaw, originalMemberPitch;
         public List<SavedPokemonState> teamA = new ArrayList<>();
         public List<SavedPokemonState> teamB = new ArrayList<>();
+        public Map<String, Map<String, Integer>> originalPokemonLevels = new ConcurrentHashMap<>();
+        public Map<String, Map<String, Integer>> originalPokemonExperience = new ConcurrentHashMap<>();
     }
 
     private final Map<UUID, ActiveRunData> activeRuns = new ConcurrentHashMap<>();
@@ -108,6 +110,14 @@ public class TowerRunPersistenceManager {
         data.originalMemberYaw = party.getOriginalMemberYaw();
         data.originalMemberPitch = party.getOriginalMemberPitch();
 
+        // Save original pokemon levels and experience for safe restoration
+        if (party.getAllOriginalPokemonLevels() != null) {
+            data.originalPokemonLevels.putAll(party.getAllOriginalPokemonLevels());
+        }
+        if (party.getAllOriginalPokemonExperience() != null) {
+            data.originalPokemonExperience.putAll(party.getAllOriginalPokemonExperience());
+        }
+
         activeRuns.put(party.getLeaderId(), data);
         if (party.getMemberId() != null) {
             activeRuns.put(party.getMemberId(), data);
@@ -117,29 +127,33 @@ public class TowerRunPersistenceManager {
     }
 
     private void saveToFile(UUID uuid, ActiveRunData data) {
+        String json = GSON.toJson(data);
         File file = getRunFile(uuid);
-        File tmpFile = new File(file.getAbsolutePath() + ".tmp");
-        File bakFile = new File(file.getAbsolutePath() + ".bak");
 
-        try {
-            try (java.io.FileOutputStream fos = new java.io.FileOutputStream(tmpFile);
-                 java.io.OutputStreamWriter osw = new java.io.OutputStreamWriter(fos, java.nio.charset.StandardCharsets.UTF_8);
-                 java.io.BufferedWriter writer = new java.io.BufferedWriter(osw)) {
-                GSON.toJson(data, writer);
-                writer.flush();
-                fos.getFD().sync();
+        com.vitwo.config.TowerPersistenceService.getInstance().submitAsyncTask(() -> {
+            File tmpFile = new File(file.getAbsolutePath() + ".tmp");
+            File bakFile = new File(file.getAbsolutePath() + ".bak");
+
+            try {
+                try (java.io.FileOutputStream fos = new java.io.FileOutputStream(tmpFile);
+                     java.io.OutputStreamWriter osw = new java.io.OutputStreamWriter(fos, java.nio.charset.StandardCharsets.UTF_8);
+                     java.io.BufferedWriter writer = new java.io.BufferedWriter(osw)) {
+                    writer.write(json);
+                    writer.flush();
+                    fos.getFD().sync();
+                }
+
+                if (file.exists()) {
+                    try {
+                        java.nio.file.Files.copy(file.toPath(), bakFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+                    } catch (Exception ignored) {}
+                }
+
+                java.nio.file.Files.move(tmpFile.toPath(), file.toPath(), java.nio.file.StandardCopyOption.ATOMIC_MOVE, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+            } catch (Exception e) {
+                org.slf4j.LoggerFactory.getLogger("vitwo").error("[CobbleTower] Failed to asynchronously save run data for " + uuid, e);
             }
-
-            if (file.exists()) {
-                try {
-                    java.nio.file.Files.copy(file.toPath(), bakFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
-                } catch (Exception ignored) {}
-            }
-
-            java.nio.file.Files.move(tmpFile.toPath(), file.toPath(), java.nio.file.StandardCopyOption.ATOMIC_MOVE, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
-        } catch (Exception e) {
-            org.slf4j.LoggerFactory.getLogger("vitwo").error("[CobbleTower] Failed to atomically save run data for " + uuid, e);
-        }
+        });
     }
 
     public synchronized Optional<ActiveRunData> getActiveRun(UUID playerUuid) {
@@ -249,6 +263,14 @@ public class TowerRunPersistenceManager {
 
         party.setOriginalLeaderExact(data.originalLeaderDim, data.originalLeaderX, data.originalLeaderY, data.originalLeaderZ, data.originalLeaderYaw, data.originalLeaderPitch);
         party.setOriginalMemberExact(data.originalMemberDim, data.originalMemberX, data.originalMemberY, data.originalMemberZ, data.originalMemberYaw, data.originalMemberPitch);
+
+        // Restore original pokemon levels & experience
+        if (data.originalPokemonLevels != null) {
+            party.setAllOriginalPokemonLevels(data.originalPokemonLevels);
+        }
+        if (data.originalPokemonExperience != null) {
+            party.setAllOriginalPokemonExperience(data.originalPokemonExperience);
+        }
 
         TowerPartyManager.getInstance().registerRestoredParty(party, server);
         return true;

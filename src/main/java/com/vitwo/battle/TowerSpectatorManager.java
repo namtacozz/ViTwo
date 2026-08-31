@@ -1,5 +1,7 @@
 package com.vitwo.battle;
 
+import com.cobblemon.mod.common.Cobblemon;
+import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.vitwo.party.TowerParty;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
@@ -86,28 +88,22 @@ public class TowerSpectatorManager {
 
     private void healPartnerActivePokemon(ServerPlayerEntity player, float percent) {
         try {
-            Class<?> cobblemonClass = Class.forName("com.cobblemon.mod.common.Cobblemon");
-            Object cobblemonInst = cobblemonClass.getField("INSTANCE").get(null);
-            java.lang.reflect.Method getStorageMethod = cobblemonInst.getClass().getMethod("getStorage");
-            Object storage = getStorageMethod.invoke(cobblemonInst);
-            java.lang.reflect.Method getPartyMethod = storage.getClass().getMethod("getParty", ServerPlayerEntity.class);
-            Iterable<?> party = (Iterable<?>) getPartyMethod.invoke(storage, player);
-
-            for (Object pokemon : party) {
-                if (pokemon == null) continue;
-                java.lang.reflect.Method getCurrentHealth = pokemon.getClass().getMethod("getCurrentHealth");
-                java.lang.reflect.Method getMaxHealth = pokemon.getClass().getMethod("getMaxHealth");
-                java.lang.reflect.Method setCurrentHealth = pokemon.getClass().getMethod("setCurrentHealth", int.class);
-
-                int currentHp = (int) getCurrentHealth.invoke(pokemon);
-                int maxHp = (int) getMaxHealth.invoke(pokemon);
-                if (currentHp > 0 && currentHp < maxHp) {
-                    int heal = (int) (maxHp * percent);
-                    setCurrentHealth.invoke(pokemon, Math.min(maxHp, currentHp + heal));
-                    break;
+            var party = Cobblemon.INSTANCE.getStorage().getParty(player);
+            if (party != null) {
+                for (Pokemon mon : party) {
+                    if (mon == null) continue;
+                    int currentHp = mon.getCurrentHealth();
+                    int maxHp = mon.getMaxHealth();
+                    if (currentHp > 0 && currentHp < maxHp) {
+                        int heal = (int) (maxHp * percent);
+                        mon.setCurrentHealth(Math.min(maxHp, currentHp + heal));
+                        party.onPokemonChanged(mon);
+                        party.sendTo(player);
+                        break;
+                    }
                 }
             }
-        } catch (Exception ignored) {}
+        } catch (Throwable ignored) {}
     }
 
     public void syncGhostCharges(ServerPlayerEntity player, TowerParty party) {

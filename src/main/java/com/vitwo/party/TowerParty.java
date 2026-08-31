@@ -37,6 +37,12 @@ public class TowerParty {
     private final Set<UUID> spectatingPlayers = ConcurrentHashMap.newKeySet();
     private final Map<UUID, Integer> restChoices = new ConcurrentHashMap<>();
     private final Set<UUID> forfeitVotes = ConcurrentHashMap.newKeySet();
+    private final Set<UUID> readyPlayers = ConcurrentHashMap.newKeySet();
+    private final Map<String, Map<String, Integer>> originalPokemonLevels = new ConcurrentHashMap<>();
+    private final Map<String, Map<String, Integer>> originalPokemonExperience = new ConcurrentHashMap<>();
+    private int stallTicks = 0;
+    private int hardStallTicks = 0;
+    private int noBattleTicks = 0;
 
     private UUID disconnectedPlayerId = null;
     private long disconnectTimestamp = 0;
@@ -54,9 +60,60 @@ public class TowerParty {
     private int attemptId = (int) (System.currentTimeMillis() % 100000);
     private int arenaSlot = -1;
 
+    private final List<com.vitwo.reward.GachaPokemonCandidate> encounteredPokemonHistory = new java.util.concurrent.CopyOnWriteArrayList<>();
+    private int lastGachaFloor = 0;
+
+    public void recordEncounteredPokemon(com.cobblemon.mod.common.pokemon.Pokemon mon) {
+        if (mon == null || mon.getSpecies() == null) return;
+        String speciesName = mon.getSpecies().getName().toLowerCase(Locale.ROOT);
+        String displayName = mon.getSpecies().getTranslatedName().getString();
+
+        com.cobblemon.mod.common.pokemon.Species base = com.vitwo.reward.TowerRewardManager.getBaseSpecies(mon.getSpecies());
+        String baseSpecies = base != null ? base.getName().toLowerCase(Locale.ROOT) : speciesName;
+        String formAspect = com.vitwo.reward.TowerRewardManager.extractRegionalAspect(mon);
+
+        String pType = mon.getPrimaryType() != null ? mon.getPrimaryType().getName() : "Normal";
+        String sType = mon.getSecondaryType() != null ? mon.getSecondaryType().getName() : "";
+        boolean isLegend = com.vitwo.reward.TowerRewardManager.isLegendaryOrMythical(mon.getSpecies());
+        boolean isShiny = mon.getShiny();
+
+        var candidate = com.vitwo.reward.GachaPokemonCandidate.of(
+                encounteredPokemonHistory.size(),
+                speciesName,
+                displayName,
+                baseSpecies,
+                formAspect,
+                pType,
+                sType,
+                isLegend,
+                isShiny
+        );
+
+        boolean exists = encounteredPokemonHistory.stream().anyMatch(c ->
+                c.speciesName().equalsIgnoreCase(speciesName) && c.formAspect().equalsIgnoreCase(formAspect));
+        if (!exists) {
+            encounteredPokemonHistory.add(candidate);
+        }
+    }
+
+    public List<com.vitwo.reward.GachaPokemonCandidate> drainEncounteredCandidates(int floor) {
+        List<com.vitwo.reward.GachaPokemonCandidate> pool = new ArrayList<>(encounteredPokemonHistory);
+        encounteredPokemonHistory.clear();
+        this.lastGachaFloor = floor;
+        return pool;
+    }
+
+    public int getLastGachaFloor() {
+        return lastGachaFloor;
+    }
+
+    public void setLastGachaFloor(int lastGachaFloor) {
+        this.lastGachaFloor = lastGachaFloor;
+    }
+
     public void rollFloorTrainer(int floor) {
-        this.currentTrainerId = com.vitwo.battle.TrainerPool.getRctTrainerIdForFloor(floor);
-        this.currentBossName = com.vitwo.battle.TrainerPool.getTrainerDisplayName(floor, this.currentTrainerId);
+        this.currentTrainerId = com.vitwo.battle.TrainerPool.getTrainerIdForFloor(this.attemptId, floor);
+        this.currentBossName = com.vitwo.battle.TrainerPool.getTrainerDisplayName(this.attemptId, floor, this.currentTrainerId);
     }
 
     public String getCurrentTrainerId() {
@@ -131,6 +188,22 @@ public class TowerParty {
 
     public int getArenaSlot() {
         return arenaSlot;
+    }
+
+    public int incrementHardStallTicks() {
+        return ++hardStallTicks;
+    }
+
+    public void resetHardStallTicks() {
+        hardStallTicks = 0;
+    }
+
+    public int incrementNoBattleTicks() {
+        return ++noBattleTicks;
+    }
+
+    public void resetNoBattleTicks() {
+        noBattleTicks = 0;
     }
 
     public void setArenaSlot(int arenaSlot) {
@@ -344,6 +417,29 @@ public class TowerParty {
         return (int) ((System.currentTimeMillis() - startTimeMillis) / 1000L);
     }
 
+    private int bpEarnedInRun = 0;
+    private int currentBattleTurns = 0;
+
+    public int getBpEarnedInRun() {
+        return bpEarnedInRun;
+    }
+
+    public void setBpEarnedInRun(int bpEarnedInRun) {
+        this.bpEarnedInRun = bpEarnedInRun;
+    }
+
+    public void addBpEarnedInRun(int amount) {
+        this.bpEarnedInRun += amount;
+    }
+
+    public int getCurrentBattleTurns() {
+        return currentBattleTurns;
+    }
+
+    public void setCurrentBattleTurns(int currentBattleTurns) {
+        this.currentBattleTurns = currentBattleTurns;
+    }
+
     public boolean isMercyUsed() {
         return mercyUsed;
     }
@@ -409,5 +505,99 @@ public class TowerParty {
             turnsSinceLastSupportCharge = 0;
             addSupportCharge();
         }
+    }
+
+    public void setReady(UUID playerId, boolean ready) {
+        if (ready) readyPlayers.add(playerId);
+        else readyPlayers.remove(playerId);
+    }
+
+    public boolean isReady(UUID playerId) {
+        return readyPlayers.contains(playerId);
+    }
+
+    public int getReadyCount() {
+        return readyPlayers.size();
+    }
+
+    public boolean areBothReady() {
+        if (isSolo || memberId == null) {
+            return readyPlayers.contains(leaderId);
+        }
+        return readyPlayers.contains(leaderId) && readyPlayers.contains(memberId);
+    }
+
+    public void clearReady() {
+        readyPlayers.clear();
+    }
+
+    public void recordOriginalPokemonLevel(UUID playerId, UUID pokemonId, int level) {
+        originalPokemonLevels.computeIfAbsent(playerId.toString(), k -> new ConcurrentHashMap<>()).putIfAbsent(pokemonId.toString(), level);
+    }
+
+    public void recordOriginalPokemonState(UUID playerId, UUID pokemonId, int level, int experience) {
+        originalPokemonLevels.computeIfAbsent(playerId.toString(), k -> new ConcurrentHashMap<>()).putIfAbsent(pokemonId.toString(), level);
+        originalPokemonExperience.computeIfAbsent(playerId.toString(), k -> new ConcurrentHashMap<>()).putIfAbsent(pokemonId.toString(), experience);
+    }
+
+    public Integer getOriginalPokemonLevel(UUID playerId, UUID pokemonId) {
+        Map<String, Integer> map = originalPokemonLevels.get(playerId.toString());
+        return map != null ? map.get(pokemonId.toString()) : null;
+    }
+
+    public Integer getOriginalPokemonExperience(UUID playerId, UUID pokemonId) {
+        Map<String, Integer> map = originalPokemonExperience.get(playerId.toString());
+        return map != null ? map.get(pokemonId.toString()) : null;
+    }
+
+    /**
+     * Returns the full map of originalPokemonUUID -> originalLevel for a specific player.
+     * Used by LevelCapManager.restorePlayerLevels() for safe bulk restoration.
+     */
+    public Map<String, Integer> getOriginalPokemonLevelsForPlayer(UUID playerId) {
+        return originalPokemonLevels.get(playerId.toString());
+    }
+
+    public Map<String, Integer> getOriginalPokemonExperienceForPlayer(UUID playerId) {
+        return originalPokemonExperience.get(playerId.toString());
+    }
+
+    public Map<String, Map<String, Integer>> getAllOriginalPokemonLevels() {
+        return originalPokemonLevels;
+    }
+
+    public Map<String, Map<String, Integer>> getAllOriginalPokemonExperience() {
+        return originalPokemonExperience;
+    }
+
+    public void setAllOriginalPokemonLevels(Map<String, Map<String, Integer>> levels) {
+        originalPokemonLevels.clear();
+        if (levels != null) {
+            originalPokemonLevels.putAll(levels);
+        }
+    }
+
+    public void setAllOriginalPokemonExperience(Map<String, Map<String, Integer>> expMap) {
+        originalPokemonExperience.clear();
+        if (expMap != null) {
+            originalPokemonExperience.putAll(expMap);
+        }
+    }
+
+    public void clearOriginalPokemonLevels() {
+        originalPokemonLevels.clear();
+        originalPokemonExperience.clear();
+    }
+
+    public int incrementStallTicks() {
+        return ++this.stallTicks;
+    }
+
+    public void resetStallTicks() {
+        this.stallTicks = 0;
+    }
+
+    public int getStallTicks() {
+        return this.stallTicks;
     }
 }

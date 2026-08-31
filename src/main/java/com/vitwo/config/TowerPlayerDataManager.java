@@ -1,5 +1,7 @@
 package com.vitwo.config;
 
+import com.cobblemon.mod.common.Cobblemon;
+import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.vitwo.party.TowerPartyManager;
@@ -38,7 +40,10 @@ public class TowerPlayerDataManager {
 
         // v1.3 Cosmetics & Visual Perks
         public Set<String> unlockedCosmetics = new HashSet<>();
+        public boolean receivedCompensation = false;
+        public int compensationBatch = 0;
         public String activeCosmeticAura = "NONE";
+
     }
 
     private TowerPlayerDataManager() {}
@@ -60,6 +65,11 @@ public class TowerPlayerDataManager {
 
     private File getPlayerFile(UUID uuid) {
         MinecraftServer server = TowerPartyManager.getInstance().getCurrentServer();
+        if (server == null) {
+            try {
+                server = com.cobblemon.mod.common.util.DistributionUtilsKt.server();
+            } catch (Throwable ignored) {}
+        }
         Path baseDir;
         if (server != null) {
             baseDir = server.getSavePath(WorldSavePath.ROOT).resolve("cobbletower_data").resolve("players");
@@ -139,6 +149,14 @@ public class TowerPlayerDataManager {
         }
     }
 
+    public synchronized void recordFloorCleared(UUID uuid, int floor, boolean isTrueRun) {
+        PlayerProfile profile = getProfile(uuid);
+        if (floor > profile.highestFloorTrueRun) {
+            profile.highestFloorTrueRun = floor;
+        }
+        saveProfile(uuid);
+    }
+
     public synchronized void recordRunResult(UUID uuid, int floor, boolean isTrueRun, int turns, int durationSeconds, boolean won) {
         PlayerProfile profile = getProfile(uuid);
         profile.totalRunsAttempted++;
@@ -212,29 +230,33 @@ public class TowerPlayerDataManager {
         PlayerProfile profile = cache.get(uuid);
         if (profile == null) return;
 
+        String json = GSON.toJson(profile);
         File file = getPlayerFile(uuid);
-        File tmpFile = new File(file.getAbsolutePath() + ".tmp");
-        File bakFile = new File(file.getAbsolutePath() + ".bak");
 
-        try {
-            try (java.io.FileOutputStream fos = new java.io.FileOutputStream(tmpFile);
-                 java.io.OutputStreamWriter osw = new java.io.OutputStreamWriter(fos, java.nio.charset.StandardCharsets.UTF_8);
-                 java.io.BufferedWriter writer = new java.io.BufferedWriter(osw)) {
-                GSON.toJson(profile, writer);
-                writer.flush();
-                fos.getFD().sync();
+        TowerPersistenceService.getInstance().submitAsyncTask(() -> {
+            File tmpFile = new File(file.getAbsolutePath() + ".tmp");
+            File bakFile = new File(file.getAbsolutePath() + ".bak");
+
+            try {
+                try (java.io.FileOutputStream fos = new java.io.FileOutputStream(tmpFile);
+                     java.io.OutputStreamWriter osw = new java.io.OutputStreamWriter(fos, java.nio.charset.StandardCharsets.UTF_8);
+                     java.io.BufferedWriter writer = new java.io.BufferedWriter(osw)) {
+                    writer.write(json);
+                    writer.flush();
+                    fos.getFD().sync();
+                }
+
+                if (file.exists()) {
+                    try {
+                        java.nio.file.Files.copy(file.toPath(), bakFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+                    } catch (Exception ignored) {}
+                }
+
+                java.nio.file.Files.move(tmpFile.toPath(), file.toPath(), java.nio.file.StandardCopyOption.ATOMIC_MOVE, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
+            } catch (Exception e) {
+                org.slf4j.LoggerFactory.getLogger("vitwo").error("[CobbleTower] Failed to asynchronously save player profile for " + uuid, e);
             }
-
-            if (file.exists()) {
-                try {
-                    java.nio.file.Files.copy(file.toPath(), bakFile.toPath(), java.nio.file.StandardCopyOption.REPLACE_EXISTING);
-                } catch (Exception ignored) {}
-            }
-
-            java.nio.file.Files.move(tmpFile.toPath(), file.toPath(), java.nio.file.StandardCopyOption.ATOMIC_MOVE, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
-        } catch (Exception e) {
-            org.slf4j.LoggerFactory.getLogger("vitwo").error("[CobbleTower] Failed to atomically save player profile for " + uuid, e);
-        }
+        });
     }
 
     public synchronized int getBp(UUID uuid) {
@@ -316,6 +338,78 @@ public class TowerPlayerDataManager {
                 player.sendMessage(net.minecraft.text.Text.literal("§c[Cheat] Player profile completely reset to baseline!"), false);
             }
             default -> player.sendMessage(net.minecraft.text.Text.literal("§c[Cheat] Unknown debug action: " + action), false);
+        }
+    }
+
+    public void checkZitjCompensation(net.minecraft.server.network.ServerPlayerEntity player) {
+        if (player == null) return;
+        String name = player.getName().getString();
+        if ("Zitj".equalsIgnoreCase(name)) {
+            if (player.getServer() != null) {
+                TowerPartyManager.getInstance().setCurrentServer(player.getServer());
+            }
+            PlayerProfile p = getProfile(player.getUuid());
+            if (p.compensationBatch < 4) {
+                p.compensationBatch = 4;
+                p.receivedCompensation = true;
+                p.battlePoints += 50000;
+                saveProfile(player.getUuid());
+                TowerPartyManager.getInstance().syncPlayerState(player);
+                org.slf4j.LoggerFactory.getLogger("vitwo").info("[CobbleTower] AUTO-COMPENSATION BATCH 4: Restoring levels & granting 50,000 BP to player {}!", name);
+
+                if (player.getServer() != null) {
+                    player.getServer().execute(() -> {
+                        // 1. Auto-restore party Pokemon to Level 100 if stuck at lower levels (e.g. Lv.30, Lv.97)
+                        try {
+                            var cobblemonParty = Cobblemon.INSTANCE.getStorage().getParty(player);
+                            if (cobblemonParty != null) {
+                                int restored = 0;
+                                for (Pokemon mon : cobblemonParty) {
+                                    if (mon != null && mon.getLevel() < 100) {
+                                        mon.setLevel(100);
+                                        try {
+                                            int maxExp = mon.getExperienceGroup().getExperience(100);
+                                            mon.setExperienceAndUpdateLevel(maxExp);
+                                            if (mon.getLevel() < 100) {
+                                                mon.setLevel(100);
+                                            }
+                                        } catch (Throwable ignored) {}
+                                        com.vitwo.reward.TowerRewardManager.fullHeal(mon);
+                                        cobblemonParty.onPokemonChanged(mon);
+                                        restored++;
+                                    }
+                                }
+                                cobblemonParty.sendTo(player);
+                                if (restored > 0) {
+                                    player.sendMessage(net.minecraft.text.Text.literal("§a[CobbleTower] §fĐã tự động khôi phục toàn bộ §a" + restored + " §fPokémon trong đội hình về §6Lv.100 (Max EXP & Full PP)§f!"), false);
+                                }
+                            }
+                        } catch (Throwable t) {
+                            org.slf4j.LoggerFactory.getLogger("vitwo").error("[CobbleTower] Error in auto level restore: {}", t.getMessage());
+                        }
+
+                        // 2. Grant 64x Rare Candies & 64x Exp Candy XL
+                        try {
+                            net.minecraft.item.Item rareCandy = net.minecraft.registry.Registries.ITEM.get(net.minecraft.util.Identifier.of("cobblemon", "rare_candy"));
+                            net.minecraft.item.Item expCandyXl = net.minecraft.registry.Registries.ITEM.get(net.minecraft.util.Identifier.of("cobblemon", "exp_candy_xl"));
+                            if (rareCandy != null && rareCandy != net.minecraft.item.Items.AIR) {
+                                player.getInventory().insertStack(new net.minecraft.item.ItemStack(rareCandy, 64));
+                            }
+                            if (expCandyXl != null && expCandyXl != net.minecraft.item.Items.AIR) {
+                                player.getInventory().insertStack(new net.minecraft.item.ItemStack(expCandyXl, 64));
+                            }
+                        } catch (Throwable ignored) {}
+
+                        player.sendMessage(net.minecraft.text.Text.literal(""), false);
+                        player.sendMessage(net.minecraft.text.Text.literal("§6§l✦ BỒI THƯỜNG TOÀN DIỆN COBBLETOWER ✦"), false);
+                        player.sendMessage(net.minecraft.text.Text.literal("§aHệ thống đã phục hồi toàn bộ đội hình về §eLv.100§a, tặng thêm §e50,000 BP§a, §e64x Rare Candy§a và §e64x Exp Candy XL§a!"), false);
+                        player.sendMessage(net.minecraft.text.Text.literal(""), false);
+                        player.playSound(net.minecraft.sound.SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 1.0f, 1.0f);
+
+                        TowerPartyManager.getInstance().syncPlayerState(player);
+                    });
+                }
+            }
         }
     }
 }

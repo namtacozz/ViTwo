@@ -44,7 +44,8 @@ public class TowerArenaManager {
     );
 
     // Arena Pooling Variables
-    private static final Set<Integer> activeSlots = ConcurrentHashMap.newKeySet();
+    private static final java.util.BitSet activeSlotBits = new java.util.BitSet();
+    private static final Object slotLock = new Object();
     private static final Set<Integer> builtSlots = ConcurrentHashMap.newKeySet();
 
     private TowerArenaManager() {}
@@ -63,18 +64,21 @@ public class TowerArenaManager {
 
     public static int allocateSlot() {
         int maxSlots = com.vitwo.config.TowerConfig.getInstance().arena.maxArenaSlots;
-        for (int i = 0; i < maxSlots; i++) {
-            if (!activeSlots.contains(i)) {
-                activeSlots.add(i);
-                return i;
+        synchronized (slotLock) {
+            int next = activeSlotBits.nextClearBit(0);
+            if (next < maxSlots) {
+                activeSlotBits.set(next);
+                return next;
             }
+            return -1; // Capacity full
         }
-        return -1; // Capacity full
     }
 
     public static void freeSlot(int slot) {
         if (slot >= 0) {
-            activeSlots.remove(slot);
+            synchronized (slotLock) {
+                activeSlotBits.clear(slot);
+            }
         }
     }
 

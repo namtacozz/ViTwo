@@ -1,8 +1,11 @@
 package com.vitwo.battle;
 
+import com.cobblemon.mod.common.Cobblemon;
+import com.cobblemon.mod.common.api.moves.Move;
+import com.cobblemon.mod.common.pokemon.Pokemon;
+import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 
-import java.lang.reflect.Method;
 import java.util.*;
 
 public class TowerClauseManager {
@@ -29,6 +32,12 @@ public class TowerClauseManager {
             "kubfu", "urshifu", "zarude", "regieleki", "regidrago", "glastrier", "spectrier", "enamorus",
             "wo_chien", "chien_pao", "ting_lu", "chi_yu", "roaring_moon", "iron_valiant", "walking_wake", "iron_leaves", "okidogi", "munkidori", "fezandipiti", "ogerpon", "gouging_fire", "raging_bolt", "iron_boulder", "iron_crown", "pecharunt", "mew"
     );
+
+    // Anti-Cheese Banned Sets
+    public static final Set<String> BANNED_EVASION_MOVES = Set.of("doubleteam", "minimize");
+    public static final Set<String> BANNED_OHKO_MOVES = Set.of("sheercold", "fissure", "horndrill", "guillotine");
+    public static final Set<String> BANNED_SWAGGER_MOVES = Set.of("swagger");
+    public static final Set<String> BANNED_ABILITIES = Set.of("moody");
 
     private TowerClauseManager() {}
 
@@ -70,13 +79,13 @@ public class TowerClauseManager {
 
     public boolean isRestricted(String species) {
         if (species == null) return false;
-        String clean = species.toLowerCase().replace(" ", "_").replace("-", "_");
+        String clean = species.toLowerCase(Locale.ROOT).replace(" ", "_").replace("-", "_");
         return RESTRICTED_LEGENDARIES.contains(clean);
     }
 
     public boolean isNonRestricted(String species) {
         if (species == null) return false;
-        String clean = species.toLowerCase().replace(" ", "_").replace("-", "_");
+        String clean = species.toLowerCase(Locale.ROOT).replace(" ", "_").replace("-", "_");
         return NON_RESTRICTED_LEGENDARIES.contains(clean);
     }
 
@@ -87,15 +96,11 @@ public class TowerClauseManager {
         if (player == null) return ValidationResult.ok();
 
         try {
-            Class<?> cobblemonClass = Class.forName("com.cobblemon.mod.common.Cobblemon");
-            Object cobblemonInst = cobblemonClass.getField("INSTANCE").get(null);
-            Method getStorageMethod = cobblemonInst.getClass().getMethod("getStorage");
-            Object storage = getStorageMethod.invoke(cobblemonInst);
-            Method getPartyMethod = storage.getClass().getMethod("getParty", ServerPlayerEntity.class);
-            Iterable<?> party = (Iterable<?>) getPartyMethod.invoke(storage, player);
+            var party = Cobblemon.INSTANCE.getStorage().getParty(player);
+            if (party == null) return ValidationResult.ok();
 
-            List<Object> pokemonList = new ArrayList<>();
-            for (Object pokemon : party) {
+            List<Pokemon> pokemonList = new ArrayList<>();
+            for (Pokemon pokemon : party) {
                 if (pokemon != null) pokemonList.add(pokemon);
             }
             return validatePokemonList(pokemonList, floor);
@@ -104,106 +109,96 @@ public class TowerClauseManager {
         }
     }
 
-    // Anti-Cheese Banned Sets
-    public static final Set<String> BANNED_EVASION_MOVES = Set.of("doubleteam", "minimize");
-    public static final Set<String> BANNED_OHKO_MOVES = Set.of("sheercold", "fissure", "horndrill", "guillotine");
-    public static final Set<String> BANNED_SWAGGER_MOVES = Set.of("swagger");
-    public static final Set<String> BANNED_ABILITIES = Set.of("moody");
-
     /**
      * Validates a combined list of Pokémon (e.g. 6 Pokémon in Duo team).
      */
-    public ValidationResult validatePokemonList(List<Object> pokemonList, int floor) {
+    public ValidationResult validatePokemonList(List<Pokemon> pokemonList, int floor) {
         Set<String> speciesSet = new HashSet<>();
         Set<String> itemSet = new HashSet<>();
-        int restrictedCount = 0;
-        int nonRestrictedCount = 0;
-
+        List<String> foundRestricted = new ArrayList<>();
+        List<String> foundNonRestricted = new ArrayList<>();
         int maxRestricted = getMaxRestricted(floor);
         int maxNonRestricted = getMaxNonRestricted(floor);
 
-        for (Object pokemon : pokemonList) {
-            if (pokemon == null) continue;
+        for (Pokemon pokemon : pokemonList) {
+            if (pokemon == null || pokemon.getSpecies() == null) continue;
 
             try {
-                // Check Species / Dex Number
-                Method getSpeciesMethod = pokemon.getClass().getMethod("getSpecies");
-                Object speciesObj = getSpeciesMethod.invoke(pokemon);
-                Method getNameMethod = speciesObj.getClass().getMethod("getName");
-                String speciesName = ((String) getNameMethod.invoke(speciesObj)).toLowerCase();
-
-                // Species Clause (Checks Dex name base)
+                // 1. Species Clause
+                String speciesName = pokemon.getSpecies().getName().toLowerCase(Locale.ROOT);
                 String baseSpecies = speciesName.split("-")[0].replace(" ", "_");
                 if (!speciesSet.add(baseSpecies)) {
-                    return ValidationResult.fail("§c[Species Clause] Duplicate Pokémon: §e" + baseSpecies.toUpperCase(), false, true, true, true);
+                    return ValidationResult.fail("§c§l[QUY TẮC ĐỘI HÌNH] §fTrùng lặp Pokémon: §e" + capitalize(baseSpecies) + " §7(Mỗi loài chỉ được mang tối đa 1 con)!", false, true, true, true);
                 }
 
-                // Anti-Cheese: Ability Check (Moody Clause)
-                try {
-                    Method getAbilityMethod = pokemon.getClass().getMethod("getAbility");
-                    Object abilityObj = getAbilityMethod.invoke(pokemon);
-                    if (abilityObj != null) {
-                        Method getAbNameMethod = abilityObj.getClass().getMethod("getName");
-                        String abName = ((String) getAbNameMethod.invoke(abilityObj)).toLowerCase().replace(" ", "").replace("-", "").replace("_", "");
-                        if (BANNED_ABILITIES.contains(abName)) {
-                            return ValidationResult.fail("§c[Moody Clause] Banned ability detected: §e" + abName.toUpperCase() + " §con " + baseSpecies, true, true, true, true);
+                // 2. Anti-Cheese: Ability Check (Moody Clause)
+                if (pokemon.getAbility() != null && pokemon.getAbility().getName() != null) {
+                    String abName = pokemon.getAbility().getName().toLowerCase(Locale.ROOT).replace(" ", "").replace("-", "").replace("_", "");
+                    if (BANNED_ABILITIES.contains(abName)) {
+                        return ValidationResult.fail("§c§l[BANNED ABILITY] §fPhát hiện Ability bị cấm: §e" + abName.toUpperCase() + " §7trên §e" + capitalize(baseSpecies) + " §7(Moody bị cấm trong Tháp)!", true, true, true, true);
+                    }
+                }
+
+                // 3. Anti-Cheese: Moveset Check (Evasion, OHKO, Swagger Clauses)
+                if (pokemon.getMoveSet() != null) {
+                    for (Move move : pokemon.getMoveSet()) {
+                        if (move == null || move.getName() == null) continue;
+                        String moveName = move.getName().toLowerCase(Locale.ROOT).replace(" ", "").replace("-", "").replace("_", "");
+                        if (BANNED_EVASION_MOVES.contains(moveName)) {
+                            return ValidationResult.fail("§c§l[BANNED MOVE] §fPhát hiện Chiêu tăng Né Tránh bị cấm: §e" + moveName.toUpperCase() + " §7trên §e" + capitalize(baseSpecies), true, true, true, true);
+                        }
+                        if (BANNED_OHKO_MOVES.contains(moveName)) {
+                            return ValidationResult.fail("§c§l[BANNED MOVE] §fPhát hiện Chiêu OHKO 1-Hit KO bị cấm: §e" + moveName.toUpperCase() + " §7trên §e" + capitalize(baseSpecies), true, true, true, true);
+                        }
+                        if (BANNED_SWAGGER_MOVES.contains(moveName)) {
+                            return ValidationResult.fail("§c§l[BANNED MOVE] §fPhát hiện Chiêu Swagger bị cấm trên §e" + capitalize(baseSpecies), true, true, true, true);
                         }
                     }
-                } catch (Exception ignored) {}
+                }
 
-                // Anti-Cheese: Moveset Check (Evasion, OHKO, Swagger Clauses)
-                try {
-                    Method getMoveSetMethod = pokemon.getClass().getMethod("getMoveSet");
-                    Object moveSet = getMoveSetMethod.invoke(pokemon);
-                    if (moveSet instanceof Iterable<?> moves) {
-                        for (Object move : moves) {
-                            if (move == null) continue;
-                            Method getMoveNameMethod = move.getClass().getMethod("getName");
-                            String moveName = ((String) getMoveNameMethod.invoke(move)).toLowerCase().replace(" ", "").replace("-", "").replace("_", "");
-                            if (BANNED_EVASION_MOVES.contains(moveName)) {
-                                return ValidationResult.fail("§c[Evasion Clause] Banned move detected: §e" + moveName.toUpperCase() + " §con " + baseSpecies, true, true, true, true);
-                            }
-                            if (BANNED_OHKO_MOVES.contains(moveName)) {
-                                return ValidationResult.fail("§c[OHKO Clause] Banned OHKO move detected: §e" + moveName.toUpperCase() + " §con " + baseSpecies, true, true, true, true);
-                            }
-                            if (BANNED_SWAGGER_MOVES.contains(moveName)) {
-                                return ValidationResult.fail("§c[Swagger Clause] Banned move detected: §eSWAGGER §con " + baseSpecies, true, true, true, true);
-                            }
-                        }
-                    }
-                } catch (Exception ignored) {}
-
-                // Check Restricted Cap
+                // 4. Collect Restricted / Non-Restricted
                 if (isRestricted(speciesName) || isRestricted(baseSpecies)) {
-                    restrictedCount++;
-                    if (restrictedCount > maxRestricted) {
-                        return ValidationResult.fail("§c[Restricted Cap] Max " + maxRestricted + " Restricted Legendary allowed for Floor " + floor + "! Found: §e" + restrictedCount, true, true, false, true);
-                    }
+                    foundRestricted.add(capitalize(baseSpecies));
                 } else if (isNonRestricted(speciesName) || isNonRestricted(baseSpecies)) {
-                    nonRestrictedCount++;
-                    if (maxNonRestricted != -1 && nonRestrictedCount > maxNonRestricted) {
-                        return ValidationResult.fail("§c[Legendary Cap] Max " + maxNonRestricted + " Sub-Legendaries allowed for Floor " + floor + "! Found: §e" + nonRestrictedCount, true, true, true, false);
-                    }
+                    foundNonRestricted.add(capitalize(baseSpecies));
                 }
 
-                // Check Held Item Clause
-                Method getHeldItemMethod = pokemon.getClass().getMethod("heldItem");
-                Object itemStack = getHeldItemMethod.invoke(pokemon);
-                if (itemStack != null) {
-                    Method isEmptyMethod = itemStack.getClass().getMethod("isEmpty");
-                    boolean isEmpty = (boolean) isEmptyMethod.invoke(itemStack);
-                    if (!isEmpty) {
-                        Method getItemMethod = itemStack.getClass().getMethod("getItem");
-                        Object item = getItemMethod.invoke(itemStack);
-                        String itemName = item.toString();
-                        if (!itemSet.add(itemName)) {
-                            return ValidationResult.fail("§c[Item Clause] Duplicate held item across team: §e" + itemName, true, false, true, true);
-                        }
+                // 5. Check Held Item Clause
+                ItemStack itemStack = pokemon.heldItem();
+                if (itemStack != null && !itemStack.isEmpty()) {
+                    String itemName = itemStack.getItem().toString();
+                    if (!itemSet.add(itemName)) {
+                        return ValidationResult.fail("§c§l[QUY TẮC VẬT PHẨM] §fTrùng lặp vật phẩm cầm theo: §e" + itemStack.getName().getString() + " §7(Mỗi vật phẩm chỉ 1 Pokémon được cầm)!", true, false, true, true);
                     }
                 }
             } catch (Exception ignored) {}
         }
 
+        // Validate Restricted Legends Cap
+        if (foundRestricted.size() > maxRestricted) {
+            String foundList = String.join(", ", foundRestricted);
+            String msg = "§c§l[GIỚI HẠN HUYỀN THOẠI TỐI THƯỢNG] §fĐội hình có quá nhiều Pokémon Huyền Thoại Tối Thượng (Box/Cover Legends)!\n" +
+                    "§e► Tầng " + floor + " chỉ cho phép tối đa: §a" + maxRestricted + " con§e.\n" +
+                    "§c► Đã phát hiện trong đội (" + foundRestricted.size() + " con): §6" + foundList + "\n" +
+                    "§7💡 Lưu ý: Các Pokémon Huyền Thoại phụ (như Zapdos, Articuno, Raikou, Suicune, Heatran, Latios, Urshifu...) KHÔNG bị tính vào nhóm này!";
+            return ValidationResult.fail(msg, true, true, false, true);
+        }
+
+        // Validate Non-Restricted (Sub-Legendaries) Cap
+        if (maxNonRestricted != -1 && foundNonRestricted.size() > maxNonRestricted) {
+            String foundList = String.join(", ", foundNonRestricted);
+            String msg = "§c§l[GIỚI HẠN HUYỀN THOẠI PHỤ] §fĐội hình có quá nhiều Pokémon Huyền Thoại Phụ (Sub-Legendaries)!\n" +
+                    "§e► Tầng " + floor + " chỉ cho phép tối đa: §a" + maxNonRestricted + " con§e.\n" +
+                    "§c► Đã phát hiện trong đội (" + foundNonRestricted.size() + " con): §6" + foundList + "\n" +
+                    "§7💡 Vui lòng đổi bớt sang Pokémon thông thường để tiếp tục leo tháp.";
+            return ValidationResult.fail(msg, true, true, true, false);
+        }
+
         return ValidationResult.ok();
+    }
+
+    private static String capitalize(String str) {
+        if (str == null || str.isEmpty()) return "";
+        return str.substring(0, 1).toUpperCase(Locale.ROOT) + str.substring(1);
     }
 }

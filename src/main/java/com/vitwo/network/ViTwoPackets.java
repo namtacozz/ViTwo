@@ -18,6 +18,10 @@ public class ViTwoPackets {
         PayloadTypeRegistry.playC2S().register(BuyBpItemC2SPacket.ID, BuyBpItemC2SPacket.CODEC);
         PayloadTypeRegistry.playC2S().register(GhostSupportActionC2SPacket.ID, GhostSupportActionC2SPacket.CODEC);
         PayloadTypeRegistry.playC2S().register(DebugTowerActionC2SPacket.ID, DebugTowerActionC2SPacket.CODEC);
+        PayloadTypeRegistry.playC2S().register(ChooseDraftPokemonC2SPacket.ID, ChooseDraftPokemonC2SPacket.CODEC);
+        PayloadTypeRegistry.playC2S().register(RequestHubSyncC2SPacket.ID, RequestHubSyncC2SPacket.CODEC);
+        PayloadTypeRegistry.playC2S().register(ClaimGachaPokemonC2SPacket.ID, ClaimGachaPokemonC2SPacket.CODEC);
+        PayloadTypeRegistry.playC2S().register(ClaimItemGachaC2SPacket.ID, ClaimItemGachaC2SPacket.CODEC);
 
         // Register S2C (Server -> Client)
         PayloadTypeRegistry.playS2C().register(ShowInviteToastS2CPacket.ID, ShowInviteToastS2CPacket.CODEC);
@@ -30,5 +34,8 @@ public class ViTwoPackets {
         PayloadTypeRegistry.playS2C().register(SyncLeaderboardS2CPacket.ID, SyncLeaderboardS2CPacket.CODEC);
         PayloadTypeRegistry.playS2C().register(TowerBossIntroS2CPacket.ID, TowerBossIntroS2CPacket.CODEC);
         PayloadTypeRegistry.playS2C().register(TowerBattleGradeS2CPacket.ID, TowerBattleGradeS2CPacket.CODEC);
+        PayloadTypeRegistry.playS2C().register(OpenPokemonDraftS2CPacket.ID, OpenPokemonDraftS2CPacket.CODEC);
+        PayloadTypeRegistry.playS2C().register(OpenPokemonGachaS2CPacket.ID, OpenPokemonGachaS2CPacket.CODEC);
+        PayloadTypeRegistry.playS2C().register(OpenItemGachaS2CPacket.ID, OpenItemGachaS2CPacket.CODEC);
     }
 }

@@ -1,134 +1,204 @@
 package com.vitwo.reward;
 
-import com.vitwo.battle.TowerBattleManager;
+import com.cobblemon.mod.common.Cobblemon;
+import com.cobblemon.mod.common.api.moves.Move;
+import com.cobblemon.mod.common.api.pokemon.PokemonProperties;
+import com.cobblemon.mod.common.api.pokemon.egg.EggGroup;
+import com.cobblemon.mod.common.api.pokemon.stats.Stat;
+import com.cobblemon.mod.common.api.pokemon.stats.Stats;
+import com.cobblemon.mod.common.pokemon.Pokemon;
+import com.cobblemon.mod.common.pokemon.Species;
+import com.vitwo.battle.HellModeTeamLoader;
+import com.vitwo.battle.TrainerPool;
 import com.vitwo.config.TowerPlayerDataManager;
+import com.vitwo.network.c2s.ClaimGachaPokemonC2SPacket;
+import com.vitwo.network.c2s.ClaimItemGachaC2SPacket;
+import com.vitwo.network.s2c.OpenItemGachaS2CPacket;
+import com.vitwo.network.s2c.OpenPokemonDraftS2CPacket;
+import com.vitwo.network.s2c.OpenPokemonDraftS2CPacket.DraftOption;
+import com.vitwo.network.s2c.OpenPokemonGachaS2CPacket;
 import com.vitwo.network.s2c.TowerBattleGradeS2CPacket;
 import com.vitwo.party.TowerParty;
+import com.vitwo.party.TowerPartyManager;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.advancement.AdvancementEntry;
 import net.minecraft.advancement.PlayerAdvancementTracker;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
-import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Random;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class TowerRewardManager {
+    private static final Logger LOGGER = LoggerFactory.getLogger("CobbleTower-RewardManager");
     private static final TowerRewardManager INSTANCE = new TowerRewardManager();
     public static TowerRewardManager getInstance() { return INSTANCE; }
 
     private static final Random RANDOM = new Random();
 
-    // BP Shop 5-Category Price Table & Weekly Stock Limits
+    // BP Shop 5-Category Price Table & Balanced Economy
     public static final Map<String, Integer> BP_SHOP_PRICES = Map.ofEntries(
             // Held & Battle Items
-            Map.entry("focus_sash", 200),
-            Map.entry("choice_scarf", 200),
-            Map.entry("choice_band", 200),
-            Map.entry("choice_specs", 200),
-            Map.entry("life_orb", 250),
-            Map.entry("assault_vest", 200),
-            Map.entry("heavy_duty_boots", 150),
-            Map.entry("leftovers", 150),
-            Map.entry("eviolite", 250),
-            Map.entry("rocky_helmet", 150),
-            Map.entry("expert_belt", 150),
-            Map.entry("air_balloon", 150),
-            Map.entry("weakness_policy", 200),
-            Map.entry("toxic_orb", 150),
-            Map.entry("flame_orb", 150),
-            Map.entry("safety_goggles", 150),
-            Map.entry("white_herb", 100),
-            Map.entry("power_herb", 100),
-            Map.entry("mental_herb", 100),
-            Map.entry("mirror_herb", 150),
-            Map.entry("black_sludge", 150),
-            Map.entry("scope_lens", 100),
-            Map.entry("wide_lens", 100),
-            Map.entry("tera_shard_stellar", 500),
+            Map.entry("focus_sash", 800),
+            Map.entry("choice_scarf", 1000),
+            Map.entry("choice_band", 1000),
+            Map.entry("choice_specs", 1000),
+            Map.entry("life_orb", 1200),
+            Map.entry("assault_vest", 1000),
+            Map.entry("heavy_duty_boots", 800),
+            Map.entry("leftovers", 800),
+            Map.entry("eviolite", 1200),
+            Map.entry("rocky_helmet", 800),
+            Map.entry("expert_belt", 700),
+            Map.entry("air_balloon", 600),
+            Map.entry("weakness_policy", 900),
+            Map.entry("toxic_orb", 600),
+            Map.entry("flame_orb", 600),
+            Map.entry("safety_goggles", 700),
+            Map.entry("white_herb", 500),
+            Map.entry("power_herb", 500),
+            Map.entry("mental_herb", 500),
+            Map.entry("mirror_herb", 700),
+            Map.entry("black_sludge", 700),
+            Map.entry("scope_lens", 500),
+            Map.entry("wide_lens", 500),
+            Map.entry("tera_shard_stellar", 1000),
 
             // Mints & Training
-            Map.entry("rare_candy", 30),
-            Map.entry("exp_candy_xl", 50),
-            Map.entry("exp_candy_l", 25),
-            Map.entry("gold_bottle_cap", 350),
-            Map.entry("bottle_cap", 100),
-            Map.entry("pp_max", 200),
-            Map.entry("pp_up", 80),
-            Map.entry("adamant_mint", 100),
-            Map.entry("modest_mint", 100),
-            Map.entry("jolly_mint", 100),
-            Map.entry("timid_mint", 100),
-            Map.entry("bold_mint", 100),
-            Map.entry("calm_mint", 100),
-            Map.entry("brave_mint", 100),
-            Map.entry("quiet_mint", 100),
-            Map.entry("impish_mint", 100),
-            Map.entry("careful_mint", 100),
-            Map.entry("ability_capsule", 150),
-            Map.entry("ability_patch", 400),
-            Map.entry("power_bracer", 75),
-            Map.entry("power_belt", 75),
-            Map.entry("power_lens", 75),
-            Map.entry("power_band", 75),
-            Map.entry("power_anklet", 75),
-            Map.entry("power_weight", 75),
+            Map.entry("rare_candy", 100),
+            Map.entry("exp_candy_xl", 150),
+            Map.entry("exp_candy_l", 80),
+            Map.entry("hp_up", 15),
+            Map.entry("protein", 15),
+            Map.entry("iron", 15),
+            Map.entry("calcium", 15),
+            Map.entry("zinc", 15),
+            Map.entry("carbos", 15),
+            Map.entry("gold_bottle_cap", 2000),
+            Map.entry("bottle_cap", 500),
+            Map.entry("pp_max", 1200),
+            Map.entry("pp_up", 400),
+            Map.entry("adamant_mint", 300),
+            Map.entry("modest_mint", 300),
+            Map.entry("jolly_mint", 300),
+            Map.entry("timid_mint", 300),
+            Map.entry("bold_mint", 300),
+            Map.entry("calm_mint", 300),
+            Map.entry("brave_mint", 300),
+            Map.entry("quiet_mint", 300),
+            Map.entry("impish_mint", 300),
+            Map.entry("careful_mint", 300),
+            Map.entry("ability_capsule", 600),
+            Map.entry("ability_patch", 1500),
+            Map.entry("power_bracer", 250),
+            Map.entry("power_belt", 250),
+            Map.entry("power_lens", 250),
+            Map.entry("power_band", 250),
+            Map.entry("power_anklet", 250),
+            Map.entry("power_weight", 250),
 
             // Evolution Items
-            Map.entry("fire_stone", 60),
-            Map.entry("water_stone", 60),
-            Map.entry("thunder_stone", 60),
-            Map.entry("leaf_stone", 60),
-            Map.entry("moon_stone", 80),
-            Map.entry("sun_stone", 80),
-            Map.entry("shiny_stone", 100),
-            Map.entry("dusk_stone", 100),
-            Map.entry("dawn_stone", 100),
-            Map.entry("ice_stone", 80),
-            Map.entry("electirizer", 150),
-            Map.entry("magmarizer", 150),
-            Map.entry("protector", 150),
-            Map.entry("reaper_cloth", 150),
-            Map.entry("dragon_scale", 150),
-            Map.entry("prism_scale", 150),
-            Map.entry("dubious_disc", 150),
-            Map.entry("upgrade", 120),
-            Map.entry("kings_rock", 120),
-            Map.entry("metal_coat", 120),
-            Map.entry("razor_fang", 120),
-            Map.entry("razor_claw", 120),
-            Map.entry("deep_sea_tooth", 120),
-            Map.entry("deep_sea_scale", 120),
-            Map.entry("oval_stone", 80),
-            Map.entry("cracked_pot", 80),
-            Map.entry("link_cable", 120),
+            Map.entry("fire_stone", 200),
+            Map.entry("water_stone", 200),
+            Map.entry("thunder_stone", 200),
+            Map.entry("leaf_stone", 200),
+            Map.entry("moon_stone", 250),
+            Map.entry("sun_stone", 250),
+            Map.entry("shiny_stone", 300),
+            Map.entry("dusk_stone", 300),
+            Map.entry("dawn_stone", 300),
+            Map.entry("ice_stone", 250),
+            Map.entry("electirizer", 400),
+            Map.entry("magmarizer", 400),
+            Map.entry("protector", 400),
+            Map.entry("reaper_cloth", 400),
+            Map.entry("dragon_scale", 400),
+            Map.entry("prism_scale", 400),
+            Map.entry("dubious_disc", 400),
+            Map.entry("upgrade", 350),
+            Map.entry("kings_rock", 350),
+            Map.entry("metal_coat", 350),
+            Map.entry("razor_fang", 350),
+            Map.entry("razor_claw", 350),
+            Map.entry("deep_sea_tooth", 300),
+            Map.entry("deep_sea_scale", 300),
+            Map.entry("oval_stone", 200),
+            Map.entry("cracked_pot", 250),
+            Map.entry("link_cable", 350),
 
             // Balls & Medicine
-            Map.entry("master_ball", 1500),
-            Map.entry("beast_ball", 300),
-            Map.entry("cherish_ball", 250),
-            Map.entry("luxury_ball", 100),
-            Map.entry("heavy_ball", 100),
-            Map.entry("fast_ball", 100),
-            Map.entry("moon_ball", 100),
-            Map.entry("dream_ball", 100),
-            Map.entry("revival_herb", 80),
-            Map.entry("max_elixir", 80),
+            Map.entry("master_ball", 25000), // Game-breaking ultimate ball
+            Map.entry("beast_ball", 1000),
+            Map.entry("cherish_ball", 800),
+            Map.entry("luxury_ball", 200),
+            Map.entry("heavy_ball", 200),
+            Map.entry("fast_ball", 200),
+            Map.entry("moon_ball", 200),
+            Map.entry("dream_ball", 200),
+            Map.entry("revival_herb", 150),
+            Map.entry("max_elixir", 150),
 
             // Cosmetics & Prestige
-            Map.entry("cosmetic_shiny_aura", 3000),
-            Map.entry("cosmetic_particle_trail", 5000),
-            Map.entry("cosmetic_victory_fanfare", 2000),
-            Map.entry("weekly_challenge_reroll", 500),
-            Map.entry("title_tower_champion", 5000),
-            Map.entry("title_tower_legend", 10000)
+            Map.entry("cosmetic_shiny_aura", 5000),
+            Map.entry("cosmetic_particle_trail", 8000),
+            Map.entry("cosmetic_victory_fanfare", 4000),
+            Map.entry("weekly_challenge_reroll", 1000),
+            Map.entry("title_tower_champion", 10000),
+            Map.entry("title_tower_legend", 20000),
+
+            // Type Gems
+            Map.entry("normal_gem", 150),
+            Map.entry("fire_gem", 150),
+            Map.entry("water_gem", 150),
+            Map.entry("electric_gem", 150),
+            Map.entry("grass_gem", 150),
+            Map.entry("ice_gem", 150),
+            Map.entry("fighting_gem", 150),
+            Map.entry("poison_gem", 150),
+            Map.entry("ground_gem", 150),
+            Map.entry("flying_gem", 150),
+            Map.entry("psychic_gem", 150),
+            Map.entry("bug_gem", 150),
+            Map.entry("rock_gem", 150),
+            Map.entry("ghost_gem", 150),
+            Map.entry("dragon_gem", 150),
+            Map.entry("dark_gem", 150),
+            Map.entry("steel_gem", 150),
+            Map.entry("fairy_gem", 150),
+
+            // Additional Poke Balls
+            Map.entry("poke_ball", 20),
+            Map.entry("great_ball", 40),
+            Map.entry("ultra_ball", 80),
+            Map.entry("premier_ball", 80),
+            Map.entry("heal_ball", 80),
+            Map.entry("net_ball", 80),
+            Map.entry("nest_ball", 80),
+            Map.entry("dive_ball", 80),
+            Map.entry("dusk_ball", 80),
+            Map.entry("timer_ball", 80),
+            Map.entry("quick_ball", 80),
+            Map.entry("repeat_ball", 80),
+            Map.entry("lure_ball", 200),
+            Map.entry("level_ball", 200),
+            Map.entry("friend_ball", 200),
+            Map.entry("love_ball", 200),
+            Map.entry("safari_ball", 300),
+            Map.entry("sport_ball", 300)
     );
 
     public static final Map<String, Integer> WEEKLY_STOCK_LIMITS = Map.of(
@@ -144,7 +214,8 @@ public class TowerRewardManager {
     public void grantFloorReward(ServerPlayerEntity playerA, ServerPlayerEntity playerB, int floor, boolean isTrueRun, int turnsThisFloor, int faintsThisFloor) {
         var bpCfg = com.vitwo.config.TowerConfig.getInstance().bp;
         int baseBp = bpCfg.perFloor;
-        if (floor % 10 == 0) baseBp += bpCfg.bossBonus;
+        if (floor % 5 == 0) baseBp += bpCfg.bossBonus;
+        if (floor >= 90 && floor < 100) baseBp += 350; // Elite Four floors
         if (floor == 25) baseBp += bpCfg.checkpoint25Bonus;
         else if (floor == 50) baseBp += bpCfg.checkpoint50Bonus;
         else if (floor == 75) baseBp += bpCfg.checkpoint75Bonus;
@@ -155,12 +226,13 @@ public class TowerRewardManager {
         float gradeBonusMultiplier = 0.0f;
         if (faintsThisFloor == 0 && turnsThisFloor <= 6) {
             grade = "S";
-            gradeBonusMultiplier = 0.25f; // +25% BP
+            gradeBonusMultiplier = 0.50f; // +50% BP
         } else if (faintsThisFloor == 0 && turnsThisFloor <= 12) {
             grade = "A";
-            gradeBonusMultiplier = 0.10f; // +10% BP
+            gradeBonusMultiplier = 0.25f; // +25% BP
         } else if (faintsThisFloor <= 1) {
             grade = "B";
+            gradeBonusMultiplier = 0.10f; // +10% BP
         } else {
             grade = "C";
         }
@@ -171,7 +243,9 @@ public class TowerRewardManager {
             int rankBonusBp = (int) Math.ceil(baseBp * gradeBonusMultiplier);
             int finalBp = Math.max(1, (int) Math.ceil((baseBp + rankBonusBp) * mult * prestigeMult));
             TowerPlayerDataManager.getInstance().addBp(playerA.getUuid(), finalBp);
-            playerA.sendMessage(Text.literal("§6[CobbleTower] §a+" + finalBp + " BP §7(Total: " + TowerPlayerDataManager.getInstance().getBp(playerA.getUuid()) + " BP)"), false);
+            Optional<TowerParty> partyOpt = TowerPartyManager.getInstance().getParty(playerA.getUuid());
+            partyOpt.ifPresent(party -> party.addBpEarnedInRun(finalBp));
+            playerA.sendMessage(Text.literal("§6[CobbleTower] §a+" + finalBp + " BP §7(Bậc: §e" + grade + "§7) §f— Tổng BP: §e" + TowerPlayerDataManager.getInstance().getBp(playerA.getUuid()) + " BP"), false);
             ServerPlayNetworking.send(playerA, new TowerBattleGradeS2CPacket(floor, grade, rankBonusBp, turnsThisFloor, faintsThisFloor));
         }
         if (playerB != null) {
@@ -180,28 +254,14 @@ public class TowerRewardManager {
             int rankBonusBp = (int) Math.ceil(baseBp * gradeBonusMultiplier);
             int finalBp = Math.max(1, (int) Math.ceil((baseBp + rankBonusBp) * mult * prestigeMult));
             TowerPlayerDataManager.getInstance().addBp(playerB.getUuid(), finalBp);
-            playerB.sendMessage(Text.literal("§6[CobbleTower] §a+" + finalBp + " BP §7(Total: " + TowerPlayerDataManager.getInstance().getBp(playerB.getUuid()) + " BP)"), false);
+            playerB.sendMessage(Text.literal("§6[CobbleTower] §a+" + finalBp + " BP §7(Bậc: §e" + grade + "§7) §f— Tổng BP: §e" + TowerPlayerDataManager.getInstance().getBp(playerB.getUuid()) + " BP"), false);
             ServerPlayNetworking.send(playerB, new TowerBattleGradeS2CPacket(floor, grade, rankBonusBp, turnsThisFloor, faintsThisFloor));
         }
 
-        // 2. Standard Items (Candies & Enhancements)
-        ItemStack rewardItem = getRewardItemForFloor(floor);
-        int amount = getRewardAmountForFloor(floor);
-        rewardItem.setCount(amount);
-
-        if (playerA != null) giveItemToPlayer(playerA, rewardItem.copy(), floor);
-        if (playerB != null) giveItemToPlayer(playerB, rewardItem.copy(), floor);
-
-        // 3. Pokémon Egg Reward (20% chance on regular floors, 100% on floor % 10 == 0)
-        if (floor % 10 == 0 || RANDOM.nextInt(5) == 0) {
-            grantPokemonEgg(playerA, floor);
-            grantPokemonEgg(playerB, floor);
-        }
-
-        // 4. Checkpoint Special: Grant 1 random 6x31 MAX IV Pokémon from Boss Roster
-        if (floor == 10 || floor == 25 || floor == 50 || floor == 75 || floor == 90 || floor == 100) {
-            grantCheckpointMaxIvPokemon(playerA, floor);
-            grantCheckpointMaxIvPokemon(playerB, floor);
+        // 2. Generous Resource & Pokémon Item Distribution
+        grantRichItemsForFloor(playerA, floor);
+        if (playerB != null) {
+            grantRichItemsForFloor(playerB, floor);
         }
     }
 
@@ -209,118 +269,512 @@ public class TowerRewardManager {
         grantFloorReward(playerA, playerB, floor, isTrueRun, 5, 0);
     }
 
-    private void grantCheckpointMaxIvPokemon(ServerPlayerEntity player, int floor) {
-        if (player == null || player.getServer() == null) return;
-        String species = TowerBattleManager.getInstance().getRandomBossSpecies(floor);
-
-        try {
-            String cmd = "pokegive " + player.getName().getString() + " " + species + " ivs=31/31/31/31/31/31 level=1";
-            ServerCommandSource source = player.getServer().getCommandSource().withSilent();
-            player.getServer().getCommandManager().executeWithPrefix(source, cmd);
-            player.sendMessage(Text.literal("§d★ [CobbleTower Checkpoint] You received a Perfect 6x31 IV §e" + species.toUpperCase() + " §dfrom the Boss!"), false);
-        } catch (Exception ignored) {
-            ItemStack fallbackItem = new ItemStack(Items.NETHER_STAR, 1);
-            giveItemToPlayer(player, fallbackItem, floor);
-        }
-    }
-
-    private void grantPokemonEgg(ServerPlayerEntity player, int floor) {
-        if (player == null || player.getServer() == null) return;
-        String species = TowerBattleManager.getInstance().getRandomBossSpecies(floor);
-
-        try {
-            String cmd = "pokegiveegg " + player.getName().getString() + " " + species;
-            ServerCommandSource source = player.getServer().getCommandSource().withSilent();
-            player.getServer().getCommandManager().executeWithPrefix(source, cmd);
-            player.sendMessage(Text.literal("§6[CobbleTower] §fYou received a mysterious §ePokémon Egg §7(from " + species + ")!"), false);
-        } catch (Exception ignored) {
-            giveItemToPlayer(player, new ItemStack(Items.EGG, 1), floor);
-        }
-    }
-
-    public void applyBaseHeal(ServerPlayerEntity player) {
+    private void grantRichItemsForFloor(ServerPlayerEntity player, int floor) {
         if (player == null) return;
-        try {
-            Class<?> cobblemonClass = Class.forName("com.cobblemon.mod.common.Cobblemon");
-            Object cobblemonInst = cobblemonClass.getField("INSTANCE").get(null);
-            Method getStorageMethod = cobblemonInst.getClass().getMethod("getStorage");
-            Object storage = getStorageMethod.invoke(cobblemonInst);
-            Method getPartyMethod = storage.getClass().getMethod("getParty", ServerPlayerEntity.class);
-            Iterable<?> party = (Iterable<?>) getPartyMethod.invoke(storage, player);
 
-            for (Object pokemon : party) {
-                if (pokemon == null) continue;
-                Method getCurrentHealth = pokemon.getClass().getMethod("getCurrentHealth");
-                Method getMaxHealth = pokemon.getClass().getMethod("getMaxHealth");
-                Method setCurrentHealth = pokemon.getClass().getMethod("setCurrentHealth", int.class);
+        // A. Minecraft Ores & Valuables
+        if (floor <= 10) {
+            giveItemToPlayer(player, new ItemStack(Items.DIAMOND, 3), floor);
+            giveItemToPlayer(player, new ItemStack(Items.EMERALD, 2), floor);
+            giveItemToPlayer(player, getCobblemonItem("exp_candy_l", 5), floor);
+            giveItemToPlayer(player, getCobblemonItem("rare_candy", 1), floor);
+            giveItemToPlayer(player, getRandomStone(), floor);
+        } else if (floor <= 25) {
+            giveItemToPlayer(player, new ItemStack(Items.DIAMOND, 8), floor);
+            giveItemToPlayer(player, new ItemStack(Items.NETHERITE_SCRAP, 2), floor);
+            giveItemToPlayer(player, new ItemStack(Items.GOLDEN_APPLE, 1), floor);
+            giveItemToPlayer(player, getCobblemonItem("exp_candy_xl", 5), floor);
+            giveItemToPlayer(player, getCobblemonItem("rare_candy", 2), floor);
+            giveItemToPlayer(player, getCobblemonItem("bottle_cap", 1), floor);
+        } else if (floor <= 50) {
+            giveItemToPlayer(player, new ItemStack(Items.DIAMOND, 16), floor);
+            giveItemToPlayer(player, new ItemStack(Items.NETHERITE_INGOT, 1), floor);
+            giveItemToPlayer(player, new ItemStack(Items.GOLDEN_APPLE, 3), floor);
+            giveItemToPlayer(player, getCobblemonItem("exp_candy_xl", 8), floor);
+            giveItemToPlayer(player, getCobblemonItem("rare_candy", 3), floor);
+            giveItemToPlayer(player, getCobblemonItem("ability_capsule", 1), floor);
+            giveItemToPlayer(player, getCobblemonItem("bottle_cap", 1), floor);
+        } else if (floor <= 75) {
+            giveItemToPlayer(player, new ItemStack(Items.DIAMOND, 32), floor);
+            giveItemToPlayer(player, new ItemStack(Items.NETHERITE_INGOT, 2), floor);
+            giveItemToPlayer(player, new ItemStack(Items.ENCHANTED_GOLDEN_APPLE, 1), floor);
+            giveItemToPlayer(player, getCobblemonItem("exp_candy_xl", 10), floor);
+            giveItemToPlayer(player, getCobblemonItem("rare_candy", 5), floor);
+            giveItemToPlayer(player, getCobblemonItem("ability_patch", 1), floor);
+            giveItemToPlayer(player, getCobblemonItem("gold_bottle_cap", 1), floor);
+        } else if (floor < 100) {
+            giveItemToPlayer(player, new ItemStack(Items.DIAMOND, 64), floor);
+            giveItemToPlayer(player, new ItemStack(Items.NETHERITE_INGOT, 4), floor);
+            giveItemToPlayer(player, new ItemStack(Items.ENCHANTED_GOLDEN_APPLE, 2), floor);
+            giveItemToPlayer(player, getCobblemonItem("exp_candy_xl", 15), floor);
+            giveItemToPlayer(player, getCobblemonItem("rare_candy", 8), floor);
+            giveItemToPlayer(player, getCobblemonItem("ability_patch", 2), floor);
+            giveItemToPlayer(player, getCobblemonItem("gold_bottle_cap", 2), floor);
+            if (floor % 5 == 0) {
+                giveItemToPlayer(player, getCobblemonItem("master_ball", 1), floor);
+            }
+        } else {
+            // Floor 100 Champion Apex Rewards
+            giveItemToPlayer(player, new ItemStack(Items.DIAMOND_BLOCK, 64), floor);
+            giveItemToPlayer(player, new ItemStack(Items.NETHERITE_INGOT, 8), floor);
+            giveItemToPlayer(player, new ItemStack(Items.ENCHANTED_GOLDEN_APPLE, 5), floor);
+            giveItemToPlayer(player, getCobblemonItem("exp_candy_xl", 20), floor);
+            giveItemToPlayer(player, getCobblemonItem("rare_candy", 10), floor);
+            giveItemToPlayer(player, getCobblemonItem("ability_patch", 5), floor);
+            giveItemToPlayer(player, getCobblemonItem("gold_bottle_cap", 5), floor);
+            giveItemToPlayer(player, getCobblemonItem("master_ball", 2), floor);
+            giveItemToPlayer(player, getCobblemonItem("tera_shard_stellar", 10), floor);
+        }
+    }
 
-                int currentHp = (int) getCurrentHealth.invoke(pokemon);
-                int maxHp = (int) getMaxHealth.invoke(pokemon);
+    private ItemStack getCobblemonItem(String name, int count) {
+        Identifier id = Identifier.of("cobblemon", name);
+        if (Registries.ITEM.containsId(id)) {
+            return new ItemStack(Registries.ITEM.get(id), count);
+        }
+        return new ItemStack(Items.DIAMOND, count);
+    }
 
-                if (currentHp > 0) {
-                    int healHp = Math.min(maxHp, currentHp + (int) (maxHp * 0.25));
-                    setCurrentHealth.invoke(pokemon, healHp);
+    private ItemStack getRandomStone() {
+        String[] stones = {"fire_stone", "water_stone", "thunder_stone", "leaf_stone", "moon_stone", "sun_stone", "shiny_stone", "dusk_stone", "dawn_stone", "ice_stone"};
+        String chosen = stones[RANDOM.nextInt(stones.length)];
+        return getCobblemonItem(chosen, 1);
+    }
 
-                    try {
-                        Method getMoveSetMethod = pokemon.getClass().getMethod("getMoveSet");
-                        Object moveSet = getMoveSetMethod.invoke(pokemon);
-                        Method getMovesMethod = moveSet.getClass().getMethod("getMoves");
-                        Iterable<?> moves = (Iterable<?>) getMovesMethod.invoke(moveSet);
-                        for (Object move : moves) {
-                            if (move == null) continue;
-                            Method getMaxPp = move.getClass().getMethod("getMaxPp");
-                            Method getCurrentPp = move.getClass().getMethod("getCurrentPp");
-                            Method setCurrentPp = move.getClass().getMethod("setCurrentPp", int.class);
-                            int maxPp = (int) getMaxPp.invoke(move);
-                            int currPp = (int) getCurrentPp.invoke(move);
-                            int newPp = Math.min(maxPp, currPp + (int) (maxPp * 0.50));
-                            setCurrentPp.invoke(move, newPp);
-                        }
-                    } catch (Exception ignored) {}
+    // ==========================================
+    // 🥚 BOSS POKÉMON EGG DRAFTING SYSTEM
+    // ==========================================
+
+    private final Map<UUID, List<DraftOption>> activeDraftOptions = new java.util.concurrent.ConcurrentHashMap<>();
+
+    public void clearDraftOptionsForPlayer(UUID playerId) {
+        if (playerId != null) {
+            activeDraftOptions.remove(playerId);
+        }
+    }
+
+    public void clearAllDraftOptions() {
+        activeDraftOptions.clear();
+    }
+
+    public static Species getBaseSpecies(Species species) {
+        if (species == null) return null;
+        Species curr = species;
+        while (curr.getPreEvolution() != null && curr.getPreEvolution().getSpecies() != null) {
+            curr = curr.getPreEvolution().getSpecies();
+        }
+        return curr;
+    }
+
+    public static String extractRegionalAspect(Pokemon mon) {
+        if (mon == null) return "";
+        for (String aspect : mon.getAspects()) {
+            String lower = aspect.toLowerCase(Locale.ROOT);
+            if (lower.contains("hisui") || lower.contains("alola") || lower.contains("galar") || lower.contains("paldea") || lower.contains("bloodmoon")) {
+                return lower;
+            }
+        }
+        if (mon.getForm() != null && mon.getForm().getName() != null) {
+            String formName = mon.getForm().getName().toLowerCase(Locale.ROOT);
+            if (formName.contains("hisui")) return "hisui";
+            if (formName.contains("alola")) return "alola";
+            if (formName.contains("galar")) return "galar";
+            if (formName.contains("paldea")) return "paldea";
+        }
+        return "";
+    }
+
+    public static boolean isLegendaryOrMythical(Species species) {
+        if (species == null) return false;
+        String name = species.getName().toLowerCase(Locale.ROOT);
+        var restricted = com.vitwo.config.TowerConfig.getInstance().restrictedPokemon.restrictedList;
+        if (restricted != null && restricted.contains(name)) return true;
+
+        var eggGroups = species.getEggGroups();
+        if (eggGroups != null) {
+            for (EggGroup group : eggGroups) {
+                if (group.name().equalsIgnoreCase("UNDISCOVERED") || group.name().equalsIgnoreCase("NO_EGGS_DISCOVERED")) {
+                    return true;
                 }
             }
-        } catch (Exception ignored) {}
-        player.sendMessage(Text.literal("§a[Rest Station] Base Refresh: Alive Pokémon received +25% HP and +50% PP!"), false);
+        }
+        return false;
     }
+
+    public List<DraftOption> getDraftOptionsForTrainer(String trainerId, int floor) {
+        if (trainerId == null || trainerId.isBlank()) {
+            trainerId = TrainerPool.getRctTrainerIdForFloor(floor);
+        }
+        List<Pokemon> team = HellModeTeamLoader.createTeamFromTrainerId(trainerId, 50);
+        List<DraftOption> options = new ArrayList<>();
+
+        if (team == null || team.isEmpty()) {
+            // Fallback iconic boss pool
+            String[] fallbacks = {"garchomp", "lucario", "roserade", "milotic", "togekiss", "spiritomb"};
+            for (int i = 0; i < fallbacks.length; i++) {
+                String orig = fallbacks[i];
+                var sp = com.cobblemon.mod.common.api.pokemon.PokemonSpecies.getByName(orig);
+                var base = getBaseSpecies(sp);
+                String baseName = base != null ? base.getName().toLowerCase(Locale.ROOT) : orig;
+                options.add(new DraftOption(i, orig, baseName, "", capitalize(orig), "Dragon", "Ground", false, false));
+            }
+            return options;
+        }
+
+        for (int i = 0; i < Math.min(6, team.size()); i++) {
+            Pokemon mon = team.get(i);
+            if (mon == null || mon.getSpecies() == null) continue;
+            Species origSpecies = mon.getSpecies();
+            String origName = origSpecies.getName().toLowerCase(Locale.ROOT);
+            Species baseSpecies = getBaseSpecies(origSpecies);
+            String baseName = baseSpecies != null ? baseSpecies.getName().toLowerCase(Locale.ROOT) : origName;
+            String regionalAspect = extractRegionalAspect(mon);
+
+            boolean isLegend = isLegendaryOrMythical(origSpecies);
+            boolean isShiny = mon.getShiny();
+            String t1 = mon.getPrimaryType() != null ? mon.getPrimaryType().getName() : "Normal";
+            String t2 = mon.getSecondaryType() != null ? mon.getSecondaryType().getName() : "";
+            String display = mon.getDisplayName(false).getString();
+
+            options.add(new DraftOption(i, origName, baseName, regionalAspect, display, t1, t2, isShiny, isLegend));
+        }
+
+        return options;
+    }
+
+    public List<DraftOption> getDraftOptionsForFloor(int floor) {
+        return getDraftOptionsForTrainer(null, floor);
+    }
+
+    // ==========================================
+    // 🎰 CS:GO STYLE GACHA ROULETTE SYSTEMS
+    // ==========================================
+
+    private final Map<UUID, List<GachaPokemonCandidate>> activePokemonGachaPools = new ConcurrentHashMap<>();
+    private final Map<UUID, List<GachaItemCandidate>> activeItemGachaPools = new ConcurrentHashMap<>();
+
+    public void triggerPokemonGacha(TowerParty party, MinecraftServer server, int floor) {
+        if (party == null || server == null) return;
+        String bossName = party.getCurrentBossName();
+
+        // 1. Drain all encountered Pokemon since last gacha
+        List<GachaPokemonCandidate> pool = party.drainEncounteredCandidates(floor);
+
+        // 2. If pool is too small (e.g. checkpoint jump or first entry), populate from recent floors
+        if (pool.size() < 6) {
+            int startFloor = Math.max(1, floor - 4);
+            for (int f = startFloor; f <= floor; f++) {
+                String tid = TrainerPool.getRctTrainerIdForFloor(f);
+                List<DraftOption> drafts = getDraftOptionsForTrainer(tid, f);
+                for (DraftOption d : drafts) {
+                    boolean exists = pool.stream().anyMatch(c -> c.speciesName().equalsIgnoreCase(d.originalSpecies()));
+                    if (!exists) {
+                        pool.add(GachaPokemonCandidate.of(
+                                pool.size(),
+                                d.originalSpecies(),
+                                d.displayName(),
+                                d.baseSpecies(),
+                                d.formAspect(),
+                                d.primaryType(),
+                                d.secondaryType(),
+                                d.isLegendary(),
+                                d.isShiny()
+                        ));
+                    }
+                }
+            }
+        }
+
+        if (pool.isEmpty()) {
+            pool.addAll(List.of(
+                    GachaPokemonCandidate.of(0, "garchomp", "Garchomp", "gible", "", "Dragon", "Ground", false, false),
+                    GachaPokemonCandidate.of(1, "lucario", "Lucario", "riolu", "", "Fighting", "Steel", false, false),
+                    GachaPokemonCandidate.of(2, "charizard", "Charizard", "charmander", "", "Fire", "Flying", false, false),
+                    GachaPokemonCandidate.of(3, "greninja", "Greninja", "froakie", "", "Water", "Dark", false, false),
+                    GachaPokemonCandidate.of(4, "tyranitar", "Tyranitar", "larvitar", "", "Rock", "Dark", false, false),
+                    GachaPokemonCandidate.of(5, "metagross", "Metagross", "beldum", "", "Steel", "Psychic", false, false)
+            ));
+        }
+
+        // 3. Construct an extended 50-item CS:GO carousel reel from pool
+        Random rng = new Random();
+        List<GachaPokemonCandidate> reel = new ArrayList<>(50);
+        for (int i = 0; i < 50; i++) {
+            GachaPokemonCandidate base = pool.get(rng.nextInt(pool.size()));
+            reel.add(new GachaPokemonCandidate(
+                    i,
+                    base.speciesName(),
+                    base.displayName(),
+                    base.baseSpecies(),
+                    base.formAspect(),
+                    base.primaryType(),
+                    base.secondaryType(),
+                    base.rarity(),
+                    base.isLegendary(),
+                    base.isShiny()
+            ));
+        }
+
+        // 4. Select winner card near the end of the reel (index 38 to 44)
+        int winningIndex = 38 + rng.nextInt(6);
+        boolean isShinyWinner = rng.nextFloat() < 0.01f; // 1% Shiny chance
+
+        // Pre-roll IVs (with bonus stats for higher floors)
+        int[] rolledIvs = new int[6];
+        int minIv = floor >= 90 ? 25 : (floor >= 50 ? 20 : (floor >= 25 ? 15 : 10));
+        for (int i = 0; i < 6; i++) {
+            // Chance of 31 is higher on milestone floors
+            if (rng.nextFloat() < (0.25f + (floor * 0.005f))) {
+                rolledIvs[i] = 31;
+            } else {
+                rolledIvs[i] = minIv + rng.nextInt(32 - minIv);
+            }
+        }
+
+        OpenPokemonGachaS2CPacket packet = new OpenPokemonGachaS2CPacket(floor, bossName, reel, winningIndex, isShinyWinner, rolledIvs);
+
+        ServerPlayerEntity leader = server.getPlayerManager().getPlayer(party.getLeaderId());
+        if (leader != null) {
+            activePokemonGachaPools.put(leader.getUuid(), reel);
+            ServerPlayNetworking.send(leader, packet);
+        }
+        if (!party.isSolo() && party.getMemberId() != null) {
+            ServerPlayerEntity member = server.getPlayerManager().getPlayer(party.getMemberId());
+            if (member != null) {
+                activePokemonGachaPools.put(member.getUuid(), reel);
+                ServerPlayNetworking.send(member, packet);
+            }
+        }
+    }
+
+    public void handleGachaPokemonClaim(ServerPlayerEntity player, ClaimGachaPokemonC2SPacket packet) {
+        if (player == null || player.getServer() == null || packet == null) return;
+        List<GachaPokemonCandidate> reel = activePokemonGachaPools.remove(player.getUuid());
+
+        int winIdx = packet.winningCandidateIndex();
+        GachaPokemonCandidate winner = (reel != null && winIdx >= 0 && winIdx < reel.size())
+                ? reel.get(winIdx)
+                : null;
+
+        if (winner == null) {
+            // Fallback candidate if reel expired
+            winner = GachaPokemonCandidate.of(0, "garchomp", "Garchomp", "gible", "", "Dragon", "Ground", false, false);
+        }
+
+        int floor = packet.floor();
+
+        if (winner.isLegendary()) {
+            giveItemToPlayer(player, getCobblemonItem("master_ball", 1), floor);
+            TowerPlayerDataManager.getInstance().addBp(player.getUuid(), 500);
+            player.sendMessage(Text.literal("§6★ [CobbleTower Gacha] §fQuay trúng Pokémon Huyền Thoại/Thần Thoại (§e" + winner.displayName() + "§f)! Bạn nhận được §d1x Master Ball §f+ §e500 BP§f!"), false);
+            player.playSound(SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 1.0f, 1.0f);
+        } else {
+            try {
+                String baseSpecies = winner.baseSpecies();
+                String formStr = (winner.formAspect() != null && !winner.formAspect().isBlank()) ? (" " + winner.formAspect()) : "";
+                String parseStr = baseSpecies + formStr + " level=1" + (packet.isShiny() ? " shiny=true" : "");
+                Pokemon babyMon = PokemonProperties.Companion.parse(parseStr).create();
+
+                List<Stat> permanentStats = new ArrayList<>(Stats.Companion.getPERMANENT());
+                int perfectCount = 0;
+                for (int i = 0; i < Math.min(6, permanentStats.size()); i++) {
+                    int ivVal = (packet.rolledIvs() != null && packet.rolledIvs().length > i)
+                            ? Math.min(31, Math.max(0, packet.rolledIvs()[i]))
+                            : 31;
+                    babyMon.getIvs().set(permanentStats.get(i), ivVal);
+                    if (ivVal == 31) perfectCount++;
+                }
+
+                babyMon.setLevel(1);
+                babyMon.setShiny(packet.isShiny());
+                fullHeal(babyMon);
+
+                var partyStorage = Cobblemon.INSTANCE.getStorage().getParty(player);
+                boolean addedToParty = false;
+                if (partyStorage != null) {
+                    addedToParty = partyStorage.add(babyMon);
+                }
+
+                if (!addedToParty) {
+                    var pcStorage = Cobblemon.INSTANCE.getStorage().getPC(player);
+                    if (pcStorage != null) {
+                        pcStorage.add(babyMon);
+                    }
+                }
+
+                String formPrefix = (winner.formAspect() != null && !winner.formAspect().isBlank()) ? (" [" + capitalize(winner.formAspect()) + "] ") : " ";
+                String shinyTag = packet.isShiny() ? " §6✨ [SHINY]" : "";
+                String destText = addedToParty ? "§a(Đã thêm vào Đội hình!)" : "§e(Đội hình đầy, đã gửi an toàn vào PC Box!)";
+                player.sendMessage(Text.literal("§d★ [CobbleTower Gacha] §fChúc mừng! Bạn đã quay trúng §e" + capitalize(baseSpecies) + formPrefix + shinyTag + " §7(Từ §f" + winner.displayName() + "§7) §a" + perfectCount + "/6 dòng Max 31 IVs! " + destText), false);
+                player.playSound(SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 1.0f, 1.0f);
+            } catch (Throwable t) {
+                LOGGER.error("[CobbleTower] Failed to create gacha pokemon for player {}: ", player.getName().getString(), t);
+                giveItemToPlayer(player, new ItemStack(Items.DIAMOND_BLOCK, 4), floor);
+            }
+        }
+    }
+
+    public void triggerItemGacha(TowerParty party, MinecraftServer server, int floor) {
+        if (party == null || server == null) return;
+        Random rng = new Random();
+
+        // 4-Tier CS:GO Item & BP Pool
+        List<GachaItemCandidate> pool = List.of(
+                // Tier 3: Gold / Jackpot (3-5%)
+                new GachaItemCandidate(0, "master_ball", "Master Ball", "ball", 0, 1, 3, 0xFFFFD700),
+                new GachaItemCandidate(1, "gold_bottle_cap", "Gold Bottle Cap", "train", 0, 1, 3, 0xFFFFD700),
+                new GachaItemCandidate(2, "ability_patch", "Ability Patch", "train", 0, 1, 3, 0xFFFF55FF),
+                new GachaItemCandidate(3, "bp_jackpot", "1,500 BP Jackpot", "bp", 1500, 1, 3, 0xFFFFD700),
+
+                // Tier 2: Purple / Rare (15-20%)
+                new GachaItemCandidate(4, "bottle_cap", "Bottle Cap", "train", 0, 1, 2, 0xFF9B59B6),
+                new GachaItemCandidate(5, "ability_capsule", "Ability Capsule", "train", 0, 1, 2, 0xFF9B59B6),
+                new GachaItemCandidate(6, "choice_scarf", "Choice Scarf", "battle", 0, 1, 2, 0xFF9B59B6),
+                new GachaItemCandidate(7, "choice_band", "Choice Band", "battle", 0, 1, 2, 0xFF9B59B6),
+                new GachaItemCandidate(8, "choice_specs", "Choice Specs", "battle", 0, 1, 2, 0xFF9B59B6),
+                new GachaItemCandidate(9, "life_orb", "Life Orb", "battle", 0, 1, 2, 0xFF9B59B6),
+                new GachaItemCandidate(10, "focus_sash", "Focus Sash", "battle", 0, 1, 2, 0xFF9B59B6),
+                new GachaItemCandidate(11, "bp_major", "500 BP Reward", "bp", 500, 1, 2, 0xFF9B59B6),
+
+                // Tier 1: Blue / Uncommon (35%)
+                new GachaItemCandidate(12, "hp_up", "HP Up x3", "train", 0, 3, 1, 0xFF1E90FF),
+                new GachaItemCandidate(13, "protein", "Protein x3", "train", 0, 3, 1, 0xFF1E90FF),
+                new GachaItemCandidate(14, "carbos", "Carbos x3", "train", 0, 3, 1, 0xFF1E90FF),
+                new GachaItemCandidate(15, "exp_candy_xl", "EXP Candy XL x3", "train", 0, 3, 1, 0xFF1E90FF),
+                new GachaItemCandidate(16, "adamant_mint", "Adamant Mint", "train", 0, 1, 1, 0xFF1E90FF),
+                new GachaItemCandidate(17, "jolly_mint", "Jolly Mint", "train", 0, 1, 1, 0xFF1E90FF),
+                new GachaItemCandidate(18, "bp_medium", "250 BP Reward", "bp", 250, 1, 1, 0xFF1E90FF),
+
+                // Tier 0: Gray / Common (40%)
+                new GachaItemCandidate(19, "rare_candy", "Rare Candy x2", "train", 0, 2, 0, 0xFF7F8C8D),
+                new GachaItemCandidate(20, "ultra_ball", "Ultra Ball x5", "ball", 0, 5, 0, 0xFF7F8C8D),
+                new GachaItemCandidate(21, "revival_herb", "Revival Herb x3", "medicine", 0, 3, 0, 0xFF7F8C8D),
+                new GachaItemCandidate(22, "max_elixir", "Max Elixir x2", "medicine", 0, 2, 0, 0xFF7F8C8D),
+                new GachaItemCandidate(23, "exp_candy_l", "EXP Candy L x4", "train", 0, 4, 0, 0xFF7F8C8D),
+                new GachaItemCandidate(24, "bp_small", "100 BP Reward", "bp", 100, 1, 0, 0xFF7F8C8D)
+        );
+
+        // Build 40-item weighted roulette reel
+        List<GachaItemCandidate> reel = new ArrayList<>(40);
+        for (int i = 0; i < 40; i++) {
+            float roll = rng.nextFloat();
+            GachaItemCandidate base;
+            if (roll < 0.04f) {
+                // Tier 3
+                base = pool.get(rng.nextInt(4));
+            } else if (roll < 0.22f) {
+                // Tier 2
+                base = pool.get(4 + rng.nextInt(8));
+            } else if (roll < 0.58f) {
+                // Tier 1
+                base = pool.get(12 + rng.nextInt(7));
+            } else {
+                // Tier 0
+                base = pool.get(19 + rng.nextInt(6));
+            }
+            reel.add(new GachaItemCandidate(i, base.id(), base.displayName(), base.category(), base.bpAmount(), base.quantity(), base.rarityTier(), base.color()));
+        }
+
+        int winningIndex = 30 + rng.nextInt(5);
+        OpenItemGachaS2CPacket packet = new OpenItemGachaS2CPacket(floor, reel, winningIndex);
+
+        ServerPlayerEntity leader = server.getPlayerManager().getPlayer(party.getLeaderId());
+        if (leader != null) {
+            activeItemGachaPools.put(leader.getUuid(), reel);
+            ServerPlayNetworking.send(leader, packet);
+        }
+        if (!party.isSolo() && party.getMemberId() != null) {
+            ServerPlayerEntity member = server.getPlayerManager().getPlayer(party.getMemberId());
+            if (member != null) {
+                activeItemGachaPools.put(member.getUuid(), reel);
+                ServerPlayNetworking.send(member, packet);
+            }
+        }
+    }
+
+    public void handleGachaItemClaim(ServerPlayerEntity player, ClaimItemGachaC2SPacket packet) {
+        if (player == null || player.getServer() == null || packet == null) return;
+        List<GachaItemCandidate> reel = activeItemGachaPools.remove(player.getUuid());
+
+        int winIdx = packet.winningIndex();
+        GachaItemCandidate winner = (reel != null && winIdx >= 0 && winIdx < reel.size())
+                ? reel.get(winIdx)
+                : null;
+
+        if (winner == null) {
+            winner = new GachaItemCandidate(0, "bp_small", "100 BP", "bp", 100, 1, 0, 0xFF7F8C8D);
+        }
+
+        int floor = packet.floor();
+
+        if ("bp".equalsIgnoreCase(winner.category()) || winner.bpAmount() > 0) {
+            int bp = Math.max(winner.bpAmount(), 100);
+            TowerPlayerDataManager.getInstance().addBp(player.getUuid(), bp);
+            player.sendMessage(Text.literal("§6★ [CobbleTower Gacha] §fBạn nhận được §e+" + bp + " BP §f(Tổng BP: §a" + TowerPlayerDataManager.getInstance().getBp(player.getUuid()) + "§f)!"), false);
+        } else {
+            ItemStack stack = getCobblemonItem(winner.id(), winner.quantity());
+            giveItemToPlayer(player, stack, floor);
+            player.sendMessage(Text.literal("§6★ [CobbleTower Gacha] §fBạn nhận được §e" + winner.displayName() + "§f!"), false);
+        }
+        player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0f, 1.0f);
+    }
+
+    public void handleDraftChoice(ServerPlayerEntity player, int floor, int slotIndex) {
+        if (player == null) return;
+        int[] ivs = new int[]{31, 31, 31, 31, 31, 31};
+        handleGachaPokemonClaim(player, new ClaimGachaPokemonC2SPacket(floor, slotIndex, false, ivs));
+    }
+
+    public static void fullHeal(Pokemon mon) {
+        if (mon == null) return;
+        try {
+            mon.heal();
+            if (mon.getMoveSet() != null) {
+                mon.getMoveSet().heal();
+                for (Move move : mon.getMoveSet()) {
+                    if (move != null) {
+                        move.setCurrentPp(move.getMaxPp());
+                        move.update();
+                    }
+                }
+                mon.getMoveSet().update();
+            }
+        } catch (Throwable t) {
+            LOGGER.warn("[CobbleTower] Failed to full-heal pokemon: {}", t.getMessage());
+        }
+    }
+
+    private static String capitalize(String str) {
+        if (str == null || str.isEmpty()) return str;
+        return str.substring(0, 1).toUpperCase() + str.substring(1);
+    }
+
+    // ==========================================
+    // 🛠️ HEALING & REST STATION HELPERS
+    // ==========================================
 
     public void applyFullTeamRest(ServerPlayerEntity player) {
         if (player == null) return;
         try {
-            Class<?> cobblemonClass = Class.forName("com.cobblemon.mod.common.Cobblemon");
-            Object cobblemonInst = cobblemonClass.getField("INSTANCE").get(null);
-            Method getStorageMethod = cobblemonInst.getClass().getMethod("getStorage");
-            Object storage = getStorageMethod.invoke(cobblemonInst);
-            Method getPartyMethod = storage.getClass().getMethod("getParty", ServerPlayerEntity.class);
-            Iterable<?> party = (Iterable<?>) getPartyMethod.invoke(storage, player);
-
-            for (Object pokemon : party) {
-                if (pokemon == null) continue;
-                Method getMaxHealth = pokemon.getClass().getMethod("getMaxHealth");
-                Method setCurrentHealth = pokemon.getClass().getMethod("setCurrentHealth", int.class);
-                int maxHp = (int) getMaxHealth.invoke(pokemon);
-                setCurrentHealth.invoke(pokemon, maxHp);
-
-                try {
-                    Method getMoveSetMethod = pokemon.getClass().getMethod("getMoveSet");
-                    Object moveSet = getMoveSetMethod.invoke(pokemon);
-                    Method getMovesMethod = moveSet.getClass().getMethod("getMoves");
-                    Iterable<?> moves = (Iterable<?>) getMovesMethod.invoke(moveSet);
-                    for (Object move : moves) {
-                        if (move == null) continue;
-                        Method getMaxPp = move.getClass().getMethod("getMaxPp");
-                        Method setCurrentPp = move.getClass().getMethod("setCurrentPp", int.class);
-                        int maxPp = (int) getMaxPp.invoke(move);
-                        setCurrentPp.invoke(move, maxPp);
+            var party = Cobblemon.INSTANCE.getStorage().getParty(player);
+            if (party != null) {
+                party.heal();
+                for (Pokemon mon : party) {
+                    if (mon != null) {
+                        fullHeal(mon);
+                        try {
+                            party.onPokemonChanged(mon);
+                        } catch (Throwable ignored) {}
                     }
-                } catch (Exception ignored) {}
-
+                }
                 try {
-                    Method removeStatus = pokemon.getClass().getMethod("setStatus", Object.class);
-                    removeStatus.invoke(pokemon, (Object) null);
-                } catch (Exception ignored) {}
+                    party.sendTo(player);
+                } catch (Throwable ignored) {}
             }
-        } catch (Exception ignored) {}
-        player.sendMessage(Text.literal("§b[Rest Station] Full Team Rest: Entire party revived to 100% HP, refreshed 100% PP, and cleared all status conditions!"), false);
+        } catch (Throwable t) {
+            LOGGER.error("[CobbleTower] Error applying full team rest for player {}", player.getName().getString(), t);
+        }
+        player.sendMessage(Text.literal("§a[CobbleTower] §fĐội hình Pokémon của bạn đã được hồi phục hoàn toàn (100% HP, 100% PP & xoá trạng thái)!"), false);
     }
 
     public void applyWarPrep(ServerPlayerEntity player, TowerParty party, int buffType) {
@@ -347,25 +801,25 @@ public class TowerRewardManager {
         int count = 1;
 
         if (floor <= 25) {
-            bonusBp = 50;
-            lootId = Identifier.of("cobblemon", "exp_candy_m");
-            count = 2;
-        } else if (floor <= 50) {
             bonusBp = 100;
+            lootId = Identifier.of("cobblemon", "exp_candy_xl");
+            count = 3;
+        } else if (floor <= 50) {
+            bonusBp = 250;
             lootId = Identifier.of("cobblemon", "bottle_cap");
-            count = 1;
+            count = 2;
         } else if (floor <= 75) {
-            bonusBp = 200;
+            bonusBp = 500;
             lootId = Identifier.of("cobblemon", "ability_patch");
             count = 1;
         } else {
-            bonusBp = 500;
+            bonusBp = 1000;
             lootId = Identifier.of("cobblemon", "gold_bottle_cap");
-            count = 1;
+            count = 2;
         }
 
         TowerPlayerDataManager.getInstance().addBp(player.getUuid(), bonusBp);
-        player.sendMessage(Text.literal("§6[Treasure Cache] §a+" + bonusBp + " BP §7found in the treasure chest!"), false);
+        player.sendMessage(Text.literal("§6[Treasure Cache] §a+" + bonusBp + " BP §7tìm thấy trong rương báu!"), false);
 
         if (Registries.ITEM.containsId(lootId)) {
             ItemStack stack = new ItemStack(Registries.ITEM.get(lootId), count);
@@ -423,7 +877,7 @@ public class TowerRewardManager {
 
         boolean success = TowerPlayerDataManager.getInstance().spendBp(player.getUuid(), totalPrice);
         if (!success) {
-            player.sendMessage(Text.literal("§c[BP Shop] Not enough Battle Points! Required: §e" + totalPrice + " BP§c, Balance: §e" + profile.battlePoints + " BP"), false);
+            player.sendMessage(Text.literal("§c[BP Shop] Không đủ điểm Battle Points! Cần: §e" + totalPrice + " BP§c, Số dư: §e" + profile.battlePoints + " BP"), false);
             return;
         }
 
@@ -433,19 +887,19 @@ public class TowerRewardManager {
 
         if (itemId.equals("title_tower_champion")) {
             TowerPlayerDataManager.getInstance().unlockCosmetic(player.getUuid(), itemId);
-            player.sendMessage(Text.literal("§6★ [BP Shop] You unlocked the cosmetic title: §e« Tower Champion »§6!"), false);
+            player.sendMessage(Text.literal("§6★ [BP Shop] Bạn đã mở khóa danh hiệu: §e« Quán Quân Đấu Tháp »§6!"), false);
             return;
         }
 
         if (itemId.equals("title_tower_legend")) {
             TowerPlayerDataManager.getInstance().unlockCosmetic(player.getUuid(), itemId);
-            player.sendMessage(Text.literal("§d★ [BP Shop] You unlocked the supreme cosmetic title: §b« Tower Legend »§d!"), false);
+            player.sendMessage(Text.literal("§d★ [BP Shop] Bạn đã mở khóa danh hiệu tối thượng: §b« Huyền Thoại Đấu Tháp »§d!"), false);
             return;
         }
 
         if (itemId.startsWith("cosmetic_")) {
             TowerPlayerDataManager.getInstance().unlockCosmetic(player.getUuid(), itemId);
-            player.sendMessage(Text.literal("§d★ [BP Shop] Unlocked & activated cosmetic: §b" + itemId.replace("cosmetic_", "").replace("_", " ") + "§d!"), false);
+            player.sendMessage(Text.literal("§d★ [BP Shop] Đã mở khóa & kích hoạt hiệu ứng: §b" + itemId.replace("cosmetic_", "").replace("_", " ") + "§d!"), false);
             return;
         }
 
@@ -461,7 +915,8 @@ public class TowerRewardManager {
         }
 
         giveItemToPlayer(player, stack, 1);
-        player.sendMessage(Text.literal("§a[BP Shop] Purchased §e" + stack.getName().getString() + (quantity > 1 ? (" x" + quantity) : "") + " §afor §e" + totalPrice + " BP§a! Balance: §e" + TowerPlayerDataManager.getInstance().getBp(player.getUuid()) + " BP"), false);
+        player.sendMessage(Text.literal("§a[BP Shop] Đã mua thành công §e" + stack.getName().getString() + (quantity > 1 ? (" x" + quantity) : "") + " §avới giá §e" + totalPrice + " BP§a! Số dư còn: §e" + TowerPlayerDataManager.getInstance().getBp(player.getUuid()) + " BP"), false);
+        TowerPartyManager.getInstance().syncPlayerState(player);
     }
 
     public void handleBpPurchase(ServerPlayerEntity player, String itemId) {
@@ -477,38 +932,7 @@ public class TowerRewardManager {
             player.dropItem(stack, false);
         }
 
-        player.sendMessage(Text.literal("§6[CobbleTower] §aReceived: §e" + itemName + (count > 1 ? (" x" + count) : "")), false);
-    }
-
-    private ItemStack getRewardItemForFloor(int floor) {
-        Identifier itemId;
-        if (floor <= 10) {
-            itemId = Identifier.of("cobblemon", "exp_candy_m");
-        } else if (floor <= 25) {
-            itemId = Identifier.of("cobblemon", "exp_candy_l");
-        } else if (floor <= 50) {
-            itemId = Identifier.of("cobblemon", "exp_candy_xl");
-        } else if (floor <= 75) {
-            itemId = Identifier.of("cobblemon", "ability_capsule");
-        } else if (floor < 100) {
-            itemId = Identifier.of("cobblemon", "ability_patch");
-        } else {
-            itemId = Identifier.of("cobblemon", "master_ball");
-        }
-
-        if (Registries.ITEM.containsId(itemId)) {
-            return new ItemStack(Registries.ITEM.get(itemId));
-        }
-        return new ItemStack(Items.DIAMOND);
-    }
-
-    private int getRewardAmountForFloor(int floor) {
-        if (floor <= 10) return 2;
-        if (floor <= 25) return 3;
-        if (floor <= 50) return 4;
-        if (floor <= 75) return 2;
-        if (floor < 100) return 2;
-        return 5;
+        player.sendMessage(Text.literal("§6[CobbleTower] §aĐã nhận: §e" + itemName + (count > 1 ? (" x" + count) : "")), false);
     }
 
     public void checkMilestones(ServerPlayerEntity p1, ServerPlayerEntity p2, int floor, boolean isTrueRun) {

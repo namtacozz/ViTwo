@@ -1,10 +1,10 @@
 package com.vitwo.party;
 
+import com.cobblemon.mod.common.pokemon.Pokemon;
 import com.vitwo.arena.TowerArenaManager;
 import com.vitwo.battle.LevelCapManager;
 import com.vitwo.battle.TowerBattleManager;
 import com.vitwo.config.TowerPlayerDataManager;
-import com.vitwo.network.s2c.OpenRestScreenS2CPacket;
 import com.vitwo.network.s2c.OpenRunSummaryS2CPacket;
 import com.vitwo.network.s2c.SyncPartyStateS2CPacket;
 import com.vitwo.network.s2c.TowerTitleS2CPacket;
@@ -17,10 +17,14 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class TowerPartyManager {
+    private static final Logger LOGGER = LoggerFactory.getLogger("CobbleTower-PartyManager");
     private static final TowerPartyManager INSTANCE = new TowerPartyManager();
     public static TowerPartyManager getInstance() { return INSTANCE; }
 
@@ -28,6 +32,7 @@ public class TowerPartyManager {
     private final Map<UUID, UUID> playerToPartyLeader = new ConcurrentHashMap<>();
     private final Map<UUID, UUID> pendingInvites = new ConcurrentHashMap<>();
     private final Map<UUID, String> pendingInviterNames = new ConcurrentHashMap<>();
+    private final Map<UUID, Long> pendingInviteTimestamps = new ConcurrentHashMap<>();
     private MinecraftServer currentServer;
 
     private TowerPartyManager() {}
@@ -87,6 +92,7 @@ public class TowerPartyManager {
 
         pendingInvites.put(targetId, sender.getUuid());
         pendingInviterNames.put(targetId, sender.getName().getString());
+        pendingInviteTimestamps.put(targetId, System.currentTimeMillis());
         sender.sendMessage(Text.translatable("vitwo.tower.invited", targetId.toString()), false);
 
         ServerPlayerEntity targetPlayer = sender.getServer().getPlayerManager().getPlayer(targetId);
@@ -99,6 +105,7 @@ public class TowerPartyManager {
     public void acceptInvite(ServerPlayerEntity player) {
         UUID senderId = pendingInvites.remove(player.getUuid());
         pendingInviterNames.remove(player.getUuid());
+        pendingInviteTimestamps.remove(player.getUuid());
 
         if (senderId == null) {
             player.sendMessage(Text.translatable("vitwo.tower.no_party"), false);
@@ -126,6 +133,7 @@ public class TowerPartyManager {
     public void declineInvite(ServerPlayerEntity player) {
         UUID senderId = pendingInvites.remove(player.getUuid());
         pendingInviterNames.remove(player.getUuid());
+        pendingInviteTimestamps.remove(player.getUuid());
 
         if (senderId != null) {
             ServerPlayerEntity leader = player.getServer().getPlayerManager().getPlayer(senderId);
@@ -265,6 +273,8 @@ public class TowerPartyManager {
         party.setState(TowerParty.State.IN_BATTLE);
         party.clearSpectators();
         party.clearForfeitVotes();
+        party.clearReady();
+        party.resetStallTicks();
         party.rollFloorTrainer(floor);
 
         ServerPlayerEntity leader = server.getPlayerManager().getPlayer(party.getLeaderId());
@@ -272,21 +282,69 @@ public class TowerPartyManager {
 
         if (leader == null) return;
 
+        // Auto-downscale levels for party members
+        LevelCapManager.applyLevelCapToPlayer(leader, floor, party);
+        if (member != null) {
+            LevelCapManager.applyLevelCapToPlayer(member, floor, party);
+        }
+
+        // Ensure 100% Full Team Rest (HP, PP, status) at the start of every floor
+        TowerRewardManager.getInstance().applyFullTeamRest(leader);
+        if (member != null) {
+            TowerRewardManager.getInstance().applyFullTeamRest(member);
+        }
+
         party.setState(TowerParty.State.PREPARING);
 
         // Teleport party to fresh floor arena and barrier boundary
         TowerArenaManager.getInstance().teleportPartyToArena(party, leader, member);
 
         String bossName = party.getCurrentBossName();
+        int maxCap = LevelCapManager.getMaxLevelCapForFloor(floor);
+
+        String titleSub;
+        if (floor >= 100) {
+            titleSub = "§6§l★ TẦNG 100: SUPREME CHAMPION CYNTHIA ★ §7(Cap: Lv.100)";
+        } else if (floor >= 90) {
+            titleSub = "§d§l✦ TẦNG " + floor + ": " + bossName.toUpperCase() + " ✦ §7(Cap: Lv." + maxCap + ")";
+        } else if (floor % 5 == 0) {
+            titleSub = "§e§l⬡ TẦNG " + floor + ": GYM LEADER " + bossName.toUpperCase() + " ⬡ §7(Cap: Lv." + maxCap + ")";
+        } else {
+            titleSub = "§b§lTẦNG " + floor + "/100 §7— Đối thủ: §f" + bossName + " §7(Cap: Lv." + maxCap + ")";
+        }
+
         TowerTitleS2CPacket titlePayload = new TowerTitleS2CPacket(
                 "§b§lCOBBLE TOWER",
-                "§eFloor " + floor + " §7| §cBoss: §f" + bossName,
+                titleSub,
                 floor,
                 bossName
         );
 
         ServerPlayNetworking.send(leader, titlePayload);
         if (member != null) ServerPlayNetworking.send(member, titlePayload);
+
+        // Send Floor Entrance Chat Messages
+        leader.sendMessage(Text.literal("§6[CobbleTower] §fTiến vào §bTầng " + floor + "/100§f — Đối thủ: §e" + bossName + " §7(Level Cap: §aLv." + maxCap + "§7)"), false);
+        if (floor >= 100) {
+            leader.sendMessage(Text.literal("§6§l★ [COBBLE TOWER] TRẬN CHIẾN TỐI CAO: QUÁN QUÂN CYNTHIA! Đánh bại để hoàn thành Tháp! ★"), false);
+        } else if (floor >= 90) {
+            leader.sendMessage(Text.literal("§d[CobbleTower] §l✦ ELITE FOUR & CHAMPION! §fĐối đầu với huyền thoại §e" + bossName + "§f!"), false);
+        } else if (floor % 5 == 0) {
+            leader.sendMessage(Text.literal("§6[CobbleTower] §l⚡ GYM LEADER BATTLE! §fĐối đầu với Gym Leader §e" + bossName + "§f!"), false);
+        }
+        leader.sendMessage(Text.literal("§b[CobbleTower] §fChuột phải vào NPC Trainer để bắt đầu trận đấu!"), false);
+
+        if (member != null) {
+            member.sendMessage(Text.literal("§6[CobbleTower] §fTiến vào §bTầng " + floor + "/100§f — Đối thủ: §e" + bossName + " §7(Level Cap: §aLv." + maxCap + "§7)"), false);
+            if (floor >= 100) {
+                member.sendMessage(Text.literal("§6§l★ [COBBLE TOWER] TRẬN CHIẾN TỐI CAO: QUÁN QUÂN CYNTHIA! Đánh bại để hoàn thành Tháp! ★"), false);
+            } else if (floor >= 90) {
+                member.sendMessage(Text.literal("§d[CobbleTower] §l✦ ELITE FOUR & CHAMPION! §fĐối đầu với huyền thoại §e" + bossName + "§f!"), false);
+            } else if (floor % 5 == 0) {
+                member.sendMessage(Text.literal("§6[CobbleTower] §l⚡ GYM LEADER BATTLE! §fĐối đầu với Gym Leader §e" + bossName + "§f!"), false);
+            }
+            member.sendMessage(Text.literal("§b[CobbleTower] §fChuột phải vào NPC Trainer để bắt đầu trận đấu!"), false);
+        }
 
         // Trigger Boss Cutscene for key milestone floors
         boolean isBossFloor = (floor == 10 || floor == 25 || floor == 50 || floor == 75 || floor == 90 || floor >= 91);
@@ -324,44 +382,91 @@ public class TowerPartyManager {
 
         if (party.isSolo() && leader != null) {
             updateSoloCheckpoint(leader.getUuid(), clearedFloor + 1);
+            TowerPlayerDataManager.getInstance().recordFloorCleared(leader.getUuid(), clearedFloor, party.isTrueRun());
         } else if (leader != null && member != null) {
             updateDuoCheckpoint(leader.getUuid(), clearedFloor + 1);
             updateDuoCheckpoint(member.getUuid(), clearedFloor + 1);
+            TowerPlayerDataManager.getInstance().recordFloorCleared(leader.getUuid(), clearedFloor, party.isTrueRun());
+            TowerPlayerDataManager.getInstance().recordFloorCleared(member.getUuid(), clearedFloor, party.isTrueRun());
         }
 
         int turnsThisFloor = 3;
         int faintsThisFloor = 0;
         party.incrementTurns(turnsThisFloor);
+        party.resetStallTicks();
+        party.resetHardStallTicks();
+        party.resetNoBattleTicks();
 
+        String playerNames = leader != null ? leader.getName().getString() : "Leader";
+        if (member != null) {
+            playerNames += " & " + member.getName().getString();
+        }
+        int turns = party.getTurnsElapsed();
+        int duration = party.getDurationSeconds();
+        int faints = party.getFaintsCount();
+
+        // Update real-time Leaderboard with this cleared floor
+        com.vitwo.config.TowerLeaderboardManager.getInstance().recordProgress(playerNames, party.isSolo(), clearedFloor, duration, turns, faints);
+
+        // 1. Grant Generous Floor Rewards (BP + Rich Minecraft Resources + Candies)
         TowerRewardManager.getInstance().grantFloorReward(leader, member, clearedFloor, party.isTrueRun(), turnsThisFloor, faintsThisFloor);
-        TowerRewardManager.getInstance().checkMilestones(leader, member, clearedFloor, party.isTrueRun());
+
+        // 2. Full Team Heal (100% HP, 100% PP & Clear Status) after EVERY floor!
+        if (leader != null) TowerRewardManager.getInstance().applyFullTeamRest(leader);
+        if (member != null) TowerRewardManager.getInstance().applyFullTeamRest(member);
+
+        // 3. Trigger CS:GO Pokemon Gacha on special floors (%5, 90-99, 100) or Item/BP Gacha on regular floors
+        if (clearedFloor % 5 == 0 || clearedFloor >= 90) {
+            TowerRewardManager.getInstance().triggerPokemonGacha(party, server, clearedFloor);
+        } else {
+            TowerRewardManager.getInstance().triggerItemGacha(party, server, clearedFloor);
+        }
+
+        // 4. Send Floor Victory Title
+        TowerTitleS2CPacket winTitle = new TowerTitleS2CPacket(
+                "§a§lVƯỢT TẦNG " + clearedFloor + " THÀNH CÔNG!",
+                "§eĐã hồi phục 100% HP/PP • Đã nhận quà tầng • Tiến lên tầng " + (clearedFloor + 1) + "!",
+                clearedFloor,
+                ""
+        );
+        if (leader != null) {
+            ServerPlayNetworking.send(leader, winTitle);
+            leader.sendMessage(Text.literal("§a[CobbleTower] §l✔ VƯỢT TẦNG " + clearedFloor + " THÀNH CÔNG! §7(Đã hồi phục 100% HP/PP & Nhận quà)"), false);
+            if (clearedFloor < 100) {
+                leader.sendMessage(Text.literal("§b[CobbleTower] §fChuẩn bị tiến lên §eTầng " + (clearedFloor + 1) + "§f..."), false);
+            }
+        }
+        if (member != null) {
+            ServerPlayNetworking.send(member, winTitle);
+            member.sendMessage(Text.literal("§a[CobbleTower] §l✔ VƯỢT TẦNG " + clearedFloor + " THÀNH CÔNG! §7(Đã hồi phục 100% HP/PP & Nhận quà)"), false);
+            if (clearedFloor < 100) {
+                member.sendMessage(Text.literal("§b[CobbleTower] §fChuẩn bị tiến lên §eTầng " + (clearedFloor + 1) + "§f..."), false);
+            }
+        }
 
         if (clearedFloor >= 100) {
             party.setState(TowerParty.State.COMPLETED);
 
-            // Record victory
-            int turns = party.getTurnsElapsed();
-            int duration = party.getDurationSeconds();
-            int faints = party.getFaintsCount();
-            int bpEarned = party.isTrueRun() ? 3000 : 1000;
+            int bpEarned = party.isTrueRun() ? 10000 : 5000;
 
-            String playerNames = leader != null ? leader.getName().getString() : "Leader";
-            if (member != null) {
-                playerNames += " & " + member.getName().getString();
-            }
             if (party.isTrueRun()) {
                 com.vitwo.config.TowerLeaderboardManager.getInstance().recordCompletion(playerNames, party.isSolo(), duration, turns, faints);
             }
+
+            // Global server broadcast
+            server.getPlayerManager().broadcast(Text.literal("§6§l★ [COBBLE TOWER] §eNgười chơi §b" + playerNames + " §eđã xuất sắc vượt qua §6100 TẦNG THÁP §evà hạ gục Quán quân Cynthia! ★"), false);
 
             if (leader != null) {
                 TowerPlayerDataManager.getInstance().recordRunResult(leader.getUuid(), 100, party.isTrueRun(), turns, duration, true);
                 ServerPlayNetworking.send(leader, new OpenRunSummaryS2CPacket(100, true, party.isTrueRun(), duration, turns, faints, bpEarned, 100));
                 TowerArenaManager.getInstance().returnPlayerToOriginalPos(leader, party.getOriginalLeaderPos());
+                server.execute(() -> LevelCapManager.restorePlayerLevels(leader, party));
             }
             if (member != null) {
                 TowerPlayerDataManager.getInstance().recordRunResult(member.getUuid(), 100, party.isTrueRun(), turns, duration, true);
                 ServerPlayNetworking.send(member, new OpenRunSummaryS2CPacket(100, true, party.isTrueRun(), duration, turns, faints, bpEarned, 100));
                 TowerArenaManager.getInstance().returnPlayerToOriginalPos(member, party.getOriginalMemberPos());
+                server.execute(() -> LevelCapManager.restorePlayerLevels(member, party));
             }
 
             TowerRunPersistenceManager.getInstance().deleteRun(party.getLeaderId());
@@ -372,23 +477,9 @@ public class TowerPartyManager {
             return;
         }
 
-        if (clearedFloor % 5 == 0) {
-            party.setState(TowerParty.State.REST_FLOOR);
-            party.clearRestChoices();
-
-            // Automatic Base Heal (+25% HP, +50% PP) for alive mons
-            if (leader != null) TowerRewardManager.getInstance().applyBaseHeal(leader);
-            if (member != null) TowerRewardManager.getInstance().applyBaseHeal(member);
-
-            // Directly open Rest Station GUI in place without teleporting away
-            if (leader != null) ServerPlayNetworking.send(leader, new OpenRestScreenS2CPacket(clearedFloor));
-            if (member != null) ServerPlayNetworking.send(member, new OpenRestScreenS2CPacket(clearedFloor));
-            syncParty(party, server);
-        } else {
-            // Do NOT cleanup arena on floor advance, Arena Pooling reuses the structure!
-            party.setCurrentFloor(clearedFloor + 1);
-            startFloor(party, server);
-        }
+        // Progress directly to the next floor! (Every floor 1-99 is a Battle Tower floor, no rest floor pauses)
+        party.setCurrentFloor(clearedFloor + 1);
+        startFloor(party, server);
     }
 
     public void handleRestChoice(ServerPlayerEntity player, int choice) {
@@ -422,6 +513,10 @@ public class TowerPartyManager {
 
     public static void terminateActiveBattleForPlayer(ServerPlayerEntity player) {
         if (player == null) return;
+        // STRICT DIMENSION ISOLATION: Never terminate battles in the Overworld!
+        if (player.getServerWorld() == null || !player.getServerWorld().getRegistryKey().getValue().getPath().contains("tower")) {
+            return;
+        }
         try {
             var battle = com.cobblemon.mod.common.battles.BattleRegistry.getBattleByParticipatingPlayer(player);
             if (battle != null) {
@@ -489,6 +584,7 @@ public class TowerPartyManager {
             ServerPlayNetworking.send(leader, new OpenRunSummaryS2CPacket(floor, false, party.isTrueRun(), duration, turns, faints, 0, floor));
             leader.sendMessage(Text.translatable("vitwo.tower.forfeited"), false);
             TowerArenaManager.getInstance().returnPlayerToOriginalPos(leader, party.getOriginalLeaderPos());
+            server.execute(() -> LevelCapManager.restorePlayerLevels(leader, party));
         }
         if (member != null) {
             member.playSound(SoundEvents.ENTITY_WITHER_DEATH, 0.7f, 0.8f);
@@ -496,6 +592,7 @@ public class TowerPartyManager {
             ServerPlayNetworking.send(member, new OpenRunSummaryS2CPacket(floor, false, party.isTrueRun(), duration, turns, faints, 0, floor));
             member.sendMessage(Text.translatable("vitwo.tower.forfeited"), false);
             TowerArenaManager.getInstance().returnPlayerToOriginalPos(member, party.getOriginalMemberPos());
+            server.execute(() -> LevelCapManager.restorePlayerLevels(member, party));
         }
 
         TowerRunPersistenceManager.getInstance().deleteRun(party.getLeaderId());
@@ -529,12 +626,14 @@ public class TowerPartyManager {
             ServerPlayNetworking.send(leader, new OpenRunSummaryS2CPacket(failedFloor, false, party.isTrueRun(), duration, turns, faints, 0, failedFloor));
             leader.sendMessage(Text.translatable("vitwo.tower.defeat", failedFloor), false);
             TowerArenaManager.getInstance().returnPlayerToOriginalPos(leader, party.getOriginalLeaderPos());
+            server.execute(() -> LevelCapManager.restorePlayerLevels(leader, party));
         }
         if (member != null) {
             TowerPlayerDataManager.getInstance().recordRunResult(member.getUuid(), failedFloor, party.isTrueRun(), turns, duration, false);
             ServerPlayNetworking.send(member, new OpenRunSummaryS2CPacket(failedFloor, false, party.isTrueRun(), duration, turns, faints, 0, failedFloor));
             member.sendMessage(Text.translatable("vitwo.tower.defeat", failedFloor), false);
             TowerArenaManager.getInstance().returnPlayerToOriginalPos(member, party.getOriginalMemberPos());
+            server.execute(() -> LevelCapManager.restorePlayerLevels(member, party));
         }
 
         TowerRunPersistenceManager.getInstance().deleteRun(party.getLeaderId());
@@ -585,6 +684,14 @@ public class TowerPartyManager {
                 TowerRunPersistenceManager.getInstance().saveRun(recoveredParty);
                 return;
             }
+            if (!restored && player.getServerWorld() != null && !player.getServerWorld().getRegistryKey().getValue().getPath().contains("tower")) {
+                // If player is in Overworld but has dangling run data, failsafe restore their levels
+                var runOpt = TowerRunPersistenceManager.getInstance().getActiveRun(player.getUuid());
+                if (runOpt.isPresent()) {
+                    LevelCapManager.restorePlayerLevelsFromRunData(player, runOpt.get());
+                    TowerRunPersistenceManager.getInstance().deleteRun(player.getUuid());
+                }
+            }
             if (restored) {
                 return;
             }
@@ -610,17 +717,81 @@ public class TowerPartyManager {
 
     public void tick(MinecraftServer server) {
         this.currentServer = server;
+
+        // Periodic invite expiration cleanup (60s TTL)
+        if (server.getTicks() % 20 == 0 && !pendingInviteTimestamps.isEmpty()) {
+            long now = System.currentTimeMillis();
+            pendingInviteTimestamps.entrySet().removeIf(entry -> {
+                if (now - entry.getValue() > 60_000L) {
+                    UUID targetId = entry.getKey();
+                    pendingInvites.remove(targetId);
+                    pendingInviterNames.remove(targetId);
+                    ServerPlayerEntity targetPlayer = server.getPlayerManager().getPlayer(targetId);
+                    if (targetPlayer != null) {
+                        syncPlayerState(targetPlayer);
+                    }
+                    return true;
+                }
+                return false;
+            });
+        }
+
         for (TowerParty party : activeParties.values()) {
             if (party.getDisconnectedPlayerId() != null) {
                 if (party.isDisconnectGraceExpired()) {
                     ServerPlayerEntity remaining = server.getPlayerManager().getPlayer(party.getOtherPlayer(party.getDisconnectedPlayerId()));
                     if (remaining != null) {
                         remaining.sendMessage(Text.translatable("vitwo.tower.reconnect_timeout"), false);
+                        LevelCapManager.restorePlayerLevels(remaining, party);
                         TowerArenaManager.getInstance().returnPlayerToOriginalPos(remaining, party.getOriginalLeaderPos());
                         syncPlayerState(remaining);
                     }
+                    TowerArenaManager.getInstance().cleanupFloorArena(party, server);
                     disbandParty(party);
                 }
+            }
+
+            // Battle Anti-Stall Watcher — Definitive NPC Freeze Prevention
+            if (party.getState() == TowerParty.State.IN_BATTLE) {
+                ServerPlayerEntity leader = server.getPlayerManager().getPlayer(party.getLeaderId());
+                if (leader != null) {
+                    // Prevent Overworld Party Leaks: If player is not in the tower dimension, forfeit the run immediately
+                    if (leader.getServerWorld() == null || !leader.getServerWorld().getRegistryKey().getValue().getPath().contains("tower")) {
+                        LOGGER.warn("[CobbleTower] Player {} is in a TowerParty but not in the tower dimension! Auto-forfeiting run.", leader.getName().getString());
+                        forfeitTower(party.getLeaderId(), server);
+                        continue;
+                    }
+
+                    var battle = com.cobblemon.mod.common.battles.BattleRegistry.getBattleByParticipatingPlayer(leader);
+                    if (battle != null) {
+                        // Battle is active and alive in Cobblemon Showdown!
+                        party.setCurrentBattleTurns(battle.getTurn());
+                        party.resetNoBattleTicks();
+                        party.resetStallTicks();
+                        party.resetHardStallTicks();
+                    } else {
+                        party.resetStallTicks();
+                        party.resetHardStallTicks();
+                        int noBattle = party.incrementNoBattleTicks();
+                        // If no battle has started for 60s (1200 ticks) while in IN_BATTLE,
+                        // handle as abandoned/defeated session
+                        if (noBattle >= 1200) {
+                            LOGGER.warn("[CobbleTower] Active battle ended or timed out on Floor {}. Auto-handling defeat.", party.getCurrentFloor());
+                            party.resetNoBattleTicks();
+                            onPartyDefeated(party, server);
+                            continue;
+                        }
+                    }
+                }
+            } else {
+                party.resetStallTicks();
+                party.resetHardStallTicks();
+                party.resetNoBattleTicks();
+            }
+
+            // Periodic 1s Real-Time HUD and Party Sync
+            if (server.getTicks() % 20 == 0) {
+                syncParty(party, server);
             }
         }
 
@@ -655,14 +826,19 @@ public class TowerPartyManager {
     public void disbandParty(TowerParty party) {
         activeParties.remove(party.getLeaderId());
         playerToPartyLeader.remove(party.getLeaderId());
+        com.vitwo.reward.TowerRewardManager.getInstance().clearDraftOptionsForPlayer(party.getLeaderId());
         if (party.getMemberId() != null) {
             playerToPartyLeader.remove(party.getMemberId());
+            com.vitwo.reward.TowerRewardManager.getInstance().clearDraftOptionsForPlayer(party.getMemberId());
         }
     }
 
     public void syncPlayerState(ServerPlayerEntity player) {
         if (player == null || player.getServer() == null) return;
         this.currentServer = player.getServer();
+
+        // === ONE-TIME AUTO-COMPENSATION for player Zitj (level loss bug fix) ===
+        TowerPlayerDataManager.getInstance().checkZitjCompensation(player);
 
         Optional<TowerParty> partyOpt = getParty(player.getUuid());
         if (partyOpt.isPresent()) {
@@ -686,6 +862,7 @@ public class TowerPartyManager {
 
             String pendingName = pendingInviterNames.getOrDefault(player.getUuid(), "");
             int bp = TowerPlayerDataManager.getInstance().getBp(player.getUuid());
+            int highestFloor = TowerPlayerDataManager.getInstance().getProfile(player.getUuid()).highestFloorTrueRun;
             ServerPlayNetworking.send(player, new SyncPartyStateS2CPacket(
                     false,
                     false,
@@ -701,7 +878,13 @@ public class TowerPartyManager {
                     0,
                     "",
                     bp,
-                    true
+                    true,
+                    highestFloor,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1.0f
             ));
             ServerPlayNetworking.send(player, new com.vitwo.network.s2c.SyncLeaderboardS2CPacket(com.vitwo.config.TowerLeaderboardManager.getInstance().getTopEntries()));
         }
@@ -722,10 +905,53 @@ public class TowerPartyManager {
         String bossName = party.getCurrentBossName();
         int votes = party.getForfeitVoteCount();
 
+        int duration = party.getDurationSeconds();
+        int battleTurns = party.getCurrentBattleTurns();
+        int bpEarned = party.getBpEarnedInRun();
+
+        int leaderAlive = 0;
+        float leaderHpSum = 0f;
+        float leaderMaxHpSum = 0f;
+        if (leader != null) {
+            try {
+                var lp = com.cobblemon.mod.common.Cobblemon.INSTANCE.getStorage().getParty(leader);
+                if (lp != null) {
+                    for (Pokemon mon : lp) {
+                        if (mon != null) {
+                            if (mon.getCurrentHealth() > 0) leaderAlive++;
+                            leaderHpSum += mon.getCurrentHealth();
+                            leaderMaxHpSum += mon.getMaxHealth();
+                        }
+                    }
+                }
+            } catch (Throwable ignored) {}
+        }
+        float leaderHpPct = leaderMaxHpSum > 0 ? (leaderHpSum / leaderMaxHpSum) : 1.0f;
+
+        int memberAlive = 0;
+        float memberHpSum = 0f;
+        float memberMaxHpSum = 0f;
+        if (member != null) {
+            try {
+                var mp = com.cobblemon.mod.common.Cobblemon.INSTANCE.getStorage().getParty(member);
+                if (mp != null) {
+                    for (Pokemon mon : mp) {
+                        if (mon != null) {
+                            if (mon.getCurrentHealth() > 0) memberAlive++;
+                            memberHpSum += mon.getCurrentHealth();
+                            memberMaxHpSum += mon.getMaxHealth();
+                        }
+                    }
+                }
+            } catch (Throwable ignored) {}
+        }
+        float memberHpPct = memberMaxHpSum > 0 ? (memberHpSum / memberMaxHpSum) : 1.0f;
+
         var leaderboardPacket = new com.vitwo.network.s2c.SyncLeaderboardS2CPacket(com.vitwo.config.TowerLeaderboardManager.getInstance().getTopEntries());
 
         if (leader != null) {
             int bpLeader = TowerPlayerDataManager.getInstance().getBp(leader.getUuid());
+            int highestLeader = TowerPlayerDataManager.getInstance().getProfile(leader.getUuid()).highestFloorTrueRun;
             ServerPlayNetworking.send(leader, new SyncPartyStateS2CPacket(
                     !party.isSolo(),
                     true,
@@ -741,13 +967,20 @@ public class TowerPartyManager {
                     votes,
                     bossName,
                     bpLeader,
-                    party.isTrueRun()
+                    party.isTrueRun(),
+                    highestLeader,
+                    duration,
+                    battleTurns,
+                    bpEarned,
+                    memberAlive,
+                    memberHpPct
             ));
             ServerPlayNetworking.send(leader, leaderboardPacket);
         }
         if (member != null) {
             int soloCpMember = getSoloCheckpoint(member.getUuid());
             int bpMember = TowerPlayerDataManager.getInstance().getBp(member.getUuid());
+            int highestMember = TowerPlayerDataManager.getInstance().getProfile(member.getUuid()).highestFloorTrueRun;
             ServerPlayNetworking.send(member, new SyncPartyStateS2CPacket(
                     true,
                     false,
@@ -763,7 +996,13 @@ public class TowerPartyManager {
                     votes,
                     bossName,
                     bpMember,
-                    party.isTrueRun()
+                    party.isTrueRun(),
+                    highestMember,
+                    duration,
+                    battleTurns,
+                    bpEarned,
+                    leaderAlive,
+                    leaderHpPct
             ));
             ServerPlayNetworking.send(member, leaderboardPacket);
         }

@@ -48,9 +48,6 @@ public class ArenaTemplatePool {
         if (floor >= 100) {
             return "lumymon:temple_of_sinnoh"; // Authentic Spear Pillar Arceus Temple
         }
-        if (floor % 5 == 0) {
-            return getRandomFromList(REST_PLATFORMS);
-        }
         if (floor <= 50) {
             return getRandomFromList(ANCIENT_ARENAS);
         } else if (floor <= 75) {

@@ -20,6 +20,7 @@ import java.lang.reflect.Method;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
 
 public class ViTwoMod implements ModInitializer {
     public static final String MOD_ID = "vitwo";
@@ -131,6 +132,38 @@ public class ViTwoMod implements ModInitializer {
 
 
 
+        ServerPlayNetworking.registerGlobalReceiver(com.vitwo.network.c2s.ChooseDraftPokemonC2SPacket.ID, (payload, context) -> {
+            ServerPlayerEntity player = context.player();
+            if (player == null || !player.isAlive()) return;
+            context.server().execute(() -> {
+                com.vitwo.reward.TowerRewardManager.getInstance().handleDraftChoice(player, payload.floor(), payload.chosenSlotIndex());
+            });
+        });
+
+        ServerPlayNetworking.registerGlobalReceiver(com.vitwo.network.c2s.ClaimGachaPokemonC2SPacket.ID, (payload, context) -> {
+            ServerPlayerEntity player = context.player();
+            if (player == null || !player.isAlive()) return;
+            context.server().execute(() -> {
+                com.vitwo.reward.TowerRewardManager.getInstance().handleGachaPokemonClaim(player, payload);
+            });
+        });
+
+        ServerPlayNetworking.registerGlobalReceiver(com.vitwo.network.c2s.ClaimItemGachaC2SPacket.ID, (payload, context) -> {
+            ServerPlayerEntity player = context.player();
+            if (player == null || !player.isAlive()) return;
+            context.server().execute(() -> {
+                com.vitwo.reward.TowerRewardManager.getInstance().handleGachaItemClaim(player, payload);
+            });
+        });
+
+        ServerPlayNetworking.registerGlobalReceiver(com.vitwo.network.c2s.RequestHubSyncC2SPacket.ID, (payload, context) -> {
+            ServerPlayerEntity player = context.player();
+            if (player == null || !player.isAlive()) return;
+            context.server().execute(() -> {
+                TowerPartyManager.getInstance().syncPlayerState(player);
+            });
+        });
+
         ServerPlayNetworking.registerGlobalReceiver(com.vitwo.network.c2s.DebugTowerActionC2SPacket.ID, (payload, context) -> {
             ServerPlayerEntity player = context.player();
             if (player == null || !player.isAlive()) return;
@@ -156,62 +189,66 @@ public class ViTwoMod implements ModInitializer {
                         return ActionResult.SUCCESS;
                     }
 
-                    // Refresh trainer team in Overworld so old save entities get updated (only when not already in battle)
-                    try {
-                        Method isInBattleMethod = entity.getClass().getMethod("isInBattle");
-                        boolean inBattle = (boolean) isInBattleMethod.invoke(entity);
-                        if (!inBattle) {
-                            Method getTrainerIdMethod = entity.getClass().getMethod("getTrainerId");
-                            String trainerId = (String) getTrainerIdMethod.invoke(entity);
-                            if (trainerId != null && !trainerId.isBlank()) {
-                                Method setTrainerIdMethod = entity.getClass().getMethod("setTrainerId", String.class);
-                                setTrainerIdMethod.invoke(entity, trainerId);
-                            }
-                        }
-                    } catch (Throwable ignored) {}
+
 
                     if (world.getRegistryKey().getValue().getPath().contains("tower")) {
                         try {
-                            // 1. Orient Trainer NPC to face player directly
+                            // Orient Trainer NPC to face player directly
                             float faceYaw = serverPlayer.getYaw() + 180.0f;
                             entity.setYaw(faceYaw);
                             entity.setHeadYaw(faceYaw);
                             entity.setBodyYaw(faceYaw);
                             entity.setPitch(0.0f);
 
-                            // 2. Invoke makeBattle on RCTMod to bypass storyline/badge restrictions in tower
-                            Class<?> rctModClass = Class.forName("com.gitlab.srcmc.rctmod.api.RCTMod");
-                            Object rctModInstance = rctModClass.getMethod("getInstance").invoke(null);
-                            Method makeBattleMethod = null;
-                            for (Method m : rctModClass.getMethods()) {
-                                if (m.getName().equals("makeBattle") && m.getParameterCount() == 2) {
-                                    makeBattleMethod = m;
-                                    break;
-                                }
-                            }
-                            if (makeBattleMethod != null) {
-                                makeBattleMethod.setAccessible(true);
-                                boolean success = (boolean) makeBattleMethod.invoke(rctModInstance, entity, serverPlayer);
-                                if (success) {
-                                    for (Method m : entity.getClass().getMethods()) {
-                                        if (m.getName().equals("setOpponent") && m.getParameterCount() == 1) {
-                                            m.setAccessible(true);
-                                            m.invoke(entity, serverPlayer);
-                                            break;
+                            Optional<TowerParty> partyOpt = TowerPartyManager.getInstance().getParty(serverPlayer.getUuid());
+                            if (partyOpt.isPresent()) {
+                                TowerParty party = partyOpt.get();
+                                int floor = party.getCurrentFloor();
+
+                                if (!party.isSolo() && party.getMemberId() != null) {
+                                    // DUO CO-OP READY SYSTEM (1/2 -> 2/2)
+                                    if (party.isReady(serverPlayer.getUuid())) {
+                                        serverPlayer.sendMessage(net.minecraft.text.Text.literal("§b[CobbleTower] §aBạn đã sẵn sàng rồi (1/2)! §7Đang chờ đồng đội chuột phải vào NPC..."), false);
+                                        return ActionResult.SUCCESS;
+                                    }
+
+                                    party.setReady(serverPlayer.getUuid(), true);
+                                    UUID otherId = party.getOtherPlayer(serverPlayer.getUuid());
+                                    ServerPlayerEntity otherPlayer = serverPlayer.getServer() != null ? serverPlayer.getServer().getPlayerManager().getPlayer(otherId) : null;
+
+                                    if (!party.areBothReady()) {
+                                        serverPlayer.sendMessage(net.minecraft.text.Text.literal("§b[CobbleTower] §aĐã sẵn sàng! §7(1/2) §f— Chờ đồng đội chuột phải vào NPC để vào trận."), false);
+                                        serverPlayer.playSound(net.minecraft.sound.SoundEvents.BLOCK_NOTE_BLOCK_CHIME.value(), 1.0f, 1.2f);
+                                        if (otherPlayer != null) {
+                                            otherPlayer.sendMessage(net.minecraft.text.Text.literal("§b[CobbleTower] §e" + serverPlayer.getName().getString() + " §ađã sẵn sàng (1/2)! §fHãy chuột phải vào NPC để cùng bắt đầu trận đấu Co-op!"), false);
+                                            otherPlayer.playSound(net.minecraft.sound.SoundEvents.BLOCK_NOTE_BLOCK_BELL.value(), 1.0f, 1.0f);
+                                        }
+                                        return ActionResult.SUCCESS;
+                                    } else {
+                                        // Both players are ready (2/2) -> launch multi-actor battle!
+                                        party.clearReady();
+                                        ServerPlayerEntity leader = serverPlayer.getServer().getPlayerManager().getPlayer(party.getLeaderId());
+                                        ServerPlayerEntity member = serverPlayer.getServer().getPlayerManager().getPlayer(party.getMemberId());
+                                        if (leader != null && member != null) {
+                                            leader.sendMessage(net.minecraft.text.Text.literal("§b[CobbleTower] §aCả hai đã sẵn sàng (2/2)! Bắt đầu trận chiến Co-op Duo 3+3!"), false);
+                                            member.sendMessage(net.minecraft.text.Text.literal("§b[CobbleTower] §aCả hai đã sẵn sàng (2/2)! Bắt đầu trận chiến Co-op Duo 3+3!"), false);
+                                            leader.playSound(net.minecraft.sound.SoundEvents.ENTITY_PLAYER_LEVELUP, 0.8f, 1.0f);
+                                            member.playSound(net.minecraft.sound.SoundEvents.ENTITY_PLAYER_LEVELUP, 0.8f, 1.0f);
+
+                                            boolean started = com.vitwo.battle.TowerBattleManager.getInstance().triggerDuoBattle(party, leader, member, entity, floor);
+                                            if (started) return ActionResult.SUCCESS;
                                         }
                                     }
-                                    try {
-                                        Object trainerManager = rctModClass.getMethod("getTrainerManager").invoke(rctModInstance);
-                                        for (Method m : trainerManager.getClass().getMethods()) {
-                                            if (m.getName().equals("addBattle") && m.getParameterCount() == 2) {
-                                                m.setAccessible(true);
-                                                m.invoke(trainerManager, serverPlayer, entity);
-                                                break;
-                                            }
-                                        }
-                                    } catch (Throwable ignored) {}
-                                    return ActionResult.SUCCESS;
+                                } else {
+                                    // SOLO MODE: Apply downscale & launch battle
+                                    com.vitwo.battle.LevelCapManager.applyLevelCapToPlayer(serverPlayer, floor, party);
                                 }
+                            }
+
+                            // Fallback / Solo Trigger via RCTModAdapter
+                            boolean success = com.vitwo.battle.RCTModAdapter.startBattle(entity, serverPlayer);
+                            if (success) {
+                                return ActionResult.SUCCESS;
                             }
                         } catch (Throwable t) {
                             LOGGER.warn("[CobbleTower] Failed to trigger trainer battle: {}", t.getMessage());
@@ -234,6 +271,7 @@ public class ViTwoMod implements ModInitializer {
         });
 
         net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents.SERVER_STOPPED.register(server -> {
+            com.vitwo.config.TowerPersistenceService.getInstance().flushAllSync();
             com.vitwo.config.TowerPlayerDataManager.getInstance().clearCache();
             TowerPartyManager.getInstance().setCurrentServer(null);
         });
@@ -245,7 +283,9 @@ public class ViTwoMod implements ModInitializer {
         });
 
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> {
+            TowerPartyManager.getInstance().setCurrentServer(server);
             TowerPartyManager.getInstance().handleReconnect(handler.getPlayer());
+            com.vitwo.config.TowerPlayerDataManager.getInstance().checkZitjCompensation(handler.getPlayer());
         });
 
         // 8. Register Commands
@@ -261,9 +301,10 @@ public class ViTwoMod implements ModInitializer {
         if (tp != null && tp.getSpecies() != null && !tp.getSpecies().isBlank()) {
             speciesName = tp.getSpecies().toLowerCase(Locale.ROOT).trim().replaceAll("[^a-z0-9_\\-']", "_").replaceAll("__+", "_");
         } else {
-            java.util.List<String> dynamicPool = com.vitwo.battle.TrainerPool.generateDynamicTeam(floor);
-            if (dynamicPool != null && !dynamicPool.isEmpty()) {
-                speciesName = dynamicPool.get(fallbackIndex % dynamicPool.size()).toLowerCase(Locale.ROOT);
+            String trainerId = com.vitwo.battle.TrainerPool.getRctTrainerIdForFloor(floor);
+            var team = com.vitwo.battle.HellModeTeamLoader.createTeamFromTrainerId(trainerId, targetCap);
+            if (team != null && !team.isEmpty()) {
+                return team.get(fallbackIndex % team.size());
             }
         }
 
@@ -290,7 +331,7 @@ public class ViTwoMod implements ModInitializer {
             mon.getIvs().set(stat, 31);
         }
 
-        mon.heal();
+        com.vitwo.reward.TowerRewardManager.fullHeal(mon);
         return mon;
     }
 
@@ -353,7 +394,7 @@ public class ViTwoMod implements ModInitializer {
                     }
                 }
             }
-            mon.heal();
+            com.vitwo.reward.TowerRewardManager.fullHeal(mon);
         } catch (Throwable ignored) {}
     }
 

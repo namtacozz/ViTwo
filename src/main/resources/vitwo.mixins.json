@@ -4,10 +4,11 @@
   "package": "com.vitwo.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "BattleActorMixin",
     "BattleItemUseMixin",
     "BattleRegistryMixin",
-    "LeavesDecayMixin"
+    "BattleSideAccessor",
+    "LeavesDecayMixin",
+    "PlayerAdvancementTrackerMixin"
   ],
   "client": [
     "PlayerInteractionMenuMixin",

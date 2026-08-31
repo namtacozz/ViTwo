@@ -18,6 +18,10 @@ public class BattleItemUseMixin {
     @Inject(method = "use", at = @At("HEAD"), cancellable = true, require = 0)
     private void vitwo$cancelBagItemsInTower(World world, PlayerEntity user, Hand hand, CallbackInfoReturnable<TypedActionResult<ItemStack>> cir) {
         if (!world.isClient() && TowerBattleManager.getInstance().isInTowerBattle(user.getUuid())) {
+            // Check if player is actually in the tower dimension to prevent overworld item ban leak
+            if (world.getRegistryKey() == null || !world.getRegistryKey().getValue().getPath().contains("tower")) {
+                return;
+            }
             ItemStack stack = (ItemStack) (Object) this;
             // Block direct potion / healing item consumption
             if (stack.getItem() instanceof PotionItem || stack.getItem().getTranslationKey().contains("potion") || stack.getItem().getTranslationKey().contains("revive") || stack.getItem().getTranslationKey().contains("heal")) {
