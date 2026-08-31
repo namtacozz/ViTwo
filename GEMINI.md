@@ -14,11 +14,10 @@ Hệ thống Mod được phân chia thành các Manager độc lập đóng vai
 - **Nhiệm vụ:** Lắng nghe và can thiệp trực tiếp vào API của Cobblemon (`CobblemonEvents.BATTLE_STARTED_POST`, `BATTLE_VICTORY`, `BATTLE_FLED`).
 - **RCTMod Native Invocation:** Sử dụng `RCTModAdapter.java` chứa các `MethodHandle` đã cache tĩnh để gọi trực tiếp các phương thức RCTMod (`makeBattle`, `setOpponent`, `addBattle`), triệt tiêu hoàn toàn runtime reflection overhead.
 - **Quy tắc Level & Đội hình:**
-  - Đội hình NPC Trainer *bắt buộc* được ghi đè tại sự kiện `BATTLE_STARTED_POST` hoặc trong `BattleRegistryMixin.startBattle`.
-  - Phải nạp chính xác đội hình 6 Pokémon dạng Competitive (Chuẩn EVs, 6x31 IVs, Movesets, Items, Nature) được định nghĩa trong `tower_teams.json` (thông qua `HellModeTeamLoader` / `TrainerPool`).
-  - Toàn bộ Pokémon của NPC phải được ép cấp bằng `LevelCapManager.getMaxLevelCapForFloor(floor)`.
-- **Thoát / Đầu hàng:** Bất kỳ hành động `Run`/`Flee` (`BattleFledEvent`) nào cũng dẫn đến việc kết thúc màn chơi, hiển thị bảng Thất bại và đưa người chơi về Hub.
-- **Quy tắc Kiểm tra Không gian (Dimension Check):** TẤT CẢ các sự kiện (Event Handler) bên trong `TowerBattleManager` và các Mixin BẮT BUỘC phải kiểm tra xem người chơi có đang ở trong `vitwo:tower_dimension` hay không. Việc này ngăn chặn triệt để lỗi "Overworld Party Leak" (Logic của Tháp vô tình can thiệp vào các trận đấu Gym ngoài thế giới thực).
+  - **Trong Tháp (`vitwo:tower_dimension`):** Đội hình NPC Trainer *bắt buộc* được ghi đè tại sự kiện `BATTLE_STARTED_POST` hoặc trong `BattleRegistryMixin.startBattle`. Phải nạp chính xác đội hình 6 Pokémon dạng Competitive (Chuẩn EVs, 6x31 IVs, Movesets, Items, Nature) được định nghĩa trong `tower_teams.json` (thông qua `HellModeTeamLoader` / `TrainerPool`) và ép cấp theo `LevelCapManager.getMaxLevelCapForFloor(floor)`.
+  - **Ngoài Thế Giới Thực (Overworld Hell Mode 2v2 Double):** Tất cả các trận đấu với NPC Trainer (Gym Leader, Elite Four, Champion, RCTMod Trainers) ngoài thế giới thực đều được tự động chuyển thành **2v2 Double Battle (`GEN_9_DOUBLES`)** và nạp đội hình **Hell Mode** chuẩn Competitive từ `HellModeTeamLoader` (bảo toàn cấp độ gốc của Trainer ngoài Overworld) để mang lại trải nghiệm phiêu lưu thế giới mở kịch tính và hardcore bậc nhất.
+- **Thoát / Đầu hàng:** Bất kỳ hành động `Run`/`Flee` (`BattleFledEvent`) nào trong Tháp cũng dẫn đến việc kết thúc màn chơi, hiển thị bảng Thất bại và đưa người chơi về Hub.
+- **Quy tắc Kiểm tra Không gian (Dimension Check & Isolation):** TẤT CẢ các logic đặc thù của Tháp (như Downscale cấp độ `applyLevelCapToPlayer`, xóa toàn bộ party khi thua, tính điểm BP, rút Gacha Boss, chuyển tầng `onFloorWon`, Spectator Ghost, và đếm giờ leo tháp) BẮT BUỘC phải kiểm tra người chơi có đang ở trong `vitwo:tower_dimension` hay không. Việc này ngăn chặn triệt để lỗi "Overworld Party Leak" (Logic của Tháp can thiệp nhầm vào trận đấu Gym ngoài thế giới thực gây ngắt quãng hoặc reset party của người chơi).
 
 ### 🏛️ `TowerArenaManager.java` (Quản Lý Không Gian & Sinh Thành)
 

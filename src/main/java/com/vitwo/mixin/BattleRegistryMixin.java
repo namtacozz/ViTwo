@@ -99,8 +99,46 @@ public class BattleRegistryMixin {
             }
         }
 
-        // Strict Dimension Isolation: If NOT in Tower Dimension, do not alter battle format or actors!
+        // =========================================================================
+        // OVERWORLD BATTLES (NOT IN TOWER DIMENSION):
+        // Enforce 2v2 Double Battle (GEN_9_DOUBLES) and apply Hell Mode Teams for NPC Trainers!
+        // =========================================================================
         if (towerParty == null || !isInTowerDimension) {
+            if (hasNpcTrainer) {
+                // Find and apply Hell Mode team to any NPC trainer in the Overworld
+                for (BattleSide side : new BattleSide[]{side1, side2}) {
+                    if (side == null || side.getActors() == null) continue;
+                    for (BattleActor actor : side.getActors()) {
+                        if (actor != null && actor.getType() == ActorType.NPC) {
+                            String trainerId = extractTrainerId(actor);
+                            if (trainerId != null && !trainerId.isBlank()) {
+                                boolean applied = HellModeTeamLoader.applyHellModeTeamToActor(actor, trainerId, null);
+                                if (!applied && !trainerId.contains("_")) {
+                                    HellModeTeamLoader.applyHellModeTeamToActor(actor, "kanto_" + trainerId, null);
+                                }
+                            }
+                            // Ensure all moves have valid PP and Pokemon are healthy
+                            for (BattlePokemon bp : actor.getPokemonList()) {
+                                if (bp != null) {
+                                    if (bp.getEffectedPokemon() != null) bp.getEffectedPokemon().heal();
+                                    if (bp.getOriginalPokemon() != null) bp.getOriginalPokemon().heal();
+                                    if (bp.getMoveSet() != null) {
+                                        bp.getMoveSet().heal();
+                                        for (Move m : bp.getMoveSet()) {
+                                            if (m != null) {
+                                                m.setCurrentPp(m.getMaxPp());
+                                                m.update();
+                                            }
+                                        }
+                                        bp.getMoveSet().update();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                return BattleFormat.Companion.getGEN_9_DOUBLES();
+            }
             return format;
         }
 

@@ -341,6 +341,22 @@ public class HellModeTeamLoader {
             if (bp.getOriginalPokemon() != null && bp.getOriginalPokemon() != targetMon && sourceMon != null) {
                 copyPokemonData(sourceMon, bp.getOriginalPokemon());
             }
+
+            // Synchronize BattlePokemon wrapper moveset with target Pokemon moveset
+            if (bp.getMoveSet() != null && targetMon != null && targetMon.getMoveSet() != null) {
+                try {
+                    bp.getMoveSet().clear();
+                    for (Move m : targetMon.getMoveSet()) {
+                        if (m != null && m.getTemplate() != null) {
+                            Move newMove = m.getTemplate().create();
+                            newMove.setCurrentPp(newMove.getMaxPp());
+                            bp.getMoveSet().add(newMove);
+                        }
+                    }
+                    bp.getMoveSet().update();
+                } catch (Throwable ignored) {}
+            }
+            bp.setActor(actor);
         }
 
         // 2. Append additional reserve Pokemon if newTeam is larger (up to 6)
@@ -351,6 +367,16 @@ public class HellModeTeamLoader {
             bp.setActor(actor);
             if (bp.getEffectedPokemon() != null) {
                 bp.getEffectedPokemon().heal();
+            }
+            if (bp.getMoveSet() != null) {
+                bp.getMoveSet().heal();
+                for (Move m : bp.getMoveSet()) {
+                    if (m != null) {
+                        m.setCurrentPp(m.getMaxPp());
+                        m.update();
+                    }
+                }
+                bp.getMoveSet().update();
             }
             battleTeam.add(bp);
         }
@@ -375,7 +401,8 @@ public class HellModeTeamLoader {
 
             // Gimmick 1: Held Items (Mega Stones / Z-Crystals / Choice items) - DO NOT emit event to avoid null-context NPE
             try {
-                target.swapHeldItem(source.heldItem(), false, false);
+                ItemStack itemCopy = (source.heldItem() != null && !source.heldItem().isEmpty()) ? source.heldItem().copy() : ItemStack.EMPTY;
+                target.swapHeldItem(itemCopy, false, false);
             } catch (Throwable ignored) {}
 
             // Gimmick 2: Aspects (Mega / Forms / Gmax aspects)
