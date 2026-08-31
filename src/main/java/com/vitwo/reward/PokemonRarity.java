@@ -7,7 +7,7 @@ public enum PokemonRarity {
     HIGH_LEGEND("High Legend", 0xFFFF3344, 0xFFFFD700, 1),
     LOW_LEGEND("Low Legend", 0xFF9B59B6, 0xFFD7BDE2, 2),
     MYTHICAL("Mythical", 0xFFFF1493, 0xFFFFB6C1, 3),
-    PSEUDO_LEGENDARY("Á Thần (Pseudo)", 0xFF8A2BE2, 0xFF00E5FF, 4),
+    PSEUDO_LEGENDARY("Pseudo-Legendary", 0xFF8A2BE2, 0xFF00E5FF, 4),
     STARTER("Starter", 0xFF1E90FF, 0xFF85C1E9, 5),
     COMMON("Common", 0xFF7F8C8D, 0xFFE5E7E9, 6);
 

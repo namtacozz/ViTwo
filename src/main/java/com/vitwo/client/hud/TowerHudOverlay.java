@@ -71,30 +71,30 @@ public class TowerHudOverlay {
         if (!isDirty) return;
 
         if (currentFloor >= 100) {
-            cachedFloorText = "§6§l★ TẦNG 100/100 (CHAMPION CYNTHIA) ★";
+            cachedFloorText = "§6§l★ FLOOR 100/100 (CHAMPION CYNTHIA) ★";
         } else if (currentFloor >= 90) {
-            cachedFloorText = "§d§l✦ TẦNG " + currentFloor + "/100 (TỨ HOÀNG & QUÁN QUÂN) ✦";
+            cachedFloorText = "§d§l✦ FLOOR " + currentFloor + "/100 (ELITE FOUR & CHAMPIONS) ✦";
         } else if (currentFloor % 5 == 0) {
-            cachedFloorText = "§6§l⬡ TẦNG " + currentFloor + "/100 (GYM LEADER) ⬡";
+            cachedFloorText = "§6§l⬡ FLOOR " + currentFloor + "/100 (GYM LEADER) ⬡";
         } else {
-            cachedFloorText = "§b§lTẦNG " + currentFloor + "/100";
+            cachedFloorText = "§b§lFLOOR " + currentFloor + "/100";
         }
 
         int maxCap = LevelCapManager.getMaxLevelCapForFloor(currentFloor);
         String bossName = currentBossName.isEmpty() ? "Unknown" : currentBossName;
         if (currentFloor >= 100) {
-            cachedBossAndCapText = "§cĐối thủ: §6Quán Quân Cynthia §7| §bGiới hạn: §aLv." + maxCap;
+            cachedBossAndCapText = "§cBoss: §6Champion Cynthia §7| §bLevel Cap: §aLv." + maxCap;
         } else if (currentFloor >= 90) {
-            cachedBossAndCapText = "§cĐối thủ: §d" + bossName + " §7| §bGiới hạn: §aLv." + maxCap;
+            cachedBossAndCapText = "§cBoss: §d" + bossName + " §7| §bLevel Cap: §aLv." + maxCap;
         } else if (currentFloor % 5 == 0) {
-            cachedBossAndCapText = "§eĐối thủ: §6" + bossName + " §7| §bGiới hạn: §aLv." + maxCap;
+            cachedBossAndCapText = "§eBoss: §6" + bossName + " §7| §bLevel Cap: §aLv." + maxCap;
         } else {
-            cachedBossAndCapText = "§fĐối thủ: §e" + bossName + " §7| §bGiới hạn: §aLv." + maxCap;
+            cachedBossAndCapText = "§fOpponent: §e" + bossName + " §7| §bLevel Cap: §aLv." + maxCap;
         }
 
         List<TowerCurseManager.TowerCurse> curses = TowerCurseManager.getInstance().getActiveCursesForFloor(currentFloor);
         if (!curses.isEmpty()) {
-            cachedRuleText = "§c💀 Hiệu Ứng Sàn: " + curses.get(0).hudBadge;
+            cachedRuleText = "§c💀 Floor Curse: " + curses.get(0).hudBadge;
         } else {
             cachedRuleText = "";
         }
@@ -180,7 +180,7 @@ public class TowerHudOverlay {
             lastRenderedBp = bpEarnedInRun;
             int min = Math.max(0, runDurationSeconds) / 60;
             int sec = Math.max(0, runDurationSeconds) % 60;
-            cachedBattleInfo = String.format("§f⏱ Thời gian: §b%02d:%02d  §7|  §fLượt: §eTurn %d  §7|  §fBP nhận được: §a+%d BP", min, sec, battleTurns, bpEarnedInRun);
+            cachedBattleInfo = String.format("§f⏱ Time: §b%02d:%02d  §7|  §fTurn: §eTurn %d  §7|  §fBP Earned: §a+%d BP", min, sec, battleTurns, bpEarnedInRun);
         }
 
         int textW = client.textRenderer.getWidth(cachedBattleInfo);

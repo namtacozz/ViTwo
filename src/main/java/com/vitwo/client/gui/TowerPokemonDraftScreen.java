@@ -57,12 +57,12 @@ public class TowerPokemonDraftScreen extends AbstractTowerScreen {
 
         // Skip Button
         this.addDrawableChild(TowerButton.towerBuilder(
-                Text.literal("§7Bỏ Qua Lựa Chọn"),
+                Text.literal("§7Skip Selection"),
                 btn -> {
                     ClientPlayNetworking.send(new ChooseDraftPokemonC2SPacket(floor, -1));
                     this.close();
                 }
-        ).dimensions(centerX - 60, centerY + 96, 120, 20).build());
+        ).dimensions(centerX - 60, centerY + 96, 120, 20).style(TowerButton.ButtonStyle.SECONDARY).build());
     }
 
     @Override
@@ -76,8 +76,8 @@ public class TowerPokemonDraftScreen extends AbstractTowerScreen {
         this.renderPanelBackground(context, centerX - panelW / 2, centerY - panelH / 2, panelW, panelH);
 
         // Header Title (Solid Alpha Colors)
-        context.drawCenteredTextWithShadow(this.textRenderer, "§6§l🏆 TUYỂN MỘ TRỨNG POKÉMON ĐỐI THỦ 🏆", centerX, centerY - 110, 0xFFFFD700);
-        context.drawCenteredTextWithShadow(this.textRenderer, "§7Đã hạ gục §e" + bossName + " §7(Tầng " + floor + ") • Nhận 1 Trứng Max 6x31 IVs", centerX, centerY - 95, 0xFFCCCCCC);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§6§l🏆 POKÉMON DRAFT SELECTION 🏆", centerX, centerY - 110, 0xFFFFD700);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§7Defeated §e" + bossName + " §7(Floor " + floor + ") • Claim 1 Perfect 6x31 IV Egg", centerX, centerY - 95, 0xFFCCCCCC);
 
         // Render Card Contents
         int cardW = 110;
@@ -123,16 +123,16 @@ public class TowerPokemonDraftScreen extends AbstractTowerScreen {
             // Text Labels with FULL Alpha (0xFF)
             if (opt.isLegendary()) {
                 context.drawTextWithShadow(this.textRenderer, "§6★ Master Ball", cardX + 24, cardY + 4, 0xFFFFFF55);
-                context.drawTextWithShadow(this.textRenderer, "§7Huyền Thoại", cardX + 24, cardY + 14, 0xFFAAAAAA);
+                context.drawTextWithShadow(this.textRenderer, "§7Legendary", cardX + 24, cardY + 14, 0xFFAAAAAA);
                 context.drawTextWithShadow(this.textRenderer, "§d" + truncate(opt.displayName(), 12), cardX + 4, cardY + 25, 0xFFFFAAFF);
-                context.drawTextWithShadow(this.textRenderer, "§8(Không thể phối)", cardX + 4, cardY + 36, 0xFF888888);
+                context.drawTextWithShadow(this.textRenderer, "§8(Undiscovered Egg)", cardX + 4, cardY + 36, 0xFF888888);
             } else {
                 String shinyStar = opt.isShiny() ? " §6✨" : "";
                 String formTag = (opt.formAspect() != null && !opt.formAspect().isBlank()) ? (" [" + capitalize(opt.formAspect()) + "]") : "";
                 String baseTitle = "§e" + capitalize(opt.baseSpecies()) + formTag + shinyStar;
                 context.drawTextWithShadow(this.textRenderer, truncate(baseTitle, 14), cardX + 24, cardY + 4, 0xFFFFFF55);
                 context.drawTextWithShadow(this.textRenderer, "§a6x31 Max IVs", cardX + 24, cardY + 14, 0xFF55FF55);
-                context.drawTextWithShadow(this.textRenderer, "§7Từ: §f" + truncate(opt.displayName(), 11), cardX + 4, cardY + 25, 0xFFCCCCCC);
+                context.drawTextWithShadow(this.textRenderer, "§7From: §f" + truncate(opt.displayName(), 11), cardX + 4, cardY + 25, 0xFFCCCCCC);
                 String types = "§b" + opt.primaryType() + (opt.secondaryType().isEmpty() ? "" : ("/" + opt.secondaryType()));
                 context.drawTextWithShadow(this.textRenderer, types, cardX + 4, cardY + 36, 0xFF88CCFF);
             }
@@ -145,20 +145,20 @@ public class TowerPokemonDraftScreen extends AbstractTowerScreen {
         if (hoveredOption != null) {
             List<Text> tooltip = new ArrayList<>();
             if (hoveredOption.isLegendary()) {
-                tooltip.add(Text.literal("§6§l★ Phần Thưởng Master Ball"));
-                tooltip.add(Text.literal("§7Đối thủ: §d" + hoveredOption.displayName() + " §8(Huyền Thoại/Thần Thoại)"));
-                tooltip.add(Text.literal("§eDo không thể phối giống/sinh trứng, bạn sẽ nhận"));
-                tooltip.add(Text.literal("§d1x Master Ball §ehoàn hảo thay thế!"));
-                tooltip.add(Text.literal("§a► Bấm để nhận Master Ball"));
+                tooltip.add(Text.literal("§6§l★ Master Ball Reward"));
+                tooltip.add(Text.literal("§7Opponent: §d" + hoveredOption.displayName() + " §8(Legendary/Mythical)"));
+                tooltip.add(Text.literal("§eSince this species cannot produce eggs, you will receive"));
+                tooltip.add(Text.literal("§da 1x Master Ball §einstead!"));
+                tooltip.add(Text.literal("§a► Click to claim Master Ball"));
             } else {
                 String shinyText = hoveredOption.isShiny() ? " §6✨ [SHINY]" : "";
                 String formText = (hoveredOption.formAspect() != null && !hoveredOption.formAspect().isBlank()) ? (" [" + capitalize(hoveredOption.formAspect()) + "]") : "";
-                tooltip.add(Text.literal("§e§lQuả Trứng Pokémon: §a" + capitalize(hoveredOption.baseSpecies()) + formText + shinyText));
-                tooltip.add(Text.literal("§7Dạng sơ cấp từ: §f" + hoveredOption.displayName()));
-                tooltip.add(Text.literal("§bHệ: §f" + hoveredOption.primaryType() + (hoveredOption.secondaryType().isEmpty() ? "" : (" / " + hoveredOption.secondaryType()))));
-                tooltip.add(Text.literal("§aChỉ số: §eHoàn hảo Max 6x31 IVs (Best x6)"));
-                tooltip.add(Text.literal("§7Cấp độ khi nở: §eLv.1"));
-                tooltip.add(Text.literal("§a► Bấm để nhận Trứng vào Party/PC Box!"));
+                tooltip.add(Text.literal("§e§lPokémon Egg: §a" + capitalize(hoveredOption.baseSpecies()) + formText + shinyText));
+                tooltip.add(Text.literal("§7Base form of: §f" + hoveredOption.displayName()));
+                tooltip.add(Text.literal("§bType: §f" + hoveredOption.primaryType() + (hoveredOption.secondaryType().isEmpty() ? "" : (" / " + hoveredOption.secondaryType()))));
+                tooltip.add(Text.literal("§aStats: §eGuaranteed Perfect 6x31 IVs (Best x6)"));
+                tooltip.add(Text.literal("§7Hatch Level: §eLv.1"));
+                tooltip.add(Text.literal("§a► Click to claim Egg to Party/PC Box!"));
             }
             context.drawTooltip(this.textRenderer, tooltip, mouseX, mouseY);
         }

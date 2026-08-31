@@ -99,13 +99,13 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
         if (currentStage == GachaStage.STAGE_1_ROULETTE) {
             if (stage1Finished) {
                 this.addDrawableChild(TowerButton.towerBuilder(
-                        Text.literal("§e§lQUAY TIẾP: VÒNG SHINY (1%) ►"),
+                        Text.literal("§e§lPROCEED: SHINY WHEEL (1%) ►"),
                         btn -> advanceToStage2()
                 ).dimensions(centerX - 110, centerY + 85, 220, 22).style(TowerButton.ButtonStyle.GOLD).build());
             } else {
                 // Skip Button
                 this.addDrawableChild(TowerButton.towerBuilder(
-                        Text.literal("§7Bỏ qua hoạt ảnh (Skip)"),
+                        Text.literal("§7Skip Animation"),
                         btn -> {
                             stage1Finished = true;
                             advanceToStage2();
@@ -115,7 +115,7 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
         } else if (currentStage == GachaStage.STAGE_2_SHINY_SPIN) {
             if (!stage2Spinning && !stage2Finished) {
                 this.addDrawableChild(TowerButton.towerBuilder(
-                        Text.literal("§6§l✨ QUAY THỬ VẬN MAY SHINY (1%)"),
+                        Text.literal("§6§l✨ SPIN SHINY ROULETTE (1%)"),
                         btn -> {
                             stage2Spinning = true;
                             stage2StartTime = System.currentTimeMillis();
@@ -124,7 +124,7 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
                 ).dimensions(centerX - 120, centerY + 70, 240, 24).style(TowerButton.ButtonStyle.GOLD).build());
             } else if (stage2Finished) {
                 this.addDrawableChild(TowerButton.towerBuilder(
-                        Text.literal("§b§lQUAY BẢNG 6 DÒNG CHỈ SỐ IVS ►"),
+                        Text.literal("§b§lPROCEED: 6x IVs MATRIX ►"),
                         btn -> advanceToStage3()
                 ).dimensions(centerX - 120, centerY + 75, 240, 22).style(TowerButton.ButtonStyle.DEFAULT).build());
             }
@@ -137,7 +137,7 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
 
             if (!allFinished) {
                 this.addDrawableChild(TowerButton.towerBuilder(
-                        Text.literal("§6§l🎲 QUAY TẤT CẢ 6 DÒNG (SPIN ALL)"),
+                        Text.literal("§6§l🎲 SPIN ALL 6 STATS (SPIN ALL)"),
                         btn -> spinAllIvs()
                 ).dimensions(centerX - 120, centerY - 80, 240, 20).style(TowerButton.ButtonStyle.GOLD).build());
 
@@ -148,20 +148,20 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
                     final int statIdx = i;
                     if (!ivFinished[i] && !ivSpinning[i]) {
                         this.addDrawableChild(TowerButton.towerBuilder(
-                                Text.literal("§eQuay"),
+                                Text.literal("§eSpin"),
                                 btn -> spinSingleIv(statIdx)
                         ).dimensions(centerX + 115, startY + i * rowH, 50, 18).style(TowerButton.ButtonStyle.DEFAULT).build());
                     }
                 }
             } else {
                 this.addDrawableChild(TowerButton.towerBuilder(
-                        Text.literal("§a§lXÁC NHẬN KẾT QUẢ IVS & TIẾP TỤC ►"),
+                        Text.literal("§a§lCONFIRM IVs & PROCEED ►"),
                         btn -> advanceToStage4()
                 ).dimensions(centerX - 120, centerY + 85, 240, 22).style(TowerButton.ButtonStyle.GREEN).build());
             }
         } else if (currentStage == GachaStage.STAGE_4_SUMMARY) {
             this.addDrawableChild(TowerButton.towerBuilder(
-                    Text.literal("§a§l✔ NHẬN POKÉMON VÀO ĐỘI HÌNH / PC"),
+                    Text.literal("§a§l✔ CLAIM POKÉMON TO PARTY / PC"),
                     btn -> claimPokemonAndClose()
             ).dimensions(centerX - 130, centerY + 80, 260, 26).style(TowerButton.ButtonStyle.GREEN).build());
         }
@@ -220,8 +220,8 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
         this.renderPanelBackground(context, centerX - panelW / 2, centerY - panelH / 2, panelW, panelH);
 
         // Header Title
-        context.drawCenteredTextWithShadow(this.textRenderer, "§6§l🎰 VÒNG QUAY POKÉMON CS:GO (TẦNG " + floor + ") 🎰", centerX, centerY - 120, 0xFFFFD700);
-        context.drawCenteredTextWithShadow(this.textRenderer, "§7Đối đầu: §e" + bossName + " §7• Tích luỹ Pokémon các tầng trước", centerX, centerY - 108, 0xFFCCCCCC);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§6§l🎰 POKÉMON GACHA ROULETTE (FLOOR " + floor + ") 🎰", centerX, centerY - 120, 0xFFFFD700);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§7Defeated: §e" + bossName + " §7• Encountered Pokémon Pool", centerX, centerY - 108, 0xFFCCCCCC);
 
         switch (currentStage) {
             case STAGE_1_ROULETTE -> renderStage1Roulette(context, mouseX, mouseY, delta, centerX, centerY);
@@ -298,85 +298,53 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
         context.fill(needleX - 3, viewY - 6, needleX + 4, viewY - 2, 0xFFFF2233);
         context.fill(needleX - 3, viewY + viewH + 2, needleX + 4, viewY + viewH + 6, 0xFFFF2233);
 
-        // Winner Announcement if finished
-        if (stage1Finished && winningIndex >= 0 && winningIndex < candidates.size()) {
-            GachaPokemonCandidate winner = candidates.get(winningIndex);
-            String title = "§e★ TRÚNG THƯỞNG: §a" + winner.displayName().toUpperCase() + " §7(" + winner.rarity().getDisplayName() + ") ★";
-            context.drawCenteredTextWithShadow(this.textRenderer, title, centerX, viewY + viewH + 12, 0xFFFFFF55);
+        if (stage1Finished) {
+            GachaPokemonCandidate winner = (winningIndex >= 0 && winningIndex < candidates.size()) ? candidates.get(winningIndex) : null;
+            if (winner != null) {
+                String name = winner.displayName().toUpperCase();
+                context.drawCenteredTextWithShadow(this.textRenderer, "§aSelected Species: §e" + name + " §7(" + winner.rarity().getDisplayName() + ")", centerX, viewY + viewH + 12, 0xFF55FF55);
+            }
         }
     }
 
     private void renderGachaCard(DrawContext context, int x, int y, int w, int h, GachaPokemonCandidate c, boolean isWinnerGlow) {
-        PokemonRarity rarity = c.rarity() != null ? c.rarity() : PokemonRarity.COMMON;
-
-        int borderColor = isWinnerGlow ? 0xFFFFD700 : 0xFF2A2A38;
-        int bgColor = isWinnerGlow ? 0xFF202636 : 0xFF14141E;
+        int border = isWinnerGlow ? 0xFFFFD700 : 0xFF2A2A38;
+        int bg = isWinnerGlow ? 0xFF252835 : 0xFF14141E;
 
         // Card Frame
-        context.fill(x - 1, y - 1, x + w + 1, y + h + 1, borderColor);
-        context.fill(x, y, x + w, y + h, bgColor);
+        context.fill(x, y, x + w, y + h, border);
+        context.fill(x + 1, y + 1, x + w - 1, y + h - 1, bg);
 
-        // Top CS:GO Rarity Header Bar
-        context.fill(x, y, x + w, y + 4, rarity.getHeaderColor());
+        // CS:GO Rarity Top Header Bar
+        context.fill(x + 1, y + 1, x + w - 1, y + 4, c.rarity().getHeaderColor());
 
-        // Rarity Tag text
-        String rarityLabel = truncate(rarity.getDisplayName(), 12);
-        context.drawCenteredTextWithShadow(this.textRenderer, rarityLabel, x + (w / 2), y + 7, rarity.getGlowColor());
-
-        // Icon
-        ItemStack iconStack;
-        if (c.isLegendary()) {
-            Identifier mbId = Identifier.of("cobblemon", "master_ball");
-            iconStack = Registries.ITEM.containsId(mbId) ? new ItemStack(Registries.ITEM.get(mbId)) : new ItemStack(Items.NETHER_STAR);
-        } else {
-            Identifier eggId = Identifier.of("cobblemon", "pokemon_egg");
-            iconStack = Registries.ITEM.containsId(eggId) ? new ItemStack(Registries.ITEM.get(eggId)) : new ItemStack(Items.EGG);
-        }
-        context.drawItem(iconStack, x + (w / 2) - 8, y + 22);
-
-        // Species Name
+        // Pokemon Name
         String name = truncate(c.displayName(), 11);
-        context.drawCenteredTextWithShadow(this.textRenderer, name, x + (w / 2), y + 42, 0xFFFFFFFF);
+        context.drawCenteredTextWithShadow(this.textRenderer, name, x + (w / 2), y + 12, 0xFFFFFFFF);
 
-        // Base Species
-        String base = "↳ " + truncate(c.baseSpecies(), 10);
-        context.drawCenteredTextWithShadow(this.textRenderer, base, x + (w / 2), y + 54, 0xFFAAAAAA);
+        // Type Pill / Text
+        String typeStr = c.secondaryType() != null && !c.secondaryType().isEmpty()
+                ? c.primaryType() + "/" + c.secondaryType()
+                : c.primaryType();
+        context.drawCenteredTextWithShadow(this.textRenderer, "§7" + truncate(typeStr, 12), x + (w / 2), y + 26, 0xFFAAAAAA);
 
-        // Types
-        String types = c.primaryType() + (c.secondaryType().isEmpty() ? "" : ("/" + c.secondaryType()));
-        context.drawCenteredTextWithShadow(this.textRenderer, truncate(types, 12), x + (w / 2), y + 68, 0xFF88CCFF);
+        // Rarity Tag
+        context.drawCenteredTextWithShadow(this.textRenderer, "§8" + truncate(c.rarity().getDisplayName(), 12), x + (w / 2), y + 38, 0xFF777788);
 
-        // Form tag if any
-        if (c.formAspect() != null && !c.formAspect().isBlank()) {
-            context.drawCenteredTextWithShadow(this.textRenderer, "§6[" + capitalize(c.formAspect()) + "]", x + (w / 2), y + 80, 0xFFFFAA00);
-        } else {
-            context.drawCenteredTextWithShadow(this.textRenderer, "§8Chuẩn gen", x + (w / 2), y + 80, 0xFF666666);
-        }
-
-        if (c.isShiny()) {
-            context.drawCenteredTextWithShadow(this.textRenderer, "§6✨ SHINY", x + (w / 2), y + 94, 0xFFFFD700);
+        // Winner Accent Glow
+        if (isWinnerGlow) {
+            context.fill(x + 1, y + h - 4, x + w - 1, y + h - 1, 0xFFFFD700);
         }
     }
 
     // =========================================================================
-    // STAGE 2: SHINY WHEEL (1% CHANCE)
+    // STAGE 2: 1% SHINY ROULETTE SUB-WHEEL
     // =========================================================================
     private void renderStage2Shiny(DrawContext context, int mouseX, int mouseY, float delta, int centerX, int centerY) {
-        GachaPokemonCandidate winner = (winningIndex >= 0 && winningIndex < candidates.size()) ? candidates.get(winningIndex) : null;
-        if (winner != null) {
-            context.drawCenteredTextWithShadow(this.textRenderer, "§fLoài Pokémon đã quay: §e§l" + winner.displayName().toUpperCase(), centerX, centerY - 85, 0xFFFFFF55);
-        }
+        context.drawCenteredTextWithShadow(this.textRenderer, "§6★ STAGE 2: SHINY ROULETTE WHEEL (1.00% CHANCE) ★", centerX, centerY - 65, 0xFFFFD700);
 
         if (!stage2Spinning && !stage2Finished) {
-            context.drawCenteredTextWithShadow(this.textRenderer, "§6★ BƯỚC 2: QUAY TỈ LỆ SHINY (1% CƠ HỘI) ★", centerX, centerY - 60, 0xFFFFD700);
-            context.drawCenteredTextWithShadow(this.textRenderer, "§7Bấm nút bên dưới để khởi động vòng quay Shiny độc quyền!", centerX, centerY - 45, 0xFFCCCCCC);
-
-            // Preview Box
-            context.fill(centerX - 100, centerY - 30, centerX + 100, centerY + 50, 0xFF14141E);
-            context.fill(centerX - 100, centerY - 30, centerX + 100, centerY - 28, 0xFFFFD700);
-            context.drawCenteredTextWithShadow(this.textRenderer, "§6✨ SHINY POKÉMON ✨", centerX, centerY - 15, 0xFFFFD700);
-            context.drawCenteredTextWithShadow(this.textRenderer, "§7Tỉ lệ xuất hiện: §a1.00%", centerX, centerY + 2, 0xFF55FF55);
-            context.drawCenteredTextWithShadow(this.textRenderer, "§8(Lấp lánh hiệu ứng ánh kim)", centerX, centerY + 18, 0xFF888888);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§7Click button below to spin the wheel for Shiny bonus!", centerX, centerY - 45, 0xFFCCCCCC);
             return;
         }
 
@@ -439,7 +407,7 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
                 context.drawCenteredTextWithShadow(this.textRenderer, "§e1.00%", cardX + (slotWidth / 2) - 2, cardY + 30, 0xFFFFFF55);
             } else {
                 context.drawCenteredTextWithShadow(this.textRenderer, "§7NORMAL", cardX + (slotWidth / 2) - 2, cardY + 15, 0xFFAAAAAA);
-                context.drawCenteredTextWithShadow(this.textRenderer, "§8Thường", cardX + (slotWidth / 2) - 2, cardY + 30, 0xFF666666);
+                context.drawCenteredTextWithShadow(this.textRenderer, "§8Standard", cardX + (slotWidth / 2) - 2, cardY + 30, 0xFF666666);
             }
         }
 
@@ -450,9 +418,9 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
 
         if (stage2Finished) {
             if (isShinyWinner) {
-                context.drawCenteredTextWithShadow(this.textRenderer, "§6§l★★★ TUYỆT VỜI! BẠN ĐÃ TRÚNG POKÉMON SHINY (1%)! ★★★", centerX, viewY + viewH + 12, 0xFFFFD700);
+                context.drawCenteredTextWithShadow(this.textRenderer, "§6§l★★★ JACKPOT! YOU WON A SHINY POKÉMON (1%)! ★★★", centerX, viewY + viewH + 12, 0xFFFFD700);
             } else {
-                context.drawCenteredTextWithShadow(this.textRenderer, "§7Kết quả: Pokémon dạng Thường (Standard Form)", centerX, viewY + viewH + 12, 0xFFCCCCCC);
+                context.drawCenteredTextWithShadow(this.textRenderer, "§7Result: Standard Pokémon Form", centerX, viewY + viewH + 12, 0xFFCCCCCC);
             }
         }
     }
@@ -461,7 +429,7 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
     // STAGE 3: 6x VERTICAL IV WHEELS MATRIX
     // =========================================================================
     private void renderStage3Ivs(DrawContext context, int mouseX, int mouseY, float delta, int centerX, int centerY) {
-        context.drawCenteredTextWithShadow(this.textRenderer, "§6★ BƯỚC 3: QUAY BẢNG 6 DÒNG CHỈ SỐ IVS (0 - 31) ★", centerX, centerY - 100, 0xFFFFD700);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§6★ STAGE 3: SPIN 6x STAT IVs MATRIX (0 - 31) ★", centerX, centerY - 100, 0xFFFFD700);
 
         long now = System.currentTimeMillis();
         int startY = centerY - 50;
@@ -514,7 +482,7 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
             String valStr;
             int valColor;
             if (!ivFinished[i] && !ivSpinning[i]) {
-                valStr = "§8[Chưa quay]";
+                valStr = "§8[Pending]";
                 valColor = 0xFF888888;
             } else if (ivSpinning[i]) {
                 valStr = "§e" + val + " ↻";
@@ -546,7 +514,7 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
         GachaPokemonCandidate winner = (winningIndex >= 0 && winningIndex < candidates.size()) ? candidates.get(winningIndex) : null;
         if (winner == null) return;
 
-        context.drawCenteredTextWithShadow(this.textRenderer, "§6§l🏆 TỔNG KẾT PHẦN THƯỞNG GACHA POKÉMON 🏆", centerX, centerY - 105, 0xFFFFD700);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§6§l🏆 POKÉMON GACHA REWARD SUMMARY 🏆", centerX, centerY - 105, 0xFFFFD700);
 
         int cardW = 320;
         int cardH = 160;
@@ -560,7 +528,7 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
         String formTag = (winner.formAspect() != null && !winner.formAspect().isBlank()) ? (" [" + capitalize(winner.formAspect()) + "]") : "";
         String shinyTag = isShinyWinner ? " §6✨ [SHINY]" : "";
         context.drawCenteredTextWithShadow(this.textRenderer, "§e§lPOKÉMON: §a" + winner.baseSpecies().toUpperCase() + formTag + shinyTag, centerX, cardY + 10, 0xFF55FF55);
-        context.drawCenteredTextWithShadow(this.textRenderer, "§7Dạng sơ cấp từ: §f" + winner.displayName() + " §7(Cấp độ: §eLv.1 Sơ cấp§7)", centerX, cardY + 24, 0xFFCCCCCC);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§7Base Form from: §f" + winner.displayName() + " §7(Level: §eLv.1 Base Form§7)", centerX, cardY + 24, 0xFFCCCCCC);
 
         // Stats Summary (2 Columns x 3 Rows)
         int col1X = cardX + 25;
@@ -577,7 +545,7 @@ public class TowerPokemonGachaScreen extends AbstractTowerScreen {
         }
 
         // Bottom Guarantee Note
-        context.drawCenteredTextWithShadow(this.textRenderer, "§b✔ Tự động đưa vào Party (hoặc PC Box nếu đầy) • Đầy đủ chiêu thức & 100% PP", centerX, cardY + 135, 0xFF88CCFF);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§b✔ Sent to Party (or PC Box if full) • Full Moveset & 100% PP", centerX, cardY + 135, 0xFF88CCFF);
     }
 
     private static String truncate(String s, int maxLen) {

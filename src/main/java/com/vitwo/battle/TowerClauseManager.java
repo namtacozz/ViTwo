@@ -128,14 +128,14 @@ public class TowerClauseManager {
                 String speciesName = pokemon.getSpecies().getName().toLowerCase(Locale.ROOT);
                 String baseSpecies = speciesName.split("-")[0].replace(" ", "_");
                 if (!speciesSet.add(baseSpecies)) {
-                    return ValidationResult.fail("§c§l[QUY TẮC ĐỘI HÌNH] §fTrùng lặp Pokémon: §e" + capitalize(baseSpecies) + " §7(Mỗi loài chỉ được mang tối đa 1 con)!", false, true, true, true);
+                    return ValidationResult.fail("§c§l[SPECIES CLAUSE] §fDuplicate Pokémon: §e" + capitalize(baseSpecies) + " §7(Only 1 of each species allowed)!", false, true, true, true);
                 }
 
                 // 2. Anti-Cheese: Ability Check (Moody Clause)
                 if (pokemon.getAbility() != null && pokemon.getAbility().getName() != null) {
                     String abName = pokemon.getAbility().getName().toLowerCase(Locale.ROOT).replace(" ", "").replace("-", "").replace("_", "");
                     if (BANNED_ABILITIES.contains(abName)) {
-                        return ValidationResult.fail("§c§l[BANNED ABILITY] §fPhát hiện Ability bị cấm: §e" + abName.toUpperCase() + " §7trên §e" + capitalize(baseSpecies) + " §7(Moody bị cấm trong Tháp)!", true, true, true, true);
+                        return ValidationResult.fail("§c§l[BANNED ABILITY] §fBanned ability detected: §e" + abName.toUpperCase() + " §7on §e" + capitalize(baseSpecies) + " §7(Moody is banned)!", true, true, true, true);
                     }
                 }
 
@@ -145,13 +145,13 @@ public class TowerClauseManager {
                         if (move == null || move.getName() == null) continue;
                         String moveName = move.getName().toLowerCase(Locale.ROOT).replace(" ", "").replace("-", "").replace("_", "");
                         if (BANNED_EVASION_MOVES.contains(moveName)) {
-                            return ValidationResult.fail("§c§l[BANNED MOVE] §fPhát hiện Chiêu tăng Né Tránh bị cấm: §e" + moveName.toUpperCase() + " §7trên §e" + capitalize(baseSpecies), true, true, true, true);
+                            return ValidationResult.fail("§c§l[BANNED MOVE] §fBanned Evasion move detected: §e" + moveName.toUpperCase() + " §7on §e" + capitalize(baseSpecies), true, true, true, true);
                         }
                         if (BANNED_OHKO_MOVES.contains(moveName)) {
-                            return ValidationResult.fail("§c§l[BANNED MOVE] §fPhát hiện Chiêu OHKO 1-Hit KO bị cấm: §e" + moveName.toUpperCase() + " §7trên §e" + capitalize(baseSpecies), true, true, true, true);
+                            return ValidationResult.fail("§c§l[BANNED MOVE] §fBanned OHKO move detected: §e" + moveName.toUpperCase() + " §7on §e" + capitalize(baseSpecies), true, true, true, true);
                         }
                         if (BANNED_SWAGGER_MOVES.contains(moveName)) {
-                            return ValidationResult.fail("§c§l[BANNED MOVE] §fPhát hiện Chiêu Swagger bị cấm trên §e" + capitalize(baseSpecies), true, true, true, true);
+                            return ValidationResult.fail("§c§l[BANNED MOVE] §fBanned move Swagger detected on §e" + capitalize(baseSpecies), true, true, true, true);
                         }
                     }
                 }
@@ -168,7 +168,7 @@ public class TowerClauseManager {
                 if (itemStack != null && !itemStack.isEmpty()) {
                     String itemName = itemStack.getItem().toString();
                     if (!itemSet.add(itemName)) {
-                        return ValidationResult.fail("§c§l[QUY TẮC VẬT PHẨM] §fTrùng lặp vật phẩm cầm theo: §e" + itemStack.getName().getString() + " §7(Mỗi vật phẩm chỉ 1 Pokémon được cầm)!", true, false, true, true);
+                        return ValidationResult.fail("§c§l[ITEM CLAUSE] §fDuplicate held item: §e" + itemStack.getName().getString() + " §7(Only 1 of each item allowed)!", true, false, true, true);
                     }
                 }
             } catch (Exception ignored) {}
@@ -177,20 +177,20 @@ public class TowerClauseManager {
         // Validate Restricted Legends Cap
         if (foundRestricted.size() > maxRestricted) {
             String foundList = String.join(", ", foundRestricted);
-            String msg = "§c§l[GIỚI HẠN HUYỀN THOẠI TỐI THƯỢNG] §fĐội hình có quá nhiều Pokémon Huyền Thoại Tối Thượng (Box/Cover Legends)!\n" +
-                    "§e► Tầng " + floor + " chỉ cho phép tối đa: §a" + maxRestricted + " con§e.\n" +
-                    "§c► Đã phát hiện trong đội (" + foundRestricted.size() + " con): §6" + foundList + "\n" +
-                    "§7💡 Lưu ý: Các Pokémon Huyền Thoại phụ (như Zapdos, Articuno, Raikou, Suicune, Heatran, Latios, Urshifu...) KHÔNG bị tính vào nhóm này!";
+            String msg = "§c§l[RESTRICTED LEGENDARY CLAUSE] §fParty exceeds restricted legendary limit!\n" +
+                    "§e► Floor " + floor + " allows a maximum of: §a" + maxRestricted + " Pokémon§e.\n" +
+                    "§c► Detected in team (" + foundRestricted.size() + "): §6" + foundList + "\n" +
+                    "§7💡 Sub-Legendaries (e.g. Zapdos, Raikou, Latios, Urshifu) are NOT restricted.";
             return ValidationResult.fail(msg, true, true, false, true);
         }
 
         // Validate Non-Restricted (Sub-Legendaries) Cap
         if (maxNonRestricted != -1 && foundNonRestricted.size() > maxNonRestricted) {
             String foundList = String.join(", ", foundNonRestricted);
-            String msg = "§c§l[GIỚI HẠN HUYỀN THOẠI PHỤ] §fĐội hình có quá nhiều Pokémon Huyền Thoại Phụ (Sub-Legendaries)!\n" +
-                    "§e► Tầng " + floor + " chỉ cho phép tối đa: §a" + maxNonRestricted + " con§e.\n" +
-                    "§c► Đã phát hiện trong đội (" + foundNonRestricted.size() + " con): §6" + foundList + "\n" +
-                    "§7💡 Vui lòng đổi bớt sang Pokémon thông thường để tiếp tục leo tháp.";
+            String msg = "§c§l[SUB-LEGENDARY CLAUSE] §fParty exceeds sub-legendary limit!\n" +
+                    "§e► Floor " + floor + " allows a maximum of: §a" + maxNonRestricted + " Pokémon§e.\n" +
+                    "§c► Detected in team (" + foundNonRestricted.size() + "): §6" + foundList + "\n" +
+                    "§7💡 Please swap out some sub-legendaries to continue.";
             return ValidationResult.fail(msg, true, true, true, false);
         }
 

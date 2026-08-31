@@ -381,7 +381,7 @@ public class TowerPlayerDataManager {
                                 }
                                 cobblemonParty.sendTo(player);
                                 if (restored > 0) {
-                                    player.sendMessage(net.minecraft.text.Text.literal("§a[CobbleTower] §fĐã tự động khôi phục toàn bộ §a" + restored + " §fPokémon trong đội hình về §6Lv.100 (Max EXP & Full PP)§f!"), false);
+                                    player.sendMessage(net.minecraft.text.Text.literal("§a[CobbleTower] §fAutomatically restored all §a" + restored + " §fPokémon in your party to §6Lv.100 (Max EXP & Full PP)§f!"), false);
                                 }
                             }
                         } catch (Throwable t) {
@@ -401,8 +401,8 @@ public class TowerPlayerDataManager {
                         } catch (Throwable ignored) {}
 
                         player.sendMessage(net.minecraft.text.Text.literal(""), false);
-                        player.sendMessage(net.minecraft.text.Text.literal("§6§l✦ BỒI THƯỜNG TOÀN DIỆN COBBLETOWER ✦"), false);
-                        player.sendMessage(net.minecraft.text.Text.literal("§aHệ thống đã phục hồi toàn bộ đội hình về §eLv.100§a, tặng thêm §e50,000 BP§a, §e64x Rare Candy§a và §e64x Exp Candy XL§a!"), false);
+                        player.sendMessage(net.minecraft.text.Text.literal("§6§l✦ COBBLETOWER COMPREHENSIVE COMPENSATION ✦"), false);
+                        player.sendMessage(net.minecraft.text.Text.literal("§aSystem has restored your party to §eLv.100§a, granted §e50,000 BP§a, §e64x Rare Candy§a and §e64x EXP Candy XL§a!"), false);
                         player.sendMessage(net.minecraft.text.Text.literal(""), false);
                         player.playSound(net.minecraft.sound.SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 1.0f, 1.0f);
 

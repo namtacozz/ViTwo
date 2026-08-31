@@ -79,7 +79,8 @@ CobbleTower v1.8.0 tích hợp hệ thống Gacha vòng quay phong cách CS:GO h
 
 ## 🖥️ 3. QUY CHUẨN GIAO DIỆN & HUD (UI/UX RULES)
 
-- Toàn bộ các tương tác nút bấm trong màn hình Custom (như `TowerHubScreen`, `TowerBpShopScreen`, `TowerPokemonGachaScreen`, `TowerItemGachaScreen`) phải được thiết kế dạng **Minecraft 3D Beveled Buttons** (`TowerButton.java`).
+- **100% English In-Game UI/UX (Bắt buộc tiếng Anh toàn phần):** Toàn bộ giao diện (UI), HUD, tiêu đề, nút bấm (Buttons), thông báo Chat, Toast, lời thoại và thông điệp server trong game BẮT BUỘC sử dụng 100% Tiếng Anh (English Only). Tuyệt đối KHÔNG sử dụng tiếng Việt hay song ngữ trong in-game client/server strings.
+- Toàn bộ các tương tác nút bấm trong màn hình Custom (như `TowerHubScreen`, `TowerBpShopScreen`, `TowerPokemonGachaScreen`, `TowerItemGachaScreen`) phải được thiết kế dạng **Modern Flat Dark Slate Cyber Buttons** (`TowerButton.java`).
 - Mã màu văn bản khi vẽ bằng `context.drawTextWithShadow` hoặc `context.drawCenteredTextWithShadow` **bắt buộc phải có kênh Alpha đầy đủ `0xFF000000`** (Ví dụ: `0xFFFFD700`, `0xFFFFFFFF`, `0xFFCCCCCC`) để tránh hiện tượng chữ bị mờ hoặc tàng hình trên các phiên bản Fabric mới.
 - **HUD Trực Tiếp (`TowerHudOverlay.java`):**
   - **Top Progress Box:** Hiển thị phân cấp màu tầng (Gold Cynthia 100, Magenta Elite 4 90-99, Orange Gym 5, Cyan Thường), Cap cấp độ động (`Cap: Lv.X`), tên Boss, tự động co giãn chiều cao (38px / 50px khi có Curse sàn đấu).

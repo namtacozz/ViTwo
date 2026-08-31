@@ -231,7 +231,7 @@ public class TowerBattleManager {
                         server.execute(() -> {
                             ServerPlayerEntity player = server.getPlayerManager().getPlayer(playerId);
                             if (player != null) {
-                                player.sendMessage(Text.literal("§c[CobbleTower] Bạn đã bỏ chạy khỏi trận đấu! Tháp kết thúc thất bại."), false);
+                                player.sendMessage(Text.literal("§c[CobbleTower] You fled from battle! Tower run ended in defeat."), false);
                             }
                             TowerPartyManager.getInstance().onPartyDefeated(party, server);
                         });
@@ -243,7 +243,7 @@ public class TowerBattleManager {
                         server.execute(() -> {
                             ServerPlayerEntity player = server.getPlayerManager().getPlayer(playerId);
                             if (player != null) {
-                                player.sendMessage(Text.literal("§e[CobbleTower] §cTrong chế độ Duo, không thể bỏ chạy đơn lẻ! Vui lòng mở Menu phím [Y] để bỏ phiếu Forfeit cùng đồng đội."), false);
+                                player.sendMessage(Text.literal("§e[CobbleTower] §cIn Duo Co-op, you cannot flee unilaterally! Please open [Y] Hub to vote for Forfeit."), false);
                             }
                         });
                     }
@@ -256,7 +256,7 @@ public class TowerBattleManager {
                     server.execute(() -> {
                         TowerPartyManager.terminateActiveBattleForPlayer(player);
                         com.vitwo.arena.TowerArenaManager.getInstance().returnPlayerToOriginalPos(player, null);
-                        player.sendMessage(Text.literal("§c[CobbleTower] Bạn đã bỏ chạy khỏi trận đấu! Đã quay trở về Overworld."), false);
+                        player.sendMessage(Text.literal("§c[CobbleTower] You fled from battle! Returned safely to the Overworld."), false);
                     });
                     return;
                 }

@@ -245,7 +245,7 @@ public class TowerRewardManager {
             TowerPlayerDataManager.getInstance().addBp(playerA.getUuid(), finalBp);
             Optional<TowerParty> partyOpt = TowerPartyManager.getInstance().getParty(playerA.getUuid());
             partyOpt.ifPresent(party -> party.addBpEarnedInRun(finalBp));
-            playerA.sendMessage(Text.literal("§6[CobbleTower] §a+" + finalBp + " BP §7(Bậc: §e" + grade + "§7) §f— Tổng BP: §e" + TowerPlayerDataManager.getInstance().getBp(playerA.getUuid()) + " BP"), false);
+            playerA.sendMessage(Text.literal("§6[CobbleTower] §a+" + finalBp + " BP §7(Grade: §e" + grade + "§7) §f— Total BP: §e" + TowerPlayerDataManager.getInstance().getBp(playerA.getUuid()) + " BP"), false);
             ServerPlayNetworking.send(playerA, new TowerBattleGradeS2CPacket(floor, grade, rankBonusBp, turnsThisFloor, faintsThisFloor));
         }
         if (playerB != null) {
@@ -254,7 +254,7 @@ public class TowerRewardManager {
             int rankBonusBp = (int) Math.ceil(baseBp * gradeBonusMultiplier);
             int finalBp = Math.max(1, (int) Math.ceil((baseBp + rankBonusBp) * mult * prestigeMult));
             TowerPlayerDataManager.getInstance().addBp(playerB.getUuid(), finalBp);
-            playerB.sendMessage(Text.literal("§6[CobbleTower] §a+" + finalBp + " BP §7(Bậc: §e" + grade + "§7) §f— Tổng BP: §e" + TowerPlayerDataManager.getInstance().getBp(playerB.getUuid()) + " BP"), false);
+            playerB.sendMessage(Text.literal("§6[CobbleTower] §a+" + finalBp + " BP §7(Grade: §e" + grade + "§7) §f— Total BP: §e" + TowerPlayerDataManager.getInstance().getBp(playerB.getUuid()) + " BP"), false);
             ServerPlayNetworking.send(playerB, new TowerBattleGradeS2CPacket(floor, grade, rankBonusBp, turnsThisFloor, faintsThisFloor));
         }
 
@@ -620,8 +620,8 @@ public class TowerRewardManager {
 
             String formPrefix = (winner.formAspect() != null && !winner.formAspect().isBlank()) ? (" [" + capitalize(winner.formAspect()) + "] ") : " ";
             String shinyTag = packet.isShiny() ? " §6✨ [SHINY]" : "";
-            String destText = addedToParty ? "§a(Đã thêm vào Đội hình!)" : "§e(Đội hình đầy, đã gửi an toàn vào PC Box!)";
-            player.sendMessage(Text.literal("§d★ [CobbleTower Gacha] §fChúc mừng! Bạn đã quay trúng §e" + capitalize(baseSpecies) + formPrefix + shinyTag + " §7(Từ §f" + winner.displayName() + "§7) §a" + perfectCount + "/6 dòng Max 31 IVs! " + destText), false);
+            String destText = addedToParty ? "§a(Added to Party!)" : "§e(Party full, safely sent to PC Box!)";
+            player.sendMessage(Text.literal("§d★ [CobbleTower Gacha] §fCongratulations! You won §e" + capitalize(baseSpecies) + formPrefix + shinyTag + " §7(From §f" + winner.displayName() + "§7) §a" + perfectCount + "/6 Best 31 IVs! " + destText), false);
             player.playSound(SoundEvents.UI_TOAST_CHALLENGE_COMPLETE, 1.0f, 1.0f);
 
             // Grand Server Broadcast for Ultra Rare Jackpots (High Legend / Mythical, Shiny 1%, or 5-6 Max 31 IVs)
@@ -639,10 +639,10 @@ public class TowerRewardManager {
         if (server == null) return;
         String shinyTag = isShiny ? " §6✨ [SHINY]" : "";
         Text line1 = Text.literal("§6§m-----------------------------------------------------");
-        Text line2 = Text.literal("§6§l✦ [COBBLETOWER TOÀN CẢNH] §eSỰ KIỆN NỔ HŨ VẬN MAY THẾ KỶ! ✦");
-        Text line3 = Text.literal("§fNhà Huấn Luyện §e§l" + playerName + " §fđã làm chấn động Đấu Tháp Tầng §6" + floor + "§f!");
-        Text line4 = Text.literal("§fQuay trúng: §d§l" + pokemonName + shinyTag + " §f| Chỉ số: §a§l" + maxIvs + "/6 dòng Max 31 IVs (Best)§f!");
-        Text line5 = Text.literal("§6§l✦ Chúc mừng nhà vô địch may mắn bậc nhất máy chủ! ✦");
+        Text line2 = Text.literal("§6§l✦ [COBBLETOWER BROADCAST] §eGRAND JACKPOT CELEBRATION! ✦");
+        Text line3 = Text.literal("§fTrainer §e§l" + playerName + " §fhas struck gold on Floor §6" + floor + "§f!");
+        Text line4 = Text.literal("§fAwarded: §d§l" + pokemonName + shinyTag + " §f| Stats: §a§l" + maxIvs + "/6 Best 31 IVs§f!");
+        Text line5 = Text.literal("§6§l✦ Congratulations to the luckiest Champion on the server! ✦");
         Text line6 = Text.literal("§6§m-----------------------------------------------------");
 
         for (ServerPlayerEntity p : server.getPlayerManager().getPlayerList()) {
@@ -752,11 +752,11 @@ public class TowerRewardManager {
         if ("bp".equalsIgnoreCase(winner.category()) || winner.bpAmount() > 0) {
             int bp = Math.max(winner.bpAmount(), 100);
             TowerPlayerDataManager.getInstance().addBp(player.getUuid(), bp);
-            player.sendMessage(Text.literal("§6★ [CobbleTower Gacha] §fBạn nhận được §e+" + bp + " BP §f(Tổng BP: §a" + TowerPlayerDataManager.getInstance().getBp(player.getUuid()) + "§f)!"), false);
+            player.sendMessage(Text.literal("§6★ [CobbleTower Gacha] §fYou received §e+" + bp + " BP §f(Total BP: §a" + TowerPlayerDataManager.getInstance().getBp(player.getUuid()) + "§f)!"), false);
         } else {
             ItemStack stack = getCobblemonItem(winner.id(), winner.quantity());
             giveItemToPlayer(player, stack, floor);
-            player.sendMessage(Text.literal("§6★ [CobbleTower Gacha] §fBạn nhận được §e" + winner.displayName() + "§f!"), false);
+            player.sendMessage(Text.literal("§6★ [CobbleTower Gacha] §fYou received §e" + winner.displayName() + "§f!"), false);
         }
         player.playSound(SoundEvents.ENTITY_EXPERIENCE_ORB_PICKUP, 1.0f, 1.0f);
     }
@@ -800,7 +800,6 @@ public class TowerRewardManager {
         try {
             var party = Cobblemon.INSTANCE.getStorage().getParty(player);
             if (party != null) {
-                party.heal();
                 for (Pokemon mon : party) {
                     if (mon != null) {
                         fullHeal(mon);
@@ -816,7 +815,7 @@ public class TowerRewardManager {
         } catch (Throwable t) {
             LOGGER.error("[CobbleTower] Error applying full team rest for player {}", player.getName().getString(), t);
         }
-        player.sendMessage(Text.literal("§a[CobbleTower] §fĐội hình Pokémon của bạn đã được hồi phục hoàn toàn (100% HP, 100% PP & xoá trạng thái)!"), false);
+        player.sendMessage(Text.literal("§a[CobbleTower] §fYour Pokémon team has been fully healed (100% HP, 100% PP & status cured)!"), false);
     }
 
     public void applyWarPrep(ServerPlayerEntity player, TowerParty party, int buffType) {
@@ -861,7 +860,7 @@ public class TowerRewardManager {
         }
 
         TowerPlayerDataManager.getInstance().addBp(player.getUuid(), bonusBp);
-        player.sendMessage(Text.literal("§6[Treasure Cache] §a+" + bonusBp + " BP §7tìm thấy trong rương báu!"), false);
+        player.sendMessage(Text.literal("§6[Treasure Cache] §a+" + bonusBp + " BP §7found inside treasure chest!"), false);
 
         if (Registries.ITEM.containsId(lootId)) {
             ItemStack stack = new ItemStack(Registries.ITEM.get(lootId), count);
@@ -919,7 +918,7 @@ public class TowerRewardManager {
 
         boolean success = TowerPlayerDataManager.getInstance().spendBp(player.getUuid(), totalPrice);
         if (!success) {
-            player.sendMessage(Text.literal("§c[BP Shop] Không đủ điểm Battle Points! Cần: §e" + totalPrice + " BP§c, Số dư: §e" + profile.battlePoints + " BP"), false);
+            player.sendMessage(Text.literal("§c[BP Shop] Insufficient Battle Points! Required: §e" + totalPrice + " BP§c, Balance: §e" + profile.battlePoints + " BP"), false);
             return;
         }
 
@@ -929,19 +928,19 @@ public class TowerRewardManager {
 
         if (itemId.equals("title_tower_champion")) {
             TowerPlayerDataManager.getInstance().unlockCosmetic(player.getUuid(), itemId);
-            player.sendMessage(Text.literal("§6★ [BP Shop] Bạn đã mở khóa danh hiệu: §e« Quán Quân Đấu Tháp »§6!"), false);
+            player.sendMessage(Text.literal("§6★ [BP Shop] Unlocked Title: §e« Tower Champion »§6!"), false);
             return;
         }
 
         if (itemId.equals("title_tower_legend")) {
             TowerPlayerDataManager.getInstance().unlockCosmetic(player.getUuid(), itemId);
-            player.sendMessage(Text.literal("§d★ [BP Shop] Bạn đã mở khóa danh hiệu tối thượng: §b« Huyền Thoại Đấu Tháp »§d!"), false);
+            player.sendMessage(Text.literal("§d★ [BP Shop] Unlocked Apex Title: §b« Tower Legend »§d!"), false);
             return;
         }
 
         if (itemId.startsWith("cosmetic_")) {
             TowerPlayerDataManager.getInstance().unlockCosmetic(player.getUuid(), itemId);
-            player.sendMessage(Text.literal("§d★ [BP Shop] Đã mở khóa & kích hoạt hiệu ứng: §b" + itemId.replace("cosmetic_", "").replace("_", " ") + "§d!"), false);
+            player.sendMessage(Text.literal("§d★ [BP Shop] Unlocked & Activated effect: §b" + itemId.replace("cosmetic_", "").replace("_", " ") + "§d!"), false);
             return;
         }
 
@@ -957,7 +956,7 @@ public class TowerRewardManager {
         }
 
         giveItemToPlayer(player, stack, 1);
-        player.sendMessage(Text.literal("§a[BP Shop] Đã mua thành công §e" + stack.getName().getString() + (quantity > 1 ? (" x" + quantity) : "") + " §avới giá §e" + totalPrice + " BP§a! Số dư còn: §e" + TowerPlayerDataManager.getInstance().getBp(player.getUuid()) + " BP"), false);
+        player.sendMessage(Text.literal("§a[BP Shop] Successfully purchased §e" + stack.getName().getString() + (quantity > 1 ? (" x" + quantity) : "") + " §afor §e" + totalPrice + " BP§a! Remaining Balance: §e" + TowerPlayerDataManager.getInstance().getBp(player.getUuid()) + " BP"), false);
         TowerPartyManager.getInstance().syncPlayerState(player);
     }
 
@@ -974,7 +973,7 @@ public class TowerRewardManager {
             player.dropItem(stack, false);
         }
 
-        player.sendMessage(Text.literal("§6[CobbleTower] §aĐã nhận: §e" + itemName + (count > 1 ? (" x" + count) : "")), false);
+        player.sendMessage(Text.literal("§6[CobbleTower] §aReceived: §e" + itemName + (count > 1 ? (" x" + count) : "")), false);
     }
 
     public void checkMilestones(ServerPlayerEntity p1, ServerPlayerEntity p2, int floor, boolean isTrueRun) {

@@ -10,12 +10,12 @@ public class TowerAugmentManager {
     public static TowerAugmentManager getInstance() { return INSTANCE; }
 
     public enum TowerAugment {
-        SECOND_WIND("Ngọn Gió Thứ Hai", "§aHồi phục 10% Max HP cho Pokémon khi hạ gục một đối thủ.", "§a🌬 Second Wind"),
-        RESOLUTE_HEART("Trái Tim Kiên Cường", "§bGiảm 15% sát thương nhận vào từ các chiêu thức Siêu Hiệu Quả.", "§b🛡 Resolute Heart"),
-        ELEMENTAL_MASTERY("Thấu Suốt Nguyên Tố", "§6Tăng 12% uy lực cho các chiêu thức trùng hệ (STAB).", "§6⚡ Elemental Mastery"),
-        TACTICAL_SURGE("Đột Kích Chiến Thuật", "§eKhi HP dưới 50%, tăng 1 bậc Tốc độ (Speed +1).", "§e⚔ Tactical Surge"),
-        IRON_WILL("Ý Chí Sắt Đá", "§dMiễn nhiễm với các hiệu ứng Đóng Băng và Tê Liệt.", "§d✨ Iron Will"),
-        VITAL_SIPHON("Hấp Thụ Sinh Lực", "§5Hồi phục lại 10% lượng sát thương trực tiếp gây ra.", "§5🩸 Vital Siphon");
+        SECOND_WIND("Second Wind", "§aRestores 10% Max HP when your Pokémon faints an opponent.", "§a🌬 Second Wind"),
+        RESOLUTE_HEART("Resolute Heart", "§bTakes 15% reduced damage from Super-Effective moves.", "§b🛡 Resolute Heart"),
+        ELEMENTAL_MASTERY("Elemental Mastery", "§6Increases power of Same-Type Attack Bonus (STAB) moves by 12%.", "§6⚡ Elemental Mastery"),
+        TACTICAL_SURGE("Tactical Surge", "§eBoosts Speed by +1 stage when Pokémon HP drops below 50%.", "§e⚔ Tactical Surge"),
+        IRON_WILL("Iron Will", "§dImmune to Freeze and Paralysis status conditions.", "§d✨ Iron Will"),
+        VITAL_SIPHON("Vital Siphon", "§5Drains 10% of all direct damage inflicted as HP recovery.", "§5🩸 Vital Siphon");
 
         private final String displayName;
         private final String description;

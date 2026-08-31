@@ -153,7 +153,7 @@ public class TowerCommands {
                                                     }
                                                     final int finalCount = count;
                                                     ctx.getSource().sendFeedback(() -> Text.literal("§aSuccessfully set all " + finalCount + " Pokémon of " + target.getName().getString() + " to Lv." + lvl + "!"), false);
-                                                    target.sendMessage(Text.literal("§6[CobbleTower] §aToàn bộ đội hình của bạn đã được Admin đặt lại thành §eLv." + lvl + "§a (Đầy đủ EXP & PP)!"), false);
+                                                    target.sendMessage(Text.literal("§6[CobbleTower] §aYour entire party has been set by Admin to §eLv." + lvl + "§a (Full EXP & PP)!"), false);
                                                     return 1;
                                                 })
                                         )
@@ -183,7 +183,7 @@ public class TowerCommands {
                                             }
                                             final int finalCount = count;
                                             ctx.getSource().sendFeedback(() -> Text.literal("§aRestored " + finalCount + " Pokémon of " + target.getName().getString() + " to Lv.100!"), false);
-                                            target.sendMessage(Text.literal("§6[CobbleTower] §aĐã tự động phục hồi " + finalCount + " Pokémon về §6Lv.100§a!"), false);
+                                            target.sendMessage(Text.literal("§6[CobbleTower] §aAutomatically restored " + finalCount + " Pokémon to §6Lv.100§a!"), false);
                                             return 1;
                                         })
                                 )
@@ -326,9 +326,9 @@ public class TowerCommands {
             if (finalRestoredCount > 0) {
                 source.sendFeedback(() -> Text.literal("§a[CobbleTower] Compensated " + target.getName().getString() + 
                         ": " + finalRestoredCount + " Pokémon restored to Lv." + targetLevel + "\n" + detailsStr), true);
-                target.sendMessage(Text.literal("§a[CobbleTower] §fAdmin đã bồi thường: §a" + finalRestoredCount + 
-                        " §fPokémon được nâng cấp lên §aLv." + targetLevel + "§f. Xin lỗi vì sự cố!"), false);
-                target.sendMessage(Text.literal("§6[CobbleTower] §fChi tiết:\n" + detailsStr), false);
+                target.sendMessage(Text.literal("§a[CobbleTower] §fAdmin compensation applied: §a" + finalRestoredCount + 
+                        " §fPokémon upgraded to §aLv." + targetLevel + "§f. Apologies for any inconvenience!"), false);
+                target.sendMessage(Text.literal("§6[CobbleTower] §fDetails:\n" + detailsStr), false);
             } else {
                 source.sendFeedback(() -> Text.literal("§7[CobbleTower] No Pokémon needed compensation — all are already at or above Lv." + targetLevel), false);
             }

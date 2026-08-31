@@ -208,7 +208,7 @@ public class ViTwoMod implements ModInitializer {
                                 if (!party.isSolo() && party.getMemberId() != null) {
                                     // DUO CO-OP READY SYSTEM (1/2 -> 2/2)
                                     if (party.isReady(serverPlayer.getUuid())) {
-                                        serverPlayer.sendMessage(net.minecraft.text.Text.literal("§b[CobbleTower] §aBạn đã sẵn sàng rồi (1/2)! §7Đang chờ đồng đội chuột phải vào NPC..."), false);
+                                        serverPlayer.sendMessage(net.minecraft.text.Text.literal("§b[CobbleTower] §aYou are ready (1/2)! §7Waiting for partner to right-click Trainer NPC..."), false);
                                         return ActionResult.SUCCESS;
                                     }
 
@@ -217,10 +217,10 @@ public class ViTwoMod implements ModInitializer {
                                     ServerPlayerEntity otherPlayer = serverPlayer.getServer() != null ? serverPlayer.getServer().getPlayerManager().getPlayer(otherId) : null;
 
                                     if (!party.areBothReady()) {
-                                        serverPlayer.sendMessage(net.minecraft.text.Text.literal("§b[CobbleTower] §aĐã sẵn sàng! §7(1/2) §f— Chờ đồng đội chuột phải vào NPC để vào trận."), false);
+                                        serverPlayer.sendMessage(net.minecraft.text.Text.literal("§b[CobbleTower] §aReady! §7(1/2) §f— Waiting for partner to right-click NPC."), false);
                                         serverPlayer.playSound(net.minecraft.sound.SoundEvents.BLOCK_NOTE_BLOCK_CHIME.value(), 1.0f, 1.2f);
                                         if (otherPlayer != null) {
-                                            otherPlayer.sendMessage(net.minecraft.text.Text.literal("§b[CobbleTower] §e" + serverPlayer.getName().getString() + " §ađã sẵn sàng (1/2)! §fHãy chuột phải vào NPC để cùng bắt đầu trận đấu Co-op!"), false);
+                                            otherPlayer.sendMessage(net.minecraft.text.Text.literal("§b[CobbleTower] §e" + serverPlayer.getName().getString() + " §ais ready (1/2)! §fRight-click Trainer NPC to begin Co-op battle!"), false);
                                             otherPlayer.playSound(net.minecraft.sound.SoundEvents.BLOCK_NOTE_BLOCK_BELL.value(), 1.0f, 1.0f);
                                         }
                                         return ActionResult.SUCCESS;
@@ -230,8 +230,8 @@ public class ViTwoMod implements ModInitializer {
                                         ServerPlayerEntity leader = serverPlayer.getServer().getPlayerManager().getPlayer(party.getLeaderId());
                                         ServerPlayerEntity member = serverPlayer.getServer().getPlayerManager().getPlayer(party.getMemberId());
                                         if (leader != null && member != null) {
-                                            leader.sendMessage(net.minecraft.text.Text.literal("§b[CobbleTower] §aCả hai đã sẵn sàng (2/2)! Bắt đầu trận chiến Co-op Duo 3+3!"), false);
-                                            member.sendMessage(net.minecraft.text.Text.literal("§b[CobbleTower] §aCả hai đã sẵn sàng (2/2)! Bắt đầu trận chiến Co-op Duo 3+3!"), false);
+                                            leader.sendMessage(net.minecraft.text.Text.literal("§b[CobbleTower] §aBoth players ready (2/2)! Launching Co-op Duo 3+3 Battle!"), false);
+                                            member.sendMessage(net.minecraft.text.Text.literal("§b[CobbleTower] §aBoth players ready (2/2)! Launching Co-op Duo 3+3 Battle!"), false);
                                             leader.playSound(net.minecraft.sound.SoundEvents.ENTITY_PLAYER_LEVELUP, 0.8f, 1.0f);
                                             member.playSound(net.minecraft.sound.SoundEvents.ENTITY_PLAYER_LEVELUP, 0.8f, 1.0f);
 

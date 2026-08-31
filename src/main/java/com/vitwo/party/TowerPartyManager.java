@@ -304,13 +304,13 @@ public class TowerPartyManager {
 
         String titleSub;
         if (floor >= 100) {
-            titleSub = "§6§l★ TẦNG 100: SUPREME CHAMPION CYNTHIA ★ §7(Cap: Lv.100)";
+            titleSub = "§6§l★ FLOOR 100: SUPREME CHAMPION CYNTHIA ★ §7(Cap: Lv.100)";
         } else if (floor >= 90) {
-            titleSub = "§d§l✦ TẦNG " + floor + ": " + bossName.toUpperCase() + " ✦ §7(Cap: Lv." + maxCap + ")";
+            titleSub = "§d§l✦ FLOOR " + floor + ": " + bossName.toUpperCase() + " ✦ §7(Cap: Lv." + maxCap + ")";
         } else if (floor % 5 == 0) {
-            titleSub = "§e§l⬡ TẦNG " + floor + ": GYM LEADER " + bossName.toUpperCase() + " ⬡ §7(Cap: Lv." + maxCap + ")";
+            titleSub = "§e§l⬡ FLOOR " + floor + ": GYM LEADER " + bossName.toUpperCase() + " ⬡ §7(Cap: Lv." + maxCap + ")";
         } else {
-            titleSub = "§b§lTẦNG " + floor + "/100 §7— Đối thủ: §f" + bossName + " §7(Cap: Lv." + maxCap + ")";
+            titleSub = "§b§lFLOOR " + floor + "/100 §7— Opponent: §f" + bossName + " §7(Cap: Lv." + maxCap + ")";
         }
 
         TowerTitleS2CPacket titlePayload = new TowerTitleS2CPacket(
@@ -324,26 +324,26 @@ public class TowerPartyManager {
         if (member != null) ServerPlayNetworking.send(member, titlePayload);
 
         // Send Floor Entrance Chat Messages
-        leader.sendMessage(Text.literal("§6[CobbleTower] §fTiến vào §bTầng " + floor + "/100§f — Đối thủ: §e" + bossName + " §7(Level Cap: §aLv." + maxCap + "§7)"), false);
+        leader.sendMessage(Text.literal("§6[CobbleTower] §fEntering §bFloor " + floor + "/100§f — Opponent: §e" + bossName + " §7(Level Cap: §aLv." + maxCap + "§7)"), false);
         if (floor >= 100) {
-            leader.sendMessage(Text.literal("§6§l★ [COBBLE TOWER] TRẬN CHIẾN TỐI CAO: QUÁN QUÂN CYNTHIA! Đánh bại để hoàn thành Tháp! ★"), false);
+            leader.sendMessage(Text.literal("§6§l★ [COBBLE TOWER] SUPREME CHAMPION CYNTHIA! Defeat her to conquer the Tower! ★"), false);
         } else if (floor >= 90) {
-            leader.sendMessage(Text.literal("§d[CobbleTower] §l✦ ELITE FOUR & CHAMPION! §fĐối đầu với huyền thoại §e" + bossName + "§f!"), false);
+            leader.sendMessage(Text.literal("§d[CobbleTower] §l✦ ELITE FOUR & CHAMPION! §fChallenging the legendary §e" + bossName + "§f!"), false);
         } else if (floor % 5 == 0) {
-            leader.sendMessage(Text.literal("§6[CobbleTower] §l⚡ GYM LEADER BATTLE! §fĐối đầu với Gym Leader §e" + bossName + "§f!"), false);
+            leader.sendMessage(Text.literal("§6[CobbleTower] §l⚡ GYM LEADER BATTLE! §fChallenging Gym Leader §e" + bossName + "§f!"), false);
         }
-        leader.sendMessage(Text.literal("§b[CobbleTower] §fChuột phải vào NPC Trainer để bắt đầu trận đấu!"), false);
+        leader.sendMessage(Text.literal("§b[CobbleTower] §fRight-click Trainer NPC to begin battle!"), false);
 
         if (member != null) {
-            member.sendMessage(Text.literal("§6[CobbleTower] §fTiến vào §bTầng " + floor + "/100§f — Đối thủ: §e" + bossName + " §7(Level Cap: §aLv." + maxCap + "§7)"), false);
+            member.sendMessage(Text.literal("§6[CobbleTower] §fEntering §bFloor " + floor + "/100§f — Opponent: §e" + bossName + " §7(Level Cap: §aLv." + maxCap + "§7)"), false);
             if (floor >= 100) {
-                member.sendMessage(Text.literal("§6§l★ [COBBLE TOWER] TRẬN CHIẾN TỐI CAO: QUÁN QUÂN CYNTHIA! Đánh bại để hoàn thành Tháp! ★"), false);
+                member.sendMessage(Text.literal("§6§l★ [COBBLE TOWER] SUPREME CHAMPION CYNTHIA! Defeat her to conquer the Tower! ★"), false);
             } else if (floor >= 90) {
-                member.sendMessage(Text.literal("§d[CobbleTower] §l✦ ELITE FOUR & CHAMPION! §fĐối đầu với huyền thoại §e" + bossName + "§f!"), false);
+                member.sendMessage(Text.literal("§d[CobbleTower] §l✦ ELITE FOUR & CHAMPION! §fChallenging the legendary §e" + bossName + "§f!"), false);
             } else if (floor % 5 == 0) {
-                member.sendMessage(Text.literal("§6[CobbleTower] §l⚡ GYM LEADER BATTLE! §fĐối đầu với Gym Leader §e" + bossName + "§f!"), false);
+                member.sendMessage(Text.literal("§6[CobbleTower] §l⚡ GYM LEADER BATTLE! §fChallenging Gym Leader §e" + bossName + "§f!"), false);
             }
-            member.sendMessage(Text.literal("§b[CobbleTower] §fChuột phải vào NPC Trainer để bắt đầu trận đấu!"), false);
+            member.sendMessage(Text.literal("§b[CobbleTower] §fRight-click Trainer NPC to begin battle!"), false);
         }
 
         // Trigger Boss Cutscene for key milestone floors
@@ -424,23 +424,23 @@ public class TowerPartyManager {
 
         // 4. Send Floor Victory Title
         TowerTitleS2CPacket winTitle = new TowerTitleS2CPacket(
-                "§a§lVƯỢT TẦNG " + clearedFloor + " THÀNH CÔNG!",
-                "§eĐã hồi phục 100% HP/PP • Đã nhận quà tầng • Tiến lên tầng " + (clearedFloor + 1) + "!",
+                "§a§lFLOOR " + clearedFloor + " CLEARED!",
+                "§eHealed 100% HP/PP • Received Rewards • Ascending to Floor " + (clearedFloor + 1) + "!",
                 clearedFloor,
                 ""
         );
         if (leader != null) {
             ServerPlayNetworking.send(leader, winTitle);
-            leader.sendMessage(Text.literal("§a[CobbleTower] §l✔ VƯỢT TẦNG " + clearedFloor + " THÀNH CÔNG! §7(Đã hồi phục 100% HP/PP & Nhận quà)"), false);
+            leader.sendMessage(Text.literal("§a[CobbleTower] §l✔ FLOOR " + clearedFloor + " CLEARED! §7(100% HP/PP Restored & Rewards Granted)"), false);
             if (clearedFloor < 100) {
-                leader.sendMessage(Text.literal("§b[CobbleTower] §fChuẩn bị tiến lên §eTầng " + (clearedFloor + 1) + "§f..."), false);
+                leader.sendMessage(Text.literal("§b[CobbleTower] §fPreparing ascent to §eFloor " + (clearedFloor + 1) + "§f..."), false);
             }
         }
         if (member != null) {
             ServerPlayNetworking.send(member, winTitle);
-            member.sendMessage(Text.literal("§a[CobbleTower] §l✔ VƯỢT TẦNG " + clearedFloor + " THÀNH CÔNG! §7(Đã hồi phục 100% HP/PP & Nhận quà)"), false);
+            member.sendMessage(Text.literal("§a[CobbleTower] §l✔ FLOOR " + clearedFloor + " CLEARED! §7(100% HP/PP Restored & Rewards Granted)"), false);
             if (clearedFloor < 100) {
-                member.sendMessage(Text.literal("§b[CobbleTower] §fChuẩn bị tiến lên §eTầng " + (clearedFloor + 1) + "§f..."), false);
+                member.sendMessage(Text.literal("§b[CobbleTower] §fPreparing ascent to §eFloor " + (clearedFloor + 1) + "§f..."), false);
             }
         }
 
@@ -454,7 +454,7 @@ public class TowerPartyManager {
             }
 
             // Global server broadcast
-            server.getPlayerManager().broadcast(Text.literal("§6§l★ [COBBLE TOWER] §eNgười chơi §b" + playerNames + " §eđã xuất sắc vượt qua §6100 TẦNG THÁP §evà hạ gục Quán quân Cynthia! ★"), false);
+            server.getPlayerManager().broadcast(Text.literal("§6§l★ [COBBLE TOWER] §eChallenger §b" + playerNames + " §ehas conquered §6ALL 100 FLOORS §eand defeated Champion Cynthia! ★"), false);
 
             if (leader != null) {
                 TowerPlayerDataManager.getInstance().recordRunResult(leader.getUuid(), 100, party.isTrueRun(), turns, duration, true);

@@ -253,7 +253,7 @@ public class TowerHubScreen extends AbstractTowerScreen {
         // Header Title / Pending Invite Notice
         boolean hasPending = pendingInviterName != null && !pendingInviterName.isBlank();
         if (hasPending) {
-            context.drawCenteredTextWithShadow(this.textRenderer, "§6📩 LỜI MỜI CO-OP TỪ: §e" + pendingInviterName.toUpperCase(), centerX - 25, centerY - 106, 0xFFFFFF55);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§6📩 DUO INVITE FROM: §e" + pendingInviterName.toUpperCase(), centerX - 25, centerY - 106, 0xFFFFFF55);
         } else {
             context.drawCenteredTextWithShadow(this.textRenderer, "§b§l❖ COBBLE TOWER HUB ❖", centerX, centerY - 106, 0xFF0FD9C2);
         }
@@ -265,30 +265,30 @@ public class TowerHubScreen extends AbstractTowerScreen {
         int displayMax = Math.max(highestFloor, Math.max(soloCheckpoint, (inTowerSession ? currentFloor : 1)));
         if (isSoloTab) {
             context.drawCenteredTextWithShadow(this.textRenderer, "§fSolo 6v6 Double Battle Challenge", centerX, centerY - 52, 0xFFFFFFFF);
-            context.drawCenteredTextWithShadow(this.textRenderer, "§7Kỷ lục cao nhất: §6Tầng " + displayMax + "/100 §7| Tầng hiện tại: §eTầng " + (inTowerSession ? currentFloor : 1), centerX, centerY - 38, 0xFFEEEEEE);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§7Personal Best: §6Floor " + displayMax + "/100 §7| Current: §eFloor " + (inTowerSession ? currentFloor : 1), centerX, centerY - 38, 0xFFEEEEEE);
         } else {
             context.drawCenteredTextWithShadow(this.textRenderer, "§fCo-op Duo 3+3 Merged Double Battle", centerX, centerY - 52, 0xFFFFFFFF);
             if (hasParty) {
-                context.drawCenteredTextWithShadow(this.textRenderer, "§7Leader: §e" + leaderName + " §7| Partner: §e" + memberName + " §7| Kỷ lục: §6Tầng " + displayMax, centerX, centerY - 38, 0xFFEEEEEE);
+                context.drawCenteredTextWithShadow(this.textRenderer, "§7Leader: §e" + leaderName + " §7| Partner: §e" + memberName + " §7| Record: §6Floor " + displayMax, centerX, centerY - 38, 0xFFEEEEEE);
             } else {
-                context.drawCenteredTextWithShadow(this.textRenderer, "§cChưa có tổ đội. §7Shift + Chuột phải vào người chơi khác để mời!", centerX, centerY - 38, 0xFFFFAAAA);
+                context.drawCenteredTextWithShadow(this.textRenderer, "§cNo active party. §7Shift + Right-Click a player to invite!", centerX, centerY - 38, 0xFFFFAAAA);
             }
         }
 
         // Starting Floor & Level Cap Indicator
         if (inTowerSession) {
             int floorCap = LevelCapManager.getMaxLevelCapForFloor(currentFloor);
-            context.drawCenteredTextWithShadow(this.textRenderer, "§6⚔ §eTầng hiện tại: §f" + currentFloor + " §7(Giới hạn cấp: §aLv." + floorCap + "§7)", centerX, centerY + 12, 0xFFFFD700);
-            context.drawCenteredTextWithShadow(this.textRenderer, "§aPhiên leo tháp đang diễn ra: Chuột phải vào NPC để bắt đầu!", centerX, centerY + 24, 0xFF55FF55);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§6⚔ §eCurrent Floor: §f" + currentFloor + " §7(Level Cap: §aLv." + floorCap + "§7)", centerX, centerY + 12, 0xFFFFD700);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§aTower Session Active: Right-click Trainer NPC to battle!", centerX, centerY + 24, 0xFF55FF55);
         } else {
             int maxCap = LevelCapManager.getMaxLevelCapForFloor(selectedCheckpoint);
             boolean isTrue = (selectedCheckpoint == 1);
             String runTypeDesc = isTrue
-                    ? "§a★ True Run: Nhận Full BP & Phần Thưởng"
+                    ? "§a★ True Run: Full BP & Rewards"
                     : "§e⚡ Checkpoint Run: 50% BP";
 
-            context.drawCenteredTextWithShadow(this.textRenderer, "§fMốc xuất phát: §bTầng " + selectedCheckpoint + " §7(Cap: Lv." + maxCap + " | Mở khóa: §aF." + soloCheckpoint + "§7) §7— " + runTypeDesc, centerX, centerY + 12, 0xFF0FD9C2);
-            context.drawCenteredTextWithShadow(this.textRenderer, "§8[Quy tắc: Cho phép dùng Mega/Z-Move/Dynamax/Terastallization]", centerX, centerY + 24, 0xFF888888);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§fStarting Floor: §bFloor " + selectedCheckpoint + " §7(Cap: Lv." + maxCap + " | Unlocked: §aF." + soloCheckpoint + "§7) §7— " + runTypeDesc, centerX, centerY + 12, 0xFF0FD9C2);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§8[Rules: Mega / Z-Move / Dynamax / Terastallization Enabled]", centerX, centerY + 24, 0xFF888888);
         }
 
         // Authors Credit
@@ -302,24 +302,24 @@ public class TowerHubScreen extends AbstractTowerScreen {
 
         super.render(context, mouseX, mouseY, delta);
 
-        context.drawCenteredTextWithShadow(this.textRenderer, "§6§l🏆 BẢNG XẾP HẠNG ĐẤU THÁP 🏆", centerX, centerY - 105, TowerTheme.SECONDARY_GOLD);
-        context.drawCenteredTextWithShadow(this.textRenderer, "§7Top 10 Nhà Huấn Luyện Leo Tháp Xuất Sắc Nhất", centerX, centerY - 92, 0xFFCCCCCC);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§6§l🏆 TOWER LEADERBOARD 🏆", centerX, centerY - 105, TowerTheme.SECONDARY_GOLD);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§7Top 10 Greatest Tower Champions", centerX, centerY - 92, 0xFFCCCCCC);
 
         int startY = centerY - 75;
         int rowH = 15;
 
         // Table Header
-        context.drawTextWithShadow(this.textRenderer, "§8HẠNG", centerX - 160, startY, 0xFF888888);
-        context.drawTextWithShadow(this.textRenderer, "§8THÁCH THỨC", centerX - 120, startY, 0xFF888888);
-        context.drawTextWithShadow(this.textRenderer, "§8TẦNG", centerX - 10, startY, 0xFF888888);
-        context.drawTextWithShadow(this.textRenderer, "§8THỜI GIAN", centerX + 35, startY, 0xFF888888);
-        context.drawTextWithShadow(this.textRenderer, "§8LƯỢT", centerX + 90, startY, 0xFF888888);
-        context.drawTextWithShadow(this.textRenderer, "§8NGẤT", centerX + 135, startY, 0xFF888888);
+        context.drawTextWithShadow(this.textRenderer, "§8RANK", centerX - 160, startY, 0xFF888888);
+        context.drawTextWithShadow(this.textRenderer, "§8CHALLENGER", centerX - 120, startY, 0xFF888888);
+        context.drawTextWithShadow(this.textRenderer, "§8FLOOR", centerX - 10, startY, 0xFF888888);
+        context.drawTextWithShadow(this.textRenderer, "§8TIME", centerX + 35, startY, 0xFF888888);
+        context.drawTextWithShadow(this.textRenderer, "§8TURNS", centerX + 90, startY, 0xFF888888);
+        context.drawTextWithShadow(this.textRenderer, "§8FAINTS", centerX + 135, startY, 0xFF888888);
 
         context.fill(centerX - 165, startY + 11, centerX + 165, startY + 12, 0xFF333333);
 
         if (cachedLeaderboard.isEmpty()) {
-            context.drawCenteredTextWithShadow(this.textRenderer, "§7Chưa có kỷ lục nào được ghi nhận. Hãy là người đầu tiên chinh phục Tháp!", centerX, centerY, 0xFF888888);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§7No records recorded yet. Be the first to conquer the Tower!", centerX, centerY, 0xFF888888);
         } else {
             for (int i = 0; i < Math.min(10, cachedLeaderboard.size()); i++) {
                 LeaderboardEntry entry = cachedLeaderboard.get(i);

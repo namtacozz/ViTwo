@@ -52,12 +52,12 @@ public class TowerItemGachaScreen extends AbstractTowerScreen {
 
         if (finished) {
             this.addDrawableChild(TowerButton.towerBuilder(
-                    Text.literal("§a§l✔ NHẬN PHẦN THƯỞNG & TIẾP TỤC"),
+                    Text.literal("§a§l✔ CLAIM REWARD & CONTINUE"),
                     btn -> claimAndClose()
             ).dimensions(centerX - 110, centerY + 65, 220, 24).style(TowerButton.ButtonStyle.GREEN).build());
         } else {
             this.addDrawableChild(TowerButton.towerBuilder(
-                    Text.literal("§7Bỏ qua / Nhận ngay (Skip)"),
+                    Text.literal("§7Skip / Claim Immediately"),
                     btn -> {
                         finished = true;
                         claimAndClose();
@@ -82,8 +82,8 @@ public class TowerItemGachaScreen extends AbstractTowerScreen {
         this.renderPanelBackground(context, centerX - panelW / 2, centerY - panelH / 2, panelW, panelH);
 
         // Header Title
-        context.drawCenteredTextWithShadow(this.textRenderer, "§6§l🎁 VÒNG QUAY PHẦN THƯỞNG TẦNG " + floor + " 🎁", centerX, centerY - 80, 0xFFFFD700);
-        context.drawCenteredTextWithShadow(this.textRenderer, "§7Nhận Vật phẩm thi đấu & Điểm Battle Points (BP)", centerX, centerY - 68, 0xFFCCCCCC);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§6§l🎁 FLOOR " + floor + " REWARD ROULETTE 🎁", centerX, centerY - 80, 0xFFFFD700);
+        context.drawCenteredTextWithShadow(this.textRenderer, "§7Competitive Items & Battle Points (BP) Rewards", centerX, centerY - 68, 0xFFCCCCCC);
 
         // Carousel Calculation
         long elapsed = System.currentTimeMillis() - startTime;
@@ -150,7 +150,7 @@ public class TowerItemGachaScreen extends AbstractTowerScreen {
             context.drawCenteredTextWithShadow(this.textRenderer, truncate(item.displayName(), 11), cardX + (CARD_WIDTH / 2), cardY + 42, 0xFFFFFFFF);
 
             // Category tag
-            String cat = "bp".equalsIgnoreCase(item.category()) ? "§e+" + item.bpAmount() + " BP" : "§bVật phẩm";
+            String cat = "bp".equalsIgnoreCase(item.category()) ? "§e+" + item.bpAmount() + " BP" : "§bItem";
             context.drawCenteredTextWithShadow(this.textRenderer, cat, cardX + (CARD_WIDTH / 2), cardY + 56, 0xFFCCCCCC);
         }
 
@@ -161,7 +161,7 @@ public class TowerItemGachaScreen extends AbstractTowerScreen {
 
         if (finished && winningIndex >= 0 && winningIndex < candidates.size()) {
             GachaItemCandidate win = candidates.get(winningIndex);
-            context.drawCenteredTextWithShadow(this.textRenderer, "§e★ TRÚNG THƯỞNG: §a" + win.displayName().toUpperCase() + " ★", centerX, centerY + 48, 0xFF55FF55);
+            context.drawCenteredTextWithShadow(this.textRenderer, "§e★ REWARD: §a" + win.displayName().toUpperCase() + " ★", centerX, centerY + 48, 0xFF55FF55);
         }
 
         super.render(context, mouseX, mouseY, delta);

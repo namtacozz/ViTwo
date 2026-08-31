@@ -37,8 +37,8 @@ public class InviteToast implements Toast {
         context.drawText(manager.getClient().textRenderer, Text.literal("§6§l❖ COBBLE TOWER DUO ❖"), 12, 7, 0xFFAA00, false);
 
         // Draw description with inviter name & keybind prompt
-        String desc = "§b" + inviterName + " §fmời bạn! §e[Ấn Y để Mở Hub]";
-        context.drawText(manager.getClient().textRenderer, Text.literal(desc), 12, 18, 0xFFFFFF, false);
+        String desc = "§b" + inviterName + " §finvited you! §e[Press Y for Hub]";
+        context.drawText(manager.getClient().textRenderer, Text.literal(desc), 12, 18, 0xFFFFFFFF, false);
 
         // Show for 15 seconds (15,000 ms)
         if (startTime >= 15000L || activePendingInviter == null) {
