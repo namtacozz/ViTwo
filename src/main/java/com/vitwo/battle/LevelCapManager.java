@@ -177,36 +177,6 @@ public class LevelCapManager {
                 }
             }
 
-            // Synchronize with PartyStore & send to client
-            for (Pokemon mon : cobblemonParty) {
-                if (mon != null) {
-                    cobblemonParty.onPokemonChanged(mon);
-                }
-            }
-            cobblemonParty.sendTo(player);
-
-            // Schedule delayed re-sync to ensure client GUI receives data after dimension teleportation
-            if (player.getServer() != null) {
-                new Thread(() -> {
-                    try {
-                        Thread.sleep(600);
-                        if (player.getServer() != null) {
-                            player.getServer().execute(() -> {
-                                try {
-                                    var p = Cobblemon.INSTANCE.getStorage().getParty(player);
-                                    if (p != null) {
-                                        for (Pokemon mon : p) {
-                                            if (mon != null) p.onPokemonChanged(mon);
-                                        }
-                                        p.sendTo(player);
-                                    }
-                                } catch (Throwable ignored) {}
-                            });
-                        }
-                    } catch (Throwable ignored) {}
-                }).start();
-            }
-
             LOGGER.info("[CobbleTower] Level & experience restoration complete for {}: restored={}, failed={}", 
                     player.getName().getString(), restoredCount, failedCount);
 
@@ -228,16 +198,20 @@ public class LevelCapManager {
         }
     }
 
-    /**
-     * Failsafe recovery: Restores player's Pokemon levels directly from an un-restored ActiveRunData snapshot.
-     */
     public static void restorePlayerLevelsFromRunData(ServerPlayerEntity player, com.vitwo.party.TowerRunPersistenceManager.ActiveRunData runData) {
         if (player == null || runData == null) return;
         UUID playerId = player.getUuid();
-
-        Map<String, Integer> originalLevels = runData.originalPokemonLevels.get(playerId.toString());
+        Map<String, Integer> originalLevels = runData.originalPokemonLevels != null ? runData.originalPokemonLevels.get(playerId.toString()) : null;
         Map<String, Integer> originalExps = runData.originalPokemonExperience != null ? runData.originalPokemonExperience.get(playerId.toString()) : null;
-        if (originalLevels == null || originalLevels.isEmpty()) return;
+        restorePlayerLevelsFromRunData(player, originalLevels, originalExps);
+    }
+
+    /**
+     * Failsafe recovery method: Restores original levels and experience for a player
+     * using the saved RunData if server restarts while player is in the Tower.
+     */
+    public static void restorePlayerLevelsFromRunData(ServerPlayerEntity player, Map<String, Integer> originalLevels, Map<String, Integer> originalExps) {
+        if (player == null || originalLevels == null || originalLevels.isEmpty()) return;
 
         try {
             var cobblemonParty = Cobblemon.INSTANCE.getStorage().getParty(player);
@@ -250,31 +224,24 @@ public class LevelCapManager {
                 Integer origLvl = originalLevels.get(monKey);
                 Integer origExp = originalExps != null ? originalExps.get(monKey) : null;
 
-                if (origLvl != null || origExp != null) {
-                    if (origLvl != null && origLvl > 0) {
-                        mon.setLevel(origLvl);
-                        try {
-                            int minExp = mon.getExperienceGroup().getExperience(origLvl);
-                            int finalExp = Math.max(origExp != null ? origExp : 0, minExp);
-                            mon.setExperienceAndUpdateLevel(finalExp);
-                            if (mon.getLevel() < origLvl) {
-                                mon.setLevel(origLvl);
-                            }
-                        } catch (Throwable ignored) {}
-                    } else if (origExp != null && origExp > 0) {
-                        mon.setExperienceAndUpdateLevel(origExp);
-                    }
+                if (origLvl != null && origLvl > 0) {
+                    mon.setLevel(origLvl);
+                    try {
+                        int minExp = mon.getExperienceGroup().getExperience(origLvl);
+                        int finalExp = Math.max(origExp != null ? origExp : 0, minExp);
+                        mon.setExperienceAndUpdateLevel(finalExp);
+                        if (mon.getLevel() < origLvl) {
+                            mon.setLevel(origLvl);
+                        }
+                    } catch (Throwable ignored) {}
+                    com.vitwo.reward.TowerRewardManager.fullHeal(mon);
+                    restoredCount++;
+                } else if (origExp != null && origExp > 0) {
+                    mon.setExperienceAndUpdateLevel(origExp);
                     com.vitwo.reward.TowerRewardManager.fullHeal(mon);
                     restoredCount++;
                 }
             }
-
-            for (Pokemon mon : cobblemonParty) {
-                if (mon != null) {
-                    cobblemonParty.onPokemonChanged(mon);
-                }
-            }
-            cobblemonParty.sendTo(player);
 
             if (restoredCount > 0) {
                 LOGGER.info("[CobbleTower] Auto-restored levels for {} after abnormal server restart: {} Pokémon restored", player.getName().getString(), restoredCount);

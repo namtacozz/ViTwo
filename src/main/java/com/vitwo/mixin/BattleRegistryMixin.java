@@ -262,27 +262,56 @@ public class BattleRegistryMixin {
                 }
             }
 
-            // 2. Setup Side 2 (NPC Side): Apply 6-mon Hell Mode team to primary NPC entity (Preserving world entity)
+            // 2. Setup Side 2 (NPC Side): 2 NPC Actors for GEN_9_MULTI (3 mons + 3 mons)
             if (npcSide != null && npcSide.getActors() != null && npcSide.getActors().length >= 1) {
                 BattleActor primaryNpcActor = npcSide.getActors()[0];
-                boolean applied = HellModeTeamLoader.applyHellModeTeamToActor(primaryNpcActor, chosenTrainerId, targetCap);
-                if (!applied && !chosenTrainerId.contains("_")) {
-                    HellModeTeamLoader.applyHellModeTeamToActor(primaryNpcActor, "kanto_" + chosenTrainerId, targetCap);
-                }
-
-                if (primaryNpcActor != null && primaryNpcActor.getPokemonList() != null) {
-                    for (BattlePokemon bp : primaryNpcActor.getPokemonList()) {
-                        if (bp != null && bp.getOriginalPokemon() != null) {
-                            towerParty.recordEncounteredPokemon(bp.getOriginalPokemon());
-                        }
+                List<Pokemon> fullTeam = HellModeTeamLoader.createTeamFromTrainerId(chosenTrainerId, targetCap);
+                if (fullTeam == null || fullTeam.isEmpty()) {
+                    if (!chosenTrainerId.contains("_")) {
+                        fullTeam = HellModeTeamLoader.createTeamFromTrainerId("kanto_" + chosenTrainerId, targetCap);
                     }
                 }
-                org.slf4j.LoggerFactory.getLogger("CobbleTower-BattleRegistry").info("[CobbleTower] Successfully set up Duo Battle with Boss entity {}", primaryNpcActor != null ? primaryNpcActor.getName().getString() : "Unknown");
+
+                if (fullTeam != null && !fullTeam.isEmpty()) {
+                    List<BattlePokemon> npcTeam1 = new ArrayList<>();
+                    List<BattlePokemon> npcTeam2 = new ArrayList<>();
+
+                    for (int i = 0; i < fullTeam.size(); i++) {
+                        Pokemon pkm = fullTeam.get(i);
+                        towerParty.recordEncounteredPokemon(pkm);
+                        if (i < 3) {
+                            npcTeam1.add(BattlePokemon.Companion.safeCopyOf(pkm));
+                        } else if (i < 6) {
+                            npcTeam2.add(BattlePokemon.Companion.safeCopyOf(pkm));
+                        }
+                    }
+
+                    // Slot 1: Populate real primary world entity actor
+                    primaryNpcActor.getPokemonList().clear();
+                    for (BattlePokemon bp : npcTeam1) {
+                        bp.setActor(primaryNpcActor);
+                        primaryNpcActor.getPokemonList().add(bp);
+                    }
+
+                    // Slot 2: Second Actor for GEN_9_MULTI sharing entity UUID
+                    String bossName = primaryNpcActor.getName().getString();
+                    BattleAI ai = (primaryNpcActor instanceof AIBattleActor aiba && aiba.getBattleAI() != null)
+                            ? aiba.getBattleAI()
+                            : new StrongBattleAI(100);
+
+                    UUID entityUuid = primaryNpcActor.getUuid();
+                    TrainerBattleActor npcActor2 = new TrainerBattleActor(bossName, entityUuid, npcTeam2, ai);
+                    for (BattlePokemon bp : npcTeam2) {
+                        bp.setActor(npcActor2);
+                    }
+
+                    ((BattleSideAccessor) (Object) npcSide).vitwo$setActors(new BattleActor[]{ primaryNpcActor, npcActor2 });
+                    org.slf4j.LoggerFactory.getLogger("CobbleTower-BattleRegistry").info("[CobbleTower] Successfully set up Duo Multi Battle (3+3 vs 3+3) with Boss {}", bossName);
+                }
             }
 
-            // Return GEN_9_DOUBLES for Duo Co-op Battles (2v1 Double Battle)
-            // Each player controls their own slot (Leader Slot 1, Member Slot 2) vs 1 Boss entity in world!
-            return BattleFormat.Companion.getGEN_9_DOUBLES();
+            // Return GEN_9_MULTI for Duo Co-op Multi Battle!
+            return BattleFormat.Companion.getGEN_9_MULTI();
         }
     }
 
